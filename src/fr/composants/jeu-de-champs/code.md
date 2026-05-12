@@ -38,7 +38,7 @@ Utilisez l’attribut `legend-size` pour placer visuellement la légende parmi l
 
 L'attribut `legend` définit la légende du jeu de champs.
 
-{% examplesPreview %}
+{% examplesPreview "330", "", "fr" %}
 <gcds-fieldset legend="Légende" legend-size="h3">
   <gcds-input input-id="form-input" label="Étiquette de champ">
   </gcds-input>
@@ -62,7 +62,7 @@ L'attribut `legend-size` définit la taille de police appropriée pour la légen
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "330", "", "fr" %}
 <gcds-fieldset legend="Légende" legend-size="h3">
   <gcds-input input-id="form-input" label="Étiquette de champ">
   </gcds-input>
@@ -83,7 +83,7 @@ L'attribut `legend-size` définit la taille de police appropriée pour la légen
 
 L'attribut `hint` définit le texte explicatif affiché sous la légende.
 
-{% examplesPreview %}
+{% examplesPreview "370", "", "fr" %}
 <gcds-fieldset legend="Légende" legend-size="h3" hint="Texte explicatif/Exemple de message.">
   <gcds-input input-id="form-input" label="Étiquette de champ">
   </gcds-input>
@@ -104,7 +104,7 @@ L'attribut `hint` définit le texte explicatif affiché sous la légende.
 
 L'emplacement par défaut sert à placer des éléments de formulaire à l'intérieur du jeu de champs.
 
-{% examplesPreview %}
+{% examplesPreview "370", "", "fr" %}
 <gcds-fieldset legend="Légende" legend-size="h3" hint="Texte explicatif/Exemple de message.">
   <gcds-input input-id="form-input" label="Étiquette de champ">
   </gcds-input>

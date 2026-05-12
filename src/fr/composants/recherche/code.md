@@ -48,7 +48,7 @@ date: 'git Last Modified'
 
 L'attribut `action` définit l'endroit où le formulaire envoit ses données.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-search action="search.html"></gcds-search>
 {% endexamplesPreview %}
 
@@ -59,7 +59,7 @@ L'attribut `method` définit comment le formulaire enverra les données du formu
 - `get`
 - `post`
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-search method="post"></gcds-search>
 {% endexamplesPreview %}
 
@@ -67,7 +67,7 @@ L'attribut `method` définit comment le formulaire enverra les données du formu
 
 L'attribut `name` définit le nom du champ de recherche lors de l'envoi des données du formulaire.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-search name="search"></gcds-search>
 {% endexamplesPreview %}
 
@@ -75,7 +75,7 @@ L'attribut `name` définit le nom du champ de recherche lors de l'envoi des donn
 
 L'attribut `placeholder` définit le texte indicatif et le libellé du champ. Le deux prennent automatiquement la forme « Search [`placeholder`] ».
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-search placeholder="Système de design GC"></gcds-search>
 {% endexamplesPreview %}
 
@@ -83,7 +83,7 @@ L'attribut `placeholder` définit le texte indicatif et le libellé du champ. Le
 
 L'attribut `search-id` définit le id du champ.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-search search-id="searchform"></gcds-search>
 {% endexamplesPreview %}
 
@@ -91,7 +91,7 @@ L'attribut `search-id` définit le id du champ.
 
 La propriété `suggested` définit une liste de termes de recherche prédéfinis. La liste s'affichera sous forme de liste déroulante sur le champ lorsqu'il est mis en évidence.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-search suggested="['rouge', 'vert', 'bleu']"></gcds-search>
 {% endexamplesPreview %}
 
@@ -99,7 +99,7 @@ La propriété `suggested` définit une liste de termes de recherche prédéfini
 
 L'attribut `value` définit la valeur du champ de recherche. Définir cette valeur préremplira le champ au chargement.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-search value="Système de design"></gcds-search>
 {% endexamplesPreview %}
 

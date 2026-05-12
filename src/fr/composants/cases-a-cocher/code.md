@@ -80,7 +80,7 @@ L'attribut `options` utilise un tableau d'objets pour rendre chaque case à coch
 
 L'attribut `legend` définit la légende du groupe de cases à cocher.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -89,7 +89,7 @@ L'attribut `legend` définit la légende du groupe de cases à cocher.
 
 L'attribut `name` identifie le composant dans le formulaire. Il permet de récupérer les valeurs sélectionnées après la soumission.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -98,7 +98,7 @@ L'attribut `name` identifie le composant dans le formulaire. Il permet de récup
 
 L'attribut `options` définit les cases à cocher à afficher en prenant un tableau (array) d'objets, un par case à cocher.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -112,7 +112,7 @@ L'attribut `options` définit les cases à cocher à afficher en prenant un tabl
 
 L'attribut `autofocus` contrôle si la première case à cocher est ciblée automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, la case à cocher est ciblée à l'affichage.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes autofocus legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -121,7 +121,7 @@ L'attribut `autofocus` contrôle si la première case à cocher est ciblée auto
 
 L'attribut `disabled` contrôle si les cases à cocher sont désactivées ou non. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes disabled legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -130,7 +130,7 @@ L'attribut `disabled` contrôle si les cases à cocher sont désactivées ou non
 
 L'attribut `error-message` définit le message d'erreur à afficher pour les cases à cocher invalides.
 
-{% examplesPreview %}
+{% examplesPreview "350", "", "fr" %}
 <gcds-checkboxes error-message="Message d'erreur" legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -139,7 +139,7 @@ L'attribut `error-message` définit le message d'erreur à afficher pour les cas
 
 L'attribut `form` définit l'identifiant du formulaire auquel appartiennent les cases à cocher.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes form="form-id" legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -148,7 +148,7 @@ L'attribut `form` définit l'identifiant du formulaire auquel appartiennent les 
 
 L'attribut `hide-label` contrôle si le libellé est masqué ou non.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-checkboxes hide-label name="checkbox" options='[{ "label": "Label for checkbox 1", "id": "checkbox1", "value": "checkbox1"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -157,7 +157,7 @@ L'attribut `hide-label` contrôle si le libellé est masqué ou non.
 
 L'attribut `hide-legend` contrôle si la légende est masquée ou non.
 
-{% examplesPreview %}
+{% examplesPreview "280", "", "fr" %}
 <gcds-checkboxes hide-legend legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -166,7 +166,7 @@ L'attribut `hide-legend` contrôle si la légende est masquée ou non.
 
 L'attribut `hint` définit le texte explicatif affiché sous le libellé ou la légende.
 
-{% examplesPreview %}
+{% examplesPreview "350", "", "fr" %}
 <gcds-checkboxes hint="Texte explicatif/Exemple de message." legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -175,7 +175,7 @@ L'attribut `hint` définit le texte explicatif affiché sous le libellé ou la l
 
 L'attribut `required` contrôle si le groupe de cases à cocher est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après le libellé ou la légende et active le validateur de champ obligatoire.
 
-{% examplesPreview %}
+{% examplesPreview "350", "", "fr" %}
 <gcds-checkboxes required legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -184,7 +184,7 @@ L'attribut `required` contrôle si le groupe de cases à cocher est obligatoire 
 
 L'attribut `validate-on` définit l'événement de validation pour les cases à cocher.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes validate-on="other" required legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -193,7 +193,7 @@ L'attribut `validate-on` définit l'événement de validation pour les cases à 
 
 L'attribut `value` contient un tableau (array) des valeurs de toutes les cases actuellement cochées. Il se met à jour à chaque changement de sélection.
 
-{% examplesPreview %}
+{% examplesPreview "310", "", "fr" %}
 <gcds-checkboxes value='["check2"]' legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}

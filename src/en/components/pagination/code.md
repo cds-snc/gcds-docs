@@ -102,7 +102,7 @@ url = {
 
 The `label` attribute defines the text that labels the pagination navigation landmark, giving it a clear and accessible name.
 
-{% examplesPreview %}
+{% examplesPreview "110" %}
 <gcds-pagination label="List pagination example" total-pages="15" current-page="9">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -116,7 +116,7 @@ The `label` attribute defines the text that labels the pagination navigation lan
 
 The `current-page` attribute sets the current page for a pagination with list display.
 
-{% examplesPreview %}
+{% examplesPreview "110" %}
 <gcds-pagination label="List pagination example" total-pages="15" current-page="9">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -130,7 +130,7 @@ The `display` attribute sets the display style of the pagination. The available 
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "110" %}
 <gcds-pagination label="List pagination example" display="list" total-pages="15" current-page="9">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -139,7 +139,7 @@ The `display` attribute sets the display style of the pagination. The available 
 
 The `next-href` attribute specifies the next page’s URL for a pagination with simple display.
 
-{% examplesPreview %}
+{% examplesPreview "290" %}
 <gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -148,7 +148,7 @@ The `next-href` attribute specifies the next page’s URL for a pagination with 
 
 The `next-label` attribute defines the next page’s label for a pagination with simple display.
 
-{% examplesPreview %}
+{% examplesPreview "290" %}
 <gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -157,7 +157,7 @@ The `next-label` attribute defines the next page’s label for a pagination with
 
 The `previous-href` attribute specifies the previous page’s URL for a pagination with simple display.
 
-{% examplesPreview %}
+{% examplesPreview "290" %}
 <gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -166,7 +166,7 @@ The `previous-href` attribute specifies the previous page’s URL for a paginati
 
 The `previous-label` attribute defines the previous page’s label for a pagination with simple display.
 
-{% examplesPreview %}
+{% examplesPreview "290" %}
 <gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -175,7 +175,7 @@ The `previous-label` attribute defines the previous page’s label for a paginat
 
 The `total-pages` attribute sets the total number of pages for a pagination with list display.
 
-{% examplesPreview %}
+{% examplesPreview "110" %}
 <gcds-pagination label="List pagination example" total-pages="15" current-page="9">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -184,7 +184,7 @@ The `total-pages` attribute sets the total number of pages for a pagination with
 
 The `url` attribute defines the object (in a JavaScript environment) or string (in HTML) that generates the query strings and fragment for the list-styled pagination links.
 
-{% examplesPreview %}
+{% examplesPreview "110" %}
 <gcds-pagination label="List pagination example" total-pages="15" current-page="9" url='{"queryStrings": { "querystring::offset": 10 }, "fragment": "main" }'>
 </gcds-pagination>
 {% endexamplesPreview %}

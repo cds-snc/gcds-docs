@@ -46,7 +46,7 @@ date: 'git Last Modified'
 
 L'attribut `tag` définit l'élément HTML approprié pour le contenu. Par défaut, il est défini à `p`.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-sr-only tag="h2">
   Texte consultable seulement par les technologies d'assistance.
 </gcds-sr-only>
@@ -61,7 +61,7 @@ L'attribut `tag` définit l'élément HTML approprié pour le contenu. Par défa
 
 L'emplacement par défaut sert à placer le contenu accessible masqué visuellement.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-sr-only>
   Texte consultable seulement par les technologies d'assistance.
 </gcds-sr-only>

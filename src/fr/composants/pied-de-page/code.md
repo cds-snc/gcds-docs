@@ -83,7 +83,7 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 
 L'attribut `contextual-heading` définit le texte du titre de la section de navigation contextuelle dans le pied de page. Ce titre sert aussi à identifier le repère de navigation du pied de page, ce qui améliore la structure et l'accessibilité.
 
-{% examplesPreview %}
+{% examplesPreview "550", "", "fr" %}
 <gcds-footer contextual-heading="Navigation contextuelle" contextual-links='{ "À propos": "#", "Contact": "#" }'>
 </gcds-footer>
 {% endexamplesPreview %}
@@ -92,7 +92,7 @@ L'attribut `contextual-heading` définit le texte du titre de la section de navi
 
 L'attribut `contextual-links` définit l'ensemble des liens affichés dans la section de navigation contextuelle du pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
 
-{% examplesPreview %}
+{% examplesPreview "550", "", "fr" %}
 <gcds-footer contextual-heading="Navigation contextuelle" contextual-links='{ "À propos": "#", "Contact": "#" }'>
 </gcds-footer>
 {% endexamplesPreview %}
@@ -101,14 +101,14 @@ L'attribut `contextual-links` définit l'ensemble des liens affichés dans la se
 
 L'attribut `display` contrôle les sections du pied de page qui sont affichées. Par défaut, il est défini à `compact`, ce qui affiche uniquement la section de sous-pied de page.
 
-{% examplesPreview %}
+{% examplesPreview "400", "", "fr" %}
 <gcds-footer>
 </gcds-footer>
 {% endexamplesPreview %}
 
 Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page sont toutes deux affichées.
 
-{% examplesPreview %}
+{% examplesPreview "1110", "", "fr" %}
 <gcds-footer display="full">
 </gcds-footer>
 {% endexamplesPreview %}
@@ -117,7 +117,7 @@ Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page
 
 L'attribut `sub-links` définit l'ensemble des liens affichés dans la section de sous-pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
 
-{% examplesPreview %}
+{% examplesPreview "260", "", "fr" %}
 <gcds-footer sub-links='{ "Avis": "#", "Confidentialité": "#" }'>
 </gcds-footer>
 {% endexamplesPreview %}

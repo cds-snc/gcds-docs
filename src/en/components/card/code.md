@@ -66,7 +66,7 @@ Organize cards within a [grid component]({{ links.grid }}):
 
 The `card-title` attribute defines the title that appears on the card.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-card card-title="Card title link" href="#">
 </gcds-card>
 {% endexamplesPreview %}
@@ -75,7 +75,7 @@ The `card-title` attribute defines the title that appears on the card.
 
 The `href` attribute specifies the URL of the page the link goes to.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-card card-title="Card title link" href="#">
 </gcds-card>
 {% endexamplesPreview %}
@@ -89,7 +89,7 @@ The `href` attribute specifies the URL of the page the link goes to.
 
 The `badge` attribute defines the badge text that appears in the top left corner of the card. The badge has a 20 character limit.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-card card-title="Card title link" badge="Tag" href="#">
 </gcds-card>
 {% endexamplesPreview %}
@@ -105,7 +105,7 @@ The `card-title-tag` attribute sets the HTML heading element for the title. This
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-card card-title="Card title link" card-title-tag="h3" href="#">
 </gcds-card>
 {% endexamplesPreview %}
@@ -114,7 +114,7 @@ The `card-title-tag` attribute sets the HTML heading element for the title. This
 
 The `description` attribute defines the body of text that appears on the card.
 
-{% examplesPreview %}
+{% examplesPreview "230" %}
 <gcds-card card-title="Card title link" href="#" description="Description or supporting text relating to the headline.">
 </gcds-card>
 {% endexamplesPreview %}
@@ -123,7 +123,7 @@ The `description` attribute defines the body of text that appears on the card.
 
 The `img-alt` attribute defines the alt text for the image provided. If no img-alt is specified, the image will be decorative.
 
-{% examplesPreview %}
+{% examplesPreview "580" %}
 <gcds-card card-title="Card title link" href="#" img-alt="The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections." img-src="/images/common/components/preview-card.svg">
 </gcds-card>
 {% endexamplesPreview %}
@@ -132,7 +132,7 @@ The `img-alt` attribute defines the alt text for the image provided. If no img-a
 
 The `img-src` attribute specifies the URL or file path of the image to display.
 
-{% examplesPreview %}
+{% examplesPreview "580" %}
 <gcds-card card-title="Card title link" href="#" img-alt="The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections." img-src="/images/common/components/preview-card.svg">
 </gcds-card>
 {% endexamplesPreview %}
@@ -141,7 +141,7 @@ The `img-src` attribute specifies the URL or file path of the image to display.
 
 The `rel` attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-card card-title="Card title link" href="#" rel="noopener noreferrer">
 </gcds-card>
 {% endexamplesPreview %}
@@ -150,7 +150,7 @@ The `rel` attribute specifies the relationship between the current document and 
 
 The target attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-card card-title="Card title link" href="#" target="_blank">
 </gcds-card>
 {% endexamplesPreview %}
@@ -164,7 +164,7 @@ The target attribute specifies where the linked resource is opened. For example,
 
 The `default` slot is for adding description content to the card. It will overwrite the description attribute if it’s used.
 
-{% examplesPreview %}
+{% examplesPreview "230" %}
 <gcds-card card-title="Card title link" href="#">
   Description or supporting text relating to the headline.
 </gcds-card>

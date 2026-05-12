@@ -61,7 +61,7 @@ Pour que le champ de saisie fonctionne correctement, utilisez toujours les attri
 
 L'attribut `input-id` définit l'identifiant unique du champ de saisie.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -70,7 +70,7 @@ L'attribut `input-id` définit l'identifiant unique du champ de saisie.
 
 L'attribut `label` définit l'étiquette du champ de saisie.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -79,7 +79,7 @@ L'attribut `label` définit l'étiquette du champ de saisie.
 
 L'attribut `name` identifie le champ de saisie dans le formulaire. Il permet de récupérer la valeur saisie après la soumission.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -93,7 +93,7 @@ L'attribut `name` identifie le champ de saisie dans le formulaire. Il permet de 
 
 L'attribut `autocomplete` contrôle si le navigateur peut suggérer des valeurs précédemment saisies pour le champ.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input autocomplete="given-name" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -102,7 +102,7 @@ L'attribut `autocomplete` contrôle si le navigateur peut suggérer des valeurs 
 
 L'attribut `autofocus` contrôle si le champ de saisie est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le champ est ciblé à l'affichage.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input autofocus input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -111,7 +111,7 @@ L'attribut `autofocus` contrôle si le champ de saisie est ciblé automatiquemen
 
 L'attribut `disabled` contrôle si le champ de saisie est désactivé ou non. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input disabled input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -120,7 +120,7 @@ L'attribut `disabled` contrôle si le champ de saisie est désactivé ou non. Pa
 
 L'attribut `error-message` définit le message d'erreur à afficher pour un champ invalide.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input error-message="Message d'erreur" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -129,7 +129,7 @@ L'attribut `error-message` définit le message d'erreur à afficher pour un cham
 
 L'attribut `form` définit l'identifiant du formulaire auquel appartient le champ de saisie.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input form="form-id" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -138,7 +138,7 @@ L'attribut `form` définit l'identifiant du formulaire auquel appartient le cham
 
 L'attribut `hide-label` contrôle si l'étiquette est masquée ou non.
 
-{% examplesPreview %}
+{% examplesPreview "140", "", "fr" %}
 <gcds-input hide-label input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -147,7 +147,7 @@ L'attribut `hide-label` contrôle si l'étiquette est masquée ou non.
 
 L'attribut `hint` définit le texte explicatif affiché sous l'étiquette.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input hint="Texte explicatif / Exemple de message." input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -167,7 +167,7 @@ L'attribut `inputmode` définit l'apparence du clavier virtuel sur les appareils
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input inputmode="numeric" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -176,7 +176,7 @@ L'attribut `inputmode` définit l'apparence du clavier virtuel sur les appareils
 
 L'attribut `max` définit la valeur maximale acceptée par le champ. Il s'applique uniquement au type de saisie numérique.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input max="100" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -185,7 +185,7 @@ L'attribut `max` définit la valeur maximale acceptée par le champ. Il s'appliq
 
 L'attribut `maxlength` définit le nombre maximum de caractères acceptés par le champ de saisie.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input maxlength="10" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -194,7 +194,7 @@ L'attribut `maxlength` définit le nombre maximum de caractères acceptés par l
 
 L'attribut `min` définit la valeur minimale acceptée par le champ de saisie. Il s'applique uniquement au type de saisie numérique.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input min="22" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -203,7 +203,7 @@ L'attribut `min` définit la valeur minimale acceptée par le champ de saisie. I
 
 L'attribut `minlength` définit le nombre minimum de caractères acceptés par le champ de saisie.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input minlength="5" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -212,7 +212,7 @@ L'attribut `minlength` définit le nombre minimum de caractères acceptés par l
 
 L'attribut `pattern` définit l'expression régulière à laquelle la valeur du champ doit correspondre.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input pattern="[A-Z]+" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -221,7 +221,7 @@ L'attribut `pattern` définit l'expression régulière à laquelle la valeur du 
 
 L'attribut `readonly` contrôle si le champ peut être modifié ou non. Lorsqu'il est défini à `true`, le champ est en lecture seule.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input readonly value="Readonly" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -230,7 +230,7 @@ L'attribut `readonly` contrôle si le champ peut être modifié ou non. Lorsqu'i
 
 L'attribut `required` contrôle si le champ de saisie est obligatoire ou non. Lorsqu'il est défini à true, il ajoute « obligatoire » après l'étiquette et active le validateur de champ obligatoire.
 
-{% examplesPreview %}
+{% examplesPreview "210", "", "fr" %}
 <gcds-input required input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -239,7 +239,7 @@ L'attribut `required` contrôle si le champ de saisie est obligatoire ou non. Lo
 
 L'attribut `size` définit la taille du champ de saisie pour indiquer visuellement la longueur de texte attendue.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input size="6" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -248,7 +248,7 @@ L'attribut `size` définit la taille du champ de saisie pour indiquer visuelleme
 
 L'attribut `step` définit la granularité à laquelle la valeur doit se conformer. Utilisez-le avec le type de saisie numérique.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input step="10" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -257,7 +257,7 @@ L'attribut `step` définit la granularité à laquelle la valeur doit se conform
 
 L'attribut `suggestions` définit un tableau (array) d'options de suggestions.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input suggestions='[{ "label": "Suggestion A"}, { "label": "Suggestion B"}, { "label": "Suggestion C"}]' input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -276,7 +276,7 @@ L'attribut `type` définit le type de saisie. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input type="email" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -285,7 +285,7 @@ L'attribut `type` définit le type de saisie. Les options sont :
 
 L'attribut `validate-on` définit l'événement de validation pour le champ de saisie.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input validate-on="other" required input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -294,7 +294,7 @@ L'attribut `validate-on` définit l'événement de validation pour le champ de s
 
 L'attribut `value` définit la valeur initiale affichée dans le champ de saisie. Il reflète la valeur actuelle au fil des modifications de l'utilisateur.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-input value="Texte" input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}

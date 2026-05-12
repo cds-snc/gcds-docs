@@ -67,7 +67,7 @@ Use the `hint` attribute or the `hint` key in the `options` object to add hint t
 
 The `legend` attribute defines the legend for a group of radios.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -76,7 +76,7 @@ The `legend` attribute defines the legend for a group of radios.
 
 The `name` attribute identifies the radios component within a form. It is used to reference the component after a form is submitted.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -85,7 +85,7 @@ The `name` attribute identifies the radios component within a form. It is used t
 
 The `options` attribute defines the radios to render by taking an array of objects, one per radio button.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -99,7 +99,7 @@ The `options` attribute defines the radios to render by taking an array of objec
 
 The `autofocus` attribute controls whether the first radio button will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the radio button is focused on render.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios autofocus legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -108,7 +108,7 @@ The `autofocus` attribute controls whether the first radio button will be focuse
 
 The `disabled` attribute controls whether the radios are disabled or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios disabled legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -117,7 +117,7 @@ The `disabled` attribute controls whether the radios are disabled or not. By def
 
 The `error-message` attribute defines the error message to display for invalid radios.
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-radios error-message="Error message" legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -126,7 +126,7 @@ The `error-message` attribute defines the error message to display for invalid r
 
 The `form` attribute specifies the ID of the form that the radios belong to.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios form="form-id" legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -135,7 +135,7 @@ The `form` attribute specifies the ID of the form that the radios belong to.
 
 The `hide-legend` attribute controls whether the legend is hidden or not.
 
-{% examplesPreview %}
+{% examplesPreview "270" %}
 <gcds-radios hide-legend legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -144,7 +144,7 @@ The `hide-legend` attribute controls whether the legend is hidden or not.
 
 The `hint` attribute defines the hint text displayed under the label or legend.
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-radios hint="Hint / Example message." legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -153,7 +153,7 @@ The `hint` attribute defines the hint text displayed under the label or legend.
 
 The `required` attribute controls whether the radio fieldset is required or not. When set to `true`, it adds “required” after the legend, and activates the required validator.
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-radios required legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -162,7 +162,7 @@ The `required` attribute controls whether the radio fieldset is required or not.
 
 The `validate-on` attribute defines the validation event for the radios.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios validate-on="other" required legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -171,7 +171,7 @@ The `validate-on` attribute defines the validation event for the radios.
 
 The `value` attribute contains the value of the currently selected radio button. It updates when the selection changes.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-radios value="radio1" legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}

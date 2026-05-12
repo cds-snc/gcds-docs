@@ -148,6 +148,10 @@ ul li ul li {
   background-color: var(--gcds-color-blue-100);
 }
 
+.examples-grid-container gcds-grid {
+  max-width: var(--gcds-container-size-sm);
+}
+
 .anatomy-list {
   counter-reset: item;
   margin-block-end: var(--gcds-spacing-450);

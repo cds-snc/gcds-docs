@@ -38,7 +38,7 @@ Remarque : Si vous souhaitez ajouter un menu de thèmes et sujets à la page d'a
 
 L'attribut `home` définit le style de la page d'accueil.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-topic-menu home>
 </gcds-topic-menu>
 {% endexamplesPreview %}

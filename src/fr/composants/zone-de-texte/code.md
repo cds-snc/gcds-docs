@@ -57,7 +57,7 @@ Pour que la zone de texte fonctionne correctement, utilisez toujours les attribu
 
 L'attribut `label` définit l'étiquette de la zone de texte.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -66,7 +66,7 @@ L'attribut `label` définit l'étiquette de la zone de texte.
 
 L'attribut `name` identifie la zone de texte dans le formulaire. Il permet de récupérer la valeur saisie après la soumission.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -75,7 +75,7 @@ L'attribut `name` identifie la zone de texte dans le formulaire. Il permet de r�
 
 L'attribut `textarea-id` définit l'identifiant unique de la zone de texte.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -89,7 +89,7 @@ L'attribut `textarea-id` définit l'identifiant unique de la zone de texte.
 
 L'attribut `autofocus` contrôle si la zone de texte est ciblée automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, la zone de texte est ciblée à l'affichage.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea autofocus textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -98,7 +98,7 @@ L'attribut `autofocus` contrôle si la zone de texte est ciblée automatiquement
 
 L'attribut `cols` définit la largeur visible de la zone de texte en nombre de caractères moyens. La largeur minimale est de 50 % de son conteneur.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea cols="8" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -107,7 +107,7 @@ L'attribut `cols` définit la largeur visible de la zone de texte en nombre de c
 
 L'attribut `disabled` contrôle si la zone de texte est désactivée ou non. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea disabled textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -116,7 +116,7 @@ L'attribut `disabled` contrôle si la zone de texte est désactivée ou non. Par
 
 L'attribut `error-message` définit le message d'erreur à afficher pour une zone de texte invalide.
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-textarea error-message="Message d'erreur" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -125,7 +125,7 @@ L'attribut `error-message` définit le message d'erreur à afficher pour une zon
 
 L'attribut `form` définit l'identifiant du formulaire auquel appartient la zone de texte.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea form="form-id" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -134,7 +134,7 @@ L'attribut `form` définit l'identifiant du formulaire auquel appartient la zone
 
 L'attribut `hide-label` contrôle si l'étiquette est masquée ou non.
 
-{% examplesPreview %}
+{% examplesPreview "260", "", "fr" %}
 <gcds-textarea hide-label textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -143,7 +143,7 @@ L'attribut `hide-label` contrôle si l'étiquette est masquée ou non.
 
 L'attribut `hide-limit` contrôle si le compteur de limite de caractères est affiché ou non. Lorsqu'il est défini à `true`, le compteur n'est pas affiché. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea hide-limit maxlength="20" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -152,7 +152,7 @@ L'attribut `hide-limit` contrôle si le compteur de limite de caractères est af
 
 L'attribut `hint` définit le texte explicatif affiché sous l'étiquette.
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-textarea hint="Texte explicatif / Exemple de message." textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -161,7 +161,7 @@ L'attribut `hint` définit le texte explicatif affiché sous l'étiquette.
 
 L'attribut `maxlength` définit le nombre maximum de caractères acceptés par la zone de texte.
 
-{% examplesPreview %}
+{% examplesPreview "350", "", "fr" %}
 <gcds-textarea maxlength="10" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -170,7 +170,7 @@ L'attribut `maxlength` définit le nombre maximum de caractères acceptés par l
 
 L'attribut `minlength` définit le nombre minimum de caractères acceptés par la zone de texte.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea minlength="5" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -179,7 +179,7 @@ L'attribut `minlength` définit le nombre minimum de caractères acceptés par l
 
 L'attribut `required` contrôle si la zone de texte est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après l'étiquette, et active le validateur de champ obligatoire.
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-textarea required textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -188,7 +188,7 @@ L'attribut `required` contrôle si la zone de texte est obligatoire ou non. Lors
 
 L'attribut `rows` définit le nombre de lignes visibles dans la zone de texte, ce qui détermine sa hauteur.
 
-{% examplesPreview %}
+{% examplesPreview "230", "", "fr" %}
 <gcds-textarea rows="3" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -197,7 +197,7 @@ L'attribut `rows` définit le nombre de lignes visibles dans la zone de texte, c
 
 L'attribut `validate-on` définit l'événement de validation pour la zone de texte.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea validate-on="other" required textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -206,7 +206,7 @@ L'attribut `validate-on` définit l'événement de validation pour la zone de te
 
 L'attribut `value` définit le contenu initial de la zone de texte. Il se met à jour pour refléter la valeur saisie par l'utilisateur.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-textarea value="Contenu de la zone de texte." textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}

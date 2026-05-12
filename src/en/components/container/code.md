@@ -85,7 +85,7 @@ The `alignment` attribute sets how the container is positioned within its parent
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130" %}
 <gcds-container alignment="center" size="sm" border padding="300">
   <p>Container</p>
 </gcds-container>
@@ -95,7 +95,7 @@ The `alignment` attribute sets how the container is positioned within its parent
 
 The `border` attribute controls whether the container has a border or not.
 
-{% examplesPreview %}
+{% examplesPreview "130" %}
 <gcds-container border padding="300">
   <p>Container</p>
 </gcds-container>
@@ -110,7 +110,7 @@ The `layout` attribute sets how the container aligns with the page layout. The a
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130" %}
 <gcds-container layout="full" border padding="300">
   <p>Container</p>
 </gcds-container>
@@ -120,7 +120,7 @@ The `layout` attribute sets how the container aligns with the page layout. The a
 
 The `margin` attribute sets the container margin. Left and right margins are not applied if the container’s alignment attribute is defined, since alignment has higher priority.
 
-{% examplesPreview %}
+{% examplesPreview "270" %}
 <gcds-container margin="800" size="xs" border padding="300">
   <p>Container</p>
 </gcds-container>
@@ -130,7 +130,7 @@ The `margin` attribute sets the container margin. Left and right margins are not
 
 The `padding` attribute sets the container’s padding, which is the inner spacing between the container’s border and its content.
 
-{% examplesPreview %}
+{% examplesPreview "190" %}
 <gcds-container padding="600" border>
   <p>Container</p>
 </gcds-container>
@@ -149,7 +149,7 @@ The `size` attribute sets the width of the container. The available options are:
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130" %}
 <gcds-container size="sm" border padding="300">
   <p>Container</p>
 </gcds-container>
@@ -159,7 +159,7 @@ The `size` attribute sets the width of the container. The available options are:
 
 The `tag` attribute sets the HTML element used to render the container. By default, it is set to `div`.
 
-{% examplesPreview %}
+{% examplesPreview "130" %}
 <gcds-container tag="section" border padding="300">
   <p>Container</p>
 </gcds-container>
@@ -174,7 +174,7 @@ The `tag` attribute sets the HTML element used to render the container. By defau
 
 The `default` slot is for adding content inside the container.
 
-{% examplesPreview %}
+{% examplesPreview "130" %}
 <gcds-container border padding="300">
   <p>Container</p>
 </gcds-container>

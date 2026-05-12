@@ -56,7 +56,7 @@ Utilisez l'attribut `accept` pour définir les types de fichiers acceptés par l
 
 L'attribut `label` définit le libellé du téléverseur de fichiers.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -65,7 +65,7 @@ L'attribut `label` définit le libellé du téléverseur de fichiers.
 
 L'attribut `name` identifie le composant dans le formulaire. Il permet de récupérer les fichiers téléversés après la soumission.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -74,7 +74,7 @@ L'attribut `name` identifie le composant dans le formulaire. Il permet de récup
 
 L'attribut `uploader-id` définit l'identifiant unique du téléverseur de fichiers.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -88,7 +88,7 @@ L'attribut `uploader-id` définit l'identifiant unique du téléverseur de fichi
 
 L'attribut `accept` définit les types de fichiers acceptés par le téléverseur.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader accept="image/*" uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -97,7 +97,7 @@ L'attribut `accept` définit les types de fichiers acceptés par le téléverseu
 
 L'attribut `autofocus` contrôle si le téléverseur de fichiers est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le téléverseur est ciblé à l'affichage.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader autofocus uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -106,7 +106,7 @@ L'attribut `autofocus` contrôle si le téléverseur de fichiers est ciblé auto
 
 L'attribut `disabled` contrôle si le téléverseur de fichiers est désactivé ou non. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader disabled uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -115,7 +115,7 @@ L'attribut `disabled` contrôle si le téléverseur de fichiers est désactivé 
 
 L'attribut `error-message` définit le message d'erreur à afficher pour un fichier invalide.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-file-uploader error-message="Message d'erreur" uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -124,7 +124,7 @@ L'attribut `error-message` définit le message d'erreur à afficher pour un fich
 
 L'attribut `form` définit l'identifiant du formulaire auquel appartient le téléverseur de fichiers.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader form="form-id" uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -133,7 +133,7 @@ L'attribut `form` définit l'identifiant du formulaire auquel appartient le tél
 
 L'attribut `hide-label` contrôle si le libellé est masqué ou non.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-file-uploader hide-label uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -142,7 +142,7 @@ L'attribut `hide-label` contrôle si le libellé est masqué ou non.
 
 L'attribut `hint` définit le texte explicatif affiché sous le libellé.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-file-uploader hint="Texte explicatif / Exemple de message." uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -151,7 +151,7 @@ L'attribut `hint` définit le texte explicatif affiché sous le libellé.
 
 L'attribut `multiple` contrôle si l'utilisateur peut sélectionner plusieurs fichiers.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader multiple uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -160,7 +160,7 @@ L'attribut `multiple` contrôle si l'utilisateur peut sélectionner plusieurs fi
 
 L'attribut `required` contrôle si le téléverseur de fichiers est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après le libellé et active le validateur de champ obligatoire.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-file-uploader required uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -169,7 +169,7 @@ L'attribut `required` contrôle si le téléverseur de fichiers est obligatoire 
 
 L'attribut `validate-on` définit l'événement de validation pour le téléverseur de fichiers.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-file-uploader validate-on="other" required uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}

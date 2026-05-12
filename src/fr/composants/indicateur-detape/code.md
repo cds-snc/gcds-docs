@@ -44,7 +44,7 @@ Utilisez l'attribut `tag` pour attribuer la balise de titre appropriée à l'ind
 
 L'attribut `current-step` définit l'étape actuelle.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-stepper current-step="1" total-steps="4">
   Titre de la section
 </gcds-stepper>
@@ -54,7 +54,7 @@ L'attribut `current-step` définit l'étape actuelle.
 
 L'attribut `total-steps` définit le nombre total d'étapes.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-stepper current-step="1" total-steps="4">
   Titre de la section
 </gcds-stepper>
@@ -69,7 +69,7 @@ L'attribut `total-steps` définit le nombre total d'étapes.
 
 L'attribut `tag` définit l'élément de titre HTML pour l'indicateur d'étape. Par défaut, il est défini à `h2`.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-stepper current-step="1" total-steps="4" tag="h3">
   Titre de la section
 </gcds-stepper>
@@ -84,7 +84,7 @@ L'attribut `tag` définit l'élément de titre HTML pour l'indicateur d'étape. 
 
 L'emplacement par défaut sert à placer le texte du titre.
 
-{% examplesPreview %}
+{% examplesPreview "160", "", "fr" %}
 <gcds-stepper current-step="1" total-steps="4">
   Titre de la section
 </gcds-stepper>

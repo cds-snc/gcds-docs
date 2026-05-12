@@ -52,7 +52,7 @@ Opt to make your error heading more specific by using the `heading` attributes.
 
 The `error-links` attribute defines the list of errors to display in the error summary. Format: `{ link-href: link-label }`.
 
-{% examplesPreview %}
+{% examplesPreview "370" %}
 <gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
 </gcds-error-summary>
 {% endexamplesPreview %}
@@ -61,7 +61,7 @@ The `error-links` attribute defines the list of errors to display in the error s
 
 The `heading` attribute defines the error summary heading.
 
-{% examplesPreview %}
+{% examplesPreview "370" %}
 <gcds-error-summary heading="Heading" error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
 </gcds-error-summary>
 {% endexamplesPreview %}
@@ -70,7 +70,7 @@ The `heading` attribute defines the error summary heading.
 
 The `listen` attribute controls whether the error summary should listen for the `gcdsError` event to generate a list of errors or not. By default, it is set to `true`.
 
-{% examplesPreview %}
+{% examplesPreview "370" %}
 <gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }' listen>
 </gcds-error-summary>
 {% endexamplesPreview %}

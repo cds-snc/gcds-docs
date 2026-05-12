@@ -42,7 +42,7 @@ Utilisez l'attribut `notice-role` pour classer l'avis dans les catégories `info
 
 L'attribut `notice-role` définit le style d'avis à afficher.
 
-{% examplesPreview %}
+{% examplesPreview "150", "", "fr" %}
 <gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     Il s'agit d'un message de succès.
@@ -54,7 +54,7 @@ L'attribut `notice-role` définit le style d'avis à afficher.
 
 L'attribut `notice-title` définit le titre de l'avis.
 
-{% examplesPreview %}
+{% examplesPreview "150", "", "fr" %}
 <gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     Il s'agit d'un message de succès.
@@ -66,7 +66,7 @@ L'attribut `notice-title` définit le titre de l'avis.
 
 L'attribut `notice-title-tag` définit l'élément de titre HTML pour le titre. Cette propriété ne modifie pas la taille de la police. Utilisez-la pour assigner le niveau de titre approprié et maintenir la hiérarchie des titres et l'accessibilité.
 
-{% examplesPreview %}
+{% examplesPreview "150", "", "fr" %}
 <gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     Il s'agit d'un message de succès.
@@ -83,7 +83,7 @@ L'attribut `notice-title-tag` définit l'élément de titre HTML pour le titre. 
 
 L'emplacement par défaut sert à placer le message de l'avis.
 
-{% examplesPreview %}
+{% examplesPreview "150", "", "fr" %}
 <gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     Il s'agit d'un message de succès.

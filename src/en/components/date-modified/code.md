@@ -38,7 +38,7 @@ date: 'git Last Modified'
 
 The `type` attribute controls how the date-modified information is presented. By default, it is set to `date`, which displays the last modified date of the content.
 
-{% examplesPreview %}
+{% examplesPreview "140" %}
 <gcds-date-modified>
   2023-01-26
 </gcds-date-modified>
@@ -46,7 +46,7 @@ The `type` attribute controls how the date-modified information is presented. By
 
 When set to `version`, the component displays a version number instead.
 
-{% examplesPreview %}
+{% examplesPreview "140" %}
 <gcds-date-modified type="version">
   v1.0.0
 </gcds-date-modified>
@@ -61,7 +61,7 @@ When set to `version`, the component displays a version number instead.
 
 The `default` slot is for adding the date modified or version text.
 
-{% examplesPreview %}
+{% examplesPreview "140" %}
 <gcds-date-modified>
   2023-01-26
 </gcds-date-modified>

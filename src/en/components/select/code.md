@@ -55,7 +55,7 @@ Use the `default-value` attribute to set the first option in the select list. Th
 
 The `label` attribute defines the label for the select.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -67,7 +67,7 @@ The `label` attribute defines the label for the select.
 
 The `name` attribute identifies the select component within a form. It is used to reference the component after a form is submitted.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -79,7 +79,7 @@ The `name` attribute identifies the select component within a form. It is used t
 
 The `select-id` attribute specifies the unique identifier for the select component.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -96,7 +96,7 @@ The `select-id` attribute specifies the unique identifier for the select compone
 
 The `autocomplete` attribute controls whether the browser can suggest previously entered values for the select.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select autocomplete="on" select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -108,7 +108,7 @@ The `autocomplete` attribute controls whether the browser can suggest previously
 
 The `autofocus` attribute controls whether the select will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the select is focused on render.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select autofocus select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -120,7 +120,7 @@ The `autofocus` attribute controls whether the select will be focused automatica
 
 The `default-value` attribute defines an optional value that gets displayed before the user selects an option.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -132,7 +132,7 @@ The `default-value` attribute defines an optional value that gets displayed befo
 
 The `disabled` attribute controls whether the radios are disabled or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select disabled select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -144,7 +144,7 @@ The `disabled` attribute controls whether the radios are disabled or not. By def
 
 The `error-message` attribute defines the error message to display for invalid radios.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-select error-message="Error message" select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -156,7 +156,7 @@ The `error-message` attribute defines the error message to display for invalid r
 
 The `form` attribute specifies the ID of the form that the radios belong to.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select form="form-id" select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -168,7 +168,7 @@ The `form` attribute specifies the ID of the form that the radios belong to.
 
 The `hide-legend` attribute controls whether the legend is hidden or not.
 
-{% examplesPreview %}
+{% examplesPreview "140" %}
 <gcds-select hide-label select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -180,7 +180,7 @@ The `hide-legend` attribute controls whether the legend is hidden or not.
 
 The `hint` attribute defines the hint text displayed under the label or legend.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-select hint="Hint / Example message." select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -192,7 +192,7 @@ The `hint` attribute defines the hint text displayed under the label or legend.
 
 The `required` attribute controls whether the radio fieldset is required or not. When set to `true`, it adds “required” after the legend, and activates the required validator.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-select required select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -204,7 +204,7 @@ The `required` attribute controls whether the radio fieldset is required or not.
 
 The `validate-on` attribute defines the validation event for the radios.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select validate-on="other" required select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -216,7 +216,7 @@ The `validate-on` attribute defines the validation event for the radios.
 
 The `value` attribute contains the value of the currently selected radio button. It updates when the selection changes.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select value="2" select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -233,7 +233,7 @@ The `value` attribute contains the value of the currently selected radio button.
 
 The `default` slot is for adding options and option groups.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-select select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>

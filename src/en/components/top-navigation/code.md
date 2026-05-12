@@ -44,7 +44,7 @@ date: 'git Last Modified'
 
 The `label` attribute defines the label for the navigation landmark.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -56,7 +56,7 @@ The `label` attribute defines the label for the navigation landmark.
 
 The `menu-label` attribute of the `gcds-nav-group` subcomponent defines the label for the nav group menu.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -72,7 +72,7 @@ The `menu-label` attribute of the `gcds-nav-group` subcomponent defines the labe
 
 The `open-trigger` attribute of the `gcds-nav-group` subcomponent defines the label for the collapsed button trigger.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -88,7 +88,7 @@ The `open-trigger` attribute of the `gcds-nav-group` subcomponent defines the la
 
 The `href` attribute of the `gcds-nav-link` subcomponent specifies the URL of the page the link goes to.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -110,7 +110,7 @@ The `alignment` attribute defines the alignment of the top navigation. The avail
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav alignment="end" label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -122,7 +122,7 @@ The `alignment` attribute defines the alignment of the top navigation. The avail
 
 The `close-trigger` attribute of the `gcds-nav-group` subcomponent defines the label for the expanded button trigger.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -138,7 +138,7 @@ The `close-trigger` attribute of the `gcds-nav-group` subcomponent defines the l
 
 The `open` attribute of the `gcds-nav-group` subcomponent controls whether the nav group is expanded or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -154,7 +154,7 @@ The `open` attribute of the `gcds-nav-group` subcomponent controls whether the n
 
 The `current` attribute of the `gcds-nav-link` subcomponent indicates whether the page is current or not.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -171,7 +171,7 @@ The `current` attribute of the `gcds-nav-link` subcomponent indicates whether th
 
 The `default` slot is for adding navigation groups and navigation links.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
@@ -187,7 +187,7 @@ The `default` slot is for adding navigation groups and navigation links.
 
 The `home` slot is for adding the home link or site title.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
 </gcds-top-nav>
@@ -197,7 +197,7 @@ The `home` slot is for adding the home link or site title.
 
 The `default` slot of the `gcds-nav-group` subcomponent is for adding the list of navigation links.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-top-nav label="Top navigation component preview">
   <gcds-nav-group menu-label="Features submenu" open-trigger="Features">
     <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
@@ -210,7 +210,7 @@ The `default` slot of the `gcds-nav-group` subcomponent is for adding the list o
 
 The `default` slot of the `gcds-nav-link` subcomponent is for adding the navigation link content.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-nav-link href="#">GC Notify</gcds-nav-link>
 {% endexamplesPreview %}
 

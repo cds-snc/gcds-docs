@@ -42,7 +42,7 @@ Maintain the default `hint` attribute to provide additional context so a person 
 
 The `legend` attribute defines the legend for the fieldset.
 
-{% examplesPreview %}
+{% examplesPreview "330" %}
 <gcds-fieldset legend="Legend" legend-size="h3">
   <gcds-input input-id="form-input" label="Input label">
   </gcds-input>
@@ -66,7 +66,7 @@ The `legend-size` attribute sets the appropriate font size for the fieldset lege
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "330" %}
 <gcds-fieldset legend="Legend" legend-size="h3">
   <gcds-input input-id="form-input" label="Input label">
   </gcds-input>
@@ -87,7 +87,7 @@ The `legend-size` attribute sets the appropriate font size for the fieldset lege
 
 The `hint` attribute defines the hint text displayed under the legend.
 
-{% examplesPreview %}
+{% examplesPreview "370" %}
 <gcds-fieldset legend="Legend" legend-size="h3" hint="Hint / Example message.">
   <gcds-input input-id="form-input" label="Input label">
   </gcds-input>
@@ -108,7 +108,7 @@ The `hint` attribute defines the hint text displayed under the legend.
 
 The `default` slot is for placing form elements inside the fieldset.
 
-{% examplesPreview %}
+{% examplesPreview "370" %}
 <gcds-fieldset legend="Legend" legend-size="h3" hint="Hint / Example message.">
   <gcds-input input-id="form-input" label="Input label">
   </gcds-input>

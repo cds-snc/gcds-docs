@@ -67,7 +67,7 @@ Utilisez l'attribut `hint` ou la clé `hint` de l'objet `options` pour ajouter d
 
 L'attribut `legend` définit la légende du groupe de boutons radio.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -76,7 +76,7 @@ L'attribut `legend` définit la légende du groupe de boutons radio.
 
 L'attribut `name` identifie le composant dans le formulaire. Il permet de récupérer la valeur sélectionnée après la soumission.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -85,7 +85,7 @@ L'attribut `name` identifie le composant dans le formulaire. Il permet de récup
 
 L'attribut `options` définit les boutons radio à afficher en prenant un tableau (array) d'objets, un par bouton radio.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -99,7 +99,7 @@ L'attribut `options` définit les boutons radio à afficher en prenant un tablea
 
 L'attribut `autofocus` contrôle si le premier bouton radio est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le bouton radio est ciblé à l'affichage.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios autofocus legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -108,7 +108,7 @@ L'attribut `autofocus` contrôle si le premier bouton radio est ciblé automatiq
 
 L'attribut `disabled` contrôle si les boutons radio sont désactivés ou non. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios disabled legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -117,7 +117,7 @@ L'attribut `disabled` contrôle si les boutons radio sont désactivés ou non. P
 
 L'attribut `error-message` définit le message d'erreur à afficher pour les boutons radio invalides.
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-radios error-message="Message d'erreur" legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -126,7 +126,7 @@ L'attribut `error-message` définit le message d'erreur à afficher pour les bou
 
 L'attribut `form` définit l'identifiant du formulaire auquel appartiennent les boutons radio.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios form="form-id" legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -135,7 +135,7 @@ L'attribut `form` définit l'identifiant du formulaire auquel appartiennent les 
 
 L'attribut `hide-legend` contrôle si la légende est masquée ou non.
 
-{% examplesPreview %}
+{% examplesPreview "270", "", "fr" %}
 <gcds-radios hide-legend legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -144,7 +144,7 @@ L'attribut `hide-legend` contrôle si la légende est masquée ou non.
 
 L'attribut `hint` définit le texte explicatif affiché sous la légende.
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-radios hint="Texte explicatif/Exemple de message." legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -153,7 +153,7 @@ L'attribut `hint` définit le texte explicatif affiché sous la légende.
 
 L'attribut `required` contrôle si le jeu de boutons radio est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après la légende, et active le validateur de champ obligatoire.
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-radios required legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -162,7 +162,7 @@ L'attribut `required` contrôle si le jeu de boutons radio est obligatoire ou no
 
 L'attribut `validate-on` définit l'événement de validation pour les boutons radio.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios validate-on="other" required legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
@@ -171,7 +171,7 @@ L'attribut `validate-on` définit l'événement de validation pour les boutons r
 
 L'attribut `value` contient la valeur du bouton radio actuellement sélectionné. Il se met à jour à chaque changement de sélection.
 
-{% examplesPreview %}
+{% examplesPreview "300", "", "fr" %}
 <gcds-radios value="radio1" legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}

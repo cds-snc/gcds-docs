@@ -545,8 +545,19 @@ module.exports = function (eleventyConfig) {
   // Add shortcode for example tab code previews
   eleventyConfig.addPairedShortcode(
     'examplesPreview',
-    (children, className) => {
+    (children, height = 100, className, locale = 'en', title) => {
       const content = children.trim();
+
+      const strings = {
+        en: {
+          iframeTitle: 'Component preview',
+        },
+        fr: {
+          iframeTitle: 'Aperçu du composant',
+        },
+      };
+
+      const iframeTitle = title || strings[locale].iframeTitle;
 
       // Minify weird Eleventy spacing in rendered HTML preview
       const renderedHTML = content
@@ -556,12 +567,39 @@ module.exports = function (eleventyConfig) {
         .replace(/\s+>/g, '>')
         .trim();
 
+      const iframeHTML = `
+        <!DOCTYPE html>
+        <html lang="${locale}" dir="ltr">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="/gcds-css-shortcuts.min.css">
+            <link rel="stylesheet" href="/styles/style.css">
+            <link rel="stylesheet" href="/components/dist/gcds/gcds.css">
+            <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+          </head>
+          <body class="${className} shortcut-preview examples-preview">
+            <div class="preview-demo p-300 d-grid gap-300">
+              ${renderedHTML}
+            </div>
+          </body>
+        </html>
+      `;
+
       return `
-      <div class="${className} b-md shortcut-preview examples-preview">
-        <div inert class="preview-demo d-grid gap-300 p-300">${renderedHTML}</div>
-        <pre><code class="language-html font-size-text-small">${encode(content)}</code></pre>
-      </div>
-    `;
+        <div class="b-md shortcut-preview">
+          <iframe
+            class="preview-iframe"
+            title="${iframeTitle}"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="${height}"
+            srcdoc="${iframeHTML.replace(/"/g, '&quot;')}">
+          </iframe>
+          <pre><code class="language-html font-size-text-small">${encode(content)}</code></pre>
+        </div>
+      `;
     },
   );
 

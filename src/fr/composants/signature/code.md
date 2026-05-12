@@ -45,13 +45,13 @@ Utilisez la signature dans <gcds-link href="{{ links.header }}">l'en-tête</gcds
 
 L'attribut `has-link` contrôle si la signature est cliquable et pointe vers Canada.ca. Par défaut, il est défini à `false`, ce qui affiche la signature comme contenu statique non cliquable.
 
-{% examplesPreview %}
+{% examplesPreview "70", "", "fr" %}
 <gcds-signature></gcds-signature>
 {% endexamplesPreview %}
 
 Lorsqu'il est défini à `true`, la signature devient cliquable et pointe vers Canada.ca.
 
-{% examplesPreview %}
+{% examplesPreview "70", "", "fr" %}
 <gcds-signature has-link="true"></gcds-signature>
 {% endexamplesPreview %}
 
@@ -59,13 +59,13 @@ Lorsqu'il est défini à `true`, la signature devient cliquable et pointe vers C
 
 L'attribut `type` définit le visuel affiché dans le composant de signature. Par défaut, il est défini à `signature`, ce qui affiche la signature.
 
-{% examplesPreview %}
+{% examplesPreview "70", "", "fr" %}
 <gcds-signature></gcds-signature>
 {% endexamplesPreview %}
 
 Lorsqu'il est défini à `wordmark`, le composant affiche le mot-symbole à la place.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-signature type="wordmark"></gcds-signature>
 {% endexamplesPreview %}
 
@@ -73,13 +73,13 @@ Lorsqu'il est défini à `wordmark`, le composant affiche le mot-symbole à la p
 
 L'attribut `variant` définit la couleur de la signature. Par défaut, il est défini à `colour`, ce qui affiche la version colorée.
 
-{% examplesPreview %}
+{% examplesPreview "70", "", "fr" %}
 <gcds-signature></gcds-signature>
 {% endexamplesPreview %}
 
 Lorsqu'il est défini à `white`, le composant affiche la version blanche, adaptée aux arrière-plans foncés.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 
 <div class="bg-dark p-300">
   <gcds-signature variant="white"></gcds-signature>

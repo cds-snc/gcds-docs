@@ -65,7 +65,7 @@ The `details-title` attribute defines the label that summarizes the details cont
 
 The `open` attribute controls whether the details component is open by default or not.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-details details-title="Learn more about this topic" open>
   <gcds-text margin-bottom="0">Additional information.</gcds-text>
 </gcds-details>

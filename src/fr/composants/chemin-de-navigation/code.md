@@ -47,7 +47,7 @@ Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant
 
 L'attribut `href` définit l'URL de destination d'un `gcds-breadcrumbs-item` et est obligatoire pour que l'élément du chemin de navigation fonctionne comme un lien.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-breadcrumbs>
   <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
   <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
@@ -63,7 +63,7 @@ L'attribut `href` définit l'URL de destination d'un `gcds-breadcrumbs-item` et 
 
 L'attribut `hide-canada-link` contrôle l'affichage du lien canada.ca par défaut dans le chemin de navigation. Par défaut, il est défini à `false`, ce qui signifie que le lien canada.ca apparaît comme premier élément du chemin de navigation.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-breadcrumbs>
   <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
   <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
@@ -72,7 +72,7 @@ L'attribut `hide-canada-link` contrôle l'affichage du lien canada.ca par défau
 
 Lorsqu'il est défini à `true`, le lien canada.ca par défaut est masqué, et seuls les éléments du chemin de navigation fournis sont affichés.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-breadcrumbs hide-canada-link>
   <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
   <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
@@ -88,7 +88,7 @@ Lorsqu'il est défini à `true`, le lien canada.ca par défaut est masqué, et s
 
 L'emplacement par défaut sert à ajouter des sous-composants gcds-breadcrumbs-item. L'emplacement par défaut de l'élément du chemin de navigation sert à ajouter le texte de cet élément.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-breadcrumbs hide-canada-link>
   <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
   <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>

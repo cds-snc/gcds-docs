@@ -44,7 +44,7 @@ Use the `tag` attribute to assign the appropriate heading tag to the stepper. Th
 
 The `current-step` attribute defines the current step.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-stepper current-step="1" total-steps="4">
   Section title
 </gcds-stepper>
@@ -54,7 +54,7 @@ The `current-step` attribute defines the current step.
 
 The `total-steps` attribute defines the total number of steps.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-stepper current-step="1" total-steps="4">
   Section title
 </gcds-stepper>
@@ -69,7 +69,7 @@ The `total-steps` attribute defines the total number of steps.
 
 The `tag` attribute sets the HTML heading element for the stepper. By default, it is set to `h2`.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-stepper current-step="1" total-steps="4" tag="h3">
   Section title
 </gcds-stepper>
@@ -84,7 +84,7 @@ The `tag` attribute sets the HTML heading element for the stepper. By default, i
 
 The `default` slot is for placing the heading text.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-stepper current-step="1" total-steps="4">
   Section title
 </gcds-stepper>

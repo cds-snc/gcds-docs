@@ -57,7 +57,7 @@ A person who receives an error message needs to:
 
 The `message-id` attribute specifies the unique identifier for the error message.
 
-{% examplesPreview %}
+{% examplesPreview "90" %}
 <gcds-error-message message-id="message-default">
   Error message.
 </gcds-error-message>
@@ -72,7 +72,7 @@ The `message-id` attribute specifies the unique identifier for the error message
 
 The `default` slot is for adding the error message text.
 
-{% examplesPreview %}
+{% examplesPreview "90" %}
 <gcds-error-message message-id="message-default">
   Error message.
 </gcds-error-message>

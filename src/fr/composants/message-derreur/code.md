@@ -57,7 +57,7 @@ La personne qui reçoit un message d'erreur doit :
 
 L'attribut `message-id` définit l'identifiant unique du message d'erreur.
 
-{% examplesPreview %}
+{% examplesPreview "90", "", "fr" %}
 <gcds-error-message message-id="message-default">
   Message d'erreur.
 </gcds-error-message>
@@ -72,7 +72,7 @@ L'attribut `message-id` définit l'identifiant unique du message d'erreur.
 
 L'emplacement par défaut sert à ajouter le texte du message d'erreur.
 
-{% examplesPreview %}
+{% examplesPreview "90", "", "fr" %}
 <gcds-error-message message-id="message-default">
   Message d'erreur.
 </gcds-error-message>

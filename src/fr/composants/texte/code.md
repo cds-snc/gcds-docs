@@ -56,7 +56,7 @@ tags: ['textFR', 'code']
 
 L'attribut `character-limit` définit la longueur de ligne maximale en nombre de caractères pour garantir une longueur de lecture confortable et accessible.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-text character-limit="false">
   Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
 </gcds-text>
@@ -75,7 +75,7 @@ L'attribut `display` définit le comportement d'affichage du texte. Les options 
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-text display="flex">
   Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
 </gcds-text>
@@ -85,7 +85,7 @@ L'attribut `display` définit le comportement d'affichage du texte. Les options 
 
 L'attribut `margin-bottom` définit la marge sous le texte. La valeur par défaut est `300`.
 
-{% examplesPreview %}
+{% examplesPreview "230", "", "fr" %}
 <gcds-text margin-bottom="600">
   Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
 </gcds-text>
@@ -95,7 +95,7 @@ L'attribut `margin-bottom` définit la marge sous le texte. La valeur par défau
 
 L'attribut `margin-top` définit la marge au-dessus du texte. La valeur par défaut est `0`.
 
-{% examplesPreview %}
+{% examplesPreview "250", "", "fr" %}
 <gcds-text margin-top="600">
   Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
 </gcds-text>
@@ -110,7 +110,7 @@ L'attribut `size` définit la taille du texte. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "190", "", "fr" %}
 <gcds-text size="small">
   Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
 </gcds-text>
@@ -126,7 +126,7 @@ L'attribut `text-role` définit le style principal du texte. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-text text-role="secondary">
   Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
 </gcds-text>
@@ -141,7 +141,7 @@ L'attribut `text-role` définit le style principal du texte. Les options sont :
 
 L'emplacement par défaut sert à placer le contenu de l'élément texte.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-text>
   Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
 </gcds-text>

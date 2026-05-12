@@ -45,13 +45,13 @@ Use the signature type in the site's <gcds-link href="{{ links.header }}">header
 
 The `has-link` attribute controls whether the signature links to Canada.ca. By default, it's set to `false`, meaning the signature is displayed as static content and isn't clickable.
 
-{% examplesPreview %}
+{% examplesPreview "70" %}
 <gcds-signature></gcds-signature>
 {% endexamplesPreview %}
 
 When it's set to `true`, the signature becomes clickable and links to Canada.ca.
 
-{% examplesPreview %}
+{% examplesPreview "70" %}
 <gcds-signature has-link="true"></gcds-signature>
 {% endexamplesPreview %}
 
@@ -59,13 +59,13 @@ When it's set to `true`, the signature becomes clickable and links to Canada.ca.
 
 The `type` attribute determines which graphic is displayed in the signature component. By default, it is set to `signature`, rendering the signature graphic.
 
-{% examplesPreview %}
+{% examplesPreview "70" %}
 <gcds-signature></gcds-signature>
 {% endexamplesPreview %}
 
 When it's set to `wordmark`, the component displays the wordmark graphic instead.
 
-{% examplesPreview %}
+{% examplesPreview "100" %}
 <gcds-signature type="wordmark"></gcds-signature>
 {% endexamplesPreview %}
 
@@ -73,13 +73,13 @@ When it's set to `wordmark`, the component displays the wordmark graphic instead
 
 The `variant` attribute controls the colour of the signature component. By default, it is set to `colour`, rendering the coloured version of the signature.
 
-{% examplesPreview %}
+{% examplesPreview "70" %}
 <gcds-signature></gcds-signature>
 {% endexamplesPreview %}
 
 When it's set to `white`, the component displays the white version of the signature, suitable for dark backgrounds.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 
 <div class="bg-dark p-300">
   <gcds-signature variant="white"></gcds-signature>

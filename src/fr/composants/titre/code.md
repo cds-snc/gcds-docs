@@ -63,7 +63,7 @@ Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux
 
 L'attribut `tag` définit l'élément de titre HTML approprié pour le niveau sélectionné.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-heading tag="h2">
   Titre
 </gcds-heading>
@@ -78,7 +78,7 @@ L'attribut `tag` définit l'élément de titre HTML approprié pour le niveau s�
 
 L'attribut `character-limit` définit la longueur de ligne maximale en nombre de caractères pour chaque niveau de titre, assurant une longueur de lecture confortable et accessible.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-heading tag="h2" character-limit="false">
   Titre
 </gcds-heading>
@@ -94,7 +94,7 @@ L'attribut `heading-role` définit le style principal du titre. Les options sont
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-heading tag="h2" heading-role="secondary">
   Titre
 </gcds-heading>
@@ -104,7 +104,7 @@ L'attribut `heading-role` définit le style principal du titre. Les options sont
 
 L'attribut `margin-bottom` définit la marge sous le titre. La valeur par défaut est `300`.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-heading tag="h2" margin-bottom="600">
   Titre
 </gcds-heading>
@@ -114,7 +114,7 @@ L'attribut `margin-bottom` définit la marge sous le titre. La valeur par défau
 
 L'attribut `margin-top` définit la marge au-dessus du titre. La valeur par défaut est `0` pour `h1`, et `600` pour `h2` à `h6`.
 
-{% examplesPreview %}
+{% examplesPreview "140", "", "fr" %}
 <gcds-heading tag="h2" margin-top="200">
   Titre
 </gcds-heading>
@@ -129,7 +129,7 @@ L'attribut `margin-top` définit la marge au-dessus du titre. La valeur par déf
 
 L'emplacement par défaut sert à ajouter du texte au titre.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-heading tag="h2">
   Heading
 </gcds-heading>

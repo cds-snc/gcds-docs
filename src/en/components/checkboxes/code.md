@@ -80,7 +80,7 @@ Within the `options` attribute, always use the object's `id` and `label` propert
 
 The `legend` attribute defines the legend for a group of checkboxes.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -89,7 +89,7 @@ The `legend` attribute defines the legend for a group of checkboxes.
 
 The `name` attribute identifies the checkboxes component within a form. It is used to reference the component after a form is submitted.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -98,7 +98,7 @@ The `name` attribute identifies the checkboxes component within a form. It is us
 
 The `options` attribute defines the checkboxes to render by taking an array of objects, one per checkbox.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -112,7 +112,7 @@ The `options` attribute defines the checkboxes to render by taking an array of o
 
 The `autofocus` attribute controls whether the first checkbox will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the checkbox is focused on render.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes autofocus legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -121,7 +121,7 @@ The `autofocus` attribute controls whether the first checkbox will be focused au
 
 The `disabled` attribute controls whether the checkboxes are disabled or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes disabled legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -130,7 +130,7 @@ The `disabled` attribute controls whether the checkboxes are disabled or not. By
 
 The `error-message` attribute defines the error message to display for invalid checkboxes.
 
-{% examplesPreview %}
+{% examplesPreview "350" %}
 <gcds-checkboxes error-message="Error message" legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -139,7 +139,7 @@ The `error-message` attribute defines the error message to display for invalid c
 
 The `form` attribute specifies the ID of the form that the checkboxes belong to.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes form="form-id" legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -148,7 +148,7 @@ The `form` attribute specifies the ID of the form that the checkboxes belong to.
 
 The `hide-label` attribute controls whether the label is hidden or not.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-checkboxes hide-label name="checkbox" options='[{ "label": "Label for checkbox 1", "id": "checkbox1", "value": "checkbox1"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -157,7 +157,7 @@ The `hide-label` attribute controls whether the label is hidden or not.
 
 The `hide-legend` attribute controls whether the legend is hidden or not.
 
-{% examplesPreview %}
+{% examplesPreview "280" %}
 <gcds-checkboxes hide-legend legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -166,7 +166,7 @@ The `hide-legend` attribute controls whether the legend is hidden or not.
 
 The `hint` attribute defines the hint text displayed under the label or legend.
 
-{% examplesPreview %}
+{% examplesPreview "350" %}
 <gcds-checkboxes hint="Hint / Example message." legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -175,7 +175,7 @@ The `hint` attribute defines the hint text displayed under the label or legend.
 
 The `required` attribute controls whether the checkbox fieldset is required or not. When set to `true`, it adds “required” after the label or legend, and activates the required validator.
 
-{% examplesPreview %}
+{% examplesPreview "350" %}
 <gcds-checkboxes required legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -184,7 +184,7 @@ The `required` attribute controls whether the checkbox fieldset is required or n
 
 The `validate-on` attribute defines the validation event for the checkboxes.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes validate-on="other" required legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
@@ -193,7 +193,7 @@ The `validate-on` attribute defines the validation event for the checkboxes.
 
 The `value` attribute contains an array of the values of all currently checked checkboxes. It updates as selections change.
 
-{% examplesPreview %}
+{% examplesPreview "310" %}
 <gcds-checkboxes value='["check2"]' legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}

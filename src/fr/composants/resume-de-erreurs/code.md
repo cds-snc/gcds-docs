@@ -52,7 +52,7 @@ Rédigez des en-têtes d'erreur plus précis en utilisant l'attribut `heading`.
 
 L'attribut `error-links` définit la liste des erreurs à afficher dans le résumé des erreurs. Format : `{ link-href: link-label }`.
 
-{% examplesPreview %}
+{% examplesPreview "370", "", "fr" %}
 <gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
 </gcds-error-summary>
 {% endexamplesPreview %}
@@ -61,7 +61,7 @@ L'attribut `error-links` définit la liste des erreurs à afficher dans le résu
 
 L'attribut `heading` définit le titre du résumé des erreurs.
 
-{% examplesPreview %}
+{% examplesPreview "370", "", "fr" %}
 <gcds-error-summary heading="Titre" error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
 </gcds-error-summary>
 {% endexamplesPreview %}
@@ -70,7 +70,7 @@ L'attribut `heading` définit le titre du résumé des erreurs.
 
 L'attribut `listen` contrôle si le résumé des erreurs écoute l'événement `gcdsError` pour générer la liste des erreurs. Par défaut, il est défini à `true`.
 
-{% examplesPreview %}
+{% examplesPreview "370", "", "fr" %}
 <gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }' listen>
 </gcds-error-summary>
 {% endexamplesPreview %}

@@ -58,7 +58,7 @@ Note: Only files with URLs of the same origin as the website will be downloaded 
 
 The `href` attribute specifies the URL of the page the link goes to.
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link href="#">Navigation link</gcds-link>
 {% endexamplesPreview %}
 
@@ -76,17 +76,15 @@ The `display` attribute sets the display behaviour of the link. The available op
 
 <!-- Force line break -->
 
-{% examplesPreview %}
-<gcds-link display="block" href="#">
-  Navigation link
-</gcds-link>
+{% examplesPreview "80" %}
+<gcds-link display="block" href="#">Navigation link</gcds-link>
 {% endexamplesPreview %}
 
 #### `download`
 
 The `download` attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink.
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
   Download document (PDF, 1.5 MB)
 </gcds-link>
@@ -96,7 +94,7 @@ The `download` attribute specifies that the target (the file specified in the hr
 
 The `external` attribute controls whether the link is external or not. When set to `true`, an external icon is added after the link.
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link external href="#">Navigation link</gcds-link>
 {% endexamplesPreview %}
 
@@ -109,12 +107,10 @@ The `link-role` sets the main style of the link. The available options are:
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130" %}
 
 <div class="bg-dark p-300">
-  <gcds-link link-role="light" href="#">
-    Navigation link
-  </gcds-link>
+  <gcds-link link-role="light" href="#">Navigation link</gcds-link>
 </div>
 {% endexamplesPreview %}
 
@@ -122,7 +118,7 @@ The `link-role` sets the main style of the link. The available options are:
 
 The `rel` attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link rel="license" href="#license">Navigation link</gcds-link>
 {% endexamplesPreview %}
 
@@ -136,7 +132,7 @@ The `size` attribute sets the link size. The available options are:
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link size="small" href="#">Navigation link</gcds-link>
 {% endexamplesPreview %}
 
@@ -144,7 +140,7 @@ The `size` attribute sets the link size. The available options are:
 
 The `target` attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link target="_blank" href="#">Navigation link</gcds-link>
 {% endexamplesPreview %}
 
@@ -152,7 +148,7 @@ The `target` attribute specifies where the linked resource is opened. For exampl
 
 The `type` attribute specifies the media type of the linked document.
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
   Download document (PDF, 1.5 MB)
 </gcds-link>
@@ -167,7 +163,7 @@ The `type` attribute specifies the media type of the linked document.
 
 The `default` slot is for placing the link text.
 
-{% examplesPreview %}
+{% examplesPreview "80" %}
 <gcds-link href="#">Navigation link</gcds-link>
 {% endexamplesPreview %}
 

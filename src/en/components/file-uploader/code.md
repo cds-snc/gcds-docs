@@ -56,7 +56,7 @@ Define the file types the file uploader accepts using the `accept` attribute.
 
 The `label` attribute defines the label for the file uploader.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -65,7 +65,7 @@ The `label` attribute defines the label for the file uploader.
 
 The `name` attribute identifies the file uploader component within a form. It is used to reference the uploaded files when a form is submitted.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -74,7 +74,7 @@ The `name` attribute identifies the file uploader component within a form. It is
 
 The `uploader-id` attribute specifies the unique identifier for the file uploader.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -88,7 +88,7 @@ The `uploader-id` attribute specifies the unique identifier for the file uploade
 
 The `accept` attribute defines the file types the file uploader accepts.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader accept="image/*" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -97,7 +97,7 @@ The `accept` attribute defines the file types the file uploader accepts.
 
 The `autofocus` attribute controls whether the file uploader will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the file uploader is focused on render.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader autofocus uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -106,7 +106,7 @@ The `autofocus` attribute controls whether the file uploader will be focused aut
 
 The `disabled` attribute controls whether the file uploader is disabled or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader disabled uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -115,7 +115,7 @@ The `disabled` attribute controls whether the file uploader is disabled or not. 
 
 The `error-message` attribute defines the error message to display for an invalid file input.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-file-uploader error-message="Error message" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -124,7 +124,7 @@ The `error-message` attribute defines the error message to display for an invali
 
 The `form` attribute specifies the ID of the form that the file uploader belongs to.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader form="form-id" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -133,7 +133,7 @@ The `form` attribute specifies the ID of the form that the file uploader belongs
 
 The `hide-label` attribute controls whether the label is hidden or not.
 
-{% examplesPreview %}
+{% examplesPreview "120" %}
 <gcds-file-uploader hide-label uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -142,7 +142,7 @@ The `hide-label` attribute controls whether the label is hidden or not.
 
 The `hint` attribute defines the hint text displayed under the label.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-file-uploader hint="Hint / Example message." uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -151,7 +151,7 @@ The `hint` attribute defines the hint text displayed under the label.
 
 The `multiple` attribute controls whether the user is allowed to select more than one file.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader multiple uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -160,7 +160,7 @@ The `multiple` attribute controls whether the user is allowed to select more tha
 
 The `required` attribute controls whether the file input is required or not. When set to `true`, it adds “required” after the label, and activates the required validator.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-file-uploader required uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
@@ -169,7 +169,7 @@ The `required` attribute controls whether the file input is required or not. Whe
 
 The `validate-on` attribute defines the validation event for the file uploader.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-file-uploader validate-on="other" required uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}

@@ -38,7 +38,7 @@ Remarque : Si vous utilisez le composant En-tête, la bascule de langue peut êt
 
 L'attribut `href` définit l'URL de la même page dans une autre langue, généralement l'anglais ou le français. Utilisez-le pour fournir un lien permettant aux utilisateurs de basculer entre les versions linguistiques disponibles.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-lang-toggle href="#">
 </gcds-lang-toggle>
 {% endexamplesPreview %}

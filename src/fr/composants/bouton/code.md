@@ -48,7 +48,7 @@ Remarque : La hauteur des petits boutons est conforme au niveau AA de la norme W
 
 L'attribut `button-id` précise le `id` du bouton.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-button id="submit-ei-application">
   Soumettre
 </gcds-button>
@@ -65,7 +65,7 @@ L'attribut `button-role` définit le style principal d'un bouton. Les options so
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-button button-role="start">Début</gcds-button>
 <gcds-button>Soumettre</gcds-button>
 <gcds-button button-role="secondary">Annuler</gcds-button>
@@ -76,7 +76,7 @@ L'attribut `button-role` définit le style principal d'un bouton. Les options so
 
 L'attribut `disabled` est un `booléen` qui contrôle si un bouton est interactif ou non.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-button button-role="danger" disabled>
   Supprimer
 </gcds-button>
@@ -86,7 +86,7 @@ L'attribut `disabled` est un `booléen` qui contrôle si un bouton est interacti
 
 L'attribut `name` précise le nom du bouton lors de l'envoi des données du formulaire. Il permet d'identifier quel bouton a déclenché l'envoi du formulaire, notamment lorsque plusieurs boutons sont présents dans un formulaire.
 
-{% examplesPreview %}
+{% examplesPreview "180", "", "fr" %}
 
 <form action="..." method="post">
   <gcds-button button-role="secondary" name="save-draft" type="submit">Enregistrer le brouillon</gcds-button>
@@ -103,7 +103,7 @@ L'attribut `size` définit la taille du bouton. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "180", "", "fr" %}
 <gcds-button>Taille par défaut</gcds-button>
 <gcds-button size="small">Taille petite</gcds-button>
 {% endexamplesPreview %}
@@ -119,7 +119,7 @@ L'attribut `type` définit la fonction du bouton. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "340", "", "fr" %}
 <gcds-button>Bouton</gcds-button>
 <gcds-button type="link">Lien</gcds-button>
 <gcds-button type="reset">Réinitialiser</gcds-button>
@@ -130,7 +130,7 @@ L'attribut `type` définit la fonction du bouton. Les options sont :
 
 L'attribut `value` définit les données envoyées au serveur lorsque le bouton est utilisé pour soumettre un formulaire. Cette valeur n'est transmise que si le bouton a un attribut `name` et que c'est lui qui a déclenché la soumission. Si plusieurs boutons submit sont présents, seul celui sur lequel l'utilisateur a cliqué envoie sa valeur.
 
-{% examplesPreview %}
+{% examplesPreview "180", "", "fr" %}
 
 <form action="..." method="post">
   <gcds-button button-role="secondary" type="submit" name="applicationAction" value="save">Enregistrer le brouillon</gcds-button>
@@ -146,7 +146,7 @@ L'attribut `download` indique qu'activer le bouton téléchargera le fichier ré
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-button type="link" href="/files/application-receipt.pdf" download>
   Télécharger le reçu
 </gcds-button>
@@ -158,7 +158,7 @@ L'attribut `href` définit la destination du lien.
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html">
   Voir les prestations
 </gcds-button>
@@ -170,7 +170,7 @@ L'attribut `rel` définit la relation entre le document actuel et le document li
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">
   Voir les prestations
 </gcds-button>
@@ -182,7 +182,7 @@ L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">
   Voir les prestations
 </gcds-button>
@@ -197,7 +197,7 @@ L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le
 
 L'emplacement par défaut sert à ajouter le texte du libellé du bouton ou du lien.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-button>Soumettre</gcds-button>
 {% endexamplesPreview %}
 

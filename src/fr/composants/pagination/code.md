@@ -102,7 +102,7 @@ url = {
 
 L'attribut `label` définit le texte qui identifie le repère de navigation de la pagination, lui donnant un nom clair et accessible.
 
-{% examplesPreview %}
+{% examplesPreview "110", "", "fr" %}
 <gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" lang="fr">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -116,7 +116,7 @@ L'attribut `label` définit le texte qui identifie le repère de navigation de l
 
 L'attribut `current-page` définit la page actuelle pour une pagination en liste.
 
-{% examplesPreview %}
+{% examplesPreview "110", "", "fr" %}
 <gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" lang="fr">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -130,7 +130,7 @@ L'attribut display définit le style d'affichage de la pagination. Les options s
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "110", "", "fr" %}
 <gcds-pagination label="pagination sous forme de liste" display="list" total-pages="15" current-page="9">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -139,7 +139,7 @@ L'attribut display définit le style d'affichage de la pagination. Les options s
 
 L'attribut `next-href` définit l'URL de la page suivante pour une pagination simple.
 
-{% examplesPreview %}
+{% examplesPreview "290", "", "fr" %}
 <gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -148,7 +148,7 @@ L'attribut `next-href` définit l'URL de la page suivante pour une pagination si
 
 L'attribut `next-label` définit le libellé de la page suivante pour une pagination simple.
 
-{% examplesPreview %}
+{% examplesPreview "290", "", "fr" %}
 <gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -157,7 +157,7 @@ L'attribut `next-label` définit le libellé de la page suivante pour une pagina
 
 L'attribut `previous-href` définit l'URL de la page précédente pour une pagination simple.
 
-{% examplesPreview %}
+{% examplesPreview "290", "", "fr" %}
 <gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -166,7 +166,7 @@ L'attribut `previous-href` définit l'URL de la page précédente pour une pagin
 
 L'attribut `previous-label` définit le libellé de la page précédente pour une pagination simple.
 
-{% examplesPreview %}
+{% examplesPreview "290", "", "fr" %}
 <gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -175,7 +175,7 @@ L'attribut `previous-label` définit le libellé de la page précédente pour un
 
 L'attribut `total-pages` définit le nombre total de pages pour une pagination en liste.
 
-{% examplesPreview %}
+{% examplesPreview "110", "", "fr" %}
 <gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" lang="fr">
 </gcds-pagination>
 {% endexamplesPreview %}
@@ -184,7 +184,7 @@ L'attribut `total-pages` définit le nombre total de pages pour une pagination e
 
 L'attribut `url` définit l'objet (en JavaScript) ou la chaîne (en HTML) qui génère les chaînes de requête et le fragment pour les liens de pagination en liste.
 
-{% examplesPreview %}
+{% examplesPreview "110", "", "fr" %}
 <gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" url='{"queryStrings": { "querystring::offset": 10 }, "fragment": "main" }'>
 </gcds-pagination>
 {% endexamplesPreview %}

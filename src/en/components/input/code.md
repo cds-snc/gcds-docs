@@ -61,7 +61,7 @@ For the input to function properly, always use the following attributes with `<g
 
 The `input-id` attribute specifies the unique identifier for the input.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -70,7 +70,7 @@ The `input-id` attribute specifies the unique identifier for the input.
 
 The `label` attribute defines the label for the input.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -79,7 +79,7 @@ The `label` attribute defines the label for the input.
 
 The `name` attribute identifies the input component within a form. It is used to reference the input’s value when a form is submitted.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -93,7 +93,7 @@ The `name` attribute identifies the input component within a form. It is used to
 
 The `autocomplete` attribute controls whether the browser can suggest previously entered values for the input.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input autocomplete="given-name" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -102,7 +102,7 @@ The `autocomplete` attribute controls whether the browser can suggest previously
 
 The `autofocus` attribute controls whether the input will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the input is focused on render.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input autofocus input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -111,7 +111,7 @@ The `autofocus` attribute controls whether the input will be focused automatical
 
 The `disabled` attribute controls whether the input is disabled or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input disabled input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -120,7 +120,7 @@ The `disabled` attribute controls whether the input is disabled or not. By defau
 
 The `error-message` attribute defines the error message to display for an invalid input.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input error-message="Error message" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -129,7 +129,7 @@ The `error-message` attribute defines the error message to display for an invali
 
 The `form` attribute specifies the ID of the form that the input belongs to.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input form="form-id" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -138,7 +138,7 @@ The `form` attribute specifies the ID of the form that the input belongs to.
 
 The `hide-label` attribute controls whether the label is hidden or not.
 
-{% examplesPreview %}
+{% examplesPreview "140" %}
 <gcds-input hide-label input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -147,7 +147,7 @@ The `hide-label` attribute controls whether the label is hidden or not.
 
 The `hint` attribute defines the hint text displayed under the label.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input hint="Hint / Example message." input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -167,7 +167,7 @@ The `inputmode` attribute sets the appearance of the virtual keyboard on mobile 
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input inputmode="numeric" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -176,7 +176,7 @@ The `inputmode` attribute sets the appearance of the virtual keyboard on mobile 
 
 The `max` attribute defines the maximum value that the input field can accept. It only applies to the `number` input type.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input max="100" type="number" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -185,7 +185,7 @@ The `max` attribute defines the maximum value that the input field can accept. I
 
 The `maxlength` attribute defines the maximum number of characters that the input field can accept.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input maxlength="10" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -194,7 +194,7 @@ The `maxlength` attribute defines the maximum number of characters that the inpu
 
 The `min` attribute defines the minimum value that the input field can accept. It only applies to the `number` input type.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input min="22" type="number" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -203,7 +203,7 @@ The `min` attribute defines the minimum value that the input field can accept. I
 
 The `minlength` attribute defines the minimum number of characters that the input field can accept.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input minlength="5" type="number" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -212,7 +212,7 @@ The `minlength` attribute defines the minimum number of characters that the inpu
 
 The `pattern` attribute specifies a regular expression that the input's value must match.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input pattern="[A-Z]+" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -221,7 +221,7 @@ The `pattern` attribute specifies a regular expression that the input's value mu
 
 The `readonly` attribute controls whether the input field can be modified or not. When set to `true`, the input field cannot be modified.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input readonly value="Readonly" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -230,7 +230,7 @@ The `readonly` attribute controls whether the input field can be modified or not
 
 The `required` attribute controls whether the input is required or not. When set to `true`, it adds “required” after the label, and activates the required validator.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-input required input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -239,7 +239,7 @@ The `required` attribute controls whether the input is required or not. When set
 
 The `size` attribute sets the size of the input field to provide a visual indication of the expected text length to the user.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input size="6" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -248,7 +248,7 @@ The `size` attribute sets the size of the input field to provide a visual indica
 
 The `step` attribute specifies the granularity that the value must adhere to. Use it with the `number` input type.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input step="10" type="number" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -257,7 +257,7 @@ The `step` attribute specifies the granularity that the value must adhere to. Us
 
 The `suggestions` attribute defines an array of suggestion options.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input suggestions='[{ "label": "Suggestion A"}, { "label": "Suggestion B"}, { "label": "Suggestion C"}]' input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -276,7 +276,7 @@ The `type` attribute defines the input type. The available options are:
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input type="email" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -285,7 +285,7 @@ The `type` attribute defines the input type. The available options are:
 
 The `validate-on` attribute defines the validation event for the input.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input validate-on="other" required input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
@@ -294,7 +294,7 @@ The `validate-on` attribute defines the validation event for the input.
 
 The `value` attribute sets the initial value displayed in the input. It reflects the current value as the user edits it.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-input value="Text" input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}

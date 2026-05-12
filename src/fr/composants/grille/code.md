@@ -164,8 +164,8 @@ L'attribut `align-content` définit l'alignement de la grille le long de l'axe d
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items examples-grid" %}
-<gcds-grid align-content="space-between" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "220", "example-styled-items examples-grid", "fr" %}
+<gcds-grid align-content="space-between" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -187,8 +187,8 @@ L'attribut `align-items` définit l'alignement des éléments de la grille le lo
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid align-items="baseline" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "220", "example-styled-items", "fr" %}
+<gcds-grid align-items="baseline" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p class="pb-800">2</p>
   <p class="pt-900">3</p>
@@ -205,8 +205,8 @@ L'attribut `alignment` définit l'alignement de la grille lorsque la taille du c
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid alignment="end" container="sm" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "120", "example-styled-items", "fr" %}
+<gcds-grid alignment="end" container="sm" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -217,7 +217,7 @@ L'attribut `alignment` définit l'alignement de la grille lorsque la taille du c
 
 L'attribut `columns` définit le nombre de colonnes de la grille pour toutes les fenêtres d'affichage, à moins que `columns-tablet` ou `columns-desktop` ne soient définis. Utilisez `columns-desktop` et `columns-tablet` pour définir des mises en page différentes selon l'appareil.
 
-{% examplesPreview "example-styled-items" %}
+{% examplesPreview "220", "example-styled-items", "fr" %}
 <gcds-grid columns="1fr 1fr">
   <p>1</p>
   <p>2</p>
@@ -229,8 +229,8 @@ L'attribut `columns` définit le nombre de colonnes de la grille pour toutes les
 
 L'attribut `columns-desktop` permet de définir un nombre de colonnes différent pour les écrans d'ordinateur de bureau.
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "140", "example-styled-items", "fr" %}
+<gcds-grid columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -241,7 +241,7 @@ L'attribut `columns-desktop` permet de définir un nombre de colonnes différent
 
 L'attribut `columns-tablet` permet de définir un nombre de colonnes différent pour les écrans de tablette. Si `columns-desktop` n'est pas défini, `columns-tablet` s'applique également aux écrans d'ordinateur de bureau.
 
-{% examplesPreview "example-styled-items" %}
+{% examplesPreview "220", "example-styled-items", "fr" %}
 <gcds-grid columns-tablet="1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
@@ -262,8 +262,8 @@ L'attribut `container` définit la taille du conteneur de la grille. Les options
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid container="sm" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "140", "example-styled-items examples-grid-container", "fr" %}
+<gcds-grid container="sm" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -279,8 +279,8 @@ L'attribut `display` définit le conteneur comme un bloc (`grid`) ou un élémen
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid display="inline-grid" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "140", "example-styled-items", "fr" %}
+<gcds-grid display="inline-grid" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -291,8 +291,8 @@ L'attribut `display` définit le conteneur comme un bloc (`grid`) ou un élémen
 
 L'attribut `gap` définit l'espacement horizontal et vertical entre les éléments de la grille pour toutes les fenêtres d'affichage, à moins que `gap-tablet` ou `gap-desktop` ne soient définis. Utilisez `gap-desktop` et `gap-tablet` pour définir des espacements différents selon l'appareil.
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid gap="450" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "230", "example-styled-items", "fr" %}
+<gcds-grid gap="450" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -306,8 +306,8 @@ L'attribut `gap` définit l'espacement horizontal et vertical entre les élémen
 
 L'attribut `gap-desktop` permet de définir un espacement horizontal et vertical entre les éléments de la grille pour les écrans d'ordinateur de bureau.
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid gap-desktop="800" gap="400" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "230", "example-styled-items", "fr" %}
+<gcds-grid gap-desktop="800" gap="400" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -321,8 +321,8 @@ L'attribut `gap-desktop` permet de définir un espacement horizontal et vertical
 
 L'attribut `gap-tablet` permet de définir un espacement horizontal et vertical entre les éléments de la grille pour les écrans de tablette. Si `gap-desktop` n'est pas défini, `gap-tablet` s'applique également aux écrans d'ordinateur de bureau.
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid gap-tablet="500" gap="400" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "240", "example-styled-items", "fr" %}
+<gcds-grid gap-tablet="500" gap="400" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -346,8 +346,8 @@ L'attribut `justify-content` définit l'alignement de la grille le long de l'axe
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid justify-content="center" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "140", "example-styled-items", "fr" %}
+<gcds-grid justify-content="center" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -365,8 +365,8 @@ L'attribut `justify-items` définit l'alignement des éléments de la grille le 
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid justify-items="center" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "140", "example-styled-items", "fr" %}
+<gcds-grid justify-items="center" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -387,8 +387,8 @@ L'attribut `place-content` définit à la fois les attributs `align-content` et 
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid place-content="space-around" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "220", "example-styled-items", "fr" %}
+<gcds-grid place-content="space-around" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -409,8 +409,8 @@ L'attribut `place-items` définit à la fois les attributs `align-items` et `jus
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid place-items="end" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "220", "example-styled-items", "fr" %}
+<gcds-grid place-items="end" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -436,8 +436,8 @@ L'attribut `tag` définit l'élément HTML utilisé pour afficher le conteneur d
 
 <!-- Force line break -->
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "140", "example-styled-items", "fr" %}
+<gcds-grid tag="article" columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>
@@ -453,8 +453,8 @@ L'attribut `tag` définit l'élément HTML utilisé pour afficher le conteneur d
 
 L'emplacement par défaut sert à placer les éléments de la grille.
 
-{% examplesPreview "example-styled-items" %}
-<gcds-grid columns-desktop="1fr 1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{% examplesPreview "140", "example-styled-items", "fr" %}
+<gcds-grid columns-tablet="1fr 1fr 1fr" columns="1fr">
   <p>1</p>
   <p>2</p>
   <p>3</p>

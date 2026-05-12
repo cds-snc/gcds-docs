@@ -38,7 +38,7 @@ date: 'git Last Modified'
 
 L'attribut `type` contrôle l'affichage des informations de date de modification. Par défaut, il est défini à `date`, ce qui affiche la date de dernière modification du contenu.
 
-{% examplesPreview %}
+{% examplesPreview "140", "", "fr" %}
 <gcds-date-modified>
   2023-01-26
 </gcds-date-modified>
@@ -46,7 +46,7 @@ L'attribut `type` contrôle l'affichage des informations de date de modification
 
 Lorsqu'il est défini à `version`, le composant affiche un numéro de version à la place.
 
-{% examplesPreview %}
+{% examplesPreview "140", "", "fr" %}
 <gcds-date-modified type="version">
   v1.0.0
 </gcds-date-modified>
@@ -61,7 +61,7 @@ Lorsqu'il est défini à `version`, le composant affiche un numéro de version �
 
 L'emplacement par défaut sert à ajouter le texte de la date de modification ou de la version.
 
-{% examplesPreview %}
+{% examplesPreview "140", "", "fr" %}
 <gcds-date-modified>
   2023-01-26
 </gcds-date-modified>

@@ -50,7 +50,7 @@ Pour aider une personne à accéder au contenu du composant Détails :
 
 L'attribut `details-title` définit le libellé qui résume le contenu du composant détails.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-details details-title="Apprenez-en plus sur ce sujet">
   <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
 </gcds-details>
@@ -65,7 +65,7 @@ L'attribut `details-title` définit le libellé qui résume le contenu du compos
 
 L'attribut `open` contrôle si le composant est ouvert par défaut ou non.
 
-{% examplesPreview %}
+{% examplesPreview "170", "", "fr" %}
 <gcds-details details-title="Apprenez-en plus sur ce sujet" open>
   <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
 </gcds-details>
@@ -80,7 +80,7 @@ L'attribut `open` contrôle si le composant est ouvert par défaut ou non.
 
 L'emplacement par défaut sert à ajouter du contenu à l'intérieur du composant.
 
-{% examplesPreview %}
+{% examplesPreview "100", "", "fr" %}
 <gcds-details details-title="Apprenez-en plus sur ce sujet">
   <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
 </gcds-details>

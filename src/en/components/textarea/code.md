@@ -57,7 +57,7 @@ For the textarea to function properly, always use the following attributes with 
 
 The `label` attribute defines the label for the textarea.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -66,7 +66,7 @@ The `label` attribute defines the label for the textarea.
 
 The `name` attribute identifies the textarea component within a form. It is used to reference the textarea’s value when a form is submitted.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -75,7 +75,7 @@ The `name` attribute identifies the textarea component within a form. It is used
 
 The `textarea-id` attribute specifies the unique identifier for the textarea.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -89,7 +89,7 @@ The `textarea-id` attribute specifies the unique identifier for the textarea.
 
 The `autofocus` attribute controls whether the textarea will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the textarea is focused on render.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea autofocus textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -98,7 +98,7 @@ The `autofocus` attribute controls whether the textarea will be focused automati
 
 The `cols` attribute defines the visible width of the textarea in average character widths. The minimum width is 50% of its container.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea cols="8" textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -107,7 +107,7 @@ The `cols` attribute defines the visible width of the textarea in average charac
 
 The `disabled` attribute controls whether the textarea is disabled or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea disabled textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -116,7 +116,7 @@ The `disabled` attribute controls whether the textarea is disabled or not. By de
 
 The `error-message` attribute defines the error message to display for an invalid textarea.
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-textarea error-message="Error message" textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -125,7 +125,7 @@ The `error-message` attribute defines the error message to display for an invali
 
 The `form` attribute specifies the ID of the form that the textarea belongs to.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea form="form-id" textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -134,7 +134,7 @@ The `form` attribute specifies the ID of the form that the textarea belongs to.
 
 The `hide-label` attribute controls whether the label is hidden or not.
 
-{% examplesPreview %}
+{% examplesPreview "260" %}
 <gcds-textarea hide-label textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -143,7 +143,7 @@ The `hide-label` attribute controls whether the label is hidden or not.
 
 The `hide-limit` attribute controls whether the character limit counter is displayed or not. When set to `true`, the character limit counter is not displayed. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea hide-limit maxlength="20" textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -152,7 +152,7 @@ The `hide-limit` attribute controls whether the character limit counter is displ
 
 The `hint` attribute defines the hint text displayed under the label.
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-textarea hint="Hint / Example message." textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -161,7 +161,7 @@ The `hint` attribute defines the hint text displayed under the label.
 
 The `maxlength` attribute defines the maximum number of characters that the textarea field can accept.
 
-{% examplesPreview %}
+{% examplesPreview "350" %}
 <gcds-textarea maxlength="10" textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -170,7 +170,7 @@ The `maxlength` attribute defines the maximum number of characters that the text
 
 The `minlength` attribute defines the minimum number of characters that the textarea field can accept.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea minlength="5" textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -179,7 +179,7 @@ The `minlength` attribute defines the minimum number of characters that the text
 
 The `required` attribute controls whether the textarea field is required or not. When set to `true`, it adds “required” after the label, and activates the required validator.
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-textarea required textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -188,7 +188,7 @@ The `required` attribute controls whether the textarea field is required or not.
 
 The `rows` attribute defines the number of visible text rows in the textarea, which determines its height.
 
-{% examplesPreview %}
+{% examplesPreview "230" %}
 <gcds-textarea rows="3" textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -197,7 +197,7 @@ The `rows` attribute defines the number of visible text rows in the textarea, wh
 
 The `validate-on` attribute defines the validation event for the textarea.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea validate-on="other" required textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
@@ -206,7 +206,7 @@ The `validate-on` attribute defines the validation event for the textarea.
 
 The `value` attribute sets the initial content of the textarea. It updates to reflect the value entered by the user.
 
-{% examplesPreview %}
+{% examplesPreview "300" %}
 <gcds-textarea value="Textarea content." textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}

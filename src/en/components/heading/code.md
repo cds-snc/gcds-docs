@@ -63,7 +63,7 @@ Heading levels follow a sequential, hierarchical order: higher levels have large
 
 The `tag` attribute sets the appropriate HTML heading element for the selected level.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-heading tag="h2">
   Heading
 </gcds-heading>
@@ -78,7 +78,7 @@ The `tag` attribute sets the appropriate HTML heading element for the selected l
 
 The `character-limit` attribute defines the line length to a maximum number of characters per line for each heading level, ensuring a comfortable, accessible reading length.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-heading tag="h2" character-limit="false">
   Heading
 </gcds-heading>
@@ -94,7 +94,7 @@ The `heading-role` attribute sets the main style of the heading. The available o
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-heading tag="h2" heading-role="secondary">
   Heading
 </gcds-heading>
@@ -104,7 +104,7 @@ The `heading-role` attribute sets the main style of the heading. The available o
 
 The `margin-bottom` attribute sets a margin below the heading. The default `margin-bottom` is `300`.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-heading tag="h2" margin-bottom="600">
   Heading
 </gcds-heading>
@@ -114,7 +114,7 @@ The `margin-bottom` attribute sets a margin below the heading. The default `marg
 
 The `margin-top` attribute sets a margin above the heading. The default `margin-top` for `h1` is set to `0`, while for `h2` to `h6` headings, it's `600`.
 
-{% examplesPreview %}
+{% examplesPreview "140" %}
 <gcds-heading tag="h2" margin-top="200">
   Heading
 </gcds-heading>
@@ -129,7 +129,7 @@ The `margin-top` attribute sets a margin above the heading. The default `margin-
 
 The `default` slot is for adding text to the heading.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-heading tag="h2">
   Heading
 </gcds-heading>

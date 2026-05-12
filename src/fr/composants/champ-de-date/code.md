@@ -61,7 +61,7 @@ Le champ de date peut recevoir et rendre des valeurs d’un format différent qu
 
 L'attribut `format` définit le format d'affichage de la date.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -70,7 +70,7 @@ L'attribut `format` définit le format d'affichage de la date.
 
 L'attribut `legend` définit la légende du champ de date.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -79,7 +79,7 @@ L'attribut `legend` définit la légende du champ de date.
 
 L'attribut `name` identifie le composant dans le formulaire. Il permet de référencer le composant après l'envoi du formulaire.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -93,7 +93,7 @@ L'attribut `name` identifie le composant dans le formulaire. Il permet de réfé
 
 L'attribut `autofocus` contrôle si le champ de date est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le champ est ciblé à l'affichage.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input autofocus format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -102,7 +102,7 @@ L'attribut `autofocus` contrôle si le champ de date est ciblé automatiquement 
 
 L'attribut `disabled` contrôle si le champ de date est désactivé ou non. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input disabled format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -111,7 +111,7 @@ L'attribut `disabled` contrôle si le champ de date est désactivé ou non. Par 
 
 L'attribut `error-message` définit le message d'erreur à afficher pour un champ de date invalide.
 
-{% examplesPreview %}
+{% examplesPreview "240", "", "fr" %}
 <gcds-date-input error-message="Message d'erreur" format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -120,7 +120,7 @@ L'attribut `error-message` définit le message d'erreur à afficher pour un cham
 
 L'attribut `form` définit l'identifiant du formulaire auquel appartient le champ de date.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input form="form-id" format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -129,7 +129,7 @@ L'attribut `form` définit l'identifiant du formulaire auquel appartient le cham
 
 L'attribut `hint` définit le texte explicatif affiché sous la légende.
 
-{% examplesPreview %}
+{% examplesPreview "240", "", "fr" %}
 <gcds-date-input hint="Le jour peut être composé de 1 ou 2 chiffres. L’année doit inclure 4 chiffres." format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -138,7 +138,7 @@ L'attribut `hint` définit le texte explicatif affiché sous la légende.
 
 L'attribut `max` définit la date maximale acceptée par le champ. Format : `YYYY-MM-DD` ou `YYYY-MM`.
 
-{% examplesPreview %}
+{% examplesPreview "280", "", "fr" %}
 <gcds-date-input max="2000-01-01" hint="La date doit être avant le 2000-01-01" format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -147,7 +147,7 @@ L'attribut `max` définit la date maximale acceptée par le champ. Format : `YYY
 
 L'attribut `min` définit la date minimale acceptée par le champ. Format : `YYYY-MM-DD` ou `YYYY-MM`.
 
-{% examplesPreview %}
+{% examplesPreview "280", "", "fr" %}
 <gcds-date-input min="2000-01-01" hint="La date doit être après le 2000-01-01" format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -156,7 +156,7 @@ L'attribut `min` définit la date minimale acceptée par le champ. Format : `YYY
 
 L'attribut `required` contrôle si le champ de date est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après la légende et active le validateur de champ obligatoire.
 
-{% examplesPreview %}
+{% examplesPreview "240", "", "fr" %}
 <gcds-date-input required format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -165,7 +165,7 @@ L'attribut `required` contrôle si le champ de date est obligatoire ou non. Lors
 
 L'attribut `validate-on` définit l'événement de validation pour le champ de date.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input validate-on="other" required format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -174,7 +174,7 @@ L'attribut `validate-on` définit l'événement de validation pour le champ de d
 
 L'attribut `value` définit la date initiale affichée dans le composant. Il fournit également une référence à la date saisie. Format : `YYYY-MM-DD` ou `YYYY-MM`.
 
-{% examplesPreview %}
+{% examplesPreview "200", "", "fr" %}
 <gcds-date-input value="2026-02-22" format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}

@@ -42,7 +42,7 @@ Use the `notice-role` attribute to categorize the notice as `info`, `warning`, `
 
 The `notice-role` attribute sets the style of notice to be displayed.
 
-{% examplesPreview %}
+{% examplesPreview "150" %}
 <gcds-notice notice-role="success" notice-title="Success notice title" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     This is a success message.
@@ -54,7 +54,7 @@ The `notice-role` attribute sets the style of notice to be displayed.
 
 The `notice-title` attribute defines the title of the notice.
 
-{% examplesPreview %}
+{% examplesPreview "150" %}
 <gcds-notice notice-role="success" notice-title="Success notice title" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     This is a success message.
@@ -66,7 +66,7 @@ The `notice-title` attribute defines the title of the notice.
 
 The `notice-title-tag` attribute sets the HTML heading element for the title. This attribute does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.
 
-{% examplesPreview %}
+{% examplesPreview "150" %}
 <gcds-notice notice-role="success" notice-title="Success notice title" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     This is a success message.
@@ -83,7 +83,7 @@ The `notice-title-tag` attribute sets the HTML heading element for the title. Th
 
 The `default` slot is for placing the message of the notice.
 
-{% examplesPreview %}
+{% examplesPreview "150" %}
 <gcds-notice notice-role="success" notice-title="Success notice title" notice-title-tag="h2">
   <gcds-text margin-bottom="0">
     This is a success message.

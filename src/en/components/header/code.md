@@ -68,7 +68,7 @@ GC Design System components are designed to adapt to the size of the screen or f
 
 The `lang-href` attribute specifies the URL of the same page in another language, typically English or French. Use this attribute to provide a link that allows users to switch between available language versions.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
 </gcds-header>
 {% endexamplesPreview %}
@@ -77,7 +77,7 @@ The `lang-href` attribute specifies the URL of the same page in another language
 
 The `skip-to-href` attribute specifies the URL or anchor for the "Skip to content" link. This link allows users, especially those using assistive technologies, to quickly navigate to the main content of the page, improving accessibility.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
 </gcds-header>
 {% endexamplesPreview %}
@@ -91,14 +91,14 @@ The `skip-to-href` attribute specifies the URL or anchor for the "Skip to conten
 
 The `signature-has-link` attribute determines whether the header signature links to Canada.ca. By default, it's set to `true`, which means the signature is clickable.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
 </gcds-header>
 {% endexamplesPreview %}
 
 When it's set to `false`, a non-clickable signature is displayed.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here" signature-has-link="false">
 </gcds-header>
 {% endexamplesPreview %}
@@ -112,7 +112,7 @@ When it's set to `false`, a non-clickable signature is displayed.
 
 The `banner` slot is for adding a banner across the top of the header. Use this slot to display site-wide alerts or promotional messages.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
   <div slot="banner">Banner slot</div>
 </gcds-header>
@@ -122,7 +122,7 @@ The `banner` slot is for adding a banner across the top of the header. Use this 
 
 The `breadcrumb` slot is for adding [breadcrumbs]({{links.breadcrumbs}}) below the header. Use this slot to show the user’s current page location and navigation path.
 
-{% examplesPreview %}
+{% examplesPreview "210" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
   <gcds-breadcrumbs slot="breadcrumb">
     <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
@@ -135,7 +135,7 @@ The `breadcrumb` slot is for adding [breadcrumbs]({{links.breadcrumbs}}) below t
 
 The `menu` slot is for adding a navigation menu below the divider line. For instance, you can use the [top-nav]({{links.topNav}}) component within this slot to provide the site’s primary navigation links.
 
-{% examplesPreview %}
+{% examplesPreview "240" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
   <gcds-top-nav label="Top navigation" alignment="right" slot="menu">
     <gcds-nav-link href="#home" slot="home">GC Notify</gcds-nav-link>
@@ -149,7 +149,7 @@ The `menu` slot is for adding a navigation menu below the divider line. For inst
 
 The `search` slot is for adding a [search field]({{links.search}}) to the header. Use this slot to allow users to search site content directly from the header.
 
-{% examplesPreview %}
+{% examplesPreview "220" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
   <gcds-search slot="search"></gcds-search>
 </gcds-header>
@@ -159,7 +159,7 @@ The `search` slot is for adding a [search field]({{links.search}}) to the header
 
 The `signature` slot is for replacing the default [Government of Canada signature]({{links.signature}}). Use this slot to display a custom signature or logo if needed.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
   <gcds-signature slot="signature"></gcds-signature>
 </gcds-header>
@@ -169,11 +169,9 @@ The `signature` slot is for replacing the default [Government of Canada signatur
 
 The `skip-to-nav` slot is for adding a "skip to content" link at the top of the header. By default, the header includes a “skip to main content” link to improve accessibility for users of assistive technologies. The target for this default link can be set using the [`skip-to-href`](/en/components/header/examples#skiptohref) prop. Use this slot to add additional skip links or a custom “skip to content” link.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
-  <gcds-link href="#main-content" slot="skip-to-nav">
-    Skip to main content
-  </gcds-link>
+  <gcds-link href="#main-content" slot="skip-to-nav">Skip to main content</gcds-link>
 </gcds-header>
 {% endexamplesPreview %}
 
@@ -181,7 +179,7 @@ The `skip-to-nav` slot is for adding a "skip to content" link at the top of the 
 
 The `toggle` slot is for adding a custom [language toggle]({{links.langToggle}}) in the header. By default, the header includes a language toggle that includes English and French. The target for this default language toggle can be set using the [`lang-href`](/en/components/header/examples#langhref) prop. Use this slot to add additional available languages.
 
-{% examplesPreview %}
+{% examplesPreview "160" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
   <gcds-lang-toggle href="url-here" slot="toggle">
   </gcds-lang-toggle>

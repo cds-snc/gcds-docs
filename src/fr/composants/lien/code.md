@@ -58,7 +58,7 @@ Remarque : Seuls les fichiers dont l'URL est de la même origine que le site We
 
 L'attribut `href` définit l'URL de la page vers laquelle pointe le lien.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link href="#">Lien de navigation</gcds-link>
 {% endexamplesPreview %}
 
@@ -76,17 +76,15 @@ L'attribut `display` définit le comportement d'affichage du lien. Les options s
 
 <!-- Force line break -->
 
-{% examplesPreview %}
-<gcds-link display="block" href="#">
-  Lien de navigation
-</gcds-link>
+{% examplesPreview "80", "", "fr" %}
+<gcds-link display="block" href="#">Lien de navigation</gcds-link>
 {% endexamplesPreview %}
 
 #### `download`
 
 L'attribut `download` indique que la cible (le fichier spécifié dans l'attribut href) sera téléchargée lorsque l'utilisateur clique sur le lien.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
   Télécharger le document (PDF, 1,5 Mb)
 </gcds-link>
@@ -96,7 +94,7 @@ L'attribut `download` indique que la cible (le fichier spécifié dans l'attribu
 
 L'attribut `external` contrôle si le lien est externe ou non. Lorsqu'il est défini à true, une icône de lien externe est ajoutée après le lien.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link external href="#">Lien de navigation</gcds-link>
 {% endexamplesPreview %}
 
@@ -109,12 +107,10 @@ L'attribut `link-role` définit le style principal du lien. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130", "", "fr" %}
 
 <div class="bg-dark p-300">
-  <gcds-link link-role="light" href="#">
-    Lien de navigation
-  </gcds-link>
+  <gcds-link link-role="light" href="#">Lien de navigation</gcds-link>
 </div>
 {% endexamplesPreview %}
 
@@ -122,7 +118,7 @@ L'attribut `link-role` définit le style principal du lien. Les options sont :
 
 L'attribut `rel` définit la relation entre le document actuel et le document lié. Il est souvent utilisé pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link rel="license" href="#license">Lien de navigation</gcds-link>
 {% endexamplesPreview %}
 
@@ -136,7 +132,7 @@ L'attribut `size` définit la taille du lien. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link size="small" href="#">Lien de navigation</gcds-link>
 {% endexamplesPreview %}
 
@@ -144,7 +140,7 @@ L'attribut `size` définit la taille du lien. Les options sont :
 
 L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le lien dans le même contexte de navigation ou dans un nouvel onglet ou une nouvelle fenêtre.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link target="_blank" href="#">Lien de navigation</gcds-link>
 {% endexamplesPreview %}
 
@@ -152,7 +148,7 @@ L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le
 
 L'attribut `type` définit le type de média du document lié.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
   Télécharger le document (PDF, 1,5 Mb)
 </gcds-link>
@@ -167,7 +163,7 @@ L'attribut `type` définit le type de média du document lié.
 
 L'emplacement par défaut sert à placer le texte du lien.
 
-{% examplesPreview %}
+{% examplesPreview "80", "", "fr" %}
 <gcds-link href="#">Lien de navigation</gcds-link>
 {% endexamplesPreview %}
 

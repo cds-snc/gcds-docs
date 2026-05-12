@@ -42,7 +42,7 @@ Si vous utilisez un composant Chemin de navigation, uniformisez la hiérarchie d
 
 L'attribut `label` définit le libellé du repère de navigation.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -54,7 +54,7 @@ L'attribut `label` définit le libellé du repère de navigation.
 
 L'attribut `menu-label` du sous-composant `gcds-nav-group` définit le libellé du sous-menu de navigation.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -70,7 +70,7 @@ L'attribut `menu-label` du sous-composant `gcds-nav-group` définit le libellé 
 
 L'attribut `open-trigger` du sous-composant `gcds-nav-group` définit le libellé du bouton lorsque le sous-menu est réduit.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -86,7 +86,7 @@ L'attribut `open-trigger` du sous-composant `gcds-nav-group` définit le libell�
 
 L'attribut `href` du sous-composant gcds-nav-link définit l'URL de la page vers laquelle pointe le lien.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -103,7 +103,7 @@ L'attribut `href` du sous-composant gcds-nav-link définit l'URL de la page vers
 
 L'attribut `close-trigger` du sous-composant `gcds-nav-group` définit le libellé du bouton lorsque le sous-menu est développé.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -119,7 +119,7 @@ L'attribut `close-trigger` du sous-composant `gcds-nav-group` définit le libell
 
 L'attribut `open` du sous-composant `gcds-nav-group` contrôle si le sous-menu est développé ou non. Par défaut, il est défini à `false`.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -135,7 +135,7 @@ L'attribut `open` du sous-composant `gcds-nav-group` contrôle si le sous-menu e
 
 L'attribut `current` du sous-composant `gcds-nav-link` indique si la page est la page actuelle ou non.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -152,7 +152,7 @@ L'attribut `current` du sous-composant `gcds-nav-link` indique si la page est la
 
 L'emplacement par défaut sert à ajouter des groupes de navigation et des liens de navigation.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
   <gcds-nav-link href="#">Pourquoi Formulaires GC</gcds-nav-link>
@@ -168,7 +168,7 @@ L'emplacement par défaut sert à ajouter des groupes de navigation et des liens
 
 L'emplacement `home` sert à ajouter le lien de la page d'accueil ou le titre du site.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-link href="#" slot="home">Formulaires GC</gcds-nav-link>
 </gcds-side-nav>
@@ -178,7 +178,7 @@ L'emplacement `home` sert à ajouter le lien de la page d'accueil ou le titre du
 
 L'emplacement par défaut du sous-composant `gcds-nav-group` sert à ajouter la liste des liens de navigation.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-side-nav label="Aperçu du composant de barre de navigation latérale">
   <gcds-nav-group menu-label="Features" open-trigger="Features">
     <gcds-nav-link href="#">Révisez dans les deux langues officielles côte à côte</gcds-nav-link>
@@ -191,7 +191,7 @@ L'emplacement par défaut du sous-composant `gcds-nav-group` sert à ajouter la 
 
 L'emplacement par défaut du sous-composant `gcds-nav-link` sert à ajouter le contenu du lien de navigation.
 
-{% examplesPreview %}
+{% examplesPreview "120", "", "fr" %}
 <gcds-nav-link href="#">Formulaires GC</gcds-nav-link>
 {% endexamplesPreview %}
 

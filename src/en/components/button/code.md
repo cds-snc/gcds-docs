@@ -65,7 +65,7 @@ The `button-role` attribute sets the main style for a button. The available opti
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-button button-role="start">Start</gcds-button>
 <gcds-button>Submit</gcds-button>
 <gcds-button button-role="secondary">Cancel</gcds-button>
@@ -86,7 +86,7 @@ The `disabled` attribute is a `boolean` that controls whether a button is intera
 
 The `name` attribute specifies the name of the button when submitting form data. It is useful for identifying which button triggered a form submission, especially when multiple buttons exist in a form.
 
-{% examplesPreview %}
+{% examplesPreview "180" %}
 
 <form action="..." method="post">
   <gcds-button button-role="secondary" name="save-draft" type="submit">Save draft</gcds-button>
@@ -103,7 +103,7 @@ The `size` attribute sets the button size. The available options are:
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "180" %}
 <gcds-button>Default size</gcds-button>
 <gcds-button size="small">Small size</gcds-button>
 {% endexamplesPreview %}
@@ -119,7 +119,7 @@ The `type` attribute defines the button's function. The available options are:
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "340" %}
 <gcds-button>Button</gcds-button>
 <gcds-button type="link">Link</gcds-button>
 <gcds-button type="reset">Reset</gcds-button>
@@ -130,7 +130,7 @@ The `type` attribute defines the button's function. The available options are:
 
 The `value` attribute defines the data that will be sent to the server when the button is used to submit a form. This `value` is only included if the button has a `name` attribute and was the one that triggered the submission. If multiple submit buttons exist, only the clicked one sends its value.
 
-{% examplesPreview %}
+{% examplesPreview "180" %}
 
 <form action="..." method="post">
   <gcds-button button-role="secondary" type="submit" name="applicationAction" value="save">Save draft</gcds-button>

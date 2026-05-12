@@ -61,7 +61,7 @@ Date input can receive and output different value formats depending on the `form
 
 The `format` attribute sets how the date is formatted.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -70,7 +70,7 @@ The `format` attribute sets how the date is formatted.
 
 The `legend` attribute defines the legend for the date input.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -79,7 +79,7 @@ The `legend` attribute defines the legend for the date input.
 
 The `name` attribute identifies the date input component within a form. It is used to reference the component after a form is submitted.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -93,7 +93,7 @@ The `name` attribute identifies the date input component within a form. It is us
 
 The `autofocus` attribute controls whether the date input will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the date input is focused on render.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input autofocus format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -102,7 +102,7 @@ The `autofocus` attribute controls whether the date input will be focused automa
 
 The `disabled` attribute controls whether the date input is disabled or not. By default, it is set to `false`.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input disabled format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -111,7 +111,7 @@ The `disabled` attribute controls whether the date input is disabled or not. By 
 
 The `error-message` attribute defines the error message to display for invalid date inputs.
 
-{% examplesPreview %}
+{% examplesPreview "240" %}
 <gcds-date-input error-message="Error message" format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -120,7 +120,7 @@ The `error-message` attribute defines the error message to display for invalid d
 
 The `form` attribute specifies the ID of the form that the date input belongs to.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input form="form-id" format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -129,7 +129,7 @@ The `form` attribute specifies the ID of the form that the date input belongs to
 
 The `hint` attribute defines the hint text displayed under the legend.
 
-{% examplesPreview %}
+{% examplesPreview "240" %}
 <gcds-date-input hint="Day can be 1 or 2 digits. Year must be 4 digits." format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -138,7 +138,7 @@ The `hint` attribute defines the hint text displayed under the legend.
 
 The `max` attribute defines the maximum date that the date input can accept. Format: `YYYY-MM-DD` or `YYYY-MM`.
 
-{% examplesPreview %}
+{% examplesPreview "280" %}
 <gcds-date-input max="2000-01-01" hint="The date must be before 2000-01-01" format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -147,7 +147,7 @@ The `max` attribute defines the maximum date that the date input can accept. For
 
 The `min` attribute defines the minimum date that the date input can accept. Format: `YYYY-MM-DD` or `YYYY-MM`.
 
-{% examplesPreview %}
+{% examplesPreview "280" %}
 <gcds-date-input min="2000-01-01" hint="The date must be after 2000-01-01" format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -156,7 +156,7 @@ The `min` attribute defines the minimum date that the date input can accept. For
 
 The `required` attribute controls whether the date input field is required or not. When set to `true`, it adds “required” after the legend, and activates the required validator.
 
-{% examplesPreview %}
+{% examplesPreview "240" %}
 <gcds-date-input required format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -165,7 +165,7 @@ The `required` attribute controls whether the date input field is required or no
 
 The `validate-on` attribute defines the validation event for the date input.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input validate-on="other" required format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
@@ -174,7 +174,7 @@ The `validate-on` attribute defines the validation event for the date input.
 
 The `value` attribute sets the initial date displayed in the component. It also provides a reference to the entered date. Format: `YYYY-MM-DD` or `YYYY-MM`.
 
-{% examplesPreview %}
+{% examplesPreview "200" %}
 <gcds-date-input value="2026-02-22" format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}

@@ -85,7 +85,7 @@ L'attribut `alignment` définit comment le conteneur est positionné dans son pa
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130", "", "fr" %}
 <gcds-container alignment="center" size="sm" border padding="300">
   <p>Conteneur</p>
 </gcds-container>
@@ -95,7 +95,7 @@ L'attribut `alignment` définit comment le conteneur est positionné dans son pa
 
 L'attribut `border` contrôle si le conteneur a une bordure ou non.
 
-{% examplesPreview %}
+{% examplesPreview "130", "", "fr" %}
 <gcds-container border padding="300">
   <p>Conteneur</p>
 </gcds-container>
@@ -110,7 +110,7 @@ L'attribut `layout` définit comment le conteneur s'aligne avec la mise en page.
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130", "", "fr" %}
 <gcds-container layout="full" border padding="300">
   <p>Conteneur</p>
 </gcds-container>
@@ -120,7 +120,7 @@ L'attribut `layout` définit comment le conteneur s'aligne avec la mise en page.
 
 L'attribut `margin` définit la marge du conteneur. Les marges gauche et droite ne sont pas appliquées si l'attribut alignment est défini, car il a une priorité plus élevée.
 
-{% examplesPreview %}
+{% examplesPreview "270", "", "fr" %}
 <gcds-container margin="800" size="xs" border padding="300">
   <p>Conteneur</p>
 </gcds-container>
@@ -130,7 +130,7 @@ L'attribut `margin` définit la marge du conteneur. Les marges gauche et droite 
 
 L'attribut `padding` définit la marge intérieure du conteneur, soit l'espacement entre sa bordure et son contenu.
 
-{% examplesPreview %}
+{% examplesPreview "190", "", "fr" %}
 <gcds-container padding="600" border>
   <p>Conteneur</p>
 </gcds-container>
@@ -149,7 +149,7 @@ L'attribut `size` définit la largeur du conteneur. Les options sont :
 
 <!-- Force line break -->
 
-{% examplesPreview %}
+{% examplesPreview "130", "", "fr" %}
 <gcds-container size="sm" border padding="300">
   <p>Conteneur</p>
 </gcds-container>
@@ -159,7 +159,7 @@ L'attribut `size` définit la largeur du conteneur. Les options sont :
 
 L'attribut `tag` définit l'élément HTML utilisé pour afficher le conteneur. Par défaut, il est défini à `div`.
 
-{% examplesPreview %}
+{% examplesPreview "130", "", "fr" %}
 <gcds-container tag="section" border padding="300">
   <p>Conteneur</p>
 </gcds-container>
@@ -174,7 +174,7 @@ L'attribut `tag` définit l'élément HTML utilisé pour afficher le conteneur. 
 
 L'emplacement par défaut sert à ajouter du contenu à l'intérieur du conteneur.
 
-{% examplesPreview %}
+{% examplesPreview "130", "", "fr" %}
 <gcds-container border padding="300">
   <p>Conteneur</p>
 </gcds-container>
