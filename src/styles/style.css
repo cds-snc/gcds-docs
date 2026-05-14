@@ -152,6 +152,10 @@ ul li ul li {
   max-width: var(--gcds-container-size-sm);
 }
 
+.examples-footer .preview-demo gcds-footer, .examples-footer.language-html > p {
+  display: none;
+}
+
 .anatomy-list {
   counter-reset: item;
   margin-block-end: var(--gcds-spacing-450);

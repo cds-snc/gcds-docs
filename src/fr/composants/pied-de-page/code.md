@@ -83,43 +83,51 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 
 L'attribut `contextual-heading` définit le texte du titre de la section de navigation contextuelle dans le pied de page. Ce titre sert aussi à identifier le repère de navigation du pied de page, ce qui améliore la structure et l'accessibilité.
 
-{% examplesPreview "550", "", "fr" %}
-<gcds-footer contextual-heading="Navigation contextuelle" contextual-links='{ "À propos": "#", "Contact": "#" }'>
+{% examplesPreview "460" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
 </gcds-footer>
+
+<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `contextual-links`
 
 L'attribut `contextual-links` définit l'ensemble des liens affichés dans la section de navigation contextuelle du pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
 
-{% examplesPreview "550", "", "fr" %}
-<gcds-footer contextual-heading="Navigation contextuelle" contextual-links='{ "À propos": "#", "Contact": "#" }'>
+{% examplesPreview "460" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
 </gcds-footer>
+
+<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `display`
 
 L'attribut `display` contrôle les sections du pied de page qui sont affichées. Par défaut, il est défini à `compact`, ce qui affiche uniquement la section de sous-pied de page.
 
-{% examplesPreview "400", "", "fr" %}
-<gcds-footer>
-</gcds-footer>
+{% examplesPreview "120" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer></gcds-footer>
+
+<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-compact.svg" alt=""/>
 {% endexamplesPreview %}
 
 Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page sont toutes deux affichées.
 
-{% examplesPreview "1110", "", "fr" %}
-<gcds-footer display="full">
-</gcds-footer>
+{% examplesPreview "380" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer display="full"></gcds-footer>
+
+<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-full.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `sub-links`
 
 L'attribut `sub-links` définit l'ensemble des liens affichés dans la section de sous-pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
 
-{% examplesPreview "260", "", "fr" %}
+{% examplesPreview "120" "examples-footer" "fr" "", "examples-footer" %}
 <gcds-footer sub-links='{ "Avis": "#", "Confidentialité": "#" }'>
 </gcds-footer>
+
+<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-compact-sub-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 <!-- ----- Code builder ----- -->

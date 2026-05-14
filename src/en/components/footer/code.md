@@ -83,43 +83,51 @@ Opt to include the contextual band to add up three specific links for your site.
 
 The `contextual-heading` attribute defines the heading text for the contextual navigation section in the footer. This heading is also used to label the footer’s navigation landmark, supporting clearer structure and accessibility.
 
-{% examplesPreview "550" %}
-<gcds-footer contextual-heading="Contextual navigation" contextual-links='{ "About us": "#", "Contact": "#" }'>
+{% examplesPreview "460" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
 </gcds-footer>
+
+<img src="https://design-system.canada.ca/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `contextual-links`
 
 The `contextual-links` attribute defines the set of links displayed in the footer’s contextual navigation section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: `{ link-label: link-href }`.
 
-{% examplesPreview "550" %}
-<gcds-footer contextual-heading="Contextual navigation" contextual-links='{ "About us": "#", "Contact": "#" }'>
+{% examplesPreview "460" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
 </gcds-footer>
+
+<img src="https://design-system.canada.ca/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `display`
 
 The `display` attribute controls which sections of the footer are rendered. By default, it is set to `compact`, displaying only the sub-footer section.
 
-{% examplesPreview "400" %}
-<gcds-footer>
-</gcds-footer>
+{% examplesPreview "120" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer></gcds-footer>
+
+<img src="https://design-system.canada.ca/images/en/components/example/example-footer-compact.svg" alt=""/>
 {% endexamplesPreview %}
 
 When it is set to `full`, both the main footer and sub-footer sections are displayed.
 
-{% examplesPreview "1110" %}
-<gcds-footer display="full">
-</gcds-footer>
+{% examplesPreview "380" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer display="full"></gcds-footer>
+
+<img src="https://design-system.canada.ca/images/en/components/example/example-footer-full.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `sub-links`
 
 The `sub-links` attribute defines the set of links displayed in the sub-footer section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: `{ link-label: link-href }`.
 
-{% examplesPreview "260" %}
+{% examplesPreview "120" "examples-footer" "en" "", "examples-footer" %}
 <gcds-footer sub-links='{ "Terms and conditions": "#", "Privacy": "#" }'>
 </gcds-footer>
+
+<img src="https://design-system.canada.ca/images/en/components/example/example-footer-compact-sub-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 <!-- ----- Code builder ----- -->

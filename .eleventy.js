@@ -545,7 +545,14 @@ module.exports = function (eleventyConfig) {
   // Add shortcode for example tab code previews
   eleventyConfig.addPairedShortcode(
     'examplesPreview',
-    (children, height = 100, className, locale = 'en', title) => {
+    (
+      children,
+      height = 100,
+      className,
+      locale = 'en',
+      title,
+      classNameCode,
+    ) => {
       const content = children.trim();
 
       const strings = {
@@ -601,7 +608,7 @@ module.exports = function (eleventyConfig) {
             height="${height}"
             srcdoc="${iframeHTML.replace(/"/g, '&quot;')}">
           </iframe>
-          <pre><code class="language-html font-size-text-small">${encode(content)}</code></pre>
+          <pre class="${classNameCode || ''}"><code class="language-html font-size-text-small">${encode(content)}</code></pre>
         </div>
       `;
     },

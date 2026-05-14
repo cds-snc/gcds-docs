@@ -63,3 +63,10 @@ ul li {
 .examples-grid-container gcds-grid {
   max-width: var(--gcds-container-size-sm);
 }
+
+.examples-footer {
+  .preview-demo gcds-footer,
+  &.language-html > p {
+    display: none;
+  }
+}
