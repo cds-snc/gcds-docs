@@ -87,7 +87,7 @@ The `contextual-heading` attribute defines the heading text for the contextual n
 <gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
 </gcds-footer>
 
-<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
+<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark."/>
 {% endexamplesPreview %}
 
 #### `contextual-links`
@@ -98,7 +98,7 @@ The `contextual-links` attribute defines the set of links displayed in the foote
 <gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
 </gcds-footer>
 
-<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
+<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark."/>
 {% endexamplesPreview %}
 
 #### `display`
@@ -108,7 +108,7 @@ The `display` attribute controls which sections of the footer are rendered. By d
 {% examplesPreview "120" "examples-footer" "en" "", "examples-footer" %}
 <gcds-footer></gcds-footer>
 
-<img src="/images/en/components/example/example-footer-compact.svg" alt=""/>
+<img src="/images/en/components/example/example-footer-compact.svg" alt="Footer component showing the GC footer links band for a standard Canada.ca page, with Social media, Mobile applications, About Canada.ca, Terms and conditions, Privacy, as well as the Canada wordmark."/>
 {% endexamplesPreview %}
 
 When it is set to `full`, both the main footer and sub-footer sections are displayed.
@@ -116,7 +116,7 @@ When it is set to `full`, both the main footer and sub-footer sections are displ
 {% examplesPreview "380" "examples-footer" "en" "", "examples-footer" %}
 <gcds-footer display="full"></gcds-footer>
 
-<img src="/images/en/components/example/example-footer-full.svg" alt=""/>
+<img src="/images/en/components/example/example-footer-full.svg" alt="Footer component showing the main band above the GC footer links band and the Canada wordmark."/>
 {% endexamplesPreview %}
 
 #### `sub-links`
@@ -127,7 +127,7 @@ The `sub-links` attribute defines the set of links displayed in the sub-footer s
 <gcds-footer sub-links='{ "Terms and conditions": "#", "Privacy": "#" }'>
 </gcds-footer>
 
-<img src="/images/en/components/example/example-footer-compact-sub-links.svg" alt=""/>
+<img src="/images/en/components/example/example-footer-compact-sub-links.svg" alt="Footer component showing the GC footer links band for a non-standard Canada.ca page, with Terms and conditions, Privacy, and the Canada wordmark."/>
 {% endexamplesPreview %}
 
 <!-- ----- Code builder ----- -->
