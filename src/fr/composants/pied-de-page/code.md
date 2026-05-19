@@ -87,7 +87,7 @@ L'attribut `contextual-heading` définit le texte du titre de la section de navi
 <gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
 </gcds-footer>
 
-<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
+<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `contextual-links`
@@ -98,7 +98,7 @@ L'attribut `contextual-links` définit l'ensemble des liens affichés dans la se
 <gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
 </gcds-footer>
 
-<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
+<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `display`
@@ -108,7 +108,7 @@ L'attribut `display` contrôle les sections du pied de page qui sont affichées.
 {% examplesPreview "120" "examples-footer" "fr" "", "examples-footer" %}
 <gcds-footer></gcds-footer>
 
-<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-compact.svg" alt=""/>
+<img src="/images/fr/components/example/example-footer-compact.svg" alt=""/>
 {% endexamplesPreview %}
 
 Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page sont toutes deux affichées.
@@ -116,7 +116,7 @@ Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page
 {% examplesPreview "380" "examples-footer" "fr" "", "examples-footer" %}
 <gcds-footer display="full"></gcds-footer>
 
-<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-full.svg" alt=""/>
+<img src="/images/fr/components/example/example-footer-full.svg" alt=""/>
 {% endexamplesPreview %}
 
 #### `sub-links`
@@ -127,7 +127,7 @@ L'attribut `sub-links` définit l'ensemble des liens affichés dans la section d
 <gcds-footer sub-links='{ "Avis": "#", "Confidentialité": "#" }'>
 </gcds-footer>
 
-<img src="https://design-system.canada.ca/images/fr/components/example/example-footer-compact-sub-links.svg" alt=""/>
+<img src="/images/fr/components/example/example-footer-compact-sub-links.svg" alt=""/>
 {% endexamplesPreview %}
 
 <!-- ----- Code builder ----- -->
