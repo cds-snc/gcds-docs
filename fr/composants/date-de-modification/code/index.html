@@ -2757,14 +2757,153 @@ Aperçu du composant de date de modification
     </nav>
   
 
-  <h2 id="construire-un-composant-date-de-modification">Construire un composant date de modification</h2>
-<p>Utilisez le composant date de modification pour indiquer la date de la dernière modification apportée à une page Web ou encore la version actuelle d’une application.</p>
-<h2 id="codage-et-accessibilite-pour-le-composant-date-de-modification">Codage et accessibilité pour le composant date de modification</h2>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-date-de-modification">Codage et accessibilité de date de modification</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-de-date-de-modification">Codage et accessibilité de date de modification</h2>
 <h3 id="veillez-a-luniformite-du-formatage">Veillez à l’uniformité du formatage</h3>
 <ul class="list-disc mb-300"><li>Utilisez le format de la date AAAA-MM-JJ sur toutes vos pages Web.</li>
 <li>Si vous utilisez <code>type: version</code>, veillez à utiliser un format de numéro de version uniforme pour tous vos produits.</li>
 </ul>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-optional">Attributs facultatifs</a></li>
+<li><a href="#section-slot">Emplacements (slots)</a></li>
+</ul>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="type"><code>type</code></h4>
+<p>L'attribut <code>type</code> contrôle l'affichage des informations de date de modification. Par défaut, il est défini à <code>date</code>, ce qui affiche la date de dernière modification du contenu.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-date-modified> 2023-01-26</gcds-date-modified>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-date-modified&gt;
+  2023-01-26
+&lt;/gcds-date-modified&gt;</code></pre>
+</div></p>
+<p>Lorsqu'il est défini à <code>version</code>, le composant affiche un numéro de version à la place.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-date-modified type=&quot;version&quot;> v1.0.0</gcds-date-modified>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-date-modified type=&quot;version&quot;&gt;
+  v1.0.0
+&lt;/gcds-date-modified&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>L'emplacement par défaut sert à ajouter le texte de la date de modification ou de la version.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-date-modified> 2023-01-26</gcds-date-modified>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-date-modified&gt;
+  2023-01-26
+&lt;/gcds-date-modified&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2820,7 +2959,7 @@ Aperçu du composant de date de modification
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

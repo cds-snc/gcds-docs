@@ -2746,8 +2746,11 @@ Aperçu du composant de titre
     </nav>
   
 
-  <h2 id="creer-un-titre">Créer un titre</h2>
-<p>Les titres établissent des niveaux hiérarchiques qui organisent le contenu d'une page.</p>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-du-composant-titre">Codage et accessibilité du composant titre</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
 <h2 id="codage-et-accessibilite-du-composant-titre">Codage et accessibilité du composant titre</h2>
 <h3 id="classez-les-niveaux-de-titre-de-maniere-hierarchique">Classez les niveaux de titre de manière hiérarchique</h3>
 <p>Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux supérieurs ont un texte d'affichage plus grand que les niveaux inférieurs.</p>
@@ -2776,7 +2779,268 @@ Aperçu du composant de titre
 </ul>
 </li>
 </ul>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+<li><a href="#section-optional">Attributs facultatifs</a></li>
+<li><a href="#section-slot">Emplacements (slots)</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="tag"><code>tag</code></h4>
+<p>L'attribut <code>tag</code> définit l'élément de titre HTML approprié pour le niveau sélectionné.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-heading tag=&quot;h2&quot;> Titre</gcds-heading>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-heading tag=&quot;h2&quot;&gt;
+  Titre
+&lt;/gcds-heading&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="characterlimit"><code>character-limit</code></h4>
+<p>L'attribut <code>character-limit</code> définit la longueur de ligne maximale en nombre de caractères pour chaque niveau de titre, assurant une longueur de lecture confortable et accessible.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-heading tag=&quot;h2&quot; character-limit=&quot;false&quot;> Titre</gcds-heading>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-heading tag=&quot;h2&quot; character-limit=&quot;false&quot;&gt;
+  Titre
+&lt;/gcds-heading&gt;</code></pre>
+</div></p>
+<h4 id="headingrole"><code>heading-role</code></h4>
+<p>L'attribut <code>heading-role</code> définit le style principal du titre. Les options sont :</p>
+<ul class="list-disc mb-300"><li><code>primary</code> (par défaut)</li>
+<li><code>secondary</code></li>
+<li><code>light</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-heading tag=&quot;h2&quot; heading-role=&quot;secondary&quot;> Titre</gcds-heading>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-heading tag=&quot;h2&quot; heading-role=&quot;secondary&quot;&gt;
+  Titre
+&lt;/gcds-heading&gt;</code></pre>
+</div></p>
+<h4 id="marginbottom"><code>margin-bottom</code></h4>
+<p>L'attribut <code>margin-bottom</code> définit la marge sous le titre. La valeur par défaut est <code>300</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="200"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-heading tag=&quot;h2&quot; margin-bottom=&quot;600&quot;> Titre</gcds-heading>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-heading tag=&quot;h2&quot; margin-bottom=&quot;600&quot;&gt;
+  Titre
+&lt;/gcds-heading&gt;</code></pre>
+</div></p>
+<h4 id="margintop"><code>margin-top</code></h4>
+<p>L'attribut <code>margin-top</code> définit la marge au-dessus du titre. La valeur par défaut est <code>0</code> pour <code>h1</code>, et <code>600</code> pour <code>h2</code> à <code>h6</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-heading tag=&quot;h2&quot; margin-top=&quot;200&quot;> Titre</gcds-heading>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-heading tag=&quot;h2&quot; margin-top=&quot;200&quot;&gt;
+  Titre
+&lt;/gcds-heading&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>L'emplacement par défaut sert à ajouter du texte au titre.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-heading tag=&quot;h2&quot;> Heading</gcds-heading>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-heading tag=&quot;h2&quot;&gt;
+  Heading
+&lt;/gcds-heading&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2832,7 +3096,7 @@ Aperçu du composant de titre
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

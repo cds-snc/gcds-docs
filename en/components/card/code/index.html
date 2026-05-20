@@ -2746,8 +2746,12 @@ Card component preview
     </nav>
   
 
-  <h2 id="build-a-card">Build a card</h2>
-<p>Use cards to help a person discover and scan summaries or progressive, bite-sized bits of related information.</p>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-cards">Coding and accessibility for cards</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
+<h2 id="coding-and-accessibility-for-cards">Coding and accessibility for cards</h2>
 <h3 id="write-a-scannable-card-title">Write a scannable card title</h3>
 <p>Use the <code>card-title</code> attribute to add a short and descriptive title to the card.</p>
 <h3 id="select-the-correct-heading-level">Select the correct heading level</h3>
@@ -2771,7 +2775,408 @@ Card component preview
 </ul>
 <h3 id="use-valid-properties">Use valid properties</h3>
 <p>Component properties have built-in validation. Required properties or properties prone to misuse will be validated. If there are any validation errors, the component will be non-functional and won't render. Review the browser's console for details and adjust the properties accordingly to ensure proper functionality.</p>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Essential attributes</a></li>
+<li><a href="#section-optional">Optional attributes</a></li>
+<li><a href="#section-slot">Slots</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Essential attributes
+</gcds-heading>
+<gcds-text>These attributes are needed for the component to function correctly.</gcds-text>
+</div></p>
+<h4 id="cardtitle"><code>card-title</code></h4>
+<p>The <code>card-title</code> attribute defines the title that appears on the card.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<h4 id="href"><code>href</code></h4>
+<p>The <code>href</code> attribute specifies the URL of the page the link goes to.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="badge"><code>badge</code></h4>
+<p>The <code>badge</code> attribute defines the badge text that appears in the top left corner of the card. The badge has a 20 character limit.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; badge=&quot;Tag&quot; href=&quot;#&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; badge=&quot;Tag&quot; href=&quot;#&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<h4 id="cardtitletag"><code>card-title-tag</code></h4>
+<p>The <code>card-title-tag</code> attribute sets the HTML heading element for the title. This attribute does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>h3</code></li>
+<li><code>h4</code></li>
+<li><code>h5</code></li>
+<li><code>h6</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; card-title-tag=&quot;h3&quot; href=&quot;#&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; card-title-tag=&quot;h3&quot; href=&quot;#&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<h4 id="description"><code>description</code></h4>
+<p>The <code>description</code> attribute defines the body of text that appears on the card.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="230"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; description=&quot;Description or supporting text relating to the headline.&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; description=&quot;Description or supporting text relating to the headline.&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<h4 id="imgalt"><code>img-alt</code></h4>
+<p>The <code>img-alt</code> attribute defines the alt text for the image provided. If no img-alt is specified, the image will be decorative.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="580"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; img-alt=&quot;The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections.&quot; img-src=&quot;/images/common/components/preview-card.svg&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; img-alt=&quot;The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections.&quot; img-src=&quot;/images/common/components/preview-card.svg&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<h4 id="imgsrc"><code>img-src</code></h4>
+<p>The <code>img-src</code> attribute specifies the URL or file path of the image to display.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="580"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; img-alt=&quot;The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections.&quot; img-src=&quot;/images/common/components/preview-card.svg&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; img-alt=&quot;The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections.&quot; img-src=&quot;/images/common/components/preview-card.svg&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<h4 id="rel"><code>rel</code></h4>
+<p>The <code>rel</code> attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; rel=&quot;noopener noreferrer&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; rel=&quot;noopener noreferrer&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<h4 id="target"><code>target</code></h4>
+<p>The target attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; target=&quot;_blank&quot;></gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot; target=&quot;_blank&quot;&gt;
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Slots
+</gcds-heading>
+<gcds-text>The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>The <code>default</code> slot is for adding description content to the card. It will overwrite the description attribute if it’s used.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="230"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot;> Description or supporting text relating to the headline.</gcds-card>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-card card-title=&quot;Card title link&quot; href=&quot;#&quot;&gt;
+  Description or supporting text relating to the headline.
+&lt;/gcds-card&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2827,7 +3232,7 @@ Card component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

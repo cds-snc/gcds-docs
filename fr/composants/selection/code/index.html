@@ -2746,8 +2746,11 @@ Aperçu du composant de sélection
     </nav>
   
 
-  <h2 id="creer-une-selection">Créer une sélection</h2>
-<p>Utilisez la sélection pour fournir des options multiples (7 ou plus) à répondre dans une seule question. La sélection aide les utilisateur·rice·s à faire un choix en limitant leurs options.</p>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-la-selection">Codage et accessibilité de la sélection</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
 <h2 id="codage-et-accessibilite-de-la-selection">Codage et accessibilité de la sélection</h2>
 <h3 id="appliquez-les-attributs-requis">Appliquez les attributs requis</h3>
 <p>Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-select&gt;</code>:</p>
@@ -2788,7 +2791,626 @@ Aperçu du composant de sélection
 <h3 id="masquer-letiquette-de-la-selection">Masquer l’étiquette de la sélection</h3>
 <p>Définissez l’attribut hide-label à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance.
 Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.</p>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+<li><a href="#section-optional">Attributs facultatifs</a></li>
+<li><a href="#section-slot">Emplacements (slots)</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="label"><code>label</code></h4>
+<p>L'attribut <code>label</code> définit le libellé du composant de sélection.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="name"><code>name</code></h4>
+<p>L'attribut <code>name</code> identifie le composant dans le formulaire. Il permet de récupérer la valeur sélectionnée après la soumission.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="selectid"><code>select-id</code></h4>
+<p>L'attribut <code>select-id</code> définit l'identifiant unique du composant de sélection.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="autocomplete"><code>autocomplete</code></h4>
+<p>L'attribut <code>autocomplete</code> contrôle si le navigateur peut suggérer des valeurs précédemment saisies pour le composant de sélection.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select autocomplete=&quot;on&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select autocomplete=&quot;on&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="autofocus"><code>autofocus</code></h4>
+<p>L'attribut <code>autofocus</code> contrôle si le composant de sélection est ciblé automatiquement au chargement de la page. Par défaut, il est défini à <code>false</code>. Lorsqu'il est défini à <code>true</code>, le composant de sélection est ciblé à l'affichage.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select autofocus select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select autofocus select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="defaultvalue"><code>default-value</code></h4>
+<p>L'attribut <code>default-value</code> définit une valeur facultative affichée avant que l'utilisateur sélectionne une option.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="disabled"><code>disabled</code></h4>
+<p>L'attribut <code>disabled</code> contrôle si le composant de sélection est désactivé ou non. Par défaut, il est défini à <code>false</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select disabled select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select disabled select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="errormessage"><code>error-message</code></h4>
+<p>L'attribut <code>error-message</code> définit le message d'erreur à afficher pour une sélection invalide.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="210"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select error-message=&quot;Message d'erreur&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select error-message=&quot;Message d'erreur&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="form"><code>form</code></h4>
+<p>L'attribut <code>form</code> définit l'identifiant du formulaire auquel appartient le composant de sélection.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select form=&quot;form-id&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select form=&quot;form-id&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="hidelabel"><code>hide-label</code></h4>
+<p>L'attribut <code>hide-label</code> contrôle si le libellé est masqué ou non.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select hide-label select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select hide-label select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="hint"><code>hint</code></h4>
+<p>L'attribut <code>hint</code> définit le texte explicatif affiché sous le libellé.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="210"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select hint=&quot;Texte explicatif / Exemple de message.&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select hint=&quot;Texte explicatif / Exemple de message.&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="required"><code>required</code></h4>
+<p>L'attribut <code>required</code> contrôle si la sélection est obligatoire ou non. Lorsqu'il est défini à <code>true</code>, il ajoute « obligatoire » après le libellé, et active le validateur de champ obligatoire.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="210"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select required select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select required select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="validateon"><code>validate-on</code></h4>
+<p>L'attribut <code>validate-on</code> définit l'événement de validation pour le composant de sélection.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select validate-on=&quot;other&quot; required select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select validate-on=&quot;other&quot; required select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<h4 id="value"><code>value</code></h4>
+<p>L'attribut <code>value</code> contient la valeur de l'option actuellement sélectionnée. Il se met à jour à chaque changement de sélection.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select value=&quot;2&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select value=&quot;2&quot; select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<!-- ----- Slots section ----- -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>L'emplacement par défaut sert à ajouter des options et des groupes d'options.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="170"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;><option value=&quot;1&quot;>Option 1</option><option value=&quot;2&quot;>Option 2</option><option value=&quot;3&quot;>Option 3</option></gcds-select>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-select select-id=&quot;select-preview&quot; label=&quot;Libellé&quot; name=&quot;select-preview&quot; default-value=&quot;Sélectionner une option&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/gcds-select&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2844,7 +3466,7 @@ Aperçu du composant de sélection
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

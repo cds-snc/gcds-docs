@@ -2757,9 +2757,12 @@ Aperçu du composant de l'en-tête
     </nav>
   
 
-  <h2 id="creer-un-entete">Créer un en-tête</h2>
-<p>Utilisez ce point de repère d'en-tête pour transmettre de l'information sur un service du gouvernement du Canada ou l'un de ses produits numériques.</p>
-<h2 id="codage-et-accessibilite-de-lentete">Codage et accessibilité de l'en-tête</h2>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-entete">Codage et accessibilité de en-tête</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-de-entete">Codage et accessibilité de en-tête</h2>
 <p>Les composants de Système de design du GC sont conçus pour s'adapter à la taille de l'écran ou du cadre où ils sont visualisés. À titre d'exception, la taille du texte dans l'en-tête et le pied de page est fixe.</p>
 <h3 id="preserver-lelement-signature-dans-lentete-pour-les-sites-web-du-gc">Préserver l'élément signature dans l'en-tête pour les sites Web du GC</h3>
 <ul class="list-disc mb-300"><li>Conservez la <a href="/fr/composants/signature">signature</a> pour tous les sites du GC.</li>
@@ -2788,7 +2791,451 @@ Aperçu du composant de l'en-tête
 <ul class="list-disc mb-300"><li>Ajoutez une <a href="/fr/composants/barre-de-navigation-superieure">barre de navigation supérieure</a> en passant un élément enfant à l'aide de l'attribut <code>slot=&quot;menu&quot;</code>. Cela placera l'élément dans l'en-tête, sous les emplacements du bouton de bascule de langue, de la signature et de la barre de recherche.</li>
 <li>Vous avez le choix d'ajouter une bannière en faisant passer un élément enfant avec l'attribut <code>slot=&quot;banner&quot;</code>. Cela placera l'élément en haut de l'en-tête sous l'élément <code>skip-to-nav</code>.</li>
 </ul>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+<li><a href="#section-optional">Attributs facultatifs</a></li>
+<li><a href="#section-slot">Emplacements (slots)</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="langhref"><code>lang-href</code></h4>
+<p>L'attribut <code>lang-href</code> définit l'URL de la même page dans une autre langue, généralement l'anglais ou le français. Utilisez cet attribut pour fournir un lien permettant aux utilisateurs de basculer entre les versions linguistiques disponibles.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="160"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<h4 id="skiptohref"><code>skip-to-href</code></h4>
+<p>L'attribut <code>skip-to-href</code> spécifie l'URL ou l'ancre du lien « Passer au contenu ». Ce lien permet aux utilisateurs, notamment ceux qui utilisent des technologies d'assistance, d'accéder rapidement au contenu principal de la page, améliorant ainsi l'accessibilité.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="160"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="signaturehaslink"><code>signature-has-link</code></h4>
+<p>L'attribut <code>signature-has-link</code> contrôle si la signature de l'en-tête est cliquable et pointe vers Canada.ca. Par défaut, il est défini à <code>true</code>, ce qui rend la signature cliquable.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="160"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<p>Lorsqu'il est défini à <code>false</code>, la signature s'affiche sans lien.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="160"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot; signature-has-link=&quot;false&quot;></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot; signature-has-link=&quot;false&quot;&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="banner"><code>banner</code></h4>
+<p>L'emplacement <code>banner</code> sert à ajouter une bannière en haut de l'en-tête. Utilisez-le pour afficher des alertes à l'échelle du site ou des messages promotionnels.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="200"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><div slot=&quot;banner&quot;>Banner slot</div></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+  &lt;div slot=&quot;banner&quot;&gt;Banner slot&lt;/div&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<h4 id="breadcrumb"><code>breadcrumb</code></h4>
+<p>L'emplacement <code>breadcrumbs</code> sert à ajouter un <a href="/fr/composants/chemin-de-navigation">chemin de navigation</a> sous l'en-tête. Utilisez-le pour indiquer où se trouve l'utilisateur dans le site et comment il y est arrivé.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="210"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><gcds-breadcrumbs slot=&quot;breadcrumb&quot;><gcds-breadcrumbs-item href=&quot;#&quot;>Page d'accueil</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Lien vers la page parent</gcds-breadcrumbs-item></gcds-breadcrumbs></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+  &lt;gcds-breadcrumbs slot=&quot;breadcrumb&quot;&gt;
+    &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Page d'accueil&lt;/gcds-breadcrumbs-item&gt;
+    &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Lien vers la page parent&lt;/gcds-breadcrumbs-item&gt;
+  &lt;/gcds-breadcrumbs&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<h4 id="menu"><code>menu</code></h4>
+<p>L'emplacement <code>menu</code> sert à ajouter un menu de navigation sous la ligne de séparation. Par exemple, vous pouvez y placer le composant <a href="/fr/composants/barre-de-navigation-superieure">top-nav</a> pour fournir les liens de navigation principaux du site.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="240"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><gcds-top-nav label=&quot;Top navigation&quot; alignment=&quot;right&quot; slot=&quot;menu&quot;><gcds-nav-link href=&quot;#home&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link></gcds-top-nav></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+  &lt;gcds-top-nav label=&quot;Top navigation&quot; alignment=&quot;right&quot; slot=&quot;menu&quot;&gt;
+    &lt;gcds-nav-link href=&quot;#home&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+  &lt;/gcds-top-nav&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<h4 id="search"><code>search</code></h4>
+<p>L'emplacement <code>search</code> sert à ajouter un <a href="/fr/composants/recherche">champ de recherche</a> à l'en-tête. Utilisez-le pour permettre aux utilisateurs de chercher du contenu directement depuis l'en-tête.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="220"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><gcds-search slot=&quot;search&quot;></gcds-search></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+  &lt;gcds-search slot=&quot;search&quot;&gt;&lt;/gcds-search&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<h4 id="signature"><code>signature</code></h4>
+<p>L'emplacement <code>signature</code> sert à remplacer la <a href="/fr/composants/signature">signature par défaut du gouvernement du Canada</a>. Utilisez-le pour afficher une signature ou un logo personnalisé.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="160"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><gcds-signature slot=&quot;signature&quot;></gcds-signature></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+  &lt;gcds-signature slot=&quot;signature&quot;&gt;&lt;/gcds-signature&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<h4 id="skiptonav"><code>skip-to-nav</code></h4>
+<p>L'emplacement <code>skip-to-nav</code> sert à ajouter un lien « Passer au contenu » en haut de l'en-tête. Par défaut, l'en-tête inclut déjà un lien « Passer au contenu principal » dont la cible peut être définie à l'aide de la propriété <a href="/fr/composants/en-tete/code#skiptohref"><code>skip-to-href</code></a>. Utilisez cet emplacement pour ajouter des liens de saut supplémentaires ou un lien « Passer au contenu » personnalisé.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="200"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><gcds-link href=&quot;#main-content&quot; slot=&quot;skip-to-nav&quot;>Passer au contentu principal</gcds-link></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+  &lt;gcds-link href=&quot;#main-content&quot; slot=&quot;skip-to-nav&quot;&gt;Passer au contentu principal&lt;/gcds-link&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<h4 id="toggle"><code>toggle</code></h4>
+<p>L'emplacement <code>toggle</code> sert à ajouter un bouton de <a href="/fr/composants/bascule-de-langue/">basculement de langue</a> personnalisé dans l'en-tête. Par défaut, l'en-tête inclut déjà un bouton pour basculer entre l'anglais et le français, dont la cible peut être définie avec la propriété <a href="/fr/composants/en-tete/code#langhref"><code>lang-href</code></a>. Utilisez cet emplacement pour prendre en charge des langues supplémentaires.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="160"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><gcds-lang-toggle href=&quot;url-here&quot; slot=&quot;toggle&quot;></gcds-lang-toggle></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+  &lt;gcds-lang-toggle href=&quot;url-here&quot; slot=&quot;toggle&quot;&gt;
+  &lt;/gcds-lang-toggle&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2844,7 +3291,7 @@ Aperçu du composant de l'en-tête
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

@@ -2746,13 +2746,70 @@ Aperçu du composant de menu thématique
     </nav>
   
 
-  <h2 id="creation-dun-menu-thematique">Création d'un menu thématique</h2>
-<p>Utilisez le menu thématique pour permettre aux utilisateur·rice·s de naviguer à travers l'ensemble des sites du gouvernement du Canada.</p>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-du-menu-thematique">Codage et accessibilité du menu thématique</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
 <h2 id="codage-et-accessibilite-du-menu-thematique">Codage et accessibilité du menu thématique</h2>
 <h3 id="utilisation-du-menu-thematique-avec-dautres-composants">Utilisation du menu thématique avec d'autres composants</h3>
 <p>Ajoutez directement le menu thématique à l'<gcds-link href="/fr/composants/en-tete">en-tête</gcds-link> en passant un élément secondaire avec l'attribut <code>slot=&quot;menu&quot;</code> dans l'en-tête. Cela placera le menu thématique dans l'en-tête, à la suite de la bascule de la langue, la signature et la barre de recherche.</p>
 <p>Remarque : Si vous souhaitez ajouter un menu de thèmes et sujets à la page d'accueil de Canada.ca, utilisez l'attribut <code>home</code> pour utiliser le style approprié.</p>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-optional">Attributs facultatifs</a></li>
+</ul>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="home"><code>home</code></h4>
+<p>L'attribut <code>home</code> définit le style de la page d'accueil.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-topic-menu home></gcds-topic-menu>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-topic-menu home&gt;
+&lt;/gcds-topic-menu&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2808,7 +2865,7 @@ Aperçu du composant de menu thématique
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

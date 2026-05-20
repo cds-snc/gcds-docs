@@ -2752,12 +2752,16 @@ Search component preview
     </nav>
   
 
-  <h2 id="build-a-search-component">Build a search component</h2>
-<p>Use the search component so people can find information based on keywords.</p>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-search">Coding and accessibility for search</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
+<h2 id="coding-and-accessibility-for-search">Coding and accessibility for search</h2>
+<h3 id="place-the-search-in-the-header">Place the search in the header</h3>
 <ul class="list-disc mb-300"><li>Place the search component in the <gcds-link href="/en/components/header">header</gcds-link> below the language toggle and in line with the <gcds-link href="/en/components/signature">Government of Canada signature</gcds-link>.</li>
 <li>Ensure the header is responsive so that the search appears below both the signature and the language toggle on mobile devices.</li>
 </ul>
-<h2 id="coding-and-accessibility-for-search">Coding and accessibility for search</h2>
 <h3 id="set-up-search-for-content-on-canadaca">Set up search for content on Canada.ca</h3>
 <ul class="list-disc mb-300"><li>Use the search component to perform a global search on Canada.ca. By default, the component is set to search Canada.ca.</li>
 <li>Opt to set the search to an institution or program specific area.</li>
@@ -2767,7 +2771,277 @@ Search component preview
 <li>Use the component’s default HTTP request method, <code>GET</code>, or opt to use <code>POST</code> by setting the <code>method</code> attribute.</li>
 <li>Set the <code>action</code> attribute to an endpoint of your choice and set the placeholder attribute, so the text of the search prompt reflects the scope of search. The set placeholder text will also populate the label text.</li>
 </ul>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-optional">Optional attributes</a></li>
+</ul>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="action"><code>action</code></h4>
+<p>The <code>action</code> attribute controls where the form will send the form data.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-search action=&quot;search.html&quot;></gcds-search>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-search action=&quot;search.html&quot;&gt;&lt;/gcds-search&gt;</code></pre>
+</div></p>
+<h4 id="method"><code>method</code></h4>
+<p>The <code>method</code> attribute controls how the form will send the form data. The available options are:</p>
+<ul class="list-disc mb-300"><li>
+<p><code>get</code></p>
+</li>
+<li>
+<p><code>post</code></p>
+<p><div class="b-md shortcut-preview">
+<iframe
+          class="preview-iframe"
+          title="Component preview"
+          sandbox="allow-scripts allow-same-origin"
+          frameborder="0"
+          width="100%"
+          height="100"
+          srcdoc="
+      <!DOCTYPE html>
+      <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+        <head>
+          <meta charset=&quot;utf-8&quot;>
+          <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+          <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+          <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+          <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+          <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+        </head>
+        <body class=&quot; shortcut-preview examples-preview&quot;>
+          <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+            <gcds-search method=&quot;post&quot;></gcds-search>
+          </div>
+          <script>
+            document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+            document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+          </script>
+        </body>
+      </html>
+    ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-search method=&quot;post&quot;&gt;&lt;/gcds-search&gt;</code></pre>
+</div></p>
+</li>
+</ul>
+<h4 id="name"><code>name</code></h4>
+<p>The <code>name</code> attribute specifies the name of the search input when submitting the form data.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-search name=&quot;search&quot;></gcds-search>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-search name=&quot;search&quot;&gt;&lt;/gcds-search&gt;</code></pre>
+</div></p>
+<h4 id="placeholder"><code>placeholder</code></h4>
+<p>The <code>placeholder</code> attribute specifies the placeholder and label for the input. The input will format the label and placeholder like &quot;Search [<code>placeholder</code>]&quot;.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-search placeholder=&quot;GC Design System&quot;></gcds-search>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-search placeholder=&quot;GC Design System&quot;&gt;&lt;/gcds-search&gt;</code></pre>
+</div></p>
+<h4 id="searchid"><code>search-id</code></h4>
+<p>The <code>search-id</code> attribute specifies the id for the input.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-search search-id=&quot;searchform&quot;></gcds-search>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-search search-id=&quot;searchform&quot;&gt;&lt;/gcds-search&gt;</code></pre>
+</div></p>
+<h4 id="suggested"><code>suggested</code></h4>
+<p>The <code>suggested</code> attribute specifies a list of predefined search times. The list will appear as a dropdown list on the input when it is focused.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-search suggested=&quot;['red', 'green', 'blue']&quot;></gcds-search>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-search suggested=&quot;['red', 'green', 'blue']&quot;&gt;&lt;/gcds-search&gt;</code></pre>
+</div></p>
+<h4 id="value"><code>value</code></h4>
+<p>The <code>value</code> attribute specifies the <code>value</code> of the input. Setting the value will prepopulate the search input.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-search value=&quot;Design system&quot;></gcds-search>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-search value=&quot;Design system&quot;&gt;&lt;/gcds-search&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2823,7 +3097,7 @@ Search component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

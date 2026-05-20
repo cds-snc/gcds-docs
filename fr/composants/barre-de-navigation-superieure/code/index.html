@@ -2746,8 +2746,11 @@ Aperçu du composant de barre de navigation supérieure
     </nav>
   
 
-  <h2 id="creer-une-barre-de-navigation-superieure">Créer une barre de navigation supérieure</h2>
-<p>Utilisez une barre de navigation supérieure pour aider une personne à se repérer sur votre page Web ou site Web.</p>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-la-barre-de-navigation-superieure">Codage et accessibilité de la barre de navigation supérieure</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
 <h2 id="codage-et-accessibilite-de-la-barre-de-navigation-superieure">Codage et accessibilité de la barre de navigation supérieure</h2>
 <h3 id="ajoutez-la-barre-de-navigation-superieure-a-chaque-page">Ajoutez la barre de navigation supérieure à chaque page</h3>
 <ul class="list-disc mb-300"><li>Mettez en œuvre la barre de navigation supérieure, de sorte qu'elle soit présente sur toutes les pages.</li>
@@ -2757,7 +2760,528 @@ Aperçu du composant de barre de navigation supérieure
 <ul class="list-disc mb-300"><li>Si vous utilisez un composant <gcds-link href="/fr/composants/chemin-de-navigation">chemin de navigation</gcds-link>, uniformisez la hiérarchie dans les deux ensembles sur le site.</li>
 <li>Si vous utilisez le composant <gcds-link href="/fr/composants/en-tete">en-tête</gcds-link>, ajoutez la barre de navigation supérieure directement dans l'en-tête en insérant un élément enfant à l'aide de l'attribut <code>slot=&quot;menu&quot;</code> dans l'en-tête. Cela placera la barre de navigation supérieure dans l'en-tête, après la bascule de langue, la signature et la barre de recherche.</li>
 </ul>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+<li><a href="#section-optional">Attributs facultatifs</a></li>
+<li><a href="#section-slot">Emplacements (slots)</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="label"><code>label</code></h4>
+<p>L'attribut <code>label</code> définit le libellé du repère de navigation.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="menulabel-gcdsnavgroup"><code>menu-label</code> (<code>gcds-nav-group</code>)</h4>
+<p>L'attribut <code>menu-label</code> du sous-composant <code>gcds-nav-group</code> définit le libellé du sous-menu de navigation.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link><gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;><gcds-nav-link href=&quot;#&quot;>Personnaliser les messages</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Planifier la date et l’heure d’envoi</gcds-nav-link></gcds-nav-group></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Personnaliser les messages&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Planifier la date et l’heure d’envoi&lt;/gcds-nav-link&gt;
+  &lt;/gcds-nav-group&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="opentrigger-gcdsnavgroup"><code>open-trigger</code> (<code>gcds-nav-group</code>)</h4>
+<p>L'attribut <code>open-trigger</code> du sous-composant <code>gcds-nav-group</code> définit le libellé du bouton lorsque le sous-menu est réduit.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link><gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;><gcds-nav-link href=&quot;#&quot;>Personnaliser les messages</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Planifier la date et l’heure d’envoi</gcds-nav-link></gcds-nav-group></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Personnaliser les messages&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Planifier la date et l’heure d’envoi&lt;/gcds-nav-link&gt;
+  &lt;/gcds-nav-group&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="href-gcdsnavlink"><code>href</code> (<code>gcds-nav-link</code>)</h4>
+<p>L'attribut <code>href</code> du sous-composant gcds-nav-link définit l'URL de la page vers laquelle pointe le lien.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="alignment"><code>alignment</code></h4>
+<p>L'attribut <code>alignment</code> définit l'alignement de la navigation supérieure. Les options sont :</p>
+<ul class="list-disc mb-300"><li><code>start</code> (par défaut)</li>
+<li><code>end</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav alignment=&quot;end&quot; label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav alignment=&quot;end&quot; label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="closetrigger-gcdsnavgroup"><code>close-trigger</code> (<code>gcds-nav-group</code>)</h4>
+<p>L'attribut <code>close-trigger</code> du sous-composant <code>gcds-nav-group</code> définit le libellé du bouton lorsque le sous-menu est développé.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link><gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot; close-trigger=&quot;Masquer les fonctionnalités&quot;><gcds-nav-link href=&quot;#&quot;>Personnaliser les messages</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Planifier la date et l’heure d’envoi</gcds-nav-link></gcds-nav-group></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot; close-trigger=&quot;Masquer les fonctionnalités&quot;&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Personnaliser les messages&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Planifier la date et l’heure d’envoi&lt;/gcds-nav-link&gt;
+  &lt;/gcds-nav-group&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="open-gcdsnavgroup"><code>open</code> (<code>gcds-nav-group</code>)</h4>
+<p>L'attribut <code>open</code> du sous-composant <code>gcds-nav-group</code> contrôle si le sous-menu est développé ou non. Par défaut, il est défini à <code>false</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link><gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot; open><gcds-nav-link href=&quot;#&quot;>Personnaliser les messages</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Planifier la date et l’heure d’envoi</gcds-nav-link></gcds-nav-group></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot; open&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Personnaliser les messages&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Planifier la date et l’heure d’envoi&lt;/gcds-nav-link&gt;
+  &lt;/gcds-nav-group&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="current-gcdsnavlink"><code>current</code> (<code>gcds-nav-link</code>)</h4>
+<p>L'attribut <code>current</code> du sous-composant <code>gcds-nav-link</code> indique si la page est la page actuelle ou non.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link current href=&quot;#&quot;>Nous joindre</gcds-nav-link></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link current href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>L'emplacement par défaut sert à ajouter des groupes de navigation et des liens de navigation.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Pourquoi Notification GC</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Nous joindre</gcds-nav-link><gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;><gcds-nav-link href=&quot;#&quot;>Personnaliser les messages</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Planifier la date et l’heure d’envoi</gcds-nav-link></gcds-nav-group></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Pourquoi Notification GC&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-link href=&quot;#&quot;&gt;Nous joindre&lt;/gcds-nav-link&gt;
+  &lt;gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Personnaliser les messages&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Planifier la date et l’heure d’envoi&lt;/gcds-nav-link&gt;
+  &lt;/gcds-nav-group&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="home"><code>home</code></h4>
+<p>L'emplacement <code>home</code> sert à ajouter le lien de la page d'accueil ou le titre du site.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;>Notification GC</gcds-nav-link></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-link href=&quot;#&quot; slot=&quot;home&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="default-gcdsnavgroup"><code>default</code> (<code>gcds-nav-group</code>)</h4>
+<p>L'emplacement par défaut du sous-composant <code>gcds-nav-group</code> sert à ajouter la liste des liens de navigation.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;><gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;><gcds-nav-link href=&quot;#&quot;>Personnaliser les messages</gcds-nav-link><gcds-nav-link href=&quot;#&quot;>Planifier la date et l’heure d’envoi</gcds-nav-link></gcds-nav-group></gcds-top-nav>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-top-nav label=&quot;Aperçu du composant de barre de navigation supérieure&quot;&gt;
+  &lt;gcds-nav-group menu-label=&quot;Fonctionnalités&quot; open-trigger=&quot;Fonctionnalités&quot;&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Personnaliser les messages&lt;/gcds-nav-link&gt;
+    &lt;gcds-nav-link href=&quot;#&quot;&gt;Planifier la date et l’heure d’envoi&lt;/gcds-nav-link&gt;
+  &lt;/gcds-nav-group&gt;
+&lt;/gcds-top-nav&gt;</code></pre>
+</div></p>
+<h4 id="default-gcdsnavlink"><code>default</code> (<code>gcds-nav-link</code>)</h4>
+<p>L'emplacement par défaut du sous-composant <code>gcds-nav-link</code> sert à ajouter le contenu du lien de navigation.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-nav-link href=&quot;#&quot;>Notification GC</gcds-nav-link>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-nav-link href=&quot;#&quot;&gt;Notification GC&lt;/gcds-nav-link&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2813,7 +3337,7 @@ Aperçu du composant de barre de navigation supérieure
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

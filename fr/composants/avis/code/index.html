@@ -2746,16 +2746,201 @@ Aperçu du composant de Avis
     </nav>
   
 
-  <h2 id="creer-un-avis">Créer un avis</h2>
-<p>Utilisez le composant d'avis pour transmettre aux gens des messages importants et propres au contexte. L'avis communique divers niveaux d'urgence et différents messages à l'aide de contenu et d'éléments visuels.</p>
-<h2 id="accessibilite-et-lignes-directrices-relatives-au-code">Accessibilité et lignes directrices relatives au code</h2>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-lavis">Codage et accessibilité de l'avis</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-de-lavis">Codage et accessibilité de l'avis</h2>
 <h3 id="definir-le-role-de-lavis">Définir le rôle de l'avis</h3>
 <p>Utilisez l'attribut <code>notice-role</code> pour classer l'avis dans les catégories <code>info</code> (Information), <code>warning</code> (Avertissement), <code>danger</code> (Danger) ou <code>success</code> (Succès). Ce choix détermine le style visuel de l'avis et communique l'urgence ou l'importance du message au public.</p>
 <h3 id="precisez-le-titre-et-le-niveau-de-lentete-de-lavis">Précisez le titre et le niveau de l'en-tête de l'avis</h3>
 <ul class="list-disc mb-300"><li>Utilisez l'attribut <code>notice-title</code> pour créer un titre clair et informatif pour l'avis. Veillez à ce que le titre transmette l'objectif du message.</li>
 <li>Utilisez <code>notice-title-tag</code> pour définir <a href="/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique">le bon niveau</a> de titre pour l'avis. La définition du niveau adapté pour le titre n'a pas d'incidence sur la taille de la police, mais elle permet de maintenir la bonne hiérarchie et l'accessibilité pour les technologies d'assistance.</li>
 </ul>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+<li><a href="#section-slot">Emplacements (slots)</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="noticerole"><code>notice-role</code></h4>
+<p>L'attribut <code>notice-role</code> définit le style d'avis à afficher.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> Il s'agit d'un message de succès.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    Il s'agit d'un message de succès.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<h4 id="noticetitle"><code>notice-title</code></h4>
+<p>L'attribut <code>notice-title</code> définit le titre de l'avis.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> Il s'agit d'un message de succès.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    Il s'agit d'un message de succès.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<h4 id="noticetitletag"><code>notice-title-tag</code></h4>
+<p>L'attribut <code>notice-title-tag</code> définit l'élément de titre HTML pour le titre. Cette propriété ne modifie pas la taille de la police. Utilisez-la pour assigner le niveau de titre approprié et maintenir la hiérarchie des titres et l'accessibilité.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> Il s'agit d'un message de succès.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    Il s'agit d'un message de succès.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>L'emplacement par défaut sert à placer le message de l'avis.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> Il s'agit d'un message de succès.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Titre de l'avis succès&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    Il s'agit d'un message de succès.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2811,7 +2996,7 @@ Aperçu du composant de Avis
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

@@ -2757,8 +2757,11 @@ Footer component preview
     </nav>
   
 
-  <h2 id="build-a-footer">Build a footer</h2>
-<p>Use the Government of Canada branded footer landmark for a consistent, accessible, and responsive landmark for your site or product.</p>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-footers">Coding and accessibility for footers</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
 <h2 id="coding-and-accessibility-for-footers">Coding and accessibility for footers</h2>
 <h3 id="choose-a-display-mode-using-the-display-property">Choose a display mode using the display property</h3>
 <p>Use the <code>display</code> property to choose one of the two display modes: <code>compact</code> or <code>full</code>.</p>
@@ -2784,15 +2787,15 @@ Footer component preview
 <li>For the contextual band, set the <code>contextual-links</code>, by passing an object or an object in a string in the following format:</li>
 </ul>
 
-<div style="position: relative" id="code-container-86" >
-  <pre class="language-js"><code id="code-86" class="language-js"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-100" >
+  <pre class="language-js"><code id="code-100" class="language-js"><span class="token punctuation">{</span>
 “1st link label”<span class="token operator">:</span> “href”
 “2nd link label”<span class="token operator">:</span> “href”
 “3rd link label”<span class="token operator">:</span> “href”
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-86"
+    data-clipboard-target="#code-100"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -2800,20 +2803,220 @@ Footer component preview
 <ul class="list-disc mb-300"><li>For the footer links band, set the <code>sub-links</code>, by passing an object or an object in a string in the following format:</li>
 </ul>
 
-<div style="position: relative" id="code-container-94" >
-  <pre class="language-js"><code id="code-94" class="language-js"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-108" >
+  <pre class="language-js"><code id="code-108" class="language-js"><span class="token punctuation">{</span>
 “1st link label”<span class="token operator">:</span> “href”
 “2nd link label”<span class="token operator">:</span> “href”
 “3rd link label”<span class="token operator">:</span> “href”
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-94"
+    data-clipboard-target="#code-108"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-optional">Optional attributes</a></li>
+</ul>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="contextualheading"><code>contextual-heading</code></h4>
+<p>The <code>contextual-heading</code> attribute defines the heading text for the contextual navigation section in the footer. This heading is also used to label the footer’s navigation landmark, supporting clearer structure and accessibility.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="460"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer contextual-heading=&quot;Canadian Digital Service&quot; contextual-links='{ &quot;Why GC Notify&quot;: &quot;#&quot;, &quot;Features&quot;: &quot;#&quot;, &quot;Activity on GC Notify&quot;: &quot;#&quot; }'></gcds-footer><img src=&quot;/images/en/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer contextual-heading=&quot;Canadian Digital Service&quot; contextual-links='{ &quot;Why GC Notify&quot;: &quot;#&quot;, &quot;Features&quot;: &quot;#&quot;, &quot;Activity on GC Notify&quot;: &quot;#&quot; }'&gt;
+&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/en/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark.&quot;/&gt;</code></pre>
+</div></p>
+<h4 id="contextuallinks"><code>contextual-links</code></h4>
+<p>The <code>contextual-links</code> attribute defines the set of links displayed in the footer’s contextual navigation section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: <code>{ link-label: link-href }</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="460"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer contextual-heading=&quot;Canadian Digital Service&quot; contextual-links='{ &quot;Why GC Notify&quot;: &quot;#&quot;, &quot;Features&quot;: &quot;#&quot;, &quot;Activity on GC Notify&quot;: &quot;#&quot; }'></gcds-footer><img src=&quot;/images/en/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer contextual-heading=&quot;Canadian Digital Service&quot; contextual-links='{ &quot;Why GC Notify&quot;: &quot;#&quot;, &quot;Features&quot;: &quot;#&quot;, &quot;Activity on GC Notify&quot;: &quot;#&quot; }'&gt;
+&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/en/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark.&quot;/&gt;</code></pre>
+</div></p>
+<h4 id="display"><code>display</code></h4>
+<p>The <code>display</code> attribute controls which sections of the footer are rendered. By default, it is set to <code>compact</code>, displaying only the sub-footer section.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer></gcds-footer><img src=&quot;/images/en/components/example/example-footer-compact.svg&quot; alt=&quot;Footer component showing the GC footer links band for a standard Canada.ca page, with Social media, Mobile applications, About Canada.ca, Terms and conditions, Privacy, as well as the Canada wordmark.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer&gt;&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/en/components/example/example-footer-compact.svg&quot; alt=&quot;Footer component showing the GC footer links band for a standard Canada.ca page, with Social media, Mobile applications, About Canada.ca, Terms and conditions, Privacy, as well as the Canada wordmark.&quot;/&gt;</code></pre>
+</div></p>
+<p>When it is set to <code>full</code>, both the main footer and sub-footer sections are displayed.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="380"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer display=&quot;full&quot;></gcds-footer><img src=&quot;/images/en/components/example/example-footer-full.svg&quot; alt=&quot;Footer component showing the main band above the GC footer links band and the Canada wordmark.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer display=&quot;full&quot;&gt;&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/en/components/example/example-footer-full.svg&quot; alt=&quot;Footer component showing the main band above the GC footer links band and the Canada wordmark.&quot;/&gt;</code></pre>
+</div></p>
+<h4 id="sublinks"><code>sub-links</code></h4>
+<p>The <code>sub-links</code> attribute defines the set of links displayed in the sub-footer section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: <code>{ link-label: link-href }</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer sub-links='{ &quot;Terms and conditions&quot;: &quot;#&quot;, &quot;Privacy&quot;: &quot;#&quot; }'></gcds-footer><img src=&quot;/images/en/components/example/example-footer-compact-sub-links.svg&quot; alt=&quot;Footer component showing the GC footer links band for a non-standard Canada.ca page, with Terms and conditions, Privacy, and the Canada wordmark.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer sub-links='{ &quot;Terms and conditions&quot;: &quot;#&quot;, &quot;Privacy&quot;: &quot;#&quot; }'&gt;
+&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/en/components/example/example-footer-compact-sub-links.svg&quot; alt=&quot;Footer component showing the GC footer links band for a non-standard Canada.ca page, with Terms and conditions, Privacy, and the Canada wordmark.&quot;/&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2869,7 +3072,7 @@ Footer component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

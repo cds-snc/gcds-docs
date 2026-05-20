@@ -2757,15 +2757,72 @@ Language toggle component preview
     </nav>
   
 
-  <h2 id="build-a-language-toggle">Build a language toggle</h2>
-<p>Use a language toggle so people are able to switch between languages without losing track of where they were before switching.</p>
-<p>Place the language toggle in the top right of the header landmark for predictability and findability.</p>
-<h2 id="coding-and-accessibility-for-the-language-toggle">Coding and accessibility for the language toggle</h2>
-<ul class="list-disc mb-300"><li>Use the <code>href-attribute</code> to set the url of the page in the other Official Language.</li>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-language-toggle">Coding and accessibility for language toggle</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
+<h2 id="coding-and-accessibility-for-language-toggle">Coding and accessibility for language toggle</h2>
+<ul class="list-disc mb-300"><li>Place the language toggle in the top right of the header landmark for predictability and findability.</li>
+<li>Use the <code>href-attribute</code> to set the url of the page in the other Official Language.</li>
 <li>Set the <code>lang</code> attribute with <code>en</code> to indicate the language toggle in French and <code>fr</code> will indicate the language toggle in English.</li>
 </ul>
 <p>Note: If using the header component, the language toggle can be assigned using the <code>lang-href</code> attribute.</p>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Essential attributes</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Essential attributes
+</gcds-heading>
+<gcds-text>These attributes are needed for the component to function correctly.</gcds-text>
+</div></p>
+<h4 id="href"><code>href</code></h4>
+<p>The <code>href</code> attribute specifies the URL of the same page in another language, typically English or French. Use this attribute to provide a link that allows users to switch between available language versions.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-lang-toggle href=&quot;#&quot;></gcds-lang-toggle>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-lang-toggle href=&quot;#&quot;&gt;
+&lt;/gcds-lang-toggle&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2821,7 +2878,7 @@ Language toggle component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

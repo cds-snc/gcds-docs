@@ -2746,14 +2746,230 @@ Fieldset component preview
     </nav>
   
 
-  <h2 id="build-a-fieldset">Build a fieldset</h2>
-<p>Use a fieldset to group together related form elements or components.</p>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-fieldsets">Coding and accessibility for fieldsets</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
 <h2 id="coding-and-accessibility-for-fieldsets">Coding and accessibility for fieldsets</h2>
 <h3 id="heading-hierarchy">Heading hierarchy</h3>
 <p>Use the <code>legend-size</code> attribute to visually place the legend among the headings on the page. Set the attribute value to <code>h2</code> | <code>h3</code> | <code>h4</code> | <code>h5</code> | <code>h6</code> to render the fieldset legend to the appropriate size.</p>
 <h3 id="keep-hint-text-static-and-perceivable">Keep hint text static and perceivable</h3>
 <p>Maintain the default <code>hint</code> attribute to provide additional context so a person can provide a complete value and avoid an error state. This places hint text under the fieldset <code>legend</code> and above the grouping.</p>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Essential attributes</a></li>
+<li><a href="#section-optional">Optional attributes</a></li>
+<li><a href="#section-slot">Slots</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Essential attributes
+</gcds-heading>
+<gcds-text>These attributes are needed for the component to function correctly.</gcds-text>
+</div></p>
+<h4 id="legend"><code>legend</code></h4>
+<p>The <code>legend</code> attribute defines the legend for the fieldset.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="330"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot;><gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;></gcds-input><gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;><option value=&quot;option-1&quot;>Option 1</option><option value=&quot;option-2&quot;>Option 2</option><option value=&quot;option-3&quot;>Option 3</option></gcds-select></gcds-fieldset>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot;&gt;
+  &lt;gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;&gt;
+  &lt;/gcds-input&gt;
+  &lt;gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;&gt;
+    &lt;option value=&quot;option-1&quot;&gt;Option 1&lt;/option&gt;
+    &lt;option value=&quot;option-2&quot;&gt;Option 2&lt;/option&gt;
+    &lt;option value=&quot;option-3&quot;&gt;Option 3&lt;/option&gt;
+  &lt;/gcds-select&gt;
+&lt;/gcds-fieldset&gt;</code></pre>
+</div></p>
+<h4 id="legendsize"><code>legend-size</code></h4>
+<p>The <code>legend-size</code> attribute sets the appropriate font size for the fieldset legend. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>h2</code></li>
+<li><code>h3</code></li>
+<li><code>h4</code></li>
+<li><code>h5</code></li>
+<li><code>h6</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="330"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot;><gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;></gcds-input><gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;><option value=&quot;option-1&quot;>Option 1</option><option value=&quot;option-2&quot;>Option 2</option><option value=&quot;option-3&quot;>Option 3</option></gcds-select></gcds-fieldset>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot;&gt;
+  &lt;gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;&gt;
+  &lt;/gcds-input&gt;
+  &lt;gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;&gt;
+    &lt;option value=&quot;option-1&quot;&gt;Option 1&lt;/option&gt;
+    &lt;option value=&quot;option-2&quot;&gt;Option 2&lt;/option&gt;
+    &lt;option value=&quot;option-3&quot;&gt;Option 3&lt;/option&gt;
+  &lt;/gcds-select&gt;
+&lt;/gcds-fieldset&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="hint"><code>hint</code></h4>
+<p>The <code>hint</code> attribute defines the hint text displayed under the legend.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="370"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot; hint=&quot;Hint / Example message.&quot;><gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;></gcds-input><gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;><option value=&quot;option-1&quot;>Option 1</option><option value=&quot;option-2&quot;>Option 2</option><option value=&quot;option-3&quot;>Option 3</option></gcds-select></gcds-fieldset>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot; hint=&quot;Hint / Example message.&quot;&gt;
+  &lt;gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;&gt;
+  &lt;/gcds-input&gt;
+  &lt;gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;&gt;
+    &lt;option value=&quot;option-1&quot;&gt;Option 1&lt;/option&gt;
+    &lt;option value=&quot;option-2&quot;&gt;Option 2&lt;/option&gt;
+    &lt;option value=&quot;option-3&quot;&gt;Option 3&lt;/option&gt;
+  &lt;/gcds-select&gt;
+&lt;/gcds-fieldset&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Slots
+</gcds-heading>
+<gcds-text>The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>The <code>default</code> slot is for placing form elements inside the fieldset.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="370"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot; hint=&quot;Hint / Example message.&quot;><gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;></gcds-input><gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;><option value=&quot;option-1&quot;>Option 1</option><option value=&quot;option-2&quot;>Option 2</option><option value=&quot;option-3&quot;>Option 3</option></gcds-select></gcds-fieldset>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-fieldset legend=&quot;Legend&quot; legend-size=&quot;h3&quot; hint=&quot;Hint / Example message.&quot;&gt;
+  &lt;gcds-input input-id=&quot;form-input&quot; label=&quot;Input label&quot;&gt;
+  &lt;/gcds-input&gt;
+  &lt;gcds-select select-id=&quot;form-select&quot; label=&quot;Select label&quot;&gt;
+    &lt;option value=&quot;option-1&quot;&gt;Option 1&lt;/option&gt;
+    &lt;option value=&quot;option-2&quot;&gt;Option 2&lt;/option&gt;
+    &lt;option value=&quot;option-3&quot;&gt;Option 3&lt;/option&gt;
+  &lt;/gcds-select&gt;
+&lt;/gcds-fieldset&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2809,7 +3025,7 @@ Fieldset component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

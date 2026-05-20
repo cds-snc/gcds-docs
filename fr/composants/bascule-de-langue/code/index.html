@@ -2757,15 +2757,72 @@ Aperçu du de bascule de langue
     </nav>
   
 
-  <h2 id="creer-une-bascule-de-langue">Créer une bascule de langue</h2>
-<p>Utilisez une bascule de langue pour que les gens puissent passer d’une langue à l’autre sans que cela ne les détourne de leur parcours.</p>
-<p>Placez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.</p>
-<h2 id="codage-et-accessibilite-de-la-bascule-de-langue">Codage et accessibilité de la bascule de langue</h2>
-<ul class="list-disc mb-300"><li>Utilisez <code>href-attribute</code> pour définir l’URL de la page dans l’autre langue officielle.</li>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-bascule-de-langue">Codage et accessibilité de bascule de langue</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-de-bascule-de-langue">Codage et accessibilité de bascule de langue</h2>
+<ul class="list-disc mb-300"><li>Placez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.</li>
+<li>Utilisez <code>href-attribute</code> pour définir l’URL de la page dans l’autre langue officielle.</li>
 <li>Paramétrez l’attribut <code>lang</code> de façon à ce que la bascule de langue indique <code>en</code> sur la page en langue française et <code>fr</code> sur la page en langue anglaise.</li>
 </ul>
 <p>Remarque : Si vous utilisez le composant En-tête, la bascule de langue peut être définie à l’aide de l’attribut <code>lang-href</code>.</p>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="href"><code>href</code></h4>
+<p>L'attribut <code>href</code> définit l'URL de la même page dans une autre langue, généralement l'anglais ou le français. Utilisez-le pour fournir un lien permettant aux utilisateurs de basculer entre les versions linguistiques disponibles.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-lang-toggle href=&quot;#&quot;></gcds-lang-toggle>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-lang-toggle href=&quot;#&quot;&gt;
+&lt;/gcds-lang-toggle&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2821,7 +2878,7 @@ Aperçu du de bascule de langue
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

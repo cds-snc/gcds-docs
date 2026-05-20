@@ -2757,9 +2757,12 @@ Aperçu du composant de pied de page
     </nav>
   
 
-  <h2 id="creer-un-pied-de-page">Créer un pied de page</h2>
-<p>Utilisez le repère de pied de page de la marque du gouvernement du Canada pour obtenir un repère cohérent, accessible et adapté à votre site ou produit.</p>
-<h2 id="codage-et-accessibilite-du-pied-de-page">Codage et accessibilité du pied de page</h2>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-pied-de-page">Codage et accessibilité de pied de page</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-de-pied-de-page">Codage et accessibilité de pied de page</h2>
 <h3 id="choisir-un-mode-daffichage-a-laide-de-la-propriete-daffichage">Choisir un mode d'affichage à l'aide de la propriété d'affichage</h3>
 <p>Utilisez la propriété <code>display</code> pour choisir l'un des deux modes d'affichage : <code>compact</code> ou <code>full</code>.</p>
 <p>Choisissez l'affichage compact pour inclure :</p>
@@ -2784,35 +2787,235 @@ Aperçu du composant de pied de page
 <li>Dans la bande contextuelle, réglez l'élément <code>contextual-links</code> en passant un objet ou un objet dans une chaîne selon le format suivant :</li>
 </ul>
 
-<div style="position: relative" id="code-container-86" >
-  <pre class="language-js"><code id="code-86" class="language-js"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-100" >
+  <pre class="language-js"><code id="code-100" class="language-js"><span class="token punctuation">{</span>
 “Étiquette du 1er lien”<span class="token operator">:</span> “href”
 “Étiquette du 2e lien”<span class="token operator">:</span> “href”
 “Étiquette du 3e lien”<span class="token operator">:</span> “href”
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-86"
+    data-clipboard-target="#code-100"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
 <p>Pour la bande de lien du pied de page, réglez l'élément <code>sub-links</code> en passant un objet ou un objet dans une chaîne selon le format suivant.</p>
 
-<div style="position: relative" id="code-container-90" >
-  <pre class="language-js"><code id="code-90" class="language-js"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-104" >
+  <pre class="language-js"><code id="code-104" class="language-js"><span class="token punctuation">{</span>
 “Étiquette du 1er lien”<span class="token operator">:</span> “href”
 “Étiquette du 2e lien”<span class="token operator">:</span> “href”
 “Étiquette du 3e lien”<span class="token operator">:</span> “href”
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-90"
+    data-clipboard-target="#code-104"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-optional">Attributs facultatifs</a></li>
+</ul>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="contextualheading"><code>contextual-heading</code></h4>
+<p>L'attribut <code>contextual-heading</code> définit le texte du titre de la section de navigation contextuelle dans le pied de page. Ce titre sert aussi à identifier le repère de navigation du pied de page, ce qui améliore la structure et l'accessibilité.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="460"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer contextual-heading=&quot;Service numérique canadien (SNC)&quot; contextual-links='{ &quot;Pourquoi utiliser Notification GC&quot;: &quot;#&quot;, &quot;Fonctionnalités&quot;: &quot;#&quot;, &quot;Activité sur Notification GC&quot;: &quot;#&quot; }'></gcds-footer><img src=&quot;/images/fr/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer contextual-heading=&quot;Service numérique canadien (SNC)&quot; contextual-links='{ &quot;Pourquoi utiliser Notification GC&quot;: &quot;#&quot;, &quot;Fonctionnalités&quot;: &quot;#&quot;, &quot;Activité sur Notification GC&quot;: &quot;#&quot; }'&gt;
+&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/fr/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada.&quot;/&gt;</code></pre>
+</div></p>
+<h4 id="contextuallinks"><code>contextual-links</code></h4>
+<p>L'attribut <code>contextual-links</code> définit l'ensemble des liens affichés dans la section de navigation contextuelle du pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : <code>{ link-label: link-href }</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="460"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer contextual-heading=&quot;Service numérique canadien (SNC)&quot; contextual-links='{ &quot;Pourquoi utiliser Notification GC&quot;: &quot;#&quot;, &quot;Fonctionnalités&quot;: &quot;#&quot;, &quot;Activité sur Notification GC&quot;: &quot;#&quot; }'></gcds-footer><img src=&quot;/images/fr/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer contextual-heading=&quot;Service numérique canadien (SNC)&quot; contextual-links='{ &quot;Pourquoi utiliser Notification GC&quot;: &quot;#&quot;, &quot;Fonctionnalités&quot;: &quot;#&quot;, &quot;Activité sur Notification GC&quot;: &quot;#&quot; }'&gt;
+&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/fr/components/example/example-footer-full-with-contextual-links.svg&quot; alt=&quot;Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada.&quot;/&gt;</code></pre>
+</div></p>
+<h4 id="display"><code>display</code></h4>
+<p>L'attribut <code>display</code> contrôle les sections du pied de page qui sont affichées. Par défaut, il est défini à <code>compact</code>, ce qui affiche uniquement la section de sous-pied de page.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer></gcds-footer><img src=&quot;/images/fr/components/example/example-footer-compact.svg&quot; alt=&quot;Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca standard, avec les liens Médias sociaux, Applications mobiles, À propos de Canada.ca, Avis, Confidentialité, ainsi que le mot-symbole Canada.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer&gt;&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/fr/components/example/example-footer-compact.svg&quot; alt=&quot;Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca standard, avec les liens Médias sociaux, Applications mobiles, À propos de Canada.ca, Avis, Confidentialité, ainsi que le mot-symbole Canada.&quot;/&gt;</code></pre>
+</div></p>
+<p>Lorsqu'il est défini à <code>full</code>, les sections principale et de sous-pied de page sont toutes deux affichées.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="380"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer display=&quot;full&quot;></gcds-footer><img src=&quot;/images/fr/components/example/example-footer-full.svg&quot; alt=&quot;Composant du pied de page montrant la bande principale au-dessus de la bande de liens du GC et du mot-symbole Canada.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer display=&quot;full&quot;&gt;&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/fr/components/example/example-footer-full.svg&quot; alt=&quot;Composant du pied de page montrant la bande principale au-dessus de la bande de liens du GC et du mot-symbole Canada.&quot;/&gt;</code></pre>
+</div></p>
+<h4 id="sublinks"><code>sub-links</code></h4>
+<p>L'attribut <code>sub-links</code> définit l'ensemble des liens affichés dans la section de sous-pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : <code>{ link-label: link-href }</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;examples-footer shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-footer sub-links='{ &quot;Avis&quot;: &quot;#&quot;, &quot;Confidentialité&quot;: &quot;#&quot; }'></gcds-footer><img src=&quot;/images/fr/components/example/example-footer-compact-sub-links.svg&quot; alt=&quot;Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca non standard, avec les liens Avis et Confidentialité, ainsi que le mot-symbole Canada.&quot;/>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class="examples-footer"><code class="language-html font-size-text-small">&lt;gcds-footer sub-links='{ &quot;Avis&quot;: &quot;#&quot;, &quot;Confidentialité&quot;: &quot;#&quot; }'&gt;
+&lt;/gcds-footer&gt;</p>
+<p>&lt;img src=&quot;/images/fr/components/example/example-footer-compact-sub-links.svg&quot; alt=&quot;Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca non standard, avec les liens Avis et Confidentialité, ainsi que le mot-symbole Canada.&quot;/&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2868,7 +3071,7 @@ Aperçu du composant de pied de page
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

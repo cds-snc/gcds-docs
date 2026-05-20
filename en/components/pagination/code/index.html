@@ -2746,8 +2746,11 @@ Pagination component preview
     </nav>
   
 
-  <h2 id="build-a-pagination-component">Build a pagination component</h2>
-<p>Use pagination to break up content and spread it over numerous pages. This can help make large content sections easier to read and gives a person a sense of their position within the documents.</p>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-pagination">Coding and accessibility for pagination</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
 <h2 id="coding-and-accessibility-for-pagination">Coding and accessibility for pagination</h2>
 <h3 id="set-up-simple-pagination">Set up simple pagination</h3>
 <p>Use simple pagination for a smaller number of pages.</p>
@@ -2767,8 +2770,8 @@ Pagination component preview
 <h4 id="apply-the-url-object-for-liststyle-pagination">Apply the URL object for list-style pagination</h4>
 <p>Use the <code>url</code> object to generate the query strings and fragments for the list pagination’s links.</p>
 
-<div style="position: relative" id="code-container-76" >
-  <pre class="language-js"><code id="code-76" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-90" >
+  <pre class="language-js"><code id="code-90" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token comment">// Key value pairs</span>
     <span class="token literal-property property">key</span><span class="token operator">:</span> value<span class="token punctuation">,</span>
@@ -2777,7 +2780,7 @@ Pagination component preview
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-76"
+    data-clipboard-target="#code-90"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -2785,38 +2788,38 @@ Pagination component preview
 <p>To modify the value based on the page link being rendered, add the object modifiers <code>::offset</code> or <code>::match</code> to a key in the queryStrings object.</p>
 <p><code>::offset</code> counts up with the given value starting from the second page link.</p>
 
-<div style="position: relative" id="code-container-83" >
-  <pre class="language-js"><code id="code-83" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-97" >
+  <pre class="language-js"><code id="code-97" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-83"
+    data-clipboard-target="#code-97"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
 <p>Using <code>::match</code> on the current page link being rendered, multiplies it by the value provided.</p>
 
-<div style="position: relative" id="code-container-87" >
-  <pre class="language-js"><code id="code-87" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-101" >
+  <pre class="language-js"><code id="code-101" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-87"
+    data-clipboard-target="#code-101"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
 <p>Using either <code>::offset</code> or <code>::match</code>, allows a number to be injected into a string. Using <code>{{#}}</code>, the modifier will inject the modified number based on the counting method into the string when rendering.</p>
 
-<div style="position: relative" id="code-container-91" >
-  <pre class="language-js"><code id="code-91" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-105" >
+  <pre class="language-js"><code id="code-105" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token string">'index_{{100}}'</span><span class="token punctuation">,</span>
     <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token string">'page_{{1}}'</span><span class="token punctuation">,</span>
@@ -2824,12 +2827,366 @@ Pagination component preview
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-91"
+    data-clipboard-target="#code-105"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Essential attributes</a></li>
+<li><a href="#section-optional">Optional attributes</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Essential attributes
+</gcds-heading>
+<gcds-text>These attributes are needed for the component to function correctly.</gcds-text>
+</div></p>
+<h4 id="label"><code>label</code></h4>
+<p>The <code>label</code> attribute defines the text that labels the pagination navigation landmark, giving it a clear and accessible name.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="110"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="currentpage"><code>current-page</code></h4>
+<p>The <code>current-page</code> attribute sets the current page for a pagination with list display.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="110"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<h4 id="display"><code>display</code></h4>
+<p>The <code>display</code> attribute sets the display style of the pagination. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>list</code> (default)</li>
+<li><code>simple</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="110"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;List pagination example&quot; display=&quot;list&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;List pagination example&quot; display=&quot;list&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<h4 id="nexthref"><code>next-href</code></h4>
+<p>The <code>next-href</code> attribute specifies the next page’s URL for a pagination with simple display.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="290"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<h4 id="nextlabel"><code>next-label</code></h4>
+<p>The <code>next-label</code> attribute defines the next page’s label for a pagination with simple display.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="290"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<h4 id="previoushref"><code>previous-href</code></h4>
+<p>The <code>previous-href</code> attribute specifies the previous page’s URL for a pagination with simple display.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="290"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<h4 id="previouslabel"><code>previous-label</code></h4>
+<p>The <code>previous-label</code> attribute defines the previous page’s label for a pagination with simple display.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="290"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;Simple pagination example&quot; display=&quot;simple&quot; previous-href=&quot;#&quot; next-href=&quot;#&quot; previous-label=&quot;Title of page&quot; next-label=&quot;3 of 3&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<h4 id="totalpages"><code>total-pages</code></h4>
+<p>The <code>total-pages</code> attribute sets the total number of pages for a pagination with list display.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="110"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot;&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<h4 id="url"><code>url</code></h4>
+<p>The <code>url</code> attribute defines the object (in a JavaScript environment) or string (in HTML) that generates the query strings and fragment for the list-styled pagination links.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="110"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot; url='{&quot;queryStrings&quot;: { &quot;querystring::offset&quot;: 10 }, &quot;fragment&quot;: &quot;main&quot; }'></gcds-pagination>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-pagination label=&quot;List pagination example&quot; total-pages=&quot;15&quot; current-page=&quot;9&quot; url='{&quot;queryStrings&quot;: { &quot;querystring::offset&quot;: 10 }, &quot;fragment&quot;: &quot;main&quot; }'&gt;
+&lt;/gcds-pagination&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2885,7 +3242,7 @@ Pagination component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

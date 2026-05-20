@@ -2746,9 +2746,12 @@ Grid component preview
     </nav>
   
 
-  <h2 id="build-a-grid">Build a grid</h2>
-<p>Use grids to create flexible and responsive layouts for various screen sizes. The grid component uses CSS grid to allow for more complex layouts.</p>
-<h2 id="code-and-accessibility-for-grids">Code and accessibility for grids</h2>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-grids">Coding and accessibility for grids</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
+<h2 id="coding-and-accessibility-for-grids">Coding and accessibility for grids</h2>
 <h3 id="adjust-layouts-to-optimize-the-experience-on-different-screen-sizes">Adjust layouts to optimize the experience on different screen sizes</h3>
 <ul class="list-disc mb-300"><li>Optimize each grid component for the different screen sizes a person will use — or switch between — when they visit your site or use your product.</li>
 <li>Adapt for mobile, tablet, and large screens by defining each viewport layout for that grid component.<ul class="list-disc mb-300"><li>Smaller screens, like mobile devices, typically display a single column layout.</li>
@@ -2799,14 +2802,14 @@ Grid component preview
 </div>
 <p><div class="code-showcase mb-300">
 <textarea class="showcase text-light mb-300 p-300" id="preview-grid-flexible" rows="8" aria-label="Code display - gcds-grid" tabindex="-1" aria-hidden="true" readonly>
-<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr"></p>
 <p>This is some example content to display the grid component.</p>
 <p>This is some example content to display the grid component.</p>
 <p>This is some example content to display the grid component.</p>
 </gcds-grid>
 </textarea>
-<div>
-<gcds-button
+          <div>
+            <gcds-button
               class="showcase-view-button"
               button-type="button"
               button-role="secondary"
@@ -2814,18 +2817,18 @@ Grid component preview
               aria-controls="preview-grid-flexible"
               aria-expanded="false"
             >
-View code
-</gcds-button>
-<gcds-button
+              View code
+            </gcds-button>
+            <gcds-button
               class="showcase-copy-button"
               button-type="button"
               button-role="secondary"
               lang="en"
             >
-Copy code
-</gcds-button>
-</div>
-</div></p>
+              Copy code
+            </gcds-button>
+          </div>
+        </div>
 <p>Set the minimum and maximum width to design equal-width columns with restrictions to limit how wide they will span on any screen size.</p>
 <ul class="list-disc mb-300"><li>Set a minimum width when you want to prevent a column from being too narrow in smaller viewports.</li>
 <li>Set a maximum width when you want to prevent a column from being too wide in larger viewports.</li>
@@ -2861,14 +2864,14 @@ Copy code
 </div>
 <p><div class="code-showcase mb-300">
 <textarea class="showcase text-light mb-300 p-300" id="preview-grid-fixed-width" rows="8" aria-label="Code display - gcds-grid" tabindex="-1" aria-hidden="true" readonly>
-<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
+<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))"></p>
 <p>This is some example content to display the grid component.</p>
 <p>This is some example content to display the grid component.</p>
 <p>This is some example content to display the grid component.</p>
 </gcds-grid>
 </textarea>
-<div>
-<gcds-button
+          <div>
+            <gcds-button
               class="showcase-view-button"
               button-type="button"
               button-role="secondary"
@@ -2876,19 +2879,800 @@ Copy code
               aria-controls="preview-grid-fixed-width"
               aria-expanded="false"
             >
-View code
-</gcds-button>
-<gcds-button
+              View code
+            </gcds-button>
+            <gcds-button
               class="showcase-copy-button"
               button-type="button"
               button-role="secondary"
               lang="en"
             >
-Copy code
-</gcds-button>
-</div>
+              Copy code
+            </gcds-button>
+          </div>
+        </div>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
 </div></p>
-<h3 id="get-your-code">Get your code</h3>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-optional">Optional attributes</a></li>
+<li><a href="#section-slot">Slots</a></li>
+</ul>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="aligncontent"><code>align-content</code></h4>
+<p>The <code>align-content</code> attribute sets the alignment of the grid along the block (column) axis when the total grid size is less than the size of its grid container. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>center</code></li>
+<li><code>end</code></li>
+<li><code>space-around</code></li>
+<li><code>space-between</code></li>
+<li><code>space-evenly</code></li>
+<li><code>start</code></li>
+<li><code>stretch</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="220"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items examples-grid shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid align-content=&quot;space-between&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid align-content=&quot;space-between&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+  &lt;p&gt;4&lt;/p&gt;
+  &lt;p&gt;5&lt;/p&gt;
+  &lt;p&gt;6&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="alignitems"><code>align-items</code></h4>
+<p>The <code>align-items</code> attribute sets the alignment of grid items along the block (column) axis. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>baseline</code></li>
+<li><code>center</code></li>
+<li><code>end</code></li>
+<li><code>start</code></li>
+<li><code>stretch</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="220"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid align-items=&quot;baseline&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p class=&quot;pb-800&quot;>2</p><p class=&quot;pt-900&quot;>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid align-items=&quot;baseline&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p class=&quot;pb-800&quot;&gt;2&lt;/p&gt;
+  &lt;p class=&quot;pt-900&quot;&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="alignment"><code>alignment</code></h4>
+<p>The <code>alignment</code> attribute sets the grid’s alignment if the grid container’s size is smaller than the parent’s size. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>center</code></li>
+<li><code>end</code></li>
+<li><code>start</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid alignment=&quot;end&quot; container=&quot;sm&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid alignment=&quot;end&quot; container=&quot;sm&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="columns"><code>columns</code></h4>
+<p>The <code>columns</code> attribute defines the default number of grid columns for all viewports if <code>columns-tablet</code> and <code>columns-desktop</code> are not defined. Option to set different layouts for desktop with <code>columns-desktop</code> and for tablet with <code>columns-tablet</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="220"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid columns=&quot;1fr 1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid columns=&quot;1fr 1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="columnsdesktop"><code>columns-desktop</code></h4>
+<p>The <code>columns-desktop</code> attribute provides the option to set a different number of grid columns for desktop screens.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid columns-desktop=&quot;1fr 1fr 1fr&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid columns-desktop=&quot;1fr 1fr 1fr&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="columnstablet"><code>columns-tablet</code></h4>
+<p>The <code>columns-tablet</code> attribute provides the option to set a different number of grid columns for tablet screens. If <code>columns-desktop</code> is not defined, <code>columns-tablet</code> will be used to define the number of columns for desktop as well.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="220"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid columns-tablet=&quot;1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid columns-tablet=&quot;1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="container"><code>container</code></h4>
+<p>The <code>container</code> attribute defines the grid container size. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>full</code></li>
+<li><code>xl</code></li>
+<li><code>lg</code></li>
+<li><code>md</code></li>
+<li><code>sm</code></li>
+<li><code>xs</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items examples-grid-container shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid container=&quot;sm&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid container=&quot;sm&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="display"><code>display</code></h4>
+<p>The <code>display</code> attribute defines the element as a <code>grid</code> or <code>inline-grid</code> container. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>grid</code> (default)</li>
+<li><code>inline-grid</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid display=&quot;inline-grid&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid display=&quot;inline-grid&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="gap"><code>gap</code></h4>
+<p>The <code>gap</code> attribute defines the horizontal and vertical spacing between items in a grid container for all viewports if <code>gap-tablet</code> and <code>gap-desktop</code> are not defined. Option to set different spacing for desktop with <code>gap-desktop</code> and for tablet with <code>gap-tablet</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="230"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid gap=&quot;450&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid gap=&quot;450&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+  &lt;p&gt;4&lt;/p&gt;
+  &lt;p&gt;5&lt;/p&gt;
+  &lt;p&gt;6&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="gapdesktop"><code>gap-desktop</code></h4>
+<p>The <code>gap-desktop</code> attribute provides the option to set horizontal and vertical spacing between items in a grid container for desktop screens.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="230"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid gap-desktop=&quot;800&quot; gap=&quot;400&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid gap-desktop=&quot;800&quot; gap=&quot;400&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+  &lt;p&gt;4&lt;/p&gt;
+  &lt;p&gt;5&lt;/p&gt;
+  &lt;p&gt;6&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="gaptablet"><code>gap-tablet</code></h4>
+<p>The <code>gap-tablet</code> attribute provides the option to set horizontal and vertical spacing between items in a grid container for tablet screens. If <code>gap-desktop</code> is not defined, <code>gap-tablet</code> will be used to define the spacing for desktop screens as well.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="240"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid gap-tablet=&quot;500&quot; gap=&quot;400&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid gap-tablet=&quot;500&quot; gap=&quot;400&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+  &lt;p&gt;4&lt;/p&gt;
+  &lt;p&gt;5&lt;/p&gt;
+  &lt;p&gt;6&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="justifycontent"><code>justify-content</code></h4>
+<p>The <code>justify-content</code> attribute sets the alignment of the grid along the inline (row) axis if the total grid size is less than the size of its grid container. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>center</code></li>
+<li><code>end</code></li>
+<li><code>space-around</code></li>
+<li><code>space-between</code></li>
+<li><code>space-evenly</code></li>
+<li><code>start</code></li>
+<li><code>stretch</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid justify-content=&quot;center&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid justify-content=&quot;center&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="justifyitems"><code>justify-items</code></h4>
+<p>The <code>justify-items</code> attribute sets the alignment of the grid items along the inline (row) axis. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>center</code></li>
+<li><code>end</code></li>
+<li><code>start</code></li>
+<li><code>stretch</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid justify-items=&quot;center&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid justify-items=&quot;center&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="placecontent"><code>place-content</code></h4>
+<p>The <code>place-content</code> attribute sets both the <code>align-content</code> and <code>justify-content</code> attributes. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>center</code></li>
+<li><code>end</code></li>
+<li><code>space-around</code></li>
+<li><code>space-between</code></li>
+<li><code>space-evenly</code></li>
+<li><code>start</code></li>
+<li><code>stretch</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="220"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid place-content=&quot;space-around&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid place-content=&quot;space-around&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+  &lt;p&gt;4&lt;/p&gt;
+  &lt;p&gt;5&lt;/p&gt;
+  &lt;p&gt;6&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="placeitems"><code>place-items</code></h4>
+<p>The <code>place-items</code> attribute sets both the <code>align-items</code> and <code>justify-items</code> attributes. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>center</code></li>
+<li><code>end</code></li>
+<li><code>start</code></li>
+<li><code>stretch</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="220"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid place-items=&quot;end&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid place-items=&quot;end&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+  &lt;p&gt;4&lt;/p&gt;
+  &lt;p&gt;5&lt;/p&gt;
+  &lt;p&gt;6&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<h4 id="tag"><code>tag</code></h4>
+<p>The <code>tag</code> attribute sets the HTML element used to render the grid container. By default, it is set to <code>div</code>. The available options are:</p>
+<ul class="list-disc mb-300"><li><code>div</code> (default)</li>
+<li><code>article</code></li>
+<li><code>aside</code></li>
+<li><code>dl</code></li>
+<li><code>main</code></li>
+<li><code>nav</code></li>
+<li><code>ol</code></li>
+<li><code>section</code></li>
+<li><code>ul</code></li>
+</ul>
+<!-- Force line break -->
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid tag=&quot;article&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid tag=&quot;article&quot; columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<!-- ----- Slots section ----- -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Slots
+</gcds-heading>
+<gcds-text>The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>The <code>default</code> slot is for placing the grid items.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="140"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;example-styled-items shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-grid columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;><p>1</p><p>2</p><p>3</p></gcds-grid>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-grid columns-tablet=&quot;1fr 1fr 1fr&quot; columns=&quot;1fr&quot;&gt;
+  &lt;p&gt;1&lt;/p&gt;
+  &lt;p&gt;2&lt;/p&gt;
+  &lt;p&gt;3&lt;/p&gt;
+&lt;/gcds-grid&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2944,7 +3728,7 @@ Copy code
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

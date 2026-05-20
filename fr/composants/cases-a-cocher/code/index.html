@@ -2746,7 +2746,12 @@ Aperçu du composant de cases à cocher
     </nav>
   
 
-  <h2 id="codage-et-accessibilite-des-icones">Codage et accessibilité des icônes</h2>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-les-cases-a-cocher">Codage et accessibilité les cases à cocher</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-les-cases-a-cocher">Codage et accessibilité les cases à cocher</h2>
 <h3 id="appliquer-les-attributs-requis">Appliquer les attributs requis</h3>
 <p>Pour que les cases à cocher fonctionnent correctement, utilisez toujours les attributs suivants avec <code>gcds-checkbox</code> :</p>
 <ul class="list-disc mb-300"><li><code>name</code></li>
@@ -2755,8 +2760,8 @@ Aperçu du composant de cases à cocher
 <h3 id="utiliser-lattribut-options-avec-les-cases-a-cocher">Utiliser l'attribut <code>options</code> avec les cases à cocher</h3>
 <p>L'attribut <code>options</code> utilise un tableau d'objets pour rendre chaque case à cocher. Voici en exemple l'un de ces objets :</p>
 
-<div style="position: relative" id="code-container-27" >
-  <pre class="language-javascript"><code id="code-27" class="language-javascript"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-47" >
+  <pre class="language-javascript"><code id="code-47" class="language-javascript"><span class="token punctuation">{</span>
   <span class="token string">'id'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
   <span class="token string">'label'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
   <span class="token string">'value'</span><span class="token operator">?</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
@@ -2765,7 +2770,7 @@ Aperçu du composant de cases à cocher
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-27"
+    data-clipboard-target="#code-47"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -2810,7 +2815,501 @@ Aperçu du composant de cases à cocher
 </li>
 <li>Évitez d’ajouter du texte explicatif lorsque vous masquez la légende. Vous pouvez également fournir une chaîne vide pour le texte explicatif.</li>
 </ul>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+<li><a href="#section-optional">Attributs facultatifs</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="legend"><code>legend</code></h4>
+<p>L'attribut <code>legend</code> définit la légende du groupe de cases à cocher.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="name"><code>name</code></h4>
+<p>L'attribut <code>name</code> identifie le composant dans le formulaire. Il permet de récupérer les valeurs sélectionnées après la soumission.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="options"><code>options</code></h4>
+<p>L'attribut <code>options</code> définit les cases à cocher à afficher en prenant un tableau (array) d'objets, un par case à cocher.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="autofocus"><code>autofocus</code></h4>
+<p>L'attribut <code>autofocus</code> contrôle si la première case à cocher est ciblée automatiquement au chargement de la page. Par défaut, il est défini à <code>false</code>. Lorsqu'il est défini à <code>true</code>, la case à cocher est ciblée à l'affichage.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes autofocus legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes autofocus legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="disabled"><code>disabled</code></h4>
+<p>L'attribut <code>disabled</code> contrôle si les cases à cocher sont désactivées ou non. Par défaut, il est défini à <code>false</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes disabled legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes disabled legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="errormessage"><code>error-message</code></h4>
+<p>L'attribut <code>error-message</code> définit le message d'erreur à afficher pour les cases à cocher invalides.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="350"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes error-message=&quot;Message d'erreur&quot; legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes error-message=&quot;Message d'erreur&quot; legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="form"><code>form</code></h4>
+<p>L'attribut <code>form</code> définit l'identifiant du formulaire auquel appartiennent les cases à cocher.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes form=&quot;form-id&quot; legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes form=&quot;form-id&quot; legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="hidelabel"><code>hide-label</code></h4>
+<p>L'attribut <code>hide-label</code> contrôle si le libellé est masqué ou non.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="120"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes hide-label name=&quot;checkbox&quot; options='[{ &quot;label&quot;: &quot;Label for checkbox 1&quot;, &quot;id&quot;: &quot;checkbox1&quot;, &quot;value&quot;: &quot;checkbox1&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes hide-label name=&quot;checkbox&quot; options='[{ &quot;label&quot;: &quot;Label for checkbox 1&quot;, &quot;id&quot;: &quot;checkbox1&quot;, &quot;value&quot;: &quot;checkbox1&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="hidelegend"><code>hide-legend</code></h4>
+<p>L'attribut <code>hide-legend</code> contrôle si la légende est masquée ou non.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="280"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes hide-legend legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes hide-legend legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="hint"><code>hint</code></h4>
+<p>L'attribut <code>hint</code> définit le texte explicatif affiché sous le libellé ou la légende.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="350"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes hint=&quot;Texte explicatif/Exemple de message.&quot; legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes hint=&quot;Texte explicatif/Exemple de message.&quot; legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="required"><code>required</code></h4>
+<p>L'attribut <code>required</code> contrôle si le groupe de cases à cocher est obligatoire ou non. Lorsqu'il est défini à <code>true</code>, il ajoute « obligatoire » après le libellé ou la légende et active le validateur de champ obligatoire.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="350"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes required legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes required legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="validateon"><code>validate-on</code></h4>
+<p>L'attribut <code>validate-on</code> définit l'événement de validation pour les cases à cocher.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes validate-on=&quot;other&quot; required legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes validate-on=&quot;other&quot; required legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<h4 id="value"><code>value</code></h4>
+<p>L'attribut <code>value</code> contient un tableau (array) des valeurs de toutes les cases actuellement cochées. Il se met à jour à chaque changement de sélection.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="310"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-checkboxes value='[&quot;check2&quot;]' legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'></gcds-checkboxes>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-checkboxes value='[&quot;check2&quot;]' legend=&quot;Légende&quot; name=&quot;checkexample&quot; options='[{&quot;id&quot;: &quot;form-check-1&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check1&quot;}, {&quot;id&quot;: &quot;form-check-2&quot;, &quot;label&quot;: &quot;Libellé&quot;, &quot;hint&quot;: &quot;Ceci est une description ou un exemple à titre de clarification.&quot;, &quot;value&quot;: &quot;check2&quot;}]'&gt;
+&lt;/gcds-checkboxes&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2866,7 +3365,7 @@ Aperçu du composant de cases à cocher
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

@@ -2752,8 +2752,11 @@ Breadcrumbs component preview
     </nav>
   
 
-  <h2 id="build-a-breadcrumbs-component">Build a breadcrumbs component</h2>
-<p>Use breadcrumbs to indicate the location of the current page in relation to its parents in the site structure.</p>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-breadcrumbs">Coding and accessibility for breadcrumbs</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
 <h2 id="coding-and-accessibility-for-breadcrumbs">Coding and accessibility for breadcrumbs</h2>
 <h3 id="start-with-the-canadaca-link-and-the-homepage-link">Start with the Canada.ca link and the homepage link</h3>
 <ul class="list-disc mb-300"><li>Maintain the Canada.ca link as the default first breadcrumbs link for most websites and pages.</li>
@@ -2764,7 +2767,192 @@ Breadcrumbs component preview
 <p>Place breadcrumbs at the top of a page, before the <code>&lt;main&gt;</code> element. This way a skip-to-content link can work to let a person skip all navigation links, including breadcrumbs.</p>
 <h3 id="use-breadcrumb-items-for-breadcrumbs-links">Use breadcrumb items for breadcrumbs links</h3>
 <p>Add a new breadcrumbs link to the breadcrumbs component by using the <code>&lt;gcds-breadcrumbs-item&gt;</code> component. The link can be added through the <code>href</code> property.</p>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Essential attributes</a></li>
+<li><a href="#section-optional">Optional attributes</a></li>
+<li><a href="#section-slot">Slots</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Essential attributes
+</gcds-heading>
+<gcds-text>These attributes are needed for the component to function correctly.</gcds-text>
+</div></p>
+<h4 id="breadcrumbs-item-href">Breadcrumbs item <code>href</code></h4>
+<p>The <code>href</code> attribute defines the destination URL for a <code>gcds-breadcrumbs-item</code> and is required for the breadcrumb item to function as a link.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs><gcds-breadcrumbs-item href=&quot;#&quot;>Home page</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Parent page link</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Home page&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Parent page link&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="hidecanadalink"><code>hide-canada-link</code></h4>
+<p>The <code>hide-canada-link</code> attribute controls whether the default canada.ca link is displayed in the breadcrumbs. By default, it is set to <code>false</code>, which means the canada.ca link appears as the first breadcrumb item.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs><gcds-breadcrumbs-item href=&quot;#&quot;>Home page</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Parent page link</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Home page&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Parent page link&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<p>When set to <code>true</code>, the default canada.ca link is hidden, and only the breadcrumb items provided are displayed.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs hide-canada-link><gcds-breadcrumbs-item href=&quot;#&quot;>Home page</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Parent page link</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs hide-canada-link&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Home page&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Parent page link&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Slots
+</gcds-heading>
+<gcds-text>The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>The <code>default</code> slot is for adding <code>gcds-breadcrumbs-item</code> subcomponents. The <code>default</code> slot of the breadcrumbs item is for adding the item's text.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs hide-canada-link><gcds-breadcrumbs-item href=&quot;#&quot;>Home page</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Parent page link</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs hide-canada-link&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Home page&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Parent page link&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2820,7 +3008,7 @@ Breadcrumbs component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

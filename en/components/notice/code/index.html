@@ -2746,16 +2746,201 @@ Notice component preview
     </nav>
   
 
-  <h2 id="build-a-notice">Build a notice</h2>
-<p>Use the notice component to deliver important context-specific messages to people. The notice communicates varying levels of urgency and meaning using content and visual cues.</p>
-<h2 id="accessibility-and-code-guidance">Accessibility and code guidance</h2>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-notice">Coding and accessibility for notice</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
+<h2 id="coding-and-accessibility-for-notice">Coding and accessibility for notice</h2>
 <h3 id="define-the-notice-role">Define the notice role</h3>
 <p>Use the <code>notice-role</code> attribute to categorize the notice as <code>info</code>, <code>warning</code>, <code>danger</code> or <code>success</code>. This choice determines the visual styling of the notice and communicates the urgency or importance of the message to people.</p>
 <h3 id="specify-the-notice-title-and-heading-level">Specify the notice title and heading level</h3>
 <ul class="list-disc mb-300"><li>Use the <code>notice-title</code> attribute to create a clear and informative heading for the notice. Ensure the title conveys the message’s purpose.</li>
 <li>Set the <code>notice-title-tag</code> to define the <a href="/en/components/heading/design/#order-heading-levels-hierarchically">correct heading level</a> for the notice title. While the font size remains the same regardless of the tag, setting the correct heading level maintains proper hierarchy and accessibility for assistive technologies.</li>
 </ul>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Essential attributes</a></li>
+<li><a href="#section-slot">Slots</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Essential attributes
+</gcds-heading>
+<gcds-text>These attributes are needed for the component to function correctly.</gcds-text>
+</div></p>
+<h4 id="noticerole"><code>notice-role</code></h4>
+<p>The <code>notice-role</code> attribute sets the style of notice to be displayed.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> This is a success message.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    This is a success message.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<h4 id="noticetitle"><code>notice-title</code></h4>
+<p>The <code>notice-title</code> attribute defines the title of the notice.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> This is a success message.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    This is a success message.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<h4 id="noticetitletag"><code>notice-title-tag</code></h4>
+<p>The <code>notice-title-tag</code> attribute sets the HTML heading element for the title. This attribute does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> This is a success message.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    This is a success message.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Slots
+</gcds-heading>
+<gcds-text>The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>The <code>default</code> slot is for placing the message of the notice.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="150"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;><gcds-text margin-bottom=&quot;0&quot;> This is a success message.</gcds-text></gcds-notice>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-notice notice-role=&quot;success&quot; notice-title=&quot;Success notice title&quot; notice-title-tag=&quot;h2&quot;&gt;
+  &lt;gcds-text margin-bottom=&quot;0&quot;&gt;
+    This is a success message.
+  &lt;/gcds-text&gt;
+&lt;/gcds-notice&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2811,7 +2996,7 @@ Notice component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

@@ -2746,9 +2746,11 @@ Radios component preview
     </nav>
   
 
-  <h2 id="build-radios">Build radios</h2>
-<p>Use radios when you're expecting a person to select only one option from a short list of responses.</p>
-<p>Radios help a person to make a choice by limiting their options.</p>
+  <h2 id="on-this-page">On this page</h2>
+<ul class="list-disc mb-300"><li><a href="#coding-and-accessibility-for-radios">Coding and accessibility for radios</a></li>
+<li><a href="#section-examples">Examples</a></li>
+<li><a href="#code-builder">Code builder</a></li>
+</ul>
 <h2 id="coding-and-accessibility-for-radios">Coding and accessibility for radios</h2>
 <h3 id="apply-required-attributes">Apply required attributes</h3>
 <p>For the radios to function properly, always use the following attributes with <code>gcds-radios</code>:</p>
@@ -2759,8 +2761,8 @@ Radios component preview
 <h3 id="use-the-options-attribute-with-radios">Use the options attribute with radios</h3>
 <p>The options attribute takes an array of objects to render each radio button. The following is an example of one of the objects:</p>
 
-<div style="position: relative" id="code-container-41" >
-  <pre class="language-javascript"><code id="code-41" class="language-javascript"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-52" >
+  <pre class="language-javascript"><code id="code-52" class="language-javascript"><span class="token punctuation">{</span>
   <span class="token string">'id'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
   <span class="token string">'label'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
   <span class="token string">'value'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
@@ -2769,7 +2771,7 @@ Radios component preview
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-41"
+    data-clipboard-target="#code-52"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -2799,7 +2801,465 @@ Radios component preview
 </ul>
 <h3 id="include-hint-text-for-task-success">Include hint text for task success</h3>
 <p>Use the <code>hint</code> attribute or the <code>hint</code> key in the <code>options</code> object to add hint text to help a person choose an input and avoid an error state.</p>
-<h3 id="get-your-code">Get your code</h3>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Examples
+</gcds-heading>
+<gcds-text>Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.</gcds-text>
+</div></p>
+<h3 id="in-this-section">In this section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Essential attributes</a></li>
+<li><a href="#section-optional">Optional attributes</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Essential attributes
+</gcds-heading>
+<gcds-text>These attributes are needed for the component to function correctly.</gcds-text>
+</div></p>
+<h4 id="legend"><code>legend</code></h4>
+<p>The <code>legend</code> attribute defines the legend for a group of radios.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="name"><code>name</code></h4>
+<p>The <code>name</code> attribute identifies the radios component within a form. It is used to reference the component after a form is submitted.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="options"><code>options</code></h4>
+<p>The <code>options</code> attribute defines the radios to render by taking an array of objects, one per radio button.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Optional attributes
+</gcds-heading>
+<gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
+</div></p>
+<h4 id="autofocus"><code>autofocus</code></h4>
+<p>The <code>autofocus</code> attribute controls whether the first radio button will be focused automatically when the page loads. By default, it is set to <code>false</code>. When set to <code>true</code>, the radio button is focused on render.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios autofocus legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios autofocus legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="disabled"><code>disabled</code></h4>
+<p>The <code>disabled</code> attribute controls whether the radios are disabled or not. By default, it is set to <code>false</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios disabled legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios disabled legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="errormessage"><code>error-message</code></h4>
+<p>The <code>error-message</code> attribute defines the error message to display for invalid radios.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="340"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios error-message=&quot;Error message&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios error-message=&quot;Error message&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="form"><code>form</code></h4>
+<p>The <code>form</code> attribute specifies the ID of the form that the radios belong to.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios form=&quot;form-id&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios form=&quot;form-id&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="hidelegend"><code>hide-legend</code></h4>
+<p>The <code>hide-legend</code> attribute controls whether the legend is hidden or not.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="270"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios hide-legend legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios hide-legend legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="hint"><code>hint</code></h4>
+<p>The <code>hint</code> attribute defines the hint text displayed under the label or legend.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="340"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios hint=&quot;Hint / Example message.&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios hint=&quot;Hint / Example message.&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="required"><code>required</code></h4>
+<p>The <code>required</code> attribute controls whether the radio fieldset is required or not. When set to <code>true</code>, it adds “required” after the legend, and activates the required validator.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="340"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios required legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios required legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="validateon"><code>validate-on</code></h4>
+<p>The <code>validate-on</code> attribute defines the validation event for the radios.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios validate-on=&quot;other&quot; required legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios validate-on=&quot;other&quot; required legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<h4 id="value"><code>value</code></h4>
+<p>The <code>value</code> attribute contains the value of the currently selected radio button. It updates when the selection changes.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="300"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-radios value=&quot;radio1&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'></gcds-radio>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-radios value=&quot;radio1&quot; legend=&quot;Legend&quot; name=&quot;radio&quot; options='[{&quot;id&quot;:&quot;form-radio-1&quot;,&quot;label&quot;:&quot;Label 1&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio1&quot;},{&quot;id&quot;:&quot;form-radio-r&quot;,&quot;label&quot;:&quot;Label 2&quot;,&quot;hint&quot;:&quot;Description or example to make the option clearer&quot;, &quot;value&quot;: &quot;radio2&quot;}]'&gt;
+&lt;/gcds-radio&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="code-builder">Code builder</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Explore by choosing different code values to generate the instance you want.</p>
@@ -2855,7 +3315,7 @@ Radios component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>

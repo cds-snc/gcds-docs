@@ -2752,9 +2752,12 @@ Aperçu du composant de chemin de navigation
     </nav>
   
 
-  <h2 id="creer-un-composant-chemin-de-navigation">Créer un composant chemin de navigation</h2>
-<p>Utilisez le chemin de navigation pour indiquer l'emplacement de la page actuelle par rapport à ses pages parents dans la structure du site.</p>
-<h2 id="codage-et-accessibilite-pour-le-composant-chemin-de-navigation">Codage et accessibilité pour le composant chemin de navigation</h2>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-chemin-de-navigation">Codage et accessibilité de chemin de navigation</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-de-chemin-de-navigation">Codage et accessibilité de chemin de navigation</h2>
 <h3 id="commencez-par-le-lien-canadaca-et-le-lien-de-la-page-daccueil">Commencez par le lien Canada.ca et le lien de la page d'accueil</h3>
 <ul class="list-disc mb-300"><li>Maintenez le lien Canada.ca comme premier lien de chemin de navigation par défaut pour la plupart des pages et sites Web.</li>
 <li>Choisissez de remplacer le lien Canada.ca par le lien de la page d'accueil sur les pages transactionnelles et les sites Web ou produits autonomes. Pour supprimer le lien Canada.ca à la tête du chemin de navigation, définissez l'attribut <code>hide-canada-link</code> à <code>true</code>.</li>
@@ -2764,7 +2767,191 @@ Aperçu du composant de chemin de navigation
 <p>Placez le chemin de navigation en haut d'une page, avant l'élément <code>&lt;main&gt;</code>. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.</p>
 <h3 id="utiliser-les-elements-du-chemin-de-navigation-pour-les-liens-du-chemin-de-navigation">Utiliser les éléments du chemin de navigation pour les liens du chemin de navigation</h3>
 <p>Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant <code>&lt;gcds-breadcrumbs-item&gt;</code>. Le lien peut être ajouté par le biais de la propriété <code>href</code>.</p>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-essential">Attributs essentiels</a></li>
+<li><a href="#section-optional">Attributs facultatifs</a></li>
+<li><a href="#section-slot">Emplacements (slots)</a></li>
+</ul>
+<!-- Required section -->
+<p><div>
+<gcds-heading id="section-essential" tag="h3">
+Attributs essentiels
+</gcds-heading>
+<gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
+</div></p>
+<h4 id="souscomposant-gcdsbreadcrumbsitem-href">Sous-composant <code>gcds-breadcrumbs-item</code> <code>href</code></h4>
+<p>L'attribut <code>href</code> définit l'URL de destination d'un <code>gcds-breadcrumbs-item</code> et est obligatoire pour que l'élément du chemin de navigation fonctionne comme un lien.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs><gcds-breadcrumbs-item href=&quot;#&quot;>Page d'accueil</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Lien vers la page parent</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Page d'accueil&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Lien vers la page parent&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="hidecanadalink"><code>hide-canada-link</code></h4>
+<p>L'attribut <code>hide-canada-link</code> contrôle l'affichage du lien canada.ca par défaut dans le chemin de navigation. Par défaut, il est défini à <code>false</code>, ce qui signifie que le lien canada.ca apparaît comme premier élément du chemin de navigation.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs><gcds-breadcrumbs-item href=&quot;#&quot;>Page d'accueil</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Lien vers la page parent</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Page d'accueil&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Lien vers la page parent&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<p>Lorsqu'il est défini à <code>true</code>, le lien canada.ca par défaut est masqué, et seuls les éléments du chemin de navigation fournis sont affichés.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs hide-canada-link><gcds-breadcrumbs-item href=&quot;#&quot;>Page d'accueil</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Lien vers la page parent</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs hide-canada-link&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Page d'accueil&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Lien vers la page parent&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="default"><code>default</code></h4>
+<p>L'emplacement par défaut sert à ajouter des sous-composants gcds-breadcrumbs-item. L'emplacement par défaut de l'élément du chemin de navigation sert à ajouter le texte de cet élément.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="100"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-breadcrumbs hide-canada-link><gcds-breadcrumbs-item href=&quot;#&quot;>Page d'accueil</gcds-breadcrumbs-item><gcds-breadcrumbs-item href=&quot;#&quot;>Lien vers la page parent</gcds-breadcrumbs-item></gcds-breadcrumbs>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-breadcrumbs hide-canada-link&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Page d'accueil&lt;/gcds-breadcrumbs-item&gt;
+  &lt;gcds-breadcrumbs-item href=&quot;#&quot;&gt;Lien vers la page parent&lt;/gcds-breadcrumbs-item&gt;
+&lt;/gcds-breadcrumbs&gt;</code></pre>
+</div></p>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2820,7 +3007,7 @@ Aperçu du composant de chemin de navigation
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-13
+            2026-05-20
           </gcds-date-modified>
         </main>
       </gcds-grid>
