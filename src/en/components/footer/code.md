@@ -6,9 +6,11 @@ tags: ['footerEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a footer
+## On this page
 
-Use the Government of Canada branded footer landmark for a consistent, accessible, and responsive landmark for your site or product.
+- [Coding and accessibility for footers](#coding-and-accessibility-for-footers)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for footers
 
@@ -62,6 +64,73 @@ Opt to include the contextual band to add up three specific links for your site.
 “3rd link label”: “href”
 }
 ```
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Optional attributes](#section-optional)
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `contextual-heading`
+
+The `contextual-heading` attribute defines the heading text for the contextual navigation section in the footer. This heading is also used to label the footer’s navigation landmark, supporting clearer structure and accessibility.
+
+{% examplesPreview "460" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
+</gcds-footer>
+
+<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark."/>
+{% endexamplesPreview %}
+
+#### `contextual-links`
+
+The `contextual-links` attribute defines the set of links displayed in the footer’s contextual navigation section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: `{ link-label: link-href }`.
+
+{% examplesPreview "460" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
+</gcds-footer>
+
+<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark."/>
+{% endexamplesPreview %}
+
+#### `display`
+
+The `display` attribute controls which sections of the footer are rendered. By default, it is set to `compact`, displaying only the sub-footer section.
+
+{% examplesPreview "120" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer></gcds-footer>
+
+<img src="/images/en/components/example/example-footer-compact.svg" alt="Footer component showing the GC footer links band for a standard Canada.ca page, with Social media, Mobile applications, About Canada.ca, Terms and conditions, Privacy, as well as the Canada wordmark."/>
+{% endexamplesPreview %}
+
+When it is set to `full`, both the main footer and sub-footer sections are displayed.
+
+{% examplesPreview "380" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer display="full"></gcds-footer>
+
+<img src="/images/en/components/example/example-footer-full.svg" alt="Footer component showing the main band above the GC footer links band and the Canada wordmark."/>
+{% endexamplesPreview %}
+
+#### `sub-links`
+
+The `sub-links` attribute defines the set of links displayed in the sub-footer section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: `{ link-label: link-href }`.
+
+{% examplesPreview "120" "examples-footer" "en" "", "examples-footer" %}
+<gcds-footer sub-links='{ "Terms and conditions": "#", "Privacy": "#" }'>
+</gcds-footer>
+
+<img src="/images/en/components/example/example-footer-compact-sub-links.svg" alt="Footer component showing the GC footer links band for a non-standard Canada.ca page, with Terms and conditions, Privacy, and the Canada wordmark."/>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

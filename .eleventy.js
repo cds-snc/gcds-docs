@@ -51,8 +51,7 @@ module.exports = function (eleventyConfig) {
       './scripts/sanitize-pii.min.js',
   });
   eleventyConfig.addPassthroughCopy({
-    './src/.well-known/security.txt': 
-      '.well-known/security.txt' 
+    './src/.well-known/security.txt': '.well-known/security.txt',
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy('./.pa11yci.json');
@@ -486,6 +485,134 @@ module.exports = function (eleventyConfig) {
       </div>
     `;
   });
+
+  // Add shortcode for example intro text
+  eleventyConfig.addPairedShortcode(
+    'examplesContent',
+    (children, locale, section) => {
+      const langStrings = {
+        en: {
+          examples: {
+            heading: 'Examples',
+            text: 'Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.',
+          },
+          essential: {
+            heading: 'Essential attributes',
+            text: 'These attributes are needed for the component to function correctly.',
+          },
+          optional: {
+            heading: 'Optional attributes',
+            text: 'These attributes allow you to customize or extend the component’s behaviour and presentation.',
+          },
+          slot: {
+            heading: 'Slots',
+            text: 'The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.',
+          },
+        },
+        fr: {
+          examples: {
+            heading: 'Exemples',
+            text: 'Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.',
+          },
+          essential: {
+            heading: 'Attributs essentiels',
+            text: 'Ces attributs sont requis pour que le composant fonctionne correctement.',
+          },
+          optional: {
+            heading: 'Attributs facultatifs',
+            text: 'Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.',
+          },
+          slot: {
+            heading: 'Emplacements (slots)',
+            text: 'L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.',
+          },
+        },
+      };
+
+      const headingLevel = section === 'examples' ? 'h2' : 'h3';
+
+      return `
+      <div>
+        <gcds-heading id="section-${section}" tag="${headingLevel}">
+          ${langStrings[locale][section].heading}
+        </gcds-heading>
+        <gcds-text>${langStrings[locale][section].text}</gcds-text>
+      </div>
+    `;
+    },
+  );
+
+  // Add shortcode for example tab code previews
+  eleventyConfig.addPairedShortcode(
+    'examplesPreview',
+    (
+      children,
+      height = 100,
+      className,
+      locale = 'en',
+      title,
+      classNameCode,
+    ) => {
+      const content = children.trim();
+
+      const strings = {
+        en: {
+          iframeTitle: 'Component preview',
+        },
+        fr: {
+          iframeTitle: 'Aperçu du composant',
+        },
+      };
+
+      const iframeTitle = title || strings[locale].iframeTitle;
+
+      // Minify weird Eleventy spacing in rendered HTML preview
+      const renderedHTML = content
+        .replace(/&nbsp;/g, ' ')
+        .replace(/\s+/g, ' ')
+        .replace(/\s+</g, '<')
+        .replace(/\s+>/g, '>')
+        .trim();
+
+      const iframeHTML = `
+        <!DOCTYPE html>
+        <html lang="${locale}" dir="ltr">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="/gcds-css-shortcuts.min.css">
+            <link rel="stylesheet" href="/styles/style.css">
+            <link rel="stylesheet" href="/components/dist/gcds/gcds.css">
+            <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+          </head>
+          <body class="${className || ''} shortcut-preview examples-preview">
+            <div class="preview-demo p-300 d-grid gap-300">
+              ${renderedHTML}
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      `;
+
+      return `
+        <div class="b-md shortcut-preview">
+          <iframe
+            class="preview-iframe"
+            title="${iframeTitle}"
+            sandbox="allow-scripts allow-same-origin"
+            frameborder="0"
+            width="100%"
+            height="${height}"
+            srcdoc="${iframeHTML.replace(/"/g, '&quot;')}">
+          </iframe>
+          <pre class="${classNameCode || ''}"><code class="language-html font-size-text-small">${encode(content)}</code></pre>
+        </div>
+      `;
+    },
+  );
 
   eleventyConfig.addPairedShortcode(
     'baseComponentPreview',
