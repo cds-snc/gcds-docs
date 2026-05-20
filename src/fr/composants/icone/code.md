@@ -7,9 +7,11 @@ date: 'git Last Modified'
 nocrawl: true
 ---
 
-## Créer une icône
+## Sur cette page
 
-Utilisez une icône pour mettre l’accent sur une action ou une idée.
+- [Codage et accessibilité des icônes](#codage-et-accessibilite-des-icones)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité des icônes
 
@@ -92,6 +94,69 @@ Ajoutez une marge à la gauche ou à la droite d’une icône en définissant l�
 
 - Utilisez la propriété "label" pour une icône sans texte d’accompagnement.
 - Vous n’avez pas besoin d’utiliser la propriété "label" si une icône est décorative.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `name`
+
+L'attribut `name` définit le nom de l'icône.
+
+{% examplesPreview "80", "", "fr" %}
+<gcds-icon name="close"></gcds-icon>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `label`
+
+L'attribut `label` définit la description de l'icône pour les icônes non décoratives.
+
+{% examplesPreview "80", "", "fr" %}
+<gcds-icon label="Le fait de cliquer sur cette icône fermera l'élément." name="close">
+</gcds-icon>
+{% endexamplesPreview %}
+
+#### `margin-left`
+
+L'attribut `margin-left` définit la marge à gauche de l'icône.
+
+{% examplesPreview "80", "", "fr" %}
+<gcds-icon name="close" margin-left="50"></gcds-icon>
+{% endexamplesPreview %}
+
+#### `margin-right`
+
+L'attribut `margin-right` définit la marge à droite de l'icône.
+
+{% examplesPreview "80", "", "fr" %}
+<gcds-icon name="close" margin-right="50"></gcds-icon>
+{% endexamplesPreview %}
+
+#### `size`
+
+L'attribut `size` définit la taille de l'icône.
+
+{% examplesPreview "80", "", "fr" %}
+<gcds-icon name="close" size="h3"></gcds-icon>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

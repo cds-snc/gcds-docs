@@ -6,9 +6,11 @@ tags: ['textEN', 'code']
 # date: "git Last Modified"
 ---
 
-## Build a text component
+## On this page
 
-Text displays non-heading content with matching GC Design System styles to provide accessible text sizes and colour contrast.
+- [Coding and accessibility for text](#coding-and-accessibility-for-text)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for text
 
@@ -34,6 +36,118 @@ Text displays non-heading content with matching GC Design System styles to provi
   - Words in other languages, including Latin.
   - Titles of publications, works of art, and mathematical and scientific material.
 - Use the `em` tag within the `gcds-text` component to emphasize specific words or phrases.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `character-limit`
+
+The `character-limit` attribute sets the line length to a maximum amount of characters per line to ensure a comfortable, accessible reading length.
+
+{% examplesPreview "200" %}
+<gcds-text character-limit="false">
+  This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.
+</gcds-text>
+{% endexamplesPreview %}
+
+#### `display`
+
+The `display` attribute sets the display behaviour of the text. The available options are:
+
+- `block` (default)
+- `flex`
+- `inline`
+- `inline-block`
+- `inline-flex`
+- `none`
+
+<!-- Force line break -->
+
+{% examplesPreview "200" %}
+<gcds-text display="flex">
+  This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.
+</gcds-text>
+{% endexamplesPreview %}
+
+#### `margin-bottom`
+
+The `margin-bottom` attribute sets a margin below the text. The default `margin-bottom` is `300`.
+
+{% examplesPreview "230" %}
+<gcds-text margin-bottom="600">
+  This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.
+</gcds-text>
+{% endexamplesPreview %}
+
+#### `margin-top`
+
+The `margin-top` attribute sets a margin above the text. The default `margin-top` is `0`.
+
+{% examplesPreview "250" %}
+<gcds-text margin-top="600">
+  This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.
+</gcds-text>
+{% endexamplesPreview %}
+
+#### `size`
+
+The `size` attribute sets the text size. The available options are:
+
+- `body` (default)
+- `small`
+
+<!-- Force line break -->
+
+{% examplesPreview "190" %}
+<gcds-text size="small">
+  This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.
+</gcds-text>
+{% endexamplesPreview %}
+
+#### `text-role`
+
+The `text-role` attribute sets the main style of the text. The available options are:
+
+- `primary` (default)
+- `secondary`
+- `light`
+
+<!-- Force line break -->
+
+{% examplesPreview "200" %}
+<gcds-text text-role="secondary">
+  This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.
+</gcds-text>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for placing the content of the text element.
+
+{% examplesPreview "200" %}
+<gcds-text>
+  This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.
+</gcds-text>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

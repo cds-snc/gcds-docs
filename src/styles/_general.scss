@@ -25,7 +25,6 @@ iframe {
 }
 
 ul li {
-
   p.mb-300:has(+ ul),
   ul.mb-300 {
     margin-block-end: 0;
@@ -48,4 +47,26 @@ ul li {
 
   /* avoids jump when the scrollbar appears */
   scrollbar-gutter: stable;
+}
+
+.examples-preview {
+  form {
+    display: grid;
+    gap: var(--gcds-spacing-300);
+  }
+
+  gcds-grid {
+    background-color: var(--gcds-color-blue-100);
+  }
+}
+
+.examples-grid-container gcds-grid {
+  max-width: var(--gcds-container-size-sm);
+}
+
+.examples-footer {
+  .preview-demo gcds-footer,
+  &.language-html > p {
+    display: none;
+  }
 }

@@ -6,11 +6,13 @@ tags: ['footerFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un pied de page
+## Sur cette page
 
-Utilisez le repère de pied de page de la marque du gouvernement du Canada pour obtenir un repère cohérent, accessible et adapté à votre site ou produit.
+- [Codage et accessibilité de pied de page](#codage-et-accessibilite-de-pied-de-page)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Codage et accessibilité du pied de page
+## Codage et accessibilité de pied de page
 
 ### Choisir un mode d'affichage à l'aide de la propriété d'affichage
 
@@ -62,6 +64,73 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 “Étiquette du 3e lien”: “href”
 }
 ```
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `contextual-heading`
+
+L'attribut `contextual-heading` définit le texte du titre de la section de navigation contextuelle dans le pied de page. Ce titre sert aussi à identifier le repère de navigation du pied de page, ce qui améliore la structure et l'accessibilité.
+
+{% examplesPreview "460" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
+</gcds-footer>
+
+<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada."/>
+{% endexamplesPreview %}
+
+#### `contextual-links`
+
+L'attribut `contextual-links` définit l'ensemble des liens affichés dans la section de navigation contextuelle du pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
+
+{% examplesPreview "460" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
+</gcds-footer>
+
+<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada."/>
+{% endexamplesPreview %}
+
+#### `display`
+
+L'attribut `display` contrôle les sections du pied de page qui sont affichées. Par défaut, il est défini à `compact`, ce qui affiche uniquement la section de sous-pied de page.
+
+{% examplesPreview "120" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer></gcds-footer>
+
+<img src="/images/fr/components/example/example-footer-compact.svg" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca standard, avec les liens Médias sociaux, Applications mobiles, À propos de Canada.ca, Avis, Confidentialité, ainsi que le mot-symbole Canada."/>
+{% endexamplesPreview %}
+
+Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page sont toutes deux affichées.
+
+{% examplesPreview "380" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer display="full"></gcds-footer>
+
+<img src="/images/fr/components/example/example-footer-full.svg" alt="Composant du pied de page montrant la bande principale au-dessus de la bande de liens du GC et du mot-symbole Canada."/>
+{% endexamplesPreview %}
+
+#### `sub-links`
+
+L'attribut `sub-links` définit l'ensemble des liens affichés dans la section de sous-pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
+
+{% examplesPreview "120" "examples-footer" "fr" "", "examples-footer" %}
+<gcds-footer sub-links='{ "Avis": "#", "Confidentialité": "#" }'>
+</gcds-footer>
+
+<img src="/images/fr/components/example/example-footer-compact-sub-links.svg" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca non standard, avec les liens Avis et Confidentialité, ainsi que le mot-symbole Canada."/>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

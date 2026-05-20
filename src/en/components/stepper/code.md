@@ -6,9 +6,11 @@ tags: ['stepperEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a stepper
+## On this page
 
-Use a stepper to guide users when a sequence (form or process) can be broken down into clear steps and will take up more than one page.
+- [Coding and accessibility for steppers](#coding-and-accessibility-for-steppers)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for steppers
 
@@ -21,6 +23,74 @@ Use the `current-step` attribute to indicate the step that the person is on and 
 Use the `tag` attribute to assign the appropriate heading tag to the stepper. The stepper is able to render as either a `h1`, `h2` or `h3`.
 
 {% include "partials/valid-props.njk" %}
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `current-step`
+
+The `current-step` attribute defines the current step.
+
+{% examplesPreview "160" %}
+<gcds-stepper current-step="1" total-steps="4">
+  Section title
+</gcds-stepper>
+{% endexamplesPreview %}
+
+#### `total-steps`
+
+The `total-steps` attribute defines the total number of steps.
+
+{% examplesPreview "160" %}
+<gcds-stepper current-step="1" total-steps="4">
+  Section title
+</gcds-stepper>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `tag`
+
+The `tag` attribute sets the HTML heading element for the stepper. By default, it is set to `h2`.
+
+{% examplesPreview "160" %}
+<gcds-stepper current-step="1" total-steps="4" tag="h3">
+  Section title
+</gcds-stepper>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for placing the heading text.
+
+{% examplesPreview "160" %}
+<gcds-stepper current-step="1" total-steps="4">
+  Section title
+</gcds-stepper>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

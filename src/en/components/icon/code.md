@@ -7,9 +7,11 @@ date: 'git Last Modified'
 nocrawl: true
 ---
 
-## Build an icon
+## On this page
 
-Use an icon to emphasize an action or idea.
+- [Coding and accessibility for icons](#coding-and-accessibility-for-icons)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for icons
 
@@ -90,6 +92,69 @@ Add a margin to the left or right of an icon by setting the `margin-left` or `ma
 
 - Use the label property for an icon with no accompanying text.
 - You don’t need to use the label property if an icon is decorative.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `name`
+
+The `name` attribute defines the name of a specific icon.
+
+{% examplesPreview %}
+<gcds-icon name="close"></gcds-icon>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `label`
+
+The `label` attribute defines the icon description for non-decorative icons.
+
+{% examplesPreview %}
+<gcds-icon label="Clicking this icon will close the element." name="close">
+</gcds-icon>
+{% endexamplesPreview %}
+
+#### `margin-left`
+
+The `margin-left` attribute sets the margin to the left of the icon.
+
+{% examplesPreview %}
+<gcds-icon name="close" margin-left="50"></gcds-icon>
+{% endexamplesPreview %}
+
+#### `margin-right`
+
+The `margin-right` attribute sets the margin to the right of the icon.
+
+{% examplesPreview %}
+<gcds-icon name="close" margin-right="50"></gcds-icon>
+{% endexamplesPreview %}
+
+#### `size`
+
+The `size` attribute sets the size of the icon.
+
+{% examplesPreview %}
+<gcds-icon name="close" size="h3"></gcds-icon>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

@@ -6,11 +6,11 @@ tags: ['detailsEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a details component
+## On this page
 
-Use the details component to give a person a summary of content you've hidden that they can choose to reveal.
-
-Use details to let a person toggle the display of additional content related to the details title.
+- [Coding and accessibility for details](#coding-and-accessibility-for-details)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for details
 
@@ -29,6 +29,64 @@ To help a reader's experience accessing details content:
 - Make titles distinct so people know the difference. Identical or similar titles can be confused.
 - Avoid placing one details component inside another, where no one would know to look for that content.
 - Make details content searchable.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `details-title`
+
+The `details-title` attribute defines the label that summarizes the details content.
+
+{% examplesPreview "170" %}
+<gcds-details details-title="Learn more about this topic">
+  <gcds-text margin-bottom="0">Additional information.</gcds-text>
+</gcds-details>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `open`
+
+The `open` attribute controls whether the details component is open by default or not.
+
+{% examplesPreview "170" %}
+<gcds-details details-title="Learn more about this topic" open>
+  <gcds-text margin-bottom="0">Additional information.</gcds-text>
+</gcds-details>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for adding content inside the details component.
+
+{% examplesPreview "170" %}
+<gcds-details details-title="Learn more about this topic">
+  <gcds-text margin-bottom="0">Additional information.</gcds-text>
+</gcds-details>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

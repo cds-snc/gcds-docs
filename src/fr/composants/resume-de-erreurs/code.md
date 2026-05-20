@@ -5,15 +5,17 @@ translationKey: 'errorsummaryCode'
 tags: ['errorsummaryFR', 'code']
 ---
 
-## Création d'un résumé des erreurs
+## Sur cette page
 
-Utilisez un résumé des erreurs pour expliquer ce qu'il faut faire avant de passer à la tâche suivante.
-
-Tous les composants de Système de design GC sont livrés avec une gestion des erreurs par défaut pour les composants de formulaire requis. Dans le cas des résumés des erreurs, cela signifie que tout composant requis affichera un message d'erreur intercalé par défaut pendant l'événement `onBlur`. Ce message d'erreur sera indiqué dans le résumé des erreurs lors de l'envoi du formulaire.
+- [Codage et accessibilité des messages d'erreur](#codage-et-accessibilite-des-messages-derreur)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité des messages d'erreur
 
 ### Utiliser le résumé des erreurs avec les composants de Système de design GC
+
+Tous les composants de Système de design GC sont livrés avec une gestion des erreurs par défaut pour les composants de formulaire requis. Dans le cas des résumés des erreurs, cela signifie que tout composant requis affichera un message d'erreur intercalé par défaut pendant l'événement `onBlur`. Ce message d'erreur sera indiqué dans le résumé des erreurs lors de l'envoi du formulaire.
 
 Le résumé des erreurs de Système de design GC utilise l'attribut `listen` pour recueillir les erreurs. Lors de l'exécution de l'opération `onSubmit`, le résumé des erreurs dressera la liste des erreurs provenant des composants de Système de design GC. Les erreurs seront répertoriées dans le même ordre qu'elles apparaissent sur la page.
 
@@ -31,6 +33,49 @@ Si vous utilisez certains de vos propres composants de formulaire :
 ### Choisir de modifier le contenu de l'entente d'erreur
 
 Rédigez des en-têtes d'erreur plus précis en utilisant l'attribut `heading`.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `error-links`
+
+L'attribut `error-links` définit la liste des erreurs à afficher dans le résumé des erreurs. Format : `{ link-href: link-label }`.
+
+{% examplesPreview "370", "", "fr" %}
+<gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
+</gcds-error-summary>
+{% endexamplesPreview %}
+
+#### `heading`
+
+L'attribut `heading` définit le titre du résumé des erreurs.
+
+{% examplesPreview "370", "", "fr" %}
+<gcds-error-summary heading="Titre" error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
+</gcds-error-summary>
+{% endexamplesPreview %}
+
+#### `listen`
+
+L'attribut `listen` contrôle si le résumé des erreurs écoute l'événement `gcdsError` pour générer la liste des erreurs. Par défaut, il est défini à `true`.
+
+{% examplesPreview "370", "", "fr" %}
+<gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }' listen>
+</gcds-error-summary>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

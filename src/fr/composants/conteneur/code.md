@@ -6,9 +6,11 @@ tags: ['containerFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un conteneur
+## Sur cette page
 
-Utilisez les conteneurs pour ajouter un élément enveloppant avec à une largeur maximale définie, en fournissant un conteneur pour les autres contenus et composants qui sont généralement présentés de manière verticale de haut en bas.
+- [Codage et accessibilité des conteneurs](#codage-et-accessibilite-des-conteneurs)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité des conteneurs
 
@@ -57,6 +59,128 @@ Utilisez l'attribut `alignment` pour contrôler le positionnement d'un conteneur
 - `end` : positionne le conteneur horizontalement à la fin de l'espace disponible.
 
 **Remarque :** Lorsque l'attribut `layout` est défini sur `page`, l'attribut `alignment` est ignoré; la mise en page gère automatiquement la largeur et le centrage.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `alignment`
+
+L'attribut `alignment` définit comment le conteneur est positionné dans son parent. Cette propriété est ignorée lorsque `layout` est défini à `page`, car la mise en `page` a une priorité plus élevée. Les options sont :
+
+- `center`
+- `end`
+- `start`
+
+<!-- Force line break -->
+
+{% examplesPreview "130", "", "fr" %}
+<gcds-container alignment="center" size="sm" border padding="300">
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `border`
+
+L'attribut `border` contrôle si le conteneur a une bordure ou non.
+
+{% examplesPreview "130", "", "fr" %}
+<gcds-container border padding="300">
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `layout`
+
+L'attribut `layout` définit comment le conteneur s'aligne avec la mise en page. Les options sont :
+
+- `full`
+- `page`
+
+<!-- Force line break -->
+
+{% examplesPreview "130", "", "fr" %}
+<gcds-container layout="full" border padding="300">
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `margin`
+
+L'attribut `margin` définit la marge du conteneur. Les marges gauche et droite ne sont pas appliquées si l'attribut alignment est défini, car il a une priorité plus élevée.
+
+{% examplesPreview "270", "", "fr" %}
+<gcds-container margin="800" size="xs" border padding="300">
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `padding`
+
+L'attribut `padding` définit la marge intérieure du conteneur, soit l'espacement entre sa bordure et son contenu.
+
+{% examplesPreview "190", "", "fr" %}
+<gcds-container padding="600" border>
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `size`
+
+L'attribut `size` définit la largeur du conteneur. Les options sont :
+
+- `full` (default)
+- `xl`
+- `lg`
+- `md`
+- `sm`
+- `xs`
+
+<!-- Force line break -->
+
+{% examplesPreview "130", "", "fr" %}
+<gcds-container size="sm" border padding="300">
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `tag`
+
+L'attribut `tag` définit l'élément HTML utilisé pour afficher le conteneur. Par défaut, il est défini à `div`.
+
+{% examplesPreview "130", "", "fr" %}
+<gcds-container tag="section" border padding="300">
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter du contenu à l'intérieur du conteneur.
+
+{% examplesPreview "130", "", "fr" %}
+<gcds-container border padding="300">
+  <p>Conteneur</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 
