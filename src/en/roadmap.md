@@ -14,33 +14,33 @@ eleventyNavigation:
 
 This roadmap shows planned work for GC Design System. While the system is stable and suitable for production use, improvements continue. You can use this roadmap to help you decide when adopting GC Design System makes sense for your service.
 
-## Themes for 2025/2026
+## Themes for 2026/2027
 
 <ol class="list-disc ps-400 mb-300">
-  <li>Strengthen trust and reliability for GCDS users</li>
-  <li>Reduce the cost required for teams to adopt GCDS</li>
+  <li>Strengthen trust and reliability for GC Design System users</li>
+  <li>Reduce the cost required for teams to adopt GC Design System</li>
   <li>Ensure continued support for real service needs across government</li>
 </ol>
 
 Here's what we'll be focusing on in each quarter.
 
-### Quarter 1: April 2026 - June 2026
+### Quarter 1: April to June 2026
 <ol class="list-disc ps-400 mb-300">
-  <li>Research, design, and development of a GCDS Table component</li>
-  <li>Adding coded examples and guidance to each component page</li>
-  <li>Adding detailed validation guidance for adding custom validation to GCDS form components</li>
-  <li>Developing a GCDS plugin/extension for code display that will enable self serve accessibility checks on components</li>
-  <li>Added the sign in button to the GCDS header component</li>
+  <li>Research, design, and development of a table component</li>
+  <li>Add coded examples and guidance to each component page</li>
+  <li>Add detailed validation guidance for adding custom validation to GC Design System form components</li>
+  <li>Develop a GC Design System plugin/extension for code display that will enable self-serve accessibility checks on components</li>
+  <li>Add the sign in button to the header component</li>
 </ol>
 
-### Upcoming Quarters
-Next priorities are yet to be defined, this page will be updated by end of Q1 (June 2026)
+### Upcoming quarters
+Next priorities are yet to be defined, this page will be updated by end of Q1 (June 2026).
 
 ## Completed in 2025/2026
 <gcds-details details-title="Product">
 <ul class="list-disc ps-400 mb-300">
-<li>Launched GCDS version 1.0, officially going live and following semantic versioning to stop</li>
-<li>Added CSS Shortcuts which allows applying GCDS styles to HTML</li>
+<li>Launched GC Design System version 1.0, officially going live and following semantic versioning to stop</li>
+<li>Added CSS Shortcuts which allows applying GC Design System styles to HTML</li>
 <li>Aligned component properties, behaviours, and names between Figma and code to ensure consistency</li>
 <li>Improved onboarding flows for designers and developers with tailored guidance for installation and using Figma</li>
 <li>Added better validation support for form input components</li>
@@ -57,11 +57,11 @@ Next priorities are yet to be defined, this page will be updated by end of Q1 (J
 
 <gcds-details details-title="Engagement and collaboration">
 <ul class="list-disc ps-400 mb-300">
-<li>Delivered 4 public "GC DS Forum" events with 978 total attendees</li>
+<li>Delivered 4 public "GC Design System Forum" events with 978 total attendees</li>
 <li>Hosted 6 public demos with 652 total attendees</li>
 <li>Collaborated with Natural Resources Canada on the MapML plugin</li>
 <li>Added a testimonials page</li>
-<li>Added 3 GCDS components into AEM as part of the integration with Canada.ca</li>
+<li>Added 3 GC Design System components into Adobe Experience Manager as part of the integration with Canada.ca</li>
 </ul>
 </gcds-details>
 
