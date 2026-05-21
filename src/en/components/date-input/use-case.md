@@ -46,7 +46,7 @@ Use a date input to gather a date from a person when you're expecting them to wr
 - A specific date the person will know or can easily find.
 - Used in English for written dates.
 
-### Day, month, year _(French only)_
+### Day, month, year (French only)
 - A specific date the person will know or can easily find.
 - Used in French for written dates.
 
