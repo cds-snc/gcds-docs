@@ -46,7 +46,7 @@ Sélecteur de date : lorsque vous voulez que la personne choisisse une date qui 
 - Une date précise que la personne connaît ou peut facilement trouver.
 - Utilisé en anglais pour les dates écrites au long.
 
-### Jour, Mois, Année _(français seulement)_
+### Jour, Mois, Année (français seulement)
 - Une date précise que la personne connaît ou peut facilement trouver.
 - Utilisé en français pour les dates écrites au long.
 
