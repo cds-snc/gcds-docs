@@ -2759,14 +2759,14 @@ Date input component preview
 <li><code>format</code></li>
 </ul>
 <h3 id="format-the-date-input">Format the date input</h3>
-<ul class="list-disc mb-300"><li>Choose the format of the date input by entering either <code>full</code> or <code>compact</code> in the <code>format</code> attribute of the date input.</li>
-<li>The <code>full</code> value will render the date input with a year, month, and day form field in the order month, day, and year in English and the order of day, month, and year in French.</li>
-<li>The <code>compact</code> value will render the date input with a year and month form field in the order of month and year in both English and French.</li>
-<li>The <code>format</code> attribute also formats the value received and outputted by the date input. The value will be formatted <code>YYYY-MM-DD</code> while set as <code>full</code> and <code>YYYY-MM</code> while set as <code>compact</code>.</li>
+<ul class="list-disc mb-300"><li>Choose the format of the date input by entering either <code>full</code>,  <code>compact</code>, or <code>iso</code> in the <code>format</code> attribute of the date input.</li>
+<li>The <code>full</code> value will render the date input with a year, month, and day form field in the order month, day, and year in English and the order of day, month, and year in French. In this format, the month is written while the day and year are numbers.</li>
+<li>The <code>compact</code> value will render the date input with a year and month form field in the order of month and year in both English and French. In this format, the month is written and the year is a number.</li>
+<li>The <code>iso</code> value will render the date input with a year, month, and day form field in that order. In this format, all inputs are numeric, following ISO standards.</li>
 </ul>
 <h3 id="entering-and-receiving-the-value-from-date-input">Entering and receiving the value from date input</h3>
 <p>Date input can receive and output different value formats depending on the <code>format</code> attribute:</p>
-<ul class="list-disc mb-300"><li>The <code>full</code> format will expect/output a value formatted <code>YYYY-MM-DD</code>.</li>
+<ul class="list-disc mb-300"><li>The <code>full</code> and <code>iso</code> format will expect/output a value formatted <code>YYYY-MM-DD</code>.</li>
 <li>The <code>compact</code> format will expect/output a value formatted <code>YYYY-MM</code>.</li>
 </ul>
 <h3 id="use-valid-properties">Use valid properties</h3>
@@ -3349,7 +3349,7 @@ Optional attributes
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-20
+            2026-05-25
           </gcds-date-modified>
         </main>
       </gcds-grid>

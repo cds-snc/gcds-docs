@@ -2749,8 +2749,8 @@ Date input component preview
   <h2 id="date-input-anatomy">Date input anatomy</h2>
 <ol class="anatomy-list">
   <li>The <strong>fieldset legend</strong> states the information a person should enter in the date input field. Text is left-aligned and in sentence case (only the initial letter is capitalized). For the date input component, the fieldset is typically labelled as "date" or with the specific date type sought. The hint text shows the format of the date.</li>
-  <li>The <strong>month label</strong> identifies the month select field.</li>
-  <li>The <strong>month select field</strong> field provides a predefined, chronological list of months for a person to select from.</li>
+  <li>The <strong>month label</strong> identifies the month field.</li>
+  <li>The <strong>month input</strong> field can be a dropdown of written months to select from, or an input to enter 1-2 digits.</li>
   <li>The <strong>day label</strong> identifies the day input.</li>
   <li>The <strong>day input</strong> field can be 1 or 2 digits.</li>
   <li>The <strong>year label</strong> identifies the year input field.</li>
@@ -2758,6 +2758,8 @@ Date input component preview
 </ol>
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-date-input-anatomy.svg" alt="A date input anatomy represented by 6 elements: the fieldset legend, the month label, the month select field, the day label, the day input field, the year label, and the year input field." />
 <h2 id="design-and-accessibility-for-date-inputs">Design and accessibility for date inputs</h2>
+<h3 id="select-a-format-that-assists-with-data-entry">Select a format that assists with data entry</h3>
+<p>Use a format that matches the format of the information you're asking for. For example, if you are asking for a birth date from a health card, use the Y/M/D format.</p>
 <h3 id="support-task-success-with-hint-text">Support task success with hint text</h3>
 <p>Use the hint text in the fieldset legend to help a person understand the format they can use to enter the date. For example, showing a single digit number without a leading zero, like September 7, rather than September 07 shows that a leading zero is not needed.</p>
 <h3 id="write-specific-error-messages">Write specific error messages</h3>
@@ -2796,7 +2798,7 @@ Date input component preview
 
 
           <gcds-date-modified class="mb-300">
-            2026-05-20
+            2026-05-25
           </gcds-date-modified>
         </main>
       </gcds-grid>
