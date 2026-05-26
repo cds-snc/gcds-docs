@@ -192,6 +192,8 @@
     "githubCompsIssues": "https://github.com/cds-snc/gcds-components/issues/new/choose",
     "githubCompsPriority": "https://github.com/cds-snc/gcds-components/issues/new?assignees=&labels=&projects=&template=contributions.yml&title=contribution%3A+",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",
+    "githubFigmaReleases": "https://github.com/cds-snc/gcds-figma-library/releases"
+    "githubFigmaTokensReleases": "https://github.com/cds-snc/gcds-figma-tokens/releases"
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
