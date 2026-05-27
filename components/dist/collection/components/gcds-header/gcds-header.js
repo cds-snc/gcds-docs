@@ -11,6 +11,7 @@ import i18n from "./i18n/i18n";
  * @slot skip-to-nav - Slot to add a hidden skip to content navigation at the top of the header.
  * @slot signature - Slot to replace Government of Canada signature.
  * @slot toggle - Slot to add a custom language toggle in the top-right of the header.
+ * @slot account - Slot to add a custom account link in the bottom-right of the header.
  */
 export class GcdsHeader {
     constructor() {
@@ -82,9 +83,15 @@ export class GcdsHeader {
     get hasBreadcrumb() {
         return !!this.el.querySelector('[slot="breadcrumb"]');
     }
+    get hasAccount() {
+        return !!this.el.querySelector('[slot="account"]');
+    }
+    get hasThemeTopicMenu() {
+        return !!this.el.querySelector('gcds-topic-menu[slot="menu"]');
+    }
     render() {
-        const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (h(Host, { key: 'e13f9438f4b30aee0de9c97c7fbce2e80d3ee1ff', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: 'cb78ebfcfc947c038c8adb21c5242e11f6f4ebaf', class: "gcds-header__brand" }, h("div", { key: '835349463a8459e9fc423e984e555461d584fde5', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: 'ccd900088b66a0e031f14afc2402284ed9e3988a', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
+        const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, hasAccount, hasThemeTopicMenu, } = this;
+        return (h(Host, { key: '25c9114f95330e8a16d1cf69d4927423b8f64ff7', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: 'd9ac7c2d0fb7db251b738ba652d2ba524b64efd7', class: "gcds-header__brand" }, h("div", { key: '11ab18238d458cb665d1481a4080a53b194b148b', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hasThemeTopicMenu ? (h("div", { class: "gcds-header__container--menu" }, h("slot", { name: "menu" }), hasAccount ? h("slot", { name: "account" }) : null)) : h("slot", { name: "menu" }), hasBreadcrumb || (!hasBreadcrumb && !hasThemeTopicMenu && hasAccount) ? (h("div", { class: "gcds-header__container--breadcrumbs" }, hasBreadcrumb ? h("slot", { name: "breadcrumb" }) : null, hasAccount && !hasThemeTopicMenu ? h("slot", { name: "account" }) : null)) : null));
     }
     static get is() { return "gcds-header"; }
     static get encapsulation() { return "shadow"; }
@@ -102,7 +109,6 @@ export class GcdsHeader {
         return {
             "langHref": {
                 "type": "string",
-                "attribute": "lang-href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -117,11 +123,11 @@ export class GcdsHeader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "lang-href"
             },
             "signatureHasLink": {
                 "type": "boolean",
-                "attribute": "signature-has-link",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -137,11 +143,11 @@ export class GcdsHeader {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "signature-has-link",
                 "defaultValue": "true"
             },
             "skipToHref": {
                 "type": "string",
-                "attribute": "skip-to-href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -156,7 +162,8 @@ export class GcdsHeader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "skip-to-href"
             }
         };
     }
@@ -215,4 +222,3 @@ export class GcdsHeader {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-header.js.map

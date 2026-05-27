@@ -7,7 +7,7 @@ import { Host, h, } from "@stencil/core";
 export class GcdsBreadcrumbsItem {
     render() {
         const { href } = this;
-        return (h(Host, { key: '95b1e4dcb1f26c4bbecaed7084c46f7440a939c9', role: "listitem", class: "gcds-breadcrumbs-item" }, h("gcds-link", { key: 'c60332192cfe17f487017acbd89a49adbc288e19', size: "regular", href: href }, h("slot", { key: '34993248082e9a129d2753695db93a7b5ac771f1' }))));
+        return (h(Host, { key: '682b212a6c22f60f5949b2664f5ace5bc172c3cf', role: "listitem", class: "gcds-breadcrumbs-item" }, h("gcds-link", { key: '00a6c00e78201987c9df9c1072547dc6465f29b1', size: "regular", href: href }, h("slot", { key: '6ea92ac89f08c8c9f64e727e92d4d68a60f9a2ba' }))));
     }
     static get is() { return "gcds-breadcrumbs-item"; }
     static get encapsulation() { return "shadow"; }
@@ -25,7 +25,6 @@ export class GcdsBreadcrumbsItem {
         return {
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -40,7 +39,8 @@ export class GcdsBreadcrumbsItem {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "href"
             }
         };
     }
@@ -94,4 +94,3 @@ export class GcdsBreadcrumbsItem {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-breadcrumbs-item.js.map

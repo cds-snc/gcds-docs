@@ -57,7 +57,7 @@ export class GcdsAlert {
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (h(Host, { key: '9ca55e2b6562e7dfda9e367b21b5d2aa3bbe37d7' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+        return (h(Host, { key: '196150e847d3cea200cdb167c2cd2fee5cb2cea5' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
                 ? i18n[lang].label.danger
                 : alertRole === 'info'
                     ? i18n[lang].label.info
@@ -65,7 +65,7 @@ export class GcdsAlert {
                         ? i18n[lang].label.success
                         : alertRole === 'warning'
                             ? i18n[lang].label.warning
-                            : null }, h("gcds-container", { size: isFixed ? container : 'full', alignment: "center" }, h("div", { class: "alert__container" }, !hideRoleIcon && (h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
+                            : null }, h("gcds-container", { size: isFixed ? container : 'full', alignment: "center" }, h("div", { class: "alert__container" }, !hideRoleIcon && (h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: (alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
                     ? 'info-circle'
@@ -73,7 +73,7 @@ export class GcdsAlert {
                         ? 'checkmark-circle'
                         : alertRole === 'warning'
                             ? 'warning-triangle'
-                            : null })), h("div", { class: "alert__content" }, h("p", { class: "alert__heading" }, h("strong", null, heading)), h("slot", null)), !hideCloseBtn && (h("button", { class: "alert__close-btn", onClick: e => {
+                            : undefined) })), h("div", { class: "alert__content" }, h("p", { class: "alert__heading" }, h("strong", null, heading)), h("slot", null)), !hideCloseBtn && (h("button", { class: "alert__close-btn", onClick: e => {
                 const event = emitEvent(e, this.gcdsDismiss);
                 if (event) {
                     this.isOpen = false;
@@ -96,7 +96,6 @@ export class GcdsAlert {
         return {
             "alertRole": {
                 "type": "string",
-                "attribute": "alert-role",
                 "mutable": false,
                 "complexType": {
                     "original": "'danger' | 'info' | 'success' | 'warning'",
@@ -112,11 +111,11 @@ export class GcdsAlert {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "alert-role",
                 "defaultValue": "'info'"
             },
             "container": {
                 "type": "string",
-                "attribute": "container",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -132,11 +131,11 @@ export class GcdsAlert {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "container",
                 "defaultValue": "'full'"
             },
             "heading": {
                 "type": "string",
-                "attribute": "heading",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -151,11 +150,11 @@ export class GcdsAlert {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "heading"
             },
             "hideCloseBtn": {
                 "type": "boolean",
-                "attribute": "hide-close-btn",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -171,11 +170,11 @@ export class GcdsAlert {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-close-btn",
                 "defaultValue": "false"
             },
             "hideRoleIcon": {
                 "type": "boolean",
-                "attribute": "hide-role-icon",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -191,11 +190,11 @@ export class GcdsAlert {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-role-icon",
                 "defaultValue": "false"
             },
             "isFixed": {
                 "type": "boolean",
-                "attribute": "is-fixed",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -211,6 +210,7 @@ export class GcdsAlert {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "is-fixed",
                 "defaultValue": "false"
             }
         };
@@ -241,4 +241,3 @@ export class GcdsAlert {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-alert.js.map

@@ -81,4 +81,3 @@ Playground.args = {
     type: 'date',
     default: '2023-01-26',
 };
-//# sourceMappingURL=gcds-date-modified.stories.js.map

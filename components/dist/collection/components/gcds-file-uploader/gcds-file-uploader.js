@@ -271,7 +271,7 @@ export class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: '342d3516761caa694a7d9f8d38aac3020a5b2e39' }, h("div", { key: 'fd0dfb14b09fc103b9bfd7c3c4660849e62ba6b3', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'f81d17ed5e7bf8aba3437c07c0a08f38d1419ba2' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: 'b6987706077db9afa75f38e66afcc2f4ebb32bc8', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: 'a6feb4b86f3b6cc7fd9998bc3179f043e7f64365', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: '7d730c993cef70cd1dac600a58e5acef40bdfabd', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
+        return (h(Host, { key: '721fa21feacadea9e08bda4fe69d3ab18e2be221' }, h("div", { key: 'b43f8b42ecdccfd5920701f630544c215d246c61', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'f357b2680946db0669e20197d004a646762be18a' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '30f6e721c0118e2f97306fb5b0187c7fa19ba86c', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: '378ca74e8d9d28c3dbf41615e8777d072ddf4019', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: '8a6114ed281966242a59cde5838454ebd6b010f5', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
             ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -293,7 +293,6 @@ export class GcdsFileUploader {
         return {
             "uploaderId": {
                 "type": "string",
-                "attribute": "uploader-id",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -308,11 +307,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "uploader-id"
             },
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -327,11 +326,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "name"
             },
             "label": {
                 "type": "string",
-                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -346,11 +345,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "label"
             },
             "hideLabel": {
                 "type": "boolean",
-                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -366,11 +365,11 @@ export class GcdsFileUploader {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-label",
                 "defaultValue": "false"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -386,11 +385,11 @@ export class GcdsFileUploader {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "required",
                 "defaultValue": "false"
             },
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -406,11 +405,11 @@ export class GcdsFileUploader {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "disabled",
                 "defaultValue": "false"
             },
             "value": {
                 "type": "unknown",
-                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string[]",
@@ -429,7 +428,6 @@ export class GcdsFileUploader {
             },
             "accept": {
                 "type": "string",
-                "attribute": "accept",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -444,11 +442,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "accept"
             },
             "multiple": {
                 "type": "boolean",
-                "attribute": "multiple",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -463,11 +461,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "multiple"
             },
             "files": {
                 "type": "unknown",
-                "attribute": "files",
                 "mutable": true,
                 "complexType": {
                     "original": "FileList",
@@ -490,7 +488,6 @@ export class GcdsFileUploader {
             },
             "errorMessage": {
                 "type": "string",
-                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -505,11 +502,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "error-message"
             },
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -524,11 +521,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "hint"
             },
             "validator": {
                 "type": "unknown",
-                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string | number | FileList>\n  >",
@@ -541,12 +538,14 @@ export class GcdsFileUploader {
                         "ValidatorEntry": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
+                            "id": "src/validators/index.ts::ValidatorEntry",
+                            "referenceLocation": "ValidatorEntry"
                         },
                         "Validator": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
+                            "id": "src/validators/index.ts::Validator",
+                            "referenceLocation": "Validator"
                         },
                         "FileList": {
                             "location": "global",
@@ -565,7 +564,6 @@ export class GcdsFileUploader {
             },
             "validateOn": {
                 "type": "string",
-                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -581,11 +579,11 @@ export class GcdsFileUploader {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "validate-on",
                 "defaultValue": "'blur'"
             },
             "validity": {
                 "type": "unknown",
-                "attribute": "validity",
                 "mutable": false,
                 "complexType": {
                     "original": "ValidityState",
@@ -608,7 +606,6 @@ export class GcdsFileUploader {
             },
             "autofocus": {
                 "type": "boolean",
-                "attribute": "autofocus",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -623,11 +620,11 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "autofocus"
             },
             "form": {
                 "type": "string",
-                "attribute": "form",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -642,7 +639,8 @@ export class GcdsFileUploader {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "form"
             }
         };
     }
@@ -850,4 +848,3 @@ export class GcdsFileUploader {
     }
     static get attachInternalsMemberName() { return "internals"; }
 }
-//# sourceMappingURL=gcds-file-uploader.js.map

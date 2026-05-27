@@ -115,4 +115,3 @@ Playground.args = {
     tag: 'div',
     default: `This is some example content to display the grid column component.`,
 };
-//# sourceMappingURL=gcds-grid-col.stories.js.map

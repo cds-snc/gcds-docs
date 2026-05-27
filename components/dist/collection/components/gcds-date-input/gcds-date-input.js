@@ -442,8 +442,8 @@ export class GcdsDateInput {
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
         const month = this.format !== 'iso' ? (h("gcds-select", Object.assign({ label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option]))))) : (h("gcds-input", Object.assign({ name: "month", label: i18n[lang].month, inputId: "month", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.monthValue, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) })));
-        const year = (h("gcds-input", Object.assign({ key: '907c1530ef58d67b0ce6eaa9a5804ae9d6141f62', name: "year", label: i18n[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
-        const day = (h("gcds-input", Object.assign({ key: '52d6f0fc6df755042b9d2f9908aa31ac0037564b', name: "day", label: i18n[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        const year = (h("gcds-input", Object.assign({ key: 'd2cb93276494328fa676b3caa524df0d171bab8c', name: "year", label: i18n[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (h("gcds-input", Object.assign({ key: 'c49e3271490ee991238806a466391ddd36dc5e69', name: "day", label: i18n[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
         let formatArray;
         if (format === 'iso') {
             formatArray = [year, month, day];
@@ -454,7 +454,7 @@ export class GcdsDateInput {
         else if (format === 'full') {
             formatArray = lang === 'en' ? [month, day, year] : [day, month, year];
         }
-        return (h(Host, { key: '94dec21a77e42646ecaae7593f9609ec3419a2f3', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '30ec72bc476564064bbc086e69a3b8722c91d71b', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), h("legend", { key: 'ed3fbeaaf9fe91b6f322741d93dfff40bbb2356a', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
+        return (h(Host, { key: 'bf42aef4ccdef2292ef655e6ef22119c2ad16164', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '14c3367ba75e75d448d85d526909e5e38fa35e62', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), h("legend", { key: 'dc842742fe3e58aac7b9742129f28344c4750d05', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
     }
     static get is() { return "gcds-date-input"; }
     static get encapsulation() { return "shadow"; }
@@ -474,7 +474,6 @@ export class GcdsDateInput {
         return {
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -489,11 +488,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "name"
             },
             "legend": {
                 "type": "string",
-                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -508,11 +507,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "legend"
             },
             "format": {
                 "type": "string",
-                "attribute": "format",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'compact' | 'iso'",
@@ -527,11 +526,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "format"
             },
             "value": {
                 "type": "string",
-                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -546,11 +545,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "value"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -566,11 +565,11 @@ export class GcdsDateInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "required",
                 "defaultValue": "false"
             },
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -585,11 +584,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "hint"
             },
             "errorMessage": {
                 "type": "string",
-                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -604,11 +603,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "error-message"
             },
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -624,11 +623,11 @@ export class GcdsDateInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "disabled",
                 "defaultValue": "false"
             },
             "autofocus": {
                 "type": "boolean",
-                "attribute": "autofocus",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -643,11 +642,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "autofocus"
             },
             "max": {
                 "type": "string",
-                "attribute": "max",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -662,11 +661,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "max"
             },
             "min": {
                 "type": "string",
-                "attribute": "min",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -681,11 +680,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "min"
             },
             "form": {
                 "type": "string",
-                "attribute": "form",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -700,11 +699,11 @@ export class GcdsDateInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "form"
             },
             "validity": {
                 "type": "unknown",
-                "attribute": "validity",
                 "mutable": false,
                 "complexType": {
                     "original": "ValidityState",
@@ -727,7 +726,6 @@ export class GcdsDateInput {
             },
             "validator": {
                 "type": "unknown",
-                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -740,12 +738,14 @@ export class GcdsDateInput {
                         "ValidatorEntry": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
+                            "id": "src/validators/index.ts::ValidatorEntry",
+                            "referenceLocation": "ValidatorEntry"
                         },
                         "Validator": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
+                            "id": "src/validators/index.ts::Validator",
+                            "referenceLocation": "Validator"
                         }
                     }
                 },
@@ -760,7 +760,6 @@ export class GcdsDateInput {
             },
             "validateOn": {
                 "type": "string",
-                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -776,6 +775,7 @@ export class GcdsDateInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "validate-on",
                 "defaultValue": "'blur'"
             }
         };
@@ -972,4 +972,3 @@ export class GcdsDateInput {
     }
     static get attachInternalsMemberName() { return "internals"; }
 }
-//# sourceMappingURL=gcds-date-input.js.map

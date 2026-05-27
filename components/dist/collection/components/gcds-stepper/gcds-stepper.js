@@ -79,7 +79,7 @@ export class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (h(Host, { key: '3e35d92b373461bf3c3135724d02bf2009c0a6a6' }, this.validateRequiredProps() && (h("gcds-heading", { key: '5d7485c25354ee819f4a62ecaef6cb27bc767730', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: 'aa98533dd70df383a094f40217e6ad13aca4236d', class: "gcds-stepper__steps" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: '62ee5dd0528b52535a35c8c46e3fd716f4b196d1' }, " : ")), h("slot", { key: 'cc168422742cd8e335fc068a97969ef074b14034' })))));
+        return (h(Host, { key: 'd15ae2125394f3cfdbfccb6ec354044328dff24a' }, this.validateRequiredProps() && (h("gcds-heading", { key: '01ba8e1736524f51efb7c3b4ac8ecad139162af5', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: '55e102a27b4357dca87ab7655e3e460e408e8343', class: "gcds-stepper__steps" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: '82d574caac2f88de380f319c86f4f933819a2e0e' }, " : ")), h("slot", { key: '261aef7f578b3e0b9db62216d68331777588ebff' })))));
     }
     static get is() { return "gcds-stepper"; }
     static get encapsulation() { return "shadow"; }
@@ -97,7 +97,6 @@ export class GcdsStepper {
         return {
             "currentStep": {
                 "type": "number",
-                "attribute": "current-step",
                 "mutable": true,
                 "complexType": {
                     "original": "number",
@@ -112,11 +111,11 @@ export class GcdsStepper {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "current-step"
             },
             "totalSteps": {
                 "type": "number",
-                "attribute": "total-steps",
                 "mutable": true,
                 "complexType": {
                     "original": "number",
@@ -131,11 +130,11 @@ export class GcdsStepper {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "total-steps"
             },
             "tag": {
                 "type": "string",
-                "attribute": "tag",
                 "mutable": false,
                 "complexType": {
                     "original": "'h1' | 'h2' | 'h3'",
@@ -151,6 +150,7 @@ export class GcdsStepper {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "tag",
                 "defaultValue": "'h2'"
             }
         };
@@ -172,4 +172,3 @@ export class GcdsStepper {
             }];
     }
 }
-//# sourceMappingURL=gcds-stepper.js.map

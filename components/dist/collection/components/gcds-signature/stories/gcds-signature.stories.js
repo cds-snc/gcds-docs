@@ -109,4 +109,3 @@ Playground.args = {
     variant: 'colour',
     lang: 'en',
 };
-//# sourceMappingURL=gcds-signature.stories.js.map

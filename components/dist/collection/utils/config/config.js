@@ -37,4 +37,3 @@ export const vueComponentModels = [
         targetAttr: 'value',
     },
 ];
-//# sourceMappingURL=config.js.map

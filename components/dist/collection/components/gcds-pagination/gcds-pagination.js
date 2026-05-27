@@ -17,6 +17,11 @@ export class GcdsPagination {
          */
         this.display = 'list';
     }
+    watchTotalPages() {
+        if (this.display == 'list') {
+            this.configureListPagination();
+        }
+    }
     watchCurrentPage(newValue) {
         this.currentStep = newValue;
     }
@@ -185,7 +190,7 @@ export class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { key: 'c0f834df26c3200de92f20638255bf5e87557e7e', role: "navigation", "aria-label": label }, h("div", { key: '5dd6f95d6ead43cdb50c03877027d6b376db0673', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel)))))))));
+        return (h(Host, { key: '33a4801fe9a067f50e79eb2ae5a977d23c192ec3', role: "navigation", "aria-label": label }, h("div", { key: '2da704d9ab9b02f92b817d6d86a2eb1da56500ce', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel)))))))));
     }
     static get is() { return "gcds-pagination"; }
     static get encapsulation() { return "shadow"; }
@@ -203,7 +208,6 @@ export class GcdsPagination {
         return {
             "display": {
                 "type": "string",
-                "attribute": "display",
                 "mutable": false,
                 "complexType": {
                     "original": "'list' | 'simple'",
@@ -219,11 +223,11 @@ export class GcdsPagination {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "display",
                 "defaultValue": "'list'"
             },
             "label": {
                 "type": "string",
-                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -238,11 +242,11 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "label"
             },
             "previousHref": {
                 "type": "string",
-                "attribute": "previous-href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -257,11 +261,11 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "previous-href"
             },
             "previousLabel": {
                 "type": "string",
-                "attribute": "previous-label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -276,11 +280,11 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "previous-label"
             },
             "nextHref": {
                 "type": "string",
-                "attribute": "next-href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -295,11 +299,11 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "next-href"
             },
             "nextLabel": {
                 "type": "string",
-                "attribute": "next-label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -314,11 +318,11 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "next-label"
             },
             "totalPages": {
                 "type": "number",
-                "attribute": "total-pages",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -333,11 +337,11 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "total-pages"
             },
             "currentPage": {
                 "type": "number",
-                "attribute": "current-page",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -352,11 +356,11 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "current-page"
             },
             "url": {
                 "type": "string",
-                "attribute": "url",
                 "mutable": false,
                 "complexType": {
                     "original": "string | object",
@@ -371,7 +375,8 @@ export class GcdsPagination {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "url"
             }
         };
     }
@@ -432,6 +437,9 @@ export class GcdsPagination {
     static get elementRef() { return "el"; }
     static get watchers() {
         return [{
+                "propName": "totalPages",
+                "methodName": "watchTotalPages"
+            }, {
                 "propName": "currentPage",
                 "methodName": "watchCurrentPage"
             }, {
@@ -443,4 +451,3 @@ export class GcdsPagination {
             }];
     }
 }
-//# sourceMappingURL=gcds-pagination.js.map

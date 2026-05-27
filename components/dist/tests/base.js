@@ -30,4 +30,3 @@ export const testMobile = mixinCoverage(gcdsTestBase.extend({
 export const testTablet = mixinCoverage(gcdsTestBase.extend({
     contextOptions: Object.assign({}, devices['Galaxy Tab S9'])
 }));
-//# sourceMappingURL=base.js.map

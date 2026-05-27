@@ -139,7 +139,7 @@ export class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, { key: '8d59384709deb49ab45df787053bb8984db783ff' }, h("div", { key: 'b0f1bbbde13877522bc3221519ddf248a7a2f332', class: "gcds-top-nav" }, h("nav", { key: '34a0d7c4b66f34e8527fa8c1687e85e259f5f79e', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: 'f48641ec799bc5d73de6a32f7e671b224a315262', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: 'feccca515b89c8dfa0e93a100d077db20bcf5e5e', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '0eae3974ebce3d5ce961e6e21f4eee3d7d99b512', name: "home" }), h("li", { key: 'dcdbda307ffadd1d454f07f310dd421b186c686e', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: '164e125696131ee497fd098f92fdd8fe92200372', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '095f6aab8a072f72b920bb26cc2c033e9358dc1b' })))))))));
+        return (h(Host, { key: 'b5891498135a91923fec6cea31c0cf294f1b5aba' }, h("div", { key: 'bde31751abedae987bb85c12636102f92a3b6814', class: "gcds-top-nav" }, h("nav", { key: '8e3cdf1d2e6f8b714612fed6c43ec42b81ab2c7b', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: '5f687ee3eea1dc73c4b5bb620d1304fe5ac648d6', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: '137bc7b72a9fa328aff0a60271269f20b1033ba7', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '4e8fd794e2e06459a069507c14c1ef4639dd453e', name: "home" }), h("li", { key: '9ca94d212ccd1729f840036a2aed4b2c023f36fd', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: '4ea1a55b4adb03b9614b320f2b52dc0a6e48cd5c', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '4eeb9ba9be3b3cc7906e94bc23c3ca8fb31464c8' })))))))));
     }
     static get is() { return "gcds-top-nav"; }
     static get encapsulation() { return "shadow"; }
@@ -157,7 +157,6 @@ export class GcdsTopNav {
         return {
             "label": {
                 "type": "string",
-                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -172,11 +171,11 @@ export class GcdsTopNav {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "label"
             },
             "alignment": {
                 "type": "string",
-                "attribute": "alignment",
                 "mutable": false,
                 "complexType": {
                     "original": "'start' | 'end'",
@@ -192,6 +191,7 @@ export class GcdsTopNav {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "alignment",
                 "defaultValue": "'start'"
             }
         };
@@ -299,4 +299,3 @@ export class GcdsTopNav {
             }];
     }
 }
-//# sourceMappingURL=gcds-top-nav.js.map

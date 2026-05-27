@@ -182,4 +182,3 @@ Playground.args = {
     open: false,
     lang: 'en',
 };
-//# sourceMappingURL=gcds-nav-group.stories.js.map

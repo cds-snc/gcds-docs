@@ -1,6 +1,7 @@
 {
   "entries": [
     "components/gcds-grid/gcds-grid.js",
+    "components/gcds-icon/gcds-icon.js",
     "components/gcds-alert/gcds-alert.js",
     "components/gcds-breadcrumbs/gcds-breadcrumbs.js",
     "components/gcds-breadcrumbs-item/gcds-breadcrumbs-item.js",
@@ -20,7 +21,6 @@
     "components/gcds-header/gcds-header.js",
     "components/gcds-heading/gcds-heading.js",
     "components/gcds-hint/gcds-hint.js",
-    "components/gcds-icon/gcds-icon.js",
     "components/gcds-input/gcds-input.js",
     "components/gcds-label/gcds-label.js",
     "components/gcds-lang-toggle/gcds-lang-toggle.js",
@@ -36,15 +36,17 @@
     "components/gcds-signature/gcds-signature.js",
     "components/gcds-sr-only/gcds-sr-only.js",
     "components/gcds-stepper/gcds-stepper.js",
+    "components/gcds-table/gcds-table.js",
     "components/gcds-text/gcds-text.js",
     "components/gcds-textarea/gcds-textarea.js",
     "components/gcds-top-nav/gcds-top-nav.js",
     "components/gcds-topic-menu/gcds-topic-menu.js"
   ],
+  "mixins": [],
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.35.1",
-    "typescriptVersion": "5.5.4"
+    "version": "4.43.4",
+    "typescriptVersion": "5.8.3"
   },
   "collections": [],
   "bundles": []

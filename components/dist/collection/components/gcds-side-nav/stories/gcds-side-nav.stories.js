@@ -128,4 +128,3 @@ Playground.args = {
     lang: 'en',
     default: '',
 };
-//# sourceMappingURL=gcds-side-nav.stories.js.map

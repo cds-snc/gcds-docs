@@ -82,4 +82,3 @@ Playground.args = {
     open: false,
     default: 'Additional information.',
 };
-//# sourceMappingURL=gcds-details.stories.js.map

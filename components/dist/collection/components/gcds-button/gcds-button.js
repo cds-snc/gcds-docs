@@ -126,7 +126,7 @@ export class GcdsButton {
                 target,
                 download,
             };
-        return (h(Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, h(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: i18n[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: 'f66acbffcd0a9ad259e72475e8899ea3cd03c171' }, h(Tag, Object.assign({ key: '9a133537992501c37c98b393c0238c252d5bb3b7' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: '6182e46131e20271386f52fd53e95490876fbb55' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: i18n[lang].label, "margin-left": "150" })) : null)));
     }
     static get is() { return "gcds-button"; }
     static get encapsulation() { return "shadow"; }
@@ -145,7 +145,6 @@ export class GcdsButton {
         return {
             "type": {
                 "type": "string",
-                "attribute": "type",
                 "mutable": true,
                 "complexType": {
                     "original": "'submit' | 'reset' | 'button' | 'link'",
@@ -161,11 +160,11 @@ export class GcdsButton {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "type",
                 "defaultValue": "'button'"
             },
             "buttonRole": {
                 "type": "string",
-                "attribute": "button-role",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'start'\n    | 'primary'\n    | 'secondary'\n    | 'danger'",
@@ -181,11 +180,11 @@ export class GcdsButton {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "button-role",
                 "defaultValue": "'primary'"
             },
             "size": {
                 "type": "string",
-                "attribute": "size",
                 "mutable": true,
                 "complexType": {
                     "original": "'regular' | 'small'",
@@ -201,11 +200,11 @@ export class GcdsButton {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "size",
                 "defaultValue": "'regular'"
             },
             "buttonId": {
                 "type": "string",
-                "attribute": "button-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -220,11 +219,11 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "button-id"
             },
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -239,11 +238,11 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "name"
             },
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -258,11 +257,11 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "disabled"
             },
             "value": {
                 "type": "string",
-                "attribute": "value",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -277,11 +276,11 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "value"
             },
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -296,11 +295,11 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "href"
             },
             "rel": {
                 "type": "string",
-                "attribute": "rel",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -315,11 +314,11 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "rel"
             },
             "target": {
                 "type": "string",
-                "attribute": "target",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -334,11 +333,11 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "target"
             },
             "download": {
                 "type": "string",
-                "attribute": "download",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -353,7 +352,8 @@ export class GcdsButton {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "download"
             }
         };
     }
@@ -428,4 +428,3 @@ export class GcdsButton {
             }];
     }
 }
-//# sourceMappingURL=gcds-button.js.map

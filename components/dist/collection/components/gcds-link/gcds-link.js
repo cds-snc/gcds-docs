@@ -109,7 +109,7 @@ export class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, { key: '7fa892f419ed82d2218a8166cb9df9087309f049' }, h("a", Object.assign({ key: '1b771e086f262c942e89359aab40a242cdeca8e7', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '86a797523cf073c1e75e3adfb224ff10f8344a76' }), this.getIcon() && (h("span", { key: '61a96d99ba2782a0853bdc7d4dff5a4a250f8858', class: "text-icon-group" }, "\u00A0", this.getIcon())))));
+        return (h(Host, { key: 'be11bc7a4e4c284633054cdc9a2374af97b0ac27' }, h("a", Object.assign({ key: '5a12d4e848d792c42b4805bb83b81387ccbc699e', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '7058ae9242230b4f77542a3453d2a273e6bdfd18' }), this.getIcon() && (h("span", { key: '2c14791e6082d0ff8d3308c7922f6f0902da055d', class: "text-icon-group" }, "\u00A0", this.getIcon())))));
     }
     static get is() { return "gcds-link"; }
     static get encapsulation() { return "shadow"; }
@@ -127,7 +127,6 @@ export class GcdsLink {
         return {
             "linkRole": {
                 "type": "string",
-                "attribute": "link-role",
                 "mutable": true,
                 "complexType": {
                     "original": "'default' | 'light'",
@@ -143,11 +142,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "link-role",
                 "defaultValue": "'default'"
             },
             "size": {
                 "type": "string",
-                "attribute": "size",
                 "mutable": true,
                 "complexType": {
                     "original": "'regular' | 'small' | 'inherit'",
@@ -163,11 +162,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "size",
                 "defaultValue": "'inherit'"
             },
             "display": {
                 "type": "string",
-                "attribute": "display",
                 "mutable": true,
                 "complexType": {
                     "original": "'block' | 'inline'",
@@ -183,11 +182,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "display",
                 "defaultValue": "'inline'"
             },
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -202,11 +201,11 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "href"
             },
             "rel": {
                 "type": "string",
-                "attribute": "rel",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -221,11 +220,11 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "rel"
             },
             "target": {
                 "type": "string",
-                "attribute": "target",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -241,11 +240,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "target",
                 "defaultValue": "'_self'"
             },
             "external": {
                 "type": "boolean",
-                "attribute": "external",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -261,11 +260,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "external",
                 "defaultValue": "false"
             },
             "download": {
                 "type": "string",
-                "attribute": "download",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -280,11 +279,11 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "download"
             },
             "type": {
                 "type": "string",
-                "attribute": "type",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -299,7 +298,8 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "type"
             }
         };
     }
@@ -371,4 +371,3 @@ export class GcdsLink {
             }];
     }
 }
-//# sourceMappingURL=gcds-link.js.map

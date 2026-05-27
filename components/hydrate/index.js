@@ -31,6 +31,11 @@ function hydrateFactory($stencilWindow, $stencilHydrateOpts, $stencilHydrateResu
   var setInterval = $stencilWindow.setInterval.bind($stencilWindow);
   var setTimeout = $stencilWindow.setTimeout.bind($stencilWindow);
 
+  // Tag transform functions are provided from the outer scope
+  // This ensures the factory uses the same instance as the runner
+  var setTagTransformer = $stencilTagTransform.setTagTransformer;
+  var transformTag = $stencilTagTransform.transformTag;
+
   var CharacterData = $stencilWindow.CharacterData;
   var CSS = $stencilWindow.CSS;
   var CustomEvent = $stencilWindow.CustomEvent;
@@ -127,16 +132,257 @@ function hydrateFactory($stencilWindow, $stencilHydrateOpts, $stencilHydrateResu
 
 
 const NAMESPACE = 'gcds';
-const BUILD = /* gcds */ { hydratedSelectorName: "hydrated", slotRelocation: true, updatable: true};
+const BUILD = /* gcds */ { hotModuleReplacement: false, hydratedSelectorName: "hydrated", slotRelocation: true, state: true, updatable: true};
 
 /*
- Stencil Hydrate Platform v4.35.1 | MIT Licensed | https://stenciljs.com
+ Stencil Hydrate Platform v4.43.4 | MIT Licensed | https://stenciljs.com
  */
+var __create = Object.create;
 var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  __defProp(target, "default", { value: mod, enumerable: true }) ,
+  mod
+));
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), member.set(obj, value), value);
+var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
+
+// node_modules/balanced-match/index.js
+var require_balanced_match = __commonJS({
+  "node_modules/balanced-match/index.js"(exports, module) {
+    module.exports = balanced;
+    function balanced(a, b, str) {
+      if (a instanceof RegExp) a = maybeMatch(a, str);
+      if (b instanceof RegExp) b = maybeMatch(b, str);
+      var r = range(a, b, str);
+      return r && {
+        start: r[0],
+        end: r[1],
+        pre: str.slice(0, r[0]),
+        body: str.slice(r[0] + a.length, r[1]),
+        post: str.slice(r[1] + b.length)
+      };
+    }
+    function maybeMatch(reg, str) {
+      var m = str.match(reg);
+      return m ? m[0] : null;
+    }
+    balanced.range = range;
+    function range(a, b, str) {
+      var begs, beg, left, right, result;
+      var ai = str.indexOf(a);
+      var bi = str.indexOf(b, ai + 1);
+      var i2 = ai;
+      if (ai >= 0 && bi > 0) {
+        if (a === b) {
+          return [ai, bi];
+        }
+        begs = [];
+        left = str.length;
+        while (i2 >= 0 && !result) {
+          if (i2 == ai) {
+            begs.push(i2);
+            ai = str.indexOf(a, i2 + 1);
+          } else if (begs.length == 1) {
+            result = [begs.pop(), bi];
+          } else {
+            beg = begs.pop();
+            if (beg < left) {
+              left = beg;
+              right = bi;
+            }
+            bi = str.indexOf(b, i2 + 1);
+          }
+          i2 = ai < bi && ai >= 0 ? ai : bi;
+        }
+        if (begs.length) {
+          result = [left, right];
+        }
+      }
+      return result;
+    }
+  }
+});
+
+// node_modules/brace-expansion/index.js
+var require_brace_expansion = __commonJS({
+  "node_modules/brace-expansion/index.js"(exports, module) {
+    var balanced = require_balanced_match();
+    module.exports = expandTop;
+    var escSlash = "\0SLASH" + Math.random() + "\0";
+    var escOpen = "\0OPEN" + Math.random() + "\0";
+    var escClose = "\0CLOSE" + Math.random() + "\0";
+    var escComma = "\0COMMA" + Math.random() + "\0";
+    var escPeriod = "\0PERIOD" + Math.random() + "\0";
+    function numeric(str) {
+      return parseInt(str, 10) == str ? parseInt(str, 10) : str.charCodeAt(0);
+    }
+    function escapeBraces(str) {
+      return str.split("\\\\").join(escSlash).split("\\{").join(escOpen).split("\\}").join(escClose).split("\\,").join(escComma).split("\\.").join(escPeriod);
+    }
+    function unescapeBraces(str) {
+      return str.split(escSlash).join("\\").split(escOpen).join("{").split(escClose).join("}").split(escComma).join(",").split(escPeriod).join(".");
+    }
+    function parseCommaParts(str) {
+      if (!str)
+        return [""];
+      var parts = [];
+      var m = balanced("{", "}", str);
+      if (!m)
+        return str.split(",");
+      var pre = m.pre;
+      var body = m.body;
+      var post = m.post;
+      var p = pre.split(",");
+      p[p.length - 1] += "{" + body + "}";
+      var postParts = parseCommaParts(post);
+      if (post.length) {
+        p[p.length - 1] += postParts.shift();
+        p.push.apply(p, postParts);
+      }
+      parts.push.apply(parts, p);
+      return parts;
+    }
+    function expandTop(str) {
+      if (!str)
+        return [];
+      if (str.substr(0, 2) === "{}") {
+        str = "\\{\\}" + str.substr(2);
+      }
+      return expand2(escapeBraces(str), true).map(unescapeBraces);
+    }
+    function embrace(str) {
+      return "{" + str + "}";
+    }
+    function isPadded(el) {
+      return /^-?0\d/.test(el);
+    }
+    function lte(i2, y) {
+      return i2 <= y;
+    }
+    function gte(i2, y) {
+      return i2 >= y;
+    }
+    function expand2(str, isTop) {
+      var expansions = [];
+      var m = balanced("{", "}", str);
+      if (!m) return [str];
+      var pre = m.pre;
+      var post = m.post.length ? expand2(m.post, false) : [""];
+      if (/\$$/.test(m.pre)) {
+        for (var k = 0; k < post.length; k++) {
+          var expansion = pre + "{" + m.body + "}" + post[k];
+          expansions.push(expansion);
+        }
+      } else {
+        var isNumericSequence = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(m.body);
+        var isAlphaSequence = /^[a-zA-Z]\.\.[a-zA-Z](?:\.\.-?\d+)?$/.test(m.body);
+        var isSequence = isNumericSequence || isAlphaSequence;
+        var isOptions = m.body.indexOf(",") >= 0;
+        if (!isSequence && !isOptions) {
+          if (m.post.match(/,(?!,).*\}/)) {
+            str = m.pre + "{" + m.body + escClose + m.post;
+            return expand2(str);
+          }
+          return [str];
+        }
+        var n;
+        if (isSequence) {
+          n = m.body.split(/\.\./);
+        } else {
+          n = parseCommaParts(m.body);
+          if (n.length === 1) {
+            n = expand2(n[0], false).map(embrace);
+            if (n.length === 1) {
+              return post.map(function(p) {
+                return m.pre + n[0] + p;
+              });
+            }
+          }
+        }
+        var N;
+        if (isSequence) {
+          var x = numeric(n[0]);
+          var y = numeric(n[1]);
+          var width = Math.max(n[0].length, n[1].length);
+          var incr = n.length == 3 ? Math.abs(numeric(n[2])) : 1;
+          var test = lte;
+          var reverse = y < x;
+          if (reverse) {
+            incr *= -1;
+            test = gte;
+          }
+          var pad = n.some(isPadded);
+          N = [];
+          for (var i2 = x; test(i2, y); i2 += incr) {
+            var c;
+            if (isAlphaSequence) {
+              c = String.fromCharCode(i2);
+              if (c === "\\")
+                c = "";
+            } else {
+              c = String(i2);
+              if (pad) {
+                var need = width - c.length;
+                if (need > 0) {
+                  var z = new Array(need + 1).join("0");
+                  if (i2 < 0)
+                    c = "-" + z + c.slice(1);
+                  else
+                    c = z + c;
+                }
+              }
+            }
+            N.push(c);
+          }
+        } else {
+          N = [];
+          for (var j = 0; j < n.length; j++) {
+            N.push.apply(N, expand2(n[j], false));
+          }
+        }
+        for (var j = 0; j < N.length; j++) {
+          for (var k = 0; k < post.length; k++) {
+            var expansion = pre + N[j] + post[k];
+            if (!isTop || isSequence || expansion)
+              expansions.push(expansion);
+          }
+        }
+      }
+      return expansions;
+    }
+  }
+});
 var PrimitiveType = /* @__PURE__ */ ((PrimitiveType2) => {
   PrimitiveType2["Undefined"] = "undefined";
   PrimitiveType2["Null"] = "null";
@@ -162,181 +408,46 @@ var TYPE_CONSTANT = "type";
 var VALUE_CONSTANT = "value";
 var SERIALIZED_PREFIX = "serialized:";
 
-// src/utils/helpers.ts
-var isDef = (v) => v != null && v !== void 0;
-var isComplexType = (o) => {
-  o = typeof o;
-  return o === "object" || o === "function";
-};
-
-// src/utils/query-nonce-meta-tag-content.ts
-function queryNonceMetaTagContent(doc) {
-  var _a, _b, _c;
-  return (_c = (_b = (_a = doc.head) == null ? void 0 : _a.querySelector('meta[name="csp-nonce"]')) == null ? void 0 : _b.getAttribute("content")) != null ? _c : void 0;
+// src/utils/get-prop-descriptor.ts
+function getPropertyDescriptor(obj, memberName, getOnly) {
+  const stopAt = typeof HTMLElement !== "undefined" ? HTMLElement.prototype : null;
+  while (obj && obj !== stopAt) {
+    const desc = Object.getOwnPropertyDescriptor(obj, memberName);
+    if (desc && (!getOnly || desc.get)) return desc;
+    obj = Object.getPrototypeOf(obj);
+  }
+  return void 0;
 }
 
-// src/utils/regular-expression.ts
-var escapeRegExpSpecialCharacters = (text) => {
-  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// src/utils/es2022-rewire-class-members.ts
+var reWireGetterSetter = (instance, hostRef) => {
+  var _a2;
+  const cmpMeta = hostRef.$cmpMeta$;
+  const members = Object.entries((_a2 = cmpMeta.$members$) != null ? _a2 : {});
+  members.map(([memberName, [memberFlags]]) => {
+    if ((memberFlags & 31 /* Prop */ || memberFlags & 32 /* State */)) {
+      const ogValue = instance[memberName];
+      const ogDescriptor = getPropertyDescriptor(Object.getPrototypeOf(instance), memberName, true) || Object.getOwnPropertyDescriptor(instance, memberName);
+      if (ogDescriptor) {
+        Object.defineProperty(instance, memberName, {
+          get() {
+            return ogDescriptor.get.call(this);
+          },
+          set(newValue) {
+            ogDescriptor.set.call(this, newValue);
+          },
+          configurable: true,
+          enumerable: true
+        });
+      }
+      if (hostRef.$instanceValues$.has(memberName)) {
+        instance[memberName] = hostRef.$instanceValues$.get(memberName);
+      } else if (ogValue !== void 0) {
+        instance[memberName] = ogValue;
+      }
+    }
+  });
 };
-
-// src/utils/remote-value.ts
-var RemoteValue = class _RemoteValue {
-  /**
-   * Deserializes a LocalValue serialized object back to its original JavaScript representation
-   *
-   * @param serialized The serialized LocalValue object
-   * @returns The original JavaScript value/object
-   */
-  static fromLocalValue(serialized) {
-    const type = serialized[TYPE_CONSTANT];
-    const value = VALUE_CONSTANT in serialized ? serialized[VALUE_CONSTANT] : void 0;
-    switch (type) {
-      case "string" /* String */:
-        return value;
-      case "boolean" /* Boolean */:
-        return value;
-      case "bigint" /* BigInt */:
-        return BigInt(value);
-      case "undefined" /* Undefined */:
-        return void 0;
-      case "null" /* Null */:
-        return null;
-      case "number" /* Number */:
-        if (value === "NaN") return NaN;
-        if (value === "-0") return -0;
-        if (value === "Infinity") return Infinity;
-        if (value === "-Infinity") return -Infinity;
-        return value;
-      case "array" /* Array */:
-        return value.map((item) => _RemoteValue.fromLocalValue(item));
-      case "date" /* Date */:
-        return new Date(value);
-      case "map" /* Map */:
-        const map2 = /* @__PURE__ */ new Map();
-        for (const [key, val] of value) {
-          const deserializedKey = typeof key === "object" && key !== null ? _RemoteValue.fromLocalValue(key) : key;
-          const deserializedValue = _RemoteValue.fromLocalValue(val);
-          map2.set(deserializedKey, deserializedValue);
-        }
-        return map2;
-      case "object" /* Object */:
-        const obj = {};
-        for (const [key, val] of value) {
-          obj[key] = _RemoteValue.fromLocalValue(val);
-        }
-        return obj;
-      case "regexp" /* RegularExpression */:
-        const { pattern, flags } = value;
-        return new RegExp(pattern, flags);
-      case "set" /* Set */:
-        const set = /* @__PURE__ */ new Set();
-        for (const item of value) {
-          set.add(_RemoteValue.fromLocalValue(item));
-        }
-        return set;
-      case "symbol" /* Symbol */:
-        return Symbol(value);
-      default:
-        throw new Error(`Unsupported type: ${type}`);
-    }
-  }
-  /**
-   * Utility method to deserialize multiple LocalValues at once
-   *
-   * @param serializedValues Array of serialized LocalValue objects
-   * @returns Array of deserialized JavaScript values
-   */
-  static fromLocalValueArray(serializedValues) {
-    return serializedValues.map((value) => _RemoteValue.fromLocalValue(value));
-  }
-  /**
-   * Verifies if the given object matches the structure of a serialized LocalValue
-   *
-   * @param obj Object to verify
-   * @returns boolean indicating if the object has LocalValue structure
-   */
-  static isLocalValueObject(obj) {
-    if (typeof obj !== "object" || obj === null) {
-      return false;
-    }
-    if (!obj.hasOwnProperty(TYPE_CONSTANT)) {
-      return false;
-    }
-    const type = obj[TYPE_CONSTANT];
-    const hasTypeProperty = Object.values({ ...PrimitiveType, ...NonPrimitiveType }).includes(type);
-    if (!hasTypeProperty) {
-      return false;
-    }
-    if (type !== "null" /* Null */ && type !== "undefined" /* Undefined */) {
-      return obj.hasOwnProperty(VALUE_CONSTANT);
-    }
-    return true;
-  }
-};
-
-// src/utils/result.ts
-var result_exports = {};
-__export(result_exports, {
-  err: () => err,
-  map: () => map,
-  ok: () => ok,
-  unwrap: () => unwrap,
-  unwrapErr: () => unwrapErr
-});
-var ok = (value) => ({
-  isOk: true,
-  isErr: false,
-  value
-});
-var err = (value) => ({
-  isOk: false,
-  isErr: true,
-  value
-});
-function map(result, fn) {
-  if (result.isOk) {
-    const val = fn(result.value);
-    if (val instanceof Promise) {
-      return val.then((newVal) => ok(newVal));
-    } else {
-      return ok(val);
-    }
-  }
-  if (result.isErr) {
-    const value = result.value;
-    return err(value);
-  }
-  throw "should never get here";
-}
-var unwrap = (result) => {
-  if (result.isOk) {
-    return result.value;
-  } else {
-    throw result.value;
-  }
-};
-var unwrapErr = (result) => {
-  if (result.isErr) {
-    return result.value;
-  } else {
-    throw result.value;
-  }
-};
-
-// src/utils/serialize.ts
-function deserializeProperty(value) {
-  if (typeof value !== "string" || !value.startsWith(SERIALIZED_PREFIX)) {
-    return value;
-  }
-  return RemoteValue.fromLocalValue(JSON.parse(atob(value.slice(SERIALIZED_PREFIX.length))));
-}
-function createShadowRoot(cmpMeta) {
-  this.attachShadow({
-    mode: "open",
-    delegatesFocus: !!(cmpMeta.$flags$ & 16 /* shadowDelegatesFocus */)
-  }) ;
-}
 
 // src/runtime/runtime-constants.ts
 var CONTENT_REF_ID = "r";
@@ -356,7 +467,27 @@ var DEFAULT_DOC_DATA = {
 var SLOT_FB_CSS = "slot-fb{display:contents}slot-fb[hidden]{display:none}";
 var XLINK_NS = "http://www.w3.org/1999/xlink";
 
-// src/runtime/slot-polyfill-utils.ts
+// src/utils/style.ts
+function createStyleSheetIfNeededAndSupported(styles2) {
+  return void 0;
+}
+
+// src/utils/shadow-root.ts
+var globalStyleSheet;
+function createShadowRoot(cmpMeta) {
+  var _a2;
+  const opts = { mode: "open" };
+  {
+    opts.delegatesFocus = !!(cmpMeta.$flags$ & 16 /* shadowDelegatesFocus */);
+  }
+  const shadowRoot = this.attachShadow(opts);
+  if (globalStyleSheet === void 0) globalStyleSheet = (_a2 = createStyleSheetIfNeededAndSupported()) != null ? _a2 : null;
+  if (globalStyleSheet) {
+    {
+      shadowRoot.adoptedStyleSheets = [...shadowRoot.adoptedStyleSheets, globalStyleSheet];
+    }
+  }
+}
 var updateFallbackSlotVisibility = (elm) => {
   const childNodes = internalCall(elm, "childNodes");
   if (elm.tagName && elm.tagName.includes("-") && elm["s-cr"] && elm.tagName !== "SLOT-FB") {
@@ -394,8 +525,9 @@ function getHostSlotNodes(childNodes, hostName, slotName) {
   let childNode;
   for (; i2 < childNodes.length; i2++) {
     childNode = childNodes[i2];
-    if (childNode["s-sr"] && (!hostName || childNode["s-hn"] === hostName) && (slotName === void 0)) {
+    if (childNode["s-sr"] && (!hostName || childNode["s-hn"] === hostName) && (slotName === void 0 || getSlotName(childNode) === slotName)) {
       slottedNodes.push(childNode);
+      if (typeof slotName !== "undefined") return slottedNodes;
     }
     slottedNodes = [...slottedNodes, ...getHostSlotNodes(childNode.childNodes, hostName, slotName)];
   }
@@ -481,6 +613,18 @@ function patchSlotNode(node) {
   node.assignedElements = assignedFactory(true);
   node.assignedNodes = assignedFactory(false);
 }
+function dispatchSlotChangeEvent(elm) {
+  elm.dispatchEvent(new CustomEvent("slotchange", { bubbles: false, cancelable: false, composed: false }));
+}
+function findSlotFromSlottedNode(slottedNode, parentHost) {
+  var _a2;
+  parentHost = parentHost || ((_a2 = slottedNode["s-ol"]) == null ? void 0 : _a2.parentElement);
+  if (!parentHost) return { slotNode: null, slotName: "" };
+  const slotName = slottedNode["s-sn"] = getSlotName(slottedNode) || "";
+  const childNodes = internalCall(parentHost, "childNodes");
+  const slotNode = getHostSlotNodes(childNodes, parentHost.tagName, slotName)[0];
+  return { slotNode, slotName };
+}
 function internalCall(node, method) {
   if ("__" + method in node) {
     const toReturn = node["__" + method];
@@ -505,7 +649,114 @@ var uniqueTime = (key, measureText) => {
     };
   }
 };
+
+// src/utils/query-nonce-meta-tag-content.ts
+function queryNonceMetaTagContent(doc) {
+  var _a2, _b, _c;
+  return (_c = (_b = (_a2 = doc.head) == null ? void 0 : _a2.querySelector('meta[name="csp-nonce"]')) == null ? void 0 : _b.getAttribute("content")) != null ? _c : void 0;
+}
+
+// src/runtime/styles.ts
+var rootAppliedStyles = /* @__PURE__ */ new WeakMap();
+var registerStyle = (scopeId2, cssText, allowCS) => {
+  let style = styles.get(scopeId2);
+  {
+    style = cssText;
+  }
+  styles.set(scopeId2, style);
+};
+var addStyle = (styleContainerNode, cmpMeta, mode) => {
+  var _a2;
+  const scopeId2 = getScopeId(cmpMeta);
+  const style = styles.get(scopeId2);
+  if (!win.document) {
+    return scopeId2;
+  }
+  styleContainerNode = styleContainerNode.nodeType === 11 /* DocumentFragment */ ? styleContainerNode : win.document;
+  if (style) {
+    if (typeof style === "string") {
+      styleContainerNode = styleContainerNode.head || styleContainerNode;
+      let appliedStyles = rootAppliedStyles.get(styleContainerNode);
+      let styleElm;
+      if (!appliedStyles) {
+        rootAppliedStyles.set(styleContainerNode, appliedStyles = /* @__PURE__ */ new Set());
+      }
+      const existingStyleElm = styleContainerNode.querySelector(`[${HYDRATED_STYLE_ID}="${scopeId2}"]`);
+      if (existingStyleElm) {
+        existingStyleElm.textContent = style;
+      } else if (!appliedStyles.has(scopeId2)) {
+        styleElm = win.document.createElement("style");
+        styleElm.textContent = style;
+        const nonce = (_a2 = plt.$nonce$) != null ? _a2 : queryNonceMetaTagContent(win.document);
+        if (nonce != null) {
+          styleElm.setAttribute("nonce", nonce);
+        }
+        if ((cmpMeta.$flags$ & 2 /* scopedCssEncapsulation */ || cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */ || cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */)) {
+          styleElm.setAttribute(HYDRATED_STYLE_ID, scopeId2);
+        }
+        if (!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */)) {
+          if (styleContainerNode.nodeName === "HEAD") {
+            const preconnectLinks = styleContainerNode.querySelectorAll("link[rel=preconnect]");
+            const referenceNode2 = preconnectLinks.length > 0 ? preconnectLinks[preconnectLinks.length - 1].nextSibling : styleContainerNode.querySelector("style");
+            styleContainerNode.insertBefore(
+              styleElm,
+              (referenceNode2 == null ? void 0 : referenceNode2.parentNode) === styleContainerNode ? referenceNode2 : null
+            );
+          } else if ("host" in styleContainerNode) {
+            {
+              const existingStyleContainer = styleContainerNode.querySelector("style");
+              if (existingStyleContainer && true) {
+                existingStyleContainer.textContent = style + existingStyleContainer.textContent;
+              } else {
+                styleContainerNode.prepend(styleElm);
+              }
+            }
+          } else {
+            styleContainerNode.append(styleElm);
+          }
+        }
+        if (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
+          styleContainerNode.insertBefore(styleElm, null);
+        }
+        if (cmpMeta.$flags$ & 4 /* hasSlotRelocation */) {
+          styleElm.textContent += SLOT_FB_CSS;
+        }
+        if (appliedStyles) {
+          appliedStyles.add(scopeId2);
+        }
+      }
+    }
+  }
+  return scopeId2;
+};
+var attachStyles = (hostRef) => {
+  const cmpMeta = hostRef.$cmpMeta$;
+  const elm = hostRef.$hostElement$;
+  const flags = cmpMeta.$flags$;
+  const endAttachStyles = createTime("attachStyles", cmpMeta.$tagName$);
+  const scopeId2 = addStyle(
+    elm.shadowRoot ? elm.shadowRoot : elm.getRootNode(),
+    cmpMeta);
+  if (flags & 10 /* needsScopedEncapsulation */) {
+    elm["s-sc"] = scopeId2;
+    elm.classList.add(scopeId2 + "-h");
+  }
+  endAttachStyles();
+};
+var getScopeId = (cmp, mode) => "sc-" + (cmp.$tagName$);
+
+// src/utils/helpers.ts
+var isDef = (v) => v != null && v !== void 0;
+var isComplexType = (o) => {
+  o = typeof o;
+  return o === "object" || o === "function";
+};
+
+// src/runtime/vdom/h.ts
 var h = (nodeName, vnodeData, ...children) => {
+  if (typeof nodeName === "string") {
+    nodeName = transformTag(nodeName);
+  }
   let child = null;
   let key = null;
   let slotName = null;
@@ -569,7 +820,8 @@ var newVNode = (tag, text) => {
   const vnode = {
     $flags$: 0,
     $tag$: tag,
-    $text$: text,
+    // Normalize undefined to null to prevent rendering "undefined" as text
+    $text$: text != null ? text : null,
     $elm$: null,
     $children$: null
   };
@@ -619,7 +871,7 @@ var convertToPrivate = (node) => {
 
 // src/runtime/client-hydrate.ts
 var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
-  var _a;
+  var _a2, _b, _c, _d;
   const endHydrate = createTime("hydrateClient", tagName);
   const shadowRoot = hostElm.shadowRoot;
   const childRenderNodes = [];
@@ -628,23 +880,6 @@ var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
   const shadowRootNodes = shadowRoot ? [] : null;
   const vnode = newVNode(tagName, null);
   vnode.$elm$ = hostElm;
-  const members = Object.entries(((_a = hostRef.$cmpMeta$) == null ? void 0 : _a.$members$) || {});
-  members.forEach(([memberName, [memberFlags, metaAttributeName]]) => {
-    var _a2, _b;
-    if (!(memberFlags & 31 /* Prop */)) {
-      return;
-    }
-    const attributeName = metaAttributeName || memberName;
-    const attrVal = hostElm.getAttribute(attributeName);
-    if (attrVal !== null) {
-      const attrPropVal = parsePropertyValue(
-        attrVal,
-        memberFlags,
-        !!(((_a2 = hostRef.$cmpMeta$) == null ? void 0 : _a2.$flags$) & 64 /* formAssociated */)
-      );
-      (_b = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _b.set(memberName, attrPropVal);
-    }
-  });
   if (win.document && (!plt.$orgLocNodes$ || !plt.$orgLocNodes$.size)) {
     initializeDocumentHydrate(win.document.body, plt.$orgLocNodes$ = /* @__PURE__ */ new Map());
   }
@@ -669,9 +904,19 @@ var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
     const orgLocationNode = plt.$orgLocNodes$.get(orgLocationId);
     const node = childRenderNode.$elm$;
     if (!shadowRoot) {
-      node["s-hn"] = tagName.toUpperCase();
+      node["s-hn"] = transformTag(tagName).toUpperCase();
       if (childRenderNode.$tag$ === "slot") {
         node["s-cr"] = hostElm["s-cr"];
+      }
+    } else if (((_a2 = childRenderNode.$tag$) == null ? void 0 : _a2.toString().includes("-")) && childRenderNode.$tag$ !== "slot-fb" && !childRenderNode.$elm$.shadowRoot) {
+      const cmpMeta = getHostRef(childRenderNode.$elm$);
+      if (cmpMeta) {
+        const scopeId3 = getScopeId(
+          cmpMeta.$cmpMeta$);
+        const styleSheet = win.document.querySelector(`style[sty-id="${scopeId3}"]`);
+        if (styleSheet) {
+          shadowRootNodes.unshift(styleSheet.cloneNode(true));
+        }
       }
     }
     if (childRenderNode.$tag$ === "slot") {
@@ -688,7 +933,7 @@ var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
       }
     }
     if (orgLocationNode && orgLocationNode.isConnected) {
-      if (shadowRoot && orgLocationNode["s-en"] === "") {
+      if (orgLocationNode.parentElement.shadowRoot && orgLocationNode["s-en"] === "") {
         orgLocationNode.parentNode.insertBefore(node, orgLocationNode.nextSibling);
       }
       orgLocationNode.parentNode.removeChild(orgLocationNode);
@@ -696,7 +941,9 @@ var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
         node["s-oo"] = parseInt(childRenderNode.$nodeId$);
       }
     }
-    plt.$orgLocNodes$.delete(orgLocationId);
+    if (orgLocationNode && !orgLocationNode["s-id"]) {
+      plt.$orgLocNodes$.delete(orgLocationId);
+    }
   }
   const hosts = [];
   const snLen = slottedNodes.length;
@@ -705,6 +952,7 @@ var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
   let snGroupIdx;
   let snGroupLen;
   let slottedItem;
+  let currentPos = 0;
   for (snIndex; snIndex < snLen; snIndex++) {
     slotGroup = slottedNodes[snIndex];
     if (!slotGroup || !slotGroup.length) continue;
@@ -717,18 +965,24 @@ var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
       }
       if (!hosts[slottedItem.hostId]) continue;
       const hostEle = hosts[slottedItem.hostId];
-      if (!hostEle.shadowRoot || !shadowRoot) {
-        slottedItem.slot["s-cr"] = hostEle["s-cr"];
-        if (!slottedItem.slot["s-cr"] && hostEle.shadowRoot) {
-          slottedItem.slot["s-cr"] = hostEle;
-        } else {
-          slottedItem.slot["s-cr"] = (hostEle.__childNodes || hostEle.childNodes)[0];
-        }
-        addSlotRelocateNode(slottedItem.node, slottedItem.slot, false, slottedItem.node["s-oo"]);
-      }
       if (hostEle.shadowRoot && slottedItem.node.parentElement !== hostEle) {
-        hostEle.appendChild(slottedItem.node);
+        hostEle.insertBefore(slottedItem.node, (_c = (_b = slotGroup[snGroupIdx - 1]) == null ? void 0 : _b.node) == null ? void 0 : _c.nextSibling);
       }
+      if (!hostEle.shadowRoot || !shadowRoot) {
+        if (!slottedItem.slot["s-cr"]) {
+          slottedItem.slot["s-cr"] = hostEle["s-cr"];
+          if (!slottedItem.slot["s-cr"] && hostEle.shadowRoot) {
+            slottedItem.slot["s-cr"] = hostEle;
+          } else {
+            slottedItem.slot["s-cr"] = (hostEle.__childNodes || hostEle.childNodes)[0];
+          }
+        }
+        addSlotRelocateNode(slottedItem.node, slottedItem.slot, false, slottedItem.node["s-oo"] || currentPos);
+        if (((_d = slottedItem.node.parentElement) == null ? void 0 : _d.shadowRoot) && slottedItem.node["getAttribute"] && slottedItem.node.getAttribute("slot")) {
+          slottedItem.node.removeAttribute("slot");
+        }
+      }
+      currentPos = (slottedItem.node["s-oo"] || currentPos) + 1;
     }
   }
   if (shadowRoot && !shadowRoot.childNodes.length) {
@@ -736,20 +990,22 @@ var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
     const rnLen = shadowRootNodes.length;
     if (rnLen) {
       for (rnIdex; rnIdex < rnLen; rnIdex++) {
-        shadowRoot.appendChild(shadowRootNodes[rnIdex]);
+        const node = shadowRootNodes[rnIdex];
+        if (node) {
+          shadowRoot.appendChild(node);
+        }
       }
       Array.from(hostElm.childNodes).forEach((node) => {
         if (typeof node["s-en"] !== "string" && typeof node["s-sn"] !== "string") {
           if (node.nodeType === 1 /* ElementNode */ && node.slot && node.hidden) {
             node.removeAttribute("hidden");
-          } else if (node.nodeType === 8 /* CommentNode */ || node.nodeType === 3 /* TextNode */ && !node.wholeText.trim()) {
+          } else if (node.nodeType === 8 /* CommentNode */ && !node.nodeValue) {
             node.parentNode.removeChild(node);
           }
         }
       });
     }
   }
-  plt.$orgLocNodes$.delete(hostElm["s-id"]);
   hostRef.$hostElement$ = hostElm;
   endHydrate();
 };
@@ -902,10 +1158,6 @@ var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, 
     vnode.$elm$ = node;
     vnode.$index$ = "0";
     parentVNode.$children$ = [vnode];
-  } else {
-    if (node.nodeType === 3 /* TextNode */ && !node.wholeText.trim()) {
-      node.remove();
-    }
   }
   return parentVNode;
 };
@@ -961,10 +1213,10 @@ function addSlot(slotName, slotId, childVNode, node, parentVNode, childRenderNod
     if (childVNode.$name$) {
       childVNode.$elm$.setAttribute("name", slotName);
     }
-    if (parentNodeId && parentNodeId !== childVNode.$hostId$) {
-      parentVNode.$elm$.insertBefore(slot, parentVNode.$elm$.children[0]);
+    if (parentVNode.$elm$.shadowRoot && parentNodeId && parentNodeId !== childVNode.$hostId$) {
+      internalCall(parentVNode.$elm$, "insertBefore")(slot, internalCall(parentVNode.$elm$, "children")[0]);
     } else {
-      node.parentNode.insertBefore(slot, node);
+      internalCall(internalCall(node, "parentNode"), "insertBefore")(slot, node);
     }
     addSlottedNodes(slottedNodes, slotId, slotName, node, childVNode.$hostId$);
     node.remove();
@@ -988,13 +1240,17 @@ function addSlot(slotName, slotId, childVNode, node, parentVNode, childRenderNod
   parentVNode.$children$[childVNode.$index$] = childVNode;
 }
 var addSlottedNodes = (slottedNodes, slotNodeId, slotName, slotNode, hostId) => {
+  var _a2, _b;
   let slottedNode = slotNode.nextSibling;
   slottedNodes[slotNodeId] = slottedNodes[slotNodeId] || [];
-  while (slottedNode && ((slottedNode["getAttribute"] && slottedNode.getAttribute("slot") || slottedNode["s-sn"]) === slotName || slotName === "" && !slottedNode["s-sn"] && (slottedNode.nodeType === 8 /* CommentNode */ && slottedNode.nodeValue.indexOf(".") !== 1 || slottedNode.nodeType === 3 /* TextNode */))) {
-    slottedNode["s-sn"] = slotName;
-    slottedNodes[slotNodeId].push({ slot: slotNode, node: slottedNode, hostId });
-    slottedNode = slottedNode.nextSibling;
-  }
+  if (!slottedNode || ((_a2 = slottedNode.nodeValue) == null ? void 0 : _a2.startsWith(SLOT_NODE_ID + "."))) return;
+  do {
+    if (slottedNode && ((slottedNode["getAttribute"] && slottedNode.getAttribute("slot") || slottedNode["s-sn"]) === slotName || slotName === "" && !slottedNode["s-sn"] && (!slottedNode["getAttribute"] || !slottedNode.getAttribute("slot")) && (slottedNode.nodeType === 8 /* CommentNode */ || slottedNode.nodeType === 3 /* TextNode */))) {
+      slottedNode["s-sn"] = slotName;
+      slottedNodes[slotNodeId].push({ slot: slotNode, node: slottedNode, hostId });
+    }
+    slottedNode = slottedNode == null ? void 0 : slottedNode.nextSibling;
+  } while (slottedNode && !((_b = slottedNode.nodeValue) == null ? void 0 : _b.startsWith(SLOT_NODE_ID + ".")));
 };
 var findCorrespondingNode = (node, type) => {
   let sibling = node;
@@ -1002,6 +1258,11 @@ var findCorrespondingNode = (node, type) => {
     sibling = sibling.nextSibling;
   } while (sibling && (sibling.nodeType !== type || !sibling.nodeValue));
   return sibling;
+};
+
+// src/utils/regular-expression.ts
+var escapeRegExpSpecialCharacters = (text) => {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 };
 
 // src/utils/shadow-css.ts
@@ -1069,9 +1330,6 @@ var createSupportsRuleRe = (selector) => {
     "g"
   );
 };
-var _colonSlottedRe = createSupportsRuleRe("::slotted");
-var _colonHostRe = createSupportsRuleRe(":host");
-var _colonHostContextRe = createSupportsRuleRe(":host-context");
 var _commentRe = /\/\*\s*[\s\S]*?\*\//g;
 var stripComments = (input) => {
   return input.replace(_commentRe, "");
@@ -1149,6 +1407,9 @@ var insertPolyfillHostInCssText = (cssText) => {
     supportsBlocks.push(selectorContent);
     return `@supports selector(${placeholder})`;
   });
+  const _colonSlottedRe = createSupportsRuleRe("::slotted");
+  const _colonHostRe = createSupportsRuleRe(":host");
+  const _colonHostContextRe = createSupportsRuleRe(":host-context");
   cssText = cssText.replace(_colonHostContextRe, `$1${_polyfillHostContext}`).replace(_colonHostRe, `$1${_polyfillHost}`).replace(_colonSlottedRe, `$1${_polyfillSlotted}`);
   supportsBlocks.forEach((originalSelector, index) => {
     cssText = cssText.replace(`__supports_${index}__`, originalSelector);
@@ -1272,16 +1533,16 @@ var applyStrictSelectorScope = (selector, scopeSelector2, hostSelector) => {
   let scopedSelector = "";
   let startIndex = 0;
   let res;
-  const sep = /( |>|\+|~(?!=))(?=(?:[^()]*\([^()]*\))*[^()]*$)\s*/g;
+  const sep2 = /( |>|\+|~(?!=))(?=(?:[^()]*\([^()]*\))*[^()]*$)\s*/g;
   const hasHost = selector.indexOf(_polyfillHostNoCombinator) > -1;
   let shouldScope = !hasHost;
-  while ((res = sep.exec(selector)) !== null) {
+  while ((res = sep2.exec(selector)) !== null) {
     const separator = res[1];
     const part2 = selector.slice(startIndex, res.index).trim();
     shouldScope = shouldScope || part2.indexOf(_polyfillHostNoCombinator) > -1;
     const scopedPart = shouldScope ? _scopeSelectorPart(part2) : part2;
     scopedSelector += `${scopedPart} ${separator} `;
-    startIndex = sep.lastIndex;
+    startIndex = sep2.lastIndex;
   }
   const part = selector.substring(startIndex);
   shouldScope = !part.match(_safePartRe) && (shouldScope || part.indexOf(_polyfillHostNoCombinator) > -1);
@@ -1403,20 +1664,151 @@ var scopeCss = (cssText, scopeId2, commentOriginalSelector) => {
     });
   }
   scoped.slottedSelectors.forEach((slottedSelector) => {
-    const regex = new RegExp(escapeRegExpSpecialCharacters(slottedSelector.orgSelector), "g");
+    const regex = new RegExp(escapeRegExpSpecialCharacters(slottedSelector.orgSelector) + "(?=\\s*[,{]|$)", "g");
     cssText = cssText.replace(regex, slottedSelector.updatedSelector);
   });
   cssText = expandPartSelectors(cssText);
   return cssText;
 };
-var parsePropertyValue = (propValue, propType, isFormAssociated) => {
-  if (typeof propValue === "string" && (propValue.startsWith("{") && propValue.endsWith("}") || propValue.startsWith("[") && propValue.endsWith("]"))) {
-    try {
-      propValue = JSON.parse(propValue);
-      return propValue;
-    } catch (e) {
+
+// src/runtime/normalize-watchers.ts
+var normalizeWatchers = (raw) => {
+  if (!raw) return void 0;
+  const keys = Object.keys(raw);
+  if (keys.length === 0) return void 0;
+  let hasLegacy = false;
+  for (const propName of keys) {
+    if (hasLegacy) break;
+    for (const h2 of raw[propName]) {
+      if (typeof h2 === "string") {
+        hasLegacy = true;
+        break;
+      }
     }
   }
+  if (!hasLegacy) return raw;
+  const out = {};
+  for (const propName of keys) {
+    out[propName] = raw[propName].map(
+      (h2) => typeof h2 === "string" ? { [h2]: 0 } : h2
+    );
+  }
+  return out;
+};
+
+// src/utils/remote-value.ts
+var RemoteValue = class _RemoteValue {
+  /**
+   * Deserializes a LocalValue serialized object back to its original JavaScript representation
+   *
+   * @param serialized The serialized LocalValue object
+   * @returns The original JavaScript value/object
+   */
+  static fromLocalValue(serialized) {
+    const type = serialized[TYPE_CONSTANT];
+    const value = VALUE_CONSTANT in serialized ? serialized[VALUE_CONSTANT] : void 0;
+    switch (type) {
+      case "string" /* String */:
+        return value;
+      case "boolean" /* Boolean */:
+        return value;
+      case "bigint" /* BigInt */:
+        return BigInt(value);
+      case "undefined" /* Undefined */:
+        return void 0;
+      case "null" /* Null */:
+        return null;
+      case "number" /* Number */:
+        if (value === "NaN") return NaN;
+        if (value === "-0") return -0;
+        if (value === "Infinity") return Infinity;
+        if (value === "-Infinity") return -Infinity;
+        return value;
+      case "array" /* Array */:
+        return value.map((item) => _RemoteValue.fromLocalValue(item));
+      case "date" /* Date */:
+        return new Date(value);
+      case "map" /* Map */:
+        const map2 = /* @__PURE__ */ new Map();
+        for (const [key, val] of value) {
+          const deserializedKey = typeof key === "object" && key !== null ? _RemoteValue.fromLocalValue(key) : key;
+          const deserializedValue = _RemoteValue.fromLocalValue(val);
+          map2.set(deserializedKey, deserializedValue);
+        }
+        return map2;
+      case "object" /* Object */:
+        const obj = {};
+        for (const [key, val] of value) {
+          obj[key] = _RemoteValue.fromLocalValue(val);
+        }
+        return obj;
+      case "regexp" /* RegularExpression */:
+        const { pattern, flags } = value;
+        return new RegExp(pattern, flags);
+      case "set" /* Set */:
+        const set = /* @__PURE__ */ new Set();
+        for (const item of value) {
+          set.add(_RemoteValue.fromLocalValue(item));
+        }
+        return set;
+      case "symbol" /* Symbol */:
+        return Symbol(value);
+      default:
+        throw new Error(`Unsupported type: ${type}`);
+    }
+  }
+  /**
+   * Utility method to deserialize multiple LocalValues at once
+   *
+   * @param serializedValues Array of serialized LocalValue objects
+   * @returns Array of deserialized JavaScript values
+   */
+  static fromLocalValueArray(serializedValues) {
+    return serializedValues.map((value) => _RemoteValue.fromLocalValue(value));
+  }
+  /**
+   * Verifies if the given object matches the structure of a serialized LocalValue
+   *
+   * @param obj Object to verify
+   * @returns boolean indicating if the object has LocalValue structure
+   */
+  static isLocalValueObject(obj) {
+    if (typeof obj !== "object" || obj === null) {
+      return false;
+    }
+    if (!obj.hasOwnProperty(TYPE_CONSTANT)) {
+      return false;
+    }
+    const type = obj[TYPE_CONSTANT];
+    const hasTypeProperty = Object.values({ ...PrimitiveType, ...NonPrimitiveType }).includes(type);
+    if (!hasTypeProperty) {
+      return false;
+    }
+    if (type !== "null" /* Null */ && type !== "undefined" /* Undefined */) {
+      return obj.hasOwnProperty(VALUE_CONSTANT);
+    }
+    return true;
+  }
+};
+
+// src/utils/serialize.ts
+function decodeBase64Unicode(base64) {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i2 = 0; i2 < binary.length; i2++) {
+    bytes[i2] = binary.charCodeAt(i2);
+  }
+  return new TextDecoder().decode(bytes);
+}
+function deserializeProperty(value) {
+  if (typeof value !== "string" || !value.startsWith(SERIALIZED_PREFIX)) {
+    return value;
+  }
+  return RemoteValue.fromLocalValue(JSON.parse(decodeBase64Unicode(value.slice(SERIALIZED_PREFIX.length))));
+}
+
+// src/runtime/parse-property-value.ts
+var parsePropertyValue = (propValue, propType, isFormAssociated) => {
   if (typeof propValue === "string" && propValue.startsWith(SERIALIZED_PREFIX)) {
     propValue = deserializeProperty(propValue);
     return propValue;
@@ -1439,7 +1831,10 @@ var parsePropertyValue = (propValue, propType, isFormAssociated) => {
   }
   return propValue;
 };
-var getElement = (ref) => getHostRef(ref).$hostElement$ ;
+var getElement = (ref) => {
+  var _a2;
+  return (_a2 = getHostRef(ref)) == null ? void 0 : _a2.$hostElement$ ;
+};
 
 // src/runtime/event-emitter.ts
 var createEvent = (ref, name, flags) => {
@@ -1460,94 +1855,6 @@ var emitEvent$1 = (elm, name, opts) => {
   elm.dispatchEvent(ev);
   return ev;
 };
-var rootAppliedStyles = /* @__PURE__ */ new WeakMap();
-var registerStyle = (scopeId2, cssText, allowCS) => {
-  let style = styles.get(scopeId2);
-  {
-    style = cssText;
-  }
-  styles.set(scopeId2, style);
-};
-var addStyle = (styleContainerNode, cmpMeta, mode) => {
-  var _a;
-  const scopeId2 = getScopeId(cmpMeta);
-  const style = styles.get(scopeId2);
-  if (!win.document) {
-    return scopeId2;
-  }
-  styleContainerNode = styleContainerNode.nodeType === 11 /* DocumentFragment */ ? styleContainerNode : win.document;
-  if (style) {
-    if (typeof style === "string") {
-      styleContainerNode = styleContainerNode.head || styleContainerNode;
-      let appliedStyles = rootAppliedStyles.get(styleContainerNode);
-      let styleElm;
-      if (!appliedStyles) {
-        rootAppliedStyles.set(styleContainerNode, appliedStyles = /* @__PURE__ */ new Set());
-      }
-      if (!appliedStyles.has(scopeId2)) {
-        if (styleContainerNode.host && (styleElm = styleContainerNode.querySelector(`[${HYDRATED_STYLE_ID}="${scopeId2}"]`))) {
-          styleElm.innerHTML = style;
-        } else {
-          styleElm = win.document.createElement("style");
-          styleElm.innerHTML = style;
-          const nonce = (_a = plt.$nonce$) != null ? _a : queryNonceMetaTagContent(win.document);
-          if (nonce != null) {
-            styleElm.setAttribute("nonce", nonce);
-          }
-          if ((cmpMeta.$flags$ & 2 /* scopedCssEncapsulation */ || cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */)) {
-            styleElm.setAttribute(HYDRATED_STYLE_ID, scopeId2);
-          }
-          if (!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */)) {
-            if (styleContainerNode.nodeName === "HEAD") {
-              const preconnectLinks = styleContainerNode.querySelectorAll("link[rel=preconnect]");
-              const referenceNode2 = preconnectLinks.length > 0 ? preconnectLinks[preconnectLinks.length - 1].nextSibling : styleContainerNode.querySelector("style");
-              styleContainerNode.insertBefore(
-                styleElm,
-                (referenceNode2 == null ? void 0 : referenceNode2.parentNode) === styleContainerNode ? referenceNode2 : null
-              );
-            } else if ("host" in styleContainerNode) {
-              {
-                const existingStyleContainer = styleContainerNode.querySelector("style");
-                if (existingStyleContainer) {
-                  existingStyleContainer.innerHTML = style + existingStyleContainer.innerHTML;
-                } else {
-                  styleContainerNode.prepend(styleElm);
-                }
-              }
-            } else {
-              styleContainerNode.append(styleElm);
-            }
-          }
-          if (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
-            styleContainerNode.insertBefore(styleElm, null);
-          }
-        }
-        if (cmpMeta.$flags$ & 4 /* hasSlotRelocation */) {
-          styleElm.innerHTML += SLOT_FB_CSS;
-        }
-        if (appliedStyles) {
-          appliedStyles.add(scopeId2);
-        }
-      }
-    }
-  }
-  return scopeId2;
-};
-var attachStyles = (hostRef) => {
-  const cmpMeta = hostRef.$cmpMeta$;
-  const elm = hostRef.$hostElement$;
-  const flags = cmpMeta.$flags$;
-  const endAttachStyles = createTime("attachStyles", cmpMeta.$tagName$);
-  const scopeId2 = addStyle(
-    elm.shadowRoot ? elm.shadowRoot : elm.getRootNode(),
-    cmpMeta);
-  if (flags & 10 /* needsScopedEncapsulation */) {
-    elm["s-sc"] = scopeId2;
-    elm.classList.add(scopeId2 + "-h");
-  }
-  endAttachStyles();
-};
-var getScopeId = (cmp, mode) => "sc-" + (cmp.$tagName$);
 var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags, initialRender) => {
   if (oldValue === newValue) {
     return;
@@ -1558,12 +1865,13 @@ var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags, initialRen
     const classList = elm.classList;
     const oldClasses = parseClassList(oldValue);
     let newClasses = parseClassList(newValue);
-    if (elm["s-si"] && initialRender) {
-      newClasses.push(elm["s-si"]);
+    if ((elm["s-si"] || elm["s-sc"]) && initialRender) {
+      const scopeId2 = elm["s-sc"] || elm["s-si"];
+      newClasses.push(scopeId2);
       oldClasses.forEach((c) => {
-        if (c.startsWith(elm["s-si"])) newClasses.push(c);
+        if (c.startsWith(scopeId2)) newClasses.push(c);
       });
-      newClasses = [...new Set(newClasses)];
+      newClasses = [...new Set(newClasses)].filter((c) => c);
       classList.add(...newClasses);
     } else {
       classList.remove(...oldClasses.filter((c) => c && !newClasses.includes(c)));
@@ -1588,7 +1896,7 @@ var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags, initialRen
     }
   } else if (memberName === "key") ; else if (memberName === "ref") {
     if (newValue) {
-      newValue(elm);
+      queueRefAttachment(newValue, elm);
     }
   } else if ((!isProp ) && memberName[0] === "o" && memberName[1] === "n") {
     if (memberName[2] === "-") {
@@ -1608,15 +1916,45 @@ var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags, initialRen
         plt.ael(elm, memberName, newValue, capture);
       }
     }
+  } else if (memberName[0] === "a" && memberName.startsWith("attr:")) {
+    const propName = memberName.slice(5);
+    let attrName;
+    {
+      const hostRef = getHostRef(elm);
+      if (hostRef && hostRef.$cmpMeta$ && hostRef.$cmpMeta$.$members$) {
+        const memberMeta = hostRef.$cmpMeta$.$members$[propName];
+        if (memberMeta && memberMeta[1]) {
+          attrName = memberMeta[1];
+        }
+      }
+    }
+    if (!attrName) {
+      attrName = propName.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+    }
+    if (newValue == null || newValue === false) {
+      if (newValue !== false || elm.getAttribute(attrName) === "") {
+        elm.removeAttribute(attrName);
+      }
+    } else {
+      elm.setAttribute(attrName, newValue === true ? "" : newValue);
+    }
+    return;
+  } else if (memberName[0] === "p" && memberName.startsWith("prop:")) {
+    const propName = memberName.slice(5);
+    try {
+      elm[propName] = newValue;
+    } catch (e) {
+    }
+    return;
   } else {
     const isComplex = isComplexType(newValue);
-    if ((isProp || isComplex && newValue !== null) && true) {
+    if ((isProp || isComplex && newValue !== null) && !isSvg) {
       try {
         if (!elm.tagName.includes("-")) {
           const n = newValue == null ? "" : newValue;
           if (memberName === "list") {
             isProp = false;
-          } else if (oldValue == null || elm[memberName] != n) {
+          } else if (oldValue == null || elm[memberName] !== n) {
             if (typeof elm.__lookupSetter__(memberName) === "function") {
               elm[memberName] = n;
             } else {
@@ -1717,8 +2055,10 @@ var useNativeShadowDom = false;
 var checkSlotFallbackVisibility = false;
 var checkSlotRelocate = false;
 var isSvgMode = false;
+var refCallbacksToRemove = [];
+var refCallbacksToAttach = [];
 var createElm = (oldParentVNode, newParentVNode, childIndex) => {
-  var _a;
+  var _a2;
   const newVNode2 = newParentVNode.$children$[childIndex];
   let i2 = 0;
   let elm;
@@ -1739,7 +2079,7 @@ var createElm = (oldParentVNode, newParentVNode, childIndex) => {
       );
     }
   }
-  if (newVNode2.$text$ !== null) {
+  if (newVNode2.$text$ != null) {
     elm = newVNode2.$elm$ = win.document.createTextNode(newVNode2.$text$);
   } else if (newVNode2.$flags$ & 1 /* isSlotReference */) {
     elm = newVNode2.$elm$ = slotReferenceDebugNode(newVNode2) ;
@@ -1748,9 +2088,7 @@ var createElm = (oldParentVNode, newParentVNode, childIndex) => {
     }
   } else {
     if (!win.document) {
-      throw new Error(
-        "You are trying to render a Stencil component in an environment that doesn't support the DOM. Make sure to populate the [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window/window) object before rendering a component."
-      );
+      throw new Error("You are trying to render a Stencil component in an environment that doesn't support the DOM.");
     }
     elm = newVNode2.$elm$ = win.document.createElement(
       !useNativeShadowDom && BUILD.slotRelocation && newVNode2.$flags$ & 2 /* isSlotFallback */ ? "slot-fb" : newVNode2.$tag$
@@ -1762,10 +2100,11 @@ var createElm = (oldParentVNode, newParentVNode, childIndex) => {
       elm.classList.add(elm["s-si"] = scopeId);
     }
     if (newVNode2.$children$) {
+      const appendTarget = newVNode2.$tag$ === "template" ? elm.content : elm;
       for (i2 = 0; i2 < newVNode2.$children$.length; ++i2) {
         childNode = createElm(oldParentVNode, newVNode2, i2);
         if (childNode) {
-          elm.appendChild(childNode);
+          appendTarget.appendChild(childNode);
         }
       }
     }
@@ -1776,13 +2115,11 @@ var createElm = (oldParentVNode, newParentVNode, childIndex) => {
       elm["s-sr"] = true;
       elm["s-cr"] = contentRef;
       elm["s-sn"] = newVNode2.$name$ || "";
-      elm["s-rf"] = (_a = newVNode2.$attrs$) == null ? void 0 : _a.ref;
+      elm["s-rf"] = (_a2 = newVNode2.$attrs$) == null ? void 0 : _a2.ref;
       patchSlotNode(elm);
       oldVNode = oldParentVNode && oldParentVNode.$children$ && oldParentVNode.$children$[childIndex];
       if (oldVNode && oldVNode.$tag$ === newVNode2.$tag$ && oldParentVNode.$elm$) {
-        {
-          putBackInOriginalLocation(oldParentVNode.$elm$, false);
-        }
+        relocateToHostRoot(oldParentVNode.$elm$);
       }
       {
         addRemoveSlotScopedClass(contentRef, elm, newParentVNode.$elm$, oldParentVNode == null ? void 0 : oldParentVNode.$elm$);
@@ -1791,9 +2128,37 @@ var createElm = (oldParentVNode, newParentVNode, childIndex) => {
   }
   return elm;
 };
+var relocateToHostRoot = (parentElm) => {
+  plt.$flags$ |= 1 /* isTmpDisconnected */;
+  const host = parentElm.closest(hostTagName.toLowerCase());
+  if (host != null) {
+    const contentRefNode = Array.from(host.__childNodes || host.childNodes).find(
+      (ref) => ref["s-cr"]
+    );
+    const childNodeArray = Array.from(
+      parentElm.__childNodes || parentElm.childNodes
+    );
+    for (const childNode of contentRefNode ? childNodeArray.reverse() : childNodeArray) {
+      if (childNode["s-sh"] != null) {
+        insertBefore(host, childNode, contentRefNode != null ? contentRefNode : null);
+        childNode["s-sh"] = void 0;
+        checkSlotRelocate = true;
+      }
+    }
+  }
+  plt.$flags$ &= -2 /* isTmpDisconnected */;
+};
 var putBackInOriginalLocation = (parentElm, recursive) => {
   plt.$flags$ |= 1 /* isTmpDisconnected */;
   const oldSlotChildNodes = Array.from(parentElm.__childNodes || parentElm.childNodes);
+  if (parentElm["s-sr"]) {
+    let node = parentElm;
+    while (node = node.nextSibling) {
+      if (node && node["s-sn"] === parentElm["s-sn"] && node["s-sh"] === hostTagName) {
+        oldSlotChildNodes.push(node);
+      }
+    }
+  }
   for (let i2 = oldSlotChildNodes.length - 1; i2 >= 0; i2--) {
     const childNode = oldSlotChildNodes[i2];
     if (childNode["s-hn"] !== hostTagName && childNode["s-ol"]) {
@@ -1814,6 +2179,9 @@ var addVnodes = (parentElm, before, parentVNode, vnodes, startIdx, endIdx) => {
   let childNode;
   if (containerElm.shadowRoot && containerElm.tagName === hostTagName) {
     containerElm = containerElm.shadowRoot;
+  }
+  if (parentVNode.$tag$ === "template") {
+    containerElm = containerElm.content;
   }
   for (; startIdx <= endIdx; ++startIdx) {
     if (vnodes[startIdx]) {
@@ -1858,6 +2226,7 @@ var updateChildren = (parentElm, oldCh, newVNode2, newCh, isInitialRender = fals
   let newEndVnode = newCh[newEndIdx];
   let node;
   let elmToMove;
+  const containerElm = newVNode2.$tag$ === "template" ? parentElm.content : parentElm;
   while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
     if (oldStartVnode == null) {
       oldStartVnode = oldCh[++oldStartIdx];
@@ -1880,7 +2249,7 @@ var updateChildren = (parentElm, oldCh, newVNode2, newCh, isInitialRender = fals
         putBackInOriginalLocation(oldStartVnode.$elm$.parentNode, false);
       }
       patch(oldStartVnode, newEndVnode, isInitialRender);
-      insertBefore(parentElm, oldStartVnode.$elm$, oldEndVnode.$elm$.nextSibling);
+      insertBefore(containerElm, oldStartVnode.$elm$, oldEndVnode.$elm$.nextSibling);
       oldStartVnode = oldCh[++oldStartIdx];
       newEndVnode = newCh[--newEndIdx];
     } else if (isSameVnode(oldEndVnode, newStartVnode, isInitialRender)) {
@@ -1888,7 +2257,7 @@ var updateChildren = (parentElm, oldCh, newVNode2, newCh, isInitialRender = fals
         putBackInOriginalLocation(oldEndVnode.$elm$.parentNode, false);
       }
       patch(oldEndVnode, newStartVnode, isInitialRender);
-      insertBefore(parentElm, oldEndVnode.$elm$, oldStartVnode.$elm$);
+      insertBefore(containerElm, oldEndVnode.$elm$, oldStartVnode.$elm$);
       oldEndVnode = oldCh[--oldEndIdx];
       newStartVnode = newCh[++newStartIdx];
     } else {
@@ -1959,10 +2328,17 @@ var patch = (oldVNode, newVNode2, isInitialRender = false) => {
   const elm = newVNode2.$elm$ = oldVNode.$elm$;
   const oldChildren = oldVNode.$children$;
   const newChildren = newVNode2.$children$;
+  const tag = newVNode2.$tag$;
   const text = newVNode2.$text$;
   let defaultHolder;
-  if (text === null) {
+  if (text == null) {
     {
+      if (tag === "slot" && !useNativeShadowDom) {
+        if (oldVNode.$name$ !== newVNode2.$name$) {
+          newVNode2.$elm$["s-sn"] = newVNode2.$name$ || "";
+          relocateToHostRoot(newVNode2.$elm$.parentElement);
+        }
+      }
       updateElement(oldVNode, newVNode2, isSvgMode, isInitialRender);
     }
     if (oldChildren !== null && newChildren !== null) {
@@ -1977,6 +2353,8 @@ var patch = (oldVNode, newVNode2, isInitialRender = false) => {
       !isInitialRender && BUILD.updatable && oldChildren !== null
     ) {
       removeVnodes(oldChildren, 0, oldChildren.length - 1);
+    } else if (isInitialRender && BUILD.updatable && oldChildren !== null && newChildren === null) {
+      newVNode2.$children$ = oldChildren;
     }
   } else if ((defaultHolder = elm["s-cr"])) {
     defaultHolder.parentNode.textContent = text;
@@ -1996,7 +2374,7 @@ var markSlotContentForRelocation = (elm) => {
       const slotName = childNode["s-sn"];
       for (j = hostContentNodes.length - 1; j >= 0; j--) {
         node = hostContentNodes[j];
-        if (!node["s-cn"] && !node["s-nr"] && node["s-hn"] !== childNode["s-hn"] && (true)) {
+        if (!node["s-cn"] && !node["s-nr"] && node["s-hn"] !== childNode["s-hn"] && (!node["s-sh"] || node["s-sh"] !== childNode["s-hn"])) {
           if (isNodeLocatedInSlot(node, slotName)) {
             let relocateNodeData = relocateNodes.find((r) => r.$nodeToRelocate$ === node);
             checkSlotFallbackVisibility = true;
@@ -2036,22 +2414,47 @@ var markSlotContentForRelocation = (elm) => {
 };
 var nullifyVNodeRefs = (vNode) => {
   {
-    vNode.$attrs$ && vNode.$attrs$.ref && vNode.$attrs$.ref(null);
+    if (vNode.$attrs$ && vNode.$attrs$.ref) {
+      refCallbacksToRemove.push(() => vNode.$attrs$.ref(null));
+    }
     vNode.$children$ && vNode.$children$.map(nullifyVNodeRefs);
   }
 };
-var insertBefore = (parent, newNode, reference) => {
+var queueRefAttachment = (refCallback, elm) => {
   {
+    refCallbacksToAttach.push(() => refCallback(elm));
+  }
+};
+var flushQueuedRefCallbacks = () => {
+  {
+    refCallbacksToRemove.forEach((cb) => cb());
+    refCallbacksToRemove.length = 0;
+    refCallbacksToAttach.forEach((cb) => cb());
+    refCallbacksToAttach.length = 0;
+  }
+};
+var insertBefore = (parent, newNode, reference, isInitialLoad) => {
+  {
+    if (typeof newNode["s-sn"] === "string") {
+      parent.insertBefore(newNode, reference);
+      const { slotNode } = findSlotFromSlottedNode(newNode);
+      if (slotNode && !isInitialLoad) dispatchSlotChangeEvent(slotNode);
+      return newNode;
+    }
+  }
+  if (parent.__insertBefore) {
+    return parent.__insertBefore(newNode, reference);
+  } else {
     return parent == null ? void 0 : parent.insertBefore(newNode, reference);
   }
 };
 function addRemoveSlotScopedClass(reference, slotNode, newParent, oldParent) {
-  var _a, _b;
+  var _a2, _b;
   let scopeId2;
   if (reference && typeof slotNode["s-sn"] === "string" && !!slotNode["s-sr"] && reference.parentNode && reference.parentNode["s-sc"] && (scopeId2 = slotNode["s-si"] || reference.parentNode["s-sc"])) {
     const scopeName = slotNode["s-sn"];
     const hostName = slotNode["s-hn"];
-    (_a = newParent.classList) == null ? void 0 : _a.add(scopeId2 + "-s");
+    (_a2 = newParent.classList) == null ? void 0 : _a2.add(scopeId2 + "-s");
     if (oldParent && ((_b = oldParent.classList) == null ? void 0 : _b.contains(scopeId2 + "-s"))) {
       let child = (oldParent.__childNodes || oldParent.childNodes)[0];
       let found = false;
@@ -2067,7 +2470,7 @@ function addRemoveSlotScopedClass(reference, slotNode, newParent, oldParent) {
   }
 }
 var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
-  var _c, _d;
+  var _a2, _d, _e;
   const hostElm = hostRef.$hostElement$;
   const cmpMeta = hostRef.$cmpMeta$;
   const oldVNode = hostRef.$vnode$ || newVNode(null, null);
@@ -2076,9 +2479,11 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
   hostTagName = hostElm.tagName;
   if (cmpMeta.$attrsToReflect$) {
     rootVnode.$attrs$ = rootVnode.$attrs$ || {};
-    cmpMeta.$attrsToReflect$.map(
-      ([propName, attribute]) => rootVnode.$attrs$[attribute] = hostElm[propName]
-    );
+    cmpMeta.$attrsToReflect$.forEach(([propName, attribute]) => {
+      {
+        rootVnode.$attrs$[attribute] = hostElm[propName];
+      }
+    });
   }
   if (isInitialLoad && rootVnode.$attrs$) {
     for (const key of Object.keys(rootVnode.$attrs$)) {
@@ -2109,12 +2514,20 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
         if (!nodeToRelocate["s-ol"] && win.document) {
           const orgLocationNode = originalLocationDebugNode(nodeToRelocate) ;
           orgLocationNode["s-nr"] = nodeToRelocate;
-          insertBefore(nodeToRelocate.parentNode, nodeToRelocate["s-ol"] = orgLocationNode, nodeToRelocate);
+          insertBefore(
+            nodeToRelocate.parentNode,
+            nodeToRelocate["s-ol"] = orgLocationNode,
+            nodeToRelocate,
+            isInitialLoad
+          );
         }
       }
       for (const relocateData of relocateNodes) {
         const nodeToRelocate = relocateData.$nodeToRelocate$;
         const slotRefNode = relocateData.$slotRefNode$;
+        if (nodeToRelocate.nodeType === 1 /* ElementNode */ && isInitialLoad) {
+          nodeToRelocate["s-ih"] = (_a2 = nodeToRelocate.hidden) != null ? _a2 : false;
+        }
         if (slotRefNode) {
           const parentNodeRef = slotRefNode.parentNode;
           let insertBeforeNode = slotRefNode.nextSibling;
@@ -2122,23 +2535,26 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
           const nextSibling = nodeToRelocate.__nextSibling || nodeToRelocate.nextSibling;
           if (!insertBeforeNode && parentNodeRef !== parent || nextSibling !== insertBeforeNode) {
             if (nodeToRelocate !== insertBeforeNode) {
-              if (!nodeToRelocate["s-hn"] && nodeToRelocate["s-ol"]) {
-                nodeToRelocate["s-hn"] = nodeToRelocate["s-ol"].parentNode.nodeName;
+              insertBefore(parentNodeRef, nodeToRelocate, insertBeforeNode, isInitialLoad);
+              if (nodeToRelocate.nodeType === 8 /* CommentNode */ && nodeToRelocate.nodeValue.startsWith("s-nt-")) {
+                const textNode = win.document.createTextNode(nodeToRelocate.nodeValue.replace(/^s-nt-/, ""));
+                textNode["s-hn"] = nodeToRelocate["s-hn"];
+                textNode["s-sn"] = nodeToRelocate["s-sn"];
+                textNode["s-sh"] = nodeToRelocate["s-sh"];
+                textNode["s-sr"] = nodeToRelocate["s-sr"];
+                textNode["s-ol"] = nodeToRelocate["s-ol"];
+                textNode["s-ol"]["s-nr"] = textNode;
+                insertBefore(nodeToRelocate.parentNode, textNode, nodeToRelocate, isInitialLoad);
+                nodeToRelocate.parentNode.removeChild(nodeToRelocate);
               }
-              insertBefore(parentNodeRef, nodeToRelocate, insertBeforeNode);
               if (nodeToRelocate.nodeType === 1 /* ElementNode */ && nodeToRelocate.tagName !== "SLOT-FB") {
-                nodeToRelocate.hidden = (_c = nodeToRelocate["s-ih"]) != null ? _c : false;
+                nodeToRelocate.hidden = (_d = nodeToRelocate["s-ih"]) != null ? _d : false;
               }
             }
           }
           nodeToRelocate && typeof slotRefNode["s-rf"] === "function" && slotRefNode["s-rf"](slotRefNode);
-        } else {
-          if (nodeToRelocate.nodeType === 1 /* ElementNode */) {
-            if (isInitialLoad) {
-              nodeToRelocate["s-ih"] = (_d = nodeToRelocate.hidden) != null ? _d : false;
-            }
-            nodeToRelocate.hidden = true;
-          }
+        } else if (nodeToRelocate.nodeType === 1 /* ElementNode */) {
+          nodeToRelocate.hidden = true;
         }
       }
     }
@@ -2148,17 +2564,36 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
     plt.$flags$ &= -2 /* isTmpDisconnected */;
     relocateNodes.length = 0;
   }
+  if (!useNativeShadowDom && !(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) && hostElm["s-cr"]) {
+    const children = rootVnode.$elm$.__childNodes || rootVnode.$elm$.childNodes;
+    for (const childNode of children) {
+      if (childNode["s-hn"] !== hostTagName && !childNode["s-sh"]) {
+        if (isInitialLoad && childNode["s-ih"] == null) {
+          childNode["s-ih"] = (_e = childNode.hidden) != null ? _e : false;
+        }
+        if (childNode.nodeType === 1 /* ElementNode */) {
+          childNode.hidden = true;
+        } else if (childNode.nodeType === 3 /* TextNode */ && !!childNode.nodeValue.trim()) {
+          const textCommentNode = win.document.createComment("s-nt-" + childNode.nodeValue);
+          textCommentNode["s-sn"] = childNode["s-sn"];
+          insertBefore(childNode.parentNode, textCommentNode, childNode, isInitialLoad);
+          childNode.parentNode.removeChild(childNode);
+        }
+      }
+    }
+  }
   contentRef = void 0;
+  flushQueuedRefCallbacks();
 };
 var slotReferenceDebugNode = (slotVNode) => {
-  var _a;
-  return (_a = win.document) == null ? void 0 : _a.createComment(
+  var _a2;
+  return (_a2 = win.document) == null ? void 0 : _a2.createComment(
     `<slot${slotVNode.$name$ ? ' name="' + slotVNode.$name$ + '"' : ""}> (host=${hostTagName.toLowerCase()})`
   );
 };
 var originalLocationDebugNode = (nodeToRelocate) => {
-  var _a;
-  return (_a = win.document) == null ? void 0 : _a.createComment(
+  var _a2;
+  return (_a2 = win.document) == null ? void 0 : _a2.createComment(
     `org-location for ` + (nodeToRelocate.localName ? `<${nodeToRelocate.localName}> (host=${nodeToRelocate["s-hn"]})` : `[${nodeToRelocate.textContent}]`)
   );
 };
@@ -2186,6 +2621,12 @@ var scheduleUpdate = (hostRef, isInitialLoad) => {
   }
   attachToAncestor(hostRef, hostRef.$ancestorComponent$);
   const dispatch = () => dispatchHooks(hostRef, isInitialLoad);
+  if (isInitialLoad) {
+    queueMicrotask(() => {
+      dispatch();
+    });
+    return;
+  }
   return writeTask(dispatch) ;
 };
 var dispatchHooks = (hostRef, isInitialLoad) => {
@@ -2200,10 +2641,19 @@ var dispatchHooks = (hostRef, isInitialLoad) => {
   let maybePromise;
   if (isInitialLoad) {
     {
-      hostRef.$flags$ |= 256 /* isListenReady */;
-      if (hostRef.$queuedListeners$) {
-        hostRef.$queuedListeners$.map(([methodName, event]) => safeCall(instance, methodName, event, elm));
-        hostRef.$queuedListeners$ = void 0;
+      if (hostRef.$deferredConnectedCallback$) {
+        hostRef.$deferredConnectedCallback$ = false;
+        safeCall(instance, "connectedCallback", void 0, elm);
+      }
+      {
+        hostRef.$flags$ |= 256 /* isListenReady */;
+        if (hostRef.$queuedListeners$) {
+          hostRef.$queuedListeners$.map(([methodName, event]) => safeCall(instance, methodName, event, elm));
+          hostRef.$queuedListeners$ = void 0;
+        }
+      }
+      if (hostRef.$fetchedCbList$.length) {
+        hostRef.$fetchedCbList$.forEach((cb) => cb(elm));
       }
     }
     maybePromise = safeCall(instance, "componentWillLoad", void 0, elm);
@@ -2220,7 +2670,7 @@ var enqueue = (maybePromise, fn) => isPromisey(maybePromise) ? maybePromise.then
 }) : fn();
 var isPromisey = (maybePromise) => maybePromise instanceof Promise || maybePromise && maybePromise.then && typeof maybePromise.then === "function";
 var updateComponent = async (hostRef, instance, isInitialLoad) => {
-  var _a;
+  var _a2;
   const elm = hostRef.$hostElement$;
   const endUpdate = createTime("update", hostRef.$cmpMeta$.$tagName$);
   const rc = elm["s-rc"];
@@ -2252,12 +2702,12 @@ var updateComponent = async (hostRef, instance, isInitialLoad) => {
   endRender();
   endUpdate();
   {
-    const childrenPromises = (_a = elm["s-p"]) != null ? _a : [];
+    const childrenPromises = (_a2 = elm["s-p"]) != null ? _a2 : [];
     const postUpdate = () => postUpdateComponent(hostRef);
     if (childrenPromises.length === 0) {
       postUpdate();
     } else {
-      Promise.all(childrenPromises).then(postUpdate);
+      Promise.all(childrenPromises).then(postUpdate).catch(postUpdate);
       hostRef.$flags$ |= 4 /* isWaitingForChildren */;
       childrenPromises.length = 0;
     }
@@ -2323,10 +2773,16 @@ var postUpdateComponent = (hostRef) => {
   }
 };
 var appDidLoad = (who) => {
+  var _a2;
   if (BUILD.asyncQueue) {
     plt.$flags$ |= 2 /* appLoaded */;
   }
   nextTick(() => emitEvent$1(win, "appload", { detail: { namespace: NAMESPACE } }));
+  {
+    if ((_a2 = plt.$orgLocNodes$) == null ? void 0 : _a2.size) {
+      plt.$orgLocNodes$.clear();
+    }
+  }
 };
 var safeCall = (instance, method, arg, elm) => {
   if (instance && instance[method]) {
@@ -2339,8 +2795,8 @@ var safeCall = (instance, method, arg, elm) => {
   return void 0;
 };
 var addHydratedFlag = (elm) => {
-  var _a;
-  return elm.classList.add((_a = BUILD.hydratedSelectorName) != null ? _a : "hydrated") ;
+  var _a2;
+  return elm.classList.add((_a2 = BUILD.hydratedSelectorName) != null ? _a2 : "hydrated") ;
 };
 var serverSideConnected = (elm) => {
   const children = elm.children;
@@ -2360,6 +2816,9 @@ var getValue = (ref, propName) => getHostRef(ref).$instanceValues$.get(propName)
 var setValue = (ref, propName, newVal, cmpMeta) => {
   const hostRef = getHostRef(ref);
   if (!hostRef) {
+    return;
+  }
+  if (!hostRef) {
     throw new Error(
       `Couldn't find host element for "${cmpMeta.$tagName$}" as it is unknown to this Stencil runtime. This usually happens when integrating a 3rd party Stencil component with another Stencil component or application. Please reach out to the maintainers of the 3rd party Stencil component or report this on the Stencil Discord server (https://chat.stenciljs.com) or comment on this similar [GitHub issue](https://github.com/stenciljs/core/issues/5457).`
     );
@@ -2377,25 +2836,35 @@ var setValue = (ref, propName, newVal, cmpMeta) => {
   const didValueChange = newVal !== oldVal && !areBothNaN;
   if ((!(flags & 8 /* isConstructingInstance */) || oldVal === void 0) && didValueChange) {
     hostRef.$instanceValues$.set(propName, newVal);
-    if (instance) {
-      if (cmpMeta.$watchers$ && flags & 128 /* isWatchReady */) {
-        const watchMethods = cmpMeta.$watchers$[propName];
-        if (watchMethods) {
-          watchMethods.map((watchMethodName) => {
-            try {
-              instance[watchMethodName](newVal, oldVal, propName);
-            } catch (e) {
-              consoleError(e, elm);
+    if (cmpMeta.$watchers$) {
+      const watchMethods = cmpMeta.$watchers$[propName];
+      if (watchMethods) {
+        watchMethods.map((watcher) => {
+          try {
+            const [[watchMethodName, watcherFlags]] = Object.entries(watcher);
+            if (flags & 128 /* isWatchReady */ || watcherFlags & 1 /* Immediate */) {
+              if (!instance) {
+                hostRef.$fetchedCbList$.push(() => {
+                  hostRef.$lazyInstance$[watchMethodName](newVal, oldVal, propName);
+                });
+              } else {
+                instance[watchMethodName](newVal, oldVal, propName);
+              }
             }
-          });
+          } catch (e) {
+            consoleError(e, elm);
+          }
+        });
+      }
+    }
+    if (flags & 2 /* hasRendered */) {
+      if (instance.componentShouldUpdate) {
+        const shouldUpdate = instance.componentShouldUpdate(newVal, oldVal, propName);
+        if (shouldUpdate === false && !(flags & 16 /* isQueuedForUpdate */)) {
+          return;
         }
       }
-      if ((flags & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
-        if (instance.componentShouldUpdate) {
-          if (instance.componentShouldUpdate(newVal, oldVal, propName) === false) {
-            return;
-          }
-        }
+      if (!(flags & 16 /* isQueuedForUpdate */)) {
         scheduleUpdate(hostRef, false);
       }
     }
@@ -2404,16 +2873,24 @@ var setValue = (ref, propName, newVal, cmpMeta) => {
 
 // src/runtime/proxy-component.ts
 var proxyComponent = (Cstr, cmpMeta, flags) => {
-  var _a;
+  var _a2;
   const prototype = Cstr.prototype;
-  if (cmpMeta.$members$ || (cmpMeta.$watchers$ || Cstr.watchers)) {
-    if (Cstr.watchers && !cmpMeta.$watchers$) {
-      cmpMeta.$watchers$ = Cstr.watchers;
+  {
+    {
+      if (Cstr.watchers && !cmpMeta.$watchers$) {
+        cmpMeta.$watchers$ = normalizeWatchers(Cstr.watchers);
+      }
+      if (Cstr.deserializers && !cmpMeta.$deserializers$) {
+        cmpMeta.$deserializers$ = Cstr.deserializers;
+      }
+      if (Cstr.serializers && !cmpMeta.$serializers$) {
+        cmpMeta.$serializers$ = Cstr.serializers;
+      }
     }
-    const members = Object.entries((_a = cmpMeta.$members$) != null ? _a : {});
+    const members = Object.entries((_a2 = cmpMeta.$members$) != null ? _a2 : {});
     members.map(([memberName, [memberFlags]]) => {
       if ((memberFlags & 31 /* Prop */ || memberFlags & 32 /* State */)) {
-        const { get: origGetter, set: origSetter } = Object.getOwnPropertyDescriptor(prototype, memberName) || {};
+        const { get: origGetter, set: origSetter } = getPropertyDescriptor(prototype, memberName) || {};
         if (origGetter) cmpMeta.$members$[memberName][0] |= 2048 /* Getter */;
         if (origSetter) cmpMeta.$members$[memberName][0] |= 4096 /* Setter */;
         if (!origGetter) {
@@ -2436,12 +2913,13 @@ var proxyComponent = (Cstr, cmpMeta, flags) => {
         Object.defineProperty(prototype, memberName, {
           set(newValue) {
             const ref = getHostRef(this);
+            if (!ref) {
+              return;
+            }
             if (origSetter) {
               const currentValue = memberFlags & 32 /* State */ ? this[memberName] : ref.$hostElement$[memberName];
               if (typeof currentValue === "undefined" && ref.$instanceValues$.get(memberName)) {
                 newValue = ref.$instanceValues$.get(memberName);
-              } else if (!ref.$instanceValues$.get(memberName) && currentValue) {
-                ref.$instanceValues$.set(memberName, currentValue);
               }
               origSetter.apply(this, [
                 parsePropertyValue(
@@ -2471,76 +2949,94 @@ var proxyComponent = (Cstr, cmpMeta, flags) => {
 // src/runtime/initialize-component.ts
 var initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId) => {
   let Cstr;
-  if ((hostRef.$flags$ & 32 /* hasInitializedComponent */) === 0) {
-    hostRef.$flags$ |= 32 /* hasInitializedComponent */;
-    const bundleId = cmpMeta.$lazyBundleId$;
-    if (bundleId) {
-      const CstrImport = loadModule(cmpMeta);
-      if (CstrImport && "then" in CstrImport) {
-        const endLoad = uniqueTime();
-        Cstr = await CstrImport;
-        endLoad();
-      } else {
-        Cstr = CstrImport;
-      }
-      if (!Cstr) {
-        throw new Error(`Constructor for "${cmpMeta.$tagName$}#${hostRef.$modeName$}" was not found`);
-      }
-      if (!Cstr.isProxied) {
-        {
-          cmpMeta.$watchers$ = Cstr.watchers;
+  try {
+    if ((hostRef.$flags$ & 32 /* hasInitializedComponent */) === 0) {
+      hostRef.$flags$ |= 32 /* hasInitializedComponent */;
+      const bundleId = cmpMeta.$lazyBundleId$;
+      if (bundleId) {
+        const CstrImport = loadModule(cmpMeta);
+        if (CstrImport && "then" in CstrImport) {
+          const endLoad = uniqueTime();
+          Cstr = await CstrImport;
+          endLoad();
+        } else {
+          Cstr = CstrImport;
         }
-        proxyComponent(Cstr, cmpMeta);
-        Cstr.isProxied = true;
-      }
-      const endNewInstance = createTime("createInstance", cmpMeta.$tagName$);
-      {
-        hostRef.$flags$ |= 8 /* isConstructingInstance */;
-      }
-      try {
-        new Cstr(hostRef);
-      } catch (e) {
-        consoleError(e, elm);
-      }
-      {
-        hostRef.$flags$ &= -9 /* isConstructingInstance */;
-      }
-      {
-        hostRef.$flags$ |= 128 /* isWatchReady */;
-      }
-      endNewInstance();
-      fireConnectedCallback(hostRef.$lazyInstance$, elm);
-    } else {
-      Cstr = elm.constructor;
-      const cmpTag = elm.localName;
-      customElements.whenDefined(cmpTag).then(() => hostRef.$flags$ |= 128 /* isWatchReady */);
-    }
-    if (Cstr && Cstr.style) {
-      let style;
-      if (typeof Cstr.style === "string") {
-        style = Cstr.style;
-      }
-      const scopeId2 = getScopeId(cmpMeta);
-      if (!styles.has(scopeId2)) {
-        const endRegisterStyles = createTime("registerStyles", cmpMeta.$tagName$);
-        {
-          if (cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */) {
-            style = scopeCss(style, scopeId2);
-          } else if (needsScopedSSR()) {
-            style = expandPartSelectors(style);
+        if (!Cstr) {
+          throw new Error(`Constructor for "${cmpMeta.$tagName$}#${hostRef.$modeName$}" was not found`);
+        }
+        if (!Cstr.isProxied) {
+          {
+            cmpMeta.$watchers$ = normalizeWatchers(Cstr.watchers);
+            cmpMeta.$serializers$ = Cstr.serializers;
+            cmpMeta.$deserializers$ = Cstr.deserializers;
           }
+          proxyComponent(Cstr, cmpMeta);
+          Cstr.isProxied = true;
         }
-        registerStyle(scopeId2, style);
-        endRegisterStyles();
+        const endNewInstance = createTime("createInstance", cmpMeta.$tagName$);
+        {
+          hostRef.$flags$ |= 8 /* isConstructingInstance */;
+        }
+        try {
+          new Cstr(hostRef);
+        } catch (e) {
+          consoleError(e, elm);
+        }
+        {
+          hostRef.$flags$ &= -9 /* isConstructingInstance */;
+        }
+        {
+          hostRef.$flags$ |= 128 /* isWatchReady */;
+        }
+        endNewInstance();
+        const needsDeferredCallback = cmpMeta.$flags$ & 4 /* hasSlotRelocation */;
+        if (!needsDeferredCallback) {
+          fireConnectedCallback(hostRef.$lazyInstance$, elm);
+        } else {
+          hostRef.$deferredConnectedCallback$ = true;
+        }
+      } else {
+        Cstr = elm.constructor;
+        const cmpTag = elm.localName;
+        customElements.whenDefined(cmpTag).then(() => hostRef.$flags$ |= 128 /* isWatchReady */);
+      }
+      if (Cstr && Cstr.style) {
+        let style;
+        if (typeof Cstr.style === "string") {
+          style = Cstr.style;
+        }
+        const scopeId2 = getScopeId(cmpMeta);
+        if (!styles.has(scopeId2) || BUILD.hotModuleReplacement) {
+          const endRegisterStyles = createTime("registerStyles", cmpMeta.$tagName$);
+          {
+            if (cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */) {
+              style = scopeCss(style, scopeId2);
+            } else if (needsScopedSSR()) {
+              style = expandPartSelectors(style);
+            }
+          }
+          registerStyle(scopeId2, style);
+          endRegisterStyles();
+        }
       }
     }
-  }
-  const ancestorComponent = hostRef.$ancestorComponent$;
-  const schedule = () => scheduleUpdate(hostRef, true);
-  if (ancestorComponent && ancestorComponent["s-rc"]) {
-    ancestorComponent["s-rc"].push(schedule);
-  } else {
-    schedule();
+    const ancestorComponent = hostRef.$ancestorComponent$;
+    const schedule = () => scheduleUpdate(hostRef, true);
+    if (ancestorComponent && ancestorComponent["s-rc"]) {
+      ancestorComponent["s-rc"].push(schedule);
+    } else {
+      schedule();
+    }
+  } catch (e) {
+    consoleError(e, elm);
+    if (hostRef.$onRenderResolve$) {
+      hostRef.$onRenderResolve$();
+      hostRef.$onRenderResolve$ = void 0;
+    }
+    if (hostRef.$onReadyResolve$) {
+      hostRef.$onReadyResolve$(elm);
+    }
   }
 };
 var fireConnectedCallback = (instance, elm) => {
@@ -2553,6 +3049,9 @@ var fireConnectedCallback = (instance, elm) => {
 var connectedCallback = (elm) => {
   if ((plt.$flags$ & 1 /* isTmpDisconnected */) === 0) {
     const hostRef = getHostRef(elm);
+    if (!hostRef) {
+      return;
+    }
     const cmpMeta = hostRef.$cmpMeta$;
     const endConnected = createTime("connectedCallback", cmpMeta.$tagName$);
     if (!(hostRef.$flags$ & 1 /* hasConnected */)) {
@@ -2623,11 +3122,11 @@ var addHostEventListeners = (elm, hostRef, listeners, attachParentListeners) => 
   }
 };
 var hostListenerProxy = (hostRef, methodName) => (ev) => {
-  var _a;
+  var _a2;
   try {
     {
       if (hostRef.$flags$ & 256 /* isListenReady */) {
-        (_a = hostRef.$lazyInstance$) == null ? void 0 : _a[methodName](ev);
+        (_a2 = hostRef.$lazyInstance$) == null ? void 0 : _a2[methodName](ev);
       } else {
         (hostRef.$queuedListeners$ = hostRef.$queuedListeners$ || []).push([methodName, ev]);
       }
@@ -2646,6 +3145,9 @@ var getHostListenerTarget = (doc, elm, flags) => {
   return elm;
 };
 var hostListenerOpts = (flags) => (flags & 2 /* Capture */) !== 0;
+function transformTag(tag) {
+  return tag;
+}
 
 // src/runtime/vdom/vdom-annotations.ts
 var insertVdomAnnotations = (doc, staticComponents) => {
@@ -2655,7 +3157,7 @@ var insertVdomAnnotations = (doc, staticComponents) => {
     const orgLocationNodes = [];
     parseVNodeAnnotations(doc, doc.body, docData, orgLocationNodes);
     orgLocationNodes.forEach((orgLocationNode) => {
-      var _a;
+      var _a2;
       if (orgLocationNode != null && orgLocationNode["s-nr"]) {
         const nodeRef = orgLocationNode["s-nr"];
         let hostId = nodeRef["s-host-id"];
@@ -2673,7 +3175,7 @@ var insertVdomAnnotations = (doc, staticComponents) => {
             }
           } else if (nodeRef.nodeType === 3 /* TextNode */) {
             if (hostId === 0) {
-              const textContent = (_a = nodeRef.nodeValue) == null ? void 0 : _a.trim();
+              const textContent = (_a2 = nodeRef.nodeValue) == null ? void 0 : _a2.trim();
               if (textContent === "") {
                 orgLocationNode.remove();
                 return;
@@ -2703,7 +3205,7 @@ var insertVdomAnnotations = (doc, staticComponents) => {
   }
 };
 var parseVNodeAnnotations = (doc, node, docData, orgLocationNodes) => {
-  var _a;
+  var _a2;
   if (node == null) {
     return;
   }
@@ -2711,7 +3213,7 @@ var parseVNodeAnnotations = (doc, node, docData, orgLocationNodes) => {
     orgLocationNodes.push(node);
   }
   if (node.nodeType === 1 /* ElementNode */) {
-    const childNodes = [...Array.from(node.childNodes), ...Array.from(((_a = node.shadowRoot) == null ? void 0 : _a.childNodes) || [])];
+    const childNodes = [...Array.from(node.childNodes), ...Array.from(((_a2 = node.shadowRoot) == null ? void 0 : _a2.childNodes) || [])];
     childNodes.forEach((childNode) => {
       const hostRef = getHostRef(childNode);
       if (hostRef != null && !docData.staticComponents.has(childNode.nodeName.toLowerCase())) {
@@ -2808,9 +3310,1623 @@ var hAsync = (nodeName, vnodeData, ...children) => {
   return h(nodeName, vnodeData);
 };
 
+// node_modules/minimatch/dist/esm/index.js
+var import_brace_expansion = __toESM(require_brace_expansion());
+
+// node_modules/minimatch/dist/esm/assert-valid-pattern.js
+var MAX_PATTERN_LENGTH = 1024 * 64;
+var assertValidPattern = (pattern) => {
+  if (typeof pattern !== "string") {
+    throw new TypeError("invalid pattern");
+  }
+  if (pattern.length > MAX_PATTERN_LENGTH) {
+    throw new TypeError("pattern is too long");
+  }
+};
+
+// node_modules/minimatch/dist/esm/brace-expressions.js
+var posixClasses = {
+  "[:alnum:]": ["\\p{L}\\p{Nl}\\p{Nd}", true],
+  "[:alpha:]": ["\\p{L}\\p{Nl}", true],
+  "[:ascii:]": ["\\x00-\\x7f", false],
+  "[:blank:]": ["\\p{Zs}\\t", true],
+  "[:cntrl:]": ["\\p{Cc}", true],
+  "[:digit:]": ["\\p{Nd}", true],
+  "[:graph:]": ["\\p{Z}\\p{C}", true, true],
+  "[:lower:]": ["\\p{Ll}", true],
+  "[:print:]": ["\\p{C}", true],
+  "[:punct:]": ["\\p{P}", true],
+  "[:space:]": ["\\p{Z}\\t\\r\\n\\v\\f", true],
+  "[:upper:]": ["\\p{Lu}", true],
+  "[:word:]": ["\\p{L}\\p{Nl}\\p{Nd}\\p{Pc}", true],
+  "[:xdigit:]": ["A-Fa-f0-9", false]
+};
+var braceEscape = (s) => s.replace(/[[\]\\-]/g, "\\$&");
+var regexpEscape = (s) => s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+var rangesToString = (ranges) => ranges.join("");
+var parseClass = (glob, position) => {
+  const pos = position;
+  if (glob.charAt(pos) !== "[") {
+    throw new Error("not in a brace expression");
+  }
+  const ranges = [];
+  const negs = [];
+  let i2 = pos + 1;
+  let sawStart = false;
+  let uflag = false;
+  let escaping = false;
+  let negate = false;
+  let endPos = pos;
+  let rangeStart = "";
+  WHILE: while (i2 < glob.length) {
+    const c = glob.charAt(i2);
+    if ((c === "!" || c === "^") && i2 === pos + 1) {
+      negate = true;
+      i2++;
+      continue;
+    }
+    if (c === "]" && sawStart && !escaping) {
+      endPos = i2 + 1;
+      break;
+    }
+    sawStart = true;
+    if (c === "\\") {
+      if (!escaping) {
+        escaping = true;
+        i2++;
+        continue;
+      }
+    }
+    if (c === "[" && !escaping) {
+      for (const [cls, [unip, u, neg]] of Object.entries(posixClasses)) {
+        if (glob.startsWith(cls, i2)) {
+          if (rangeStart) {
+            return ["$.", false, glob.length - pos, true];
+          }
+          i2 += cls.length;
+          if (neg)
+            negs.push(unip);
+          else
+            ranges.push(unip);
+          uflag = uflag || u;
+          continue WHILE;
+        }
+      }
+    }
+    escaping = false;
+    if (rangeStart) {
+      if (c > rangeStart) {
+        ranges.push(braceEscape(rangeStart) + "-" + braceEscape(c));
+      } else if (c === rangeStart) {
+        ranges.push(braceEscape(c));
+      }
+      rangeStart = "";
+      i2++;
+      continue;
+    }
+    if (glob.startsWith("-]", i2 + 1)) {
+      ranges.push(braceEscape(c + "-"));
+      i2 += 2;
+      continue;
+    }
+    if (glob.startsWith("-", i2 + 1)) {
+      rangeStart = c;
+      i2 += 2;
+      continue;
+    }
+    ranges.push(braceEscape(c));
+    i2++;
+  }
+  if (endPos < i2) {
+    return ["", false, 0, false];
+  }
+  if (!ranges.length && !negs.length) {
+    return ["$.", false, glob.length - pos, true];
+  }
+  if (negs.length === 0 && ranges.length === 1 && /^\\?.$/.test(ranges[0]) && !negate) {
+    const r = ranges[0].length === 2 ? ranges[0].slice(-1) : ranges[0];
+    return [regexpEscape(r), false, endPos - pos, false];
+  }
+  const sranges = "[" + (negate ? "^" : "") + rangesToString(ranges) + "]";
+  const snegs = "[" + (negate ? "" : "^") + rangesToString(negs) + "]";
+  const comb = ranges.length && negs.length ? "(" + sranges + "|" + snegs + ")" : ranges.length ? sranges : snegs;
+  return [comb, uflag, endPos - pos, true];
+};
+
+// node_modules/minimatch/dist/esm/unescape.js
+var unescape = (s, { windowsPathsNoEscape = false } = {}) => {
+  return windowsPathsNoEscape ? s.replace(/\[([^\/\\])\]/g, "$1") : s.replace(/((?!\\).|^)\[([^\/\\])\]/g, "$1$2").replace(/\\([^\/])/g, "$1");
+};
+
+// node_modules/minimatch/dist/esm/ast.js
+var _a;
+var types = /* @__PURE__ */ new Set(["!", "?", "+", "*", "@"]);
+var isExtglobType = (c) => types.has(c);
+var isExtglobAST = (c) => isExtglobType(c.type);
+var adoptionMap = /* @__PURE__ */ new Map([
+  ["!", ["@"]],
+  ["?", ["?", "@"]],
+  ["@", ["@"]],
+  ["*", ["*", "+", "?", "@"]],
+  ["+", ["+", "@"]]
+]);
+var adoptionWithSpaceMap = /* @__PURE__ */ new Map([
+  ["!", ["?"]],
+  ["@", ["?"]],
+  ["+", ["?", "*"]]
+]);
+var adoptionAnyMap = /* @__PURE__ */ new Map([
+  ["!", ["?", "@"]],
+  ["?", ["?", "@"]],
+  ["@", ["?", "@"]],
+  ["*", ["*", "+", "?", "@"]],
+  ["+", ["+", "@", "?", "*"]]
+]);
+var usurpMap = /* @__PURE__ */ new Map([
+  ["!", /* @__PURE__ */ new Map([["!", "@"]])],
+  ["?", /* @__PURE__ */ new Map([["*", "*"], ["+", "*"]])],
+  ["@", /* @__PURE__ */ new Map([["!", "!"], ["?", "?"], ["@", "@"], ["*", "*"], ["+", "+"]])],
+  ["+", /* @__PURE__ */ new Map([["?", "*"], ["*", "*"]])]
+]);
+var startNoTraversal = "(?!(?:^|/)\\.\\.?(?:$|/))";
+var startNoDot = "(?!\\.)";
+var addPatternStart = /* @__PURE__ */ new Set(["[", "."]);
+var justDots = /* @__PURE__ */ new Set(["..", "."]);
+var reSpecials = new Set("().*{}+?[]^$\\!");
+var regExpEscape = (s) => s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+var qmark = "[^/]";
+var star = qmark + "*?";
+var starNoEmpty = qmark + "+?";
+var _root, _hasMagic, _uflag, _parts, _parent, _parentIndex, _negs, _filledNegs, _options, _toString, _emptyExt, _AST_instances, fillNegs_fn, _AST_static, parseAST_fn, canAdoptWithSpace_fn, canAdopt_fn, canAdoptType_fn, adoptWithSpace_fn, adopt_fn, canUsurpType_fn, canUsurp_fn, usurp_fn, flatten_fn, partsToRegExp_fn, parseGlob_fn;
+var AST = class {
+  constructor(type, parent, options = {}) {
+    __privateAdd(this, _AST_instances);
+    __publicField(this, "type");
+    __privateAdd(this, _root);
+    __privateAdd(this, _hasMagic);
+    __privateAdd(this, _uflag, false);
+    __privateAdd(this, _parts, []);
+    __privateAdd(this, _parent);
+    __privateAdd(this, _parentIndex);
+    __privateAdd(this, _negs);
+    __privateAdd(this, _filledNegs, false);
+    __privateAdd(this, _options);
+    __privateAdd(this, _toString);
+    // set to true if it's an extglob with no children
+    // (which really means one child of '')
+    __privateAdd(this, _emptyExt, false);
+    this.type = type;
+    if (type)
+      __privateSet(this, _hasMagic, true);
+    __privateSet(this, _parent, parent);
+    __privateSet(this, _root, __privateGet(this, _parent) ? __privateGet(__privateGet(this, _parent), _root) : this);
+    __privateSet(this, _options, __privateGet(this, _root) === this ? options : __privateGet(__privateGet(this, _root), _options));
+    __privateSet(this, _negs, __privateGet(this, _root) === this ? [] : __privateGet(__privateGet(this, _root), _negs));
+    if (type === "!" && !__privateGet(__privateGet(this, _root), _filledNegs))
+      __privateGet(this, _negs).push(this);
+    __privateSet(this, _parentIndex, __privateGet(this, _parent) ? __privateGet(__privateGet(this, _parent), _parts).length : 0);
+  }
+  get hasMagic() {
+    if (__privateGet(this, _hasMagic) !== void 0)
+      return __privateGet(this, _hasMagic);
+    for (const p of __privateGet(this, _parts)) {
+      if (typeof p === "string")
+        continue;
+      if (p.type || p.hasMagic)
+        return __privateSet(this, _hasMagic, true);
+    }
+    return __privateGet(this, _hasMagic);
+  }
+  // reconstructs the pattern
+  toString() {
+    if (__privateGet(this, _toString) !== void 0)
+      return __privateGet(this, _toString);
+    if (!this.type) {
+      return __privateSet(this, _toString, __privateGet(this, _parts).map((p) => String(p)).join(""));
+    } else {
+      return __privateSet(this, _toString, this.type + "(" + __privateGet(this, _parts).map((p) => String(p)).join("|") + ")");
+    }
+  }
+  push(...parts) {
+    for (const p of parts) {
+      if (p === "")
+        continue;
+      if (typeof p !== "string" && !(p instanceof _a && __privateGet(p, _parent) === this)) {
+        throw new Error("invalid part: " + p);
+      }
+      __privateGet(this, _parts).push(p);
+    }
+  }
+  toJSON() {
+    var _a2;
+    const ret = this.type === null ? __privateGet(this, _parts).slice().map((p) => typeof p === "string" ? p : p.toJSON()) : [this.type, ...__privateGet(this, _parts).map((p) => p.toJSON())];
+    if (this.isStart() && !this.type)
+      ret.unshift([]);
+    if (this.isEnd() && (this === __privateGet(this, _root) || __privateGet(__privateGet(this, _root), _filledNegs) && ((_a2 = __privateGet(this, _parent)) == null ? void 0 : _a2.type) === "!")) {
+      ret.push({});
+    }
+    return ret;
+  }
+  isStart() {
+    var _a2;
+    if (__privateGet(this, _root) === this)
+      return true;
+    if (!((_a2 = __privateGet(this, _parent)) == null ? void 0 : _a2.isStart()))
+      return false;
+    if (__privateGet(this, _parentIndex) === 0)
+      return true;
+    const p = __privateGet(this, _parent);
+    for (let i2 = 0; i2 < __privateGet(this, _parentIndex); i2++) {
+      const pp = __privateGet(p, _parts)[i2];
+      if (!(pp instanceof _a && pp.type === "!")) {
+        return false;
+      }
+    }
+    return true;
+  }
+  isEnd() {
+    var _a2, _b, _c;
+    if (__privateGet(this, _root) === this)
+      return true;
+    if (((_a2 = __privateGet(this, _parent)) == null ? void 0 : _a2.type) === "!")
+      return true;
+    if (!((_b = __privateGet(this, _parent)) == null ? void 0 : _b.isEnd()))
+      return false;
+    if (!this.type)
+      return (_c = __privateGet(this, _parent)) == null ? void 0 : _c.isEnd();
+    const pl = __privateGet(this, _parent) ? __privateGet(__privateGet(this, _parent), _parts).length : 0;
+    return __privateGet(this, _parentIndex) === pl - 1;
+  }
+  copyIn(part) {
+    if (typeof part === "string")
+      this.push(part);
+    else
+      this.push(part.clone(this));
+  }
+  clone(parent) {
+    const c = new _a(this.type, parent);
+    for (const p of __privateGet(this, _parts)) {
+      c.copyIn(p);
+    }
+    return c;
+  }
+  static fromGlob(pattern, options = {}) {
+    var _a2;
+    const ast = new _a(null, void 0, options);
+    __privateMethod(_a2 = _a, _AST_static, parseAST_fn).call(_a2, pattern, ast, 0, options, 0);
+    return ast;
+  }
+  // returns the regular expression if there's magic, or the unescaped
+  // string if not.
+  toMMPattern() {
+    if (this !== __privateGet(this, _root))
+      return __privateGet(this, _root).toMMPattern();
+    const glob = this.toString();
+    const [re, body, hasMagic, uflag] = this.toRegExpSource();
+    const anyMagic = hasMagic || __privateGet(this, _hasMagic) || __privateGet(this, _options).nocase && !__privateGet(this, _options).nocaseMagicOnly && glob.toUpperCase() !== glob.toLowerCase();
+    if (!anyMagic) {
+      return body;
+    }
+    const flags = (__privateGet(this, _options).nocase ? "i" : "") + (uflag ? "u" : "");
+    return Object.assign(new RegExp(`^${re}$`, flags), {
+      _src: re,
+      _glob: glob
+    });
+  }
+  get options() {
+    return __privateGet(this, _options);
+  }
+  // returns the string match, the regexp source, whether there's magic
+  // in the regexp (so a regular expression is required) and whether or
+  // not the uflag is needed for the regular expression (for posix classes)
+  // TODO: instead of injecting the start/end at this point, just return
+  // the BODY of the regexp, along with the start/end portions suitable
+  // for binding the start/end in either a joined full-path makeRe context
+  // (where we bind to (^|/), or a standalone matchPart context (where
+  // we bind to ^, and not /).  Otherwise slashes get duped!
+  //
+  // In part-matching mode, the start is:
+  // - if not isStart: nothing
+  // - if traversal possible, but not allowed: ^(?!\.\.?$)
+  // - if dots allowed or not possible: ^
+  // - if dots possible and not allowed: ^(?!\.)
+  // end is:
+  // - if not isEnd(): nothing
+  // - else: $
+  //
+  // In full-path matching mode, we put the slash at the START of the
+  // pattern, so start is:
+  // - if first pattern: same as part-matching mode
+  // - if not isStart(): nothing
+  // - if traversal possible, but not allowed: /(?!\.\.?(?:$|/))
+  // - if dots allowed or not possible: /
+  // - if dots possible and not allowed: /(?!\.)
+  // end is:
+  // - if last pattern, same as part-matching mode
+  // - else nothing
+  //
+  // Always put the (?:$|/) on negated tails, though, because that has to be
+  // there to bind the end of the negated pattern portion, and it's easier to
+  // just stick it in now rather than try to inject it later in the middle of
+  // the pattern.
+  //
+  // We can just always return the same end, and leave it up to the caller
+  // to know whether it's going to be used joined or in parts.
+  // And, if the start is adjusted slightly, can do the same there:
+  // - if not isStart: nothing
+  // - if traversal possible, but not allowed: (?:/|^)(?!\.\.?$)
+  // - if dots allowed or not possible: (?:/|^)
+  // - if dots possible and not allowed: (?:/|^)(?!\.)
+  //
+  // But it's better to have a simpler binding without a conditional, for
+  // performance, so probably better to return both start options.
+  //
+  // Then the caller just ignores the end if it's not the first pattern,
+  // and the start always gets applied.
+  //
+  // But that's always going to be $ if it's the ending pattern, or nothing,
+  // so the caller can just attach $ at the end of the pattern when building.
+  //
+  // So the todo is:
+  // - better detect what kind of start is needed
+  // - return both flavors of starting pattern
+  // - attach $ at the end of the pattern when creating the actual RegExp
+  //
+  // Ah, but wait, no, that all only applies to the root when the first pattern
+  // is not an extglob. If the first pattern IS an extglob, then we need all
+  // that dot prevention biz to live in the extglob portions, because eg
+  // +(*|.x*) can match .xy but not .yx.
+  //
+  // So, return the two flavors if it's #root and the first child is not an
+  // AST, otherwise leave it to the child AST to handle it, and there,
+  // use the (?:^|/) style of start binding.
+  //
+  // Even simplified further:
+  // - Since the start for a join is eg /(?!\.) and the start for a part
+  // is ^(?!\.), we can just prepend (?!\.) to the pattern (either root
+  // or start or whatever) and prepend ^ or / at the Regexp construction.
+  toRegExpSource(allowDot) {
+    var _a2;
+    const dot = allowDot != null ? allowDot : !!__privateGet(this, _options).dot;
+    if (__privateGet(this, _root) === this) {
+      __privateMethod(this, _AST_instances, flatten_fn).call(this);
+      __privateMethod(this, _AST_instances, fillNegs_fn).call(this);
+    }
+    if (!isExtglobAST(this)) {
+      const noEmpty = this.isStart() && this.isEnd();
+      const src = __privateGet(this, _parts).map((p) => {
+        var _a3;
+        const [re, _, hasMagic, uflag] = typeof p === "string" ? __privateMethod(_a3 = _a, _AST_static, parseGlob_fn).call(_a3, p, __privateGet(this, _hasMagic), noEmpty) : p.toRegExpSource(allowDot);
+        __privateSet(this, _hasMagic, __privateGet(this, _hasMagic) || hasMagic);
+        __privateSet(this, _uflag, __privateGet(this, _uflag) || uflag);
+        return re;
+      }).join("");
+      let start2 = "";
+      if (this.isStart()) {
+        if (typeof __privateGet(this, _parts)[0] === "string") {
+          const dotTravAllowed = __privateGet(this, _parts).length === 1 && justDots.has(__privateGet(this, _parts)[0]);
+          if (!dotTravAllowed) {
+            const aps = addPatternStart;
+            const needNoTrav = (
+              // dots are allowed, and the pattern starts with [ or .
+              dot && aps.has(src.charAt(0)) || // the pattern starts with \., and then [ or .
+              src.startsWith("\\.") && aps.has(src.charAt(2)) || // the pattern starts with \.\., and then [ or .
+              src.startsWith("\\.\\.") && aps.has(src.charAt(4))
+            );
+            const needNoDot = !dot && !allowDot && aps.has(src.charAt(0));
+            start2 = needNoTrav ? startNoTraversal : needNoDot ? startNoDot : "";
+          }
+        }
+      }
+      let end = "";
+      if (this.isEnd() && __privateGet(__privateGet(this, _root), _filledNegs) && ((_a2 = __privateGet(this, _parent)) == null ? void 0 : _a2.type) === "!") {
+        end = "(?:$|\\/)";
+      }
+      const final2 = start2 + src + end;
+      return [
+        final2,
+        unescape(src),
+        __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)),
+        __privateGet(this, _uflag)
+      ];
+    }
+    const repeated = this.type === "*" || this.type === "+";
+    const start = this.type === "!" ? "(?:(?!(?:" : "(?:";
+    let body = __privateMethod(this, _AST_instances, partsToRegExp_fn).call(this, dot);
+    if (this.isStart() && this.isEnd() && !body && this.type !== "!") {
+      const s = this.toString();
+      const me = this;
+      __privateSet(me, _parts, [s]);
+      me.type = null;
+      __privateSet(me, _hasMagic, void 0);
+      return [s, unescape(this.toString()), false, false];
+    }
+    let bodyDotAllowed = !repeated || allowDot || dot || !startNoDot ? "" : __privateMethod(this, _AST_instances, partsToRegExp_fn).call(this, true);
+    if (bodyDotAllowed === body) {
+      bodyDotAllowed = "";
+    }
+    if (bodyDotAllowed) {
+      body = `(?:${body})(?:${bodyDotAllowed})*?`;
+    }
+    let final = "";
+    if (this.type === "!" && __privateGet(this, _emptyExt)) {
+      final = (this.isStart() && !dot ? startNoDot : "") + starNoEmpty;
+    } else {
+      const close = this.type === "!" ? (
+        // !() must match something,but !(x) can match ''
+        "))" + (this.isStart() && !dot && !allowDot ? startNoDot : "") + star + ")"
+      ) : this.type === "@" ? ")" : this.type === "?" ? ")?" : this.type === "+" && bodyDotAllowed ? ")" : this.type === "*" && bodyDotAllowed ? `)?` : `)${this.type}`;
+      final = start + body + close;
+    }
+    return [
+      final,
+      unescape(body),
+      __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)),
+      __privateGet(this, _uflag)
+    ];
+  }
+};
+_root = new WeakMap();
+_hasMagic = new WeakMap();
+_uflag = new WeakMap();
+_parts = new WeakMap();
+_parent = new WeakMap();
+_parentIndex = new WeakMap();
+_negs = new WeakMap();
+_filledNegs = new WeakMap();
+_options = new WeakMap();
+_toString = new WeakMap();
+_emptyExt = new WeakMap();
+_AST_instances = new WeakSet();
+fillNegs_fn = function() {
+  if (this !== __privateGet(this, _root))
+    throw new Error("should only call on root");
+  if (__privateGet(this, _filledNegs))
+    return this;
+  this.toString();
+  __privateSet(this, _filledNegs, true);
+  let n;
+  while (n = __privateGet(this, _negs).pop()) {
+    if (n.type !== "!")
+      continue;
+    let p = n;
+    let pp = __privateGet(p, _parent);
+    while (pp) {
+      for (let i2 = __privateGet(p, _parentIndex) + 1; !pp.type && i2 < __privateGet(pp, _parts).length; i2++) {
+        for (const part of __privateGet(n, _parts)) {
+          if (typeof part === "string") {
+            throw new Error("string part in extglob AST??");
+          }
+          part.copyIn(__privateGet(pp, _parts)[i2]);
+        }
+      }
+      p = pp;
+      pp = __privateGet(p, _parent);
+    }
+  }
+  return this;
+};
+_AST_static = new WeakSet();
+parseAST_fn = function(str, ast, pos, opt, extDepth) {
+  var _a2, _b, _c, _d, _e;
+  const maxDepth = (_a2 = opt.maxExtglobRecursion) != null ? _a2 : 2;
+  let escaping = false;
+  let inBrace = false;
+  let braceStart = -1;
+  let braceNeg = false;
+  if (ast.type === null) {
+    let i3 = pos;
+    let acc2 = "";
+    while (i3 < str.length) {
+      const c = str.charAt(i3++);
+      if (escaping || c === "\\") {
+        escaping = !escaping;
+        acc2 += c;
+        continue;
+      }
+      if (inBrace) {
+        if (i3 === braceStart + 1) {
+          if (c === "^" || c === "!") {
+            braceNeg = true;
+          }
+        } else if (c === "]" && !(i3 === braceStart + 2 && braceNeg)) {
+          inBrace = false;
+        }
+        acc2 += c;
+        continue;
+      } else if (c === "[") {
+        inBrace = true;
+        braceStart = i3;
+        braceNeg = false;
+        acc2 += c;
+        continue;
+      }
+      const doRecurse = !opt.noext && isExtglobType(c) && str.charAt(i3) === "(" && extDepth <= maxDepth;
+      if (doRecurse) {
+        ast.push(acc2);
+        acc2 = "";
+        const ext2 = new _a(c, ast);
+        i3 = __privateMethod(_b = _a, _AST_static, parseAST_fn).call(_b, str, ext2, i3, opt, extDepth + 1);
+        ast.push(ext2);
+        continue;
+      }
+      acc2 += c;
+    }
+    ast.push(acc2);
+    return i3;
+  }
+  let i2 = pos + 1;
+  let part = new _a(null, ast);
+  const parts = [];
+  let acc = "";
+  while (i2 < str.length) {
+    const c = str.charAt(i2++);
+    if (escaping || c === "\\") {
+      escaping = !escaping;
+      acc += c;
+      continue;
+    }
+    if (inBrace) {
+      if (i2 === braceStart + 1) {
+        if (c === "^" || c === "!") {
+          braceNeg = true;
+        }
+      } else if (c === "]" && !(i2 === braceStart + 2 && braceNeg)) {
+        inBrace = false;
+      }
+      acc += c;
+      continue;
+    } else if (c === "[") {
+      inBrace = true;
+      braceStart = i2;
+      braceNeg = false;
+      acc += c;
+      continue;
+    }
+    const doRecurse = isExtglobType(c) && str.charAt(i2) === "(" && /* c8 ignore start - the maxDepth is sufficient here */
+    (extDepth <= maxDepth || ast && __privateMethod(_c = ast, _AST_instances, canAdoptType_fn).call(_c, c));
+    if (doRecurse) {
+      const depthAdd = ast && __privateMethod(_d = ast, _AST_instances, canAdoptType_fn).call(_d, c) ? 0 : 1;
+      part.push(acc);
+      acc = "";
+      const ext2 = new _a(c, part);
+      part.push(ext2);
+      i2 = __privateMethod(_e = _a, _AST_static, parseAST_fn).call(_e, str, ext2, i2, opt, extDepth + depthAdd);
+      continue;
+    }
+    if (c === "|") {
+      part.push(acc);
+      acc = "";
+      parts.push(part);
+      part = new _a(null, ast);
+      continue;
+    }
+    if (c === ")") {
+      if (acc === "" && __privateGet(ast, _parts).length === 0) {
+        __privateSet(ast, _emptyExt, true);
+      }
+      part.push(acc);
+      acc = "";
+      ast.push(...parts, part);
+      return i2;
+    }
+    acc += c;
+  }
+  ast.type = null;
+  __privateSet(ast, _hasMagic, void 0);
+  __privateSet(ast, _parts, [str.substring(pos - 1)]);
+  return i2;
+};
+canAdoptWithSpace_fn = function(child) {
+  return __privateMethod(this, _AST_instances, canAdopt_fn).call(this, child, adoptionWithSpaceMap);
+};
+canAdopt_fn = function(child, map2 = adoptionMap) {
+  if (!child || typeof child !== "object" || child.type !== null || __privateGet(child, _parts).length !== 1 || this.type === null) {
+    return false;
+  }
+  const gc = __privateGet(child, _parts)[0];
+  if (!gc || typeof gc !== "object" || gc.type === null) {
+    return false;
+  }
+  return __privateMethod(this, _AST_instances, canAdoptType_fn).call(this, gc.type, map2);
+};
+canAdoptType_fn = function(c, map2 = adoptionAnyMap) {
+  var _a2;
+  return !!((_a2 = map2.get(this.type)) == null ? void 0 : _a2.includes(c));
+};
+adoptWithSpace_fn = function(child, index) {
+  const gc = __privateGet(child, _parts)[0];
+  const blank = new _a(null, gc, this.options);
+  __privateGet(blank, _parts).push("");
+  gc.push(blank);
+  __privateMethod(this, _AST_instances, adopt_fn).call(this, child, index);
+};
+adopt_fn = function(child, index) {
+  const gc = __privateGet(child, _parts)[0];
+  __privateGet(this, _parts).splice(index, 1, ...__privateGet(gc, _parts));
+  for (const p of __privateGet(gc, _parts)) {
+    if (typeof p === "object")
+      __privateSet(p, _parent, this);
+  }
+  __privateSet(this, _toString, void 0);
+};
+canUsurpType_fn = function(c) {
+  const m = usurpMap.get(this.type);
+  return !!(m == null ? void 0 : m.has(c));
+};
+canUsurp_fn = function(child) {
+  if (!child || typeof child !== "object" || child.type !== null || __privateGet(child, _parts).length !== 1 || this.type === null || __privateGet(this, _parts).length !== 1) {
+    return false;
+  }
+  const gc = __privateGet(child, _parts)[0];
+  if (!gc || typeof gc !== "object" || gc.type === null) {
+    return false;
+  }
+  return __privateMethod(this, _AST_instances, canUsurpType_fn).call(this, gc.type);
+};
+usurp_fn = function(child) {
+  const m = usurpMap.get(this.type);
+  const gc = __privateGet(child, _parts)[0];
+  const nt = m == null ? void 0 : m.get(gc.type);
+  if (!nt)
+    return false;
+  __privateSet(this, _parts, __privateGet(gc, _parts));
+  for (const p of __privateGet(this, _parts)) {
+    if (typeof p === "object")
+      __privateSet(p, _parent, this);
+  }
+  this.type = nt;
+  __privateSet(this, _toString, void 0);
+  __privateSet(this, _emptyExt, false);
+};
+flatten_fn = function() {
+  var _a2, _b;
+  if (!isExtglobAST(this)) {
+    for (const p of __privateGet(this, _parts)) {
+      if (typeof p === "object")
+        __privateMethod(_a2 = p, _AST_instances, flatten_fn).call(_a2);
+    }
+  } else {
+    let iterations = 0;
+    let done = false;
+    do {
+      done = true;
+      for (let i2 = 0; i2 < __privateGet(this, _parts).length; i2++) {
+        const c = __privateGet(this, _parts)[i2];
+        if (typeof c === "object") {
+          __privateMethod(_b = c, _AST_instances, flatten_fn).call(_b);
+          if (__privateMethod(this, _AST_instances, canAdopt_fn).call(this, c)) {
+            done = false;
+            __privateMethod(this, _AST_instances, adopt_fn).call(this, c, i2);
+          } else if (__privateMethod(this, _AST_instances, canAdoptWithSpace_fn).call(this, c)) {
+            done = false;
+            __privateMethod(this, _AST_instances, adoptWithSpace_fn).call(this, c, i2);
+          } else if (__privateMethod(this, _AST_instances, canUsurp_fn).call(this, c)) {
+            done = false;
+            __privateMethod(this, _AST_instances, usurp_fn).call(this, c);
+          }
+        }
+      }
+    } while (!done && ++iterations < 10);
+  }
+  __privateSet(this, _toString, void 0);
+};
+partsToRegExp_fn = function(dot) {
+  return __privateGet(this, _parts).map((p) => {
+    if (typeof p === "string") {
+      throw new Error("string type in extglob ast??");
+    }
+    const [re, _, _hasMagic2, uflag] = p.toRegExpSource(dot);
+    __privateSet(this, _uflag, __privateGet(this, _uflag) || uflag);
+    return re;
+  }).filter((p) => !(this.isStart() && this.isEnd()) || !!p).join("|");
+};
+parseGlob_fn = function(glob, hasMagic, noEmpty = false) {
+  let escaping = false;
+  let re = "";
+  let uflag = false;
+  let inStar = false;
+  for (let i2 = 0; i2 < glob.length; i2++) {
+    const c = glob.charAt(i2);
+    if (escaping) {
+      escaping = false;
+      re += (reSpecials.has(c) ? "\\" : "") + c;
+      inStar = false;
+      continue;
+    }
+    if (c === "\\") {
+      if (i2 === glob.length - 1) {
+        re += "\\\\";
+      } else {
+        escaping = true;
+      }
+      continue;
+    }
+    if (c === "[") {
+      const [src, needUflag, consumed, magic] = parseClass(glob, i2);
+      if (consumed) {
+        re += src;
+        uflag = uflag || needUflag;
+        i2 += consumed - 1;
+        hasMagic = hasMagic || magic;
+        inStar = false;
+        continue;
+      }
+    }
+    if (c === "*") {
+      if (inStar)
+        continue;
+      inStar = true;
+      re += noEmpty && /^[*]+$/.test(glob) ? starNoEmpty : star;
+      hasMagic = true;
+      continue;
+    } else {
+      inStar = false;
+    }
+    if (c === "?") {
+      re += qmark;
+      hasMagic = true;
+      continue;
+    }
+    re += regExpEscape(c);
+  }
+  return [re, unescape(glob), !!hasMagic, uflag];
+};
+__privateAdd(AST, _AST_static);
+_a = AST;
+
+// node_modules/minimatch/dist/esm/escape.js
+var escape = (s, { windowsPathsNoEscape = false } = {}) => {
+  return windowsPathsNoEscape ? s.replace(/[?*()[\]]/g, "[$&]") : s.replace(/[?*()[\]\\]/g, "\\$&");
+};
+
+// node_modules/minimatch/dist/esm/index.js
+var minimatch = (p, pattern, options = {}) => {
+  assertValidPattern(pattern);
+  if (!options.nocomment && pattern.charAt(0) === "#") {
+    return false;
+  }
+  return new Minimatch(pattern, options).match(p);
+};
+var starDotExtRE = /^\*+([^+@!?\*\[\(]*)$/;
+var starDotExtTest = (ext2) => (f) => !f.startsWith(".") && f.endsWith(ext2);
+var starDotExtTestDot = (ext2) => (f) => f.endsWith(ext2);
+var starDotExtTestNocase = (ext2) => {
+  ext2 = ext2.toLowerCase();
+  return (f) => !f.startsWith(".") && f.toLowerCase().endsWith(ext2);
+};
+var starDotExtTestNocaseDot = (ext2) => {
+  ext2 = ext2.toLowerCase();
+  return (f) => f.toLowerCase().endsWith(ext2);
+};
+var starDotStarRE = /^\*+\.\*+$/;
+var starDotStarTest = (f) => !f.startsWith(".") && f.includes(".");
+var starDotStarTestDot = (f) => f !== "." && f !== ".." && f.includes(".");
+var dotStarRE = /^\.\*+$/;
+var dotStarTest = (f) => f !== "." && f !== ".." && f.startsWith(".");
+var starRE = /^\*+$/;
+var starTest = (f) => f.length !== 0 && !f.startsWith(".");
+var starTestDot = (f) => f.length !== 0 && f !== "." && f !== "..";
+var qmarksRE = /^\?+([^+@!?\*\[\(]*)?$/;
+var qmarksTestNocase = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExt([$0]);
+  if (!ext2)
+    return noext;
+  ext2 = ext2.toLowerCase();
+  return (f) => noext(f) && f.toLowerCase().endsWith(ext2);
+};
+var qmarksTestNocaseDot = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExtDot([$0]);
+  if (!ext2)
+    return noext;
+  ext2 = ext2.toLowerCase();
+  return (f) => noext(f) && f.toLowerCase().endsWith(ext2);
+};
+var qmarksTestDot = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExtDot([$0]);
+  return !ext2 ? noext : (f) => noext(f) && f.endsWith(ext2);
+};
+var qmarksTest = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExt([$0]);
+  return !ext2 ? noext : (f) => noext(f) && f.endsWith(ext2);
+};
+var qmarksTestNoExt = ([$0]) => {
+  const len = $0.length;
+  return (f) => f.length === len && !f.startsWith(".");
+};
+var qmarksTestNoExtDot = ([$0]) => {
+  const len = $0.length;
+  return (f) => f.length === len && f !== "." && f !== "..";
+};
+var defaultPlatform = typeof process === "object" && process ? typeof process.env === "object" && process.env && process.env.__MINIMATCH_TESTING_PLATFORM__ || process.platform : "posix";
+var path = {
+  win32: { sep: "\\" },
+  posix: { sep: "/" }
+};
+var sep = defaultPlatform === "win32" ? path.win32.sep : path.posix.sep;
+minimatch.sep = sep;
+var GLOBSTAR = Symbol("globstar **");
+minimatch.GLOBSTAR = GLOBSTAR;
+var qmark2 = "[^/]";
+var star2 = qmark2 + "*?";
+var twoStarDot = "(?:(?!(?:\\/|^)(?:\\.{1,2})($|\\/)).)*?";
+var twoStarNoDot = "(?:(?!(?:\\/|^)\\.).)*?";
+var filter = (pattern, options = {}) => (p) => minimatch(p, pattern, options);
+minimatch.filter = filter;
+var ext = (a, b = {}) => Object.assign({}, a, b);
+var defaults = (def) => {
+  if (!def || typeof def !== "object" || !Object.keys(def).length) {
+    return minimatch;
+  }
+  const orig = minimatch;
+  const m = (p, pattern, options = {}) => orig(p, pattern, ext(def, options));
+  return Object.assign(m, {
+    Minimatch: class Minimatch extends orig.Minimatch {
+      constructor(pattern, options = {}) {
+        super(pattern, ext(def, options));
+      }
+      static defaults(options) {
+        return orig.defaults(ext(def, options)).Minimatch;
+      }
+    },
+    AST: class AST extends orig.AST {
+      /* c8 ignore start */
+      constructor(type, parent, options = {}) {
+        super(type, parent, ext(def, options));
+      }
+      /* c8 ignore stop */
+      static fromGlob(pattern, options = {}) {
+        return orig.AST.fromGlob(pattern, ext(def, options));
+      }
+    },
+    unescape: (s, options = {}) => orig.unescape(s, ext(def, options)),
+    escape: (s, options = {}) => orig.escape(s, ext(def, options)),
+    filter: (pattern, options = {}) => orig.filter(pattern, ext(def, options)),
+    defaults: (options) => orig.defaults(ext(def, options)),
+    makeRe: (pattern, options = {}) => orig.makeRe(pattern, ext(def, options)),
+    braceExpand: (pattern, options = {}) => orig.braceExpand(pattern, ext(def, options)),
+    match: (list, pattern, options = {}) => orig.match(list, pattern, ext(def, options)),
+    sep: orig.sep,
+    GLOBSTAR
+  });
+};
+minimatch.defaults = defaults;
+var braceExpand = (pattern, options = {}) => {
+  assertValidPattern(pattern);
+  if (options.nobrace || !/\{(?:(?!\{).)*\}/.test(pattern)) {
+    return [pattern];
+  }
+  return (0, import_brace_expansion.default)(pattern);
+};
+minimatch.braceExpand = braceExpand;
+var makeRe = (pattern, options = {}) => new Minimatch(pattern, options).makeRe();
+minimatch.makeRe = makeRe;
+var match = (list, pattern, options = {}) => {
+  const mm = new Minimatch(pattern, options);
+  list = list.filter((f) => mm.match(f));
+  if (mm.options.nonull && !list.length) {
+    list.push(pattern);
+  }
+  return list;
+};
+minimatch.match = match;
+var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/;
+var regExpEscape2 = (s) => s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+var _Minimatch_instances, matchGlobstar_fn, matchGlobStarBodySections_fn, matchOne_fn;
+var Minimatch = class {
+  constructor(pattern, options = {}) {
+    __privateAdd(this, _Minimatch_instances);
+    __publicField(this, "options");
+    __publicField(this, "set");
+    __publicField(this, "pattern");
+    __publicField(this, "windowsPathsNoEscape");
+    __publicField(this, "nonegate");
+    __publicField(this, "negate");
+    __publicField(this, "comment");
+    __publicField(this, "empty");
+    __publicField(this, "preserveMultipleSlashes");
+    __publicField(this, "partial");
+    __publicField(this, "globSet");
+    __publicField(this, "globParts");
+    __publicField(this, "nocase");
+    __publicField(this, "isWindows");
+    __publicField(this, "platform");
+    __publicField(this, "windowsNoMagicRoot");
+    __publicField(this, "maxGlobstarRecursion");
+    __publicField(this, "regexp");
+    var _a2;
+    assertValidPattern(pattern);
+    options = options || {};
+    this.options = options;
+    this.maxGlobstarRecursion = (_a2 = options.maxGlobstarRecursion) != null ? _a2 : 200;
+    this.pattern = pattern;
+    this.platform = options.platform || defaultPlatform;
+    this.isWindows = this.platform === "win32";
+    this.windowsPathsNoEscape = !!options.windowsPathsNoEscape || options.allowWindowsEscape === false;
+    if (this.windowsPathsNoEscape) {
+      this.pattern = this.pattern.replace(/\\/g, "/");
+    }
+    this.preserveMultipleSlashes = !!options.preserveMultipleSlashes;
+    this.regexp = null;
+    this.negate = false;
+    this.nonegate = !!options.nonegate;
+    this.comment = false;
+    this.empty = false;
+    this.partial = !!options.partial;
+    this.nocase = !!this.options.nocase;
+    this.windowsNoMagicRoot = options.windowsNoMagicRoot !== void 0 ? options.windowsNoMagicRoot : !!(this.isWindows && this.nocase);
+    this.globSet = [];
+    this.globParts = [];
+    this.set = [];
+    this.make();
+  }
+  hasMagic() {
+    if (this.options.magicalBraces && this.set.length > 1) {
+      return true;
+    }
+    for (const pattern of this.set) {
+      for (const part of pattern) {
+        if (typeof part !== "string")
+          return true;
+      }
+    }
+    return false;
+  }
+  debug(..._) {
+  }
+  make() {
+    const pattern = this.pattern;
+    const options = this.options;
+    if (!options.nocomment && pattern.charAt(0) === "#") {
+      this.comment = true;
+      return;
+    }
+    if (!pattern) {
+      this.empty = true;
+      return;
+    }
+    this.parseNegate();
+    this.globSet = [...new Set(this.braceExpand())];
+    if (options.debug) {
+      this.debug = (...args) => console.error(...args);
+    }
+    this.debug(this.pattern, this.globSet);
+    const rawGlobParts = this.globSet.map((s) => this.slashSplit(s));
+    this.globParts = this.preprocess(rawGlobParts);
+    this.debug(this.pattern, this.globParts);
+    let set = this.globParts.map((s, _, __) => {
+      if (this.isWindows && this.windowsNoMagicRoot) {
+        const isUNC = s[0] === "" && s[1] === "" && (s[2] === "?" || !globMagic.test(s[2])) && !globMagic.test(s[3]);
+        const isDrive = /^[a-z]:/i.test(s[0]);
+        if (isUNC) {
+          return [...s.slice(0, 4), ...s.slice(4).map((ss) => this.parse(ss))];
+        } else if (isDrive) {
+          return [s[0], ...s.slice(1).map((ss) => this.parse(ss))];
+        }
+      }
+      return s.map((ss) => this.parse(ss));
+    });
+    this.debug(this.pattern, set);
+    this.set = set.filter((s) => s.indexOf(false) === -1);
+    if (this.isWindows) {
+      for (let i2 = 0; i2 < this.set.length; i2++) {
+        const p = this.set[i2];
+        if (p[0] === "" && p[1] === "" && this.globParts[i2][2] === "?" && typeof p[3] === "string" && /^[a-z]:$/i.test(p[3])) {
+          p[2] = "?";
+        }
+      }
+    }
+    this.debug(this.pattern, this.set);
+  }
+  // various transforms to equivalent pattern sets that are
+  // faster to process in a filesystem walk.  The goal is to
+  // eliminate what we can, and push all ** patterns as far
+  // to the right as possible, even if it increases the number
+  // of patterns that we have to process.
+  preprocess(globParts) {
+    if (this.options.noglobstar) {
+      for (let i2 = 0; i2 < globParts.length; i2++) {
+        for (let j = 0; j < globParts[i2].length; j++) {
+          if (globParts[i2][j] === "**") {
+            globParts[i2][j] = "*";
+          }
+        }
+      }
+    }
+    const { optimizationLevel = 1 } = this.options;
+    if (optimizationLevel >= 2) {
+      globParts = this.firstPhasePreProcess(globParts);
+      globParts = this.secondPhasePreProcess(globParts);
+    } else if (optimizationLevel >= 1) {
+      globParts = this.levelOneOptimize(globParts);
+    } else {
+      globParts = this.adjascentGlobstarOptimize(globParts);
+    }
+    return globParts;
+  }
+  // just get rid of adjascent ** portions
+  adjascentGlobstarOptimize(globParts) {
+    return globParts.map((parts) => {
+      let gs = -1;
+      while (-1 !== (gs = parts.indexOf("**", gs + 1))) {
+        let i2 = gs;
+        while (parts[i2 + 1] === "**") {
+          i2++;
+        }
+        if (i2 !== gs) {
+          parts.splice(gs, i2 - gs);
+        }
+      }
+      return parts;
+    });
+  }
+  // get rid of adjascent ** and resolve .. portions
+  levelOneOptimize(globParts) {
+    return globParts.map((parts) => {
+      parts = parts.reduce((set, part) => {
+        const prev = set[set.length - 1];
+        if (part === "**" && prev === "**") {
+          return set;
+        }
+        if (part === "..") {
+          if (prev && prev !== ".." && prev !== "." && prev !== "**") {
+            set.pop();
+            return set;
+          }
+        }
+        set.push(part);
+        return set;
+      }, []);
+      return parts.length === 0 ? [""] : parts;
+    });
+  }
+  levelTwoFileOptimize(parts) {
+    if (!Array.isArray(parts)) {
+      parts = this.slashSplit(parts);
+    }
+    let didSomething = false;
+    do {
+      didSomething = false;
+      if (!this.preserveMultipleSlashes) {
+        for (let i2 = 1; i2 < parts.length - 1; i2++) {
+          const p = parts[i2];
+          if (i2 === 1 && p === "" && parts[0] === "")
+            continue;
+          if (p === "." || p === "") {
+            didSomething = true;
+            parts.splice(i2, 1);
+            i2--;
+          }
+        }
+        if (parts[0] === "." && parts.length === 2 && (parts[1] === "." || parts[1] === "")) {
+          didSomething = true;
+          parts.pop();
+        }
+      }
+      let dd = 0;
+      while (-1 !== (dd = parts.indexOf("..", dd + 1))) {
+        const p = parts[dd - 1];
+        if (p && p !== "." && p !== ".." && p !== "**") {
+          didSomething = true;
+          parts.splice(dd - 1, 2);
+          dd -= 2;
+        }
+      }
+    } while (didSomething);
+    return parts.length === 0 ? [""] : parts;
+  }
+  // First phase: single-pattern processing
+  // <pre> is 1 or more portions
+  // <rest> is 1 or more portions
+  // <p> is any portion other than ., .., '', or **
+  // <e> is . or ''
+  //
+  // **/.. is *brutal* for filesystem walking performance, because
+  // it effectively resets the recursive walk each time it occurs,
+  // and ** cannot be reduced out by a .. pattern part like a regexp
+  // or most strings (other than .., ., and '') can be.
+  //
+  // <pre>/**/../<p>/<p>/<rest> -> {<pre>/../<p>/<p>/<rest>,<pre>/**/<p>/<p>/<rest>}
+  // <pre>/<e>/<rest> -> <pre>/<rest>
+  // <pre>/<p>/../<rest> -> <pre>/<rest>
+  // **/**/<rest> -> **/<rest>
+  //
+  // **/*/<rest> -> */**/<rest> <== not valid because ** doesn't follow
+  // this WOULD be allowed if ** did follow symlinks, or * didn't
+  firstPhasePreProcess(globParts) {
+    let didSomething = false;
+    do {
+      didSomething = false;
+      for (let parts of globParts) {
+        let gs = -1;
+        while (-1 !== (gs = parts.indexOf("**", gs + 1))) {
+          let gss = gs;
+          while (parts[gss + 1] === "**") {
+            gss++;
+          }
+          if (gss > gs) {
+            parts.splice(gs + 1, gss - gs);
+          }
+          let next = parts[gs + 1];
+          const p = parts[gs + 2];
+          const p2 = parts[gs + 3];
+          if (next !== "..")
+            continue;
+          if (!p || p === "." || p === ".." || !p2 || p2 === "." || p2 === "..") {
+            continue;
+          }
+          didSomething = true;
+          parts.splice(gs, 1);
+          const other = parts.slice(0);
+          other[gs] = "**";
+          globParts.push(other);
+          gs--;
+        }
+        if (!this.preserveMultipleSlashes) {
+          for (let i2 = 1; i2 < parts.length - 1; i2++) {
+            const p = parts[i2];
+            if (i2 === 1 && p === "" && parts[0] === "")
+              continue;
+            if (p === "." || p === "") {
+              didSomething = true;
+              parts.splice(i2, 1);
+              i2--;
+            }
+          }
+          if (parts[0] === "." && parts.length === 2 && (parts[1] === "." || parts[1] === "")) {
+            didSomething = true;
+            parts.pop();
+          }
+        }
+        let dd = 0;
+        while (-1 !== (dd = parts.indexOf("..", dd + 1))) {
+          const p = parts[dd - 1];
+          if (p && p !== "." && p !== ".." && p !== "**") {
+            didSomething = true;
+            const needDot = dd === 1 && parts[dd + 1] === "**";
+            const splin = needDot ? ["."] : [];
+            parts.splice(dd - 1, 2, ...splin);
+            if (parts.length === 0)
+              parts.push("");
+            dd -= 2;
+          }
+        }
+      }
+    } while (didSomething);
+    return globParts;
+  }
+  // second phase: multi-pattern dedupes
+  // {<pre>/*/<rest>,<pre>/<p>/<rest>} -> <pre>/*/<rest>
+  // {<pre>/<rest>,<pre>/<rest>} -> <pre>/<rest>
+  // {<pre>/**/<rest>,<pre>/<rest>} -> <pre>/**/<rest>
+  //
+  // {<pre>/**/<rest>,<pre>/**/<p>/<rest>} -> <pre>/**/<rest>
+  // ^-- not valid because ** doens't follow symlinks
+  secondPhasePreProcess(globParts) {
+    for (let i2 = 0; i2 < globParts.length - 1; i2++) {
+      for (let j = i2 + 1; j < globParts.length; j++) {
+        const matched = this.partsMatch(globParts[i2], globParts[j], !this.preserveMultipleSlashes);
+        if (matched) {
+          globParts[i2] = [];
+          globParts[j] = matched;
+          break;
+        }
+      }
+    }
+    return globParts.filter((gs) => gs.length);
+  }
+  partsMatch(a, b, emptyGSMatch = false) {
+    let ai = 0;
+    let bi = 0;
+    let result = [];
+    let which = "";
+    while (ai < a.length && bi < b.length) {
+      if (a[ai] === b[bi]) {
+        result.push(which === "b" ? b[bi] : a[ai]);
+        ai++;
+        bi++;
+      } else if (emptyGSMatch && a[ai] === "**" && b[bi] === a[ai + 1]) {
+        result.push(a[ai]);
+        ai++;
+      } else if (emptyGSMatch && b[bi] === "**" && a[ai] === b[bi + 1]) {
+        result.push(b[bi]);
+        bi++;
+      } else if (a[ai] === "*" && b[bi] && (this.options.dot || !b[bi].startsWith(".")) && b[bi] !== "**") {
+        if (which === "b")
+          return false;
+        which = "a";
+        result.push(a[ai]);
+        ai++;
+        bi++;
+      } else if (b[bi] === "*" && a[ai] && (this.options.dot || !a[ai].startsWith(".")) && a[ai] !== "**") {
+        if (which === "a")
+          return false;
+        which = "b";
+        result.push(b[bi]);
+        ai++;
+        bi++;
+      } else {
+        return false;
+      }
+    }
+    return a.length === b.length && result;
+  }
+  parseNegate() {
+    if (this.nonegate)
+      return;
+    const pattern = this.pattern;
+    let negate = false;
+    let negateOffset = 0;
+    for (let i2 = 0; i2 < pattern.length && pattern.charAt(i2) === "!"; i2++) {
+      negate = !negate;
+      negateOffset++;
+    }
+    if (negateOffset)
+      this.pattern = pattern.slice(negateOffset);
+    this.negate = negate;
+  }
+  // set partial to true to test if, for example,
+  // "/a/b" matches the start of "/*/b/*/d"
+  // Partial means, if you run out of file before you run
+  // out of pattern, then that's fine, as long as all
+  // the parts match.
+  matchOne(file, pattern, partial = false) {
+    let fileStartIndex = 0;
+    let patternStartIndex = 0;
+    if (this.isWindows) {
+      const fileDrive = typeof file[0] === "string" && /^[a-z]:$/i.test(file[0]);
+      const fileUNC = !fileDrive && file[0] === "" && file[1] === "" && file[2] === "?" && /^[a-z]:$/i.test(file[3]);
+      const patternDrive = typeof pattern[0] === "string" && /^[a-z]:$/i.test(pattern[0]);
+      const patternUNC = !patternDrive && pattern[0] === "" && pattern[1] === "" && pattern[2] === "?" && typeof pattern[3] === "string" && /^[a-z]:$/i.test(pattern[3]);
+      const fdi = fileUNC ? 3 : fileDrive ? 0 : void 0;
+      const pdi = patternUNC ? 3 : patternDrive ? 0 : void 0;
+      if (typeof fdi === "number" && typeof pdi === "number") {
+        const [fd, pd] = [
+          file[fdi],
+          pattern[pdi]
+        ];
+        if (fd.toLowerCase() === pd.toLowerCase()) {
+          pattern[pdi] = fd;
+          patternStartIndex = pdi;
+          fileStartIndex = fdi;
+        }
+      }
+    }
+    const { optimizationLevel = 1 } = this.options;
+    if (optimizationLevel >= 2) {
+      file = this.levelTwoFileOptimize(file);
+    }
+    if (pattern.includes(GLOBSTAR)) {
+      return __privateMethod(this, _Minimatch_instances, matchGlobstar_fn).call(this, file, pattern, partial, fileStartIndex, patternStartIndex);
+    }
+    return __privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file, pattern, partial, fileStartIndex, patternStartIndex);
+  }
+  braceExpand() {
+    return braceExpand(this.pattern, this.options);
+  }
+  parse(pattern) {
+    assertValidPattern(pattern);
+    const options = this.options;
+    if (pattern === "**")
+      return GLOBSTAR;
+    if (pattern === "")
+      return "";
+    let m;
+    let fastTest = null;
+    if (m = pattern.match(starRE)) {
+      fastTest = options.dot ? starTestDot : starTest;
+    } else if (m = pattern.match(starDotExtRE)) {
+      fastTest = (options.nocase ? options.dot ? starDotExtTestNocaseDot : starDotExtTestNocase : options.dot ? starDotExtTestDot : starDotExtTest)(m[1]);
+    } else if (m = pattern.match(qmarksRE)) {
+      fastTest = (options.nocase ? options.dot ? qmarksTestNocaseDot : qmarksTestNocase : options.dot ? qmarksTestDot : qmarksTest)(m);
+    } else if (m = pattern.match(starDotStarRE)) {
+      fastTest = options.dot ? starDotStarTestDot : starDotStarTest;
+    } else if (m = pattern.match(dotStarRE)) {
+      fastTest = dotStarTest;
+    }
+    const re = AST.fromGlob(pattern, this.options).toMMPattern();
+    if (fastTest && typeof re === "object") {
+      Reflect.defineProperty(re, "test", { value: fastTest });
+    }
+    return re;
+  }
+  makeRe() {
+    if (this.regexp || this.regexp === false)
+      return this.regexp;
+    const set = this.set;
+    if (!set.length) {
+      this.regexp = false;
+      return this.regexp;
+    }
+    const options = this.options;
+    const twoStar = options.noglobstar ? star2 : options.dot ? twoStarDot : twoStarNoDot;
+    const flags = new Set(options.nocase ? ["i"] : []);
+    let re = set.map((pattern) => {
+      const pp = pattern.map((p) => {
+        if (p instanceof RegExp) {
+          for (const f of p.flags.split(""))
+            flags.add(f);
+        }
+        return typeof p === "string" ? regExpEscape2(p) : p === GLOBSTAR ? GLOBSTAR : p._src;
+      });
+      pp.forEach((p, i2) => {
+        const next = pp[i2 + 1];
+        const prev = pp[i2 - 1];
+        if (p !== GLOBSTAR || prev === GLOBSTAR) {
+          return;
+        }
+        if (prev === void 0) {
+          if (next !== void 0 && next !== GLOBSTAR) {
+            pp[i2 + 1] = "(?:\\/|" + twoStar + "\\/)?" + next;
+          } else {
+            pp[i2] = twoStar;
+          }
+        } else if (next === void 0) {
+          pp[i2 - 1] = prev + "(?:\\/|" + twoStar + ")?";
+        } else if (next !== GLOBSTAR) {
+          pp[i2 - 1] = prev + "(?:\\/|\\/" + twoStar + "\\/)" + next;
+          pp[i2 + 1] = GLOBSTAR;
+        }
+      });
+      return pp.filter((p) => p !== GLOBSTAR).join("/");
+    }).join("|");
+    const [open, close] = set.length > 1 ? ["(?:", ")"] : ["", ""];
+    re = "^" + open + re + close + "$";
+    if (this.negate)
+      re = "^(?!" + re + ").+$";
+    try {
+      this.regexp = new RegExp(re, [...flags].join(""));
+    } catch (ex) {
+      this.regexp = false;
+    }
+    return this.regexp;
+  }
+  slashSplit(p) {
+    if (this.preserveMultipleSlashes) {
+      return p.split("/");
+    } else if (this.isWindows && /^\/\/[^\/]+/.test(p)) {
+      return ["", ...p.split(/\/+/)];
+    } else {
+      return p.split(/\/+/);
+    }
+  }
+  match(f, partial = this.partial) {
+    this.debug("match", f, this.pattern);
+    if (this.comment) {
+      return false;
+    }
+    if (this.empty) {
+      return f === "";
+    }
+    if (f === "/" && partial) {
+      return true;
+    }
+    const options = this.options;
+    if (this.isWindows) {
+      f = f.split("\\").join("/");
+    }
+    const ff = this.slashSplit(f);
+    this.debug(this.pattern, "split", ff);
+    const set = this.set;
+    this.debug(this.pattern, "set", set);
+    let filename = ff[ff.length - 1];
+    if (!filename) {
+      for (let i2 = ff.length - 2; !filename && i2 >= 0; i2--) {
+        filename = ff[i2];
+      }
+    }
+    for (let i2 = 0; i2 < set.length; i2++) {
+      const pattern = set[i2];
+      let file = ff;
+      if (options.matchBase && pattern.length === 1) {
+        file = [filename];
+      }
+      const hit = this.matchOne(file, pattern, partial);
+      if (hit) {
+        if (options.flipNegate) {
+          return true;
+        }
+        return !this.negate;
+      }
+    }
+    if (options.flipNegate) {
+      return false;
+    }
+    return this.negate;
+  }
+  static defaults(def) {
+    return minimatch.defaults(def).Minimatch;
+  }
+};
+_Minimatch_instances = new WeakSet();
+matchGlobstar_fn = function(file, pattern, partial, fileIndex, patternIndex) {
+  const firstgs = pattern.indexOf(GLOBSTAR, patternIndex);
+  const lastgs = pattern.lastIndexOf(GLOBSTAR);
+  const [head, body, tail] = partial ? [
+    pattern.slice(patternIndex, firstgs),
+    pattern.slice(firstgs + 1),
+    []
+  ] : [
+    pattern.slice(patternIndex, firstgs),
+    pattern.slice(firstgs + 1, lastgs),
+    pattern.slice(lastgs + 1)
+  ];
+  if (head.length) {
+    const fileHead = file.slice(fileIndex, fileIndex + head.length);
+    if (!__privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, fileHead, head, partial, 0, 0))
+      return false;
+    fileIndex += head.length;
+  }
+  let fileTailMatch = 0;
+  if (tail.length) {
+    if (tail.length + fileIndex > file.length)
+      return false;
+    let tailStart = file.length - tail.length;
+    if (__privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file, tail, partial, tailStart, 0)) {
+      fileTailMatch = tail.length;
+    } else {
+      if (file[file.length - 1] !== "" || fileIndex + tail.length === file.length) {
+        return false;
+      }
+      tailStart--;
+      if (!__privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file, tail, partial, tailStart, 0))
+        return false;
+      fileTailMatch = tail.length + 1;
+    }
+  }
+  if (!body.length) {
+    let sawSome = !!fileTailMatch;
+    for (let i3 = fileIndex; i3 < file.length - fileTailMatch; i3++) {
+      const f = String(file[i3]);
+      sawSome = true;
+      if (f === "." || f === ".." || !this.options.dot && f.startsWith(".")) {
+        return false;
+      }
+    }
+    return partial || sawSome;
+  }
+  const bodySegments = [[[], 0]];
+  let currentBody = bodySegments[0];
+  let nonGsParts = 0;
+  const nonGsPartsSums = [0];
+  for (const b of body) {
+    if (b === GLOBSTAR) {
+      nonGsPartsSums.push(nonGsParts);
+      currentBody = [[], 0];
+      bodySegments.push(currentBody);
+    } else {
+      currentBody[0].push(b);
+      nonGsParts++;
+    }
+  }
+  let i2 = bodySegments.length - 1;
+  const fileLength = file.length - fileTailMatch;
+  for (const b of bodySegments) {
+    b[1] = fileLength - (nonGsPartsSums[i2--] + b[0].length);
+  }
+  return !!__privateMethod(this, _Minimatch_instances, matchGlobStarBodySections_fn).call(this, file, bodySegments, fileIndex, 0, partial, 0, !!fileTailMatch);
+};
+matchGlobStarBodySections_fn = function(file, bodySegments, fileIndex, bodyIndex, partial, globStarDepth, sawTail) {
+  const bs = bodySegments[bodyIndex];
+  if (!bs) {
+    for (let i2 = fileIndex; i2 < file.length; i2++) {
+      sawTail = true;
+      const f = file[i2];
+      if (f === "." || f === ".." || !this.options.dot && f.startsWith(".")) {
+        return false;
+      }
+    }
+    return sawTail;
+  }
+  const [body, after] = bs;
+  while (fileIndex <= after) {
+    const m = __privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file.slice(0, fileIndex + body.length), body, partial, fileIndex, 0);
+    if (m && globStarDepth < this.maxGlobstarRecursion) {
+      const sub = __privateMethod(this, _Minimatch_instances, matchGlobStarBodySections_fn).call(this, file, bodySegments, fileIndex + body.length, bodyIndex + 1, partial, globStarDepth + 1, sawTail);
+      if (sub !== false)
+        return sub;
+    }
+    const f = file[fileIndex];
+    if (f === "." || f === ".." || !this.options.dot && f.startsWith(".")) {
+      return false;
+    }
+    fileIndex++;
+  }
+  return partial || null;
+};
+matchOne_fn = function(file, pattern, partial, fileIndex, patternIndex) {
+  let fi;
+  let pi;
+  let pl;
+  let fl;
+  for (fi = fileIndex, pi = patternIndex, fl = file.length, pl = pattern.length; fi < fl && pi < pl; fi++, pi++) {
+    this.debug("matchOne loop");
+    let p = pattern[pi];
+    let f = file[fi];
+    this.debug(pattern, p, f);
+    if (p === false || p === GLOBSTAR)
+      return false;
+    let hit;
+    if (typeof p === "string") {
+      hit = f === p;
+      this.debug("string match", p, f, hit);
+    } else {
+      hit = p.test(f);
+      this.debug("pattern match", p, f, hit);
+    }
+    if (!hit)
+      return false;
+  }
+  if (fi === fl && pi === pl) {
+    return true;
+  } else if (fi === fl) {
+    return partial;
+  } else if (pi === pl) {
+    return fi === fl - 1 && file[fi] === "";
+  } else {
+    throw new Error("wtf?");
+  }
+};
+minimatch.AST = AST;
+minimatch.Minimatch = Minimatch;
+minimatch.escape = escape;
+minimatch.unescape = unescape;
+
+// src/utils/result.ts
+var result_exports = {};
+__export(result_exports, {
+  err: () => err,
+  map: () => map,
+  ok: () => ok,
+  unwrap: () => unwrap,
+  unwrapErr: () => unwrapErr
+});
+var ok = (value) => ({
+  isOk: true,
+  isErr: false,
+  value
+});
+var err = (value) => ({
+  isOk: false,
+  isErr: true,
+  value
+});
+function map(result, fn) {
+  if (result.isOk) {
+    const val = fn(result.value);
+    if (val instanceof Promise) {
+      return val.then((newVal) => ok(newVal));
+    } else {
+      return ok(val);
+    }
+  }
+  if (result.isErr) {
+    const value = result.value;
+    return err(value);
+  }
+  throw "should never get here";
+}
+var unwrap = (result) => {
+  if (result.isOk) {
+    return result.value;
+  } else {
+    throw result.value;
+  }
+};
+var unwrapErr = (result) => {
+  if (result.isErr) {
+    return result.value;
+  } else {
+    throw result.value;
+  }
+};
+
 // src/hydrate/platform/proxy-host-element.ts
 function proxyHostElement(elm, cstr) {
   const cmpMeta = cstr.cmpMeta;
+  cmpMeta.$watchers$ = cmpMeta.$watchers$ || cstr.watchers;
+  cmpMeta.$deserializers$ = cmpMeta.$deserializers$ || cstr.deserializers;
+  cmpMeta.$serializers$ = cmpMeta.$serializers$ || cstr.serializers;
   if (typeof elm.componentOnReady !== "function") {
     elm.componentOnReady = componentOnReady;
   }
@@ -2824,7 +4940,7 @@ function proxyHostElement(elm, cstr) {
     const hostRef = getHostRef(elm);
     const members = Object.entries(cmpMeta.$members$);
     members.forEach(([memberName, [memberFlags, metaAttributeName]]) => {
-      var _a;
+      var _a2, _b;
       if (memberFlags & 31 /* Prop */) {
         const attributeName = metaAttributeName || memberName;
         const attrValue = elm.getAttribute(attributeName);
@@ -2832,7 +4948,14 @@ function proxyHostElement(elm, cstr) {
         let attrPropVal;
         const { get: origGetter, set: origSetter } = Object.getOwnPropertyDescriptor(cstr.prototype, memberName) || {};
         if (attrValue != null) {
-          attrPropVal = parsePropertyValue(attrValue, memberFlags, !!(cmpMeta.$flags$ & 64 /* formAssociated */));
+          if ((_a2 = cmpMeta.$deserializers$) == null ? void 0 : _a2[memberName]) {
+            for (const deserializer of cmpMeta.$deserializers$[memberName]) {
+              const [[methodName]] = Object.entries(deserializer);
+              attrPropVal = cstr.prototype[methodName](attrValue, memberName);
+            }
+          } else {
+            attrPropVal = parsePropertyValue(attrValue, memberFlags, !!(cmpMeta.$flags$ & 64 /* formAssociated */));
+          }
         }
         if (propValue !== void 0) {
           attrPropVal = propValue;
@@ -2843,7 +4966,7 @@ function proxyHostElement(elm, cstr) {
             origSetter.apply(elm, [attrPropVal]);
             attrPropVal = origGetter ? origGetter.apply(elm) : attrPropVal;
           }
-          (_a = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _a.set(memberName, attrPropVal);
+          (_b = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _b.set(memberName, attrPropVal);
         }
         const getterSetterDescriptor = {
           get: function() {
@@ -2857,29 +4980,26 @@ function proxyHostElement(elm, cstr) {
         };
         Object.defineProperty(elm, memberName, getterSetterDescriptor);
         Object.defineProperty(elm, metaAttributeName, getterSetterDescriptor);
-        if (!cstr.prototype.__stencilAugmented) {
-          Object.defineProperty(cstr.prototype, memberName, {
-            get: function() {
-              var _a2;
-              const ref = getHostRef(this);
-              const attrPropVal2 = (_a2 = ref.$instanceValues$) == null ? void 0 : _a2.get(memberName);
-              if (origGetter && attrPropVal2 === void 0 && !getValue(this, memberName)) {
-                setValue(this, memberName, origGetter.apply(this), cmpMeta);
-              }
-              return attrPropVal2 !== void 0 ? attrPropVal2 : origGetter ? origGetter.apply(this) : getValue(this, memberName);
-            },
-            configurable: true,
-            enumerable: true
-          });
-        }
+        hostRef.$fetchedCbList$.push(() => {
+          var _a3;
+          if (!((_a3 = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _a3.has(memberName))) {
+            setValue(
+              elm,
+              memberName,
+              attrPropVal !== void 0 ? attrPropVal : hostRef.$lazyInstance$[memberName],
+              cmpMeta
+            );
+          }
+          Object.defineProperty(hostRef.$lazyInstance$, memberName, getterSetterDescriptor);
+        });
       } else if (memberFlags & 64 /* Method */) {
         Object.defineProperty(elm, memberName, {
           value(...args) {
-            var _a2;
+            var _a3;
             const ref = getHostRef(this);
-            return (_a2 = ref == null ? void 0 : ref.$onInstancePromise$) == null ? void 0 : _a2.then(() => {
-              var _a3;
-              return (_a3 = ref == null ? void 0 : ref.$lazyInstance$) == null ? void 0 : _a3[memberName](...args);
+            return (_a3 = ref == null ? void 0 : ref.$onInstancePromise$) == null ? void 0 : _a3.then(() => {
+              var _a4;
+              return (_a4 = ref == null ? void 0 : ref.$lazyInstance$) == null ? void 0 : _a4[memberName](...args);
             }).catch((e) => {
               consoleError(e, this);
             });
@@ -2887,12 +5007,11 @@ function proxyHostElement(elm, cstr) {
         });
       }
     });
-    cstr.prototype.__stencilAugmented = true;
   }
 }
 function componentOnReady() {
-  var _a;
-  return (_a = getHostRef(this)) == null ? void 0 : _a.$onReadyPromise$;
+  var _a2;
+  return (_a2 = getHostRef(this)) == null ? void 0 : _a2.$onReadyPromise$;
 }
 function forceUpdate2() {
 }
@@ -3013,13 +5132,16 @@ async function hydrateComponent(win2, results, tagName, elm, waitingElements) {
     if (cmpMeta != null) {
       waitingElements.add(elm);
       const hostRef = getHostRef(this);
+      if (!hostRef) {
+        return;
+      }
       addHostEventListeners(this, hostRef, cmpMeta.$listeners$);
       try {
         connectedCallback(elm);
         await elm.componentOnReady();
         results.hydratedCount++;
         const ref = getHostRef(elm);
-        const modeName = !ref.$modeName$ ? "$" : ref.$modeName$;
+        const modeName = !(ref == null ? void 0 : ref.$modeName$) ? "$" : ref == null ? void 0 : ref.$modeName$;
         if (!results.components.some((c) => c.tag === tagName && c.mode === modeName)) {
           results.components.push({
             tag: tagName,
@@ -3195,9 +5317,15 @@ var isMemberInElement = (elm, memberName) => {
 var registerComponents = (Cstrs) => {
   for (const Cstr of Cstrs) {
     const exportName = Cstr.cmpMeta.$tagName$;
+    const transformedTagName = $stencilTagTransform.transformTag(exportName);
     cmpModules.set(exportName, {
       [exportName]: Cstr
     });
+    if (transformedTagName !== exportName) {
+      cmpModules.set(transformedTagName, {
+        [transformedTagName]: Cstr
+      });
+    }
   }
 };
 var win = window;
@@ -3234,8 +5362,12 @@ var getHostRef = (ref) => {
   return void 0;
 };
 var registerInstance = (lazyInstance, hostRef) => {
+  if (!hostRef) return void 0;
   lazyInstance.__stencil__getHostRef = () => hostRef;
   hostRef.$lazyInstance$ = lazyInstance;
+  if (hostRef.$cmpMeta$.$flags$ & 512 /* hasModernPropertyDecls */ && (BUILD.state)) {
+    reWireGetterSetter(lazyInstance, hostRef);
+  }
   return hostRef;
 };
 var registerHost = (elm, cmpMeta) => {
@@ -3244,8 +5376,10 @@ var registerHost = (elm, cmpMeta) => {
     $cmpMeta$: cmpMeta,
     $hostElement$: elm,
     $instanceValues$: /* @__PURE__ */ new Map(),
+    $serializerValues$: /* @__PURE__ */ new Map(),
     $renderCount$: 0
   };
+  hostRef.$fetchedCbList$ = [];
   hostRef.$onInstancePromise$ = new Promise((r) => hostRef.$onInstanceResolve$ = r);
   hostRef.$onReadyPromise$ = new Promise((r) => hostRef.$onReadyResolve$ = r);
   elm["s-p"] = [];
@@ -3260,45 +5394,94 @@ var setScopedSSR = (opts) => {
 var needsScopedSSR = () => scopedSSR;
 var scopedSSR = false;
 
-const I18N$r = {
-  en: {
-    valueMissing: 'Enter information to continue.',
-    typeMismatch: {
-      email:
-        'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
-      url: 'Enter a URL in the specified format to continue.',
+/**
+ * Centralized validation error messages.
+ *
+ * Single source of truth for all validation error messages used
+ * across components
+ *
+ * Messages are grouped by language (`en`, `fr`) at the top level. For
+ * keys that expose multiple message variants (e.g. `typeMismatch`,
+ * `dateInput`), the value is a nested object keyed by variant.
+ *
+ * To add or update a validation message, edit it here and reference it
+ * from the validators / utilities rather than hard-coding strings.
+ */
+const validationErrors = {
+    en: {
+        valueMissing: 'Enter information to continue.',
+        typeMismatch: {
+            email: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
+            url: 'Enter a URL in the specified format to continue.',
+        },
+        patternMismatch: 'Use the specified format to continue.',
+        tooLong: "Enter {max} characters or less to continue. You've entered {current} characters.",
+        tooShort: "Enter at least {min} characters to continue. You've entered {current} characters.",
+        rangeUnderflow: "Enter a number that's {min} or more to continue.",
+        rangeOverflow: "Enter a number that's {max} or less to continue.",
+        stepMismatch: 'Enter a number from the specified options to continue. The closest numbers to what you entered are {lower} and {upper}. ',
+        badInput: 'Enter a number to continue.',
+        required: 'Enter information to continue.',
+        requiredEmail: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
+        requiredFile: 'You must upload a file to continue.',
+        requiredSelect: 'Choose an option to continue.',
+        requiredRadio: 'Choose an option to continue.',
+        requiredCheckboxGroup: 'Choose an option to continue.',
+        requiredCheckboxSingle: 'You must check the box to continue.',
+        dateInput: {
+            all: 'Enter the date.',
+            missingmonthinput: 'Enter the month.',
+            missingmonth: 'Select the month.',
+            missingyear: 'Enter the year.',
+            missingday: 'Enter the day.',
+            missingmonthday: 'Select the month and enter the day.',
+            missingmonthyear: 'Select the month and enter the year.',
+            missingmonthinputday: 'Enter the month and day.',
+            missingmonthinputyear: 'Enter the year and month.',
+            missingdayyear: 'Enter the day and year.',
+            invalidyearlength: 'Year must be 4 digits.',
+            invalidyear: 'Enter a valid year.',
+            invalidmonth: 'Enter a valid month.',
+            invalidday: 'Enter a valid day.',
+        },
     },
-    patternMismatch: 'Use the specified format to continue.',
-    tooLong:
-      "Enter {max} characters or less to continue. You've entered {current} characters.",
-    tooShort:
-      "Enter at least {min} characters to continue. You've entered {current} characters.",
-    rangeUnderflow: "Enter a number that's {min} or more to continue.",
-    rangeOverflow: "Enter a number that's {max} or less to continue.",
-    stepMismatch:
-      'Enter a number from the specified options to continue. The closest numbers to what you entered are {lower} and {upper}. ',
-    badInput: 'Enter a number to continue.',
-  },
-  fr: {
-    valueMissing: 'Saisissez des renseignements pour continuer.',
-    typeMismatch: {
-      email:
-        'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
-      url: 'Entrez une adresse Web en utilisant le format spécifié pour continuer.',
+    fr: {
+        valueMissing: 'Saisissez des renseignements pour continuer.',
+        typeMismatch: {
+            email: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+            url: 'Entrez une adresse Web en utilisant le format spécifié pour continuer.',
+        },
+        patternMismatch: 'Utilisez le format spécifié pour continuer.',
+        tooLong: 'Entrez {max} caractères ou moins pour continuer. Vous en avez présentement {current}.',
+        tooShort: 'Entrez au moins {min} caractères pour continuer. Vous en avez présentement {current}.',
+        rangeUnderflow: 'Entrez un nombre plus grand ou égal à {min} pour continuer.',
+        rangeOverflow: 'Entrez un nombre plus petit ou égal à {max} pour continuer.',
+        stepMismatch: 'Entrez un nombre parmi les options spécifiées pour continuer. Les nombres les plus proches de votre entrée sont {lower} et {upper}.',
+        badInput: 'Entrez un nombre pour continuer.',
+        required: 'Saisissez des renseignements pour continuer.',
+        requiredEmail: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+        requiredFile: 'Vous devez téléverser un fichier pour continuer.',
+        requiredSelect: 'Choisissez une option pour continuer.',
+        requiredRadio: 'Choisissez une option pour continuer.',
+        requiredCheckboxGroup: 'Choisissez une option pour continuer.',
+        requiredCheckboxSingle: 'Vous devez cocher la case pour continuer.',
+        dateInput: {
+            all: 'Saisissez la date.',
+            missingmonthinput: 'Saisissez le mois.',
+            missingmonth: 'Sélectionnez un mois.',
+            missingyear: "Saisissez l'année.",
+            missingday: 'Saisissez le jour.',
+            missingmonthday: 'Saisissez le jour et sélectionnez un mois.',
+            missingmonthyear: "Sélectionnez un mois et saisissez l'année.",
+            missingmonthinputday: 'Saisissez le mois et le jour.',
+            missingmonthinputyear: "Saisissez l'année et le mois.",
+            missingdayyear: "Saisissez le jour et l'année.",
+            invalidyearlength: "L'année doit inclure 4 chiffres.",
+            invalidyear: 'Entrez une année valide.',
+            invalidmonth: 'Saisissez un mois valide.',
+            invalidday: 'Saisissez un jour valide.',
+        },
     },
-    patternMismatch: 'Utilisez le format spécifié pour continuer.',
-    tooLong:
-      'Entrez {max} caractères ou moins pour continuer. Vous en avez présentement {current}.',
-    tooShort:
-      'Entrez au moins {min} caractères pour continuer. Vous en avez présentement {current}.',
-    rangeUnderflow:
-      'Entrez un nombre plus grand ou égal à {min} pour continuer.',
-    rangeOverflow:
-      'Entrez un nombre plus petit ou égal à {max} pour continuer.',
-    stepMismatch:
-      'Entrez un nombre parmi les options spécifiées pour continuer. Les nombres les plus proches de votre entrée sont {lower} et {upper}.',
-    badInput: 'Entrez un nombre pour continuer.',
-  },
 };
 
 const inheritAttributes = (el, shadowElement, attributes = []) => {
@@ -3504,35 +5687,40 @@ function handleValidationResult(element, validationResult, label, errorEv, valid
 function formatHTMLErrorMessage(error, lang, el) {
     switch (error) {
         case 'valueMissing':
-            return I18N$r[lang][error];
+            return validationErrors[lang][error];
         case 'typeMismatch':
             if (el.type === 'url' || el.type === 'email') {
-                return I18N$r[lang][error][el.type];
+                return validationErrors[lang][error][el.type];
             }
             else {
-                return I18N$r[lang][error];
+                return validationErrors[lang][error];
             }
         case 'tooLong':
-            return I18N$r[lang][error]
+            return validationErrors[lang][error]
                 .replace('{max}', el.maxlength || el.characterCount)
                 .replace('{current}', el.value.length);
         case 'tooShort':
-            return I18N$r[lang][error]
+            return validationErrors[lang][error]
                 .replace('{min}', el.minlength)
                 .replace('{current}', el.value.length);
         case 'rangeUnderflow':
-            return I18N$r[lang][error].replace('{min}', el.min);
+            return validationErrors[lang][error].replace('{min}', el.min);
         case 'rangeOverflow':
-            return I18N$r[lang][error].replace('{max}', el.max);
+            return validationErrors[lang][error].replace('{max}', el.max);
         case 'stepMismatch':
-            return I18N$r[lang][error]
-                .replace('{lower}', Math.floor(Number(el.value) / Number(el.step)) * Number(el.step))
-                .replace('{upper}', Math.floor(Number(el.value) / Number(el.step)) * Number(el.step) +
-                Number(el.step));
+            const value = Number(el.value);
+            const step = el.step === 'any' ? 0 : Number(el.step || 1);
+            const base = el.min !== undefined && el.min !== null ? Number(el.min) : 0;
+            const offset = (value - base) / step;
+            const lower = base + Math.floor(offset) * step;
+            const upper = base + Math.ceil(offset) * step;
+            return validationErrors[lang][error]
+                .replace('{lower}', lower)
+                .replace('{upper}', upper);
         case 'badInput':
         case 'patternMismatch':
         default:
-            return I18N$r[lang][error];
+            return validationErrors[lang][error];
     }
 }
 /**
@@ -3560,7 +5748,7 @@ function validateRadioCheckboxGroup(elements) {
     }
 }
 
-const I18N$q = {
+const I18N$r = {
   en: {
     label: {
       danger: 'This is a critical alert.',
@@ -3581,7 +5769,7 @@ const I18N$q = {
   },
 };
 
-const gcdsAlertCss = "@layer reset, default, fixed, role, wide, compact, hover, focus;@layer reset{:host{display:block}:host .gcds-alert{box-sizing:border-box;text-align:left}:host .gcds-alert .alert__close-btn{box-sizing:border-box;cursor:pointer;padding:0}:host .gcds-alert slot{display:initial}}@layer default{:host .gcds-alert{border-inline-start:var(--gcds-alert-border-width) solid transparent;color:var(--gcds-alert-text);container:component alert/inline-size;font:var(--gcds-alert-font);padding:var(--gcds-alert-padding)}:host .gcds-alert .alert__content{flex:1 1 auto}:host .gcds-alert .alert__content .alert__heading{font:var(--gcds-alert-content-heading-font);margin:var(--gcds-alert-content-heading-margin)}:host .gcds-alert .alert__content ::slotted(*){margin-block-start:0}:host .gcds-alert .alert__content ::slotted(:last-child){margin-block-end:0}:host .gcds-alert .alert__content ::slotted(:not(:last-child)){margin-block-end:var(--gcds-alert-content-slotted-margin)}:host .gcds-alert .alert__content ::slotted(ol),:host .gcds-alert .alert__content ::slotted(ul){margin-inline-start:var(--gcds-alert-content-slotted-list-margin);padding:0}:host .gcds-alert .alert__close-btn{background-color:var(--gcds-alert-button-default-background);border:var(--gcds-alert-button-border-width) solid transparent;border-radius:var(--gcds-alert-button-border-radius);color:var(--gcds-alert-button-default-text);margin:var(--gcds-alert-button-margin);transition:all .15s ease-in-out}:host .gcds-alert .alert__close-btn gcds-icon{align-items:center;display:flex;height:var(--gcds-alert-button-icon-width-and-height);justify-content:center;padding:var(--gcds-alert-button-icon-padding);width:var(--gcds-alert-button-icon-width-and-height)}}@layer fixed{:host .gcds-alert.alert--is-fixed{border:0;position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-alert.alert--role-danger{background-color:var(--gcds-alert-danger-background);border-color:var(--gcds-alert-danger-icon);color:var(--gcds-alert-danger-text)}:host .gcds-alert.alert--role-danger .alert__icon{color:var(--gcds-alert-danger-icon)}:host .gcds-alert.alert--role-info{background-color:var(--gcds-alert-info-background);border-color:var(--gcds-alert-info-icon);color:var(--gcds-alert-info-text)}:host .gcds-alert.alert--role-info .alert__icon{color:var(--gcds-alert-info-icon)}:host .gcds-alert.alert--role-success{background-color:var(--gcds-alert-success-background);border-color:var(--gcds-alert-success-icon);color:var(--gcds-alert-success-text)}:host .gcds-alert.alert--role-success .alert__icon{color:var(--gcds-alert-success-icon)}:host .gcds-alert.alert--role-warning{background-color:var(--gcds-alert-warning-background);border-color:var(--gcds-alert-warning-icon);color:var(--gcds-alert-warning-text)}:host .gcds-alert.alert--role-warning .alert__icon{color:var(--gcds-alert-warning-icon)}}@layer wide{@container alert (width >= 36em){:host .gcds-alert .alert__container{align-items:flex-start;display:flex}}}@layer compact{@container alert (width < 36em){:host .gcds-alert .alert__icon{margin:var(--gcds-alert-icon-mobile-margin)}:host .gcds-alert .alert__heading{margin:var(--gcds-alert-content-heading-mobile-margin)}:host .gcds-alert .alert__close-btn{margin:var(--gcds-alert-button-mobile-margin)}}}@layer hover{:is(:host .gcds-alert .alert__close-btn:active,:host .gcds-alert .alert__close-btn:hover){border-color:currentColor}}@layer focus{:host .gcds-alert .alert__close-btn:focus{background-color:var(--gcds-alert-button-focus-background);border-color:var(--gcds-alert-button-focus-background);box-shadow:0 0 0 var(--gcds-alert-button-border-width) var(--gcds-alert-button-focus-text);color:var(--gcds-alert-button-focus-text);outline:var(--gcds-alert-button-outline-width) solid var(--gcds-alert-button-focus-background);outline-offset:var(--gcds-alert-button-border-width)}}";
+const gcdsAlertCss = () => `@layer reset, default, fixed, role, wide, compact, hover, focus;@layer reset{:host{display:block}:host .gcds-alert{box-sizing:border-box;text-align:left}:host .gcds-alert .alert__close-btn{box-sizing:border-box;cursor:pointer;padding:0}:host .gcds-alert slot{display:initial}}@layer default{:host .gcds-alert{border-inline-start:var(--gcds-alert-border-width) solid transparent;color:var(--gcds-alert-text);container:component alert/inline-size;font:var(--gcds-alert-font);padding:var(--gcds-alert-padding)}:host .gcds-alert .alert__content{flex:1 1 auto}:host .gcds-alert .alert__content .alert__heading{font:var(--gcds-alert-content-heading-font);margin:var(--gcds-alert-content-heading-margin)}:host .gcds-alert .alert__content ::slotted(*){margin-block-start:0}:host .gcds-alert .alert__content ::slotted(:last-child){margin-block-end:0}:host .gcds-alert .alert__content ::slotted(:not(:last-child)){margin-block-end:var(--gcds-alert-content-slotted-margin)}:host .gcds-alert .alert__content ::slotted(ol),:host .gcds-alert .alert__content ::slotted(ul){margin-inline-start:var(--gcds-alert-content-slotted-list-margin);padding:0}:host .gcds-alert .alert__close-btn{background-color:var(--gcds-alert-button-default-background);border:var(--gcds-alert-button-border-width) solid transparent;border-radius:var(--gcds-alert-button-border-radius);color:var(--gcds-alert-button-default-text);margin:var(--gcds-alert-button-margin);transition:all .15s ease-in-out}:host .gcds-alert .alert__close-btn gcds-icon{align-items:center;display:flex;height:var(--gcds-alert-button-icon-width-and-height);justify-content:center;padding:var(--gcds-alert-button-icon-padding);width:var(--gcds-alert-button-icon-width-and-height)}}@layer fixed{:host .gcds-alert.alert--is-fixed{border:0;position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-alert.alert--role-danger{background-color:var(--gcds-alert-danger-background);border-color:var(--gcds-alert-danger-icon);color:var(--gcds-alert-danger-text)}:host .gcds-alert.alert--role-danger .alert__icon{color:var(--gcds-alert-danger-icon)}:host .gcds-alert.alert--role-info{background-color:var(--gcds-alert-info-background);border-color:var(--gcds-alert-info-icon);color:var(--gcds-alert-info-text)}:host .gcds-alert.alert--role-info .alert__icon{color:var(--gcds-alert-info-icon)}:host .gcds-alert.alert--role-success{background-color:var(--gcds-alert-success-background);border-color:var(--gcds-alert-success-icon);color:var(--gcds-alert-success-text)}:host .gcds-alert.alert--role-success .alert__icon{color:var(--gcds-alert-success-icon)}:host .gcds-alert.alert--role-warning{background-color:var(--gcds-alert-warning-background);border-color:var(--gcds-alert-warning-icon);color:var(--gcds-alert-warning-text)}:host .gcds-alert.alert--role-warning .alert__icon{color:var(--gcds-alert-warning-icon)}}@layer wide{@container alert (width >= 36em){:host .gcds-alert .alert__container{align-items:flex-start;display:flex}}}@layer compact{@container alert (width < 36em){:host .gcds-alert .alert__icon{margin:var(--gcds-alert-icon-mobile-margin)}:host .gcds-alert .alert__heading{margin:var(--gcds-alert-content-heading-mobile-margin)}:host .gcds-alert .alert__close-btn{margin:var(--gcds-alert-button-mobile-margin)}}}@layer hover{:is(:host .gcds-alert .alert__close-btn:active,:host .gcds-alert .alert__close-btn:hover){border-color:currentColor}}@layer focus{:host .gcds-alert .alert__close-btn:focus{background-color:var(--gcds-alert-button-focus-background);border-color:var(--gcds-alert-button-focus-background);box-shadow:0 0 0 var(--gcds-alert-button-border-width) var(--gcds-alert-button-focus-text);color:var(--gcds-alert-button-focus-text);outline:var(--gcds-alert-button-outline-width) solid var(--gcds-alert-button-focus-background);outline-offset:var(--gcds-alert-button-border-width)}}`;
 
 /**
  * Alert displays an alert message with an optional heading, icon, and close button.
@@ -3641,15 +5829,15 @@ class GcdsAlert {
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (hAsync(Host, { key: '9ca55e2b6562e7dfda9e367b21b5d2aa3bbe37d7' }, isOpen ? (hAsync("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
-                ? I18N$q[lang].label.danger
+        return (hAsync(Host, { key: '196150e847d3cea200cdb167c2cd2fee5cb2cea5' }, isOpen ? (hAsync("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+                ? I18N$r[lang].label.danger
                 : alertRole === 'info'
-                    ? I18N$q[lang].label.info
+                    ? I18N$r[lang].label.info
                     : alertRole === 'success'
-                        ? I18N$q[lang].label.success
+                        ? I18N$r[lang].label.success
                         : alertRole === 'warning'
-                            ? I18N$q[lang].label.warning
-                            : null }, hAsync("gcds-container", { size: isFixed ? container : 'full', alignment: "center" }, hAsync("div", { class: "alert__container" }, !hideRoleIcon && (hAsync("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
+                            ? I18N$r[lang].label.warning
+                            : null }, hAsync("gcds-container", { size: isFixed ? container : 'full', alignment: "center" }, hAsync("div", { class: "alert__container" }, !hideRoleIcon && (hAsync("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: (alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
                     ? 'info-circle'
@@ -3657,17 +5845,17 @@ class GcdsAlert {
                         ? 'checkmark-circle'
                         : alertRole === 'warning'
                             ? 'warning-triangle'
-                            : null })), hAsync("div", { class: "alert__content" }, hAsync("p", { class: "alert__heading" }, hAsync("strong", null, heading)), hAsync("slot", null)), !hideCloseBtn && (hAsync("button", { class: "alert__close-btn", onClick: e => {
+                            : undefined) })), hAsync("div", { class: "alert__content" }, hAsync("p", { class: "alert__heading" }, hAsync("strong", null, heading)), hAsync("slot", null)), !hideCloseBtn && (hAsync("button", { class: "alert__close-btn", onClick: e => {
                 const event = emitEvent(e, this.gcdsDismiss);
                 if (event) {
                     this.isOpen = false;
                 }
-            }, "aria-label": I18N$q[lang].closeBtn }, hAsync("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
+            }, "aria-label": I18N$r[lang].closeBtn }, hAsync("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsAlertCss; }
+    static get style() { return gcdsAlertCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-alert",
         "$members$": {
             "alertRole": [1, "alert-role"],
@@ -3685,7 +5873,7 @@ class GcdsAlert {
     }; }
 }
 
-const I18N$p = {
+const I18N$q = {
   en: {
     label: 'Breadcrumb',
     link: 'https://www.canada.ca/en.html',
@@ -3696,7 +5884,7 @@ const I18N$p = {
   },
 };
 
-const gcdsBreadcrumbsCss = "@layer reset, default;@layer reset{:host{display:block}:host .gcds-breadcrumbs ol{list-style:none;overflow-x:hidden}}@layer default{:host .gcds-breadcrumbs ol{margin:var(--gcds-breadcrumbs-margin);padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child):before{display:none}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}}";
+const gcdsBreadcrumbsCss = () => `@layer reset,default;@layer reset{:host{display:block}:host .gcds-breadcrumbs ol{list-style:none;overflow-x:hidden}}@layer default{:host .gcds-breadcrumbs ol{margin:var(--gcds-breadcrumbs-margin);padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child):before{display:none}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}}`;
 
 /**
  * Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.
@@ -3732,12 +5920,12 @@ class GcdsBreadcrumbs {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (hAsync(Host, { key: '03039bf66fd3e4f7939818708e4b2e3eecb9ea16' }, hAsync("nav", { key: 'a544a335b8a3308bac153517792c2ff9b24cc436', "aria-label": I18N$p[lang].label, class: "gcds-breadcrumbs" }, hAsync("ol", { key: 'f4daf2765861e5b362e50c5197e34457c2088aa4', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (hAsync("gcds-breadcrumbs-item", { href: I18N$p[lang].link }, "Canada.ca")) : null, hAsync("slot", { key: '0001a34312ea97c7e9c4f41f656051482184142e' })))));
+        return (hAsync(Host, { key: 'f0eefe430929add48ae1206e8d6df0e3d04ceb65' }, hAsync("nav", { key: '6080bc827624fe8711ced9bd3b53defda780be6f', "aria-label": I18N$q[lang].label, class: "gcds-breadcrumbs" }, hAsync("ol", { key: '734f991a4ede7c602d744d2b40dd92da2d419faf', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (hAsync("gcds-breadcrumbs-item", { href: I18N$q[lang].link }, "Canada.ca")) : null, hAsync("slot", { key: '7204e441446c6640b0530a98ac1439c4d1185b35' })))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsBreadcrumbsCss; }
+    static get style() { return gcdsBreadcrumbsCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-breadcrumbs",
         "$members$": {
             "hideCanadaLink": [4, "hide-canada-link"],
@@ -3749,7 +5937,7 @@ class GcdsBreadcrumbs {
     }; }
 }
 
-const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset{:host(.gcds-breadcrumbs-item){display:inline-block}:host(.gcds-breadcrumbs-item) gcds-link::part(link){display:inline-block;white-space:normal}:host(.gcds-breadcrumbs-item) slot{display:block}}@layer default{:host(.gcds-breadcrumbs-item){margin:var(--gcds-breadcrumbs-item-margin)!important}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}:host(.gcds-breadcrumbs-item) gcds-link::part(link){font:var(--gcds-breadcrumbs-item-font)}}";
+const gcdsBreadcrumbsItemCss = () => `@layer reset,default,hover,focus;@layer reset{:host(.gcds-breadcrumbs-item){display:inline-block}:host(.gcds-breadcrumbs-item) gcds-link::part(link){display:inline-block;white-space:normal}:host(.gcds-breadcrumbs-item) slot{display:block}}@layer default{:host(.gcds-breadcrumbs-item){margin:var(--gcds-breadcrumbs-item-margin)!important}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="12" viewBox="0 0 8 14"><path fill="26374a" d="M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}:host(.gcds-breadcrumbs-item) gcds-link::part(link){font:var(--gcds-breadcrumbs-item-font)}}`;
 
 /**
  * Breadcrumbs item represents a single link in the breadcrumbs navigation.
@@ -3765,12 +5953,12 @@ class GcdsBreadcrumbsItem {
     }
     render() {
         const { href } = this;
-        return (hAsync(Host, { key: '95b1e4dcb1f26c4bbecaed7084c46f7440a939c9', role: "listitem", class: "gcds-breadcrumbs-item" }, hAsync("gcds-link", { key: 'c60332192cfe17f487017acbd89a49adbc288e19', size: "regular", href: href }, hAsync("slot", { key: '34993248082e9a129d2753695db93a7b5ac771f1' }))));
+        return (hAsync(Host, { key: '682b212a6c22f60f5949b2664f5ace5bc172c3cf', role: "listitem", class: "gcds-breadcrumbs-item" }, hAsync("gcds-link", { key: '00a6c00e78201987c9df9c1072547dc6465f29b1', size: "regular", href: href }, hAsync("slot", { key: '6ea92ac89f08c8c9f64e727e92d4d68a60f9a2ba' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsBreadcrumbsItemCss; }
+    static get style() { return gcdsBreadcrumbsItemCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-breadcrumbs-item",
         "$members$": {
             "href": [1]
@@ -3781,7 +5969,7 @@ class GcdsBreadcrumbsItem {
     }; }
 }
 
-const I18N$o = {
+const I18N$p = {
   en: {
     label: 'Opens in a new tab.',
   },
@@ -3790,7 +5978,7 @@ const I18N$o = {
   },
 };
 
-const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);display:inline-block;font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);text-align:center;text-wrap:balance;transition:all .15s ease-in-out;width:var(--gcds-button-width)}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font-desktop);padding:var(--gcds-button-small-padding)}@media only screen and (width < 48em){:host .gcds-button.button--small{font:var(--gcds-button-small-font-mobile)}}}@layer disabled{:host([disabled]){pointer-events:none}:host([disabled]) .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background);color:var(--gcds-button-shared-active-text)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
+const gcdsButtonCss = () => `@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);display:inline-block;font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);text-align:center;text-wrap:balance;transition:all .15s ease-in-out;width:var(--gcds-button-width)}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font-desktop);padding:var(--gcds-button-small-padding)}@media only screen and (width < 48em){:host .gcds-button.button--small{font:var(--gcds-button-small-font-mobile)}}}@layer disabled{:host([disabled]){pointer-events:none}:host([disabled]) .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background);color:var(--gcds-button-shared-active-text)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}`;
 
 /**
  * The button is an interactive object that emphasizes an action.
@@ -3920,19 +6108,27 @@ class GcdsButton {
                 target,
                 download,
             };
-        return (hAsync(Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, hAsync(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$o[lang].label, "margin-left": "150" })) : null)));
+        return (hAsync(Host, { key: 'f66acbffcd0a9ad259e72475e8899ea3cd03c171' }, hAsync(Tag, Object.assign({ key: '9a133537992501c37c98b393c0238c252d5bb3b7' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: '6182e46131e20271386f52fd53e95490876fbb55' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$p[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "type": ["validateType"],
-        "buttonRole": ["validateButtonRole"],
-        "size": ["validateSize"],
-        "disabled": ["validateDisabled"]
+        "type": [{
+                "validateType": 0
+            }],
+        "buttonRole": [{
+                "validateButtonRole": 0
+            }],
+        "size": [{
+                "validateSize": 0
+            }],
+        "disabled": [{
+                "validateDisabled": 0
+            }]
     }; }
-    static get style() { return gcdsButtonCss; }
+    static get style() { return gcdsButtonCss(); }
     static get cmpMeta() { return {
-        "$flags$": 25,
+        "$flags$": 281,
         "$tagName$": "gcds-button",
         "$members$": {
             "type": [1025],
@@ -3955,7 +6151,7 @@ class GcdsButton {
     }; }
 }
 
-const I18N$n = {
+const I18N$o = {
   en: {
     tagged: 'Tagged:',
     badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
@@ -3966,7 +6162,7 @@ const I18N$n = {
   },
 };
 
-const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);border:var(--gcds-card-border);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;text-wrap:nowrap;top:0}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{display:block;margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}:host .gcds-card .gcds-card__description>*{position:relative;z-index:1}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
+const gcdsCardCss = () => `@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);border:var(--gcds-card-border);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;text-wrap:nowrap;top:0}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{display:block;margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}:host .gcds-card .gcds-card__description>*{position:relative;z-index:1}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:"";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}`;
 
 /**
  * A card is a box containing structured, actionable content on a single topic.
@@ -4003,7 +6199,7 @@ class GcdsCard {
     }
     validateBadge() {
         if (this.badge && this.badge.length > 20) {
-            console.error(`${I18N$n['en'].badgeError} | ${I18N$n['fr'].badgeError}`);
+            console.error(`${I18N$o['en'].badgeError} | ${I18N$o['fr'].badgeError}`);
             this.errors.push('badge');
         }
         else if (this.errors.includes('badge')) {
@@ -4061,18 +6257,24 @@ class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: 'dd00869ab8d4fb7fd9abf68b0432899a475cedf8' }, hAsync("div", { key: '8f57992a1de761c5510f037b2a8136459f07b14d', class: "gcds-card" }, badge && !errors.includes('badge') && (hAsync("gcds-text", { key: '42c7fc2a3c8b69d1cc454adb9ca1767fc9986566', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, hAsync("strong", { key: '32c13a05860a19a0a43ea995f645507604d9452c' }, hAsync("gcds-sr-only", { key: '2e47faade10e8138cbca10994293d9cd23c573a5', tag: "span" }, I18N$n[lang].tagged), badge))), imgSrc && (hAsync("img", { key: '6ccf1faa6faf20a9991e5374fef4ce96b71532ae', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
+            return (hAsync(Host, { key: '902ab3fc2b4d1a491d2f2909de5e37a423eb23f2' }, hAsync("div", { key: '031a4590ddc8a53a23ed4fe0038d5d24fc97ed17', class: "gcds-card" }, badge && !errors.includes('badge') && (hAsync("gcds-text", { key: '4e88651121d4bbfcd79352402d8557ad72997bad', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, hAsync("strong", { key: '1a588e4fda30fc3831bc01946619ccb4a8b75fc9' }, hAsync("gcds-sr-only", { key: 'e59a94f22d1ca8b191e09518c00c2ffe5923eab2', tag: "span" }, I18N$o[lang].tagged), badge))), imgSrc && (hAsync("img", { key: '5cafcc07dde740da62f2aedb007bb11942728256', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "cardTitle": ["validateCardTitle"],
-        "href": ["validateHref"],
-        "badge": ["validateBadge"]
+        "cardTitle": [{
+                "validateCardTitle": 0
+            }],
+        "href": [{
+                "validateHref": 0
+            }],
+        "badge": [{
+                "validateBadge": 0
+            }]
     }; }
-    static get style() { return gcdsCardCss; }
+    static get style() { return gcdsCardCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-card",
         "$members$": {
             "cardTitle": [513, "card-title"],
@@ -4257,8 +6459,8 @@ const requiredField = {
         return {
             valid: value != null && value.trim() != '',
             reason: {
-                en: 'Enter information to continue.',
-                fr: 'Saisissez des renseignements pour continuer.',
+                en: validationErrors.en.required,
+                fr: validationErrors.fr.required,
             },
         };
     },
@@ -4270,8 +6472,8 @@ const requiredEmailField = {
                 value.trim() != '' &&
                 (value.toLowerCase().match(emailPattern) ? true : false),
             reason: {
-                en: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
-                fr: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+                en: validationErrors.en.requiredEmail,
+                fr: validationErrors.fr.requiredEmail,
             },
         };
     },
@@ -4281,8 +6483,8 @@ const requiredFileInput = {
         return {
             valid: value.length > 0,
             reason: {
-                en: 'You must upload a file to continue.',
-                fr: 'Vous devez téléverser un fichier pour continuer.',
+                en: validationErrors.en.requiredFile,
+                fr: validationErrors.fr.requiredFile,
             },
         };
     },
@@ -4292,47 +6494,10 @@ const requiredSelectField = {
         return {
             valid: value != null && value.trim() != '',
             reason: {
-                en: 'Choose an option to continue.',
-                fr: 'Choisissez une option pour continuer.',
+                en: validationErrors.en.requiredSelect,
+                fr: validationErrors.fr.requiredSelect,
             },
         };
-    },
-};
-/*
- * Date input validators
- */
-const dateInputErrorMessage = {
-    en: {
-        all: 'Enter the date.',
-        missingmonthinput: 'Enter the month.',
-        missingmonth: 'Select the month.',
-        missingyear: 'Enter the year.',
-        missingday: 'Enter the day.',
-        missingmonthday: 'Select the month and enter the day.',
-        missingmonthyear: 'Select the month and enter the year.',
-        missingmonthinputday: 'Enter the month and day.',
-        missingmonthinputyear: 'Enter the year and month.',
-        missingdayyear: 'Enter the day and year.',
-        invalidyearlength: 'Year must be 4 digits.',
-        invalidyear: 'Enter a valid year.',
-        invalidmonth: 'Enter a valid month.',
-        invalidday: 'Enter a valid day.',
-    },
-    fr: {
-        all: 'Saisissez la date.',
-        missingmonthinput: 'Saisissez le mois.',
-        missingmonth: 'Sélectionnez un mois.',
-        missingyear: "Saisissez l'année.",
-        missingday: 'Saisissez le jour.',
-        missingmonthday: 'Saisissez le jour et sélectionnez un mois.',
-        missingmonthyear: "Sélectionnez un mois et saisissez l'année.",
-        missingmonthinputday: 'Saisissez le mois et le jour.',
-        missingmonthinputyear: "Saisissez l'année et le mois.",
-        missingdayyear: "Saisissez le jour et l'année.",
-        invalidyearlength: "L'année doit inclure 4 chiffres.",
-        invalidyear: 'Entrez une année valide.',
-        invalidmonth: 'Saisissez un mois valide.',
-        invalidday: 'Saisissez un jour valide.',
     },
 };
 const requiredDateInput = {
@@ -4378,91 +6543,95 @@ const getDateInputError = (dateValues, format) => {
         errorResponse.errors.day = true;
         errorResponse.errors.month = true;
         errorResponse.errors.year = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.all;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.all;
+        errorResponse.reason.en = validationErrors.en.dateInput.all;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.all;
         // No day set
     }
     else if (!day && month && year && (format === 'full' || format === 'iso')) {
         errorResponse.errors.day = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.missingday;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.missingday;
+        errorResponse.reason.en = validationErrors.en.dateInput.missingday;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.missingday;
         // No month set
     }
     else if ((day && !month && year) ||
         (!day && !month && year && format === 'compact')) {
         errorResponse.errors.month = true;
         if (format === 'iso') {
-            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthinput;
-            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthinput;
+            errorResponse.reason.en = validationErrors.en.dateInput.missingmonthinput;
+            errorResponse.reason.fr = validationErrors.fr.dateInput.missingmonthinput;
         }
         else {
-            errorResponse.reason.en = dateInputErrorMessage.en.missingmonth;
-            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonth;
+            errorResponse.reason.en = validationErrors.en.dateInput.missingmonth;
+            errorResponse.reason.fr = validationErrors.fr.dateInput.missingmonth;
         }
         // No year set
     }
     else if ((day && month && !year) ||
         (!day && month && !year && format === 'compact')) {
         errorResponse.errors.year = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.missingyear;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.missingyear;
+        errorResponse.reason.en = validationErrors.en.dateInput.missingyear;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.missingyear;
         // No day and month set
     }
     else if (!day && !month && year) {
         errorResponse.errors.day = true;
         errorResponse.errors.month = true;
         if (format === 'iso') {
-            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthinputday;
-            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthinputday;
+            errorResponse.reason.en =
+                validationErrors.en.dateInput.missingmonthinputday;
+            errorResponse.reason.fr =
+                validationErrors.fr.dateInput.missingmonthinputday;
         }
         else {
-            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthday;
-            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthday;
+            errorResponse.reason.en = validationErrors.en.dateInput.missingmonthday;
+            errorResponse.reason.fr = validationErrors.fr.dateInput.missingmonthday;
         }
         // No day and year set
     }
     else if (!day && month && !year) {
         errorResponse.errors.day = true;
         errorResponse.errors.year = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.missingdayyear;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.missingdayyear;
+        errorResponse.reason.en = validationErrors.en.dateInput.missingdayyear;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.missingdayyear;
         // No month and year set
     }
     else if (day && !month && !year) {
         errorResponse.errors.year = true;
         errorResponse.errors.month = true;
         if (format === 'iso') {
-            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthinputyear;
-            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthinputyear;
+            errorResponse.reason.en =
+                validationErrors.en.dateInput.missingmonthinputyear;
+            errorResponse.reason.fr =
+                validationErrors.fr.dateInput.missingmonthinputyear;
         }
         else {
-            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthyear;
-            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthyear;
+            errorResponse.reason.en = validationErrors.en.dateInput.missingmonthyear;
+            errorResponse.reason.fr = validationErrors.fr.dateInput.missingmonthyear;
         }
         // Year is formatted incorrectly
     }
     else if (year.toString().length != 4) {
         errorResponse.errors.year = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.invalidyearlength;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyearlength;
+        errorResponse.reason.en = validationErrors.en.dateInput.invalidyearlength;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.invalidyearlength;
         // Year format
     }
     else if (Number(year) < 0 || Number(year) > 9999) {
         errorResponse.errors.year = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.invalidyear;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyear;
+        errorResponse.reason.en = validationErrors.en.dateInput.invalidyear;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.invalidyear;
         // Invalid month
     }
     else if (Number(month) < 1 || Number(month) > 12) {
         errorResponse.errors.month = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.invalidmonth;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidmonth;
+        errorResponse.reason.en = validationErrors.en.dateInput.invalidmonth;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.invalidmonth;
         // Invalid day
     }
     else if (!isValidDay(`${year}-${month}-${day}`)) {
         errorResponse.errors.day = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.invalidday;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidday;
+        errorResponse.reason.en = validationErrors.en.dateInput.invalidday;
+        errorResponse.reason.fr = validationErrors.fr.dateInput.invalidday;
     }
     return errorResponse;
 };
@@ -4471,8 +6640,8 @@ const requiredRadio = {
         return {
             valid: value != null && value != '',
             reason: {
-                en: 'Choose an option to continue.',
-                fr: 'Choisissez une option pour continuer.',
+                en: validationErrors.en.requiredRadio,
+                fr: validationErrors.fr.requiredRadio,
             },
         };
     },
@@ -4482,8 +6651,8 @@ const requiredCheckboxGroup = {
         return {
             valid: value.length > 0,
             reason: {
-                en: 'Choose an option to continue.',
-                fr: 'Choisissez une option pour continuer.',
+                en: validationErrors.en.requiredCheckboxGroup,
+                fr: validationErrors.fr.requiredCheckboxGroup,
             },
         };
     },
@@ -4493,8 +6662,8 @@ const requiredCheckboxSingle = {
         return {
             valid: value.length > 0,
             reason: {
-                en: 'You must check the box to continue.',
-                fr: 'Vous devez cocher la case pour continuer.',
+                en: validationErrors.en.requiredCheckboxSingle,
+                fr: validationErrors.fr.requiredCheckboxSingle,
             },
         };
     },
@@ -4639,14 +6808,10 @@ const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
         attrsInput['aria-invalid'] = 'true';
         attrsInput['aria-description'] = errorMessage;
     }
-    return (hAsync("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` },
-        hAsync("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: e => handleInput(e, gcdsChange), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation(), ref: (el) => (element.shadowElement = [...(element.shadowElement || []), el]) })),
-        hAsync("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })),
-        checkbox.hint || (!isGroup && hint) ? (hAsync("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null,
-        !isGroup && errorMessage ? (hAsync("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
+    return (hAsync("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, hAsync("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: e => handleInput(e, gcdsChange), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation(), ref: (el) => (element.shadowElement = [...(element.shadowElement || []), el]) })), hAsync("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })), checkbox.hint || (!isGroup && hint) ? (hAsync("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null, !isGroup && errorMessage ? (hAsync("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
 };
 
-const I18N$m = {
+const I18N$n = {
   en: {
     required: ' (required)',
   },
@@ -4655,7 +6820,7 @@ const I18N$m = {
   },
 };
 
-const gcdsCheckboxesCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-checkboxes__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-checkboxes__fieldset legend{padding:0}:host .gcds-checkbox{padding:0}:host .gcds-checkbox gcds-label{display:block}:host .gcds-checkbox gcds-label>label:after,:host .gcds-checkbox gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{:host .gcds-checkboxes__fieldset{margin:var(--gcds-checkbox-fieldset-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-desktop);margin:var(--gcds-checkbox-legend-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-mobile)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-mobile)}}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend:not(:has(+gcds-hint)){margin:var(--gcds-checkbox-legend-hint-margin)}:host .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}:host .gcds-checkbox gcds-hint::part(hint){margin:0}:host .gcds-checkbox gcds-label:after,:host .gcds-checkbox gcds-label:before,:host .gcds-checkbox input{position:absolute}:host .gcds-checkbox gcds-label>label:before,:host .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}:host .gcds-checkbox input{opacity:0}:host .gcds-checkbox gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-checkbox-label-font-desktop);--gcds-label-font-mobile:var(--gcds-checkbox-label-font-mobile)}:host .gcds-checkbox gcds-label>label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-checkbox gcds-label>label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);width:var(--gcds-checkbox-check-width)}:host .gcds-checkbox input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:after,:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}:host .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-checkbox-danger-border)}:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{:host .gcds-checkbox:focus-within input:focus+gcds-label>label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);color:var(--gcds-checkbox-focus-color);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}:host .gcds-checkbox:focus-within input:focus+gcds-label>label:after{color:var(--gcds-checkbox-focus-color)}}";
+const gcdsCheckboxesCss = () => `@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-checkboxes__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-checkboxes__fieldset legend{padding:0}:host .gcds-checkbox{padding:0}:host .gcds-checkbox gcds-label{display:block}:host .gcds-checkbox gcds-label>label:after,:host .gcds-checkbox gcds-label>label:before{box-sizing:border-box;content:"";cursor:pointer;position:absolute}}@layer default{:host .gcds-checkboxes__fieldset{margin:var(--gcds-checkbox-fieldset-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-desktop);margin:var(--gcds-checkbox-legend-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-mobile)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-mobile)}}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend:not(:has(+gcds-hint)){margin:var(--gcds-checkbox-legend-hint-margin)}:host .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}:host .gcds-checkbox gcds-hint::part(hint){margin:0}:host .gcds-checkbox gcds-label:after,:host .gcds-checkbox gcds-label:before,:host .gcds-checkbox input{position:absolute}:host .gcds-checkbox gcds-label>label:before,:host .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}:host .gcds-checkbox input{opacity:0}:host .gcds-checkbox gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-checkbox-label-font-desktop);--gcds-label-font-mobile:var(--gcds-checkbox-label-font-mobile)}:host .gcds-checkbox gcds-label>label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-checkbox gcds-label>label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);width:var(--gcds-checkbox-check-width)}:host .gcds-checkbox input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:after,:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}:host .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-checkbox-danger-border)}:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{:host .gcds-checkbox:focus-within input:focus+gcds-label>label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);color:var(--gcds-checkbox-focus-color);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}:host .gcds-checkbox:focus-within input:focus+gcds-label>label:after{color:var(--gcds-checkbox-focus-color)}}`;
 
 /**
  * Checkboxes provide a set of options for multiple responses.
@@ -4985,7 +7150,7 @@ class GcdsCheckboxes {
         }
         this.shadowElement = [];
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: 'a523f6d77cd9e2fd3f30b9d90fc4ca4e32c97f22', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && (hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required)))) : (hAsync(Fragment, null, legend, required && (hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required))))), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (hAsync(Host, { key: '2ada091aa7634da7f9bcf86f966c91d6aea49d37', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && (hAsync("span", { class: "legend__required" }, I18N$n[this.lang].required)))) : (hAsync(Fragment, null, legend, required && (hAsync("span", { class: "legend__required" }, I18N$n[this.lang].required))))), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -4997,17 +7162,35 @@ class GcdsCheckboxes {
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "name": ["validateName"],
-        "legend": ["validateLegend"],
-        "options": ["validateOptions"],
-        "disabled": ["validateDisabledCheckbox"],
-        "value": ["validateValue"],
-        "errorMessage": ["validateErrorMessage"],
-        "validator": ["validateValidator"],
-        "hasError": ["validateHasError"],
-        "lang": ["watchLang"]
+        "name": [{
+                "validateName": 0
+            }],
+        "legend": [{
+                "validateLegend": 0
+            }],
+        "options": [{
+                "validateOptions": 0
+            }],
+        "disabled": [{
+                "validateDisabledCheckbox": 0
+            }],
+        "value": [{
+                "validateValue": 0
+            }],
+        "errorMessage": [{
+                "validateErrorMessage": 0
+            }],
+        "validator": [{
+                "validateValidator": 0
+            }],
+        "hasError": [{
+                "validateHasError": 0
+            }],
+        "lang": [{
+                "watchLang": 0
+            }]
     }; }
-    static get style() { return gcdsCheckboxesCss; }
+    static get style() { return gcdsCheckboxesCss(); }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-checkboxes",
@@ -5041,7 +7224,7 @@ class GcdsCheckboxes {
     }; }
 }
 
-const gcdsContainerCss = "@layer reset, default, border, margin, padding, alignment, size, layout;@layer reset{:host{display:block}:host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}}@layer default{:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{:host .gcds-container.container-border{border:var(--gcds-container-border)}}@layer margin{:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-25{margin:var(--gcds-container-spacing-25)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-75{margin:var(--gcds-container-spacing-75)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-125{margin:var(--gcds-container-spacing-125)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-175{margin:var(--gcds-container-spacing-175)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-225{margin:var(--gcds-container-spacing-225)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-350{margin:var(--gcds-container-spacing-350)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-650{margin:var(--gcds-container-spacing-650)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-750{margin:var(--gcds-container-spacing-750)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-850{margin:var(--gcds-container-spacing-850)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-950{margin:var(--gcds-container-spacing-950)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}:host .gcds-container.m-1050{margin:var(--gcds-container-spacing-1050)}:host .gcds-container.m-1100{margin:var(--gcds-container-spacing-1100)}:host .gcds-container.m-1150{margin:var(--gcds-container-spacing-1150)}:host .gcds-container.m-1200{margin:var(--gcds-container-spacing-1200)}:host .gcds-container.m-1250{margin:var(--gcds-container-spacing-1250)}}@layer padding{:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-25{padding:var(--gcds-container-spacing-25)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-75{padding:var(--gcds-container-spacing-75)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-125{padding:var(--gcds-container-spacing-125)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-175{padding:var(--gcds-container-spacing-175)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-225{padding:var(--gcds-container-spacing-225)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-350{padding:var(--gcds-container-spacing-350)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-650{padding:var(--gcds-container-spacing-650)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-750{padding:var(--gcds-container-spacing-750)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-850{padding:var(--gcds-container-spacing-850)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-950{padding:var(--gcds-container-spacing-950)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}:host .gcds-container.p-1050{padding:var(--gcds-container-spacing-1050)}:host .gcds-container.p-1100{padding:var(--gcds-container-spacing-1100)}:host .gcds-container.p-1150{padding:var(--gcds-container-spacing-1150)}:host .gcds-container.p-1200{padding:var(--gcds-container-spacing-1200)}:host .gcds-container.p-1250{padding:var(--gcds-container-spacing-1250)}}@layer alignment{:host .gcds-container.alignment-start{margin-inline-start:0!important}:host .gcds-container.alignment-center{margin-inline:auto!important}:host .gcds-container.alignment-end{margin-inline-end:0!important;margin-inline-start:auto!important}}@layer size{:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}@layer layout{:host .gcds-container.layout-full{max-width:100%!important}:host .gcds-container.layout-page{margin-inline:auto!important;max-width:90%!important;width:var(--gcds-container-size-xl)!important}}";
+const gcdsContainerCss = () => `@layer reset,default,border,margin,padding,alignment,size,layout;@layer reset{:host{display:block}:host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}}@layer default{:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{:host .gcds-container.container-border{border:var(--gcds-container-border)}}@layer margin{:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-25{margin:var(--gcds-container-spacing-25)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-75{margin:var(--gcds-container-spacing-75)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-125{margin:var(--gcds-container-spacing-125)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-175{margin:var(--gcds-container-spacing-175)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-225{margin:var(--gcds-container-spacing-225)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-350{margin:var(--gcds-container-spacing-350)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-650{margin:var(--gcds-container-spacing-650)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-750{margin:var(--gcds-container-spacing-750)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-850{margin:var(--gcds-container-spacing-850)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-950{margin:var(--gcds-container-spacing-950)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}:host .gcds-container.m-1050{margin:var(--gcds-container-spacing-1050)}:host .gcds-container.m-1100{margin:var(--gcds-container-spacing-1100)}:host .gcds-container.m-1150{margin:var(--gcds-container-spacing-1150)}:host .gcds-container.m-1200{margin:var(--gcds-container-spacing-1200)}:host .gcds-container.m-1250{margin:var(--gcds-container-spacing-1250)}}@layer padding{:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-25{padding:var(--gcds-container-spacing-25)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-75{padding:var(--gcds-container-spacing-75)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-125{padding:var(--gcds-container-spacing-125)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-175{padding:var(--gcds-container-spacing-175)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-225{padding:var(--gcds-container-spacing-225)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-350{padding:var(--gcds-container-spacing-350)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-650{padding:var(--gcds-container-spacing-650)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-750{padding:var(--gcds-container-spacing-750)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-850{padding:var(--gcds-container-spacing-850)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-950{padding:var(--gcds-container-spacing-950)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}:host .gcds-container.p-1050{padding:var(--gcds-container-spacing-1050)}:host .gcds-container.p-1100{padding:var(--gcds-container-spacing-1100)}:host .gcds-container.p-1150{padding:var(--gcds-container-spacing-1150)}:host .gcds-container.p-1200{padding:var(--gcds-container-spacing-1200)}:host .gcds-container.p-1250{padding:var(--gcds-container-spacing-1250)}}@layer alignment{:host .gcds-container.alignment-start{margin-inline-start:0!important}:host .gcds-container.alignment-center{margin-inline:auto!important}:host .gcds-container.alignment-end{margin-inline-end:0!important;margin-inline-start:auto!important}}@layer size{:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}@layer layout{:host .gcds-container.layout-full{max-width:100%!important}:host .gcds-container.layout-page{margin-inline:auto!important;max-width:90%!important;width:var(--gcds-container-size-xl)!important}}`;
 
 /**
  * A container is a basic box layout with a set width for its contents.
@@ -5067,7 +7250,7 @@ class GcdsContainer {
     render() {
         const { alignment, border, layout, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (hAsync(Host, { key: 'c8b1e6c3e57435cc8998b15b27cb46d7c6aa2957' }, hAsync(Tag, { key: '2288e5b16bcb4a169b9ba792f17fba37966041a8', class: `
+        return (hAsync(Host, { key: 'ad484bbd9acbfd917d528e05f9467c2bf2b4fae9' }, hAsync(Tag, { key: '0a4f80b47a7b1a2f0ba81368ecb3004a8fc5a57f', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${alignment && layout != 'page' ? `alignment-${alignment}` : ''}
@@ -5075,12 +7258,12 @@ class GcdsContainer {
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, hAsync("slot", { key: '660586f2cb48bcfdf6eec5917e58cd6775c2f387' }))));
+          ` }, hAsync("slot", { key: '0be601a53f54cb8bfb36ec45ec9ace5d8f9cca62' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsContainerCss; }
+    static get style() { return gcdsContainerCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-container",
         "$members$": {
             "alignment": [1],
@@ -5097,7 +7280,7 @@ class GcdsContainer {
     }; }
 }
 
-const I18N$l = {
+const I18N$m = {
   en: {
     year: 'Year',
     month: 'Month',
@@ -5154,7 +7337,7 @@ const I18N$l = {
   },
 };
 
-const gcdsDateInputCss = "@layer reset, default, hint, error;@layer reset{:host{display:block}:host .gcds-date-input__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-date-input__fieldset legend{padding:0}}@layer default{:host .gcds-date-input__fieldset legend{color:var(--gcds-date-input-fieldset-text);font:var(--gcds-date-input-fieldset-font-desktop)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-desktop);margin:var(--gcds-date-input-fieldset-required-margin)!important;vertical-align:middle}@media only screen and (width < 48em){:host .gcds-date-input__fieldset legend{font:var(--gcds-date-input-fieldset-font-mobile)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-mobile)}}:host .gcds-date-input__day,:host .gcds-date-input__month,:host .gcds-date-input__year{display:inline-block;margin-inline-end:var(--gcds-date-input-margin);--gcds-label-font-desktop:var(--gcds-date-input-label-font-desktop);--gcds-label-font-mobile:var(--gcds-date-input-label-font-mobile )}}@layer hint{:host gcds-hint{margin:var(--gcds-date-input-fieldset-hint-margin)}}@layer error{:host gcds-input.gcds-date-input--error::part(input),:host gcds-select.gcds-date-input--error::part(select){border-color:var(--gcds-date-input-danger-border)}}";
+const gcdsDateInputCss = () => `@layer reset, default, hint, error;@layer reset{:host{display:block}:host .gcds-date-input__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-date-input__fieldset legend{padding:0}}@layer default{:host .gcds-date-input__fieldset legend{color:var(--gcds-date-input-fieldset-text);font:var(--gcds-date-input-fieldset-font-desktop)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-desktop);margin:var(--gcds-date-input-fieldset-required-margin)!important;vertical-align:middle}@media only screen and (width < 48em){:host .gcds-date-input__fieldset legend{font:var(--gcds-date-input-fieldset-font-mobile)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-mobile)}}:host .gcds-date-input__day,:host .gcds-date-input__month,:host .gcds-date-input__year{display:inline-block;margin-inline-end:var(--gcds-date-input-margin);--gcds-label-font-desktop:var(--gcds-date-input-label-font-desktop);--gcds-label-font-mobile:var(--gcds-date-input-label-font-mobile )}}@layer hint{:host gcds-hint{margin:var(--gcds-date-input-fieldset-hint-margin)}}@layer error{:host gcds-input.gcds-date-input--error::part(input),:host gcds-select.gcds-date-input--error::part(select){border-color:var(--gcds-date-input-danger-border)}}`;
 
 /**
  * A date input is a space to enter a known date.
@@ -5433,7 +7616,7 @@ class GcdsDateInput {
                 valid = false;
                 rangeUnderflow = true;
                 formError = elements;
-                errorMessage = I18N$l[this.lang].rangeUnderflow.replace('{{min}}', this.min);
+                errorMessage = I18N$m[this.lang].rangeUnderflow.replace('{{min}}', this.min);
                 this.htmlValidationErrors.push({
                     error: 'rangeUnderflow',
                     hasError: { day: true, month: true, year: true },
@@ -5448,7 +7631,7 @@ class GcdsDateInput {
             if (setDate > maxDate) {
                 valid = false;
                 rangeOverflow = true;
-                errorMessage = I18N$l[this.lang].rangeOverflow.replace('{{max}}', this.max);
+                errorMessage = I18N$m[this.lang].rangeOverflow.replace('{{max}}', this.max);
                 this.htmlValidationErrors.push({
                     error: 'rangeOverflow',
                     hasError: { day: true, month: true, year: true },
@@ -5608,9 +7791,9 @@ class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = this.format !== 'iso' ? (hAsync("gcds-select", Object.assign({ label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$l[lang]['months'][option]))))) : (hAsync("gcds-input", Object.assign({ name: "month", label: I18N$l[lang].month, inputId: "month", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.monthValue, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) })));
-        const year = (hAsync("gcds-input", Object.assign({ key: '907c1530ef58d67b0ce6eaa9a5804ae9d6141f62', name: "year", label: I18N$l[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
-        const day = (hAsync("gcds-input", Object.assign({ key: '52d6f0fc6df755042b9d2f9908aa31ac0037564b', name: "day", label: I18N$l[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        const month = this.format !== 'iso' ? (hAsync("gcds-select", Object.assign({ label: I18N$m[lang].month, selectId: "month", name: "month", defaultValue: I18N$m[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$m[lang]['months'][option]))))) : (hAsync("gcds-input", Object.assign({ name: "month", label: I18N$m[lang].month, inputId: "month", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.monthValue, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) })));
+        const year = (hAsync("gcds-input", Object.assign({ key: 'd2cb93276494328fa676b3caa524df0d171bab8c', name: "year", label: I18N$m[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (hAsync("gcds-input", Object.assign({ key: 'c49e3271490ee991238806a466391ddd36dc5e69', name: "day", label: I18N$m[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
         let formatArray;
         if (format === 'iso') {
             formatArray = [year, month, day];
@@ -5621,19 +7804,29 @@ class GcdsDateInput {
         else if (format === 'full') {
             formatArray = lang === 'en' ? [month, day, year] : [day, month, year];
         }
-        return (hAsync(Host, { key: '94dec21a77e42646ecaae7593f9609ec3419a2f3', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '30ec72bc476564064bbc086e69a3b8722c91d71b', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), hAsync("legend", { key: 'ed3fbeaaf9fe91b6f322741d93dfff40bbb2356a', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
+        return (hAsync(Host, { key: 'bf42aef4ccdef2292ef655e6ef22119c2ad16164', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '14c3367ba75e75d448d85d526909e5e38fa35e62', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), hAsync("legend", { key: 'dc842742fe3e58aac7b9742129f28344c4750d05', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$m[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "name": ["validateName"],
-        "legend": ["validateLegend"],
-        "format": ["validateFormat"],
-        "value": ["watchValue"],
-        "validator": ["validateValidator"]
+        "name": [{
+                "validateName": 0
+            }],
+        "legend": [{
+                "validateLegend": 0
+            }],
+        "format": [{
+                "validateFormat": 0
+            }],
+        "value": [{
+                "watchValue": 0
+            }],
+        "validator": [{
+                "validateValidator": 0
+            }]
     }; }
-    static get style() { return gcdsDateInputCss; }
+    static get style() { return gcdsDateInputCss(); }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-date-input",
@@ -5669,7 +7862,7 @@ class GcdsDateInput {
     }; }
 }
 
-const I18N$k = {
+const I18N$l = {
   en: {
     date: 'Date modified:',
     version: 'Version ',
@@ -5680,7 +7873,7 @@ const I18N$k = {
   },
 };
 
-const gcdsDateModifiedCss = "@layer reset, default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}:host .gcds-date-modified gcds-text::part(text){font:var(--gcds-date-modified-font)}}";
+const gcdsDateModifiedCss = () => `@layer reset,default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}:host .gcds-date-modified gcds-text::part(text){font:var(--gcds-date-modified-font)}}`;
 
 /**
  * Date modified is an indicator of the last update to a webpage or application.
@@ -5740,12 +7933,12 @@ class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (hAsync(Host, { key: '8d15998c9617fa0ac4bb3fdc3dae6fc6bdce9413' }, this.validateRequiredProps() && (hAsync("dl", { key: '4de9578f1f96c965847214b82b2285303931c75f', class: "gcds-date-modified" }, hAsync("dt", { key: '0c7d1942bbcd97af004c3c111abab9e9fa359e1a' }, hAsync("gcds-text", { key: '918144a11135a26ebb0168f24c9d85492e9fcf4a', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$k[lang].version : I18N$k[lang].date)), hAsync("dd", { key: '62e867808d365eeaceea76b3d613c158014eb44a' }, hAsync("gcds-text", { key: 'b352283de5aadff853688ff828cbd27364adc3b2', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
+        return (hAsync(Host, { key: '1c0180127dc767b6325799407aee9610452ba009' }, this.validateRequiredProps() && (hAsync("dl", { key: 'd4814585e3662edd273b2b5ba51f4afca50c2f9d', class: "gcds-date-modified" }, hAsync("dt", { key: 'c0f27815209a9a37e5a8d16bde2ccd0dc6beea2d' }, hAsync("gcds-text", { key: '1295064a3da09ce540b1236eac44aad5dc0dec27', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$l[lang].version : I18N$l[lang].date)), hAsync("dd", { key: '84ab0a6e2f87a96a7159bfc63670ce6f60fc9c53' }, hAsync("gcds-text", { key: '28857771b0c12e53e246e7d8c04f473667d1e99a', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsDateModifiedCss; }
+    static get style() { return gcdsDateModifiedCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-date-modified",
         "$members$": {
             "type": [1025],
@@ -5758,7 +7951,7 @@ class GcdsDateModified {
     }; }
 }
 
-const gcdsDetailsCss = "@layer reset, default, hover, focus, print;@layer reset{:host{display:block}:host .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}:host .details__panel slot{display:initial}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){padding:0}}@layer default{:host .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font-desktop);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n        --gcds-details-default-decoration-thickness\n      );text-underline-offset:var(--gcds-details-summary-underline-offset);transition:background-color .15s ease-in-out,color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-details .details__summary{font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .gcds-details .details__summary[aria-expanded=false]+.details__panel{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .gcds-details .details__panel{margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding);position:relative}:host .gcds-details .details__panel summary{display:none}:host .gcds-details .details__panel:before{background-color:var(--gcds-details-panel-border-color);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:var(--gcds-details-panel-border-width)}:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__panel ::slotted(:not(:last-child)){margin-block-end:var(--gcds-details-panel-slotted-margin)!important;margin-block-start:0!important}:host .gcds-details .details__panel ::slotted(ol),:host .gcds-details .details__panel ::slotted(ul){margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-mobile)}}}@layer hover{@media (hover:hover){:host .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness)}:host .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{:host .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}@layer print{@media print{:host .gcds-details .details__summary{color:var(--gcds-details-print-summary-text);font-weight:var(--gcds-details-print-summary-font-weight);text-decoration:none}:host .gcds-details .details__summary:before{transform:rotate(90deg)}:host .gcds-details .details__panel{clip-path:none;clip:auto;border-left:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);display:block;height:auto;overflow:visible;position:static;white-space:normal;width:auto}}}";
+const gcdsDetailsCss = () => `@layer reset, default, hover, focus, print;@layer reset{:host{display:block}:host .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}:host .details__panel slot{display:initial}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){padding:0}}@layer default{:host .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font-desktop);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(         --gcds-details-default-decoration-thickness       );text-underline-offset:var(--gcds-details-summary-underline-offset);transition:background-color .15s ease-in-out,color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-details .details__summary{font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:"";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .gcds-details .details__summary[aria-expanded=false]+.details__panel{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .gcds-details .details__panel{margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding);position:relative}:host .gcds-details .details__panel summary{display:none}:host .gcds-details .details__panel:before{background-color:var(--gcds-details-panel-border-color);content:"";display:block;height:100%;left:0;position:absolute;top:0;width:var(--gcds-details-panel-border-width)}:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__panel ::slotted(:not(:last-child)){margin-block-end:var(--gcds-details-panel-slotted-margin)!important;margin-block-start:0!important}:host .gcds-details .details__panel ::slotted(ol),:host .gcds-details .details__panel ::slotted(ul){margin-inline-start:var(           --gcds-details-panel-slotted-margin         )!important}:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-mobile)}}}@layer hover{@media (hover:hover){:host .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness)}:host .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{:host .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}@layer print{@media print{:host .gcds-details .details__summary{color:var(--gcds-details-print-summary-text);font-weight:var(--gcds-details-print-summary-font-weight);text-decoration:none}:host .gcds-details .details__summary:before{transform:rotate(90deg)}:host .gcds-details .details__panel{clip-path:none;clip:auto;border-left:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);display:block;height:auto;overflow:visible;position:static;white-space:normal;width:auto}}}`;
 
 /**
  * Details is an interactive switch for a person to expand or collapse content.
@@ -5813,17 +8006,17 @@ class GcdsDetails {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (hAsync(Host, { key: '0d107b1dc773b9cedb53f2ff49ffdfef927ee462' }, hAsync("div", { key: '8e6c82eb769d30fcdd00551cdc57a68cbe5f12a8', class: "gcds-details" }, hAsync("button", { key: '2deb6b323c9f24e4fd7e80b9d399a2df7d2d1fa3', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: 'a8855995ccdee282fc82fbc3faf8bd3640a8d5f9' }, hAsync("div", { key: 'f84122872e89f4da0b2fce92ef38fb3628ad4c0f', class: "gcds-details" }, hAsync("button", { key: '3caac4040fbbe5c65d702295dc47e3d2dcab26f4', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), hAsync("details", { key: 'a5767c51f7bff82551439dff6302521fbeaefe2e', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, hAsync("summary", { key: '3072f177cb51207b9b94e70666c71aba4336705a' }, detailsTitle), hAsync("slot", { key: 'ba33ecdb88ed9a51914713a16e4260c265634b5e' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), hAsync("details", { key: '50968918b5228addc1dd75a22d84899cf505c5df', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, hAsync("summary", { key: '913ae5d54310b2661f0f98f4a3c785fee46d8065' }, detailsTitle), hAsync("slot", { key: '03045642ba8da8b1ccb58221cb91198aa10287dc' })))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsDetailsCss; }
+    static get style() { return gcdsDetailsCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-details",
         "$members$": {
             "detailsTitle": [1, "details-title"],
@@ -5836,7 +8029,7 @@ class GcdsDetails {
     }; }
 }
 
-const gcdsErrorMessageCss = "@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message gcds-icon,:host .error-message::part(text){color:var(--gcds-error-message-text-color)}}";
+const gcdsErrorMessageCss = () => `@layer reset,default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message gcds-icon,:host .error-message::part(text){color:var(--gcds-error-message-text-color)}}`;
 
 /**
  * An error message is a description of a problem blocking a user goal.
@@ -5849,12 +8042,12 @@ class GcdsErrorMessage {
     }
     render() {
         const { messageId } = this;
-        return (hAsync(Host, { key: 'c46004716d37a41b000ff3ffab62c63180e188ba', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { key: 'c53d63bc30351226b2d03eed6c9f86eaec4652f2', class: "error-message", role: "alert", "margin-bottom": "75" }, hAsync("gcds-icon", { key: '3bf459de433f1e89e24137b262e69e191059487d', name: "warning-triangle", "margin-right": "50" }), hAsync("strong", { key: 'b5447dbab78b57dd418906e7132970569f818308' }, hAsync("slot", { key: '4ff24d41c1cab1e0cece130dac6a391806241c0f' })))));
+        return (hAsync(Host, { key: '21581fffc30d2d5b32f190fb2e3363ce9d5e8df3', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { key: '4e17781e0c19fa251d7f2c401b8ef87cc6027e02', class: "error-message", role: "alert", "margin-bottom": "75" }, hAsync("gcds-icon", { key: '3fdb32f58f2d4bba9cb7892c164310389c12268e', name: "warning-triangle", "margin-right": "50" }), hAsync("strong", { key: '9b4cf0d7d579dd6f0276205e80d426b39e10b823' }, hAsync("slot", { key: '63e6cbf5ab1388c78b228bd46deea73893e5184b' })))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsErrorMessageCss; }
+    static get style() { return gcdsErrorMessageCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-error-message",
         "$members$": {
             "messageId": [1, "message-id"]
@@ -5865,7 +8058,7 @@ class GcdsErrorMessage {
     }; }
 }
 
-const I18N$j = {
+const I18N$k = {
   en: {
     heading: 'There was a problem',
     subheading: 'Errors were found on this page:',
@@ -5876,7 +8069,7 @@ const I18N$j = {
   },
 };
 
-const gcdsErrorSummaryCss = "@layer reset, default, compact;@layer reset{:host{display:block}}@layer default{:host{container:component summary/inline-size}:host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var(--gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem gcds-link::part(link):not(:focus){color:var(--gcds-error-summary-link-color)}}@layer compact{@container summary (width < 24em){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}}";
+const gcdsErrorSummaryCss = () => `@layer reset, default, compact;@layer reset{:host{display:block}}@layer default{:host{container:component summary/inline-size}:host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var(--gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem gcds-link::part(link):not(:focus){color:var(--gcds-error-summary-link-color)}}@layer compact{@container summary (width < 24em){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}}`;
 
 /**
  * An error summary is a list of user errors in a form.
@@ -6006,9 +8199,9 @@ class GcdsErrorSummary {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (hAsync(Host, { key: 'aabdf11e63871b1b04b82510cf1e204cfe4af997' }, hAsync("div", { key: '3a42ace253a21dc1b2f6532f31002c4769da154b', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (hAsync(Host, { key: '8357850a4bbf857b53c87f57c99f19531a850c24' }, hAsync("div", { key: '0ecb4bca42f58e44a44a20b949228d0c0298756f', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, hAsync("gcds-heading", { key: 'da08c194ae8467fd49e25ded57cef1ce76c59bf3', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$j[lang].heading), hAsync("ol", { key: 'f3c9ac34f213bc43777c4f0cd8fc5f3649b1a62b', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, hAsync("gcds-heading", { key: '796ceab1bc0936c5bb0bdbf36167c1e91304fdd3', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$k[lang].heading), hAsync("ol", { key: 'c48b80ded47df7e1041a1b84d1152d3ae7c2bd70', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (hAsync("li", { class: "summary__listitem" }, hAsync("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -6021,10 +8214,14 @@ class GcdsErrorSummary {
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "listen": ["listenChanged"],
-        "errorLinks": ["errorLinksChanged"]
+        "listen": [{
+                "listenChanged": 0
+            }],
+        "errorLinks": [{
+                "errorLinksChanged": 0
+            }]
     }; }
-    static get style() { return gcdsErrorSummaryCss; }
+    static get style() { return gcdsErrorSummaryCss(); }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-error-summary",
@@ -6042,7 +8239,7 @@ class GcdsErrorSummary {
     }; }
 }
 
-const I18N$i = {
+const I18N$j = {
   en: {
     legendSizeError: 'gcds-fieldset: Invalid size.',
   },
@@ -6051,7 +8248,7 @@ const I18N$i = {
   },
 };
 
-const gcdsFieldsetCss = "@layer reset, default, size;@layer reset{:host{display:block}:host .gcds-fieldset{border:0;min-inline-size:auto;padding:0}:host legend{padding:0}:host slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{margin:var(--gcds-fieldset-legend-margin)!important}}@layer size{.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-mobile)}}.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-mobile)}}.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-mobile)}}.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-mobile)}}.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-mobile)}}}";
+const gcdsFieldsetCss = () => `@layer reset, default, size;@layer reset{:host{display:block}:host .gcds-fieldset{border:0;min-inline-size:auto;padding:0}:host legend{padding:0}:host slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{margin:var(--gcds-fieldset-legend-margin)!important}}@layer size{.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-mobile)}}.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-mobile)}}.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-mobile)}}.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-mobile)}}.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-mobile)}}}`;
 
 /**
  * A fieldset is a group of multiple form components or elements.
@@ -6069,7 +8266,7 @@ class GcdsFieldset {
     validateLegendSize(newValue) {
         const values = ['h2', 'h3', 'h4', 'h5', 'h6'];
         if (!values.includes(newValue)) {
-            console.error(`${I18N$i['en'].legendSizeError} | ${I18N$i['fr'].legendSizeError}`);
+            console.error(`${I18N$j['en'].legendSizeError} | ${I18N$j['fr'].legendSizeError}`);
         }
     }
     async componentWillLoad() {
@@ -6080,16 +8277,18 @@ class GcdsFieldset {
     render() {
         const { hint, inheritedAttributes, legend, legendSize } = this;
         const fieldsetAttrs = Object.assign({}, inheritedAttributes);
-        return (hAsync(Host, { key: 'dd720d61b6783589d04ed65873ff637990e95dea' }, hAsync("fieldset", Object.assign({ key: 'a9540b09ad410113059c2840f9720185e0fb00ff', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), hAsync("legend", { key: '9a1769bf1ce495e521d658914a837a09de0d23fa', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (hAsync("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, hAsync("slot", { key: '087bf52d9872db591bced7ebefbf1252f4e270d2' }))));
+        return (hAsync(Host, { key: 'a9adbe5e6584cafdf5e5cc0702fc49b476f3d585' }, hAsync("fieldset", Object.assign({ key: 'ff2446f9ee8b764e3f55a97a283ee25275a3963e', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), hAsync("legend", { key: 'e6606a92fb27572d3fdaf056baf10a5353c985ef', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (hAsync("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, hAsync("slot", { key: 'a02cd357d895eca26011029b93d17d78a82a94ba' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "legendSize": ["validateLegendSize"]
+        "legendSize": [{
+                "validateLegendSize": 0
+            }]
     }; }
-    static get style() { return gcdsFieldsetCss; }
+    static get style() { return gcdsFieldsetCss(); }
     static get cmpMeta() { return {
-        "$flags$": 25,
+        "$flags$": 281,
         "$tagName$": "gcds-fieldset",
         "$members$": {
             "hint": [513],
@@ -6103,7 +8302,7 @@ class GcdsFieldset {
     }; }
 }
 
-const I18N$h = {
+const I18N$i = {
   en: {
     button: {
       remove: 'Remove',
@@ -6132,7 +8331,7 @@ const I18N$h = {
   },
 };
 
-const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font-desktop);max-width:90%;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-file-uploader-wrapper{font:var(--gcds-file-uploader-font-mobile)}}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input input::-webkit-file-upload-button{cursor:pointer}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-focus-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
+const gcdsFileUploaderCss = () => `@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font-desktop);max-width:90%;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-file-uploader-wrapper{font:var(--gcds-file-uploader-font-mobile)}}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input input::-webkit-file-upload-button{cursor:pointer}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(           --gcds-file-uploader-file-button-underline-offset         )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(             --gcds-file-uploader-file-button-hover-decoration-thickness           )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-focus-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}`;
 
 /**
  * A file uploader is a space to select and add supporting documentation.
@@ -6418,21 +8617,31 @@ class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (hAsync(Host, { key: '342d3516761caa694a7d9f8d38aac3020a5b2e39' }, hAsync("div", { key: 'fd0dfb14b09fc103b9bfd7c3c4660849e62ba6b3', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'f81d17ed5e7bf8aba3437c07c0a08f38d1419ba2' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: 'b6987706077db9afa75f38e66afcc2f4ebb32bc8', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: 'a6feb4b86f3b6cc7fd9998bc3179f043e7f64365', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$h[lang].button.upload), hAsync("input", Object.assign({ key: '7d730c993cef70cd1dac600a58e5acef40bdfabd', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$h[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$h[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$h[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$h[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
+        return (hAsync(Host, { key: '721fa21feacadea9e08bda4fe69d3ab18e2be221' }, hAsync("div", { key: 'b43f8b42ecdccfd5920701f630544c215d246c61', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'f357b2680946db0669e20197d004a646762be18a' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: '30f6e721c0118e2f97306fb5b0187c7fa19ba86c', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: '378ca74e8d9d28c3dbf41615e8777d072ddf4019', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$i[lang].button.upload), hAsync("input", Object.assign({ key: '8a6114ed281966242a59cde5838454ebd6b010f5', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$i[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$i[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$i[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$i[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "disabled": ["validateDisabledSelect"],
-        "files": ["watchFiles"],
-        "errorMessage": ["validateErrorMessage"],
-        "validator": ["validateValidator"],
-        "hasError": ["validateHasError"]
+        "disabled": [{
+                "validateDisabledSelect": 0
+            }],
+        "files": [{
+                "watchFiles": 0
+            }],
+        "errorMessage": [{
+                "validateErrorMessage": 0
+            }],
+        "validator": [{
+                "validateValidator": 0
+            }],
+        "hasError": [{
+                "validateHasError": 0
+            }]
     }; }
-    static get style() { return gcdsFileUploaderCss; }
+    static get style() { return gcdsFileUploaderCss(); }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-file-uploader",
@@ -6467,7 +8676,7 @@ class GcdsFileUploader {
     }; }
 }
 
-const I18N$g = {
+const I18N$h = {
   en: {
     gov: {
       heading: 'Government of Canada',
@@ -6724,7 +8933,7 @@ const I18N$g = {
   },
 };
 
-const gcdsFooterCss = "@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{:host{display:block}:host ul{list-style-type:none;margin:0;padding:0}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var(--gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}:host gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(19,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 48em){:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(10,1fr)}}@container sub (width < 60.2em){:host .gcds-footer__sub .sub__container{display:block}:host .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(7,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}";
+const gcdsFooterCss = () => `@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{:host{display:block}:host ul{list-style-type:none;margin:0;padding:0}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var(--gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}:host gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:"";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(19,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:"list wordmark";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 48em){:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(10,1fr)}}@container sub (width < 60.2em){:host .gcds-footer__sub .sub__container{display:block}:host .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(7,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:"";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:"\\2022";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}`;
 
 /**
  * The footer is the responsive Government of Canada branded footer landmark.
@@ -6806,17 +9015,17 @@ class GcdsFooter {
     }
     render() {
         const { lang, display, contextualHeading, contextualLinksObject, subLinks, subLinksObject, renderSignature, } = this;
-        const govNav = I18N$g[lang].gov.menu;
-        const themeNav = I18N$g[lang].themes.menu;
-        const siteNav = I18N$g[lang].site.menu;
+        const govNav = I18N$h[lang].gov.menu;
+        const themeNav = I18N$h[lang].themes.menu;
+        const siteNav = I18N$h[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (hAsync(Host, { key: '6a0f9c4059caa2e30ef02a4bb51a552152c2bc4e', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: 'c6303a1cec09909530a3301fa5e5b2ef991a41d1', tag: "h2" }, I18N$g[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: '07b21b1d7d83972f74c8bb0ab78a9e54f84c87eb', class: "gcds-footer__contextual" }, hAsync("div", { key: '64417ee815a86dbf4871972bcfd138721dfdc497', class: "contextual__container" }, hAsync("nav", { key: '4de71bc121ab044532922ce8e21278dc2d9329df', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: '1ddcfa84c72e86ffb9c1558988dbc70c940e6c98', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: '10f038c6286ca9e9e0ec1892797bd22d5cd7c1cf', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (hAsync(Host, { key: 'f1b8da552d3024692e8a2a617e9009aa3757fa14', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: '29c26f6e7b8fd4004a7f0ff572e101b12518c5a1', tag: "h2" }, I18N$h[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: '56310768170e0095b55dc958685f31612f97884b', class: "gcds-footer__contextual" }, hAsync("div", { key: '6f969587463df4f2486492421a9f0a2d08dbdc08', class: "contextual__container" }, hAsync("nav", { key: 'c2cddfebf418a7d14eb50e9bb854c80d12c58c28', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: '96f67bd4be77214e4f3aa794e87d6c6c8589646f', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: '9acda60496ee805776ed0f1ff375da195d3a2616', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (hAsync("li", null, hAsync("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$g[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$g[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: '4909ad3592fd2304df8353e11947eca69aaa56aa', class: "gcds-footer__sub" }, hAsync("div", { key: '3c4d3282dd8ead4b87df28591d94d6e6d327ef8d', class: "sub__container" }, hAsync("nav", { key: 'ee1baa7d6ea78245af3451f128182683b51649a8', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: 'fa65fa21472446b67ea15179f27394ff95f238bf', tag: "h3", id: "sub__heading" }, I18N$g[lang].site.heading), hAsync("ul", { key: '630f20304416893db2c67a6cda4400205a822a4b' }, subLinks
+        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$h[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$h[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: '79a17bdbee68f0285ff012bd7cdd20ca866e664b', class: "gcds-footer__sub" }, hAsync("div", { key: 'aef50d91b3e5516a243d4c291495d8e5d7037796', class: "sub__container" }, hAsync("nav", { key: 'dcf518e4d3c42fd079127d1f941104d56399499a', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: 'e7aaa4d7bd8b60ec410c844804062bfeb0a41225', tag: "h3", id: "sub__heading" }, I18N$h[lang].site.heading), hAsync("ul", { key: '4131cef714c576d9386e9bcfc7f0c002179e3de1' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -6829,12 +9038,16 @@ class GcdsFooter {
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "contextualLinks": ["contextualLinksChanged"],
-        "subLinks": ["subLinksChanged"]
+        "contextualLinks": [{
+                "contextualLinksChanged": 0
+            }],
+        "subLinks": [{
+                "subLinksChanged": 0
+            }]
     }; }
-    static get style() { return gcdsFooterCss; }
+    static get style() { return gcdsFooterCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-footer",
         "$members$": {
             "display": [1537],
@@ -6849,7 +9062,7 @@ class GcdsFooter {
     }; }
 }
 
-const I18N$f = {
+const I18N$g = {
   en: {
     gapDesktopError: 'gcds-grid: Invalid spacing value for gap-desktop.',
     gapTabletError: 'gcds-grid: Invalid spacing value for gap-tablet.',
@@ -6860,7 +9073,7 @@ const I18N$f = {
   },
 };
 
-const gcdsGridCss = "@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{:host .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){:host .gcds-grid{gap:var(--gcds-grid-gap-tablet,var(--gcds-grid-gap));grid-template-columns:var(\n        --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){:host .gcds-grid{gap:var(--gcds-grid-gap-desktop,var(--gcds-grid-gap-tablet,var(--gcds-grid-gap)));grid-template-columns:var(\n        --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}";
+const gcdsGridCss = () => `@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{:host .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){:host .gcds-grid{gap:var(--gcds-grid-gap-tablet,var(--gcds-grid-gap));grid-template-columns:var(         --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)       )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){:host .gcds-grid{gap:var(--gcds-grid-gap-desktop,var(--gcds-grid-gap-tablet,var(--gcds-grid-gap)));grid-template-columns:var(         --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))       )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}`;
 
 const GridGapArray = [
     '150',
@@ -6919,14 +9132,14 @@ class GcdsGrid {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapTablet = undefined;
-            console.error(`${I18N$f['en'].gapTabletError} | ${I18N$f['fr'].gapTabletError}`);
+            console.error(`${I18N$g['en'].gapTabletError} | ${I18N$g['fr'].gapTabletError}`);
         }
     }
     validateGapDesktop(newValue) {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapDesktop = undefined;
-            console.error(`${I18N$f['en'].gapDesktopError} | ${I18N$f['fr'].gapDesktopError}`);
+            console.error(`${I18N$g['en'].gapDesktopError} | ${I18N$g['fr'].gapDesktopError}`);
         }
     }
     validateTag(newValue) {
@@ -6992,14 +9205,22 @@ class GcdsGrid {
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "gap": ["validateGap"],
-        "gapTablet": ["validateGapTablet"],
-        "gapDesktop": ["validateGapDesktop"],
-        "tag": ["validateTag"]
+        "gap": [{
+                "validateGap": 0
+            }],
+        "gapTablet": [{
+                "validateGapTablet": 0
+            }],
+        "gapDesktop": [{
+                "validateGapDesktop": 0
+            }],
+        "tag": [{
+                "validateTag": 0
+            }]
     }; }
-    static get style() { return gcdsGridCss; }
+    static get style() { return gcdsGridCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-grid",
         "$members$": {
             "columns": [1],
@@ -7026,7 +9247,7 @@ class GcdsGrid {
     }; }
 }
 
-const gcdsGridColCss = "@layer reset, default, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{:host{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}";
+const gcdsGridColCss = () => `@layer reset, default, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{:host{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}`;
 
 /**
  * A grid column is a single column in a grid layout, allowing for flexible content arrangement.
@@ -7087,12 +9308,16 @@ class GcdsGridCol {
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "tablet": ["validateTablet"],
-        "desktop": ["validateDesktop"]
+        "tablet": [{
+                "validateTablet": 0
+            }],
+        "desktop": [{
+                "validateDesktop": 0
+            }]
     }; }
-    static get style() { return gcdsGridColCss; }
+    static get style() { return gcdsGridColCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-grid-col",
         "$members$": {
             "tag": [1],
@@ -7105,7 +9330,7 @@ class GcdsGridCol {
     }; }
 }
 
-const I18N$e = {
+const I18N$f = {
   en: {
     skip: 'Skip to main content',
     skipLabel: 'Skip to',
@@ -7116,7 +9341,7 @@ const I18N$e = {
   },
 };
 
-const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:0;width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}:host{--gcds-top-nav-width-full:var(--gcds-top-nav-width-constrained)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){align-content:center;grid-area:signature}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}:host .gcds-header__brand .brand__container .brand__search ::slotted(gcds-search){--gcds-search-input-width:35ch}}@layer menu{:host{--gcds-nav-group-mobile-trigger-margin:var(\n      --gcds-header-menu-top-nav-mobile-trigger-margin\n    )}}@layer wide{@container brand (width >= 51.2em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
+const gcdsHeaderCss = () => `@layer reset, default, brand, menu, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container--menu{margin:0 auto;max-width:var(--gcds-header-container-max-width);position:relative;width:90%}:host .gcds-header__container--menu :is(slot[name=account]){position:absolute;right:0;top:0}:host .gcds-header__container--breadcrumbs{display:flex;justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:0;width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}:host{--gcds-top-nav-width-full:var(--gcds-top-nav-width-constrained)}:host :is(slot[name=account]){flex-shrink:0;margin-left:auto;margin-top:var(--gcds-spacing-50)}:host ::slotted(gcds-button[slot=account]){--gcds-button-border-radius:var(--gcds-spacing-0);--gcds-button-font-desktop:var(--gcds-text-size-small-mobile);--gcds-button-font-mobile:var(--gcds-text-size-small-mobile);--gcds-button-mobile-margin:var(--gcds-spacing-0);--gcds-button-padding:var(--gcds-spacing-100) var(--gcds-spacing-200)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:"signature toggle" "search search";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:"signature toggle"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){align-content:center;grid-area:signature}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}:host .gcds-header__brand .brand__container .brand__search ::slotted(gcds-search){--gcds-search-input-width:35ch}}@layer menu{:host{--gcds-nav-group-mobile-trigger-margin:var(       --gcds-header-menu-top-nav-mobile-trigger-margin     )}}@layer wide{@container brand (width >= 51.2em){:host .gcds-header__brand .brand__container{grid-template-areas:"toggle toggle" "signature search";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}`;
 
 /**
  * The header is the responsive Government of Canada branded header landmark.
@@ -7128,6 +9353,7 @@ const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{:ho
  * @slot skip-to-nav - Slot to add a hidden skip to content navigation at the top of the header.
  * @slot signature - Slot to replace Government of Canada signature.
  * @slot toggle - Slot to add a custom language toggle in the top-right of the header.
+ * @slot account - Slot to add a custom account link in the bottom-right of the header.
  */
 class GcdsHeader {
     constructor(hostRef) {
@@ -7161,7 +9387,7 @@ class GcdsHeader {
             return hAsync("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (hAsync("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$e[this.lang].skipLabel }, hAsync("gcds-link", { href: this.skipToHref }, I18N$e[this.lang].skip)));
+            return (hAsync("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$f[this.lang].skipLabel }, hAsync("gcds-link", { href: this.skipToHref }, I18N$f[this.lang].skip)));
         }
         else {
             return;
@@ -7203,14 +9429,20 @@ class GcdsHeader {
     get hasBreadcrumb() {
         return !!this.el.querySelector('[slot="breadcrumb"]');
     }
+    get hasAccount() {
+        return !!this.el.querySelector('[slot="account"]');
+    }
+    get hasThemeTopicMenu() {
+        return !!this.el.querySelector('gcds-topic-menu[slot="menu"]');
+    }
     render() {
-        const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (hAsync(Host, { key: 'e13f9438f4b30aee0de9c97c7fbce2e80d3ee1ff', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: 'cb78ebfcfc947c038c8adb21c5242e11f6f4ebaf', class: "gcds-header__brand" }, hAsync("div", { key: '835349463a8459e9fc423e984e555461d584fde5', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: 'ccd900088b66a0e031f14afc2402284ed9e3988a', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
+        const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, hasAccount, hasThemeTopicMenu, } = this;
+        return (hAsync(Host, { key: '25c9114f95330e8a16d1cf69d4927423b8f64ff7', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: 'd9ac7c2d0fb7db251b738ba652d2ba524b64efd7', class: "gcds-header__brand" }, hAsync("div", { key: '11ab18238d458cb665d1481a4080a53b194b148b', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hasThemeTopicMenu ? (hAsync("div", { class: "gcds-header__container--menu" }, hAsync("slot", { name: "menu" }), hasAccount ? hAsync("slot", { name: "account" }) : null)) : hAsync("slot", { name: "menu" }), hasBreadcrumb || (!hasBreadcrumb && !hasThemeTopicMenu && hasAccount) ? (hAsync("div", { class: "gcds-header__container--breadcrumbs" }, hasBreadcrumb ? hAsync("slot", { name: "breadcrumb" }) : null, hasAccount && !hasThemeTopicMenu ? hAsync("slot", { name: "account" }) : null)) : null));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsHeaderCss; }
+    static get style() { return gcdsHeaderCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-header",
         "$members$": {
             "langHref": [513, "lang-href"],
@@ -7234,7 +9466,7 @@ function generateSpacingArray() {
 }
 const SpacingArray = generateSpacingArray();
 
-const gcdsHeadingCss = "@layer reset, default, limit, role, margin;@layer reset{:host{color:var(--gcds-heading-default-text);display:block}:host :is(h1,h2,h3,h4,h5,h6){box-sizing:border-box;margin:0}:host slot{display:initial}}@layer default{:host :is(h1,h2,h3,h4,h5,h6){text-wrap:balance}:host h1.gcds-heading{font:var(--gcds-heading-h1-desktop)}@media only screen and (width < 48em){:host h1.gcds-heading{font:var(--gcds-heading-h1-mobile)}}:host h1.gcds-heading:after{background-color:var(--gcds-heading-h1-border-background);content:\"\";display:block;height:var(--gcds-heading-h1-border-height);margin-block-start:var(--gcds-heading-h1-border-margin);width:var(--gcds-heading-h1-border-width)}:host h2.gcds-heading{font:var(--gcds-heading-h2-desktop)}@media only screen and (width < 48em){:host h2.gcds-heading{font:var(--gcds-heading-h2-mobile)}}:host h3.gcds-heading{font:var(--gcds-heading-h3-desktop)}@media only screen and (width < 48em){:host h3.gcds-heading{font:var(--gcds-heading-h3-mobile)}}:host h4.gcds-heading{font:var(--gcds-heading-h4-desktop)}@media only screen and (width < 48em){:host h4.gcds-heading{font:var(--gcds-heading-h4-mobile)}}:host h5.gcds-heading{font:var(--gcds-heading-h5-desktop)}@media only screen and (width < 48em){:host h5.gcds-heading{font:var(--gcds-heading-h5-mobile)}}:host h6.gcds-heading{font:var(--gcds-heading-h6-desktop)}@media only screen and (width < 48em){:host h6.gcds-heading{font:var(--gcds-heading-h6-mobile)}}}@layer limit{:host h1.limit{max-width:var(--gcds-heading-character-limit-h1)}:host h2.limit{max-width:var(--gcds-heading-character-limit-h2)}:host h3.limit{max-width:var(--gcds-heading-character-limit-h3)}:host h4.limit{max-width:var(--gcds-heading-character-limit-h4)}:host h5.limit{max-width:var(--gcds-heading-character-limit-h5)}:host h6.limit{max-width:var(--gcds-heading-character-limit-h6)}}@layer margin{:host :is(h1,h2,h3,h4,h5,h6).mt-0{margin-block-start:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mt-25{margin-block-start:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mt-50{margin-block-start:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mt-75{margin-block-start:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mt-100{margin-block-start:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mt-125{margin-block-start:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mt-150{margin-block-start:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mt-175{margin-block-start:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mt-200{margin-block-start:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mt-225{margin-block-start:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mt-250{margin-block-start:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mt-300{margin-block-start:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mt-350{margin-block-start:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mt-400{margin-block-start:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mt-450{margin-block-start:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mt-500{margin-block-start:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mt-550{margin-block-start:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mt-600{margin-block-start:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mt-650{margin-block-start:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mt-700{margin-block-start:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mt-750{margin-block-start:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mt-800{margin-block-start:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mt-850{margin-block-start:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mt-900{margin-block-start:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mt-950{margin-block-start:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mt-1000{margin-block-start:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mt-1050{margin-block-start:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mt-1100{margin-block-start:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mt-1150{margin-block-start:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mt-1200{margin-block-start:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mt-1250{margin-block-start:var(--gcds-heading-spacing-1250)}:host :is(h1,h2,h3,h4,h5,h6).mb-0{margin-block-end:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mb-25{margin-block-end:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mb-50{margin-block-end:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mb-75{margin-block-end:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mb-100{margin-block-end:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mb-125{margin-block-end:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mb-150{margin-block-end:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mb-175{margin-block-end:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mb-200{margin-block-end:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mb-225{margin-block-end:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mb-250{margin-block-end:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mb-300{margin-block-end:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mb-350{margin-block-end:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mb-400{margin-block-end:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mb-450{margin-block-end:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mb-500{margin-block-end:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mb-550{margin-block-end:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mb-600{margin-block-end:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mb-650{margin-block-end:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mb-700{margin-block-end:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mb-750{margin-block-end:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mb-800{margin-block-end:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mb-850{margin-block-end:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mb-900{margin-block-end:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mb-950{margin-block-end:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mb-1000{margin-block-end:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mb-1050{margin-block-end:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mb-1100{margin-block-end:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mb-1150{margin-block-end:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mb-1200{margin-block-end:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mb-1250{margin-block-end:var(--gcds-heading-spacing-1250)}}@layer role{:host .gcds-heading.role-primary{color:var(--gcds-heading-role-primary)}:host .gcds-heading.role-secondary{color:var(--gcds-heading-role-secondary)}:host .gcds-heading.role-light{color:var(--gcds-heading-role-light)}}";
+const gcdsHeadingCss = () => `@layer reset, default, limit, role, margin;@layer reset{:host{color:var(--gcds-heading-default-text);display:block}:host :is(h1,h2,h3,h4,h5,h6){box-sizing:border-box;margin:0}:host slot{display:initial}}@layer default{:host :is(h1,h2,h3,h4,h5,h6){text-wrap:balance}:host h1.gcds-heading{font:var(--gcds-heading-h1-desktop)}@media only screen and (width < 48em){:host h1.gcds-heading{font:var(--gcds-heading-h1-mobile)}}:host h1.gcds-heading:after{background-color:var(--gcds-heading-h1-border-background);content:"";display:block;height:var(--gcds-heading-h1-border-height);margin-block-start:var(--gcds-heading-h1-border-margin);width:var(--gcds-heading-h1-border-width)}:host h2.gcds-heading{font:var(--gcds-heading-h2-desktop)}@media only screen and (width < 48em){:host h2.gcds-heading{font:var(--gcds-heading-h2-mobile)}}:host h3.gcds-heading{font:var(--gcds-heading-h3-desktop)}@media only screen and (width < 48em){:host h3.gcds-heading{font:var(--gcds-heading-h3-mobile)}}:host h4.gcds-heading{font:var(--gcds-heading-h4-desktop)}@media only screen and (width < 48em){:host h4.gcds-heading{font:var(--gcds-heading-h4-mobile)}}:host h5.gcds-heading{font:var(--gcds-heading-h5-desktop)}@media only screen and (width < 48em){:host h5.gcds-heading{font:var(--gcds-heading-h5-mobile)}}:host h6.gcds-heading{font:var(--gcds-heading-h6-desktop)}@media only screen and (width < 48em){:host h6.gcds-heading{font:var(--gcds-heading-h6-mobile)}}}@layer limit{:host h1.limit{max-width:var(--gcds-heading-character-limit-h1)}:host h2.limit{max-width:var(--gcds-heading-character-limit-h2)}:host h3.limit{max-width:var(--gcds-heading-character-limit-h3)}:host h4.limit{max-width:var(--gcds-heading-character-limit-h4)}:host h5.limit{max-width:var(--gcds-heading-character-limit-h5)}:host h6.limit{max-width:var(--gcds-heading-character-limit-h6)}}@layer margin{:host :is(h1,h2,h3,h4,h5,h6).mt-0{margin-block-start:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mt-25{margin-block-start:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mt-50{margin-block-start:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mt-75{margin-block-start:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mt-100{margin-block-start:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mt-125{margin-block-start:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mt-150{margin-block-start:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mt-175{margin-block-start:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mt-200{margin-block-start:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mt-225{margin-block-start:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mt-250{margin-block-start:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mt-300{margin-block-start:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mt-350{margin-block-start:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mt-400{margin-block-start:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mt-450{margin-block-start:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mt-500{margin-block-start:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mt-550{margin-block-start:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mt-600{margin-block-start:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mt-650{margin-block-start:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mt-700{margin-block-start:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mt-750{margin-block-start:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mt-800{margin-block-start:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mt-850{margin-block-start:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mt-900{margin-block-start:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mt-950{margin-block-start:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mt-1000{margin-block-start:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mt-1050{margin-block-start:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mt-1100{margin-block-start:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mt-1150{margin-block-start:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mt-1200{margin-block-start:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mt-1250{margin-block-start:var(--gcds-heading-spacing-1250)}:host :is(h1,h2,h3,h4,h5,h6).mb-0{margin-block-end:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mb-25{margin-block-end:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mb-50{margin-block-end:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mb-75{margin-block-end:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mb-100{margin-block-end:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mb-125{margin-block-end:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mb-150{margin-block-end:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mb-175{margin-block-end:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mb-200{margin-block-end:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mb-225{margin-block-end:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mb-250{margin-block-end:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mb-300{margin-block-end:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mb-350{margin-block-end:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mb-400{margin-block-end:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mb-450{margin-block-end:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mb-500{margin-block-end:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mb-550{margin-block-end:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mb-600{margin-block-end:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mb-650{margin-block-end:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mb-700{margin-block-end:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mb-750{margin-block-end:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mb-800{margin-block-end:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mb-850{margin-block-end:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mb-900{margin-block-end:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mb-950{margin-block-end:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mb-1000{margin-block-end:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mb-1050{margin-block-end:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mb-1100{margin-block-end:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mb-1150{margin-block-end:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mb-1200{margin-block-end:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mb-1250{margin-block-end:var(--gcds-heading-spacing-1250)}}@layer role{:host .gcds-heading.role-primary{color:var(--gcds-heading-role-primary)}:host .gcds-heading.role-secondary{color:var(--gcds-heading-role-secondary)}:host .gcds-heading.role-light{color:var(--gcds-heading-role-light)}}`;
 
 /**
  * A heading is a title that establishes levels of hierarchy to organize page content into a structure and matches Canada.ca typography styles.
@@ -7291,24 +9523,32 @@ class GcdsHeading {
     render() {
         const { characterLimit, marginTop, marginBottom, tag, headingRole } = this;
         const Tag = tag;
-        return (hAsync(Host, { key: '5d6d74358f199427e5c9994d9c7a7b472d11a911' }, hAsync(Tag, { key: 'af7503ae216fa3ee40bdac28e0323c0f877946bd', class: `
+        return (hAsync(Host, { key: '27a2ae93a052f3ed90830b1834c510a3da6aaeb1' }, hAsync(Tag, { key: '582d4079c24ad038345816c59331500238824e03', class: `
             gcds-heading
             ${headingRole ? `role-${headingRole}` : ''}
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, hAsync("slot", { key: '2b60752a725f01335d1885d97409175462dc173d' }))));
+          ` }, hAsync("slot", { key: '54569b6f4c34e43be86c45e61b80723e3aa3043c' }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "tag": ["validateTag"],
-        "headingRole": ["validateHeadingRole"],
-        "marginTop": ["validateMarginTop"],
-        "marginBottom": ["validateMarginBottom"]
+        "tag": [{
+                "validateTag": 0
+            }],
+        "headingRole": [{
+                "validateHeadingRole": 0
+            }],
+        "marginTop": [{
+                "validateMarginTop": 0
+            }],
+        "marginBottom": [{
+                "validateMarginBottom": 0
+            }]
     }; }
-    static get style() { return gcdsHeadingCss; }
+    static get style() { return gcdsHeadingCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-heading",
         "$members$": {
             "tag": [1025],
@@ -7323,7 +9563,7 @@ class GcdsHeading {
     }; }
 }
 
-const gcdsHintCss = "@layer reset, default;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-hint,:host gcds-text::part(text){color:var(--gcds-hint-text)}:host .gcds-hint{margin:var(--gcds-hint-margin)}}";
+const gcdsHintCss = () => `@layer reset,default;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-hint,:host gcds-text::part(text){color:var(--gcds-hint-text)}:host .gcds-hint{margin:var(--gcds-hint-margin)}}`;
 
 /**
  * Hint provides additional information or context to help users understand the content or functionality of a related element.
@@ -7336,12 +9576,12 @@ class GcdsHint {
     }
     render() {
         const { hintId } = this;
-        return (hAsync(Host, { key: '43409b1e4ecafb39638dc4ce60ba021024737559', id: `hint-${hintId}` }, hAsync("gcds-text", { key: '4681f54c9870c6eacc680bf3e4b1fce706d4aa59', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, hAsync("slot", { key: '2c5b966609edebec1090969cc9e02b13205aadfb' }))));
+        return (hAsync(Host, { key: '61a3e7529f1f8cdab787a3be7f6b1d38b06cf29d', id: `hint-${hintId}` }, hAsync("gcds-text", { key: '32304bb4004c7357f63ea4c04b39be5fa1b491a8', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, hAsync("slot", { key: '2313fb6ca5b5fde4572e522c86d249508eecf900' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsHintCss; }
+    static get style() { return gcdsHintCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-hint",
         "$members$": {
             "hintId": [1, "hint-id"]
@@ -7352,7 +9592,7 @@ class GcdsHint {
     }; }
 }
 
-const I18N$d = {
+const I18N$e = {
   en: {
     nameError: 'gcds-icon: Invalid name.',
   },
@@ -7361,7 +9601,7 @@ const I18N$d = {
   },
 };
 
-const gcdsIconCss = "@layer reset, default, names, margin, size;\n@layer reset {\n  :host {\n    display: inline-block;\n  }\n  :host :host .gcds-icon {\n    font-size: inherit;\n    line-height: inherit;\n    color: inherit;\n  }\n}\n@layer default {\n  :host .gcds-icon {\n    font-family: var(--gcds-icon-font-family) !important;\n    speak: never;\n    font-style: normal;\n    font-weight: normal;\n    font-variant: normal;\n    text-transform: none;\n    line-height: 1;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n}\n@layer names {\n  :host .gcds-icon-checkmark-circle:before {\n    content: \"\\e908\";\n  }\n  :host .gcds-icon-chevron-down:before {\n    content: \"\\e900\";\n  }\n  :host .gcds-icon-chevron-left:before {\n    content: \"\\e901\";\n  }\n  :host .gcds-icon-chevron-right:before {\n    content: \"\\e902\";\n  }\n  :host .gcds-icon-chevron-up:before {\n    content: \"\\e903\";\n  }\n  :host .gcds-icon-close:before {\n    content: \"\\e90b\";\n  }\n  :host .gcds-icon-download:before {\n    content: \"\\e906\";\n  }\n  :host .gcds-icon-email:before {\n    content: \"\\e905\";\n  }\n  :host .gcds-icon-exclamation-circle:before {\n    content: \"\\e909\";\n  }\n  :host .gcds-icon-external:before {\n    content: \"\\e904\";\n  }\n  :host .gcds-icon-info-circle:before {\n    content: \"\\e90a\";\n  }\n  :host .gcds-icon-phone:before {\n    content: \"\\e90c\";\n  }\n  :host .gcds-icon-search:before {\n    content: \"\\e907\";\n  }\n  :host .gcds-icon-warning-triangle:before {\n    content: \"\\e90d\";\n  }\n}\n@layer margin {\n  :host .gcds-icon {\n    /* Margin left */\n  }\n  :host .gcds-icon.ml-0 {\n    margin-inline-start: var(--gcds-icon-margin-0);\n  }\n  :host .gcds-icon.ml-25 {\n    margin-inline-start: var(--gcds-icon-margin-25);\n  }\n  :host .gcds-icon.ml-50 {\n    margin-inline-start: var(--gcds-icon-margin-50);\n  }\n  :host .gcds-icon.ml-75 {\n    margin-inline-start: var(--gcds-icon-margin-75);\n  }\n  :host .gcds-icon.ml-100 {\n    margin-inline-start: var(--gcds-icon-margin-100);\n  }\n  :host .gcds-icon.ml-125 {\n    margin-inline-start: var(--gcds-icon-margin-125);\n  }\n  :host .gcds-icon.ml-150 {\n    margin-inline-start: var(--gcds-icon-margin-150);\n  }\n  :host .gcds-icon.ml-175 {\n    margin-inline-start: var(--gcds-icon-margin-175);\n  }\n  :host .gcds-icon.ml-200 {\n    margin-inline-start: var(--gcds-icon-margin-200);\n  }\n  :host .gcds-icon.ml-225 {\n    margin-inline-start: var(--gcds-icon-margin-225);\n  }\n  :host .gcds-icon.ml-250 {\n    margin-inline-start: var(--gcds-icon-margin-250);\n  }\n  :host .gcds-icon.ml-300 {\n    margin-inline-start: var(--gcds-icon-margin-300);\n  }\n  :host .gcds-icon.ml-350 {\n    margin-inline-start: var(--gcds-icon-margin-350);\n  }\n  :host .gcds-icon.ml-400 {\n    margin-inline-start: var(--gcds-icon-margin-400);\n  }\n  :host .gcds-icon.ml-450 {\n    margin-inline-start: var(--gcds-icon-margin-450);\n  }\n  :host .gcds-icon.ml-500 {\n    margin-inline-start: var(--gcds-icon-margin-500);\n  }\n  :host .gcds-icon.ml-550 {\n    margin-inline-start: var(--gcds-icon-margin-550);\n  }\n  :host .gcds-icon.ml-600 {\n    margin-inline-start: var(--gcds-icon-margin-600);\n  }\n  :host .gcds-icon.ml-650 {\n    margin-inline-start: var(--gcds-icon-margin-650);\n  }\n  :host .gcds-icon.ml-700 {\n    margin-inline-start: var(--gcds-icon-margin-700);\n  }\n  :host .gcds-icon.ml-750 {\n    margin-inline-start: var(--gcds-icon-margin-750);\n  }\n  :host .gcds-icon.ml-800 {\n    margin-inline-start: var(--gcds-icon-margin-800);\n  }\n  :host .gcds-icon.ml-850 {\n    margin-inline-start: var(--gcds-icon-margin-850);\n  }\n  :host .gcds-icon.ml-900 {\n    margin-inline-start: var(--gcds-icon-margin-900);\n  }\n  :host .gcds-icon.ml-950 {\n    margin-inline-start: var(--gcds-icon-margin-950);\n  }\n  :host .gcds-icon.ml-1000 {\n    margin-inline-start: var(--gcds-icon-margin-1000);\n  }\n  :host .gcds-icon.ml-1050 {\n    margin-inline-start: var(--gcds-icon-margin-1050);\n  }\n  :host .gcds-icon.ml-1100 {\n    margin-inline-start: var(--gcds-icon-margin-1100);\n  }\n  :host .gcds-icon.ml-1150 {\n    margin-inline-start: var(--gcds-icon-margin-1150);\n  }\n  :host .gcds-icon.ml-1200 {\n    margin-inline-start: var(--gcds-icon-margin-1200);\n  }\n  :host .gcds-icon.ml-1250 {\n    margin-inline-start: var(--gcds-icon-margin-1250);\n  }\n  :host .gcds-icon {\n    /* Margin right */\n  }\n  :host .gcds-icon.mr-0 {\n    margin-inline-end: var(--gcds-icon-margin-0);\n  }\n  :host .gcds-icon.mr-25 {\n    margin-inline-end: var(--gcds-icon-margin-25);\n  }\n  :host .gcds-icon.mr-50 {\n    margin-inline-end: var(--gcds-icon-margin-50);\n  }\n  :host .gcds-icon.mr-75 {\n    margin-inline-end: var(--gcds-icon-margin-75);\n  }\n  :host .gcds-icon.mr-100 {\n    margin-inline-end: var(--gcds-icon-margin-100);\n  }\n  :host .gcds-icon.mr-125 {\n    margin-inline-end: var(--gcds-icon-margin-125);\n  }\n  :host .gcds-icon.mr-150 {\n    margin-inline-end: var(--gcds-icon-margin-150);\n  }\n  :host .gcds-icon.mr-175 {\n    margin-inline-end: var(--gcds-icon-margin-175);\n  }\n  :host .gcds-icon.mr-200 {\n    margin-inline-end: var(--gcds-icon-margin-200);\n  }\n  :host .gcds-icon.mr-225 {\n    margin-inline-end: var(--gcds-icon-margin-225);\n  }\n  :host .gcds-icon.mr-250 {\n    margin-inline-end: var(--gcds-icon-margin-250);\n  }\n  :host .gcds-icon.mr-300 {\n    margin-inline-end: var(--gcds-icon-margin-300);\n  }\n  :host .gcds-icon.mr-350 {\n    margin-inline-end: var(--gcds-icon-margin-350);\n  }\n  :host .gcds-icon.mr-400 {\n    margin-inline-end: var(--gcds-icon-margin-400);\n  }\n  :host .gcds-icon.mr-450 {\n    margin-inline-end: var(--gcds-icon-margin-450);\n  }\n  :host .gcds-icon.mr-500 {\n    margin-inline-end: var(--gcds-icon-margin-500);\n  }\n  :host .gcds-icon.mr-550 {\n    margin-inline-end: var(--gcds-icon-margin-550);\n  }\n  :host .gcds-icon.mr-600 {\n    margin-inline-end: var(--gcds-icon-margin-600);\n  }\n  :host .gcds-icon.mr-650 {\n    margin-inline-end: var(--gcds-icon-margin-650);\n  }\n  :host .gcds-icon.mr-700 {\n    margin-inline-end: var(--gcds-icon-margin-700);\n  }\n  :host .gcds-icon.mr-750 {\n    margin-inline-end: var(--gcds-icon-margin-750);\n  }\n  :host .gcds-icon.mr-800 {\n    margin-inline-end: var(--gcds-icon-margin-800);\n  }\n  :host .gcds-icon.mr-850 {\n    margin-inline-end: var(--gcds-icon-margin-850);\n  }\n  :host .gcds-icon.mr-900 {\n    margin-inline-end: var(--gcds-icon-margin-900);\n  }\n  :host .gcds-icon.mr-950 {\n    margin-inline-end: var(--gcds-icon-margin-950);\n  }\n  :host .gcds-icon.mr-1000 {\n    margin-inline-end: var(--gcds-icon-margin-1000);\n  }\n  :host .gcds-icon.mr-1050 {\n    margin-inline-end: var(--gcds-icon-margin-1050);\n  }\n  :host .gcds-icon.mr-1100 {\n    margin-inline-end: var(--gcds-icon-margin-1100);\n  }\n  :host .gcds-icon.mr-1150 {\n    margin-inline-end: var(--gcds-icon-margin-1150);\n  }\n  :host .gcds-icon.mr-1200 {\n    margin-inline-end: var(--gcds-icon-margin-1200);\n  }\n  :host .gcds-icon.mr-1250 {\n    margin-inline-end: var(--gcds-icon-margin-1250);\n  }\n}\n@layer size {\n  :host .gcds-icon.size-text-small {\n    font-size: var(--gcds-icon-font-size-text-small);\n    line-height: var(--gcds-icon-line-height-text-small);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-text-small {\n      font-size: var(--gcds-icon-font-size-text-small-mobile);\n      line-height: var(--gcds-icon-line-height-text-small-mobile);\n    }\n  }\n  :host .gcds-icon.size-text {\n    font-size: var(--gcds-icon-font-size-text);\n    line-height: var(--gcds-icon-line-height-text);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-text {\n      font-size: var(--gcds-icon-font-size-text-mobile);\n      line-height: var(--gcds-icon-line-height-text-mobile);\n    }\n  }\n  :host .gcds-icon.size-h6 {\n    font-size: var(--gcds-icon-font-size-h6);\n    line-height: var(--gcds-icon-line-height-h6);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h6 {\n      font-size: var(--gcds-icon-font-size-h6-mobile);\n      line-height: var(--gcds-icon-line-height-h6-mobile);\n    }\n  }\n  :host .gcds-icon.size-h5 {\n    font-size: var(--gcds-icon-font-size-h5);\n    line-height: var(--gcds-icon-line-height-h5);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h5 {\n      font-size: var(--gcds-icon-font-size-h5-mobile);\n      line-height: var(--gcds-icon-line-height-h5-mobile);\n    }\n  }\n  :host .gcds-icon.size-h4 {\n    font-size: var(--gcds-icon-font-size-h4);\n    line-height: var(--gcds-icon-line-height-h4);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h4 {\n      font-size: var(--gcds-icon-font-size-h4-mobile);\n      line-height: var(--gcds-icon-line-height-h4-mobile);\n    }\n  }\n  :host .gcds-icon.size-h3 {\n    font-size: var(--gcds-icon-font-size-h3);\n    line-height: var(--gcds-icon-line-height-h3);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h3 {\n      font-size: var(--gcds-icon-font-size-h3-mobile);\n      line-height: var(--gcds-icon-line-height-h3-mobile);\n    }\n  }\n  :host .gcds-icon.size-h2 {\n    font-size: var(--gcds-icon-font-size-h2);\n    line-height: var(--gcds-icon-line-height-h2);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h2 {\n      font-size: var(--gcds-icon-font-size-h2-mobile);\n      line-height: var(--gcds-icon-line-height-h2-mobile);\n    }\n  }\n  :host .gcds-icon.size-h1 {\n    font-size: var(--gcds-icon-font-size-h1);\n    line-height: var(--gcds-icon-line-height-h1);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h1 {\n      font-size: var(--gcds-icon-font-size-h1-mobile);\n      line-height: var(--gcds-icon-line-height-h1-mobile);\n    }\n  }\n}";
+const gcdsIconCss = () => `@layer reset, default, names, margin, size; @layer reset {   :host {     display: inline-block;   }   :host :host .gcds-icon {     font-size: inherit;     line-height: inherit;     color: inherit;   } } @layer default {   :host .gcds-icon {     font-family: var(--gcds-icon-font-family) !important;     speak: never;     font-style: normal;     font-weight: normal;     font-variant: normal;     text-transform: none;     line-height: 1;     -webkit-font-smoothing: antialiased;     -moz-osx-font-smoothing: grayscale;   } } @layer names {   :host .gcds-icon-arrow-down:before {     content: "\\f013";   }   :host .gcds-icon-arrow-up:before {     content: "\\f011";   }   :host .gcds-icon-arrow-up-down:before {     content: "\\f012";   }   :host .gcds-icon-checkmark-circle:before {     content: "\\f021";   }   :host .gcds-icon-chevron-down:before {     content: "\\f020";   }   :host .gcds-icon-chevron-left:before {     content: "\\f01f";   }   :host .gcds-icon-chevron-right:before {     content: "\\f01e";   }   :host .gcds-icon-chevron-up:before {     content: "\\f01d";   }   :host .gcds-icon-close:before {     content: "\\f01c";   }   :host .gcds-icon-download:before {     content: "\\f01b";   }   :host .gcds-icon-email:before {     content: "\\f01a";   }   :host .gcds-icon-exclamation-circle:before {     content: "\\f019";   }   :host .gcds-icon-external:before {     content: "\\f018";   }   :host .gcds-icon-filter:before {     content: "\\f005";   }   :host .gcds-icon-info-circle:before {     content: "\\f017";   }   :host .gcds-icon-phone:before {     content: "\\f016";   }   :host .gcds-icon-search:before {     content: "\\f002";   }   :host .gcds-icon-sort:before {     content: "\\f003";   }   :host .gcds-icon-tune:before {     content: "\\f000";   }   :host .gcds-icon-warning-triangle:before {     content: "\\f014";   } } @layer margin {   :host .gcds-icon {        }   :host .gcds-icon.ml-0 {     margin-inline-start: var(--gcds-icon-margin-0);   }   :host .gcds-icon.ml-25 {     margin-inline-start: var(--gcds-icon-margin-25);   }   :host .gcds-icon.ml-50 {     margin-inline-start: var(--gcds-icon-margin-50);   }   :host .gcds-icon.ml-75 {     margin-inline-start: var(--gcds-icon-margin-75);   }   :host .gcds-icon.ml-100 {     margin-inline-start: var(--gcds-icon-margin-100);   }   :host .gcds-icon.ml-125 {     margin-inline-start: var(--gcds-icon-margin-125);   }   :host .gcds-icon.ml-150 {     margin-inline-start: var(--gcds-icon-margin-150);   }   :host .gcds-icon.ml-175 {     margin-inline-start: var(--gcds-icon-margin-175);   }   :host .gcds-icon.ml-200 {     margin-inline-start: var(--gcds-icon-margin-200);   }   :host .gcds-icon.ml-225 {     margin-inline-start: var(--gcds-icon-margin-225);   }   :host .gcds-icon.ml-250 {     margin-inline-start: var(--gcds-icon-margin-250);   }   :host .gcds-icon.ml-300 {     margin-inline-start: var(--gcds-icon-margin-300);   }   :host .gcds-icon.ml-350 {     margin-inline-start: var(--gcds-icon-margin-350);   }   :host .gcds-icon.ml-400 {     margin-inline-start: var(--gcds-icon-margin-400);   }   :host .gcds-icon.ml-450 {     margin-inline-start: var(--gcds-icon-margin-450);   }   :host .gcds-icon.ml-500 {     margin-inline-start: var(--gcds-icon-margin-500);   }   :host .gcds-icon.ml-550 {     margin-inline-start: var(--gcds-icon-margin-550);   }   :host .gcds-icon.ml-600 {     margin-inline-start: var(--gcds-icon-margin-600);   }   :host .gcds-icon.ml-650 {     margin-inline-start: var(--gcds-icon-margin-650);   }   :host .gcds-icon.ml-700 {     margin-inline-start: var(--gcds-icon-margin-700);   }   :host .gcds-icon.ml-750 {     margin-inline-start: var(--gcds-icon-margin-750);   }   :host .gcds-icon.ml-800 {     margin-inline-start: var(--gcds-icon-margin-800);   }   :host .gcds-icon.ml-850 {     margin-inline-start: var(--gcds-icon-margin-850);   }   :host .gcds-icon.ml-900 {     margin-inline-start: var(--gcds-icon-margin-900);   }   :host .gcds-icon.ml-950 {     margin-inline-start: var(--gcds-icon-margin-950);   }   :host .gcds-icon.ml-1000 {     margin-inline-start: var(--gcds-icon-margin-1000);   }   :host .gcds-icon.ml-1050 {     margin-inline-start: var(--gcds-icon-margin-1050);   }   :host .gcds-icon.ml-1100 {     margin-inline-start: var(--gcds-icon-margin-1100);   }   :host .gcds-icon.ml-1150 {     margin-inline-start: var(--gcds-icon-margin-1150);   }   :host .gcds-icon.ml-1200 {     margin-inline-start: var(--gcds-icon-margin-1200);   }   :host .gcds-icon.ml-1250 {     margin-inline-start: var(--gcds-icon-margin-1250);   }   :host .gcds-icon {        }   :host .gcds-icon.mr-0 {     margin-inline-end: var(--gcds-icon-margin-0);   }   :host .gcds-icon.mr-25 {     margin-inline-end: var(--gcds-icon-margin-25);   }   :host .gcds-icon.mr-50 {     margin-inline-end: var(--gcds-icon-margin-50);   }   :host .gcds-icon.mr-75 {     margin-inline-end: var(--gcds-icon-margin-75);   }   :host .gcds-icon.mr-100 {     margin-inline-end: var(--gcds-icon-margin-100);   }   :host .gcds-icon.mr-125 {     margin-inline-end: var(--gcds-icon-margin-125);   }   :host .gcds-icon.mr-150 {     margin-inline-end: var(--gcds-icon-margin-150);   }   :host .gcds-icon.mr-175 {     margin-inline-end: var(--gcds-icon-margin-175);   }   :host .gcds-icon.mr-200 {     margin-inline-end: var(--gcds-icon-margin-200);   }   :host .gcds-icon.mr-225 {     margin-inline-end: var(--gcds-icon-margin-225);   }   :host .gcds-icon.mr-250 {     margin-inline-end: var(--gcds-icon-margin-250);   }   :host .gcds-icon.mr-300 {     margin-inline-end: var(--gcds-icon-margin-300);   }   :host .gcds-icon.mr-350 {     margin-inline-end: var(--gcds-icon-margin-350);   }   :host .gcds-icon.mr-400 {     margin-inline-end: var(--gcds-icon-margin-400);   }   :host .gcds-icon.mr-450 {     margin-inline-end: var(--gcds-icon-margin-450);   }   :host .gcds-icon.mr-500 {     margin-inline-end: var(--gcds-icon-margin-500);   }   :host .gcds-icon.mr-550 {     margin-inline-end: var(--gcds-icon-margin-550);   }   :host .gcds-icon.mr-600 {     margin-inline-end: var(--gcds-icon-margin-600);   }   :host .gcds-icon.mr-650 {     margin-inline-end: var(--gcds-icon-margin-650);   }   :host .gcds-icon.mr-700 {     margin-inline-end: var(--gcds-icon-margin-700);   }   :host .gcds-icon.mr-750 {     margin-inline-end: var(--gcds-icon-margin-750);   }   :host .gcds-icon.mr-800 {     margin-inline-end: var(--gcds-icon-margin-800);   }   :host .gcds-icon.mr-850 {     margin-inline-end: var(--gcds-icon-margin-850);   }   :host .gcds-icon.mr-900 {     margin-inline-end: var(--gcds-icon-margin-900);   }   :host .gcds-icon.mr-950 {     margin-inline-end: var(--gcds-icon-margin-950);   }   :host .gcds-icon.mr-1000 {     margin-inline-end: var(--gcds-icon-margin-1000);   }   :host .gcds-icon.mr-1050 {     margin-inline-end: var(--gcds-icon-margin-1050);   }   :host .gcds-icon.mr-1100 {     margin-inline-end: var(--gcds-icon-margin-1100);   }   :host .gcds-icon.mr-1150 {     margin-inline-end: var(--gcds-icon-margin-1150);   }   :host .gcds-icon.mr-1200 {     margin-inline-end: var(--gcds-icon-margin-1200);   }   :host .gcds-icon.mr-1250 {     margin-inline-end: var(--gcds-icon-margin-1250);   } } @layer size {   :host .gcds-icon.size-text-small {     font-size: var(--gcds-icon-font-size-text-small);     line-height: var(--gcds-icon-line-height-text-small);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-text-small {       font-size: var(--gcds-icon-font-size-text-small-mobile);       line-height: var(--gcds-icon-line-height-text-small-mobile);     }   }   :host .gcds-icon.size-text {     font-size: var(--gcds-icon-font-size-text);     line-height: var(--gcds-icon-line-height-text);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-text {       font-size: var(--gcds-icon-font-size-text-mobile);       line-height: var(--gcds-icon-line-height-text-mobile);     }   }   :host .gcds-icon.size-h6 {     font-size: var(--gcds-icon-font-size-h6);     line-height: var(--gcds-icon-line-height-h6);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-h6 {       font-size: var(--gcds-icon-font-size-h6-mobile);       line-height: var(--gcds-icon-line-height-h6-mobile);     }   }   :host .gcds-icon.size-h5 {     font-size: var(--gcds-icon-font-size-h5);     line-height: var(--gcds-icon-line-height-h5);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-h5 {       font-size: var(--gcds-icon-font-size-h5-mobile);       line-height: var(--gcds-icon-line-height-h5-mobile);     }   }   :host .gcds-icon.size-h4 {     font-size: var(--gcds-icon-font-size-h4);     line-height: var(--gcds-icon-line-height-h4);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-h4 {       font-size: var(--gcds-icon-font-size-h4-mobile);       line-height: var(--gcds-icon-line-height-h4-mobile);     }   }   :host .gcds-icon.size-h3 {     font-size: var(--gcds-icon-font-size-h3);     line-height: var(--gcds-icon-line-height-h3);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-h3 {       font-size: var(--gcds-icon-font-size-h3-mobile);       line-height: var(--gcds-icon-line-height-h3-mobile);     }   }   :host .gcds-icon.size-h2 {     font-size: var(--gcds-icon-font-size-h2);     line-height: var(--gcds-icon-line-height-h2);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-h2 {       font-size: var(--gcds-icon-font-size-h2-mobile);       line-height: var(--gcds-icon-line-height-h2-mobile);     }   }   :host .gcds-icon.size-h1 {     font-size: var(--gcds-icon-font-size-h1);     line-height: var(--gcds-icon-line-height-h1);   }   @media only screen and (width < 48em) {     :host .gcds-icon.size-h1 {       font-size: var(--gcds-icon-font-size-h1-mobile);       line-height: var(--gcds-icon-line-height-h1-mobile);     }   } }`;
 
 /**
  * An icon is a symbol that visually represents an action or idea.
@@ -7376,6 +9616,9 @@ class GcdsIcon {
     }
     validateName(newValue) {
         const values = [
+            'arrow-down',
+            'arrow-up',
+            'arrow-up-down',
             'checkmark-circle',
             'chevron-down',
             'chevron-left',
@@ -7386,13 +9629,16 @@ class GcdsIcon {
             'email',
             'exclamation-circle',
             'external',
+            'filter',
             'info-circle',
             'phone',
             'search',
+            'sort',
+            'tune',
             'warning-triangle',
         ];
         if (!values.includes(newValue)) {
-            console.error(`${I18N$d['en'].nameError} | ${I18N$d['fr'].nameError}`);
+            console.error(`${I18N$e['en'].nameError} | ${I18N$e['fr'].nameError}`);
         }
     }
     validateSize(newValue) {
@@ -7418,7 +9664,7 @@ class GcdsIcon {
     }
     render() {
         const { label, marginLeft, marginRight, name, size } = this;
-        return (hAsync(Host, { key: 'acfcce1cb6a96e3f96c95c19e8a06ffa91be2306' }, hAsync("span", { key: '97dd8217a134541eb55ad6addc1b1fb3e9872790', class: `
+        return (hAsync(Host, { key: '447a454486166e31b5d75b782f24d741e8ecf51f' }, hAsync("span", { key: 'a114b9edb1972f636c7116d51afb0c83c481fe9a', class: `
             gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
@@ -7427,10 +9673,14 @@ class GcdsIcon {
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "name": ["validateName"],
-        "size": ["validateSize"]
+        "name": [{
+                "validateName": 0
+            }],
+        "size": [{
+                "validateSize": 0
+            }]
     }; }
-    static get style() { return gcdsIconCss; }
+    static get style() { return gcdsIconCss(); }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-icon",
@@ -7458,7 +9708,7 @@ function isSuggestionObject(obj) {
     return hasValidTypes && hasOnlyValidKeys;
 }
 
-const gcdsInputCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-input-wrapper{border:0;margin:0;padding:0}:host .gcds-input-wrapper input{box-sizing:border-box}}@layer default{:host .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font-desktop);max-width:75ch;transition:color .15s ease-in-out;width:100%}@media only screen and (width < 48em){:host .gcds-input-wrapper{font:var(--gcds-input-font-mobile)}}:host .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}:host .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}:host .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,:host .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{:host .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}:host .gcds-input-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-input-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{:host .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-border);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-border);outline-offset:var(--gcds-input-border-width)}}";
+const gcdsInputCss = () => `@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-input-wrapper{border:0;margin:0;padding:0}:host .gcds-input-wrapper input{box-sizing:border-box}}@layer default{:host .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font-desktop);max-width:75ch;transition:color .15s ease-in-out;width:100%}@media only screen and (width < 48em){:host .gcds-input-wrapper{font:var(--gcds-input-font-mobile)}}:host .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}:host .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}:host .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,:host .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{:host .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}:host .gcds-input-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-input-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{:host .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-border);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-border);outline-offset:var(--gcds-input-border-width)}}`;
 
 /**
  * An input is a space to enter short-form information in response to a question or instruction.
@@ -7781,7 +10031,7 @@ class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: 'b76e47c010dd01a1a75da9e9de0c3a1c7ccc63a6' }, hAsync("div", { key: '82bf8e2f6bdc4000b43b5f20de322ec4e551987e', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'f693f9bb7803e33fbbcf9f32be06cd9853b078fd' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: inputId }, errorMessage)) : null, hAsync("input", Object.assign({ key: 'd669799bd304f8e4d90315e2e3d64f4f7847d9c0' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: 'b9d81df6f50cd08e4b9377996a79824c9bbe488a' }, hAsync("div", { key: 'e39afd146c1c70a88a2eb55570cd50892f0d20c3', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '0f3ad082733230e3fc87e1fc4b76f72199805034' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: inputId }, errorMessage)) : null, hAsync("input", Object.assign({ key: '5f56bec9c378c59913566d81a58dd4b853963653' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -7796,16 +10046,32 @@ class GcdsInput {
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "disabled": ["validateDisabledInput"],
-        "errorMessage": ["validateErrorMessage"],
-        "value": ["watchValue"],
-        "validator": ["validateValidator"],
-        "suggestions": ["validateSuggestions"],
-        "hasError": ["validateHasError"],
-        "aria-invalid": ["ariaInvalidWatcher"],
-        "aria-description": ["ariaDescriptiondWatcher"]
+        "disabled": [{
+                "validateDisabledInput": 0
+            }],
+        "errorMessage": [{
+                "validateErrorMessage": 0
+            }],
+        "value": [{
+                "watchValue": 0
+            }],
+        "validator": [{
+                "validateValidator": 0
+            }],
+        "suggestions": [{
+                "validateSuggestions": 0
+            }],
+        "hasError": [{
+                "validateHasError": 0
+            }],
+        "aria-invalid": [{
+                "ariaInvalidWatcher": 0
+            }],
+        "aria-description": [{
+                "ariaDescriptiondWatcher": 0
+            }]
     }; }
-    static get style() { return gcdsInputCss; }
+    static get style() { return gcdsInputCss(); }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-input",
@@ -7849,7 +10115,7 @@ class GcdsInput {
     }; }
 }
 
-const I18N$c = {
+const I18N$d = {
   en: {
     required: 'required',
   },
@@ -7858,7 +10124,7 @@ const I18N$c = {
   },
 };
 
-const gcdsLabelCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-label{color:var(--gcds-label-text);cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){:host .gcds-label{font:var(--gcds-label-font-mobile)}}:host .gcds-label.label--hidden>span{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}";
+const gcdsLabelCss = () => `@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-label{color:var(--gcds-label-text);cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){:host .gcds-label{font:var(--gcds-label-font-mobile)}}:host .gcds-label.label--hidden>span{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}`;
 
 /**
  * Label for form fields, providing accessibility and context for users.
@@ -7887,10 +10153,10 @@ class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (hAsync(Host, { key: '37a6681d7fed70d37313a5d93d5d61de1502e538', id: `label-for-${labelFor}` }, hAsync("label", { key: '1ce8e12182daeeff2d47e667028c735c9bab44e3', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '5883396a2787821cf582b66bf21e6553fcc2641e' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$c[lang].required, ")")) : null)));
+        return (hAsync(Host, { key: '767bb6fb7624e2bf10eb66ac8c91e7af80d33305', id: `label-for-${labelFor}` }, hAsync("label", { key: '0cfa64b20e425fe7db457bbab0f364f8348adcd8', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '2b10ced874e632d6f340946639fd54c9cfb33443' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$d[lang].required, ")")) : null)));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsLabelCss; }
+    static get style() { return gcdsLabelCss(); }
     static get cmpMeta() { return {
         "$flags$": 0,
         "$tagName$": "gcds-label",
@@ -7907,7 +10173,7 @@ class GcdsLabel {
     }; }
 }
 
-const I18N$b = {
+const I18N$c = {
   en: {
     abbreviation: 'fr',
     heading: 'Language selection',
@@ -7920,7 +10186,7 @@ const I18N$b = {
   },
 };
 
-const gcdsLangToggleCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){display:inline-block;padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-desktop);padding-inline:0!important}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}@layer mobile{@media screen and (width < 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-mobile)}}}";
+const gcdsLangToggleCss = () => `@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){display:inline-block;padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-desktop);padding-inline:0!important}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}@layer mobile{@media screen and (width < 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-mobile)}}}`;
 
 /**
  * The language toggle is a link to the same content in the other Official Language.
@@ -7950,10 +10216,10 @@ class GcdsLangToggle {
     }
     render() {
         const { lang, href } = this;
-        return (hAsync(Host, { key: '62aa9c22bff1a0f8778c5835f7e63646cbfe1a46' }, hAsync("div", { key: '88d41598195886ac785f5892a98b21b4ec6305a1', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: '6237c11ac97300f34d12b1514353715ff08cc3c7', id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), hAsync("gcds-link", { key: 'd71e4738bf386fce9bd917c7ebad9996e668c109', size: "regular", href: href, lang: I18N$b[lang].abbreviation }, hAsync("span", { key: 'ad354cf5d68967abc49af62bd13dcb403f1247b0' }, I18N$b[lang].language), hAsync("abbr", { key: '5d4d1a9b12e51c2fdb1740aea1d0a237b926ba85', title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
+        return (hAsync(Host, { key: 'f12de208eb52786450f1c4212e0b1d6716f75405' }, hAsync("div", { key: '6c35c46a64ea431c30feb804c5c9b5022e181cd3', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: '0cbdffb1ae027b07fbf9f3a6af803af2a0f79f58', id: "lang-toggle__heading", tag: "h2" }, I18N$c[lang].heading), hAsync("gcds-link", { key: 'fce48c5a07de4d05c78ac121feb93f86c18343f8', size: "regular", href: href, lang: I18N$c[lang].abbreviation }, hAsync("span", { key: '4f7fe6e4596793f459dd834695b91948aa155839' }, I18N$c[lang].language), hAsync("abbr", { key: '0c37e52fc3e196cf2d2666654044fc381e3c8cc6', title: I18N$c[lang].language }, I18N$c[lang].abbreviation)))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsLangToggleCss; }
+    static get style() { return gcdsLangToggleCss(); }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-lang-toggle",
@@ -7967,7 +10233,7 @@ class GcdsLangToggle {
     }; }
 }
 
-const I18N$a = {
+const I18N$b = {
   en: {
     external: ' (Opens destination in a new tab.)',
     phone: ' (Attempts to open a phone app.)',
@@ -7982,7 +10248,7 @@ const I18N$a = {
   },
 };
 
-const gcdsLinkCss = "@layer reset, default, display, size, roles, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}:host .gcds-link .text-icon-group{white-space:nowrap}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer roles{:host .gcds-link.role-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.role-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.role-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
+const gcdsLinkCss = () => `@layer reset, default, display, size, roles, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}:host .gcds-link .text-icon-group{white-space:nowrap}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer roles{:host .gcds-link.role-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.role-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.role-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}`;
 
 /**
  * A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
@@ -8072,16 +10338,16 @@ class GcdsLink {
         const { href, target, external, download, lang } = this;
         const isExternal = target === '_blank' || external;
         if (isExternal) {
-            return hAsync("gcds-icon", { name: "external", label: I18N$a[lang].external });
+            return hAsync("gcds-icon", { name: "external", label: I18N$b[lang].external });
         }
         if (download !== undefined) {
-            return hAsync("gcds-icon", { name: "download", label: I18N$a[lang].download });
+            return hAsync("gcds-icon", { name: "download", label: I18N$b[lang].download });
         }
         if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('mailto:')) {
-            return hAsync("gcds-icon", { name: "email", label: I18N$a[lang].email });
+            return hAsync("gcds-icon", { name: "email", label: I18N$b[lang].email });
         }
         if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('tel:')) {
-            return hAsync("gcds-icon", { name: "phone", label: I18N$a[lang].phone });
+            return hAsync("gcds-icon", { name: "phone", label: I18N$b[lang].phone });
         }
         return null;
     }
@@ -8095,17 +10361,23 @@ class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (hAsync(Host, { key: '7fa892f419ed82d2218a8166cb9df9087309f049' }, hAsync("a", Object.assign({ key: '1b771e086f262c942e89359aab40a242cdeca8e7', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: '86a797523cf073c1e75e3adfb224ff10f8344a76' }), this.getIcon() && (hAsync("span", { key: '61a96d99ba2782a0853bdc7d4dff5a4a250f8858', class: "text-icon-group" }, "\u00A0", this.getIcon())))));
+        return (hAsync(Host, { key: 'be11bc7a4e4c284633054cdc9a2374af97b0ac27' }, hAsync("a", Object.assign({ key: '5a12d4e848d792c42b4805bb83b81387ccbc699e', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: '7058ae9242230b4f77542a3453d2a273e6bdfd18' }), this.getIcon() && (hAsync("span", { key: '2c14791e6082d0ff8d3308c7922f6f0902da055d', class: "text-icon-group" }, "\u00A0", this.getIcon())))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "linkRole": ["validateLinkRole"],
-        "size": ["validateSize"],
-        "display": ["validateDisplay"]
+        "linkRole": [{
+                "validateLinkRole": 0
+            }],
+        "size": [{
+                "validateSize": 0
+            }],
+        "display": [{
+                "validateDisplay": 0
+            }]
     }; }
-    static get style() { return gcdsLinkCss; }
+    static get style() { return gcdsLinkCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-link",
         "$members$": {
             "linkRole": [1025, "link-role"],
@@ -8126,7 +10398,7 @@ class GcdsLink {
     }; }
 }
 
-const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-overlay-background);height:100vh;left:0;position:fixed;top:0;width:100%;z-index:100}:host([open].gcds-mobile-nav) .gcds-nav-group__container{background-color:var(--gcds-nav-group-mobile-background);border-radius:var(--gcds-nav-group-mobile-border-radius);bottom:0;height:var(--gcds-nav-group-mobile-height);left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;width:100%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav) .gcds-nav-group__container>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav-group__container>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav-group__container>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
+const gcdsNavGroupCss = () => `@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(       --gcds-nav-group-top-nav-trigger-underline-offset     );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(         --gcds-nav-group-top-nav-trigger-expanded-background-color       )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-overlay-background);height:100vh;left:0;position:fixed;top:0;width:100%;z-index:100}:host([open].gcds-mobile-nav) .gcds-nav-group__container{background-color:var(--gcds-nav-group-mobile-background);border-radius:var(--gcds-nav-group-mobile-border-radius);bottom:0;height:var(--gcds-nav-group-mobile-height);left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;width:100%}}@layer desktop{@media only screen and (width >= 48em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav) .gcds-nav-group__container>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav-group__container>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 48em){:host(.gcds-mobile-nav)>.gcds-nav-group__container>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(           --gcds-nav-group-top-nav-trigger-hover-decoration-thickness         )}:host .gcds-trigger--expandable:hover{background-color:var(           --gcds-nav-group-side-nav-trigger-hover-background         )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}`;
 
 /**
  * Navigational group with expandable or dropdown functionality, allowing for better organization of navigation links.
@@ -8234,23 +10506,23 @@ class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (hAsync(Host, { key: '159a59d35c9f64a266d942fb9a57ba9973c6b968', role: "listitem", open: open }, hAsync("div", { key: '90f518b5fcfed0ae7a7574eb153651a6915a9b64', class: "gcds-nav-group__container" }, hAsync("button", { key: '3c95cf1d6787abdd1ee1ef924579cd03c175409d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: '35428e90e183130456e1c7f80231621e82b04690', role: "listitem", open: open }, hAsync("div", { key: 'cee8d305928e4a3a15359e628f4123d5a106a3dd', class: "gcds-nav-group__container" }, hAsync("button", { key: 'e2498be00124fcc55a05d5f8bd5b84e62d819f4d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, hAsync("gcds-icon", { key: 'c533dfb1c4393a3453b53b7e7353c01adaf582e4', name: this.navStyle === 'expandable'
+            } }, hAsync("gcds-icon", { key: 'b0f8639723d0719737c91a746dfc29ccef9d9ddf', name: (this.navStyle === 'expandable'
                 ? open
                     ? 'chevron-down'
                     : 'chevron-right'
                 : open
                     ? 'chevron-up'
-                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: '5a5395d27b0f6c39a63c1605a0112f0c27d6a678', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '68763c8422c0ee0d0d28b5b4a6ad680682156d58' })))));
+                    : 'chevron-down') }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: 'c1f4082ff6112488786ace93d9316ee6e6befb50', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '46e0d5e8bb9cee9bbef1fbd4b826e55f20c89137' })))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsNavGroupCss; }
+    static get style() { return gcdsNavGroupCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-nav-group",
         "$members$": {
             "closeTrigger": [513, "close-trigger"],
@@ -8269,7 +10541,7 @@ class GcdsNavGroup {
     }; }
 }
 
-const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n      --gcds-nav-link-default-decoration-thickness\n    );text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}@media only screen and (width >= 64em){:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-home-font)}:host([slot=home])>.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link:not(:hover):not(:focus){color:var(--gcds-nav-link-home-text)!important}}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host([slot=home])>.gcds-nav-link--topnav.gcds-nav-link{padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}@media only screen and (width >= 64em){:host([slot=home])>.gcds-nav-link--sidenav.gcds-nav-link{margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host(:not([slot=home])) .gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background);color:var(--gcds-nav-link-hover-text)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:currentColor;color:var(--gcds-nav-link-home-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
+const gcdsNavLinkCss = () => `@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(       --gcds-nav-link-default-decoration-thickness     );text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}@media only screen and (width < 64em){:host .gcds-nav-link{min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}@media only screen and (width >= 48em){:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-home-font)}:host([slot=home])>.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link:not(:hover):not(:focus){color:var(--gcds-nav-link-home-text)!important}}}@layer variants{@media only screen and (width >= 48em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host([slot=home])>.gcds-nav-link--topnav.gcds-nav-link{padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}@media only screen and (width >= 48em){:host([slot=home])>.gcds-nav-link--sidenav.gcds-nav-link{margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(         --gcds-nav-link-hover-decoration-thickness       )}:host(:not([slot=home])) .gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background);color:var(--gcds-nav-link-hover-text)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:currentColor;color:var(--gcds-nav-link-home-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}`;
 
 /**
  * Navigation link within a navigation group or menu, allowing users to navigate to different sections of a website or application.
@@ -8322,12 +10594,12 @@ class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (hAsync(Host, { key: 'a6e2fa48b4b77a616dc53e40bc118cd919cf8ac2', role: "listitem" }, hAsync("a", Object.assign({ key: '2f7e253d103f1c87c7b4450f879288705cdf0795', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), hAsync("slot", { key: 'fa0abad92cfc665af35535215fb259477c3b704a' }))));
+        return (hAsync(Host, { key: '69d1a5cf3b6ec8277ecbc0b994c679a85485f288', role: "listitem" }, hAsync("a", Object.assign({ key: 'e6fa6df38ec8f39e69e6e030846353e969640680', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), hAsync("slot", { key: '77b17d920b3c8e9fed6467aff446f928d246cf19' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsNavLinkCss; }
+    static get style() { return gcdsNavLinkCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-nav-link",
         "$members$": {
             "href": [513],
@@ -8342,7 +10614,7 @@ class GcdsNavLink {
     }; }
 }
 
-const I18N$9 = {
+const I18N$a = {
   en: {
     success: 'Success: ',
     info: 'Information: ',
@@ -8357,7 +10629,7 @@ const I18N$9 = {
   },
 };
 
-const gcdsNoticeCss = "@layer reset, default, type;@layer reset{:host{display:block}:host .gcds-notice{box-sizing:border-box;text-align:left}:host .gcds-notice slot{display:initial}}@layer default{:host .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}:host .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(\n        --gcds-notice-content-heading-margin-block-start-desktop\n      )}@media only screen and (width < 48em){:host .gcds-notice .notice__heading{margin-block-start:var(\n          --gcds-notice-content-heading-margin-block-start-mobile\n        )}}:host .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}:host .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-mobile)}}:host .gcds-notice ::slotted(:last-child){margin-block-end:0}:host .gcds-notice ::slotted(:not(:last-child)){margin-block-end:var(--gcds-notice-content-slotted-margin)}:host .gcds-notice ::slotted(ol),:host .gcds-notice ::slotted(ul){margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{:host .gcds-notice.notice--role-danger .notice__icon{color:var(--gcds-notice-danger-text)}:host .gcds-notice.notice--role-info .notice__icon{color:var(--gcds-notice-info-text)}:host .gcds-notice.notice--role-success .notice__icon{color:var(--gcds-notice-success-text)}:host .gcds-notice.notice--role-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
+const gcdsNoticeCss = () => `@layer reset, default, type;@layer reset{:host{display:block}:host .gcds-notice{box-sizing:border-box;text-align:left}:host .gcds-notice slot{display:initial}}@layer default{:host .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}:host .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(         --gcds-notice-content-heading-font-desktop       );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(         --gcds-notice-content-heading-font-desktop       );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(         --gcds-notice-content-heading-font-desktop       );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(         --gcds-notice-content-heading-margin-block-start-desktop       )}@media only screen and (width < 48em){:host .gcds-notice .notice__heading{margin-block-start:var(           --gcds-notice-content-heading-margin-block-start-mobile         )}}:host .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}:host .gcds-notice .notice__icon:before{background-color:currentColor;content:"";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice .notice__icon:after{background-color:currentColor;content:"";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-mobile)}}:host .gcds-notice ::slotted(:last-child){margin-block-end:0}:host .gcds-notice ::slotted(:not(:last-child)){margin-block-end:var(--gcds-notice-content-slotted-margin)}:host .gcds-notice ::slotted(ol),:host .gcds-notice ::slotted(ul){margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{:host .gcds-notice.notice--role-danger .notice__icon{color:var(--gcds-notice-danger-text)}:host .gcds-notice.notice--role-info .notice__icon{color:var(--gcds-notice-info-text)}:host .gcds-notice.notice--role-success .notice__icon{color:var(--gcds-notice-success-text)}:host .gcds-notice.notice--role-warning .notice__icon{color:var(--gcds-notice-warning-text)}}`;
 
 /**
  * The notice is a short, prominent message that’s part of the page content.
@@ -8450,12 +10722,12 @@ class GcdsNotice {
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (hAsync(Host, { key: '03e09c9feca750421af5461d3530a3b459f8c0a1' }, this.validateRequiredProps() && (hAsync("section", { key: 'a662553fe15c9b04690a5fa3b5904d7c8f04ebcf', class: `gcds-notice notice--role-${noticeRole}` }, hAsync("gcds-icon", { key: '710bf5e2c0eddf52f765d1247b79147139a57f44', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), hAsync("div", { key: '148dc06af3014b33b0180865839cf920b18aabdd' }, hAsync("gcds-heading", { key: '7f9c4947154fc5ecf7cf7023968da3d5e7c48c46', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: 'f954a5fd1b3846dfe82e69be40eac77cc10a363a', tag: "span" }, I18N$9[this.lang][noticeRole]), noticeTitle), hAsync("slot", { key: 'ac208cbe2c085f09358cd043b5a925b881d21300' }))))));
+        return (hAsync(Host, { key: 'eeefda750a72d686551bf8fb9d19e01041443383' }, this.validateRequiredProps() && (hAsync("section", { key: '6e02932b54e765e2209dbfce48d195cf49c18b71', class: `gcds-notice notice--role-${noticeRole}` }, hAsync("gcds-icon", { key: '3dc298767a00715811ccec1f9c372acf919fd3d4', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), hAsync("div", { key: '214a8893e623fa271f673cb79df6a732a6c72964' }, hAsync("gcds-heading", { key: 'ea7a87df48aa86ca8c85128dfcdd49ea39430217', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: '517fd7249667e0f971b009f65b070dc11440d69e', tag: "span" }, I18N$a[this.lang][noticeRole]), noticeTitle), hAsync("slot", { key: 'fdf48fa2daceb1af2f8058e53e4a3d00d6424444' }))))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsNoticeCss; }
+    static get style() { return gcdsNoticeCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-notice",
         "$members$": {
             "noticeRole": [1, "notice-role"],
@@ -8470,7 +10742,7 @@ class GcdsNotice {
     }; }
 }
 
-const I18N$8 = {
+const I18N$9 = {
   en: {
     next: 'Next',
     listNext: 'Next',
@@ -8611,7 +10883,7 @@ function constructClasses(page, current, total) {
     return `collapse-${side}-${group}`;
 }
 
-const gcdsPaginationCss = "@charset \"UTF-8\";\n@layer reset, default, list, simple, wide, compact, hover, active, focus;\n@layer reset {\n  :host {\n    display: block;\n  }\n  :host .gcds-pagination ul {\n    padding: 0;\n    list-style: none;\n  }\n}\n@layer default {\n  :host .gcds-pagination {\n    container: component pagination/inline-size;\n  }\n  :host .gcds-pagination li a {\n    color: var(--gcds-pagination-default-text);\n    font: var(--gcds-pagination-font-desktop);\n    border-radius: var(--gcds-pagination-border-radius);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-pagination li a {\n      font: var(--gcds-pagination-font-mobile);\n    }\n  }\n}\n@layer list {\n  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) {\n    display: flex;\n    flex-direction: row;\n    margin: 0;\n    max-width: 100%;\n  }\n  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li {\n    margin: var(--gcds-pagination-listitem-margin);\n  }\n  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses {\n    height: 3rem;\n    min-width: 3rem;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n  }\n  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile {\n    padding: var(--gcds-pagination-list-end-button-padding);\n    width: auto;\n    min-width: auto;\n    height: auto;\n    text-decoration: none;\n  }\n  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile span {\n    text-decoration: underline;\n  }\n  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext {\n    display: none;\n  }\n  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses {\n    display: none;\n  }\n  :host .gcds-pagination .gcds-pagination-list-mobile-prevnext {\n    margin: var(--gcds-pagination-mobile-list-prevnext-margin);\n  }\n}\n@layer simple {\n  :host .gcds-pagination-simple {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n  }\n  :host .gcds-pagination-simple li {\n    margin: var(--gcds-pagination-simple-listitem-margin);\n  }\n  :host .gcds-pagination-simple li:has(+ li) {\n    margin-block-end: var(--gcds-pagination-simple-listitem-divider-margin);\n    border-block-end: var(--gcds-pagination-simple-listitem-divider-border);\n    padding: var(--gcds-pagination-simple-listitem-divider-padding);\n  }\n  :host .gcds-pagination-simple li a {\n    display: grid;\n    padding: var(--gcds-pagination-simple-padding);\n  }\n  :host .gcds-pagination-simple li a > gcds-icon {\n    grid-area: icon;\n  }\n  :host .gcds-pagination-simple li a > .gcds-pagination-simple-text {\n    grid-area: text;\n    margin: var(--gcds-pagination-simple-listitem-text-margin);\n  }\n  :host .gcds-pagination-simple li a > span {\n    grid-area: label;\n    font-weight: var(--gcds-pagination-simple-label-font-weight);\n  }\n  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a {\n    text-decoration: none;\n  }\n  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a .gcds-pagination-simple-text,\n  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a span {\n    text-decoration: underline;\n  }\n  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a {\n    grid-template-areas: \"icon text\" \"icon label\";\n    grid-template-columns: 2rem 6fr;\n  }\n}\n@layer wide {\n  /* List display: list */\n  :host .gcds-pagination-list-mobile-prevnext {\n    display: none;\n  }\n  :host .gcds-pagination-list li:first-child {\n    margin-inline-start: 0 !important;\n  }\n  :host .gcds-pagination-list li:last-child {\n    margin-inline-end: 0 !important;\n  }\n}\n@layer compact {\n  /*\n    Pagination responsiveness logic\n    ----------------------------\n    This layer progressively reduces pagination UI based on:\n    - Container width.\n    - Number of items.\n    - \"Collapse\" helper classes.\n  */\n  /* ---------- Ellipsis replacement for collapsed items ---------- */\n  /*\n    Handle \"collapsed\" pagination items for smaller viewports.\n    This logic loops over left/right groups (1-3) and:\n    - Targets the last item in a collapsed group that doesn't already have an ellipsis.\n    - Replaces the link with a single ellipsis (…) for compact display.\n  */\n  @container pagination (width <= 39em) {\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) {\n      /* Target last item in the collapse group */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {\n      position: relative;\n      display: block;\n      min-width: 3rem;\n    }\n    @media only screen and (width < 31em) {\n      :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {\n        min-width: 1rem;\n      }\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)):after {\n      content: \"…\";\n      position: absolute;\n      inset: 0;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {\n      /* Hide original link to avoid duplication */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) a {\n      display: none;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) {\n      /* Target last item in the collapse group */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {\n      position: relative;\n      display: block;\n      min-width: 3rem;\n    }\n    @media only screen and (width < 31em) {\n      :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {\n        min-width: 1rem;\n      }\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)):after {\n      content: \"…\";\n      position: absolute;\n      inset: 0;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {\n      /* Hide original link to avoid duplication */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) a {\n      display: none;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) {\n      /* Target last item in the collapse group */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {\n      position: relative;\n      display: block;\n      min-width: 3rem;\n    }\n    @media only screen and (width < 31em) {\n      :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {\n        min-width: 1rem;\n      }\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)):after {\n      content: \"…\";\n      position: absolute;\n      inset: 0;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {\n      /* Hide original link to avoid duplication */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) a {\n      display: none;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) {\n      /* Target last item in the collapse group */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {\n      position: relative;\n      display: block;\n      min-width: 3rem;\n    }\n    @media only screen and (width < 31em) {\n      :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {\n        min-width: 1rem;\n      }\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)):after {\n      content: \"…\";\n      position: absolute;\n      inset: 0;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {\n      /* Hide original link to avoid duplication */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) a {\n      display: none;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) {\n      /* Target last item in the collapse group */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {\n      position: relative;\n      display: block;\n      min-width: 3rem;\n    }\n    @media only screen and (width < 31em) {\n      :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {\n        min-width: 1rem;\n      }\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)):after {\n      content: \"…\";\n      position: absolute;\n      inset: 0;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {\n      /* Hide original link to avoid duplication */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) a {\n      display: none;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) {\n      /* Target last item in the collapse group */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {\n      position: relative;\n      display: block;\n      min-width: 3rem;\n    }\n    @media only screen and (width < 31em) {\n      :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {\n        min-width: 1rem;\n      }\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)):after {\n      content: \"…\";\n      position: absolute;\n      inset: 0;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {\n      /* Hide original link to avoid duplication */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) a {\n      display: none;\n    }\n  }\n  /* ---------- Base adjustments ---------- */\n  /*\n    Minor layout tweaks for smaller containers:\n    - Reduces spacing.\n  */\n  @container pagination (width <= 34em) {\n    :host .gcds-pagination .gcds-pagination-list li {\n      margin: var(--gcds-pagination-mobile-list-item-margin);\n    }\n  }\n  /* ---------- Pagination with 3 collapse groups ---------- */\n  /*\n    Most compressed pagination state.\n    - Hide deeper collapse groups first.\n    - Remove more items when prev/next buttons are present.\n  */\n  @container pagination (width <= 39em) {\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-3,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-3,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-2,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-2, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-3,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-3,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-2,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-2 {\n      display: none;\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3), :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) {\n      /* Extra reduction when both prev + next exist */\n    }\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):has(.list-btn-prev ~ .list-btn-next) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):has(.list-btn-prev ~ .list-btn-next) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):has(.list-btn-prev ~ .list-btn-next) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):has(.list-btn-prev ~ .list-btn-next) .collapse-right-1 {\n      display: none;\n    }\n  }\n  :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3), :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) {\n    /* No prev/next → delay full collapse */\n  }\n  @container pagination (width <= 22em) {\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-1 {\n      display: none;\n    }\n  }\n  /* ---------- Pagination with 2 collapse groups ---------- */\n  /*\n    Medium compression state.\n    - Remove all collapsed items at smaller widths.\n  */\n  @container pagination (width <= 39em) {\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-left-2,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-right-2,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-left-2,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-right-2,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-right-1 {\n      display: none;\n    }\n  }\n  /* ---------- Pagination with 1 collapse groups ---------- */\n  /*\n    Light compression state.\n    - Only nearest overflow items are hidden.\n  */\n  @container pagination (width <= 39em) {\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)) .collapse-left-1,\n    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)) .collapse-right-1 {\n      display: none;\n    }\n  }\n  /* ---------- Prev/next button collapse helper ---------- */\n  /*\n    Moves prev/next buttons below the pagination list\n    when container width is too small.\n  */\n  /*\n    Controls when full pagination switches to compact mode.\n    - Number of list items.\n    - Presence of \"collapse\" helper classes.\n    - Presence of prev/next buttons.\n    - Container width.\n  */\n  :host .gcds-pagination {\n    /* Full pagination (prev + next button present) */\n  }\n  :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)) {\n    /*\n      Largest layout allowed:\n      Only when no collapse-3 + no adjacent collapse-2 pairs.\n    */\n  }\n  @container pagination (width <= 29em) {\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)):not(:has(.collapse-left-2 + .collapse-left-2,\n    .collapse-right-2 + .collapse-right-2)) .gcds-pagination-list .gcds-pagination-end-button {\n      display: none;\n    }\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)):not(:has(.collapse-left-2 + .collapse-left-2,\n    .collapse-right-2 + .collapse-right-2)) .gcds-pagination-list-mobile-prevnext {\n      display: flex;\n    }\n  }\n  @container pagination (width <= 26em) {\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)) .gcds-pagination-list .gcds-pagination-end-button {\n      display: none;\n    }\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)) .gcds-pagination-list-mobile-prevnext {\n      display: flex;\n    }\n  }\n  :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next) {\n    /* Progressive tightening as item count decreases */\n  }\n  @container pagination (width <= 23em) {\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(7)) .gcds-pagination-list .gcds-pagination-end-button {\n      display: none;\n    }\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(7)) .gcds-pagination-list-mobile-prevnext {\n      display: flex;\n    }\n  }\n  @container pagination (width <= 22em) {\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(6)) .gcds-pagination-list .gcds-pagination-end-button {\n      display: none;\n    }\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(6)) .gcds-pagination-list-mobile-prevnext {\n      display: flex;\n    }\n  }\n  @container pagination (width <= 18em) {\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(5)) .gcds-pagination-list .gcds-pagination-end-button {\n      display: none;\n    }\n    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(5)) .gcds-pagination-list-mobile-prevnext {\n      display: flex;\n    }\n  }\n  :host .gcds-pagination {\n    /* Most collapsed pagination with collapse-3 classes */\n  }\n  @container pagination (width <= 16em) {\n    :host .gcds-pagination:has(.gcds-pagination-list .collapse-left-3,\n    .gcds-pagination-list .collapse-right-3) .gcds-pagination-list .gcds-pagination-end-button {\n      display: none;\n    }\n    :host .gcds-pagination:has(.gcds-pagination-list .collapse-left-3,\n    .gcds-pagination-list .collapse-right-3) .gcds-pagination-list-mobile-prevnext {\n      display: flex;\n    }\n  }\n  /* ---------- Mobile specific styles ---------- */\n  @media only screen and (width < 31em) {\n    :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a {\n      border: var(--gcds-pagination-border-width) solid currentColor;\n    }\n    :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses {\n      min-width: auto;\n    }\n    :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button {\n      height: 2rem;\n    }\n  }\n}\n@layer hover {\n  @media (hover: hover) {\n    :host .gcds-pagination ul li a:hover {\n      background: var(--gcds-pagination-hover-background);\n      color: var(--gcds-pagination-hover-text);\n    }\n  }\n}\n@layer active {\n  :host .gcds-pagination ul li a:active:not(:focus), :host .gcds-pagination ul li a[aria-current*=page]:not(:focus) {\n    color: var(--gcds-pagination-active-text);\n    background: var(--gcds-pagination-active-background);\n    border-color: var(--gcds-pagination-active-background);\n    text-decoration: none;\n  }\n}\n@layer focus {\n  :host .gcds-pagination ul li a:focus {\n    color: var(--gcds-pagination-focus-text);\n    background-color: var(--gcds-pagination-focus-background);\n    outline: var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);\n    outline-offset: var(--gcds-pagination-border-width);\n    box-shadow: var(--gcds-pagination-focus-box-shadow);\n    text-decoration: none;\n    border-color: var(--gcds-pagination-focus-background);\n  }\n}";
+const gcdsPaginationCss = () => `@charset "UTF-8"; @layer reset, default, list, simple, wide, compact, hover, active, focus; @layer reset {   :host {     display: block;   }   :host .gcds-pagination ul {     padding: 0;     list-style: none;   } } @layer default {   :host .gcds-pagination {     container: component pagination/inline-size;   }   :host .gcds-pagination li a {     color: var(--gcds-pagination-default-text);     font: var(--gcds-pagination-font-desktop);     border-radius: var(--gcds-pagination-border-radius);   }   @media only screen and (width < 48em) {     :host .gcds-pagination li a {       font: var(--gcds-pagination-font-mobile);     }   } } @layer list {   :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) {     display: flex;     flex-direction: row;     margin: 0;     max-width: 100%;   }   :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li {     margin: var(--gcds-pagination-listitem-margin);   }   :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses {     height: 3rem;     min-width: 3rem;     display: flex;     justify-content: center;     align-items: center;   }   :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile {     padding: var(--gcds-pagination-list-end-button-padding);     width: auto;     min-width: auto;     height: auto;     text-decoration: none;   }   :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile span {     text-decoration: underline;   }   :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext {     display: none;   }   :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses {     display: none;   }   :host .gcds-pagination .gcds-pagination-list-mobile-prevnext {     margin: var(--gcds-pagination-mobile-list-prevnext-margin);   } } @layer simple {   :host .gcds-pagination-simple {     display: flex;     flex-direction: column;     justify-content: space-between;   }   :host .gcds-pagination-simple li {     margin: var(--gcds-pagination-simple-listitem-margin);   }   :host .gcds-pagination-simple li:has(+ li) {     margin-block-end: var(--gcds-pagination-simple-listitem-divider-margin);     border-block-end: var(--gcds-pagination-simple-listitem-divider-border);     padding: var(--gcds-pagination-simple-listitem-divider-padding);   }   :host .gcds-pagination-simple li a {     display: grid;     padding: var(--gcds-pagination-simple-padding);   }   :host .gcds-pagination-simple li a > gcds-icon {     grid-area: icon;   }   :host .gcds-pagination-simple li a > .gcds-pagination-simple-text {     grid-area: text;     margin: var(--gcds-pagination-simple-listitem-text-margin);   }   :host .gcds-pagination-simple li a > span {     grid-area: label;     font-weight: var(--gcds-pagination-simple-label-font-weight);   }   :host .gcds-pagination-simple .gcds-pagination-simple-listitem a {     text-decoration: none;   }   :host .gcds-pagination-simple .gcds-pagination-simple-listitem a .gcds-pagination-simple-text,   :host .gcds-pagination-simple .gcds-pagination-simple-listitem a span {     text-decoration: underline;   }   :host .gcds-pagination-simple .gcds-pagination-simple-listitem a {     grid-template-areas: "icon text" "icon label";     grid-template-columns: 2rem 6fr;   } } @layer wide {      :host .gcds-pagination-list-mobile-prevnext {     display: none;   }   :host .gcds-pagination-list li:first-child {     margin-inline-start: 0 !important;   }   :host .gcds-pagination-list li:last-child {     margin-inline-end: 0 !important;   } } @layer compact {            @container pagination (width <= 39em) {     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {       position: relative;       display: block;       min-width: 3rem;     }     @media only screen and (width < 31em) {       :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {         min-width: 1rem;       }     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)):after {       content: "…";       position: absolute;       inset: 0;       display: flex;       align-items: center;       justify-content: center;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) a {       display: none;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {       position: relative;       display: block;       min-width: 3rem;     }     @media only screen and (width < 31em) {       :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {         min-width: 1rem;       }     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)):after {       content: "…";       position: absolute;       inset: 0;       display: flex;       align-items: center;       justify-content: center;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) a {       display: none;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {       position: relative;       display: block;       min-width: 3rem;     }     @media only screen and (width < 31em) {       :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {         min-width: 1rem;       }     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)):after {       content: "…";       position: absolute;       inset: 0;       display: flex;       align-items: center;       justify-content: center;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) a {       display: none;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {       position: relative;       display: block;       min-width: 3rem;     }     @media only screen and (width < 31em) {       :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {         min-width: 1rem;       }     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)):after {       content: "…";       position: absolute;       inset: 0;       display: flex;       align-items: center;       justify-content: center;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) a {       display: none;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {       position: relative;       display: block;       min-width: 3rem;     }     @media only screen and (width < 31em) {       :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {         min-width: 1rem;       }     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)):after {       content: "…";       position: absolute;       inset: 0;       display: flex;       align-items: center;       justify-content: center;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) a {       display: none;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {       position: relative;       display: block;       min-width: 3rem;     }     @media only screen and (width < 31em) {       :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {         min-width: 1rem;       }     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)):after {       content: "…";       position: absolute;       inset: 0;       display: flex;       align-items: center;       justify-content: center;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) a {       display: none;     }   }         @container pagination (width <= 34em) {     :host .gcds-pagination .gcds-pagination-list li {       margin: var(--gcds-pagination-mobile-list-item-margin);     }   }         @container pagination (width <= 39em) {     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-3,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-3,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-2,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-2, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-3,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-3,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-2,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-2 {       display: none;     }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3), :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) {            }     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):has(.list-btn-prev ~ .list-btn-next) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):has(.list-btn-prev ~ .list-btn-next) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):has(.list-btn-prev ~ .list-btn-next) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):has(.list-btn-prev ~ .list-btn-next) .collapse-right-1 {       display: none;     }   }   :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3), :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) {        }   @container pagination (width <= 22em) {     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-1 {       display: none;     }   }         @container pagination (width <= 39em) {     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-left-2,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-right-2,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-left-2,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-right-2,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-right-1 {       display: none;     }   }         @container pagination (width <= 39em) {     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)) .collapse-left-1,     :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)) .collapse-right-1 {       display: none;     }   }            :host .gcds-pagination {        }   :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)) {        }   @container pagination (width <= 29em) {     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)):not(:has(.collapse-left-2 + .collapse-left-2,     .collapse-right-2 + .collapse-right-2)) .gcds-pagination-list .gcds-pagination-end-button {       display: none;     }     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)):not(:has(.collapse-left-2 + .collapse-left-2,     .collapse-right-2 + .collapse-right-2)) .gcds-pagination-list-mobile-prevnext {       display: flex;     }   }   @container pagination (width <= 26em) {     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)) .gcds-pagination-list .gcds-pagination-end-button {       display: none;     }     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)) .gcds-pagination-list-mobile-prevnext {       display: flex;     }   }   :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next) {        }   @container pagination (width <= 23em) {     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(7)) .gcds-pagination-list .gcds-pagination-end-button {       display: none;     }     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(7)) .gcds-pagination-list-mobile-prevnext {       display: flex;     }   }   @container pagination (width <= 22em) {     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(6)) .gcds-pagination-list .gcds-pagination-end-button {       display: none;     }     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(6)) .gcds-pagination-list-mobile-prevnext {       display: flex;     }   }   @container pagination (width <= 18em) {     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(5)) .gcds-pagination-list .gcds-pagination-end-button {       display: none;     }     :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(5)) .gcds-pagination-list-mobile-prevnext {       display: flex;     }   }   :host .gcds-pagination {        }   @container pagination (width <= 16em) {     :host .gcds-pagination:has(.gcds-pagination-list .collapse-left-3,     .gcds-pagination-list .collapse-right-3) .gcds-pagination-list .gcds-pagination-end-button {       display: none;     }     :host .gcds-pagination:has(.gcds-pagination-list .collapse-left-3,     .gcds-pagination-list .collapse-right-3) .gcds-pagination-list-mobile-prevnext {       display: flex;     }   }      @media only screen and (width < 31em) {     :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a {       border: var(--gcds-pagination-border-width) solid currentColor;     }     :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses {       min-width: auto;     }     :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button {       height: 2rem;     }   } } @layer hover {   @media (hover: hover) {     :host .gcds-pagination ul li a:hover {       background: var(--gcds-pagination-hover-background);       color: var(--gcds-pagination-hover-text);     }   } } @layer active {   :host .gcds-pagination ul li a:active:not(:focus), :host .gcds-pagination ul li a[aria-current*=page]:not(:focus) {     color: var(--gcds-pagination-active-text);     background: var(--gcds-pagination-active-background);     border-color: var(--gcds-pagination-active-background);     text-decoration: none;   } } @layer focus {   :host .gcds-pagination ul li a:focus {     color: var(--gcds-pagination-focus-text);     background-color: var(--gcds-pagination-focus-background);     outline: var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);     outline-offset: var(--gcds-pagination-border-width);     box-shadow: var(--gcds-pagination-focus-box-shadow);     text-decoration: none;     border-color: var(--gcds-pagination-focus-background);   } }`;
 
 /**
  * Pagination is a division of content into multiple linked pages.
@@ -8631,6 +10903,11 @@ class GcdsPagination {
          * Determines the pagination display style.
          */
         this.display = 'list';
+    }
+    watchTotalPages() {
+        if (this.display == 'list') {
+            this.configureListPagination();
+        }
     }
     watchCurrentPage(newValue) {
         this.currentStep = newValue;
@@ -8663,16 +10940,16 @@ class GcdsPagination {
             'href': href,
             'tabindex': 0,
             'aria-label': !end
-                ? I18N$8[this.lang].pageNumberOf
+                ? I18N$9[this.lang].pageNumberOf
                     .replace('{#}', page)
                     .replace('{total}', this.totalPages)
                     .replace('{label}', this.label)
                 : end == 'next'
-                    ? `${I18N$8[this.lang].nextPage}: ${I18N$8[this.lang].pageNumberOf
+                    ? `${I18N$9[this.lang].nextPage}: ${I18N$9[this.lang].pageNumberOf
                         .replace('{#}', ++page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`
-                    : `${I18N$8[this.lang].previousPage}: ${I18N$8[this.lang].pageNumberOf
+                    : `${I18N$9[this.lang].previousPage}: ${I18N$9[this.lang].pageNumberOf
                         .replace('{#}', --page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`,
@@ -8686,11 +10963,11 @@ class GcdsPagination {
         if (end) {
             return (hAsync("li", { class: `list-btn-${end === 'next' ? 'next' : 'prev'}` }, end === 'next' ? (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
-                    : 'gcds-pagination-end-button-mobile' }), hAsync("span", null, I18N$8[this.lang].listNext), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
+                    : 'gcds-pagination-end-button-mobile' }), hAsync("span", null, I18N$9[this.lang].listNext), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
                     : 'gcds-pagination-end-button-mobile' }), hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left" }), hAsync("span", null, mobile
-                ? I18N$8[this.lang].previousMobile
-                : I18N$8[this.lang].listPrevious)))));
+                ? I18N$9[this.lang].previousMobile
+                : I18N$9[this.lang].listPrevious)))));
         }
         else {
             return (hAsync("li", { class: page != 1 && page != this.totalPages
@@ -8800,15 +11077,24 @@ class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (hAsync(Host, { key: 'c0f834df26c3200de92f20638255bf5e87557e7e', role: "navigation", "aria-label": label }, hAsync("div", { key: '5dd6f95d6ead43cdb50c03877027d6b376db0673', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$8[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$8[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].next), hAsync("span", null, nextLabel)))))))));
+        return (hAsync(Host, { key: '33a4801fe9a067f50e79eb2ae5a977d23c192ec3', role: "navigation", "aria-label": label }, hAsync("div", { key: '2da704d9ab9b02f92b817d6d86a2eb1da56500ce', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), hAsync("span", null, nextLabel)))))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "currentPage": ["watchCurrentPage"],
-        "url": ["urlChanged"],
-        "lang": ["watchLang"]
+        "totalPages": [{
+                "watchTotalPages": 0
+            }],
+        "currentPage": [{
+                "watchCurrentPage": 0
+            }],
+        "url": [{
+                "urlChanged": 0
+            }],
+        "lang": [{
+                "watchLang": 0
+            }]
     }; }
-    static get style() { return gcdsPaginationCss; }
+    static get style() { return gcdsPaginationCss(); }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-pagination",
@@ -8847,7 +11133,7 @@ function isRadioObject(obj) {
     return hasValidTypes && hasOnlyValidKeys;
 }
 
-const I18N$7 = {
+const I18N$8 = {
   en: {
     required: ' (required)',
   },
@@ -8856,7 +11142,7 @@ const I18N$7 = {
   },
 };
 
-const gcdsRadiosCss = "@layer reset, default, disabled, error, focus, a11y.highcontrast;@layer reset{:host{display:block}:host .gcds-radios__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-radios__fieldset legend{padding:0}:host .gcds-radio{border:0;padding:0}:host .gcds-radio gcds-label{display:block}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-desktop);margin:var(--gcds-radio-legend-margin)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-mobile)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-mobile)}}:host .gcds-radios__legend:not(:has(+gcds-hint)){margin:var(--gcds-radio-legend-hint-margin)}:host gcds-hint:part(hint){margin:var(--gcds-radio-hint-margin)}:host .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}:host .gcds-radio gcds-hint::part(hint){margin:0}:host .gcds-radio gcds-label:after,:host .gcds-radio gcds-label:before,:host .gcds-radio input{position:absolute}:host .gcds-radio gcds-label>label:before,:host .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}:host .gcds-radio input{opacity:0}:host .gcds-radio gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-radio-label-font-desktop);--gcds-label-font-mobile:var(--gcds-radio-label-font-mobile)}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{border-radius:var(--gcds-radio-border-radius)}:host .gcds-radio gcds-label>label:before{background-color:var(--gcds-radio-default-background);border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-radio gcds-label>label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);width:var(--gcds-radio-check-height-and-width)}:host .gcds-radio input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}:host .gcds-radio.gcds-radio--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:after,:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}:host .gcds-radio.gcds-radio--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host gcds-error-message{margin:var(--gcds-radio-error-message-margin)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-radio-danger-border)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{:host .gcds-radio:focus-within input:focus+gcds-label>label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);color:var(--gcds-radio-focus-color);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}:host .gcds-radio:focus-within input:focus+gcds-label>label:after{box-shadow:inset 0 0 2rem var(--gcds-radio-focus-color)}}@layer a11y.highcontrast{@media (prefers-color-scheme:light){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}@media (prefers-color-scheme:dark){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}}";
+const gcdsRadiosCss = () => `@layer reset, default, disabled, error, focus, a11y.highcontrast;@layer reset{:host{display:block}:host .gcds-radios__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-radios__fieldset legend{padding:0}:host .gcds-radio{border:0;padding:0}:host .gcds-radio gcds-label{display:block}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{box-sizing:border-box;content:"";cursor:pointer;position:absolute}}@layer default{:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-desktop);margin:var(--gcds-radio-legend-margin)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-mobile)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-mobile)}}:host .gcds-radios__legend:not(:has(+gcds-hint)){margin:var(--gcds-radio-legend-hint-margin)}:host gcds-hint:part(hint){margin:var(--gcds-radio-hint-margin)}:host .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}:host .gcds-radio gcds-hint::part(hint){margin:0}:host .gcds-radio gcds-label:after,:host .gcds-radio gcds-label:before,:host .gcds-radio input{position:absolute}:host .gcds-radio gcds-label>label:before,:host .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}:host .gcds-radio input{opacity:0}:host .gcds-radio gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-radio-label-font-desktop);--gcds-label-font-mobile:var(--gcds-radio-label-font-mobile)}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{border-radius:var(--gcds-radio-border-radius)}:host .gcds-radio gcds-label>label:before{background-color:var(--gcds-radio-default-background);border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-radio gcds-label>label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);width:var(--gcds-radio-check-height-and-width)}:host .gcds-radio input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}:host .gcds-radio.gcds-radio--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:after,:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}:host .gcds-radio.gcds-radio--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host gcds-error-message{margin:var(--gcds-radio-error-message-margin)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-radio-danger-border)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{:host .gcds-radio:focus-within input:focus+gcds-label>label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);color:var(--gcds-radio-focus-color);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}:host .gcds-radio:focus-within input:focus+gcds-label>label:after{box-shadow:inset 0 0 2rem var(--gcds-radio-focus-color)}}@layer a11y.highcontrast{@media (prefers-color-scheme:light){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}@media (prefers-color-scheme:dark){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}}`;
 
 /**
  * Radios provide a set of options for a single response.
@@ -9112,7 +11398,7 @@ class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: '7deee676b0827c3e01221aecefee0c4f3a7c5c06', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: '22b973e0119120f67a27012a6fad1daa13e9b3b8', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '5cb85da0e84610d01a9caa75e0be0583b9bac3f2', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required)))), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
+            return (hAsync(Host, { key: '3bd16e4a6cc77fc6114f37791a4342baef496716', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: '8c91df0fae62ebcae079551bc5362e1770d2da23', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '7372c1addc1d1c715b58ca0dd3dcc75fc6c38be4', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$8[lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$8[lang].required)))), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value, title: radioTitle, form: form }, inheritedAttributes);
                     if (radio.hint) {
@@ -9133,15 +11419,29 @@ class GcdsRadios {
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "options": ["validateOptions"],
-        "name": ["validateName"],
-        "legend": ["validateLegend"],
-        "errorMessage": ["validateErrorMessage"],
-        "value": ["validateValue"],
-        "validator": ["validateValidator"],
-        "lang": ["watchLang"]
+        "options": [{
+                "validateOptions": 0
+            }],
+        "name": [{
+                "validateName": 0
+            }],
+        "legend": [{
+                "validateLegend": 0
+            }],
+        "errorMessage": [{
+                "validateErrorMessage": 0
+            }],
+        "value": [{
+                "validateValue": 0
+            }],
+        "validator": [{
+                "validateValidator": 0
+            }],
+        "lang": [{
+                "watchLang": 0
+            }]
     }; }
-    static get style() { return gcdsRadiosCss; }
+    static get style() { return gcdsRadiosCss(); }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-radios",
@@ -9174,7 +11474,7 @@ class GcdsRadios {
     }; }
 }
 
-const I18N$6 = {
+const I18N$7 = {
   en: {
     search: 'Search',
     searchLabel: 'Search {$}',
@@ -9185,7 +11485,7 @@ const I18N$6 = {
   },
 };
 
-const gcdsSearchCss = "@layer reset, default, focus;@layer reset{:host{display:block}:host .gcds-search input{background-image:none;box-sizing:border-box}:host [type=search]::-webkit-search-cancel-button,:host [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{:host .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}:host .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}:host .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid var(--gcds-search-border-color);border-radius:0;border-right:0 solid transparent;box-sizing:border-box;color:var(--gcds-search-default-text);font:var(--gcds-search-font);max-height:var(--gcds-search-max-height);max-width:100%;padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:var(--gcds-search-input-width,100%)}:host .gcds-search input::placeholder{color:var(--gcds-search-placeholder)}:host .gcds-search gcds-button{--gcds-button-mobile-margin:0}:host .gcds-search gcds-button::part(button){border-radius:0;height:var(--gcds-search-button-width-height);padding:0;width:var(--gcds-search-button-width-height)}}@layer focus{:host .gcds-search input:focus{border-color:var(--gcds-search-focus-border-color);border-width:var(--gcds-search-focus-border-width);box-shadow:var(--gcds-search-focus-box-shadow);margin:var(--gcds-search-focus-margin);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-border-color);outline-offset:var(--gcds-search-border-width);z-index:30}:host .gcds-search ::part(button):focus{box-shadow:var(--gcds-search-focus-box-shadow)}}";
+const gcdsSearchCss = () => `@layer reset,default,focus;@layer reset{:host{display:block}:host .gcds-search input{background-image:none;box-sizing:border-box}:host [type=search]::-webkit-search-cancel-button,:host [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{:host .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}:host .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}:host .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid var(--gcds-search-border-color);border-radius:0;border-right:0 solid transparent;box-sizing:border-box;color:var(--gcds-search-default-text);font:var(--gcds-search-font);max-height:var(--gcds-search-max-height);max-width:100%;padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:var(--gcds-search-input-width,100%)}:host .gcds-search input::placeholder{color:var(--gcds-search-placeholder)}:host .gcds-search gcds-button{--gcds-button-mobile-margin:0}:host .gcds-search gcds-button::part(button){border-radius:0;height:var(--gcds-search-button-width-height);padding:0;width:var(--gcds-search-button-width-height)}}@layer focus{:host .gcds-search input:focus{border-color:var(--gcds-search-focus-border-color);border-width:var(--gcds-search-focus-border-width);box-shadow:var(--gcds-search-focus-box-shadow);margin:var(--gcds-search-focus-margin);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-border-color);outline-offset:var(--gcds-search-border-width);z-index:30}:host .gcds-search ::part(button):focus{box-shadow:var(--gcds-search-focus-box-shadow)}}`;
 
 /**
  * Search is a space for entering keywords to find relevant information.
@@ -9265,7 +11565,7 @@ class GcdsSearch {
     }
     render() {
         const { placeholder, action, method, name, value, lang, searchId, suggestedArray, } = this;
-        const labelText = `${I18N$6[lang].searchLabel.replace('{$}', placeholder)}`;
+        const labelText = `${I18N$7[lang].searchLabel.replace('{$}', placeholder)}`;
         const attrsInput = {
             name,
             placeholder: labelText,
@@ -9273,13 +11573,15 @@ class GcdsSearch {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (hAsync(Host, { key: '351c19e77ee62b5206c951394a314db289c3db49' }, hAsync("section", { key: '0d9cc7c5371afb4cc29eb0d8f3fb3d9dc706d343', class: "gcds-search" }, hAsync("gcds-sr-only", { key: 'dfc2372361bdf8fd155f3171d24875c03c56e50e', tag: "h2" }, I18N$6[lang].search), hAsync("form", { key: 'f56f87af7732a18c62478e5cf3094d8ab17ee4b6', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: '85cec480928ce03a339dd7651af655a2d567155c', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '1ff9200998cd3cdf542e3ec0cd549c2c7dd02b68', type: "search", id: searchId }, (suggestedArray ? { list: 'search-list' } : {}), { size: 35, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggestedArray && (hAsync("datalist", { key: 'ff7ab30e2ed34a19ee8ca6e1c349cba075181ad7', id: "search-list" }, suggestedArray.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '85cd54e3279d2a502711749eb32769ced733fa7a', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: 'b32768c407f925990fae8ba60a719a7f7a7af218', name: "search", label: I18N$6[lang].search, size: "h3" }))))));
+        return (hAsync(Host, { key: '86ac279eefbc17baee674c2997e127d3b5a20802' }, hAsync("section", { key: 'c61a273e09c805540ca3a1a31cdcb749c7e04b1f', class: "gcds-search" }, hAsync("gcds-sr-only", { key: '14f5c0f5d537821b1ee7e573824fb4e8f52ce9d0', tag: "h2" }, I18N$7[lang].search), hAsync("form", { key: 'd4bc7d4570f4d456216e8388edf9e2632c5d97ca', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: 'f9b12776718938c81ae1e832b7e9cbd990e36b4e', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '949cebb5efdf13db2ac669d5f7ed87892e235b10', type: "search", id: searchId }, (suggestedArray ? { list: 'search-list' } : {}), { size: 35, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggestedArray && (hAsync("datalist", { key: '99dae417e4c831258c23d4149e89cc7391ecd058', id: "search-list" }, suggestedArray.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '666e36ab503ef667109cd437ed797dbb77ca8aff', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: 'c116c3c0d584bf47417852aec4211ca0a7b4a304', name: "search", label: I18N$7[lang].search, size: "h3" }))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "suggested": ["watchSuggestedHandler"]
+        "suggested": [{
+                "watchSuggestedHandler": 0
+            }]
     }; }
-    static get style() { return gcdsSearchCss; }
+    static get style() { return gcdsSearchCss(); }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-search",
@@ -9300,7 +11602,7 @@ class GcdsSearch {
     }; }
 }
 
-const gcdsSelectCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-select-wrapper{border:0;margin:0;padding:0}:host .gcds-select-wrapper select{box-sizing:border-box}:host .gcds-select-wrapper slot{display:initial}}@layer default{:host .gcds-select-wrapper{color:var(--gcds-select-default-text);font:var(--gcds-select-font-desktop);max-width:75ch;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-select-wrapper{font:var(--gcds-select-font-mobile)}}:host .gcds-select-wrapper select{-webkit-appearance:none;-moz-appearance:none;background-color:var(--gcds-select-default-background);background-image:url(\"data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>\");background-position-x:var(--gcds-select-arrow-position-x);background-position-y:50%;background-repeat:no-repeat;border:var(--gcds-select-border-width) solid;border-radius:var(--gcds-select-border-radius);box-sizing:border-box;color:var(--gcds-select-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-select-margin)!important;max-width:100%;min-height:var(--gcds-select-min-width-and-height);min-width:var(--gcds-select-min-width-and-height);padding:var(--gcds-select-padding)!important;transition:all .15s ease-in-out}}@layer disabled{:host .gcds-select-wrapper.gcds-disabled{color:var(--gcds-select-disabled-text)}:host .gcds-select-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-select-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-select-wrapper.gcds-disabled select:disabled{background-color:var(--gcds-select-disabled-background);border-color:var(--gcds-select-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-select-wrapper.gcds-error:not(:focus-within) select{border-color:var(--gcds-select-danger-border)}}@layer focus{:host .gcds-select-wrapper:focus-within select:focus{border-color:var(--gcds-select-focus-border);box-shadow:var(--gcds-select-focus-box-shadow);outline:var(--gcds-select-outline-width) solid var(--gcds-select-focus-border);outline-offset:var(--gcds-select-border-width)}}";
+const gcdsSelectCss = () => `@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-select-wrapper{border:0;margin:0;padding:0}:host .gcds-select-wrapper select{box-sizing:border-box}:host .gcds-select-wrapper slot{display:initial}}@layer default{:host .gcds-select-wrapper{color:var(--gcds-select-default-text);font:var(--gcds-select-font-desktop);max-width:75ch;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-select-wrapper{font:var(--gcds-select-font-mobile)}}:host .gcds-select-wrapper select{-webkit-appearance:none;-moz-appearance:none;background-color:var(--gcds-select-default-background);background-image:url("data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>");background-position-x:var(--gcds-select-arrow-position-x);background-position-y:50%;background-repeat:no-repeat;border:var(--gcds-select-border-width) solid;border-radius:var(--gcds-select-border-radius);box-sizing:border-box;color:var(--gcds-select-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-select-margin)!important;max-width:100%;min-height:var(--gcds-select-min-width-and-height);min-width:var(--gcds-select-min-width-and-height);padding:var(--gcds-select-padding)!important;transition:all .15s ease-in-out}}@layer disabled{:host .gcds-select-wrapper.gcds-disabled{color:var(--gcds-select-disabled-text)}:host .gcds-select-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-select-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-select-wrapper.gcds-disabled select:disabled{background-color:var(--gcds-select-disabled-background);border-color:var(--gcds-select-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-select-wrapper.gcds-error:not(:focus-within) select{border-color:var(--gcds-select-danger-border)}}@layer focus{:host .gcds-select-wrapper:focus-within select:focus{border-color:var(--gcds-select-focus-border);box-shadow:var(--gcds-select-focus-box-shadow);outline:var(--gcds-select-outline-width) solid var(--gcds-select-focus-border);outline-offset:var(--gcds-select-border-width)}}`;
 
 /**
  * A select provides a large list of options for single selection.
@@ -9505,7 +11807,10 @@ class GcdsSelect {
         const validity = this.shadowElement.validity;
         let validationMessage = null;
         if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
-            validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+            validationMessage =
+                this.lang === 'en'
+                    ? 'Choose an option to continue.'
+                    : 'Choisissez une option pour continuer.';
         }
         this.internals.setValidity(validity, validationMessage, this.shadowElement);
         // Set select title when HTML error occruring
@@ -9594,7 +11899,7 @@ class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '3ef3899d6c59e12ca6ef85074ff10ae2c60f087d' }, hAsync("div", { key: 'fba1e0ec05d2e08b74afc7a9d05ef9c41fdaff69', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'fe86c0e2dcff4aecbbbefd9302e6602b64644159' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '293eaff57ecce8bfc5398ea041480932cba6f40d' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: '96d13736e97c6cd165def86e834e8e913da7883d' }, hAsync("div", { key: 'c226ed1c624942877cdcfbd088e86fdb46cd4fe6', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}`, part: "wrapper" }, hAsync("gcds-label", Object.assign({ key: 'a07f3de00c68794b0196e6ad8042612d200e5f76' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '3a99f318ad798ec20a73af2bf3fd1dbf52f311b5' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -9620,15 +11925,29 @@ class GcdsSelect {
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "disabled": ["validateDisabledSelect"],
-        "value": ["watchValue"],
-        "errorMessage": ["validateErrorMessage"],
-        "validator": ["validateValidator"],
-        "hasError": ["validateHasError"],
-        "aria-invalid": ["ariaInvalidWatcher"],
-        "aria-description": ["ariaDescriptiondWatcher"]
+        "disabled": [{
+                "validateDisabledSelect": 0
+            }],
+        "value": [{
+                "watchValue": 0
+            }],
+        "errorMessage": [{
+                "validateErrorMessage": 0
+            }],
+        "validator": [{
+                "validateValidator": 0
+            }],
+        "hasError": [{
+                "validateHasError": 0
+            }],
+        "aria-invalid": [{
+                "ariaInvalidWatcher": 0
+            }],
+        "aria-description": [{
+                "ariaDescriptiondWatcher": 0
+            }]
     }; }
-    static get style() { return gcdsSelectCss; }
+    static get style() { return gcdsSelectCss(); }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-select",
@@ -9817,7 +12136,7 @@ async function getNavItems(el) {
     return indexedItems;
 }
 
-const I18N$5 = {
+const I18N$6 = {
   en: {
     closeTrigger: 'Close',
     menuLabel: 'Menu',
@@ -9832,7 +12151,7 @@ const I18N$5 = {
   },
 };
 
-const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{color:var(--gcds-side-nav-heading-color);display:block;font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
+const gcdsSideNavCss = () => `@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{color:var(--gcds-side-nav-heading-color);display:block;font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 48em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 48em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}`;
 
 /**
  * A side navigation is a vertical list of page links on the left side of the screen.
@@ -9956,12 +12275,12 @@ class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (hAsync(Host, { key: 'f442cae66ab5b6c7b82299647ffa270a88cfd3bf' }, hAsync("nav", { key: '0e8fa9b596ac27b198851f5b6f7d56e277ac82e8', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("ul", { key: '2ced3163911bf5007a03a83e3b6c03e13e74a2ba' }, hAsync("gcds-nav-group", { key: '412ce1205e32cc0c01b381134a21afbdb0ab5d14', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '59405925a392b28a8397ba62018d805a990cca31', name: "home" }, hAsync("li", { key: '04a61dced77e6f0cbd09a102606e69f0bb1f0ed8', class: "gcds-side-nav__heading" }, label)), hAsync("slot", { key: 'efce195284a2be15e5f1e19c8e20d3fd02515980' }))))));
+        return (hAsync(Host, { key: 'cb1dce8bcf9a4f6f6a83f40b9ae35a1f69eecb55' }, hAsync("nav", { key: '4d6e131139f437afa494865a9a16546c28378764', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("ul", { key: '545b0eed21a11fcb2795a81ca3ad54f29a4311c6' }, hAsync("gcds-nav-group", { key: '62c894a97778e43064b83341ce52b064c4555779', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'edaa0c63d976d732bc5294c59e2b0346572a2a31', name: "home" }, hAsync("li", { key: '45d762b61ace15f094077513b2aa09794e63e9e0', class: "gcds-side-nav__heading" }, label)), hAsync("slot", { key: '2ed4c1c3c852a3213fa095ce9f0df30ac437abd4' }))))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsSideNavCss; }
+    static get style() { return gcdsSideNavCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-side-nav",
         "$members$": {
             "label": [1],
@@ -9978,7 +12297,7 @@ class GcdsSideNav {
     }; }
 }
 
-const I18N$4 = {
+const I18N$5 = {
   en: {
     link: 'https://canada.ca/en.html',
     gc: 'Government of Canada',
@@ -10021,7 +12340,7 @@ var WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1
 	</g>
 </svg>`;
 
-const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop, highcontrast;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{display:block;max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height-desktop)}}}@layer highcontrast{@media (forced-colors:active){:host svg .fip_text{fill:CanvasText}}}";
+const gcdsSignatureCss = () => `@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop, highcontrast;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{display:block;max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height-desktop)}}}@layer highcontrast{@media (forced-colors:active){:host svg .fip_text{fill:CanvasText}}}`;
 
 /**
  * The signature is the Government of Canada landmark identifier found in the header or footer.
@@ -10097,18 +12416,22 @@ class GcdsSignature {
         };
         const Tag = hasLink ? 'a' : 'div';
         if (Tag === 'a') {
-            sigAttrs['href'] = I18N$4[lang].link;
+            sigAttrs['href'] = I18N$5[lang].link;
         }
-        return (hAsync(Host, { key: '94eec887a2b356422e39f24658ccf9a8352b533e' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), hAsync("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
-            ? `/ ${I18N$4.fr.gc}`
-            : `/ ${I18N$4.en.gc}`))) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (hAsync(Host, { key: 'eec74b983904b1498601a6c1d12ac5aaf6821208' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), hAsync("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
+            ? `/ ${I18N$5.fr.gc}`
+            : `/ ${I18N$5.en.gc}`))) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "type": ["validateType"],
-        "variant": ["validateVariant"]
+        "type": [{
+                "validateType": 0
+            }],
+        "variant": [{
+                "validateVariant": 0
+            }]
     }; }
-    static get style() { return gcdsSignatureCss; }
+    static get style() { return gcdsSignatureCss(); }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-signature",
@@ -10124,7 +12447,7 @@ class GcdsSignature {
     }; }
 }
 
-const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}}";
+const gcdsSrOnlyCss = () => `@layer reset,default;@layer reset{:host slot{display:initial}}@layer default{:host{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}}`;
 
 /**
  * The screenreader-only component is text information only accessible with assistive technologies.
@@ -10151,14 +12474,16 @@ class GcdsSrOnly {
     }
     render() {
         const Tag = this.tag;
-        return (hAsync(Host, { key: '3383ec4736158a1272001467347592c58d1d125b' }, hAsync(Tag, { key: '30db2f8f3c3715b31330f6fbbce8b5ad87481a65' }, hAsync("slot", { key: '4df7666a95decef3d6a53e410c3236a1a40f8dd2' }))));
+        return (hAsync(Host, { key: 'f2e667f21a09928c5b940cd4cc2c830ceed9f5d6' }, hAsync(Tag, { key: 'ace85b55311b598b9b1449f32dd03c7cffd7d6a0' }, hAsync("slot", { key: '3a05da8f35b06eaec871d03827532e8121c7b298' }))));
     }
     static get watchers() { return {
-        "tag": ["validateTag"]
+        "tag": [{
+                "validateTag": 0
+            }]
     }; }
-    static get style() { return gcdsSrOnlyCss; }
+    static get style() { return gcdsSrOnlyCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-sr-only",
         "$members$": {
             "tag": [1025]
@@ -10169,7 +12494,7 @@ class GcdsSrOnly {
     }; }
 }
 
-const I18N$3 = {
+const I18N$4 = {
   en: {
     step: 'Step',
     of: 'of',
@@ -10180,7 +12505,7 @@ const I18N$3 = {
   },
 };
 
-const gcdsStepperCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper .gcds-stepper__steps{display:block;font:var(--gcds-stepper-font-desktop);margin:var(--gcds-stepper-margin-desktop)}@media only screen and (width < 48em){:host .gcds-stepper .gcds-stepper__steps{font:var(--gcds-stepper-font-mobile);margin:var(--gcds-stepper-margin-mobile)}}}";
+const gcdsStepperCss = () => `@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper .gcds-stepper__steps{display:block;font:var(--gcds-stepper-font-desktop);margin:var(--gcds-stepper-margin-desktop)}@media only screen and (width < 48em){:host .gcds-stepper .gcds-stepper__steps{font:var(--gcds-stepper-font-mobile);margin:var(--gcds-stepper-margin-mobile)}}}`;
 
 /**
  * A stepper is a progress tracker for a multi-step process.
@@ -10261,16 +12586,20 @@ class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (hAsync(Host, { key: '3e35d92b373461bf3c3135724d02bf2009c0a6a6' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: '5d7485c25354ee819f4a62ecaef6cb27bc767730', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: 'aa98533dd70df383a094f40217e6ad13aca4236d', class: "gcds-stepper__steps" }, `${I18N$3[lang].step} ${currentStep} ${I18N$3[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: '62ee5dd0528b52535a35c8c46e3fd716f4b196d1' }, " : ")), hAsync("slot", { key: 'cc168422742cd8e335fc068a97969ef074b14034' })))));
+        return (hAsync(Host, { key: 'd15ae2125394f3cfdbfccb6ec354044328dff24a' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: '01ba8e1736524f51efb7c3b4ac8ecad139162af5', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: '55e102a27b4357dca87ab7655e3e460e408e8343', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: '82d574caac2f88de380f319c86f4f933819a2e0e' }, " : ")), hAsync("slot", { key: '261aef7f578b3e0b9db62216d68331777588ebff' })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "currentStep": ["validateCurrentStep"],
-        "totalSteps": ["validateTotalSteps"]
+        "currentStep": [{
+                "validateCurrentStep": 0
+            }],
+        "totalSteps": [{
+                "validateTotalSteps": 0
+            }]
     }; }
-    static get style() { return gcdsStepperCss; }
+    static get style() { return gcdsStepperCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-stepper",
         "$members$": {
             "currentStep": [1026, "current-step"],
@@ -10285,7 +12614,4143 @@ class GcdsStepper {
     }; }
 }
 
-const gcdsTextCss = "@layer reset, default, display, limit, margin, role, size, style, weight;@layer reset{:host{color:var(--gcds-text-role-primary);display:block}:host .gcds-text{box-sizing:border-box;display:inherit;margin:0}:host .gcds-text slot{display:initial}}@layer default{:host .gcds-text{font:var(--gcds-text-size-body-desktop)}@media only screen and (width < 48em){:host .gcds-text{font:var(--gcds-text-size-body-mobile)}}}@layer display{:host.d-block{display:block}:host.d-flex{display:flex}:host.d-inline{display:inline}:host.d-inline-block{display:inline-block}:host.d-inline-flex{display:inline-flex}:host.d-none{display:none}}@layer limit{:host .gcds-text.limit{max-width:var(--gcds-text-character-limit)}}@layer margin{:host .gcds-text.mt-0{margin-block-start:var(--gcds-text-spacing-0)}:host .gcds-text.mt-25{margin-block-start:var(--gcds-text-spacing-25)}:host .gcds-text.mt-50{margin-block-start:var(--gcds-text-spacing-50)}:host .gcds-text.mt-75{margin-block-start:var(--gcds-text-spacing-75)}:host .gcds-text.mt-100{margin-block-start:var(--gcds-text-spacing-100)}:host .gcds-text.mt-125{margin-block-start:var(--gcds-text-spacing-125)}:host .gcds-text.mt-150{margin-block-start:var(--gcds-text-spacing-150)}:host .gcds-text.mt-175{margin-block-start:var(--gcds-text-spacing-175)}:host .gcds-text.mt-200{margin-block-start:var(--gcds-text-spacing-200)}:host .gcds-text.mt-225{margin-block-start:var(--gcds-text-spacing-225)}:host .gcds-text.mt-250{margin-block-start:var(--gcds-text-spacing-250)}:host .gcds-text.mt-300{margin-block-start:var(--gcds-text-spacing-300)}:host .gcds-text.mt-350{margin-block-start:var(--gcds-text-spacing-350)}:host .gcds-text.mt-400{margin-block-start:var(--gcds-text-spacing-400)}:host .gcds-text.mt-450{margin-block-start:var(--gcds-text-spacing-450)}:host .gcds-text.mt-500{margin-block-start:var(--gcds-text-spacing-500)}:host .gcds-text.mt-550{margin-block-start:var(--gcds-text-spacing-550)}:host .gcds-text.mt-600{margin-block-start:var(--gcds-text-spacing-600)}:host .gcds-text.mt-650{margin-block-start:var(--gcds-text-spacing-650)}:host .gcds-text.mt-700{margin-block-start:var(--gcds-text-spacing-700)}:host .gcds-text.mt-750{margin-block-start:var(--gcds-text-spacing-750)}:host .gcds-text.mt-800{margin-block-start:var(--gcds-text-spacing-800)}:host .gcds-text.mt-850{margin-block-start:var(--gcds-text-spacing-850)}:host .gcds-text.mt-900{margin-block-start:var(--gcds-text-spacing-900)}:host .gcds-text.mt-950{margin-block-start:var(--gcds-text-spacing-950)}:host .gcds-text.mt-1000{margin-block-start:var(--gcds-text-spacing-1000)}:host .gcds-text.mt-1050{margin-block-start:var(--gcds-text-spacing-1050)}:host .gcds-text.mt-1100{margin-block-start:var(--gcds-text-spacing-1100)}:host .gcds-text.mt-1150{margin-block-start:var(--gcds-text-spacing-1150)}:host .gcds-text.mt-1200{margin-block-start:var(--gcds-text-spacing-1200)}:host .gcds-text.mt-1250{margin-block-start:var(--gcds-text-spacing-1250)}:host .gcds-text.mb-0{margin-block-end:var(--gcds-text-spacing-0)}:host .gcds-text.mb-25{margin-block-end:var(--gcds-text-spacing-25)}:host .gcds-text.mb-50{margin-block-end:var(--gcds-text-spacing-50)}:host .gcds-text.mb-75{margin-block-end:var(--gcds-text-spacing-75)}:host .gcds-text.mb-100{margin-block-end:var(--gcds-text-spacing-100)}:host .gcds-text.mb-125{margin-block-end:var(--gcds-text-spacing-125)}:host .gcds-text.mb-150{margin-block-end:var(--gcds-text-spacing-150)}:host .gcds-text.mb-175{margin-block-end:var(--gcds-text-spacing-175)}:host .gcds-text.mb-200{margin-block-end:var(--gcds-text-spacing-200)}:host .gcds-text.mb-225{margin-block-end:var(--gcds-text-spacing-225)}:host .gcds-text.mb-250{margin-block-end:var(--gcds-text-spacing-250)}:host .gcds-text.mb-300{margin-block-end:var(--gcds-text-spacing-300)}:host .gcds-text.mb-350{margin-block-end:var(--gcds-text-spacing-350)}:host .gcds-text.mb-400{margin-block-end:var(--gcds-text-spacing-400)}:host .gcds-text.mb-450{margin-block-end:var(--gcds-text-spacing-450)}:host .gcds-text.mb-500{margin-block-end:var(--gcds-text-spacing-500)}:host .gcds-text.mb-550{margin-block-end:var(--gcds-text-spacing-550)}:host .gcds-text.mb-600{margin-block-end:var(--gcds-text-spacing-600)}:host .gcds-text.mb-650{margin-block-end:var(--gcds-text-spacing-650)}:host .gcds-text.mb-700{margin-block-end:var(--gcds-text-spacing-700)}:host .gcds-text.mb-750{margin-block-end:var(--gcds-text-spacing-750)}:host .gcds-text.mb-800{margin-block-end:var(--gcds-text-spacing-800)}:host .gcds-text.mb-850{margin-block-end:var(--gcds-text-spacing-850)}:host .gcds-text.mb-900{margin-block-end:var(--gcds-text-spacing-900)}:host .gcds-text.mb-950{margin-block-end:var(--gcds-text-spacing-950)}:host .gcds-text.mb-1000{margin-block-end:var(--gcds-text-spacing-1000)}:host .gcds-text.mb-1050{margin-block-end:var(--gcds-text-spacing-1050)}:host .gcds-text.mb-1100{margin-block-end:var(--gcds-text-spacing-1100)}:host .gcds-text.mb-1150{margin-block-end:var(--gcds-text-spacing-1150)}:host .gcds-text.mb-1200{margin-block-end:var(--gcds-text-spacing-1200)}:host .gcds-text.mb-1250{margin-block-end:var(--gcds-text-spacing-1250)}}@layer variants.role{:host .gcds-text.role-primary{color:var(--gcds-text-role-primary)}:host .gcds-text.role-secondary{color:var(--gcds-text-role-secondary)}:host .gcds-text.role-light{color:var(--gcds-text-role-light)}}@layer variants.size{:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-desktop)}@media only screen and (width < 48em){:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-mobile)}}}@layer variants.style{:host .gcds-text ::slotted(em){font-style:italic}}@layer variants.weight{:host .gcds-text ::slotted(strong){font-weight:var(--gcds-text-weight-bold)}}";
+/**
+   * table-core
+   *
+   * Copyright (c) TanStack
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.md file in the root directory of this source tree.
+   *
+   * @license MIT
+   */
+// type Person = {
+//   firstName: string
+//   lastName: string
+//   age: number
+//   visits: number
+//   status: string
+//   progress: number
+//   createdAt: Date
+//   nested: {
+//     foo: [
+//       {
+//         bar: 'bar'
+//       }
+//     ]
+//     bar: { subBar: boolean }[]
+//     baz: {
+//       foo: 'foo'
+//       bar: {
+//         baz: 'baz'
+//       }
+//     }
+//   }
+// }
+
+
+// Is this type a tuple?
+
+// If this type is a tuple, what indices are allowed?
+
+///
+
+function functionalUpdate(updater, input) {
+  return typeof updater === 'function' ? updater(input) : updater;
+}
+function makeStateUpdater(key, instance) {
+  return updater => {
+    instance.setState(old => {
+      return {
+        ...old,
+        [key]: functionalUpdate(updater, old[key])
+      };
+    });
+  };
+}
+function isFunction(d) {
+  return d instanceof Function;
+}
+function isNumberArray(d) {
+  return Array.isArray(d) && d.every(val => typeof val === 'number');
+}
+function flattenBy(arr, getChildren) {
+  const flat = [];
+  const recurse = subArr => {
+    subArr.forEach(item => {
+      flat.push(item);
+      const children = getChildren(item);
+      if (children != null && children.length) {
+        recurse(children);
+      }
+    });
+  };
+  recurse(arr);
+  return flat;
+}
+function memo(getDeps, fn, opts) {
+  let deps = [];
+  let result;
+  return depArgs => {
+    let depTime;
+    if (opts.key && opts.debug) depTime = Date.now();
+    const newDeps = getDeps(depArgs);
+    const depsChanged = newDeps.length !== deps.length || newDeps.some((dep, index) => deps[index] !== dep);
+    if (!depsChanged) {
+      return result;
+    }
+    deps = newDeps;
+    let resultTime;
+    if (opts.key && opts.debug) resultTime = Date.now();
+    result = fn(...newDeps);
+    opts == null || opts.onChange == null || opts.onChange(result);
+    if (opts.key && opts.debug) {
+      if (opts != null && opts.debug()) {
+        const depEndTime = Math.round((Date.now() - depTime) * 100) / 100;
+        const resultEndTime = Math.round((Date.now() - resultTime) * 100) / 100;
+        const resultFpsPercentage = resultEndTime / 16;
+        const pad = (str, num) => {
+          str = String(str);
+          while (str.length < num) {
+            str = ' ' + str;
+          }
+          return str;
+        };
+        console.info(`%c⏱ ${pad(resultEndTime, 5)} /${pad(depEndTime, 5)} ms`, `
+            font-size: .6rem;
+            font-weight: bold;
+            color: hsl(${Math.max(0, Math.min(120 - 120 * resultFpsPercentage, 120))}deg 100% 31%);`, opts == null ? void 0 : opts.key);
+      }
+    }
+    return result;
+  };
+}
+function getMemoOptions(tableOptions, debugLevel, key, onChange) {
+  return {
+    debug: () => {
+      var _tableOptions$debugAl;
+      return (_tableOptions$debugAl = tableOptions == null ? void 0 : tableOptions.debugAll) != null ? _tableOptions$debugAl : tableOptions[debugLevel];
+    },
+    key: "production" === 'development',
+    onChange
+  };
+}
+
+function createCell(table, row, column, columnId) {
+  const getRenderValue = () => {
+    var _cell$getValue;
+    return (_cell$getValue = cell.getValue()) != null ? _cell$getValue : table.options.renderFallbackValue;
+  };
+  const cell = {
+    id: `${row.id}_${column.id}`,
+    row,
+    column,
+    getValue: () => row.getValue(columnId),
+    renderValue: getRenderValue,
+    getContext: memo(() => [table, column, row, cell], (table, column, row, cell) => ({
+      table,
+      column,
+      row,
+      cell: cell,
+      getValue: cell.getValue,
+      renderValue: cell.renderValue
+    }), getMemoOptions(table.options, 'debugCells'))
+  };
+  table._features.forEach(feature => {
+    feature.createCell == null || feature.createCell(cell, column, row, table);
+  }, {});
+  return cell;
+}
+
+function createColumn(table, columnDef, depth, parent) {
+  var _ref, _resolvedColumnDef$id;
+  const defaultColumn = table._getDefaultColumnDef();
+  const resolvedColumnDef = {
+    ...defaultColumn,
+    ...columnDef
+  };
+  const accessorKey = resolvedColumnDef.accessorKey;
+  let id = (_ref = (_resolvedColumnDef$id = resolvedColumnDef.id) != null ? _resolvedColumnDef$id : accessorKey ? typeof String.prototype.replaceAll === 'function' ? accessorKey.replaceAll('.', '_') : accessorKey.replace(/\./g, '_') : undefined) != null ? _ref : typeof resolvedColumnDef.header === 'string' ? resolvedColumnDef.header : undefined;
+  let accessorFn;
+  if (resolvedColumnDef.accessorFn) {
+    accessorFn = resolvedColumnDef.accessorFn;
+  } else if (accessorKey) {
+    // Support deep accessor keys
+    if (accessorKey.includes('.')) {
+      accessorFn = originalRow => {
+        let result = originalRow;
+        for (const key of accessorKey.split('.')) {
+          var _result;
+          result = (_result = result) == null ? void 0 : _result[key];
+        }
+        return result;
+      };
+    } else {
+      accessorFn = originalRow => originalRow[resolvedColumnDef.accessorKey];
+    }
+  }
+  if (!id) {
+    throw new Error();
+  }
+  let column = {
+    id: `${String(id)}`,
+    accessorFn,
+    parent: parent,
+    depth,
+    columnDef: resolvedColumnDef,
+    columns: [],
+    getFlatColumns: memo(() => [true], () => {
+      var _column$columns;
+      return [column, ...((_column$columns = column.columns) == null ? void 0 : _column$columns.flatMap(d => d.getFlatColumns()))];
+    }, getMemoOptions(table.options, 'debugColumns')),
+    getLeafColumns: memo(() => [table._getOrderColumnsFn()], orderColumns => {
+      var _column$columns2;
+      if ((_column$columns2 = column.columns) != null && _column$columns2.length) {
+        let leafColumns = column.columns.flatMap(column => column.getLeafColumns());
+        return orderColumns(leafColumns);
+      }
+      return [column];
+    }, getMemoOptions(table.options, 'debugColumns'))
+  };
+  for (const feature of table._features) {
+    feature.createColumn == null || feature.createColumn(column, table);
+  }
+
+  // Yes, we have to convert table to unknown, because we know more than the compiler here.
+  return column;
+}
+
+const debug = 'debugHeaders';
+//
+
+function createHeader(table, column, options) {
+  var _options$id;
+  const id = (_options$id = options.id) != null ? _options$id : column.id;
+  let header = {
+    id,
+    column,
+    index: options.index,
+    isPlaceholder: !!options.isPlaceholder,
+    placeholderId: options.placeholderId,
+    depth: options.depth,
+    subHeaders: [],
+    colSpan: 0,
+    rowSpan: 0,
+    headerGroup: null,
+    getLeafHeaders: () => {
+      const leafHeaders = [];
+      const recurseHeader = h => {
+        if (h.subHeaders && h.subHeaders.length) {
+          h.subHeaders.map(recurseHeader);
+        }
+        leafHeaders.push(h);
+      };
+      recurseHeader(header);
+      return leafHeaders;
+    },
+    getContext: () => ({
+      table,
+      header: header,
+      column
+    })
+  };
+  table._features.forEach(feature => {
+    feature.createHeader == null || feature.createHeader(header, table);
+  });
+  return header;
+}
+const Headers = {
+  createTable: table => {
+    // Header Groups
+
+    table.getHeaderGroups = memo(() => [table.getAllColumns(), table.getVisibleLeafColumns(), table.getState().columnPinning.left, table.getState().columnPinning.right], (allColumns, leafColumns, left, right) => {
+      var _left$map$filter, _right$map$filter;
+      const leftColumns = (_left$map$filter = left == null ? void 0 : left.map(columnId => leafColumns.find(d => d.id === columnId)).filter(Boolean)) != null ? _left$map$filter : [];
+      const rightColumns = (_right$map$filter = right == null ? void 0 : right.map(columnId => leafColumns.find(d => d.id === columnId)).filter(Boolean)) != null ? _right$map$filter : [];
+      const centerColumns = leafColumns.filter(column => !(left != null && left.includes(column.id)) && !(right != null && right.includes(column.id)));
+      const headerGroups = buildHeaderGroups(allColumns, [...leftColumns, ...centerColumns, ...rightColumns], table);
+      return headerGroups;
+    }, getMemoOptions(table.options, debug));
+    table.getCenterHeaderGroups = memo(() => [table.getAllColumns(), table.getVisibleLeafColumns(), table.getState().columnPinning.left, table.getState().columnPinning.right], (allColumns, leafColumns, left, right) => {
+      leafColumns = leafColumns.filter(column => !(left != null && left.includes(column.id)) && !(right != null && right.includes(column.id)));
+      return buildHeaderGroups(allColumns, leafColumns, table, 'center');
+    }, getMemoOptions(table.options, debug));
+    table.getLeftHeaderGroups = memo(() => [table.getAllColumns(), table.getVisibleLeafColumns(), table.getState().columnPinning.left], (allColumns, leafColumns, left) => {
+      var _left$map$filter2;
+      const orderedLeafColumns = (_left$map$filter2 = left == null ? void 0 : left.map(columnId => leafColumns.find(d => d.id === columnId)).filter(Boolean)) != null ? _left$map$filter2 : [];
+      return buildHeaderGroups(allColumns, orderedLeafColumns, table, 'left');
+    }, getMemoOptions(table.options, debug));
+    table.getRightHeaderGroups = memo(() => [table.getAllColumns(), table.getVisibleLeafColumns(), table.getState().columnPinning.right], (allColumns, leafColumns, right) => {
+      var _right$map$filter2;
+      const orderedLeafColumns = (_right$map$filter2 = right == null ? void 0 : right.map(columnId => leafColumns.find(d => d.id === columnId)).filter(Boolean)) != null ? _right$map$filter2 : [];
+      return buildHeaderGroups(allColumns, orderedLeafColumns, table, 'right');
+    }, getMemoOptions(table.options, debug));
+
+    // Footer Groups
+
+    table.getFooterGroups = memo(() => [table.getHeaderGroups()], headerGroups => {
+      return [...headerGroups].reverse();
+    }, getMemoOptions(table.options, debug));
+    table.getLeftFooterGroups = memo(() => [table.getLeftHeaderGroups()], headerGroups => {
+      return [...headerGroups].reverse();
+    }, getMemoOptions(table.options, debug));
+    table.getCenterFooterGroups = memo(() => [table.getCenterHeaderGroups()], headerGroups => {
+      return [...headerGroups].reverse();
+    }, getMemoOptions(table.options, debug));
+    table.getRightFooterGroups = memo(() => [table.getRightHeaderGroups()], headerGroups => {
+      return [...headerGroups].reverse();
+    }, getMemoOptions(table.options, debug));
+
+    // Flat Headers
+
+    table.getFlatHeaders = memo(() => [table.getHeaderGroups()], headerGroups => {
+      return headerGroups.map(headerGroup => {
+        return headerGroup.headers;
+      }).flat();
+    }, getMemoOptions(table.options, debug));
+    table.getLeftFlatHeaders = memo(() => [table.getLeftHeaderGroups()], left => {
+      return left.map(headerGroup => {
+        return headerGroup.headers;
+      }).flat();
+    }, getMemoOptions(table.options, debug));
+    table.getCenterFlatHeaders = memo(() => [table.getCenterHeaderGroups()], left => {
+      return left.map(headerGroup => {
+        return headerGroup.headers;
+      }).flat();
+    }, getMemoOptions(table.options, debug));
+    table.getRightFlatHeaders = memo(() => [table.getRightHeaderGroups()], left => {
+      return left.map(headerGroup => {
+        return headerGroup.headers;
+      }).flat();
+    }, getMemoOptions(table.options, debug));
+
+    // Leaf Headers
+
+    table.getCenterLeafHeaders = memo(() => [table.getCenterFlatHeaders()], flatHeaders => {
+      return flatHeaders.filter(header => {
+        var _header$subHeaders;
+        return !((_header$subHeaders = header.subHeaders) != null && _header$subHeaders.length);
+      });
+    }, getMemoOptions(table.options, debug));
+    table.getLeftLeafHeaders = memo(() => [table.getLeftFlatHeaders()], flatHeaders => {
+      return flatHeaders.filter(header => {
+        var _header$subHeaders2;
+        return !((_header$subHeaders2 = header.subHeaders) != null && _header$subHeaders2.length);
+      });
+    }, getMemoOptions(table.options, debug));
+    table.getRightLeafHeaders = memo(() => [table.getRightFlatHeaders()], flatHeaders => {
+      return flatHeaders.filter(header => {
+        var _header$subHeaders3;
+        return !((_header$subHeaders3 = header.subHeaders) != null && _header$subHeaders3.length);
+      });
+    }, getMemoOptions(table.options, debug));
+    table.getLeafHeaders = memo(() => [table.getLeftHeaderGroups(), table.getCenterHeaderGroups(), table.getRightHeaderGroups()], (left, center, right) => {
+      var _left$0$headers, _left$, _center$0$headers, _center$, _right$0$headers, _right$;
+      return [...((_left$0$headers = (_left$ = left[0]) == null ? void 0 : _left$.headers) != null ? _left$0$headers : []), ...((_center$0$headers = (_center$ = center[0]) == null ? void 0 : _center$.headers) != null ? _center$0$headers : []), ...((_right$0$headers = (_right$ = right[0]) == null ? void 0 : _right$.headers) != null ? _right$0$headers : [])].map(header => {
+        return header.getLeafHeaders();
+      }).flat();
+    }, getMemoOptions(table.options, debug));
+  }
+};
+function buildHeaderGroups(allColumns, columnsToGroup, table, headerFamily) {
+  var _headerGroups$0$heade, _headerGroups$;
+  // Find the max depth of the columns:
+  // build the leaf column row
+  // build each buffer row going up
+  //    placeholder for non-existent level
+  //    real column for existing level
+
+  let maxDepth = 0;
+  const findMaxDepth = function (columns, depth) {
+    if (depth === void 0) {
+      depth = 1;
+    }
+    maxDepth = Math.max(maxDepth, depth);
+    columns.filter(column => column.getIsVisible()).forEach(column => {
+      var _column$columns;
+      if ((_column$columns = column.columns) != null && _column$columns.length) {
+        findMaxDepth(column.columns, depth + 1);
+      }
+    }, 0);
+  };
+  findMaxDepth(allColumns);
+  let headerGroups = [];
+  const createHeaderGroup = (headersToGroup, depth) => {
+    // The header group we are creating
+    const headerGroup = {
+      depth,
+      id: [headerFamily, `${depth}`].filter(Boolean).join('_'),
+      headers: []
+    };
+
+    // The parent columns we're going to scan next
+    const pendingParentHeaders = [];
+
+    // Scan each column for parents
+    headersToGroup.forEach(headerToGroup => {
+      // What is the latest (last) parent column?
+
+      const latestPendingParentHeader = [...pendingParentHeaders].reverse()[0];
+      const isLeafHeader = headerToGroup.column.depth === headerGroup.depth;
+      let column;
+      let isPlaceholder = false;
+      if (isLeafHeader && headerToGroup.column.parent) {
+        // The parent header is new
+        column = headerToGroup.column.parent;
+      } else {
+        // The parent header is repeated
+        column = headerToGroup.column;
+        isPlaceholder = true;
+      }
+      if (latestPendingParentHeader && (latestPendingParentHeader == null ? void 0 : latestPendingParentHeader.column) === column) {
+        // This column is repeated. Add it as a sub header to the next batch
+        latestPendingParentHeader.subHeaders.push(headerToGroup);
+      } else {
+        // This is a new header. Let's create it
+        const header = createHeader(table, column, {
+          id: [headerFamily, depth, column.id, headerToGroup == null ? void 0 : headerToGroup.id].filter(Boolean).join('_'),
+          isPlaceholder,
+          placeholderId: isPlaceholder ? `${pendingParentHeaders.filter(d => d.column === column).length}` : undefined,
+          depth,
+          index: pendingParentHeaders.length
+        });
+
+        // Add the headerToGroup as a subHeader of the new header
+        header.subHeaders.push(headerToGroup);
+        // Add the new header to the pendingParentHeaders to get grouped
+        // in the next batch
+        pendingParentHeaders.push(header);
+      }
+      headerGroup.headers.push(headerToGroup);
+      headerToGroup.headerGroup = headerGroup;
+    });
+    headerGroups.push(headerGroup);
+    if (depth > 0) {
+      createHeaderGroup(pendingParentHeaders, depth - 1);
+    }
+  };
+  const bottomHeaders = columnsToGroup.map((column, index) => createHeader(table, column, {
+    depth: maxDepth,
+    index
+  }));
+  createHeaderGroup(bottomHeaders, maxDepth - 1);
+  headerGroups.reverse();
+
+  // headerGroups = headerGroups.filter(headerGroup => {
+  //   return !headerGroup.headers.every(header => header.isPlaceholder)
+  // })
+
+  const recurseHeadersForSpans = headers => {
+    const filteredHeaders = headers.filter(header => header.column.getIsVisible());
+    return filteredHeaders.map(header => {
+      let colSpan = 0;
+      let rowSpan = 0;
+      let childRowSpans = [0];
+      if (header.subHeaders && header.subHeaders.length) {
+        childRowSpans = [];
+        recurseHeadersForSpans(header.subHeaders).forEach(_ref => {
+          let {
+            colSpan: childColSpan,
+            rowSpan: childRowSpan
+          } = _ref;
+          colSpan += childColSpan;
+          childRowSpans.push(childRowSpan);
+        });
+      } else {
+        colSpan = 1;
+      }
+      const minChildRowSpan = Math.min(...childRowSpans);
+      rowSpan = rowSpan + minChildRowSpan;
+      header.colSpan = colSpan;
+      header.rowSpan = rowSpan;
+      return {
+        colSpan,
+        rowSpan
+      };
+    });
+  };
+  recurseHeadersForSpans((_headerGroups$0$heade = (_headerGroups$ = headerGroups[0]) == null ? void 0 : _headerGroups$.headers) != null ? _headerGroups$0$heade : []);
+  return headerGroups;
+}
+
+const createRow = (table, id, original, rowIndex, depth, subRows, parentId) => {
+  let row = {
+    id,
+    index: rowIndex,
+    original,
+    depth,
+    parentId,
+    _valuesCache: {},
+    _uniqueValuesCache: {},
+    getValue: columnId => {
+      if (row._valuesCache.hasOwnProperty(columnId)) {
+        return row._valuesCache[columnId];
+      }
+      const column = table.getColumn(columnId);
+      if (!(column != null && column.accessorFn)) {
+        return undefined;
+      }
+      row._valuesCache[columnId] = column.accessorFn(row.original, rowIndex);
+      return row._valuesCache[columnId];
+    },
+    getUniqueValues: columnId => {
+      if (row._uniqueValuesCache.hasOwnProperty(columnId)) {
+        return row._uniqueValuesCache[columnId];
+      }
+      const column = table.getColumn(columnId);
+      if (!(column != null && column.accessorFn)) {
+        return undefined;
+      }
+      if (!column.columnDef.getUniqueValues) {
+        row._uniqueValuesCache[columnId] = [row.getValue(columnId)];
+        return row._uniqueValuesCache[columnId];
+      }
+      row._uniqueValuesCache[columnId] = column.columnDef.getUniqueValues(row.original, rowIndex);
+      return row._uniqueValuesCache[columnId];
+    },
+    renderValue: columnId => {
+      var _row$getValue;
+      return (_row$getValue = row.getValue(columnId)) != null ? _row$getValue : table.options.renderFallbackValue;
+    },
+    subRows: [],
+    getLeafRows: () => flattenBy(row.subRows, d => d.subRows),
+    getParentRow: () => row.parentId ? table.getRow(row.parentId, true) : undefined,
+    getParentRows: () => {
+      let parentRows = [];
+      let currentRow = row;
+      while (true) {
+        const parentRow = currentRow.getParentRow();
+        if (!parentRow) break;
+        parentRows.push(parentRow);
+        currentRow = parentRow;
+      }
+      return parentRows.reverse();
+    },
+    getAllCells: memo(() => [table.getAllLeafColumns()], leafColumns => {
+      return leafColumns.map(column => {
+        return createCell(table, row, column, column.id);
+      });
+    }, getMemoOptions(table.options, 'debugRows')),
+    _getAllCellsByColumnId: memo(() => [row.getAllCells()], allCells => {
+      return allCells.reduce((acc, cell) => {
+        acc[cell.column.id] = cell;
+        return acc;
+      }, {});
+    }, getMemoOptions(table.options, 'debugRows'))
+  };
+  for (let i = 0; i < table._features.length; i++) {
+    const feature = table._features[i];
+    feature == null || feature.createRow == null || feature.createRow(row, table);
+  }
+  return row;
+};
+
+//
+
+const ColumnFaceting = {
+  createColumn: (column, table) => {
+    column._getFacetedRowModel = table.options.getFacetedRowModel && table.options.getFacetedRowModel(table, column.id);
+    column.getFacetedRowModel = () => {
+      if (!column._getFacetedRowModel) {
+        return table.getPreFilteredRowModel();
+      }
+      return column._getFacetedRowModel();
+    };
+    column._getFacetedUniqueValues = table.options.getFacetedUniqueValues && table.options.getFacetedUniqueValues(table, column.id);
+    column.getFacetedUniqueValues = () => {
+      if (!column._getFacetedUniqueValues) {
+        return new Map();
+      }
+      return column._getFacetedUniqueValues();
+    };
+    column._getFacetedMinMaxValues = table.options.getFacetedMinMaxValues && table.options.getFacetedMinMaxValues(table, column.id);
+    column.getFacetedMinMaxValues = () => {
+      if (!column._getFacetedMinMaxValues) {
+        return undefined;
+      }
+      return column._getFacetedMinMaxValues();
+    };
+  }
+};
+
+const includesString = (row, columnId, filterValue) => {
+  var _filterValue$toString, _row$getValue;
+  const search = filterValue == null || (_filterValue$toString = filterValue.toString()) == null ? void 0 : _filterValue$toString.toLowerCase();
+  return Boolean((_row$getValue = row.getValue(columnId)) == null || (_row$getValue = _row$getValue.toString()) == null || (_row$getValue = _row$getValue.toLowerCase()) == null ? void 0 : _row$getValue.includes(search));
+};
+includesString.autoRemove = val => testFalsey(val);
+const includesStringSensitive = (row, columnId, filterValue) => {
+  var _row$getValue2;
+  return Boolean((_row$getValue2 = row.getValue(columnId)) == null || (_row$getValue2 = _row$getValue2.toString()) == null ? void 0 : _row$getValue2.includes(filterValue));
+};
+includesStringSensitive.autoRemove = val => testFalsey(val);
+const equalsString = (row, columnId, filterValue) => {
+  var _row$getValue3;
+  return ((_row$getValue3 = row.getValue(columnId)) == null || (_row$getValue3 = _row$getValue3.toString()) == null ? void 0 : _row$getValue3.toLowerCase()) === (filterValue == null ? void 0 : filterValue.toLowerCase());
+};
+equalsString.autoRemove = val => testFalsey(val);
+const arrIncludes = (row, columnId, filterValue) => {
+  var _row$getValue4;
+  return (_row$getValue4 = row.getValue(columnId)) == null ? void 0 : _row$getValue4.includes(filterValue);
+};
+arrIncludes.autoRemove = val => testFalsey(val);
+const arrIncludesAll = (row, columnId, filterValue) => {
+  return !filterValue.some(val => {
+    var _row$getValue5;
+    return !((_row$getValue5 = row.getValue(columnId)) != null && _row$getValue5.includes(val));
+  });
+};
+arrIncludesAll.autoRemove = val => testFalsey(val) || !(val != null && val.length);
+const arrIncludesSome = (row, columnId, filterValue) => {
+  return filterValue.some(val => {
+    var _row$getValue6;
+    return (_row$getValue6 = row.getValue(columnId)) == null ? void 0 : _row$getValue6.includes(val);
+  });
+};
+arrIncludesSome.autoRemove = val => testFalsey(val) || !(val != null && val.length);
+const equals = (row, columnId, filterValue) => {
+  return row.getValue(columnId) === filterValue;
+};
+equals.autoRemove = val => testFalsey(val);
+const weakEquals = (row, columnId, filterValue) => {
+  return row.getValue(columnId) == filterValue;
+};
+weakEquals.autoRemove = val => testFalsey(val);
+const inNumberRange = (row, columnId, filterValue) => {
+  let [min, max] = filterValue;
+  const rowValue = row.getValue(columnId);
+  return rowValue >= min && rowValue <= max;
+};
+inNumberRange.resolveFilterValue = val => {
+  let [unsafeMin, unsafeMax] = val;
+  let parsedMin = typeof unsafeMin !== 'number' ? parseFloat(unsafeMin) : unsafeMin;
+  let parsedMax = typeof unsafeMax !== 'number' ? parseFloat(unsafeMax) : unsafeMax;
+  let min = unsafeMin === null || Number.isNaN(parsedMin) ? -Infinity : parsedMin;
+  let max = unsafeMax === null || Number.isNaN(parsedMax) ? Infinity : parsedMax;
+  if (min > max) {
+    const temp = min;
+    min = max;
+    max = temp;
+  }
+  return [min, max];
+};
+inNumberRange.autoRemove = val => testFalsey(val) || testFalsey(val[0]) && testFalsey(val[1]);
+
+// Export
+
+const filterFns = {
+  includesString,
+  includesStringSensitive,
+  equalsString,
+  arrIncludes,
+  arrIncludesAll,
+  arrIncludesSome,
+  equals,
+  weakEquals,
+  inNumberRange
+};
+// Utils
+
+function testFalsey(val) {
+  return val === undefined || val === null || val === '';
+}
+
+//
+
+const ColumnFiltering = {
+  getDefaultColumnDef: () => {
+    return {
+      filterFn: 'auto'
+    };
+  },
+  getInitialState: state => {
+    return {
+      columnFilters: [],
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onColumnFiltersChange: makeStateUpdater('columnFilters', table),
+      filterFromLeafRows: false,
+      maxLeafRowFilterDepth: 100
+    };
+  },
+  createColumn: (column, table) => {
+    column.getAutoFilterFn = () => {
+      const firstRow = table.getCoreRowModel().flatRows[0];
+      const value = firstRow == null ? void 0 : firstRow.getValue(column.id);
+      if (typeof value === 'string') {
+        return filterFns.includesString;
+      }
+      if (typeof value === 'number') {
+        return filterFns.inNumberRange;
+      }
+      if (typeof value === 'boolean') {
+        return filterFns.equals;
+      }
+      if (value !== null && typeof value === 'object') {
+        return filterFns.equals;
+      }
+      if (Array.isArray(value)) {
+        return filterFns.arrIncludes;
+      }
+      return filterFns.weakEquals;
+    };
+    column.getFilterFn = () => {
+      var _table$options$filter, _table$options$filter2;
+      return isFunction(column.columnDef.filterFn) ? column.columnDef.filterFn : column.columnDef.filterFn === 'auto' ? column.getAutoFilterFn() : // @ts-ignore
+      (_table$options$filter = (_table$options$filter2 = table.options.filterFns) == null ? void 0 : _table$options$filter2[column.columnDef.filterFn]) != null ? _table$options$filter : filterFns[column.columnDef.filterFn];
+    };
+    column.getCanFilter = () => {
+      var _column$columnDef$ena, _table$options$enable, _table$options$enable2;
+      return ((_column$columnDef$ena = column.columnDef.enableColumnFilter) != null ? _column$columnDef$ena : true) && ((_table$options$enable = table.options.enableColumnFilters) != null ? _table$options$enable : true) && ((_table$options$enable2 = table.options.enableFilters) != null ? _table$options$enable2 : true) && !!column.accessorFn;
+    };
+    column.getIsFiltered = () => column.getFilterIndex() > -1;
+    column.getFilterValue = () => {
+      var _table$getState$colum;
+      return (_table$getState$colum = table.getState().columnFilters) == null || (_table$getState$colum = _table$getState$colum.find(d => d.id === column.id)) == null ? void 0 : _table$getState$colum.value;
+    };
+    column.getFilterIndex = () => {
+      var _table$getState$colum2, _table$getState$colum3;
+      return (_table$getState$colum2 = (_table$getState$colum3 = table.getState().columnFilters) == null ? void 0 : _table$getState$colum3.findIndex(d => d.id === column.id)) != null ? _table$getState$colum2 : -1;
+    };
+    column.setFilterValue = value => {
+      table.setColumnFilters(old => {
+        const filterFn = column.getFilterFn();
+        const previousFilter = old == null ? void 0 : old.find(d => d.id === column.id);
+        const newFilter = functionalUpdate(value, previousFilter ? previousFilter.value : undefined);
+
+        //
+        if (shouldAutoRemoveFilter(filterFn, newFilter, column)) {
+          var _old$filter;
+          return (_old$filter = old == null ? void 0 : old.filter(d => d.id !== column.id)) != null ? _old$filter : [];
+        }
+        const newFilterObj = {
+          id: column.id,
+          value: newFilter
+        };
+        if (previousFilter) {
+          var _old$map;
+          return (_old$map = old == null ? void 0 : old.map(d => {
+            if (d.id === column.id) {
+              return newFilterObj;
+            }
+            return d;
+          })) != null ? _old$map : [];
+        }
+        if (old != null && old.length) {
+          return [...old, newFilterObj];
+        }
+        return [newFilterObj];
+      });
+    };
+  },
+  createRow: (row, _table) => {
+    row.columnFilters = {};
+    row.columnFiltersMeta = {};
+  },
+  createTable: table => {
+    table.setColumnFilters = updater => {
+      const leafColumns = table.getAllLeafColumns();
+      const updateFn = old => {
+        var _functionalUpdate;
+        return (_functionalUpdate = functionalUpdate(updater, old)) == null ? void 0 : _functionalUpdate.filter(filter => {
+          const column = leafColumns.find(d => d.id === filter.id);
+          if (column) {
+            const filterFn = column.getFilterFn();
+            if (shouldAutoRemoveFilter(filterFn, filter.value, column)) {
+              return false;
+            }
+          }
+          return true;
+        });
+      };
+      table.options.onColumnFiltersChange == null || table.options.onColumnFiltersChange(updateFn);
+    };
+    table.resetColumnFilters = defaultState => {
+      var _table$initialState$c, _table$initialState;
+      table.setColumnFilters(defaultState ? [] : (_table$initialState$c = (_table$initialState = table.initialState) == null ? void 0 : _table$initialState.columnFilters) != null ? _table$initialState$c : []);
+    };
+    table.getPreFilteredRowModel = () => table.getCoreRowModel();
+    table.getFilteredRowModel = () => {
+      if (!table._getFilteredRowModel && table.options.getFilteredRowModel) {
+        table._getFilteredRowModel = table.options.getFilteredRowModel(table);
+      }
+      if (table.options.manualFiltering || !table._getFilteredRowModel) {
+        return table.getPreFilteredRowModel();
+      }
+      return table._getFilteredRowModel();
+    };
+  }
+};
+function shouldAutoRemoveFilter(filterFn, value, column) {
+  return (filterFn && filterFn.autoRemove ? filterFn.autoRemove(value, column) : false) || typeof value === 'undefined' || typeof value === 'string' && !value;
+}
+
+const sum = (columnId, _leafRows, childRows) => {
+  // It's faster to just add the aggregations together instead of
+  // process leaf nodes individually
+  return childRows.reduce((sum, next) => {
+    const nextValue = next.getValue(columnId);
+    return sum + (typeof nextValue === 'number' ? nextValue : 0);
+  }, 0);
+};
+const min = (columnId, _leafRows, childRows) => {
+  let min;
+  childRows.forEach(row => {
+    const value = row.getValue(columnId);
+    if (value != null && (min > value || min === undefined && value >= value)) {
+      min = value;
+    }
+  });
+  return min;
+};
+const max = (columnId, _leafRows, childRows) => {
+  let max;
+  childRows.forEach(row => {
+    const value = row.getValue(columnId);
+    if (value != null && (max < value || max === undefined && value >= value)) {
+      max = value;
+    }
+  });
+  return max;
+};
+const extent = (columnId, _leafRows, childRows) => {
+  let min;
+  let max;
+  childRows.forEach(row => {
+    const value = row.getValue(columnId);
+    if (value != null) {
+      if (min === undefined) {
+        if (value >= value) min = max = value;
+      } else {
+        if (min > value) min = value;
+        if (max < value) max = value;
+      }
+    }
+  });
+  return [min, max];
+};
+const mean = (columnId, leafRows) => {
+  let count = 0;
+  let sum = 0;
+  leafRows.forEach(row => {
+    let value = row.getValue(columnId);
+    if (value != null && (value = +value) >= value) {
+      ++count, sum += value;
+    }
+  });
+  if (count) return sum / count;
+  return;
+};
+const median = (columnId, leafRows) => {
+  if (!leafRows.length) {
+    return;
+  }
+  const values = leafRows.map(row => row.getValue(columnId));
+  if (!isNumberArray(values)) {
+    return;
+  }
+  if (values.length === 1) {
+    return values[0];
+  }
+  const mid = Math.floor(values.length / 2);
+  const nums = values.sort((a, b) => a - b);
+  return values.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+};
+const unique = (columnId, leafRows) => {
+  return Array.from(new Set(leafRows.map(d => d.getValue(columnId))).values());
+};
+const uniqueCount = (columnId, leafRows) => {
+  return new Set(leafRows.map(d => d.getValue(columnId))).size;
+};
+const count = (_columnId, leafRows) => {
+  return leafRows.length;
+};
+const aggregationFns = {
+  sum,
+  min,
+  max,
+  extent,
+  mean,
+  median,
+  unique,
+  uniqueCount,
+  count
+};
+
+//
+
+const ColumnGrouping = {
+  getDefaultColumnDef: () => {
+    return {
+      aggregatedCell: props => {
+        var _toString, _props$getValue;
+        return (_toString = (_props$getValue = props.getValue()) == null || _props$getValue.toString == null ? void 0 : _props$getValue.toString()) != null ? _toString : null;
+      },
+      aggregationFn: 'auto'
+    };
+  },
+  getInitialState: state => {
+    return {
+      grouping: [],
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onGroupingChange: makeStateUpdater('grouping', table),
+      groupedColumnMode: 'reorder'
+    };
+  },
+  createColumn: (column, table) => {
+    column.toggleGrouping = () => {
+      table.setGrouping(old => {
+        // Find any existing grouping for this column
+        if (old != null && old.includes(column.id)) {
+          return old.filter(d => d !== column.id);
+        }
+        return [...(old != null ? old : []), column.id];
+      });
+    };
+    column.getCanGroup = () => {
+      var _column$columnDef$ena, _table$options$enable;
+      return ((_column$columnDef$ena = column.columnDef.enableGrouping) != null ? _column$columnDef$ena : true) && ((_table$options$enable = table.options.enableGrouping) != null ? _table$options$enable : true) && (!!column.accessorFn || !!column.columnDef.getGroupingValue);
+    };
+    column.getIsGrouped = () => {
+      var _table$getState$group;
+      return (_table$getState$group = table.getState().grouping) == null ? void 0 : _table$getState$group.includes(column.id);
+    };
+    column.getGroupedIndex = () => {
+      var _table$getState$group2;
+      return (_table$getState$group2 = table.getState().grouping) == null ? void 0 : _table$getState$group2.indexOf(column.id);
+    };
+    column.getToggleGroupingHandler = () => {
+      const canGroup = column.getCanGroup();
+      return () => {
+        if (!canGroup) return;
+        column.toggleGrouping();
+      };
+    };
+    column.getAutoAggregationFn = () => {
+      const firstRow = table.getCoreRowModel().flatRows[0];
+      const value = firstRow == null ? void 0 : firstRow.getValue(column.id);
+      if (typeof value === 'number') {
+        return aggregationFns.sum;
+      }
+      if (Object.prototype.toString.call(value) === '[object Date]') {
+        return aggregationFns.extent;
+      }
+    };
+    column.getAggregationFn = () => {
+      var _table$options$aggreg, _table$options$aggreg2;
+      if (!column) {
+        throw new Error();
+      }
+      return isFunction(column.columnDef.aggregationFn) ? column.columnDef.aggregationFn : column.columnDef.aggregationFn === 'auto' ? column.getAutoAggregationFn() : (_table$options$aggreg = (_table$options$aggreg2 = table.options.aggregationFns) == null ? void 0 : _table$options$aggreg2[column.columnDef.aggregationFn]) != null ? _table$options$aggreg : aggregationFns[column.columnDef.aggregationFn];
+    };
+  },
+  createTable: table => {
+    table.setGrouping = updater => table.options.onGroupingChange == null ? void 0 : table.options.onGroupingChange(updater);
+    table.resetGrouping = defaultState => {
+      var _table$initialState$g, _table$initialState;
+      table.setGrouping(defaultState ? [] : (_table$initialState$g = (_table$initialState = table.initialState) == null ? void 0 : _table$initialState.grouping) != null ? _table$initialState$g : []);
+    };
+    table.getPreGroupedRowModel = () => table.getFilteredRowModel();
+    table.getGroupedRowModel = () => {
+      if (!table._getGroupedRowModel && table.options.getGroupedRowModel) {
+        table._getGroupedRowModel = table.options.getGroupedRowModel(table);
+      }
+      if (table.options.manualGrouping || !table._getGroupedRowModel) {
+        return table.getPreGroupedRowModel();
+      }
+      return table._getGroupedRowModel();
+    };
+  },
+  createRow: (row, table) => {
+    row.getIsGrouped = () => !!row.groupingColumnId;
+    row.getGroupingValue = columnId => {
+      if (row._groupingValuesCache.hasOwnProperty(columnId)) {
+        return row._groupingValuesCache[columnId];
+      }
+      const column = table.getColumn(columnId);
+      if (!(column != null && column.columnDef.getGroupingValue)) {
+        return row.getValue(columnId);
+      }
+      row._groupingValuesCache[columnId] = column.columnDef.getGroupingValue(row.original);
+      return row._groupingValuesCache[columnId];
+    };
+    row._groupingValuesCache = {};
+  },
+  createCell: (cell, column, row, table) => {
+    cell.getIsGrouped = () => column.getIsGrouped() && column.id === row.groupingColumnId;
+    cell.getIsPlaceholder = () => !cell.getIsGrouped() && column.getIsGrouped();
+    cell.getIsAggregated = () => {
+      var _row$subRows;
+      return !cell.getIsGrouped() && !cell.getIsPlaceholder() && !!((_row$subRows = row.subRows) != null && _row$subRows.length);
+    };
+  }
+};
+function orderColumns(leafColumns, grouping, groupedColumnMode) {
+  if (!(grouping != null && grouping.length) || !groupedColumnMode) {
+    return leafColumns;
+  }
+  const nonGroupingColumns = leafColumns.filter(col => !grouping.includes(col.id));
+  if (groupedColumnMode === 'remove') {
+    return nonGroupingColumns;
+  }
+  const groupingColumns = grouping.map(g => leafColumns.find(col => col.id === g)).filter(Boolean);
+  return [...groupingColumns, ...nonGroupingColumns];
+}
+
+//
+
+const ColumnOrdering = {
+  getInitialState: state => {
+    return {
+      columnOrder: [],
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onColumnOrderChange: makeStateUpdater('columnOrder', table)
+    };
+  },
+  createColumn: (column, table) => {
+    column.getIndex = memo(position => [_getVisibleLeafColumns(table, position)], columns => columns.findIndex(d => d.id === column.id), getMemoOptions(table.options, 'debugColumns'));
+    column.getIsFirstColumn = position => {
+      var _columns$;
+      const columns = _getVisibleLeafColumns(table, position);
+      return ((_columns$ = columns[0]) == null ? void 0 : _columns$.id) === column.id;
+    };
+    column.getIsLastColumn = position => {
+      var _columns;
+      const columns = _getVisibleLeafColumns(table, position);
+      return ((_columns = columns[columns.length - 1]) == null ? void 0 : _columns.id) === column.id;
+    };
+  },
+  createTable: table => {
+    table.setColumnOrder = updater => table.options.onColumnOrderChange == null ? void 0 : table.options.onColumnOrderChange(updater);
+    table.resetColumnOrder = defaultState => {
+      var _table$initialState$c;
+      table.setColumnOrder(defaultState ? [] : (_table$initialState$c = table.initialState.columnOrder) != null ? _table$initialState$c : []);
+    };
+    table._getOrderColumnsFn = memo(() => [table.getState().columnOrder, table.getState().grouping, table.options.groupedColumnMode], (columnOrder, grouping, groupedColumnMode) => columns => {
+      // Sort grouped columns to the start of the column list
+      // before the headers are built
+      let orderedColumns = [];
+
+      // If there is no order, return the normal columns
+      if (!(columnOrder != null && columnOrder.length)) {
+        orderedColumns = columns;
+      } else {
+        const columnOrderCopy = [...columnOrder];
+
+        // If there is an order, make a copy of the columns
+        const columnsCopy = [...columns];
+
+        // And make a new ordered array of the columns
+
+        // Loop over the columns and place them in order into the new array
+        while (columnsCopy.length && columnOrderCopy.length) {
+          const targetColumnId = columnOrderCopy.shift();
+          const foundIndex = columnsCopy.findIndex(d => d.id === targetColumnId);
+          if (foundIndex > -1) {
+            orderedColumns.push(columnsCopy.splice(foundIndex, 1)[0]);
+          }
+        }
+
+        // If there are any columns left, add them to the end
+        orderedColumns = [...orderedColumns, ...columnsCopy];
+      }
+      return orderColumns(orderedColumns, grouping, groupedColumnMode);
+    }, getMemoOptions(table.options, 'debugTable'));
+  }
+};
+
+//
+
+const getDefaultColumnPinningState = () => ({
+  left: [],
+  right: []
+});
+const ColumnPinning = {
+  getInitialState: state => {
+    return {
+      columnPinning: getDefaultColumnPinningState(),
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onColumnPinningChange: makeStateUpdater('columnPinning', table)
+    };
+  },
+  createColumn: (column, table) => {
+    column.pin = position => {
+      const columnIds = column.getLeafColumns().map(d => d.id).filter(Boolean);
+      table.setColumnPinning(old => {
+        var _old$left3, _old$right3;
+        if (position === 'right') {
+          var _old$left, _old$right;
+          return {
+            left: ((_old$left = old == null ? void 0 : old.left) != null ? _old$left : []).filter(d => !(columnIds != null && columnIds.includes(d))),
+            right: [...((_old$right = old == null ? void 0 : old.right) != null ? _old$right : []).filter(d => !(columnIds != null && columnIds.includes(d))), ...columnIds]
+          };
+        }
+        if (position === 'left') {
+          var _old$left2, _old$right2;
+          return {
+            left: [...((_old$left2 = old == null ? void 0 : old.left) != null ? _old$left2 : []).filter(d => !(columnIds != null && columnIds.includes(d))), ...columnIds],
+            right: ((_old$right2 = old == null ? void 0 : old.right) != null ? _old$right2 : []).filter(d => !(columnIds != null && columnIds.includes(d)))
+          };
+        }
+        return {
+          left: ((_old$left3 = old == null ? void 0 : old.left) != null ? _old$left3 : []).filter(d => !(columnIds != null && columnIds.includes(d))),
+          right: ((_old$right3 = old == null ? void 0 : old.right) != null ? _old$right3 : []).filter(d => !(columnIds != null && columnIds.includes(d)))
+        };
+      });
+    };
+    column.getCanPin = () => {
+      const leafColumns = column.getLeafColumns();
+      return leafColumns.some(d => {
+        var _d$columnDef$enablePi, _ref, _table$options$enable;
+        return ((_d$columnDef$enablePi = d.columnDef.enablePinning) != null ? _d$columnDef$enablePi : true) && ((_ref = (_table$options$enable = table.options.enableColumnPinning) != null ? _table$options$enable : table.options.enablePinning) != null ? _ref : true);
+      });
+    };
+    column.getIsPinned = () => {
+      const leafColumnIds = column.getLeafColumns().map(d => d.id);
+      const {
+        left,
+        right
+      } = table.getState().columnPinning;
+      const isLeft = leafColumnIds.some(d => left == null ? void 0 : left.includes(d));
+      const isRight = leafColumnIds.some(d => right == null ? void 0 : right.includes(d));
+      return isLeft ? 'left' : isRight ? 'right' : false;
+    };
+    column.getPinnedIndex = () => {
+      var _table$getState$colum, _table$getState$colum2;
+      const position = column.getIsPinned();
+      return position ? (_table$getState$colum = (_table$getState$colum2 = table.getState().columnPinning) == null || (_table$getState$colum2 = _table$getState$colum2[position]) == null ? void 0 : _table$getState$colum2.indexOf(column.id)) != null ? _table$getState$colum : -1 : 0;
+    };
+  },
+  createRow: (row, table) => {
+    row.getCenterVisibleCells = memo(() => [row._getAllVisibleCells(), table.getState().columnPinning.left, table.getState().columnPinning.right], (allCells, left, right) => {
+      const leftAndRight = [...(left != null ? left : []), ...(right != null ? right : [])];
+      return allCells.filter(d => !leftAndRight.includes(d.column.id));
+    }, getMemoOptions(table.options, 'debugRows'));
+    row.getLeftVisibleCells = memo(() => [row._getAllVisibleCells(), table.getState().columnPinning.left], (allCells, left) => {
+      const cells = (left != null ? left : []).map(columnId => allCells.find(cell => cell.column.id === columnId)).filter(Boolean).map(d => ({
+        ...d,
+        position: 'left'
+      }));
+      return cells;
+    }, getMemoOptions(table.options, 'debugRows'));
+    row.getRightVisibleCells = memo(() => [row._getAllVisibleCells(), table.getState().columnPinning.right], (allCells, right) => {
+      const cells = (right != null ? right : []).map(columnId => allCells.find(cell => cell.column.id === columnId)).filter(Boolean).map(d => ({
+        ...d,
+        position: 'right'
+      }));
+      return cells;
+    }, getMemoOptions(table.options, 'debugRows'));
+  },
+  createTable: table => {
+    table.setColumnPinning = updater => table.options.onColumnPinningChange == null ? void 0 : table.options.onColumnPinningChange(updater);
+    table.resetColumnPinning = defaultState => {
+      var _table$initialState$c, _table$initialState;
+      return table.setColumnPinning(defaultState ? getDefaultColumnPinningState() : (_table$initialState$c = (_table$initialState = table.initialState) == null ? void 0 : _table$initialState.columnPinning) != null ? _table$initialState$c : getDefaultColumnPinningState());
+    };
+    table.getIsSomeColumnsPinned = position => {
+      var _pinningState$positio;
+      const pinningState = table.getState().columnPinning;
+      if (!position) {
+        var _pinningState$left, _pinningState$right;
+        return Boolean(((_pinningState$left = pinningState.left) == null ? void 0 : _pinningState$left.length) || ((_pinningState$right = pinningState.right) == null ? void 0 : _pinningState$right.length));
+      }
+      return Boolean((_pinningState$positio = pinningState[position]) == null ? void 0 : _pinningState$positio.length);
+    };
+    table.getLeftLeafColumns = memo(() => [table.getAllLeafColumns(), table.getState().columnPinning.left], (allColumns, left) => {
+      return (left != null ? left : []).map(columnId => allColumns.find(column => column.id === columnId)).filter(Boolean);
+    }, getMemoOptions(table.options, 'debugColumns'));
+    table.getRightLeafColumns = memo(() => [table.getAllLeafColumns(), table.getState().columnPinning.right], (allColumns, right) => {
+      return (right != null ? right : []).map(columnId => allColumns.find(column => column.id === columnId)).filter(Boolean);
+    }, getMemoOptions(table.options, 'debugColumns'));
+    table.getCenterLeafColumns = memo(() => [table.getAllLeafColumns(), table.getState().columnPinning.left, table.getState().columnPinning.right], (allColumns, left, right) => {
+      const leftAndRight = [...(left != null ? left : []), ...(right != null ? right : [])];
+      return allColumns.filter(d => !leftAndRight.includes(d.id));
+    }, getMemoOptions(table.options, 'debugColumns'));
+  }
+};
+
+function safelyAccessDocument(_document) {
+  return _document || (typeof document !== 'undefined' ? document : null);
+}
+
+//
+
+//
+
+const defaultColumnSizing = {
+  size: 150,
+  minSize: 20,
+  maxSize: Number.MAX_SAFE_INTEGER
+};
+const getDefaultColumnSizingInfoState = () => ({
+  startOffset: null,
+  startSize: null,
+  deltaOffset: null,
+  deltaPercentage: null,
+  isResizingColumn: false,
+  columnSizingStart: []
+});
+const ColumnSizing = {
+  getDefaultColumnDef: () => {
+    return defaultColumnSizing;
+  },
+  getInitialState: state => {
+    return {
+      columnSizing: {},
+      columnSizingInfo: getDefaultColumnSizingInfoState(),
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      columnResizeMode: 'onEnd',
+      columnResizeDirection: 'ltr',
+      onColumnSizingChange: makeStateUpdater('columnSizing', table),
+      onColumnSizingInfoChange: makeStateUpdater('columnSizingInfo', table)
+    };
+  },
+  createColumn: (column, table) => {
+    column.getSize = () => {
+      var _column$columnDef$min, _ref, _column$columnDef$max;
+      const columnSize = table.getState().columnSizing[column.id];
+      return Math.min(Math.max((_column$columnDef$min = column.columnDef.minSize) != null ? _column$columnDef$min : defaultColumnSizing.minSize, (_ref = columnSize != null ? columnSize : column.columnDef.size) != null ? _ref : defaultColumnSizing.size), (_column$columnDef$max = column.columnDef.maxSize) != null ? _column$columnDef$max : defaultColumnSizing.maxSize);
+    };
+    column.getStart = memo(position => [position, _getVisibleLeafColumns(table, position), table.getState().columnSizing], (position, columns) => columns.slice(0, column.getIndex(position)).reduce((sum, column) => sum + column.getSize(), 0), getMemoOptions(table.options, 'debugColumns'));
+    column.getAfter = memo(position => [position, _getVisibleLeafColumns(table, position), table.getState().columnSizing], (position, columns) => columns.slice(column.getIndex(position) + 1).reduce((sum, column) => sum + column.getSize(), 0), getMemoOptions(table.options, 'debugColumns'));
+    column.resetSize = () => {
+      table.setColumnSizing(_ref2 => {
+        let {
+          [column.id]: _,
+          ...rest
+        } = _ref2;
+        return rest;
+      });
+    };
+    column.getCanResize = () => {
+      var _column$columnDef$ena, _table$options$enable;
+      return ((_column$columnDef$ena = column.columnDef.enableResizing) != null ? _column$columnDef$ena : true) && ((_table$options$enable = table.options.enableColumnResizing) != null ? _table$options$enable : true);
+    };
+    column.getIsResizing = () => {
+      return table.getState().columnSizingInfo.isResizingColumn === column.id;
+    };
+  },
+  createHeader: (header, table) => {
+    header.getSize = () => {
+      let sum = 0;
+      const recurse = header => {
+        if (header.subHeaders.length) {
+          header.subHeaders.forEach(recurse);
+        } else {
+          var _header$column$getSiz;
+          sum += (_header$column$getSiz = header.column.getSize()) != null ? _header$column$getSiz : 0;
+        }
+      };
+      recurse(header);
+      return sum;
+    };
+    header.getStart = () => {
+      if (header.index > 0) {
+        const prevSiblingHeader = header.headerGroup.headers[header.index - 1];
+        return prevSiblingHeader.getStart() + prevSiblingHeader.getSize();
+      }
+      return 0;
+    };
+    header.getResizeHandler = _contextDocument => {
+      const column = table.getColumn(header.column.id);
+      const canResize = column == null ? void 0 : column.getCanResize();
+      return e => {
+        if (!column || !canResize) {
+          return;
+        }
+        e.persist == null || e.persist();
+        if (isTouchStartEvent(e)) {
+          // lets not respond to multiple touches (e.g. 2 or 3 fingers)
+          if (e.touches && e.touches.length > 1) {
+            return;
+          }
+        }
+        const startSize = header.getSize();
+        const columnSizingStart = header ? header.getLeafHeaders().map(d => [d.column.id, d.column.getSize()]) : [[column.id, column.getSize()]];
+        const clientX = isTouchStartEvent(e) ? Math.round(e.touches[0].clientX) : e.clientX;
+        const newColumnSizing = {};
+        const updateOffset = (eventType, clientXPos) => {
+          if (typeof clientXPos !== 'number') {
+            return;
+          }
+          table.setColumnSizingInfo(old => {
+            var _old$startOffset, _old$startSize;
+            const deltaDirection = table.options.columnResizeDirection === 'rtl' ? -1 : 1;
+            const deltaOffset = (clientXPos - ((_old$startOffset = old == null ? void 0 : old.startOffset) != null ? _old$startOffset : 0)) * deltaDirection;
+            const deltaPercentage = Math.max(deltaOffset / ((_old$startSize = old == null ? void 0 : old.startSize) != null ? _old$startSize : 0), -0.999999);
+            old.columnSizingStart.forEach(_ref3 => {
+              let [columnId, headerSize] = _ref3;
+              newColumnSizing[columnId] = Math.round(Math.max(headerSize + headerSize * deltaPercentage, 0) * 100) / 100;
+            });
+            return {
+              ...old,
+              deltaOffset,
+              deltaPercentage
+            };
+          });
+          if (table.options.columnResizeMode === 'onChange' || eventType === 'end') {
+            table.setColumnSizing(old => ({
+              ...old,
+              ...newColumnSizing
+            }));
+          }
+        };
+        const onMove = clientXPos => updateOffset('move', clientXPos);
+        const onEnd = clientXPos => {
+          updateOffset('end', clientXPos);
+          table.setColumnSizingInfo(old => ({
+            ...old,
+            isResizingColumn: false,
+            startOffset: null,
+            startSize: null,
+            deltaOffset: null,
+            deltaPercentage: null,
+            columnSizingStart: []
+          }));
+        };
+        const contextDocument = safelyAccessDocument(_contextDocument);
+        const mouseEvents = {
+          moveHandler: e => onMove(e.clientX),
+          upHandler: e => {
+            contextDocument == null || contextDocument.removeEventListener('mousemove', mouseEvents.moveHandler);
+            contextDocument == null || contextDocument.removeEventListener('mouseup', mouseEvents.upHandler);
+            onEnd(e.clientX);
+          }
+        };
+        const touchEvents = {
+          moveHandler: e => {
+            if (e.cancelable) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
+            onMove(e.touches[0].clientX);
+            return false;
+          },
+          upHandler: e => {
+            var _e$touches$;
+            contextDocument == null || contextDocument.removeEventListener('touchmove', touchEvents.moveHandler);
+            contextDocument == null || contextDocument.removeEventListener('touchend', touchEvents.upHandler);
+            if (e.cancelable) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
+            onEnd((_e$touches$ = e.touches[0]) == null ? void 0 : _e$touches$.clientX);
+          }
+        };
+        const passiveIfSupported = passiveEventSupported() ? {
+          passive: false
+        } : false;
+        if (isTouchStartEvent(e)) {
+          contextDocument == null || contextDocument.addEventListener('touchmove', touchEvents.moveHandler, passiveIfSupported);
+          contextDocument == null || contextDocument.addEventListener('touchend', touchEvents.upHandler, passiveIfSupported);
+        } else {
+          contextDocument == null || contextDocument.addEventListener('mousemove', mouseEvents.moveHandler, passiveIfSupported);
+          contextDocument == null || contextDocument.addEventListener('mouseup', mouseEvents.upHandler, passiveIfSupported);
+        }
+        table.setColumnSizingInfo(old => ({
+          ...old,
+          startOffset: clientX,
+          startSize,
+          deltaOffset: 0,
+          deltaPercentage: 0,
+          columnSizingStart,
+          isResizingColumn: column.id
+        }));
+      };
+    };
+  },
+  createTable: table => {
+    table.setColumnSizing = updater => table.options.onColumnSizingChange == null ? void 0 : table.options.onColumnSizingChange(updater);
+    table.setColumnSizingInfo = updater => table.options.onColumnSizingInfoChange == null ? void 0 : table.options.onColumnSizingInfoChange(updater);
+    table.resetColumnSizing = defaultState => {
+      var _table$initialState$c;
+      table.setColumnSizing(defaultState ? {} : (_table$initialState$c = table.initialState.columnSizing) != null ? _table$initialState$c : {});
+    };
+    table.resetHeaderSizeInfo = defaultState => {
+      var _table$initialState$c2;
+      table.setColumnSizingInfo(defaultState ? getDefaultColumnSizingInfoState() : (_table$initialState$c2 = table.initialState.columnSizingInfo) != null ? _table$initialState$c2 : getDefaultColumnSizingInfoState());
+    };
+    table.getTotalSize = () => {
+      var _table$getHeaderGroup, _table$getHeaderGroup2;
+      return (_table$getHeaderGroup = (_table$getHeaderGroup2 = table.getHeaderGroups()[0]) == null ? void 0 : _table$getHeaderGroup2.headers.reduce((sum, header) => {
+        return sum + header.getSize();
+      }, 0)) != null ? _table$getHeaderGroup : 0;
+    };
+    table.getLeftTotalSize = () => {
+      var _table$getLeftHeaderG, _table$getLeftHeaderG2;
+      return (_table$getLeftHeaderG = (_table$getLeftHeaderG2 = table.getLeftHeaderGroups()[0]) == null ? void 0 : _table$getLeftHeaderG2.headers.reduce((sum, header) => {
+        return sum + header.getSize();
+      }, 0)) != null ? _table$getLeftHeaderG : 0;
+    };
+    table.getCenterTotalSize = () => {
+      var _table$getCenterHeade, _table$getCenterHeade2;
+      return (_table$getCenterHeade = (_table$getCenterHeade2 = table.getCenterHeaderGroups()[0]) == null ? void 0 : _table$getCenterHeade2.headers.reduce((sum, header) => {
+        return sum + header.getSize();
+      }, 0)) != null ? _table$getCenterHeade : 0;
+    };
+    table.getRightTotalSize = () => {
+      var _table$getRightHeader, _table$getRightHeader2;
+      return (_table$getRightHeader = (_table$getRightHeader2 = table.getRightHeaderGroups()[0]) == null ? void 0 : _table$getRightHeader2.headers.reduce((sum, header) => {
+        return sum + header.getSize();
+      }, 0)) != null ? _table$getRightHeader : 0;
+    };
+  }
+};
+let passiveSupported = null;
+function passiveEventSupported() {
+  if (typeof passiveSupported === 'boolean') return passiveSupported;
+  let supported = false;
+  try {
+    const options = {
+      get passive() {
+        supported = true;
+        return false;
+      }
+    };
+    const noop = () => {};
+    window.addEventListener('test', noop, options);
+    window.removeEventListener('test', noop);
+  } catch (err) {
+    supported = false;
+  }
+  passiveSupported = supported;
+  return passiveSupported;
+}
+function isTouchStartEvent(e) {
+  return e.type === 'touchstart';
+}
+
+//
+
+const ColumnVisibility = {
+  getInitialState: state => {
+    return {
+      columnVisibility: {},
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onColumnVisibilityChange: makeStateUpdater('columnVisibility', table)
+    };
+  },
+  createColumn: (column, table) => {
+    column.toggleVisibility = value => {
+      if (column.getCanHide()) {
+        table.setColumnVisibility(old => ({
+          ...old,
+          [column.id]: value != null ? value : !column.getIsVisible()
+        }));
+      }
+    };
+    column.getIsVisible = () => {
+      var _ref, _table$getState$colum;
+      const childColumns = column.columns;
+      return (_ref = childColumns.length ? childColumns.some(c => c.getIsVisible()) : (_table$getState$colum = table.getState().columnVisibility) == null ? void 0 : _table$getState$colum[column.id]) != null ? _ref : true;
+    };
+    column.getCanHide = () => {
+      var _column$columnDef$ena, _table$options$enable;
+      return ((_column$columnDef$ena = column.columnDef.enableHiding) != null ? _column$columnDef$ena : true) && ((_table$options$enable = table.options.enableHiding) != null ? _table$options$enable : true);
+    };
+    column.getToggleVisibilityHandler = () => {
+      return e => {
+        column.toggleVisibility == null || column.toggleVisibility(e.target.checked);
+      };
+    };
+  },
+  createRow: (row, table) => {
+    row._getAllVisibleCells = memo(() => [row.getAllCells(), table.getState().columnVisibility], cells => {
+      return cells.filter(cell => cell.column.getIsVisible());
+    }, getMemoOptions(table.options, 'debugRows'));
+    row.getVisibleCells = memo(() => [row.getLeftVisibleCells(), row.getCenterVisibleCells(), row.getRightVisibleCells()], (left, center, right) => [...left, ...center, ...right], getMemoOptions(table.options, 'debugRows'));
+  },
+  createTable: table => {
+    const makeVisibleColumnsMethod = (key, getColumns) => {
+      return memo(() => [getColumns(), getColumns().filter(d => d.getIsVisible()).map(d => d.id).join('_')], columns => {
+        return columns.filter(d => d.getIsVisible == null ? void 0 : d.getIsVisible());
+      }, getMemoOptions(table.options, 'debugColumns'));
+    };
+    table.getVisibleFlatColumns = makeVisibleColumnsMethod('getVisibleFlatColumns', () => table.getAllFlatColumns());
+    table.getVisibleLeafColumns = makeVisibleColumnsMethod('getVisibleLeafColumns', () => table.getAllLeafColumns());
+    table.getLeftVisibleLeafColumns = makeVisibleColumnsMethod('getLeftVisibleLeafColumns', () => table.getLeftLeafColumns());
+    table.getRightVisibleLeafColumns = makeVisibleColumnsMethod('getRightVisibleLeafColumns', () => table.getRightLeafColumns());
+    table.getCenterVisibleLeafColumns = makeVisibleColumnsMethod('getCenterVisibleLeafColumns', () => table.getCenterLeafColumns());
+    table.setColumnVisibility = updater => table.options.onColumnVisibilityChange == null ? void 0 : table.options.onColumnVisibilityChange(updater);
+    table.resetColumnVisibility = defaultState => {
+      var _table$initialState$c;
+      table.setColumnVisibility(defaultState ? {} : (_table$initialState$c = table.initialState.columnVisibility) != null ? _table$initialState$c : {});
+    };
+    table.toggleAllColumnsVisible = value => {
+      var _value;
+      value = (_value = value) != null ? _value : !table.getIsAllColumnsVisible();
+      table.setColumnVisibility(table.getAllLeafColumns().reduce((obj, column) => ({
+        ...obj,
+        [column.id]: !value ? !(column.getCanHide != null && column.getCanHide()) : value
+      }), {}));
+    };
+    table.getIsAllColumnsVisible = () => !table.getAllLeafColumns().some(column => !(column.getIsVisible != null && column.getIsVisible()));
+    table.getIsSomeColumnsVisible = () => table.getAllLeafColumns().some(column => column.getIsVisible == null ? void 0 : column.getIsVisible());
+    table.getToggleAllColumnsVisibilityHandler = () => {
+      return e => {
+        var _target;
+        table.toggleAllColumnsVisible((_target = e.target) == null ? void 0 : _target.checked);
+      };
+    };
+  }
+};
+function _getVisibleLeafColumns(table, position) {
+  return !position ? table.getVisibleLeafColumns() : position === 'center' ? table.getCenterVisibleLeafColumns() : position === 'left' ? table.getLeftVisibleLeafColumns() : table.getRightVisibleLeafColumns();
+}
+
+//
+
+const GlobalFaceting = {
+  createTable: table => {
+    table._getGlobalFacetedRowModel = table.options.getFacetedRowModel && table.options.getFacetedRowModel(table, '__global__');
+    table.getGlobalFacetedRowModel = () => {
+      if (table.options.manualFiltering || !table._getGlobalFacetedRowModel) {
+        return table.getPreFilteredRowModel();
+      }
+      return table._getGlobalFacetedRowModel();
+    };
+    table._getGlobalFacetedUniqueValues = table.options.getFacetedUniqueValues && table.options.getFacetedUniqueValues(table, '__global__');
+    table.getGlobalFacetedUniqueValues = () => {
+      if (!table._getGlobalFacetedUniqueValues) {
+        return new Map();
+      }
+      return table._getGlobalFacetedUniqueValues();
+    };
+    table._getGlobalFacetedMinMaxValues = table.options.getFacetedMinMaxValues && table.options.getFacetedMinMaxValues(table, '__global__');
+    table.getGlobalFacetedMinMaxValues = () => {
+      if (!table._getGlobalFacetedMinMaxValues) {
+        return;
+      }
+      return table._getGlobalFacetedMinMaxValues();
+    };
+  }
+};
+
+//
+
+const GlobalFiltering = {
+  getInitialState: state => {
+    return {
+      globalFilter: undefined,
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onGlobalFilterChange: makeStateUpdater('globalFilter', table),
+      globalFilterFn: 'auto',
+      getColumnCanGlobalFilter: column => {
+        var _table$getCoreRowMode;
+        const value = (_table$getCoreRowMode = table.getCoreRowModel().flatRows[0]) == null || (_table$getCoreRowMode = _table$getCoreRowMode._getAllCellsByColumnId()[column.id]) == null ? void 0 : _table$getCoreRowMode.getValue();
+        return typeof value === 'string' || typeof value === 'number';
+      }
+    };
+  },
+  createColumn: (column, table) => {
+    column.getCanGlobalFilter = () => {
+      var _column$columnDef$ena, _table$options$enable, _table$options$enable2, _table$options$getCol;
+      return ((_column$columnDef$ena = column.columnDef.enableGlobalFilter) != null ? _column$columnDef$ena : true) && ((_table$options$enable = table.options.enableGlobalFilter) != null ? _table$options$enable : true) && ((_table$options$enable2 = table.options.enableFilters) != null ? _table$options$enable2 : true) && ((_table$options$getCol = table.options.getColumnCanGlobalFilter == null ? void 0 : table.options.getColumnCanGlobalFilter(column)) != null ? _table$options$getCol : true) && !!column.accessorFn;
+    };
+  },
+  createTable: table => {
+    table.getGlobalAutoFilterFn = () => {
+      return filterFns.includesString;
+    };
+    table.getGlobalFilterFn = () => {
+      var _table$options$filter, _table$options$filter2;
+      const {
+        globalFilterFn: globalFilterFn
+      } = table.options;
+      return isFunction(globalFilterFn) ? globalFilterFn : globalFilterFn === 'auto' ? table.getGlobalAutoFilterFn() : (_table$options$filter = (_table$options$filter2 = table.options.filterFns) == null ? void 0 : _table$options$filter2[globalFilterFn]) != null ? _table$options$filter : filterFns[globalFilterFn];
+    };
+    table.setGlobalFilter = updater => {
+      table.options.onGlobalFilterChange == null || table.options.onGlobalFilterChange(updater);
+    };
+    table.resetGlobalFilter = defaultState => {
+      table.setGlobalFilter(defaultState ? undefined : table.initialState.globalFilter);
+    };
+  }
+};
+
+//
+
+const RowExpanding = {
+  getInitialState: state => {
+    return {
+      expanded: {},
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onExpandedChange: makeStateUpdater('expanded', table),
+      paginateExpandedRows: true
+    };
+  },
+  createTable: table => {
+    let registered = false;
+    let queued = false;
+    table._autoResetExpanded = () => {
+      var _ref, _table$options$autoRe;
+      if (!registered) {
+        table._queue(() => {
+          registered = true;
+        });
+        return;
+      }
+      if ((_ref = (_table$options$autoRe = table.options.autoResetAll) != null ? _table$options$autoRe : table.options.autoResetExpanded) != null ? _ref : !table.options.manualExpanding) {
+        if (queued) return;
+        queued = true;
+        table._queue(() => {
+          table.resetExpanded();
+          queued = false;
+        });
+      }
+    };
+    table.setExpanded = updater => table.options.onExpandedChange == null ? void 0 : table.options.onExpandedChange(updater);
+    table.toggleAllRowsExpanded = expanded => {
+      if (expanded != null ? expanded : !table.getIsAllRowsExpanded()) {
+        table.setExpanded(true);
+      } else {
+        table.setExpanded({});
+      }
+    };
+    table.resetExpanded = defaultState => {
+      var _table$initialState$e, _table$initialState;
+      table.setExpanded(defaultState ? {} : (_table$initialState$e = (_table$initialState = table.initialState) == null ? void 0 : _table$initialState.expanded) != null ? _table$initialState$e : {});
+    };
+    table.getCanSomeRowsExpand = () => {
+      return table.getPrePaginationRowModel().flatRows.some(row => row.getCanExpand());
+    };
+    table.getToggleAllRowsExpandedHandler = () => {
+      return e => {
+        e.persist == null || e.persist();
+        table.toggleAllRowsExpanded();
+      };
+    };
+    table.getIsSomeRowsExpanded = () => {
+      const expanded = table.getState().expanded;
+      return expanded === true || Object.values(expanded).some(Boolean);
+    };
+    table.getIsAllRowsExpanded = () => {
+      const expanded = table.getState().expanded;
+
+      // If expanded is true, save some cycles and return true
+      if (typeof expanded === 'boolean') {
+        return expanded === true;
+      }
+      if (!Object.keys(expanded).length) {
+        return false;
+      }
+
+      // If any row is not expanded, return false
+      if (table.getRowModel().flatRows.some(row => !row.getIsExpanded())) {
+        return false;
+      }
+
+      // They must all be expanded :shrug:
+      return true;
+    };
+    table.getExpandedDepth = () => {
+      let maxDepth = 0;
+      const rowIds = table.getState().expanded === true ? Object.keys(table.getRowModel().rowsById) : Object.keys(table.getState().expanded);
+      rowIds.forEach(id => {
+        const splitId = id.split('.');
+        maxDepth = Math.max(maxDepth, splitId.length);
+      });
+      return maxDepth;
+    };
+    table.getPreExpandedRowModel = () => table.getSortedRowModel();
+    table.getExpandedRowModel = () => {
+      if (!table._getExpandedRowModel && table.options.getExpandedRowModel) {
+        table._getExpandedRowModel = table.options.getExpandedRowModel(table);
+      }
+      if (table.options.manualExpanding || !table._getExpandedRowModel) {
+        return table.getPreExpandedRowModel();
+      }
+      return table._getExpandedRowModel();
+    };
+  },
+  createRow: (row, table) => {
+    row.toggleExpanded = expanded => {
+      table.setExpanded(old => {
+        var _expanded;
+        const exists = old === true ? true : !!(old != null && old[row.id]);
+        let oldExpanded = {};
+        if (old === true) {
+          Object.keys(table.getRowModel().rowsById).forEach(rowId => {
+            oldExpanded[rowId] = true;
+          });
+        } else {
+          oldExpanded = old;
+        }
+        expanded = (_expanded = expanded) != null ? _expanded : !exists;
+        if (!exists && expanded) {
+          return {
+            ...oldExpanded,
+            [row.id]: true
+          };
+        }
+        if (exists && !expanded) {
+          const {
+            [row.id]: _,
+            ...rest
+          } = oldExpanded;
+          return rest;
+        }
+        return old;
+      });
+    };
+    row.getIsExpanded = () => {
+      var _table$options$getIsR;
+      const expanded = table.getState().expanded;
+      return !!((_table$options$getIsR = table.options.getIsRowExpanded == null ? void 0 : table.options.getIsRowExpanded(row)) != null ? _table$options$getIsR : expanded === true || (expanded == null ? void 0 : expanded[row.id]));
+    };
+    row.getCanExpand = () => {
+      var _table$options$getRow, _table$options$enable, _row$subRows;
+      return (_table$options$getRow = table.options.getRowCanExpand == null ? void 0 : table.options.getRowCanExpand(row)) != null ? _table$options$getRow : ((_table$options$enable = table.options.enableExpanding) != null ? _table$options$enable : true) && !!((_row$subRows = row.subRows) != null && _row$subRows.length);
+    };
+    row.getIsAllParentsExpanded = () => {
+      let isFullyExpanded = true;
+      let currentRow = row;
+      while (isFullyExpanded && currentRow.parentId) {
+        currentRow = table.getRow(currentRow.parentId, true);
+        isFullyExpanded = currentRow.getIsExpanded();
+      }
+      return isFullyExpanded;
+    };
+    row.getToggleExpandedHandler = () => {
+      const canExpand = row.getCanExpand();
+      return () => {
+        if (!canExpand) return;
+        row.toggleExpanded();
+      };
+    };
+  }
+};
+
+//
+
+const defaultPageIndex = 0;
+const defaultPageSize = 10;
+const getDefaultPaginationState = () => ({
+  pageIndex: defaultPageIndex,
+  pageSize: defaultPageSize
+});
+const RowPagination = {
+  getInitialState: state => {
+    return {
+      ...state,
+      pagination: {
+        ...getDefaultPaginationState(),
+        ...(state == null ? void 0 : state.pagination)
+      }
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onPaginationChange: makeStateUpdater('pagination', table)
+    };
+  },
+  createTable: table => {
+    let registered = false;
+    let queued = false;
+    table._autoResetPageIndex = () => {
+      var _ref, _table$options$autoRe;
+      if (!registered) {
+        table._queue(() => {
+          registered = true;
+        });
+        return;
+      }
+      if ((_ref = (_table$options$autoRe = table.options.autoResetAll) != null ? _table$options$autoRe : table.options.autoResetPageIndex) != null ? _ref : !table.options.manualPagination) {
+        if (queued) return;
+        queued = true;
+        table._queue(() => {
+          table.resetPageIndex();
+          queued = false;
+        });
+      }
+    };
+    table.setPagination = updater => {
+      const safeUpdater = old => {
+        let newState = functionalUpdate(updater, old);
+        return newState;
+      };
+      return table.options.onPaginationChange == null ? void 0 : table.options.onPaginationChange(safeUpdater);
+    };
+    table.resetPagination = defaultState => {
+      var _table$initialState$p;
+      table.setPagination(defaultState ? getDefaultPaginationState() : (_table$initialState$p = table.initialState.pagination) != null ? _table$initialState$p : getDefaultPaginationState());
+    };
+    table.setPageIndex = updater => {
+      table.setPagination(old => {
+        let pageIndex = functionalUpdate(updater, old.pageIndex);
+        const maxPageIndex = typeof table.options.pageCount === 'undefined' || table.options.pageCount === -1 ? Number.MAX_SAFE_INTEGER : table.options.pageCount - 1;
+        pageIndex = Math.max(0, Math.min(pageIndex, maxPageIndex));
+        return {
+          ...old,
+          pageIndex
+        };
+      });
+    };
+    table.resetPageIndex = defaultState => {
+      var _table$initialState$p2, _table$initialState;
+      table.setPageIndex(defaultState ? defaultPageIndex : (_table$initialState$p2 = (_table$initialState = table.initialState) == null || (_table$initialState = _table$initialState.pagination) == null ? void 0 : _table$initialState.pageIndex) != null ? _table$initialState$p2 : defaultPageIndex);
+    };
+    table.resetPageSize = defaultState => {
+      var _table$initialState$p3, _table$initialState2;
+      table.setPageSize(defaultState ? defaultPageSize : (_table$initialState$p3 = (_table$initialState2 = table.initialState) == null || (_table$initialState2 = _table$initialState2.pagination) == null ? void 0 : _table$initialState2.pageSize) != null ? _table$initialState$p3 : defaultPageSize);
+    };
+    table.setPageSize = updater => {
+      table.setPagination(old => {
+        const pageSize = Math.max(1, functionalUpdate(updater, old.pageSize));
+        const topRowIndex = old.pageSize * old.pageIndex;
+        const pageIndex = Math.floor(topRowIndex / pageSize);
+        return {
+          ...old,
+          pageIndex,
+          pageSize
+        };
+      });
+    };
+    //deprecated
+    table.setPageCount = updater => table.setPagination(old => {
+      var _table$options$pageCo;
+      let newPageCount = functionalUpdate(updater, (_table$options$pageCo = table.options.pageCount) != null ? _table$options$pageCo : -1);
+      if (typeof newPageCount === 'number') {
+        newPageCount = Math.max(-1, newPageCount);
+      }
+      return {
+        ...old,
+        pageCount: newPageCount
+      };
+    });
+    table.getPageOptions = memo(() => [table.getPageCount()], pageCount => {
+      let pageOptions = [];
+      if (pageCount && pageCount > 0) {
+        pageOptions = [...new Array(pageCount)].fill(null).map((_, i) => i);
+      }
+      return pageOptions;
+    }, getMemoOptions(table.options, 'debugTable'));
+    table.getCanPreviousPage = () => table.getState().pagination.pageIndex > 0;
+    table.getCanNextPage = () => {
+      const {
+        pageIndex
+      } = table.getState().pagination;
+      const pageCount = table.getPageCount();
+      if (pageCount === -1) {
+        return true;
+      }
+      if (pageCount === 0) {
+        return false;
+      }
+      return pageIndex < pageCount - 1;
+    };
+    table.previousPage = () => {
+      return table.setPageIndex(old => old - 1);
+    };
+    table.nextPage = () => {
+      return table.setPageIndex(old => {
+        return old + 1;
+      });
+    };
+    table.firstPage = () => {
+      return table.setPageIndex(0);
+    };
+    table.lastPage = () => {
+      return table.setPageIndex(table.getPageCount() - 1);
+    };
+    table.getPrePaginationRowModel = () => table.getExpandedRowModel();
+    table.getPaginationRowModel = () => {
+      if (!table._getPaginationRowModel && table.options.getPaginationRowModel) {
+        table._getPaginationRowModel = table.options.getPaginationRowModel(table);
+      }
+      if (table.options.manualPagination || !table._getPaginationRowModel) {
+        return table.getPrePaginationRowModel();
+      }
+      return table._getPaginationRowModel();
+    };
+    table.getPageCount = () => {
+      var _table$options$pageCo2;
+      return (_table$options$pageCo2 = table.options.pageCount) != null ? _table$options$pageCo2 : Math.ceil(table.getRowCount() / table.getState().pagination.pageSize);
+    };
+    table.getRowCount = () => {
+      var _table$options$rowCou;
+      return (_table$options$rowCou = table.options.rowCount) != null ? _table$options$rowCou : table.getPrePaginationRowModel().rows.length;
+    };
+  }
+};
+
+//
+
+const getDefaultRowPinningState = () => ({
+  top: [],
+  bottom: []
+});
+const RowPinning = {
+  getInitialState: state => {
+    return {
+      rowPinning: getDefaultRowPinningState(),
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onRowPinningChange: makeStateUpdater('rowPinning', table)
+    };
+  },
+  createRow: (row, table) => {
+    row.pin = (position, includeLeafRows, includeParentRows) => {
+      const leafRowIds = includeLeafRows ? row.getLeafRows().map(_ref => {
+        let {
+          id
+        } = _ref;
+        return id;
+      }) : [];
+      const parentRowIds = includeParentRows ? row.getParentRows().map(_ref2 => {
+        let {
+          id
+        } = _ref2;
+        return id;
+      }) : [];
+      const rowIds = new Set([...parentRowIds, row.id, ...leafRowIds]);
+      table.setRowPinning(old => {
+        var _old$top3, _old$bottom3;
+        if (position === 'bottom') {
+          var _old$top, _old$bottom;
+          return {
+            top: ((_old$top = old == null ? void 0 : old.top) != null ? _old$top : []).filter(d => !(rowIds != null && rowIds.has(d))),
+            bottom: [...((_old$bottom = old == null ? void 0 : old.bottom) != null ? _old$bottom : []).filter(d => !(rowIds != null && rowIds.has(d))), ...Array.from(rowIds)]
+          };
+        }
+        if (position === 'top') {
+          var _old$top2, _old$bottom2;
+          return {
+            top: [...((_old$top2 = old == null ? void 0 : old.top) != null ? _old$top2 : []).filter(d => !(rowIds != null && rowIds.has(d))), ...Array.from(rowIds)],
+            bottom: ((_old$bottom2 = old == null ? void 0 : old.bottom) != null ? _old$bottom2 : []).filter(d => !(rowIds != null && rowIds.has(d)))
+          };
+        }
+        return {
+          top: ((_old$top3 = old == null ? void 0 : old.top) != null ? _old$top3 : []).filter(d => !(rowIds != null && rowIds.has(d))),
+          bottom: ((_old$bottom3 = old == null ? void 0 : old.bottom) != null ? _old$bottom3 : []).filter(d => !(rowIds != null && rowIds.has(d)))
+        };
+      });
+    };
+    row.getCanPin = () => {
+      var _ref3;
+      const {
+        enableRowPinning,
+        enablePinning
+      } = table.options;
+      if (typeof enableRowPinning === 'function') {
+        return enableRowPinning(row);
+      }
+      return (_ref3 = enableRowPinning != null ? enableRowPinning : enablePinning) != null ? _ref3 : true;
+    };
+    row.getIsPinned = () => {
+      const rowIds = [row.id];
+      const {
+        top,
+        bottom
+      } = table.getState().rowPinning;
+      const isTop = rowIds.some(d => top == null ? void 0 : top.includes(d));
+      const isBottom = rowIds.some(d => bottom == null ? void 0 : bottom.includes(d));
+      return isTop ? 'top' : isBottom ? 'bottom' : false;
+    };
+    row.getPinnedIndex = () => {
+      var _ref4, _visiblePinnedRowIds$;
+      const position = row.getIsPinned();
+      if (!position) return -1;
+      const visiblePinnedRowIds = (_ref4 = position === 'top' ? table.getTopRows() : table.getBottomRows()) == null ? void 0 : _ref4.map(_ref5 => {
+        let {
+          id
+        } = _ref5;
+        return id;
+      });
+      return (_visiblePinnedRowIds$ = visiblePinnedRowIds == null ? void 0 : visiblePinnedRowIds.indexOf(row.id)) != null ? _visiblePinnedRowIds$ : -1;
+    };
+  },
+  createTable: table => {
+    table.setRowPinning = updater => table.options.onRowPinningChange == null ? void 0 : table.options.onRowPinningChange(updater);
+    table.resetRowPinning = defaultState => {
+      var _table$initialState$r, _table$initialState;
+      return table.setRowPinning(defaultState ? getDefaultRowPinningState() : (_table$initialState$r = (_table$initialState = table.initialState) == null ? void 0 : _table$initialState.rowPinning) != null ? _table$initialState$r : getDefaultRowPinningState());
+    };
+    table.getIsSomeRowsPinned = position => {
+      var _pinningState$positio;
+      const pinningState = table.getState().rowPinning;
+      if (!position) {
+        var _pinningState$top, _pinningState$bottom;
+        return Boolean(((_pinningState$top = pinningState.top) == null ? void 0 : _pinningState$top.length) || ((_pinningState$bottom = pinningState.bottom) == null ? void 0 : _pinningState$bottom.length));
+      }
+      return Boolean((_pinningState$positio = pinningState[position]) == null ? void 0 : _pinningState$positio.length);
+    };
+    table._getPinnedRows = (visibleRows, pinnedRowIds, position) => {
+      var _table$options$keepPi;
+      const rows = ((_table$options$keepPi = table.options.keepPinnedRows) != null ? _table$options$keepPi : true) ?
+      //get all rows that are pinned even if they would not be otherwise visible
+      //account for expanded parent rows, but not pagination or filtering
+      (pinnedRowIds != null ? pinnedRowIds : []).map(rowId => {
+        const row = table.getRow(rowId, true);
+        return row.getIsAllParentsExpanded() ? row : null;
+      }) :
+      //else get only visible rows that are pinned
+      (pinnedRowIds != null ? pinnedRowIds : []).map(rowId => visibleRows.find(row => row.id === rowId));
+      return rows.filter(Boolean).map(d => ({
+        ...d,
+        position
+      }));
+    };
+    table.getTopRows = memo(() => [table.getRowModel().rows, table.getState().rowPinning.top], (allRows, topPinnedRowIds) => table._getPinnedRows(allRows, topPinnedRowIds, 'top'), getMemoOptions(table.options, 'debugRows'));
+    table.getBottomRows = memo(() => [table.getRowModel().rows, table.getState().rowPinning.bottom], (allRows, bottomPinnedRowIds) => table._getPinnedRows(allRows, bottomPinnedRowIds, 'bottom'), getMemoOptions(table.options, 'debugRows'));
+    table.getCenterRows = memo(() => [table.getRowModel().rows, table.getState().rowPinning.top, table.getState().rowPinning.bottom], (allRows, top, bottom) => {
+      const topAndBottom = new Set([...(top != null ? top : []), ...(bottom != null ? bottom : [])]);
+      return allRows.filter(d => !topAndBottom.has(d.id));
+    }, getMemoOptions(table.options, 'debugRows'));
+  }
+};
+
+//
+
+const RowSelection = {
+  getInitialState: state => {
+    return {
+      rowSelection: {},
+      ...state
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onRowSelectionChange: makeStateUpdater('rowSelection', table),
+      enableRowSelection: true,
+      enableMultiRowSelection: true,
+      enableSubRowSelection: true
+      // enableGroupingRowSelection: false,
+      // isAdditiveSelectEvent: (e: unknown) => !!e.metaKey,
+      // isInclusiveSelectEvent: (e: unknown) => !!e.shiftKey,
+    };
+  },
+  createTable: table => {
+    table.setRowSelection = updater => table.options.onRowSelectionChange == null ? void 0 : table.options.onRowSelectionChange(updater);
+    table.resetRowSelection = defaultState => {
+      var _table$initialState$r;
+      return table.setRowSelection(defaultState ? {} : (_table$initialState$r = table.initialState.rowSelection) != null ? _table$initialState$r : {});
+    };
+    table.toggleAllRowsSelected = value => {
+      table.setRowSelection(old => {
+        value = typeof value !== 'undefined' ? value : !table.getIsAllRowsSelected();
+        const rowSelection = {
+          ...old
+        };
+        const preGroupedFlatRows = table.getPreGroupedRowModel().flatRows;
+
+        // We don't use `mutateRowIsSelected` here for performance reasons.
+        // All of the rows are flat already, so it wouldn't be worth it
+        if (value) {
+          preGroupedFlatRows.forEach(row => {
+            if (!row.getCanSelect()) {
+              return;
+            }
+            rowSelection[row.id] = true;
+          });
+        } else {
+          preGroupedFlatRows.forEach(row => {
+            delete rowSelection[row.id];
+          });
+        }
+        return rowSelection;
+      });
+    };
+    table.toggleAllPageRowsSelected = value => table.setRowSelection(old => {
+      const resolvedValue = typeof value !== 'undefined' ? value : !table.getIsAllPageRowsSelected();
+      const rowSelection = {
+        ...old
+      };
+      table.getRowModel().rows.forEach(row => {
+        mutateRowIsSelected(rowSelection, row.id, resolvedValue, true, table);
+      });
+      return rowSelection;
+    });
+
+    // addRowSelectionRange: rowId => {
+    //   const {
+    //     rows,
+    //     rowsById,
+    //     options: { selectGroupingRows, selectSubRows },
+    //   } = table
+
+    //   const findSelectedRow = (rows: Row[]) => {
+    //     let found
+    //     rows.find(d => {
+    //       if (d.getIsSelected()) {
+    //         found = d
+    //         return true
+    //       }
+    //       const subFound = findSelectedRow(d.subRows || [])
+    //       if (subFound) {
+    //         found = subFound
+    //         return true
+    //       }
+    //       return false
+    //     })
+    //     return found
+    //   }
+
+    //   const firstRow = findSelectedRow(rows) || rows[0]
+    //   const lastRow = rowsById[rowId]
+
+    //   let include = false
+    //   const selectedRowIds = {}
+
+    //   const addRow = (row: Row) => {
+    //     mutateRowIsSelected(selectedRowIds, row.id, true, {
+    //       rowsById,
+    //       selectGroupingRows: selectGroupingRows!,
+    //       selectSubRows: selectSubRows!,
+    //     })
+    //   }
+
+    //   table.rows.forEach(row => {
+    //     const isFirstRow = row.id === firstRow.id
+    //     const isLastRow = row.id === lastRow.id
+
+    //     if (isFirstRow || isLastRow) {
+    //       if (!include) {
+    //         include = true
+    //       } else if (include) {
+    //         addRow(row)
+    //         include = false
+    //       }
+    //     }
+
+    //     if (include) {
+    //       addRow(row)
+    //     }
+    //   })
+
+    //   table.setRowSelection(selectedRowIds)
+    // },
+    table.getPreSelectedRowModel = () => table.getCoreRowModel();
+    table.getSelectedRowModel = memo(() => [table.getState().rowSelection, table.getCoreRowModel()], (rowSelection, rowModel) => {
+      if (!Object.keys(rowSelection).length) {
+        return {
+          rows: [],
+          flatRows: [],
+          rowsById: {}
+        };
+      }
+      return selectRowsFn(table, rowModel);
+    }, getMemoOptions(table.options, 'debugTable'));
+    table.getFilteredSelectedRowModel = memo(() => [table.getState().rowSelection, table.getFilteredRowModel()], (rowSelection, rowModel) => {
+      if (!Object.keys(rowSelection).length) {
+        return {
+          rows: [],
+          flatRows: [],
+          rowsById: {}
+        };
+      }
+      return selectRowsFn(table, rowModel);
+    }, getMemoOptions(table.options, 'debugTable'));
+    table.getGroupedSelectedRowModel = memo(() => [table.getState().rowSelection, table.getSortedRowModel()], (rowSelection, rowModel) => {
+      if (!Object.keys(rowSelection).length) {
+        return {
+          rows: [],
+          flatRows: [],
+          rowsById: {}
+        };
+      }
+      return selectRowsFn(table, rowModel);
+    }, getMemoOptions(table.options, 'debugTable'));
+
+    ///
+
+    // getGroupingRowCanSelect: rowId => {
+    //   const row = table.getRow(rowId)
+
+    //   if (!row) {
+    //     throw new Error()
+    //   }
+
+    //   if (typeof table.options.enableGroupingRowSelection === 'function') {
+    //     return table.options.enableGroupingRowSelection(row)
+    //   }
+
+    //   return table.options.enableGroupingRowSelection ?? false
+    // },
+
+    table.getIsAllRowsSelected = () => {
+      const preGroupedFlatRows = table.getFilteredRowModel().flatRows;
+      const {
+        rowSelection
+      } = table.getState();
+      let isAllRowsSelected = Boolean(preGroupedFlatRows.length && Object.keys(rowSelection).length);
+      if (isAllRowsSelected) {
+        if (preGroupedFlatRows.some(row => row.getCanSelect() && !rowSelection[row.id])) {
+          isAllRowsSelected = false;
+        }
+      }
+      return isAllRowsSelected;
+    };
+    table.getIsAllPageRowsSelected = () => {
+      const paginationFlatRows = table.getPaginationRowModel().flatRows.filter(row => row.getCanSelect());
+      const {
+        rowSelection
+      } = table.getState();
+      let isAllPageRowsSelected = !!paginationFlatRows.length;
+      if (isAllPageRowsSelected && paginationFlatRows.some(row => !rowSelection[row.id])) {
+        isAllPageRowsSelected = false;
+      }
+      return isAllPageRowsSelected;
+    };
+    table.getIsSomeRowsSelected = () => {
+      var _table$getState$rowSe;
+      const totalSelected = Object.keys((_table$getState$rowSe = table.getState().rowSelection) != null ? _table$getState$rowSe : {}).length;
+      return totalSelected > 0 && totalSelected < table.getFilteredRowModel().flatRows.length;
+    };
+    table.getIsSomePageRowsSelected = () => {
+      const paginationFlatRows = table.getPaginationRowModel().flatRows;
+      return table.getIsAllPageRowsSelected() ? false : paginationFlatRows.filter(row => row.getCanSelect()).some(d => d.getIsSelected() || d.getIsSomeSelected());
+    };
+    table.getToggleAllRowsSelectedHandler = () => {
+      return e => {
+        table.toggleAllRowsSelected(e.target.checked);
+      };
+    };
+    table.getToggleAllPageRowsSelectedHandler = () => {
+      return e => {
+        table.toggleAllPageRowsSelected(e.target.checked);
+      };
+    };
+  },
+  createRow: (row, table) => {
+    row.toggleSelected = (value, opts) => {
+      const isSelected = row.getIsSelected();
+      table.setRowSelection(old => {
+        var _opts$selectChildren;
+        value = typeof value !== 'undefined' ? value : !isSelected;
+        if (row.getCanSelect() && isSelected === value) {
+          return old;
+        }
+        const selectedRowIds = {
+          ...old
+        };
+        mutateRowIsSelected(selectedRowIds, row.id, value, (_opts$selectChildren = opts == null ? void 0 : opts.selectChildren) != null ? _opts$selectChildren : true, table);
+        return selectedRowIds;
+      });
+    };
+    row.getIsSelected = () => {
+      const {
+        rowSelection
+      } = table.getState();
+      return isRowSelected(row, rowSelection);
+    };
+    row.getIsSomeSelected = () => {
+      const {
+        rowSelection
+      } = table.getState();
+      return isSubRowSelected(row, rowSelection) === 'some';
+    };
+    row.getIsAllSubRowsSelected = () => {
+      const {
+        rowSelection
+      } = table.getState();
+      return isSubRowSelected(row, rowSelection) === 'all';
+    };
+    row.getCanSelect = () => {
+      var _table$options$enable;
+      if (typeof table.options.enableRowSelection === 'function') {
+        return table.options.enableRowSelection(row);
+      }
+      return (_table$options$enable = table.options.enableRowSelection) != null ? _table$options$enable : true;
+    };
+    row.getCanSelectSubRows = () => {
+      var _table$options$enable2;
+      if (typeof table.options.enableSubRowSelection === 'function') {
+        return table.options.enableSubRowSelection(row);
+      }
+      return (_table$options$enable2 = table.options.enableSubRowSelection) != null ? _table$options$enable2 : true;
+    };
+    row.getCanMultiSelect = () => {
+      var _table$options$enable3;
+      if (typeof table.options.enableMultiRowSelection === 'function') {
+        return table.options.enableMultiRowSelection(row);
+      }
+      return (_table$options$enable3 = table.options.enableMultiRowSelection) != null ? _table$options$enable3 : true;
+    };
+    row.getToggleSelectedHandler = () => {
+      const canSelect = row.getCanSelect();
+      return e => {
+        var _target;
+        if (!canSelect) return;
+        row.toggleSelected((_target = e.target) == null ? void 0 : _target.checked);
+      };
+    };
+  }
+};
+const mutateRowIsSelected = (selectedRowIds, id, value, includeChildren, table) => {
+  var _row$subRows;
+  const row = table.getRow(id, true);
+
+  // const isGrouped = row.getIsGrouped()
+
+  // if ( // TODO: enforce grouping row selection rules
+  //   !isGrouped ||
+  //   (isGrouped && table.options.enableGroupingRowSelection)
+  // ) {
+  if (value) {
+    if (!row.getCanMultiSelect()) {
+      Object.keys(selectedRowIds).forEach(key => delete selectedRowIds[key]);
+    }
+    if (row.getCanSelect()) {
+      selectedRowIds[id] = true;
+    }
+  } else {
+    delete selectedRowIds[id];
+  }
+  // }
+
+  if (includeChildren && (_row$subRows = row.subRows) != null && _row$subRows.length && row.getCanSelectSubRows()) {
+    row.subRows.forEach(row => mutateRowIsSelected(selectedRowIds, row.id, value, includeChildren, table));
+  }
+};
+function selectRowsFn(table, rowModel) {
+  const rowSelection = table.getState().rowSelection;
+  const newSelectedFlatRows = [];
+  const newSelectedRowsById = {};
+
+  // Filters top level and nested rows
+  const recurseRows = function (rows, depth) {
+    return rows.map(row => {
+      var _row$subRows2;
+      const isSelected = isRowSelected(row, rowSelection);
+      if (isSelected) {
+        newSelectedFlatRows.push(row);
+        newSelectedRowsById[row.id] = row;
+      }
+      if ((_row$subRows2 = row.subRows) != null && _row$subRows2.length) {
+        row = {
+          ...row,
+          subRows: recurseRows(row.subRows)
+        };
+      }
+      if (isSelected) {
+        return row;
+      }
+    }).filter(Boolean);
+  };
+  return {
+    rows: recurseRows(rowModel.rows),
+    flatRows: newSelectedFlatRows,
+    rowsById: newSelectedRowsById
+  };
+}
+function isRowSelected(row, selection) {
+  var _selection$row$id;
+  return (_selection$row$id = selection[row.id]) != null ? _selection$row$id : false;
+}
+function isSubRowSelected(row, selection, table) {
+  var _row$subRows3;
+  if (!((_row$subRows3 = row.subRows) != null && _row$subRows3.length)) return false;
+  let allChildrenSelected = true;
+  let someSelected = false;
+  row.subRows.forEach(subRow => {
+    // Bail out early if we know both of these
+    if (someSelected && !allChildrenSelected) {
+      return;
+    }
+    if (subRow.getCanSelect()) {
+      if (isRowSelected(subRow, selection)) {
+        someSelected = true;
+      } else {
+        allChildrenSelected = false;
+      }
+    }
+
+    // Check row selection of nested subrows
+    if (subRow.subRows && subRow.subRows.length) {
+      const subRowChildrenSelected = isSubRowSelected(subRow, selection);
+      if (subRowChildrenSelected === 'all') {
+        someSelected = true;
+      } else if (subRowChildrenSelected === 'some') {
+        someSelected = true;
+        allChildrenSelected = false;
+      } else {
+        allChildrenSelected = false;
+      }
+    }
+  });
+  return allChildrenSelected ? 'all' : someSelected ? 'some' : false;
+}
+
+const reSplitAlphaNumeric = /([0-9]+)/gm;
+const alphanumeric = (rowA, rowB, columnId) => {
+  return compareAlphanumeric(toString(rowA.getValue(columnId)).toLowerCase(), toString(rowB.getValue(columnId)).toLowerCase());
+};
+const alphanumericCaseSensitive = (rowA, rowB, columnId) => {
+  return compareAlphanumeric(toString(rowA.getValue(columnId)), toString(rowB.getValue(columnId)));
+};
+
+// The text filter is more basic (less numeric support)
+// but is much faster
+const text = (rowA, rowB, columnId) => {
+  return compareBasic(toString(rowA.getValue(columnId)).toLowerCase(), toString(rowB.getValue(columnId)).toLowerCase());
+};
+
+// The text filter is more basic (less numeric support)
+// but is much faster
+const textCaseSensitive = (rowA, rowB, columnId) => {
+  return compareBasic(toString(rowA.getValue(columnId)), toString(rowB.getValue(columnId)));
+};
+const datetime = (rowA, rowB, columnId) => {
+  const a = rowA.getValue(columnId);
+  const b = rowB.getValue(columnId);
+
+  // Can handle nullish values
+  // Use > and < because == (and ===) doesn't work with
+  // Date objects (would require calling getTime()).
+  return a > b ? 1 : a < b ? -1 : 0;
+};
+const basic = (rowA, rowB, columnId) => {
+  return compareBasic(rowA.getValue(columnId), rowB.getValue(columnId));
+};
+
+// Utils
+
+function compareBasic(a, b) {
+  return a === b ? 0 : a > b ? 1 : -1;
+}
+function toString(a) {
+  if (typeof a === 'number') {
+    if (isNaN(a) || a === Infinity || a === -Infinity) {
+      return '';
+    }
+    return String(a);
+  }
+  if (typeof a === 'string') {
+    return a;
+  }
+  return '';
+}
+
+// Mixed sorting is slow, but very inclusive of many edge cases.
+// It handles numbers, mixed alphanumeric combinations, and even
+// null, undefined, and Infinity
+function compareAlphanumeric(aStr, bStr) {
+  // Split on number groups, but keep the delimiter
+  // Then remove falsey split values
+  const a = aStr.split(reSplitAlphaNumeric).filter(Boolean);
+  const b = bStr.split(reSplitAlphaNumeric).filter(Boolean);
+
+  // While
+  while (a.length && b.length) {
+    const aa = a.shift();
+    const bb = b.shift();
+    const an = parseInt(aa, 10);
+    const bn = parseInt(bb, 10);
+    const combo = [an, bn].sort();
+
+    // Both are string
+    if (isNaN(combo[0])) {
+      if (aa > bb) {
+        return 1;
+      }
+      if (bb > aa) {
+        return -1;
+      }
+      continue;
+    }
+
+    // One is a string, one is a number
+    if (isNaN(combo[1])) {
+      return isNaN(an) ? -1 : 1;
+    }
+
+    // Both are numbers
+    if (an > bn) {
+      return 1;
+    }
+    if (bn > an) {
+      return -1;
+    }
+  }
+  return a.length - b.length;
+}
+
+// Exports
+
+const sortingFns = {
+  alphanumeric,
+  alphanumericCaseSensitive,
+  text,
+  textCaseSensitive,
+  datetime,
+  basic
+};
+
+//
+
+const RowSorting = {
+  getInitialState: state => {
+    return {
+      sorting: [],
+      ...state
+    };
+  },
+  getDefaultColumnDef: () => {
+    return {
+      sortingFn: 'auto',
+      sortUndefined: 1
+    };
+  },
+  getDefaultOptions: table => {
+    return {
+      onSortingChange: makeStateUpdater('sorting', table),
+      isMultiSortEvent: e => {
+        return e.shiftKey;
+      }
+    };
+  },
+  createColumn: (column, table) => {
+    column.getAutoSortingFn = () => {
+      const firstRows = table.getFilteredRowModel().flatRows.slice(10);
+      let isString = false;
+      for (const row of firstRows) {
+        const value = row == null ? void 0 : row.getValue(column.id);
+        if (Object.prototype.toString.call(value) === '[object Date]') {
+          return sortingFns.datetime;
+        }
+        if (typeof value === 'string') {
+          isString = true;
+          if (value.split(reSplitAlphaNumeric).length > 1) {
+            return sortingFns.alphanumeric;
+          }
+        }
+      }
+      if (isString) {
+        return sortingFns.text;
+      }
+      return sortingFns.basic;
+    };
+    column.getAutoSortDir = () => {
+      const firstRow = table.getFilteredRowModel().flatRows[0];
+      const value = firstRow == null ? void 0 : firstRow.getValue(column.id);
+      if (typeof value === 'string') {
+        return 'asc';
+      }
+      return 'desc';
+    };
+    column.getSortingFn = () => {
+      var _table$options$sortin, _table$options$sortin2;
+      if (!column) {
+        throw new Error();
+      }
+      return isFunction(column.columnDef.sortingFn) ? column.columnDef.sortingFn : column.columnDef.sortingFn === 'auto' ? column.getAutoSortingFn() : (_table$options$sortin = (_table$options$sortin2 = table.options.sortingFns) == null ? void 0 : _table$options$sortin2[column.columnDef.sortingFn]) != null ? _table$options$sortin : sortingFns[column.columnDef.sortingFn];
+    };
+    column.toggleSorting = (desc, multi) => {
+      // if (column.columns.length) {
+      //   column.columns.forEach((c, i) => {
+      //     if (c.id) {
+      //       table.toggleColumnSorting(c.id, undefined, multi || !!i)
+      //     }
+      //   })
+      //   return
+      // }
+
+      // this needs to be outside of table.setSorting to be in sync with rerender
+      const nextSortingOrder = column.getNextSortingOrder();
+      const hasManualValue = typeof desc !== 'undefined' && desc !== null;
+      table.setSorting(old => {
+        // Find any existing sorting for this column
+        const existingSorting = old == null ? void 0 : old.find(d => d.id === column.id);
+        const existingIndex = old == null ? void 0 : old.findIndex(d => d.id === column.id);
+        let newSorting = [];
+
+        // What should we do with this sort action?
+        let sortAction;
+        let nextDesc = hasManualValue ? desc : nextSortingOrder === 'desc';
+
+        // Multi-mode
+        if (old != null && old.length && column.getCanMultiSort() && multi) {
+          if (existingSorting) {
+            sortAction = 'toggle';
+          } else {
+            sortAction = 'add';
+          }
+        } else {
+          // Normal mode
+          if (old != null && old.length && existingIndex !== old.length - 1) {
+            sortAction = 'replace';
+          } else if (existingSorting) {
+            sortAction = 'toggle';
+          } else {
+            sortAction = 'replace';
+          }
+        }
+
+        // Handle toggle states that will remove the sorting
+        if (sortAction === 'toggle') {
+          // If we are "actually" toggling (not a manual set value), should we remove the sorting?
+          if (!hasManualValue) {
+            // Is our intention to remove?
+            if (!nextSortingOrder) {
+              sortAction = 'remove';
+            }
+          }
+        }
+        if (sortAction === 'add') {
+          var _table$options$maxMul;
+          newSorting = [...old, {
+            id: column.id,
+            desc: nextDesc
+          }];
+          // Take latest n columns
+          newSorting.splice(0, newSorting.length - ((_table$options$maxMul = table.options.maxMultiSortColCount) != null ? _table$options$maxMul : Number.MAX_SAFE_INTEGER));
+        } else if (sortAction === 'toggle') {
+          // This flips (or sets) the
+          newSorting = old.map(d => {
+            if (d.id === column.id) {
+              return {
+                ...d,
+                desc: nextDesc
+              };
+            }
+            return d;
+          });
+        } else if (sortAction === 'remove') {
+          newSorting = old.filter(d => d.id !== column.id);
+        } else {
+          newSorting = [{
+            id: column.id,
+            desc: nextDesc
+          }];
+        }
+        return newSorting;
+      });
+    };
+    column.getFirstSortDir = () => {
+      var _ref, _column$columnDef$sor;
+      const sortDescFirst = (_ref = (_column$columnDef$sor = column.columnDef.sortDescFirst) != null ? _column$columnDef$sor : table.options.sortDescFirst) != null ? _ref : column.getAutoSortDir() === 'desc';
+      return sortDescFirst ? 'desc' : 'asc';
+    };
+    column.getNextSortingOrder = multi => {
+      var _table$options$enable, _table$options$enable2;
+      const firstSortDirection = column.getFirstSortDir();
+      const isSorted = column.getIsSorted();
+      if (!isSorted) {
+        return firstSortDirection;
+      }
+      if (isSorted !== firstSortDirection && ((_table$options$enable = table.options.enableSortingRemoval) != null ? _table$options$enable : true) && (
+      // If enableSortRemove, enable in general
+      multi ? (_table$options$enable2 = table.options.enableMultiRemove) != null ? _table$options$enable2 : true : true) // If multi, don't allow if enableMultiRemove))
+      ) {
+        return false;
+      }
+      return isSorted === 'desc' ? 'asc' : 'desc';
+    };
+    column.getCanSort = () => {
+      var _column$columnDef$ena, _table$options$enable3;
+      return ((_column$columnDef$ena = column.columnDef.enableSorting) != null ? _column$columnDef$ena : true) && ((_table$options$enable3 = table.options.enableSorting) != null ? _table$options$enable3 : true) && !!column.accessorFn;
+    };
+    column.getCanMultiSort = () => {
+      var _ref2, _column$columnDef$ena2;
+      return (_ref2 = (_column$columnDef$ena2 = column.columnDef.enableMultiSort) != null ? _column$columnDef$ena2 : table.options.enableMultiSort) != null ? _ref2 : !!column.accessorFn;
+    };
+    column.getIsSorted = () => {
+      var _table$getState$sorti;
+      const columnSort = (_table$getState$sorti = table.getState().sorting) == null ? void 0 : _table$getState$sorti.find(d => d.id === column.id);
+      return !columnSort ? false : columnSort.desc ? 'desc' : 'asc';
+    };
+    column.getSortIndex = () => {
+      var _table$getState$sorti2, _table$getState$sorti3;
+      return (_table$getState$sorti2 = (_table$getState$sorti3 = table.getState().sorting) == null ? void 0 : _table$getState$sorti3.findIndex(d => d.id === column.id)) != null ? _table$getState$sorti2 : -1;
+    };
+    column.clearSorting = () => {
+      //clear sorting for just 1 column
+      table.setSorting(old => old != null && old.length ? old.filter(d => d.id !== column.id) : []);
+    };
+    column.getToggleSortingHandler = () => {
+      const canSort = column.getCanSort();
+      return e => {
+        if (!canSort) return;
+        e.persist == null || e.persist();
+        column.toggleSorting == null || column.toggleSorting(undefined, column.getCanMultiSort() ? table.options.isMultiSortEvent == null ? void 0 : table.options.isMultiSortEvent(e) : false);
+      };
+    };
+  },
+  createTable: table => {
+    table.setSorting = updater => table.options.onSortingChange == null ? void 0 : table.options.onSortingChange(updater);
+    table.resetSorting = defaultState => {
+      var _table$initialState$s, _table$initialState;
+      table.setSorting(defaultState ? [] : (_table$initialState$s = (_table$initialState = table.initialState) == null ? void 0 : _table$initialState.sorting) != null ? _table$initialState$s : []);
+    };
+    table.getPreSortedRowModel = () => table.getGroupedRowModel();
+    table.getSortedRowModel = () => {
+      if (!table._getSortedRowModel && table.options.getSortedRowModel) {
+        table._getSortedRowModel = table.options.getSortedRowModel(table);
+      }
+      if (table.options.manualSorting || !table._getSortedRowModel) {
+        return table.getPreSortedRowModel();
+      }
+      return table._getSortedRowModel();
+    };
+  }
+};
+
+const builtInFeatures = [Headers, ColumnVisibility, ColumnOrdering, ColumnPinning, ColumnFaceting, ColumnFiltering, GlobalFaceting,
+//depends on ColumnFaceting
+GlobalFiltering,
+//depends on ColumnFiltering
+RowSorting, ColumnGrouping,
+//depends on RowSorting
+RowExpanding, RowPagination, RowPinning, RowSelection, ColumnSizing];
+
+//
+
+function createTable(options) {
+  var _options$_features, _options$initialState;
+  const _features = [...builtInFeatures, ...((_options$_features = options._features) != null ? _options$_features : [])];
+  let table = {
+    _features
+  };
+  const defaultOptions = table._features.reduce((obj, feature) => {
+    return Object.assign(obj, feature.getDefaultOptions == null ? void 0 : feature.getDefaultOptions(table));
+  }, {});
+  const mergeOptions = options => {
+    if (table.options.mergeOptions) {
+      return table.options.mergeOptions(defaultOptions, options);
+    }
+    return {
+      ...defaultOptions,
+      ...options
+    };
+  };
+  const coreInitialState = {};
+  let initialState = {
+    ...coreInitialState,
+    ...((_options$initialState = options.initialState) != null ? _options$initialState : {})
+  };
+  table._features.forEach(feature => {
+    var _feature$getInitialSt;
+    initialState = (_feature$getInitialSt = feature.getInitialState == null ? void 0 : feature.getInitialState(initialState)) != null ? _feature$getInitialSt : initialState;
+  });
+  const queued = [];
+  let queuedTimeout = false;
+  const coreInstance = {
+    _features,
+    options: {
+      ...defaultOptions,
+      ...options
+    },
+    initialState,
+    _queue: cb => {
+      queued.push(cb);
+      if (!queuedTimeout) {
+        queuedTimeout = true;
+
+        // Schedule a microtask to run the queued callbacks after
+        // the current call stack (render, etc) has finished.
+        Promise.resolve().then(() => {
+          while (queued.length) {
+            queued.shift()();
+          }
+          queuedTimeout = false;
+        }).catch(error => setTimeout(() => {
+          throw error;
+        }));
+      }
+    },
+    reset: () => {
+      table.setState(table.initialState);
+    },
+    setOptions: updater => {
+      const newOptions = functionalUpdate(updater, table.options);
+      table.options = mergeOptions(newOptions);
+    },
+    getState: () => {
+      return table.options.state;
+    },
+    setState: updater => {
+      table.options.onStateChange == null || table.options.onStateChange(updater);
+    },
+    _getRowId: (row, index, parent) => {
+      var _table$options$getRow;
+      return (_table$options$getRow = table.options.getRowId == null ? void 0 : table.options.getRowId(row, index, parent)) != null ? _table$options$getRow : `${parent ? [parent.id, index].join('.') : index}`;
+    },
+    getCoreRowModel: () => {
+      if (!table._getCoreRowModel) {
+        table._getCoreRowModel = table.options.getCoreRowModel(table);
+      }
+      return table._getCoreRowModel();
+    },
+    // The final calls start at the bottom of the model,
+    // expanded rows, which then work their way up
+
+    getRowModel: () => {
+      return table.getPaginationRowModel();
+    },
+    //in next version, we should just pass in the row model as the optional 2nd arg
+    getRow: (id, searchAll) => {
+      let row = (searchAll ? table.getPrePaginationRowModel() : table.getRowModel()).rowsById[id];
+      if (!row) {
+        row = table.getCoreRowModel().rowsById[id];
+        if (!row) {
+          throw new Error();
+        }
+      }
+      return row;
+    },
+    _getDefaultColumnDef: memo(() => [table.options.defaultColumn], defaultColumn => {
+      var _defaultColumn;
+      defaultColumn = (_defaultColumn = defaultColumn) != null ? _defaultColumn : {};
+      return {
+        header: props => {
+          const resolvedColumnDef = props.header.column.columnDef;
+          if (resolvedColumnDef.accessorKey) {
+            return resolvedColumnDef.accessorKey;
+          }
+          if (resolvedColumnDef.accessorFn) {
+            return resolvedColumnDef.id;
+          }
+          return null;
+        },
+        // footer: props => props.header.column.id,
+        cell: props => {
+          var _props$renderValue$to, _props$renderValue;
+          return (_props$renderValue$to = (_props$renderValue = props.renderValue()) == null || _props$renderValue.toString == null ? void 0 : _props$renderValue.toString()) != null ? _props$renderValue$to : null;
+        },
+        ...table._features.reduce((obj, feature) => {
+          return Object.assign(obj, feature.getDefaultColumnDef == null ? void 0 : feature.getDefaultColumnDef());
+        }, {}),
+        ...defaultColumn
+      };
+    }, getMemoOptions(options, 'debugColumns')),
+    _getColumnDefs: () => table.options.columns,
+    getAllColumns: memo(() => [table._getColumnDefs()], columnDefs => {
+      const recurseColumns = function (columnDefs, parent, depth) {
+        if (depth === void 0) {
+          depth = 0;
+        }
+        return columnDefs.map(columnDef => {
+          const column = createColumn(table, columnDef, depth, parent);
+          const groupingColumnDef = columnDef;
+          column.columns = groupingColumnDef.columns ? recurseColumns(groupingColumnDef.columns, column, depth + 1) : [];
+          return column;
+        });
+      };
+      return recurseColumns(columnDefs);
+    }, getMemoOptions(options, 'debugColumns')),
+    getAllFlatColumns: memo(() => [table.getAllColumns()], allColumns => {
+      return allColumns.flatMap(column => {
+        return column.getFlatColumns();
+      });
+    }, getMemoOptions(options, 'debugColumns')),
+    _getAllFlatColumnsById: memo(() => [table.getAllFlatColumns()], flatColumns => {
+      return flatColumns.reduce((acc, column) => {
+        acc[column.id] = column;
+        return acc;
+      }, {});
+    }, getMemoOptions(options, 'debugColumns')),
+    getAllLeafColumns: memo(() => [table.getAllColumns(), table._getOrderColumnsFn()], (allColumns, orderColumns) => {
+      let leafColumns = allColumns.flatMap(column => column.getLeafColumns());
+      return orderColumns(leafColumns);
+    }, getMemoOptions(options, 'debugColumns')),
+    getColumn: columnId => {
+      const column = table._getAllFlatColumnsById()[columnId];
+      return column;
+    }
+  };
+  Object.assign(table, coreInstance);
+  for (let index = 0; index < table._features.length; index++) {
+    const feature = table._features[index];
+    feature == null || feature.createTable == null || feature.createTable(table);
+  }
+  return table;
+}
+
+function getCoreRowModel() {
+  return table => memo(() => [table.options.data], data => {
+    const rowModel = {
+      rows: [],
+      flatRows: [],
+      rowsById: {}
+    };
+    const accessRows = function (originalRows, depth, parentRow) {
+      if (depth === void 0) {
+        depth = 0;
+      }
+      const rows = [];
+      for (let i = 0; i < originalRows.length; i++) {
+        // This could be an expensive check at scale, so we should move it somewhere else, but where?
+        // if (!id) {
+        //   if ("production" !== 'production') {
+        //     throw new Error(`getRowId expected an ID, but got ${id}`)
+        //   }
+        // }
+
+        // Make the row
+        const row = createRow(table, table._getRowId(originalRows[i], i, parentRow), originalRows[i], i, depth, undefined, parentRow == null ? void 0 : parentRow.id);
+
+        // Keep track of every row in a flat array
+        rowModel.flatRows.push(row);
+        // Also keep track of every row by its ID
+        rowModel.rowsById[row.id] = row;
+        // Push table row into parent
+        rows.push(row);
+
+        // Get the original subrows
+        if (table.options.getSubRows) {
+          var _row$originalSubRows;
+          row.originalSubRows = table.options.getSubRows(originalRows[i], i);
+
+          // Then recursively access them
+          if ((_row$originalSubRows = row.originalSubRows) != null && _row$originalSubRows.length) {
+            row.subRows = accessRows(row.originalSubRows, depth + 1, row);
+          }
+        }
+      }
+      return rows;
+    };
+    rowModel.rows = accessRows(data);
+    return rowModel;
+  }, getMemoOptions(table.options, 'debugTable', 'getRowModel', () => table._autoResetPageIndex()));
+}
+function expandRows(rowModel) {
+  const expandedRows = [];
+  const handleRow = row => {
+    var _row$subRows;
+    expandedRows.push(row);
+    if ((_row$subRows = row.subRows) != null && _row$subRows.length && row.getIsExpanded()) {
+      row.subRows.forEach(handleRow);
+    }
+  };
+  rowModel.rows.forEach(handleRow);
+  return {
+    rows: expandedRows,
+    flatRows: rowModel.flatRows,
+    rowsById: rowModel.rowsById
+  };
+}
+
+function filterRows(rows, filterRowImpl, table) {
+  if (table.options.filterFromLeafRows) {
+    return filterRowModelFromLeafs(rows, filterRowImpl, table);
+  }
+  return filterRowModelFromRoot(rows, filterRowImpl, table);
+}
+function filterRowModelFromLeafs(rowsToFilter, filterRow, table) {
+  var _table$options$maxLea;
+  const newFilteredFlatRows = [];
+  const newFilteredRowsById = {};
+  const maxDepth = (_table$options$maxLea = table.options.maxLeafRowFilterDepth) != null ? _table$options$maxLea : 100;
+  const recurseFilterRows = function (rowsToFilter, depth) {
+    if (depth === void 0) {
+      depth = 0;
+    }
+    const rows = [];
+
+    // Filter from children up first
+    for (let i = 0; i < rowsToFilter.length; i++) {
+      var _row$subRows;
+      let row = rowsToFilter[i];
+      const newRow = createRow(table, row.id, row.original, row.index, row.depth, undefined, row.parentId);
+      newRow.columnFilters = row.columnFilters;
+      if ((_row$subRows = row.subRows) != null && _row$subRows.length && depth < maxDepth) {
+        newRow.subRows = recurseFilterRows(row.subRows, depth + 1);
+        row = newRow;
+        if (filterRow(row) && !newRow.subRows.length) {
+          rows.push(row);
+          newFilteredRowsById[row.id] = row;
+          newFilteredFlatRows.push(row);
+          continue;
+        }
+        if (filterRow(row) || newRow.subRows.length) {
+          rows.push(row);
+          newFilteredRowsById[row.id] = row;
+          newFilteredFlatRows.push(row);
+          continue;
+        }
+      } else {
+        row = newRow;
+        if (filterRow(row)) {
+          rows.push(row);
+          newFilteredRowsById[row.id] = row;
+          newFilteredFlatRows.push(row);
+        }
+      }
+    }
+    return rows;
+  };
+  return {
+    rows: recurseFilterRows(rowsToFilter),
+    flatRows: newFilteredFlatRows,
+    rowsById: newFilteredRowsById
+  };
+}
+function filterRowModelFromRoot(rowsToFilter, filterRow, table) {
+  var _table$options$maxLea2;
+  const newFilteredFlatRows = [];
+  const newFilteredRowsById = {};
+  const maxDepth = (_table$options$maxLea2 = table.options.maxLeafRowFilterDepth) != null ? _table$options$maxLea2 : 100;
+
+  // Filters top level and nested rows
+  const recurseFilterRows = function (rowsToFilter, depth) {
+    if (depth === void 0) {
+      depth = 0;
+    }
+    // Filter from parents downward first
+
+    const rows = [];
+
+    // Apply the filter to any subRows
+    for (let i = 0; i < rowsToFilter.length; i++) {
+      let row = rowsToFilter[i];
+      const pass = filterRow(row);
+      if (pass) {
+        var _row$subRows2;
+        if ((_row$subRows2 = row.subRows) != null && _row$subRows2.length && depth < maxDepth) {
+          const newRow = createRow(table, row.id, row.original, row.index, row.depth, undefined, row.parentId);
+          newRow.subRows = recurseFilterRows(row.subRows, depth + 1);
+          row = newRow;
+        }
+        rows.push(row);
+        newFilteredFlatRows.push(row);
+        newFilteredRowsById[row.id] = row;
+      }
+    }
+    return rows;
+  };
+  return {
+    rows: recurseFilterRows(rowsToFilter),
+    flatRows: newFilteredFlatRows,
+    rowsById: newFilteredRowsById
+  };
+}
+
+function getFilteredRowModel() {
+  return table => memo(() => [table.getPreFilteredRowModel(), table.getState().columnFilters, table.getState().globalFilter], (rowModel, columnFilters, globalFilter) => {
+    if (!rowModel.rows.length || !(columnFilters != null && columnFilters.length) && !globalFilter) {
+      for (let i = 0; i < rowModel.flatRows.length; i++) {
+        rowModel.flatRows[i].columnFilters = {};
+        rowModel.flatRows[i].columnFiltersMeta = {};
+      }
+      return rowModel;
+    }
+    const resolvedColumnFilters = [];
+    const resolvedGlobalFilters = [];
+    (columnFilters != null ? columnFilters : []).forEach(d => {
+      var _filterFn$resolveFilt;
+      const column = table.getColumn(d.id);
+      if (!column) {
+        return;
+      }
+      const filterFn = column.getFilterFn();
+      if (!filterFn) {
+        return;
+      }
+      resolvedColumnFilters.push({
+        id: d.id,
+        filterFn,
+        resolvedValue: (_filterFn$resolveFilt = filterFn.resolveFilterValue == null ? void 0 : filterFn.resolveFilterValue(d.value)) != null ? _filterFn$resolveFilt : d.value
+      });
+    });
+    const filterableIds = (columnFilters != null ? columnFilters : []).map(d => d.id);
+    const globalFilterFn = table.getGlobalFilterFn();
+    const globallyFilterableColumns = table.getAllLeafColumns().filter(column => column.getCanGlobalFilter());
+    if (globalFilter && globalFilterFn && globallyFilterableColumns.length) {
+      filterableIds.push('__global__');
+      globallyFilterableColumns.forEach(column => {
+        var _globalFilterFn$resol;
+        resolvedGlobalFilters.push({
+          id: column.id,
+          filterFn: globalFilterFn,
+          resolvedValue: (_globalFilterFn$resol = globalFilterFn.resolveFilterValue == null ? void 0 : globalFilterFn.resolveFilterValue(globalFilter)) != null ? _globalFilterFn$resol : globalFilter
+        });
+      });
+    }
+    let currentColumnFilter;
+    let currentGlobalFilter;
+
+    // Flag the prefiltered row model with each filter state
+    for (let j = 0; j < rowModel.flatRows.length; j++) {
+      const row = rowModel.flatRows[j];
+      row.columnFilters = {};
+      if (resolvedColumnFilters.length) {
+        for (let i = 0; i < resolvedColumnFilters.length; i++) {
+          currentColumnFilter = resolvedColumnFilters[i];
+          const id = currentColumnFilter.id;
+
+          // Tag the row with the column filter state
+          row.columnFilters[id] = currentColumnFilter.filterFn(row, id, currentColumnFilter.resolvedValue, filterMeta => {
+            row.columnFiltersMeta[id] = filterMeta;
+          });
+        }
+      }
+      if (resolvedGlobalFilters.length) {
+        for (let i = 0; i < resolvedGlobalFilters.length; i++) {
+          currentGlobalFilter = resolvedGlobalFilters[i];
+          const id = currentGlobalFilter.id;
+          // Tag the row with the first truthy global filter state
+          if (currentGlobalFilter.filterFn(row, id, currentGlobalFilter.resolvedValue, filterMeta => {
+            row.columnFiltersMeta[id] = filterMeta;
+          })) {
+            row.columnFilters.__global__ = true;
+            break;
+          }
+        }
+        if (row.columnFilters.__global__ !== true) {
+          row.columnFilters.__global__ = false;
+        }
+      }
+    }
+    const filterRowsImpl = row => {
+      // Horizontally filter rows through each column
+      for (let i = 0; i < filterableIds.length; i++) {
+        if (row.columnFilters[filterableIds[i]] === false) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    // Filter final rows using all of the active filters
+    return filterRows(rowModel.rows, filterRowsImpl, table);
+  }, getMemoOptions(table.options, 'debugTable', 'getFilteredRowModel', () => table._autoResetPageIndex()));
+}
+
+function getPaginationRowModel(opts) {
+  return table => memo(() => [table.getState().pagination, table.getPrePaginationRowModel(), table.options.paginateExpandedRows ? undefined : table.getState().expanded], (pagination, rowModel) => {
+    if (!rowModel.rows.length) {
+      return rowModel;
+    }
+    const {
+      pageSize,
+      pageIndex
+    } = pagination;
+    let {
+      rows,
+      flatRows,
+      rowsById
+    } = rowModel;
+    const pageStart = pageSize * pageIndex;
+    const pageEnd = pageStart + pageSize;
+    rows = rows.slice(pageStart, pageEnd);
+    let paginatedRowModel;
+    if (!table.options.paginateExpandedRows) {
+      paginatedRowModel = expandRows({
+        rows,
+        flatRows,
+        rowsById
+      });
+    } else {
+      paginatedRowModel = {
+        rows,
+        flatRows,
+        rowsById
+      };
+    }
+    paginatedRowModel.flatRows = [];
+    const handleRow = row => {
+      paginatedRowModel.flatRows.push(row);
+      if (row.subRows.length) {
+        row.subRows.forEach(handleRow);
+      }
+    };
+    paginatedRowModel.rows.forEach(handleRow);
+    return paginatedRowModel;
+  }, getMemoOptions(table.options, 'debugTable'));
+}
+
+function getSortedRowModel() {
+  return table => memo(() => [table.getState().sorting, table.getPreSortedRowModel()], (sorting, rowModel) => {
+    if (!rowModel.rows.length || !(sorting != null && sorting.length)) {
+      return rowModel;
+    }
+    const sortingState = table.getState().sorting;
+    const sortedFlatRows = [];
+
+    // Filter out sortings that correspond to non existing columns
+    const availableSorting = sortingState.filter(sort => {
+      var _table$getColumn;
+      return (_table$getColumn = table.getColumn(sort.id)) == null ? void 0 : _table$getColumn.getCanSort();
+    });
+    const columnInfoById = {};
+    availableSorting.forEach(sortEntry => {
+      const column = table.getColumn(sortEntry.id);
+      if (!column) return;
+      columnInfoById[sortEntry.id] = {
+        sortUndefined: column.columnDef.sortUndefined,
+        invertSorting: column.columnDef.invertSorting,
+        sortingFn: column.getSortingFn()
+      };
+    });
+    const sortData = rows => {
+      // This will also perform a stable sorting using the row index
+      // if needed.
+      const sortedData = rows.map(row => ({
+        ...row
+      }));
+      sortedData.sort((rowA, rowB) => {
+        for (let i = 0; i < availableSorting.length; i += 1) {
+          var _sortEntry$desc;
+          const sortEntry = availableSorting[i];
+          const columnInfo = columnInfoById[sortEntry.id];
+          const sortUndefined = columnInfo.sortUndefined;
+          const isDesc = (_sortEntry$desc = sortEntry == null ? void 0 : sortEntry.desc) != null ? _sortEntry$desc : false;
+          let sortInt = 0;
+
+          // All sorting ints should always return in ascending order
+          if (sortUndefined) {
+            const aValue = rowA.getValue(sortEntry.id);
+            const bValue = rowB.getValue(sortEntry.id);
+            const aUndefined = aValue === undefined;
+            const bUndefined = bValue === undefined;
+            if (aUndefined || bUndefined) {
+              if (sortUndefined === 'first') return aUndefined ? -1 : 1;
+              if (sortUndefined === 'last') return aUndefined ? 1 : -1;
+              sortInt = aUndefined && bUndefined ? 0 : aUndefined ? sortUndefined : -sortUndefined;
+            }
+          }
+          if (sortInt === 0) {
+            sortInt = columnInfo.sortingFn(rowA, rowB, sortEntry.id);
+          }
+
+          // If sorting is non-zero, take care of desc and inversion
+          if (sortInt !== 0) {
+            if (isDesc) {
+              sortInt *= -1;
+            }
+            if (columnInfo.invertSorting) {
+              sortInt *= -1;
+            }
+            return sortInt;
+          }
+        }
+        return rowA.index - rowB.index;
+      });
+
+      // If there are sub-rows, sort them
+      sortedData.forEach(row => {
+        var _row$subRows;
+        sortedFlatRows.push(row);
+        if ((_row$subRows = row.subRows) != null && _row$subRows.length) {
+          row.subRows = sortData(row.subRows);
+        }
+      });
+      return sortedData;
+    };
+    return {
+      rows: sortData(rowModel.rows),
+      flatRows: sortedFlatRows,
+      rowsById: rowModel.rowsById
+    };
+  }, getMemoOptions(table.options, 'debugTable', 'getSortedRowModel', () => table._autoResetPageIndex()));
+}
+
+const I18N$3 = {
+  en: {
+    activeBadgeLabel: '{count} active filter',
+    all: 'All',
+    asc: 'asc',
+    ascending: 'Ascending',
+    default: 'default',
+    desc: 'desc',
+    descending: 'Descending',
+    filter: 'Filter',
+    filterAndSort: 'Filter and sort',
+    headingActivateAsc: ': activate for ascending sort',
+    headingActivateDesc: ': activate for descending sort',
+    headingRemoveSort: ': activate to remove sorting',
+    modalApplyButton: 'Apply',
+    modalResetAllButton: 'Reset all',
+    modalClose: 'Close',
+    noDataHeading: 'No data to display',
+    noDataText: "There's currently no data available for this table.",
+    noResultsHeading: 'No results match your filter',
+    noResultsText: 'Try clearing or updating the filter to see results.',
+    noResultsClearFilter: 'Clear filter',
+    paginationLabel: 'Table pagination',
+    pillFilter: 'Filter:',
+    pillRemoveFilter: 'Click to remove filter',
+    pillRemoveSort: 'Click to remove sorting',
+    pillSort: 'Sorted by:',
+    radioLabelNoSort: 'No sorting',
+    rowsPerPage: 'Rows',
+    showingMatchesPagination: 'Showing {start} to {end} of {filtered} matches',
+    showingMatches: 'Showing {matchNumber} matches',
+    showingNoMatches: 'No matches found',
+    showingPages: 'Showing {start} to {end} of {total} rows',
+    showingAllRows: 'Showing {total} rows',
+    showingNoRows: 'No rows to show',
+    sort: 'Sort',
+  },
+  fr: {
+    activeBadgeLabel: '{count} filtre actif',
+    all: 'Tout',
+    asc: 'asc',
+    ascending: 'Ascendant',
+    default: 'défaut',
+    desc: 'desc',
+    descending: 'Descendant',
+    filter: 'Filtrer',
+    filterAndSort: 'Filtrer et trier',
+    headingActivateAsc: ': activer le tri par ordre ascendant',
+    headingActivateDesc: ': activer le tri par ordre descendant',
+    headingRemoveSort: ': activer pour enlever le tri',
+    modalApplyButton: 'Appliquer',
+    modalResetAllButton: 'Tout réinitialiser',
+    modalClose: 'Fermer',
+    noDataHeading: 'Pas de données à afficher',
+    noDataText: 'Ce tableau ne contient aucune donnée pour le moment.',
+    noResultsHeading: 'Aucun résultat pour ce filtre',
+    noResultsText: 'Effacez ou modifiez le filtre pour afficher des résultats.',
+    noResultsClearFilter: 'Effacer le filtre',
+    paginationLabel: 'Pagination du tableau',
+    pillFilter: 'Filtrer :',
+    pillRemoveFilter: 'Cliquer pour enlever le filtre',
+    pillRemoveSort: 'Cliquer pour enlever le tri',
+    pillSort: 'Trié par :',
+    radioLabelNoSort: 'Aucun tri',
+    rowsPerPage: 'Lignes',
+    showingMatchesPagination:
+      'Affiche {start} à {end} sur {filtered} résultats',
+    showingMatches: 'Affiche {matchNumber} résultats',
+    showingNoMatches: 'Aucun résultat trouvé',
+    showingPages: 'Affiche {start} à {end} sur {total} lignes',
+    showingAllRows: 'Affiche {total} lignes',
+    showingNoRows: 'Aucune ligne à afficher',
+    sort: 'Trier',
+  },
+};
+
+const buildInitialSorting = (columns) => {
+    return (columns !== null && columns !== void 0 ? columns : [])
+        .filter(col => col.sortDirection)
+        .map(col => ({
+        id: col.field,
+        desc: col.sortDirection === 'desc',
+    }));
+};
+const buildColumnDefs = (columns, sort) => {
+    return (columns !== null && columns !== void 0 ? columns : []).map(col => ({
+        id: col.field,
+        accessorKey: col.field,
+        header: col.header,
+        // Per-column sort: falls back to global `sort` prop
+        enableSorting: col.sort !== undefined ? col.sort : sort,
+    }));
+};
+const buildTableOptions = (GcdsTable) => {
+    var _a;
+    return {
+        data: ((_a = GcdsTable.data) !== null && _a !== void 0 ? _a : []),
+        columns: buildColumnDefs(GcdsTable.columns, GcdsTable.sort),
+        state: {
+            sorting: GcdsTable.sorting,
+            columnFilters: GcdsTable.columnFilters,
+            globalFilter: GcdsTable.globalFilter,
+            pagination: GcdsTable.paginationState,
+            columnPinning: {},
+        },
+        onStateChange: () => { },
+        renderFallbackValue: null,
+        // Sorting
+        enableSorting: GcdsTable.sortEnabled(),
+        sortDescFirst: false,
+        manualSorting: false,
+        onSortingChange: (updater) => {
+            var _a;
+            GcdsTable.sorting =
+                typeof updater === 'function' ? updater(GcdsTable.sorting) : updater;
+            (_a = GcdsTable.table) === null || _a === void 0 ? void 0 : _a.setOptions((prev) => (Object.assign(Object.assign({}, prev), { state: Object.assign(Object.assign({}, prev.state), { sorting: GcdsTable.sorting }) })));
+        },
+        // Filtering
+        enableFilters: GcdsTable.filter,
+        onGlobalFilterChange: (updater) => {
+            var _a;
+            GcdsTable.globalFilter =
+                typeof updater === 'function'
+                    ? updater(GcdsTable.globalFilter)
+                    : updater;
+            (_a = GcdsTable.table) === null || _a === void 0 ? void 0 : _a.setOptions((prev) => (Object.assign(Object.assign({}, prev), { state: Object.assign(Object.assign({}, prev.state), { globalFilter: GcdsTable.globalFilter }) })));
+        },
+        // Pagination
+        manualPagination: false,
+        onPaginationChange: (updater) => {
+            var _a;
+            GcdsTable.paginationState =
+                typeof updater === 'function'
+                    ? updater(GcdsTable.paginationState)
+                    : updater;
+            GcdsTable.paginationCurrentPage = GcdsTable.paginationState.pageIndex + 1;
+            (_a = GcdsTable.table) === null || _a === void 0 ? void 0 : _a.setOptions((prev) => (Object.assign(Object.assign({}, prev), { state: Object.assign(Object.assign({}, prev.state), { pagination: GcdsTable.paginationState }) })));
+        },
+        getCoreRowModel: getCoreRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        getPaginationRowModel: GcdsTable.pagination
+            ? getPaginationRowModel()
+            : undefined,
+        getFilteredRowModel: GcdsTable.filter ? getFilteredRowModel() : undefined,
+        // Keep pagination active even when disabled so state is consistent
+        autoResetPageIndex: true,
+    };
+};
+const updateTableOptions = (GcdsTable) => {
+    if (GcdsTable.table) {
+        GcdsTable.table.setOptions((prev) => (Object.assign(Object.assign({}, prev), buildTableOptions(GcdsTable))));
+        // Force re-render by touching the sorting property
+        GcdsTable.sorting = [...GcdsTable.sorting];
+    }
+};
+const parseSizeOptions = (options) => {
+    const defaultValue = [10, 25, 50, 0];
+    if (typeof options === 'string') {
+        try {
+            const parsed = JSON.parse(options);
+            if (Array.isArray(parsed) &&
+                parsed.every(opt => typeof opt === 'number')) {
+                return parsed;
+            }
+            else {
+                console.error('[gcds-table] Invalid pagination-size-options format. Expected JSON array of numbers.');
+                return defaultValue;
+            }
+        }
+        catch (e) {
+            console.error('[gcds-table] Error parsing pagination-size-options:', e);
+            return defaultValue;
+        }
+    }
+    if (Array.isArray(options) && options.every(v => typeof v === 'number')) {
+        return options;
+    }
+    console.error('[gcds-table] Invalid pagination-size-options type. Expected string or array of numbers.');
+    return defaultValue;
+};
+
+// ─── Render helpers ───────────────────────────────────────────────────────
+/* Get appropriate sort icon based on column's sort state
+ * @param column - the column to get the sort icon for
+ * Returns an empty string if the column is not sortable, an up arrow if sorted ascending, a down arrow if sorted descending, and a generic sort icon if sortable but not currently sorted.
+ */
+const getSortIcon = (column) => {
+    if (!(column === null || column === void 0 ? void 0 : column.getCanSort()))
+        return '';
+    const sorted = column.getIsSorted();
+    if (sorted === 'asc')
+        return 'arrow-up';
+    if (sorted === 'desc')
+        return 'arrow-down';
+    return 'arrow-up-down';
+};
+/* Get appropriate sort button title based on column's sort state
+ * @param column - the column to get the sort title for
+ * @param lang - the current language for internationalization
+ * Returns a string indicating the current sort state and the action that will be taken if the button is pressed.
+ */
+const getSortTitle = (column, lang) => {
+    let sortText = '';
+    if (column.getIsSorted() === 'asc') {
+        sortText = I18N$3[lang].headingActivateDesc;
+    }
+    else if (column.getIsSorted() === 'desc') {
+        sortText = I18N$3[lang].headingRemoveSort;
+    }
+    else if (column.getIsSorted() === false) {
+        sortText = I18N$3[lang].headingActivateAsc;
+    }
+    return `${column.columnDef.header} ${sortText}`;
+};
+/* Get the current table status text based on the pagination and filtering state
+ * @param el - the table element containing the current filter and pagination state
+ * @param table - the TanStack Table instance to get row counts from
+ * @param paginationState - the current pagination state to determine page index and size
+ * @param lang - the current language for internationalization
+ * Returns a string describing the current table status, such as how many rows are being shown, how many total rows there are, and how many match the current filter.
+ */
+const renderTableStatus = (el, table, paginationState, lang) => {
+    var _a, _b;
+    const currentPageIndex = (_a = paginationState === null || paginationState === void 0 ? void 0 : paginationState.pageIndex) !== null && _a !== void 0 ? _a : 0;
+    const totalRows = table.getPreFilteredRowModel().rows.length;
+    const filteredRows = table.getFilteredRowModel().rows.length;
+    const paginationSize = (_b = paginationState === null || paginationState === void 0 ? void 0 : paginationState.pageSize) !== null && _b !== void 0 ? _b : 0;
+    // Filtered results with multiple pages
+    if (el.filter &&
+        el.filterValue &&
+        el.pagination &&
+        table.getPageCount() > 1) {
+        return I18N$3[lang].showingMatchesPagination
+            .replace('{start}', currentPageIndex * paginationSize + 1)
+            .replace('{end}', Math.min((currentPageIndex + 1) * paginationSize, totalRows))
+            .replace('{filtered}', filteredRows);
+        // Filtered results on singular page
+    }
+    else if (el.filter &&
+        el.filterValue &&
+        el.pagination &&
+        table.getPageCount() === 1) {
+        return I18N$3[lang].showingMatches.replace('{matchNumber}', filteredRows);
+        // No results match filter
+    }
+    else if (el.filter && el.filterValue && filteredRows === 0) {
+        return I18N$3[lang].showingNoMatches;
+        // Rows across multiple pages
+    }
+    else if (!el.filterValue && el.pagination && table.getPageCount() > 1) {
+        return I18N$3[lang].showingPages
+            .replace('{start}', currentPageIndex * paginationSize + 1)
+            .replace('{end}', Math.min((currentPageIndex + 1) * paginationSize, totalRows))
+            .replace('{total}', totalRows);
+        // No rows avalable
+    }
+    else if (table.getRowCount() === 0) {
+        return I18N$3[lang].showingNoRows;
+        // Rows on one page
+    }
+    else {
+        return I18N$3[lang].showingAllRows.replace('{total}', totalRows);
+    }
+};
+const renderSortRadios = (element) => {
+    var _a, _b;
+    const { el, table, lang } = element;
+    const radioOptions = [
+        {
+            id: 'nosort',
+            label: `${I18N$3[lang].radioLabelNoSort}${((_a = element.initialSorting) === null || _a === void 0 ? void 0 : _a.length) === 0 ? ` — ${I18N$3[lang].default}` : ''}`,
+            value: 'null',
+        },
+    ];
+    let isSorted = 'null';
+    ((_b = el === null || el === void 0 ? void 0 : el.columns) !== null && _b !== void 0 ? _b : [])
+        .filter(col => col.sort !== false)
+        .map(col => {
+        var _a, _b, _c, _d;
+        if ((_a = table === null || table === void 0 ? void 0 : table.getColumn(col.field)) === null || _a === void 0 ? void 0 : _a.getIsSorted()) {
+            isSorted =
+                ((_b = table === null || table === void 0 ? void 0 : table.getColumn(col.field)) === null || _b === void 0 ? void 0 : _b.getIsSorted()) === 'asc'
+                    ? `asc-${col.field}`
+                    : `desc-${col.field}`;
+        }
+        let ascDefaultLabel = '';
+        let descDefaultLabel = '';
+        if (((_d = (_c = element.initialSorting) === null || _c === void 0 ? void 0 : _c[0]) === null || _d === void 0 ? void 0 : _d.id) === col.field) {
+            if (element.initialSorting[0].desc) {
+                descDefaultLabel = ` — ${I18N$3[lang].default}`;
+            }
+            else {
+                ascDefaultLabel = ` — ${I18N$3[lang].default}`;
+            }
+        }
+        radioOptions.push({
+            id: `asc-${col.field}`,
+            label: `${col.header} (${I18N$3[lang].ascending})${ascDefaultLabel}`,
+            value: `asc-${col.field}`,
+        });
+        radioOptions.push({
+            id: `desc-${col.field}`,
+            label: `${col.header} (${I18N$3[lang].descending})${descDefaultLabel}`,
+            value: `desc-${col.field}`,
+        });
+    });
+    return (hAsync("div", { class: "gcds-table__modal-sort" }, hAsync("gcds-heading", { tag: "h3", "margin-top": "0", "margin-bottom": "0" }, hAsync("div", null, hAsync("gcds-icon", { name: "sort", size: "h6", "margin-right": "100", "aria-hidden": "true" }), I18N$3[lang].sort)), hAsync("gcds-radios", { legend: I18N$3[lang].sort, "hide-legend": true, name: "sort", autoFocus: true, options: radioOptions, value: isSorted, ref: el => (element.sortRadios = el) })));
+};
+const getSortValue = (sort) => {
+    if (!(sort === null || sort === void 0 ? void 0 : sort.length))
+        return 'null';
+    const { id, desc } = sort[0];
+    return `${desc ? 'desc' : 'asc'}-${id}`;
+};
+const renderFilterSortModal = element => {
+    const { filter, filterValue, lang } = element;
+    return (hAsync("div", { class: "gcds-table__filters" }, hAsync("gcds-button", { size: "small", "button-role": "primary", onClick: () => element.filterSortModal.showModal() }, hAsync("div", null, element.filter && element.sortEnabled() ? (hAsync("gcds-icon", { name: "tune", size: "h5", "margin-right": "50" })) : element.filter ? (hAsync("gcds-icon", { name: "filter", size: "h5", "margin-right": "50" })) : (hAsync("gcds-icon", { name: "sort", size: "h5", "margin-right": "50" })), element.filter && element.sortEnabled()
+        ? I18N$3[lang].filterAndSort
+        : element.filter
+            ? I18N$3[lang].filter
+            : I18N$3[lang].sort, filter && filterValue && (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, ":"), hAsync("span", { class: "gcds-table__active-count", "aria-label": `${I18N$3[lang].activeBadgeLabel.replace('{count}', 1)}` }, "1"))))), hAsync("dialog", { class: "gcds-table__modal", "aria-modal": "true", "aria-labelledby": "gcds-table__modal-heading", ref: el => (element.filterSortModal = el) }, hAsync("div", { class: "gcds-table__modal-header" }, hAsync("gcds-heading", { tag: "h2", id: "gcds-table__modal-heading", marginTop: "0", marginBottom: "0" }, I18N$3[lang].filterAndSort), hAsync("gcds-button", { "button-role": "secondary", onClick: () => {
+            element.filterSortModal.close();
+            if (element.filter) {
+                element.filterInput.value = element.initialFilter;
+            }
+            if (element.sortEnabled()) {
+                element.sortRadios.value = getSortValue(element.initialSorting);
+            }
+        } }, I18N$3[lang].modalClose)), hAsync("form", { class: "gcds-table__modal-body", onSubmit: ev => {
+            ev.preventDefault();
+            if (element.filter) {
+                element.filterValue = element.filterInput.value;
+            }
+            if (element.sortEnabled()) {
+                const sortValue = element.sortRadios.value;
+                if (sortValue === 'null') {
+                    element.sorting = [];
+                }
+                else {
+                    const [direction, field] = sortValue.split('-');
+                    element.sorting = [
+                        {
+                            id: field,
+                            desc: direction === 'desc',
+                        },
+                    ];
+                }
+            }
+            updateTableOptions(element);
+            element.filterSortModal.close();
+        } }, hAsync("div", { class: "gcds-table__modal-content" }, element.filter && (hAsync("gcds-input", { class: "gcds-table__modal-filter", type: "search", label: I18N$3[lang].filter, name: "filter", inputId: "gcds-table-filter", autoFocus: true, value: filterValue, ref: el => (element.filterInput = el) })), element.sortEnabled() && renderSortRadios(element)), hAsync("div", { class: "gcds-table__modal-footer" }, hAsync("gcds-button", { "button-role": "secondary", onClick: () => {
+            if (element.filter) {
+                element.filterInput.value = element.initialFilter;
+            }
+            if (element.sortEnabled()) {
+                element.sortRadios.value = getSortValue(element.initialSorting);
+            }
+        } }, I18N$3[lang].modalResetAllButton), hAsync("gcds-button", { "button-role": "primary", type: "submit" }, I18N$3[lang].modalApplyButton))))));
+};
+const renderFilterPills = (filterValue, lang, onRemove) => {
+    if (!filterValue)
+        return null;
+    return (hAsync("div", { class: "gcds-table__active-filter" }, hAsync("button", { class: "gcds-table__pill", onClick: onRemove, title: I18N$3[lang].pillRemoveFilter }, hAsync("gcds-sr-only", { tag: "span" }, I18N$3[lang].pillFilter), filterValue, hAsync("gcds-icon", { name: "close", size: "text-small" }))));
+};
+const renderSortPills = (sorting, table, lang, onRemove) => {
+    if ((sorting === null || sorting === void 0 ? void 0 : sorting.length) === 0)
+        return null;
+    return (hAsync("div", { class: "gcds-table__active-sorting" }, hAsync("span", { class: "gcds-table__sort-label" }, I18N$3[lang].pillSort), sorting === null || sorting === void 0 ? void 0 :
+        sorting.map(sort => {
+            const column = table.getColumn(sort.id);
+            if (!column)
+                return null;
+            return (hAsync("button", { class: "gcds-table__pill", onClick: () => onRemove(column.id), title: I18N$3[lang].pillRemoveSort }, `${column.columnDef.header} (${sort.desc ? I18N$3[lang].descending : I18N$3[lang].ascending})`, hAsync("gcds-icon", { name: "close", size: "text-small" })));
+        })));
+};
+
+const gcdsTableCss = () => `@layer reset, default, empty, controls, pagination, overwrites, modal, alignment;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-table{font:var(--gcds-table-font)}:host .gcds-table table{border-block-start:var(--gcds-table-border-width) solid var(--gcds-table-outer-border-color);border-collapse:collapse;color:var(--gcds-table-text);margin-block-start:var(--gcds-table-margin);width:100%}:host .gcds-table table caption{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-table table th{border-block-end:var(--gcds-table-header-cell-border-width) solid var(--gcds-table-header-cell-border-color);color:var(--gcds-table-header-cell-text);font-weight:var(--gcds-table-header-cell-font-weight);padding:0;text-align:left}:host .gcds-table table th>button{all:unset;box-sizing:border-box;cursor:pointer;display:block;position:relative;width:100%;z-index:1}:host .gcds-table table th>button:hover{background:var(--gcds-table-header-cell-hover-background)}:host .gcds-table table th>button:focus{background-color:var(--gcds-table-header-cell-focus-background);border-color:var(--gcds-table-header-cell-focus-background);box-shadow:var(--gcds-table-header-cell-focus-box-shadow);color:var(--gcds-table-header-cell-focus-text);outline:var(--gcds-table-header-cell-focus-outline-width) solid var(--gcds-table-header-cell-focus-background);outline-offset:var(--gcds-table-header-cell-focus-outline-offset)}@media only screen and (width >= 48em){:host .gcds-table table th:not(:has(>button)),:host .gcds-table table th>button{padding:var(--gcds-table-cell-padding-desktop)}}:host .gcds-table table th[aria-sort=none]>button:not(:hover):not(:focus):not(:active) .gcds-table__sort-icon{opacity:0}:host .gcds-table table thead th{vertical-align:top}:host .gcds-table table tbody th,:host .gcds-table table tbody tr{border-block-end:var(--gcds-table-border-width) solid var(--gcds-table-cell-border-color)}@media only screen and (width >= 48em){:host .gcds-table table tbody td{padding:var(--gcds-table-cell-padding-desktop)}}@media only screen and (width >= 48em){:host .gcds-table table tbody th,:host .gcds-table table:has(tbody th) thead th:first-child{border-inline-end:var(--gcds-table-header-cell-border-width) solid var(--gcds-table-header-cell-border-color)}}@media only screen and (width < 48em){:host .gcds-table table td,:host .gcds-table table th{display:block;font-weight:var(--gcds-table-font-weight-mobile);padding:var(--gcds-table-cell-padding-mobile)}:host .gcds-table table td:before,:host .gcds-table table th:before{color:var(--gcds-table-label-mobile);content:attr(data-column);display:block;font-size:var(--gcds-table-font-size-small)}:host .gcds-table table td:first-of-type,:host .gcds-table table th:first-of-type{padding-block-start:var(               --gcds-table-cell-padding-mobile-first-last             )}:host .gcds-table table td:last-of-type,:host .gcds-table table th:last-of-type{padding-block-end:var(--gcds-table-cell-padding-mobile-first-last)}:host .gcds-table table thead th{position:absolute;clip:rect(0 0 0 0)}:host .gcds-table table tbody th{border:0}}}@layer empty{:host .gcds-table .gcds-table__empty{background-color:var(--gcds-table-empty-background);padding:var(--gcds-table-empty-padding-desktop);--gcds-heading-h3-desktop:var(--gcds-heading-h3-mobile);--gcds-text-size-body-desktop:var(--gcds-table-font);--gcds-text-size-body-mobile:var(--gcds-table-font)}@media only screen and (width < 48em){:host .gcds-table .gcds-table__empty{padding:var(--gcds-table-empty-padding-mobile)}}}@layer controls{:host .gcds-table .gcds-table__filters{border-block-end:var(--gcds-table-filters-border-width) solid var(--gcds-table-filters-border-color);margin-block-end:var(--gcds-table-filters-margin);padding-block-end:var(--gcds-table-filters-padding)}:host .gcds-table .gcds-table__filters gcds-button div{align-items:center;display:flex}:host .gcds-table .gcds-table__filters .gcds-table__active-count{align-items:center;background:var(--gcds-table-filters-count-background);border-radius:var(--gcds-table-filters-count-border-radius);color:var(--gcds-table-filters-count-text);display:inline-flex;font-size:var(--gcds-table-font-size-small);justify-content:center;line-height:var(--gcds-table-filters-count-line-height);margin-inline-start:var(--gcds-table-filters-count-margin);padding:var(--gcds-table-filters-count-padding)}:host .gcds-table .gcds-table__active-pills{display:flex;gap:var(--gcds-table-gap)}@media only screen and (width < 48em){:host .gcds-table .gcds-table__active-pills{flex-direction:column}}:host .gcds-table .gcds-table__active-pills:not(:empty){margin-block-end:var(--gcds-table-active-pills-margin)}:host .gcds-table .gcds-table__active-pills .gcds-table__pill{align-items:center;background-color:var(--gcds-table-pill-background);border:0;border-radius:var(--gcds-table-pill-border-radius);color:var(--gcds-table-pill-text);cursor:pointer;display:inline-flex;font:inherit;padding:var(--gcds-table-pill-padding)}:host .gcds-table .gcds-table__active-pills .gcds-table__pill gcds-icon{height:var(--gcds-table-pill-icon-size);margin-inline-start:var(--gcds-table-pill-icon-margin);width:var(--gcds-table-pill-icon-size)}:host .gcds-table .gcds-table__active-pills .gcds-table__pill:hover:not(:focus){background-color:var(--gcds-table-pill-hover-background);color:var(--gcds-table-pill-hover-text)}:host .gcds-table .gcds-table__active-pills .gcds-table__pill:focus{background-color:var(--gcds-table-pill-focus-background);border-color:var(--gcds-table-pill-focus-background);box-shadow:var(--gcds-table-pill-focus-box-shadow);color:var(--gcds-table-pill-focus-text);outline:var(--gcds-table-pill-focus-outline-width) solid var(--gcds-table-pill-focus-background);outline-offset:var(--gcds-table-pill-focus-outline-offset)}:host .gcds-table .gcds-table__active-pills .gcds-table__active-sorting .gcds-table__sort-label{display:inline-block;margin-inline-end:var(--gcds-table-active-sorting-margin)}@media only screen and (width >= 48em){:host .gcds-table .gcds-table__active-pills .gcds-table__active-filter+.gcds-table__active-sorting{border-inline-start:var(--gcds-table-active-sorting-border-width) solid var(--gcds-table-active-sorting-border-color);padding-inline-start:var(--gcds-table-active-sorting-padding)}}:host .gcds-table .gcds-table__row-management{display:flex;gap:var(--gcds-table-gap)}@media only screen and (width >= 30em){:host .gcds-table .gcds-table__row-management{align-items:center}}@media only screen and (width < 30em){:host .gcds-table .gcds-table__row-management{flex-direction:column}}:host .gcds-table .gcds-table__row-management{--gcds-label-font-desktop:var(--gcds-table-font);--gcds-label-margin:0;--gcds-select-margin:0;--gcds-select-padding:var(--gcds-table-select-padding)}:host .gcds-table .gcds-table__row-management gcds-select::part(wrapper){align-items:center;display:inline-flex;gap:var(--gcds-table-gap)}:host .gcds-table .gcds-table__row-management gcds-select::part(select){font:var(--gcds-table-font);line-height:1;min-height:auto}@media only screen and (width >= 30em){:host .gcds-table .gcds-table__row-management .gcds-table__page-size+.gcds-table__page-info{border-inline-start:var(--gcds-table-page-info-border-width) solid var(--gcds-table-page-info-border-color);padding-inline-start:var(--gcds-table-page-info-padding)}}}@layer pagination{:host .gcds-table gcds-pagination{margin-block-start:var(--gcds-table-pagination-margin)}}@layer overwrites{:host .gcds-table .gcds-table__filters>gcds-button,:host .gcds-table .gcds-table__table gcds-button{--gcds-button-mobile-width:auto;--gcds-button-font-desktop:var(--gcds-table-font);--gcds-button-font-mobile:var(--gcds-table-font);--gcds-button-small-font-desktop:var(--gcds-table-font);--gcds-button-small-font-mobile:var(--gcds-table-font);--gcds-button-start-font-desktop:var(--gcds-table-font);--gcds-button-start-font-mobile:var(--gcds-table-font);--gcds-button-padding:var(--gcds-table-button-padding);--gcds-button-small-padding:var(--gcds-table-button-padding);--gcds-button-start-padding:var(--gcds-table-button-padding)}}@layer modal{:host .gcds-table .gcds-table__modal{background:var(--gcds-table-modal-background);border:0;border-radius:var(--gcds-table-modal-border-radius-desktop);box-shadow:var(--gcds-table-modal-box-shadow);max-height:var(--gcds-table-modal-max-height-desktop);max-width:var(--gcds-table-modal-max-width);padding:0;width:var(--gcds-table-modal-width)}:host .gcds-table .gcds-table__modal[open]{display:flex;flex-direction:column}:host .gcds-table .gcds-table__modal::backdrop{background-color:var(--gcds-table-modal-backdrop-background)}@media only screen and (width < 48em){:host .gcds-table .gcds-table__modal:modal{border-radius:var(--gcds-table-modal-border-radius-mobile);inset:unset;bottom:0;height:var(--gcds-table-modal-height-mobile);left:0;margin:0;max-height:var(--gcds-table-modal-height-mobile);overflow-y:scroll;position:fixed}}:host .gcds-table .gcds-table__modal gcds-button{--gcds-button-font-desktop:var(--gcds-button-font-mobile)}:host .gcds-table .gcds-table__modal .gcds-table__modal-header{align-items:center;border-block-end:var(--gcds-table-modal-border);display:flex;flex:0 0 auto;justify-content:space-between;padding:var(--gcds-table-modal-spacing);--gcds-heading-h2-desktop:var(--gcds-table-modal-header-heading);--gcds-heading-h2-mobile:var(--gcds-table-modal-header-heading)}:host .gcds-table .gcds-table__modal .gcds-table__modal-body{display:flex;flex:1 1 auto;flex-direction:column;min-height:0}:host .gcds-table .gcds-table__modal .gcds-table__modal-content,:host .gcds-table .gcds-table__modal .gcds-table__modal-footer{padding:var(--gcds-table-modal-spacing)}:host .gcds-table .gcds-table__modal .gcds-table__modal-content{flex:1 1 auto;min-height:0;overflow-y:auto}:host .gcds-table .gcds-table__modal .gcds-table__modal-content .gcds-table__modal-filter+.gcds-table__modal-sort{border-block-start:var(--gcds-table-modal-border);margin-block-start:var(--gcds-table-modal-spacing);padding-block-start:var(--gcds-table-modal-spacing)}:host .gcds-table .gcds-table__modal .gcds-table__modal-content .gcds-table__modal-sort{--gcds-heading-h3-desktop:var(--gcds-radio-legend-font-desktop);--gcds-heading-h3-mobile:var(--gcds-radio-legend-font-mobile)}:host .gcds-table .gcds-table__modal .gcds-table__modal-content .gcds-table__modal-sort div{display:flex}:host .gcds-table .gcds-table__modal .gcds-table__modal-content gcds-input{--gcds-label-font-desktop:var(--gcds-table-modal-body-font-bold);--gcds-label-font-mobile:var(--gcds-table-modal-body-font-bold)}:host .gcds-table .gcds-table__modal .gcds-table__modal-content gcds-radios{--gcds-radio-legend-font-desktop:var(           --gcds-table-modal-body-font-bold         );--gcds-radio-legend-font-mobile:var(--gcds-table-modal-body-font-bold);--gcds-radio-label-font-desktop:var(           --gcds-table-modal-body-font-medium         );--gcds-radio-label-font-mobile:var(           --gcds-table-modal-body-font-medium         )}:host .gcds-table .gcds-table__modal .gcds-table__modal-footer{background-color:var(--gcds-table-modal-background);box-shadow:var(--gcds-table-modal-footer-box-shadow);display:flex;flex:0 0 auto;gap:var(--gcds-table-modal-spacing)}@media only screen and (width < 48em){:host .gcds-table .gcds-table__modal .gcds-table__modal-footer{flex-direction:column}}:host .gcds-table .gcds-table__modal .gcds-table__modal-footer gcds-button{flex:1}:host .gcds-table .gcds-table__modal .gcds-table__modal-footer gcds-button::part(button){padding:var(--gcds-table-modal-footer-button-padding);width:var(--gcds-table-modal-footer-button-width)}}@layer alignment{:host .gcds-table .alignment-start{text-align:left}:host .gcds-table .alignment-center{text-align:center}:host .gcds-table .alignment-end{text-align:right}@media only screen and (width < 48em){:host .gcds-table table td,:host .gcds-table table th{text-align:left!important}}}`;
+
+/**
+ * A table is a structured layout of related data in rows and columns.
+ *
+ * @slot caption - Slot to give an accessible name to the table, so that assistive technologies can identify it and announce it.
+ * @slot cell:<field> - Slot to assign HTML content to a table cell, where <field> corresponds to the `field` property of a column definition.
+ */
+class GcdsTable {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        this.gcdsTableStateChange = createEvent(this, "gcdsTableStateChange");
+        // ─── Props ────────────────────────────────────────────────────────────────
+        /** Column definitions */
+        this.columns = [];
+        /** Row data */
+        this.data = [];
+        /** Enable global column sorting (can be overridden per column) */
+        this.sort = false;
+        /** Enable pagination */
+        this.pagination = false;
+        /** Current page index */
+        this.paginationCurrentPage = 1;
+        /** Number of rows per page */
+        this.paginationSize = 10;
+        /**
+         * Available page-size options.
+         * Use 0 to represent "All rows".
+         */
+        // prettier-ignore
+        this.paginationSizeOptions = [10, 25, 50, 0];
+        /** Enable global filter */
+        this.filter = false;
+        /** Current filter string */
+        this.filterValue = '';
+        // ─── Internal state ───────────────────────────────────────────────────────
+        this.sorting = [];
+        // @ts-ignore - this is used in building table options
+        this.columnFilters = [];
+        this.globalFilter = this.filterValue;
+        this.paginationState = {
+            pageIndex: Math.max(0, this.paginationCurrentPage - 1),
+            pageSize: this.pagination
+                ? this.paginationSize === 0
+                    ? Number.MAX_SAFE_INTEGER
+                    : this.paginationSize
+                : Number.MAX_SAFE_INTEGER,
+        };
+        // TanStack table instance (not reactive – mutations trigger re-renders via @State)
+        this.table = null;
+        this.lastEmittedRowIds = '';
+        // Flags to help stop multiple rendering on first load
+        this.isInitializing = true;
+        this.hasRenderedOnce = false;
+        // Store initial values to determine if they have been changed by the user
+        // @ts-ignore - these are used in event handlers to reset filter/sort state
+        this.initialFilter = this.filterValue;
+        // @ts-ignore - these are used in event handlers to reset filter/sort state
+        this.initialSorting = [];
+    }
+    // ─── Watchers ─────────────────────────────────────────────────────────────
+    onColumnsChange(newVal) {
+        if (this.isInitializing)
+            return;
+        if (typeof newVal === 'string') {
+            try {
+                this.columns = JSON.parse(newVal);
+            }
+            catch (e) {
+                console.error('[gcds-table] Invalid JSON in column-data:', e);
+            }
+        }
+        updateTableOptions(this);
+        this.syncSlottedElements();
+    }
+    onDataChange(newVal) {
+        if (this.isInitializing)
+            return;
+        if (typeof newVal === 'string') {
+            try {
+                this.data = JSON.parse(newVal);
+            }
+            catch (e) {
+                console.error('[gcds-table] Invalid JSON in data property:', e);
+            }
+        }
+        updateTableOptions(this);
+        this.syncSlottedElements();
+    }
+    onSortChange() {
+        if (this.isInitializing)
+            return;
+        this.onDataChange(this.data);
+    }
+    onPaginationChange(newVal) {
+        if (this.isInitializing)
+            return;
+        if (newVal) {
+            this.paginationState = {
+                pageIndex: Math.max(0, this.paginationCurrentPage - 1),
+                pageSize: this.paginationSize === 0
+                    ? Number.MAX_SAFE_INTEGER
+                    : this.paginationSize,
+            };
+        }
+        else {
+            this.paginationState = {
+                pageIndex: Math.max(0, this.paginationCurrentPage - 1),
+                pageSize: Number.MAX_SAFE_INTEGER,
+            };
+        }
+        this.onDataChange(this.data);
+    }
+    onPageChange(newPage) {
+        var _a;
+        if (this.isInitializing)
+            return;
+        newPage = Math.round(newPage);
+        this.paginationState = Object.assign(Object.assign({}, this.paginationState), { pageIndex: Math.max(0, newPage - 1) });
+        (_a = this.table) === null || _a === void 0 ? void 0 : _a.setOptions(prev => (Object.assign(Object.assign({}, prev), { state: Object.assign(Object.assign({}, prev.state), { pagination: this.paginationState }) })));
+    }
+    onPageSizeChange(newSize) {
+        var _a, _b, _c, _d;
+        if (this.isInitializing)
+            return;
+        newSize = Math.round(newSize);
+        const totalRows = (_c = (_b = (_a = this.table) === null || _a === void 0 ? void 0 : _a.getPreFilteredRowModel()) === null || _b === void 0 ? void 0 : _b.rows.length) !== null && _c !== void 0 ? _c : 0;
+        if (newSize === 0) {
+            this.paginationState = {
+                pageIndex: 0,
+                pageSize: totalRows === 0 ? 1 : totalRows,
+            };
+        }
+        else {
+            this.paginationState = {
+                pageIndex: this.paginationState.pageIndex + 1 > Math.ceil(totalRows / newSize)
+                    ? 0
+                    : this.paginationState.pageIndex,
+                pageSize: newSize === 0 ? totalRows : newSize,
+            };
+        }
+        (_d = this.table) === null || _d === void 0 ? void 0 : _d.setOptions(prev => (Object.assign(Object.assign({}, prev), { state: Object.assign(Object.assign({}, prev.state), { pagination: this.paginationState }) })));
+    }
+    onSizeOptionsChange(newVal) {
+        if (this.isInitializing)
+            return;
+        this.paginationSizeOptions = parseSizeOptions(newVal);
+        updateTableOptions(this);
+    }
+    onFilterValueChange(newVal) {
+        var _a;
+        if (this.isInitializing)
+            return;
+        if (!this.filter && newVal !== '') {
+            this.filterValue = '';
+            return;
+        }
+        this.globalFilter = newVal;
+        (_a = this.table) === null || _a === void 0 ? void 0 : _a.setOptions(prev => (Object.assign(Object.assign({}, prev), { state: Object.assign(Object.assign({}, prev.state), { globalFilter: this.globalFilter }) })));
+    }
+    onLangChange(newVal) {
+        if (this.isInitializing)
+            return;
+        this.lang = newVal;
+    }
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+    initTable() {
+        this.table = createTable(buildTableOptions(this));
+    }
+    emitStateChangeIfDirty() {
+        var _a, _b;
+        const rows = (_b = (_a = this.table) === null || _a === void 0 ? void 0 : _a.getRowModel().rows) !== null && _b !== void 0 ? _b : [];
+        // Compute a stable fingerprint of the current visible row set
+        const rowIdFingerprint = rows.map(r => r.id).join(',');
+        // Only emit if the visible rows have actually changed
+        if (rowIdFingerprint === this.lastEmittedRowIds)
+            return;
+        this.lastEmittedRowIds = rowIdFingerprint;
+        this.gcdsTableStateChange.emit({
+            visibleRows: rows.map((row, rowIndex) => ({
+                rowId: row.id,
+                rowIndex,
+                original: row.original,
+            })),
+            page: this.paginationState.pageIndex + 1,
+            pageSize: this.paginationSize,
+            filterValue: this.filterValue,
+            sorting: this.sorting.length > 0 ? this.sorting : null,
+        });
+    }
+    sortEnabled() {
+        var _a;
+        return (this.sort || ((_a = this.columns) !== null && _a !== void 0 ? _a : []).some(col => col.sort));
+    }
+    getTemplate(columnKey) {
+        return this.el.querySelector(`template[slot="cell:${columnKey}"]`);
+    }
+    applyBindings(el, row) {
+        const bindings = Array.from(el.attributes).filter(attr => attr.name.startsWith('data-bind'));
+        for (const binding of bindings) {
+            let prop;
+            let value;
+            if (binding.name === 'data-bind-template') {
+                prop = 'textContent';
+                value = binding.value.replace(/\{(\w+)\}/g, (_, field) => { var _a; return String((_a = row[field]) !== null && _a !== void 0 ? _a : ''); });
+            }
+            else if (binding.name === 'data-bind') {
+                prop = 'textContent';
+                value = row[binding.value];
+            }
+            else if (binding.name.startsWith('data-bind-template-')) {
+                prop = binding.name.replace('data-bind-template-', '');
+                value = binding.value.replace(/\{(\w+)\}/g, (_, field) => { var _a; return String((_a = row[field]) !== null && _a !== void 0 ? _a : ''); });
+            }
+            else {
+                prop = binding.name.replace('data-bind-', '');
+                value = row[binding.value];
+            }
+            if (prop in el) {
+                el[prop] = value;
+            }
+            else {
+                el.setAttribute(prop, String(value !== null && value !== void 0 ? value : ''));
+            }
+        }
+    }
+    /*
+     * Clone elements from templates to use in slots
+     */
+    createSlottedElements() {
+        var _a, _b;
+        const slottedColumns = this.columns.filter(s => s.slotted && !s.managed);
+        const rows = (_b = (_a = this.table) === null || _a === void 0 ? void 0 : _a.getCoreRowModel().rows) !== null && _b !== void 0 ? _b : [];
+        rows.forEach(row => {
+            slottedColumns.forEach(column => {
+                const slotName = this.getManagedSlotName(row.id, column.field);
+                const template = this.getTemplate(column.field);
+                if (!template)
+                    return;
+                const clone = template.content.cloneNode(true);
+                const wrapper = document.createElement('span');
+                wrapper.setAttribute('slot', slotName);
+                wrapper.appendChild(clone);
+                const child = wrapper.querySelector('*');
+                if (child) {
+                    this.applyBindings(child, row.original);
+                    child.row = row.original;
+                    child.column = column;
+                    child.rowIndex = row.index;
+                    child.value = row.getValue(column.field);
+                }
+                this.el.appendChild(wrapper);
+            });
+        });
+    }
+    syncSlottedElements() {
+        var _a, _b;
+        const slottedColumns = this.columns.filter(s => s.slotted && !s.managed);
+        if (slottedColumns.length === 0)
+            return;
+        const rows = (_b = (_a = this.table) === null || _a === void 0 ? void 0 : _a.getCoreRowModel().rows) !== null && _b !== void 0 ? _b : [];
+        // Index slotted elements
+        const existingMap = new Map();
+        this.el.querySelectorAll('[slot^="cell-"]').forEach(el => {
+            existingMap.set(el.getAttribute('slot'), el);
+        });
+        // Check if slotted elements already exist or need to be created based on rows
+        rows.forEach(row => {
+            slottedColumns.forEach(column => {
+                const slotName = this.getManagedSlotName(row.id, column.field);
+                const existing = existingMap.get(slotName);
+                if (existing) {
+                    // Slot already in the DOM — just refresh its bindings.
+                    const child = existing.querySelector('*');
+                    if (child) {
+                        this.applyBindings(child, row.original);
+                        child.row = row.original;
+                        child.column = column;
+                        child.rowIndex = row.index;
+                        child.value = row.getValue(column.field);
+                    }
+                    // Mark as handled so it isn't removed below.
+                    existingMap.delete(slotName);
+                }
+                else {
+                    // New row/column combination — create from scratch.
+                    const template = this.getTemplate(column.field);
+                    if (!template)
+                        return;
+                    const clone = template.content.cloneNode(true);
+                    const wrapper = document.createElement('span');
+                    wrapper.setAttribute('slot', slotName);
+                    wrapper.appendChild(clone);
+                    const child = wrapper.querySelector('*');
+                    if (child) {
+                        this.applyBindings(child, row.original);
+                        child.row = row.original;
+                        child.column = column;
+                        child.rowIndex = row.index;
+                        child.value = row.getValue(column.field);
+                    }
+                    this.el.appendChild(wrapper);
+                }
+            });
+        });
+        // Remove stale slotted elements
+        existingMap.forEach(el => el.remove());
+    }
+    // ─── Event handlers ───────────────────────────────────────────────────────
+    /*
+     * Handle sort toggling by updating table state
+     */
+    handleSortToggle(columnId) {
+        var _a;
+        const col = (_a = this.table) === null || _a === void 0 ? void 0 : _a.getColumn(columnId);
+        if (!(col === null || col === void 0 ? void 0 : col.getCanSort()))
+            return;
+        col.toggleSorting();
+    }
+    /*
+     * Handle page size selection by updating table state and focusing the table
+     */
+    handlePageSizeSelect(e) {
+        const select = e.target;
+        const val = Number(select.value);
+        this.paginationSize = val;
+    }
+    /*
+     * Handle pagination control clicks by updating table state and focusing the table
+     */
+    handlePaginationClick(e) {
+        var _a, _b;
+        this.paginationCurrentPage = e.detail.page;
+        // focus table here to ensure keyboard users can navigate from pagination controls to table rows
+        (_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
+        (_b = this.shadowElement) === null || _b === void 0 ? void 0 : _b.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+    getManagedSlotName(row, columnField) {
+        return `cell-${row}-${columnField}`;
+    }
+    // ─── Methods ────────────────────────────────────────────────────────────
+    async getVisibleRows() {
+        var _a, _b;
+        return ((_b = (_a = this.table) === null || _a === void 0 ? void 0 : _a.getRowModel().rows.map(row => ({
+            rowId: row.id,
+            rowIndex: row.index,
+            original: row.original,
+        }))) !== null && _b !== void 0 ? _b : []);
+    }
+    // ─── Lifecycle ────────────────────────────────────────────────────────────
+    componentWillLoad() {
+        this.isInitializing = true;
+        // Define lang attribute
+        this.lang = assignLanguage(this.el);
+        // Validate if information is being passed as JSON strings and parse it
+        if (typeof this.columns === 'string') {
+            try {
+                this.columns = JSON.parse(this.columns);
+            }
+            catch (e) {
+                console.error(e);
+            }
+        }
+        if (typeof this.data === 'string') {
+            try {
+                this.data = JSON.parse(this.data);
+            }
+            catch (e) {
+                console.error(e);
+            }
+        }
+        this.paginationSizeOptions = parseSizeOptions(this.paginationSizeOptions);
+        // Seed initial sort from sortDirection column definitions
+        if (this.sortEnabled()) {
+            this.sorting = buildInitialSorting(this.columns);
+        }
+        this.initialSorting = this.sorting;
+        this.initTable();
+        if (this.table) {
+            this.createSlottedElements();
+        }
+        this.isInitializing = false;
+    }
+    componentDidRender() {
+        if (!this.hasRenderedOnce) {
+            this.hasRenderedOnce = true;
+            return;
+        }
+        this.emitStateChangeIfDirty();
+    }
+    // ─── Render ───────────────────────────────────────────────────────────────
+    render() {
+        var _a;
+        if (!this.table)
+            return null;
+        const headerGroups = this.table.getHeaderGroups();
+        const rows = this.pagination
+            ? this.table.getPaginationRowModel().rows
+            : this.table.getRowModel().rows;
+        return (hAsync(Host, null, hAsync("section", { class: "gcds-table" }, this.el.querySelector('[slot="caption"]') && (hAsync("div", { id: "gcds-table__caption" }, hAsync("slot", { name: "caption" }))), (this.filter || this.sortEnabled()) && renderFilterSortModal(this), hAsync("div", { class: "gcds-table__active-pills" }, this.filter && renderFilterPills(this.filterValue, this.lang, () => {
+            this.filterValue = '';
+            updateTableOptions(this);
+        }), renderSortPills(this.sorting, this.table, this.lang, (columnId) => {
+            this.sorting = this.sorting.filter(s => s.id !== columnId);
+            updateTableOptions(this);
+        })), hAsync("div", { class: "gcds-table__row-management" }, this.pagination && (hAsync("div", { class: "gcds-table__page-size" }, hAsync("gcds-select", { label: I18N$3[this.lang].rowsPerPage, name: "page-size", selectId: "gcds-table-page-size", value: this.paginationSize.toString(), onChange: e => this.handlePageSizeSelect(e) }, this.paginationSizeOptions.map(opt => (hAsync("option", { key: opt, value: opt }, opt === 0 ? I18N$3[this.lang].all : opt)))))), hAsync("span", { class: "gcds-table__page-info", role: "status", "aria-live": "polite" }, renderTableStatus(this.el, this.table, this.paginationState, this.lang))), hAsync("table", { class: "gcds-table__table", tabindex: "-1", "aria-labelledby": this.el.querySelector('[slot="caption"]')
+                ? 'gcds-table__caption'
+                : undefined, ref: el => {
+                if (el)
+                    this.shadowElement = el;
+            } }, hAsync("thead", null, headerGroups.map(hg => (hAsync("tr", { key: hg.id }, hg.headers.map(header => {
+            var _a;
+            const colDef = ((_a = this.columns) !== null && _a !== void 0 ? _a : []).find(c => c.field === header.id);
+            const canSort = header.column.getCanSort();
+            const alignmentClass = (colDef === null || colDef === void 0 ? void 0 : colDef.alignment)
+                ? `alignment-${colDef.alignment}`
+                : '';
+            const iconName = getSortIcon(header.column);
+            return (hAsync("th", { key: header.id, class: `gcds-table__th ${alignmentClass}`, scope: "col", "aria-sort": header.column.getIsSorted() === 'asc'
+                    ? 'ascending'
+                    : header.column.getIsSorted() === 'desc'
+                        ? 'descending'
+                        : canSort
+                            ? 'none'
+                            : undefined }, canSort ? (hAsync("button", { onClick: () => this.handleSortToggle(header.id), title: getSortTitle(header.column, this.lang) }, colDef === null || colDef === void 0 ? void 0 :
+                colDef.header, iconName && (hAsync("gcds-icon", { name: iconName, class: "gcds-table__sort-icon", "aria-hidden": "true" })))) : (colDef === null || colDef === void 0 ? void 0 : colDef.header)));
+        }))))), hAsync("tbody", null, rows.length === 0 ? (hAsync("tr", null, hAsync("td", { class: "gcds-table__empty", colSpan: ((_a = this.columns) !== null && _a !== void 0 ? _a : []).length }, this.filter && this.filterValue !== '' ? (hAsync("div", null, hAsync("gcds-heading", { tag: "h3", "heading-role": "secondary", "margin-top": "0", "margin-bottom": "100" }, I18N$3[this.lang].noResultsHeading), hAsync("gcds-text", { "text-role": "secondary", "margin-bottom": "200" }, I18N$3[this.lang].noResultsText), hAsync("gcds-button", { onClick: () => (this.filterValue = this.initialFilter) }, I18N$3[this.lang].noResultsClearFilter))) : (hAsync("div", null, hAsync("gcds-heading", { tag: "h3", "heading-role": "secondary", "margin-top": "0", "margin-bottom": "100" }, I18N$3[this.lang].noDataHeading), hAsync("gcds-text", { "text-role": "secondary", "margin-bottom": "0" }, I18N$3[this.lang].noDataText)))))) : (rows.map(row => (hAsync("tr", { key: row.id, "data-test": row.id, class: "gcds-table__row" }, row.getVisibleCells().map(cell => {
+            var _a, _b;
+            const colDef = ((_a = this.columns) !== null && _a !== void 0 ? _a : []).find(c => c.field === cell.column.id);
+            const isSlotted = colDef === null || colDef === void 0 ? void 0 : colDef.slotted;
+            let cellContent;
+            let Tag = 'td';
+            let scope = {};
+            // Check if table header in row
+            if (colDef === null || colDef === void 0 ? void 0 : colDef.rowHeader) {
+                Tag = 'th';
+                scope = {
+                    scope: 'row',
+                };
+            }
+            const fallbackValue = String((_b = cell.getValue()) !== null && _b !== void 0 ? _b : '');
+            cellContent = !isSlotted ? (fallbackValue) : (hAsync("slot", { name: this.getManagedSlotName(row.id, cell.column.id) }, fallbackValue));
+            return (hAsync(Tag, Object.assign({ key: cell.id, class: `gcds-table__td${(colDef === null || colDef === void 0 ? void 0 : colDef.alignment) ? ` alignment-${colDef.alignment}` : ''}`, "data-column": colDef === null || colDef === void 0 ? void 0 : colDef.header, "data-cell": `${cell.column.id}-${row.id}` }, scope), cellContent));
+        }))))))), (this.pagination && this.paginationSize !== 0 && rows.length != 0) &&
+            (this.table.getFilteredRowModel().rows.length > this.paginationSize) &&
+            (hAsync("gcds-pagination", { display: "list", currentPage: this.paginationState.pageIndex + 1, totalPages: this.table.getPageCount(), label: I18N$3[this.lang].paginationLabel, onGcdsClick: e => this.handlePaginationClick(e), lang: this.lang })))));
+    }
+    get el() { return getElement(this); }
+    static get watchers() { return {
+        "columns": [{
+                "onColumnsChange": 0
+            }],
+        "data": [{
+                "onDataChange": 0
+            }],
+        "sort": [{
+                "onSortChange": 0
+            }],
+        "pagination": [{
+                "onPaginationChange": 0
+            }],
+        "paginationCurrentPage": [{
+                "onPageChange": 0
+            }],
+        "paginationSize": [{
+                "onPageSizeChange": 0
+            }],
+        "paginationSizeOptions": [{
+                "onSizeOptionsChange": 0
+            }],
+        "filterValue": [{
+                "onFilterValueChange": 0
+            }],
+        "lang": [{
+                "onLangChange": 0
+            }]
+    }; }
+    static get style() { return gcdsTableCss(); }
+    static get cmpMeta() { return {
+        "$flags$": 265,
+        "$tagName$": "gcds-table",
+        "$members$": {
+            "columns": [1025],
+            "data": [1025],
+            "sort": [4],
+            "pagination": [4],
+            "paginationCurrentPage": [1026, "pagination-current-page"],
+            "paginationSize": [1026, "pagination-size"],
+            "paginationSizeOptions": [1025, "pagination-size-options"],
+            "filter": [4],
+            "filterValue": [1025, "filter-value"],
+            "sorting": [32],
+            "columnFilters": [32],
+            "globalFilter": [32],
+            "paginationState": [32],
+            "lang": [32],
+            "getVisibleRows": [64]
+        },
+        "$listeners$": undefined,
+        "$lazyBundleId$": "-",
+        "$attrsToReflect$": []
+    }; }
+}
+
+const gcdsTextCss = () => `@layer reset, default, display, limit, margin, role, size, style, weight;@layer reset{:host{color:var(--gcds-text-role-primary);display:block}:host .gcds-text{box-sizing:border-box;display:inherit;margin:0}:host .gcds-text slot{display:initial}}@layer default{:host .gcds-text{font:var(--gcds-text-size-body-desktop)}@media only screen and (width < 48em){:host .gcds-text{font:var(--gcds-text-size-body-mobile)}}}@layer display{:host.d-block{display:block}:host.d-flex{display:flex}:host.d-inline{display:inline}:host.d-inline-block{display:inline-block}:host.d-inline-flex{display:inline-flex}:host.d-none{display:none}}@layer limit{:host .gcds-text.limit{max-width:var(--gcds-text-character-limit)}}@layer margin{:host .gcds-text.mt-0{margin-block-start:var(--gcds-text-spacing-0)}:host .gcds-text.mt-25{margin-block-start:var(--gcds-text-spacing-25)}:host .gcds-text.mt-50{margin-block-start:var(--gcds-text-spacing-50)}:host .gcds-text.mt-75{margin-block-start:var(--gcds-text-spacing-75)}:host .gcds-text.mt-100{margin-block-start:var(--gcds-text-spacing-100)}:host .gcds-text.mt-125{margin-block-start:var(--gcds-text-spacing-125)}:host .gcds-text.mt-150{margin-block-start:var(--gcds-text-spacing-150)}:host .gcds-text.mt-175{margin-block-start:var(--gcds-text-spacing-175)}:host .gcds-text.mt-200{margin-block-start:var(--gcds-text-spacing-200)}:host .gcds-text.mt-225{margin-block-start:var(--gcds-text-spacing-225)}:host .gcds-text.mt-250{margin-block-start:var(--gcds-text-spacing-250)}:host .gcds-text.mt-300{margin-block-start:var(--gcds-text-spacing-300)}:host .gcds-text.mt-350{margin-block-start:var(--gcds-text-spacing-350)}:host .gcds-text.mt-400{margin-block-start:var(--gcds-text-spacing-400)}:host .gcds-text.mt-450{margin-block-start:var(--gcds-text-spacing-450)}:host .gcds-text.mt-500{margin-block-start:var(--gcds-text-spacing-500)}:host .gcds-text.mt-550{margin-block-start:var(--gcds-text-spacing-550)}:host .gcds-text.mt-600{margin-block-start:var(--gcds-text-spacing-600)}:host .gcds-text.mt-650{margin-block-start:var(--gcds-text-spacing-650)}:host .gcds-text.mt-700{margin-block-start:var(--gcds-text-spacing-700)}:host .gcds-text.mt-750{margin-block-start:var(--gcds-text-spacing-750)}:host .gcds-text.mt-800{margin-block-start:var(--gcds-text-spacing-800)}:host .gcds-text.mt-850{margin-block-start:var(--gcds-text-spacing-850)}:host .gcds-text.mt-900{margin-block-start:var(--gcds-text-spacing-900)}:host .gcds-text.mt-950{margin-block-start:var(--gcds-text-spacing-950)}:host .gcds-text.mt-1000{margin-block-start:var(--gcds-text-spacing-1000)}:host .gcds-text.mt-1050{margin-block-start:var(--gcds-text-spacing-1050)}:host .gcds-text.mt-1100{margin-block-start:var(--gcds-text-spacing-1100)}:host .gcds-text.mt-1150{margin-block-start:var(--gcds-text-spacing-1150)}:host .gcds-text.mt-1200{margin-block-start:var(--gcds-text-spacing-1200)}:host .gcds-text.mt-1250{margin-block-start:var(--gcds-text-spacing-1250)}:host .gcds-text.mb-0{margin-block-end:var(--gcds-text-spacing-0)}:host .gcds-text.mb-25{margin-block-end:var(--gcds-text-spacing-25)}:host .gcds-text.mb-50{margin-block-end:var(--gcds-text-spacing-50)}:host .gcds-text.mb-75{margin-block-end:var(--gcds-text-spacing-75)}:host .gcds-text.mb-100{margin-block-end:var(--gcds-text-spacing-100)}:host .gcds-text.mb-125{margin-block-end:var(--gcds-text-spacing-125)}:host .gcds-text.mb-150{margin-block-end:var(--gcds-text-spacing-150)}:host .gcds-text.mb-175{margin-block-end:var(--gcds-text-spacing-175)}:host .gcds-text.mb-200{margin-block-end:var(--gcds-text-spacing-200)}:host .gcds-text.mb-225{margin-block-end:var(--gcds-text-spacing-225)}:host .gcds-text.mb-250{margin-block-end:var(--gcds-text-spacing-250)}:host .gcds-text.mb-300{margin-block-end:var(--gcds-text-spacing-300)}:host .gcds-text.mb-350{margin-block-end:var(--gcds-text-spacing-350)}:host .gcds-text.mb-400{margin-block-end:var(--gcds-text-spacing-400)}:host .gcds-text.mb-450{margin-block-end:var(--gcds-text-spacing-450)}:host .gcds-text.mb-500{margin-block-end:var(--gcds-text-spacing-500)}:host .gcds-text.mb-550{margin-block-end:var(--gcds-text-spacing-550)}:host .gcds-text.mb-600{margin-block-end:var(--gcds-text-spacing-600)}:host .gcds-text.mb-650{margin-block-end:var(--gcds-text-spacing-650)}:host .gcds-text.mb-700{margin-block-end:var(--gcds-text-spacing-700)}:host .gcds-text.mb-750{margin-block-end:var(--gcds-text-spacing-750)}:host .gcds-text.mb-800{margin-block-end:var(--gcds-text-spacing-800)}:host .gcds-text.mb-850{margin-block-end:var(--gcds-text-spacing-850)}:host .gcds-text.mb-900{margin-block-end:var(--gcds-text-spacing-900)}:host .gcds-text.mb-950{margin-block-end:var(--gcds-text-spacing-950)}:host .gcds-text.mb-1000{margin-block-end:var(--gcds-text-spacing-1000)}:host .gcds-text.mb-1050{margin-block-end:var(--gcds-text-spacing-1050)}:host .gcds-text.mb-1100{margin-block-end:var(--gcds-text-spacing-1100)}:host .gcds-text.mb-1150{margin-block-end:var(--gcds-text-spacing-1150)}:host .gcds-text.mb-1200{margin-block-end:var(--gcds-text-spacing-1200)}:host .gcds-text.mb-1250{margin-block-end:var(--gcds-text-spacing-1250)}}@layer variants.role{:host .gcds-text.role-primary{color:var(--gcds-text-role-primary)}:host .gcds-text.role-secondary{color:var(--gcds-text-role-secondary)}:host .gcds-text.role-light{color:var(--gcds-text-role-light)}}@layer variants.size{:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-desktop)}@media only screen and (width < 48em){:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-mobile)}}}@layer variants.style{:host .gcds-text ::slotted(em){font-style:italic}}@layer variants.weight{:host .gcds-text ::slotted(strong){font-weight:var(--gcds-text-weight-bold)}}`;
 
 /**
  * Text is a styled and formatted paragraph that displays written content in an accessible way and matches Canada.ca typography styles.
@@ -10368,7 +16833,7 @@ class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (hAsync(Host, { key: '648db92f3454dab29f6a3fdb33e282b6268cc82b', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: '01045b0b67c9c5f1ea9ce19ebaa7d80ad2668ca0', class: `
+        return (hAsync(Host, { key: '8219a6791a91322d1ce17a98f133303745d805a9', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: 'ddea4733adb26b3d854466f07cddc3c384ad448d', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -10379,15 +16844,25 @@ class GcdsText {
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "textRole": ["validateTextRole"],
-        "display": ["validateDisplay"],
-        "marginTop": ["validateMarginTop"],
-        "marginBottom": ["validateMarginBottom"],
-        "size": ["validateSize"]
+        "textRole": [{
+                "validateTextRole": 0
+            }],
+        "display": [{
+                "validateDisplay": 0
+            }],
+        "marginTop": [{
+                "validateMarginTop": 0
+            }],
+        "marginBottom": [{
+                "validateMarginBottom": 0
+            }],
+        "size": [{
+                "validateSize": 0
+            }]
     }; }
-    static get style() { return gcdsTextCss; }
+    static get style() { return gcdsTextCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-text",
         "$members$": {
             "textRole": [1025, "text-role"],
@@ -10418,7 +16893,7 @@ const I18N$2 = {
   },
 };
 
-const gcdsTextareaCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-textarea-wrapper{border:0;margin:0;padding:0}:host .gcds-textarea-wrapper textarea{box-sizing:border-box}}@layer default{:host .gcds-textarea-wrapper{color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font-desktop);max-width:75ch;transition:color .15s ease-in-out;width:100%}@media only screen and (width < 48em){:host .gcds-textarea-wrapper{font:var(--gcds-textarea-font-mobile)}}:host .gcds-textarea-wrapper textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin)!important;max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}}@layer disabled{:host .gcds-textarea-wrapper.gcds-disabled{color:var(--gcds-textarea-disabled-text)}:host .gcds-textarea-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-textarea-wrapper .error-message-container{display:block}:host .gcds-textarea-wrapper textarea.gcds-error:not(:focus){border-color:var(--gcds-textarea-danger-border)}}@layer focus{:host .gcds-textarea-wrapper:focus-within textarea:focus{border-color:var(--gcds-textarea-focus-border);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-border);outline-offset:var(--gcds-textarea-border-width)}}";
+const gcdsTextareaCss = () => `@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-textarea-wrapper{border:0;margin:0;padding:0}:host .gcds-textarea-wrapper textarea{box-sizing:border-box}}@layer default{:host .gcds-textarea-wrapper{color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font-desktop);max-width:75ch;transition:color .15s ease-in-out;width:100%}@media only screen and (width < 48em){:host .gcds-textarea-wrapper{font:var(--gcds-textarea-font-mobile)}}:host .gcds-textarea-wrapper textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin)!important;max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}}@layer disabled{:host .gcds-textarea-wrapper.gcds-disabled{color:var(--gcds-textarea-disabled-text)}:host .gcds-textarea-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-textarea-wrapper .error-message-container{display:block}:host .gcds-textarea-wrapper textarea.gcds-error:not(:focus){border-color:var(--gcds-textarea-danger-border)}}@layer focus{:host .gcds-textarea-wrapper:focus-within textarea:focus{border-color:var(--gcds-textarea-focus-border);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-border);outline-offset:var(--gcds-textarea-border-width)}}`;
 
 /**
  * A text area is a space to enter long-form information in response to a question or instruction.
@@ -10723,19 +17198,29 @@ class GcdsTextarea {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '4c93c2645ce5374794cac263a3206ee8cc2ed1f5' }, hAsync("div", { key: 'c9c7c6b5b5f26e2c1c1e451ae64f478746b18e21', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '43a9fed50882d577a2fbeb50519d233ef069b94c' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '80d8daf6be299b6dd933842182e507ba119ad651' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.onFocus(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), maxlength ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span", id: `textarea__count-${textareaId}` }, I18N$2[lang].characters.maxlength.replace('{{num}}', maxlength)), !hideLimit && (hAsync("gcds-text", { id: `textarea__visual-count-${textareaId}`, "aria-hidden": "true" }, I18N$2[lang].characters.left, value == undefined ? maxlength : maxlength - value.length)), hAsync("gcds-sr-only", { tag: "span" }, hAsync("span", { id: `textarea__sr-count-${textareaId}`, role: "status", "aria-atomic": "true" })))) : null)));
+        return (hAsync(Host, { key: 'f807f25b63c0abb356df1365d9382f318bae2775' }, hAsync("div", { key: 'd27317f81d9523571726a5b2715517176b4a7af7', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'b05b09daf2c31c6aad4d0ffb304c05c2f217661b' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '049f2689bf962525062abb78941ad3fec2a55ced' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.onFocus(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), maxlength ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span", id: `textarea__count-${textareaId}` }, I18N$2[lang].characters.maxlength.replace('{{num}}', maxlength)), !hideLimit && (hAsync("gcds-text", { id: `textarea__visual-count-${textareaId}`, "aria-hidden": "true" }, I18N$2[lang].characters.left, value == undefined ? maxlength : maxlength - value.length)), hAsync("gcds-sr-only", { tag: "span" }, hAsync("span", { id: `textarea__sr-count-${textareaId}`, role: "status", "aria-atomic": "true" })))) : null)));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "disabled": ["validateDisabledTextarea"],
-        "errorMessage": ["validateErrorMessage"],
-        "value": ["watchValue"],
-        "validator": ["validateValidator"],
-        "hasError": ["validateHasError"]
+        "disabled": [{
+                "validateDisabledTextarea": 0
+            }],
+        "errorMessage": [{
+                "validateErrorMessage": 0
+            }],
+        "value": [{
+                "watchValue": 0
+            }],
+        "validator": [{
+                "validateValidator": 0
+            }],
+        "hasError": [{
+                "validateHasError": 0
+            }]
     }; }
-    static get style() { return gcdsTextareaCss; }
+    static get style() { return gcdsTextareaCss(); }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-textarea",
@@ -10787,7 +17272,7 @@ const I18N$1 = {
   },
 };
 
-const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:var(--gcds-top-nav-width-full)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row;width:var(--gcds-top-nav-width-constrained)}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--end{margin-inline-start:auto}}}";
+const gcdsTopNavCss = () => `@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:var(--gcds-top-nav-width-full)}}@layer desktop{@media only screen and (width >= 48em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row;width:var(--gcds-top-nav-width-constrained)}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--end{margin-inline-start:auto}}}`;
 
 /**
  * A top navigation is a horizontal list of page links.
@@ -10927,12 +17412,12 @@ class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (hAsync(Host, { key: '8d59384709deb49ab45df787053bb8984db783ff' }, hAsync("div", { key: 'b0f1bbbde13877522bc3221519ddf248a7a2f332', class: "gcds-top-nav" }, hAsync("nav", { key: '34a0d7c4b66f34e8527fa8c1687e85e259f5f79e', "aria-label": `${label}${I18N$1[lang].navLabel}` }, hAsync("ul", { key: 'f48641ec799bc5d73de6a32f7e671b224a315262', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: 'feccca515b89c8dfa0e93a100d077db20bcf5e5e', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '0eae3974ebce3d5ce961e6e21f4eee3d7d99b512', name: "home" }), hAsync("li", { key: 'dcdbda307ffadd1d454f07f310dd421b186c686e', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: '164e125696131ee497fd098f92fdd8fe92200372', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: '095f6aab8a072f72b920bb26cc2c033e9358dc1b' })))))))));
+        return (hAsync(Host, { key: 'b5891498135a91923fec6cea31c0cf294f1b5aba' }, hAsync("div", { key: 'bde31751abedae987bb85c12636102f92a3b6814', class: "gcds-top-nav" }, hAsync("nav", { key: '8e3cdf1d2e6f8b714612fed6c43ec42b81ab2c7b', "aria-label": `${label}${I18N$1[lang].navLabel}` }, hAsync("ul", { key: '5f687ee3eea1dc73c4b5bb620d1304fe5ac648d6', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: '137bc7b72a9fa328aff0a60271269f20b1033ba7', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '4e8fd794e2e06459a069507c14c1ef4639dd453e', name: "home" }), hAsync("li", { key: '9ca94d212ccd1729f840036a2aed4b2c023f36fd', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: '4ea1a55b4adb03b9614b320f2b52dc0a6e48cd5c', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: '4eeb9ba9be3b3cc7906e94bc23c3ca8fb31464c8' })))))))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsTopNavCss; }
+    static get style() { return gcdsTopNavCss(); }
     static get cmpMeta() { return {
-        "$flags$": 9,
+        "$flags$": 265,
         "$tagName$": "gcds-top-nav",
         "$members$": {
             "label": [1],
@@ -10972,7 +17457,7 @@ const snapshots = {
   fr: '<li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs" aria-expanded="false" href="#">Emplois et milieu de travail</a><ul id="gc-mnu-jobs" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois.html">Emplois<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/opportunites.html">Trouver un emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/formation.html">Formation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/gestion-entreprise">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/demarrage-entreprise">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/milieu-travail.html">Normes en milieu de travail</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d\'assurance-emploi et congés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-jobs-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/programmes/assurance-emploi/ae-liste/assurance-emploi-re/acceder-re.html">Voir vos Relevés d’emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/numero-assurance-sociale.html">Demander un numéro d’assurance-sociale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/travailleurs-etrangers.html">Embaucher un travailleur étranger temporaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express.html">Immigrer en tant que travailleur qualifié</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit" aria-expanded="false" href="#">Immigration et citoyenneté</a><ul id="gc-mnu-cit" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete.html">Immigration<span class="hidden-xs hidden-sm">et citoyenneté</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande.html">Ma demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html">Visiter</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada.html">Immigrer</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada.html">Travailler</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada.html">Étudier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/citoyennete-canadienne.html">Citoyenneté</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/nouveaux-immigrants.html">Nouveaux immigrants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/canadiens.html">Canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/refugies.html">Réfugiés et octroi de l’asile</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete/application-loi-infractions.html">Application de la loi et infractions</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-cit-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/compte.html">Se connecter ou créer un compte pour présenter une demande en ligne</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/verifier-etat.html">Vérifier l’état de sa demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/delais/index.asp">Vérifier les délais de traitement des demandes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/formulaires-demande-guides.html">Trouver un formulaire de demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/frais/index.asp">Payer les frais</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/visiter/visas.asp">Déterminer si vous avez besoin d’une AVE ou d’un visa pour visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/centre-aide/index-en-vedette-can.asp">Trouver réponse à ses questions dans le Centre d’aide</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel" aria-expanded="false" href="#">Voyage et tourisme</a><ul id="gc-mnu-travel" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/">Voyage<span class="hidden-xs hidden-sm">et tourisme</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/avertissements">Conseils aux voyageurs et avertissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyage-covid">COVID-19 : voyage, dépistage et frontières</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html?outside">Visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager">Voyager à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/avion">Voyager en avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/retour">Retour au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/passeports-canadiens.html">Passeports et documents de voyage canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/tourisme-canadien">Attraits touristiques, événements et expériences au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance">Assistance à l’extérieur du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/restez-branches">Restez branchés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-travel-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/assistance-d-urgence">Assistance d\'urgence à l\'étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cic.gc.ca/francais/visiter/visas.asp">Vérifiez si vous avez besoin d’un visa pour voyager au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada/ave.html">Présentez une demande d’Autorisation de voyage électronique (AVE)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/services/travel-voyage/prog/nexus/menu-fra.html">Adhérez à NEXUS</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/inscription">Inscrivez-vous comme Canadien à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/documents/assurance-voyage">Assurance voyage</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz" aria-expanded="false" href="#">Entreprises et industrie</a><ul id="gc-mnu-biz" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises.html">Entreprises<span class="hidden-xs hidden-sm">et industrie</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/lancer.html">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/impots.html">Taxes et impôt des entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/societes-de-regime-federal.html">Sociétés de régime fédéral</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/engager.html">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis.html">Permis, licences et règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faire-affaire.html">Faire affaire avec le gouvernement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">Recherche-développement et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/recherche.html">Recherche et renseignements d\'affaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/maintenirfairecroitreameliorerentreprise.html">Administration de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/proteger.html">Protection de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faillites.html">Insolvabilité pour les entreprises</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-biz-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html?lang=fra">Trouver une société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/prog/manif/portal-portail-fra.html">Déclarer vos produits importés</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/opic/recherche-marques/srch?null=&lang=fre">Chercher des marques de commerce</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2018/html/tblmod-1-fra.html">Réviser les tarifs des douanes pour l’importation de produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/opic-cipo/cpd/fra/introduction.html">Trouver un brevet</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/comm-fra.html">Importer et exporter à partir du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ic.gc.ca/eic/site/cd-dgc.nsf/fra/h_cs03922.html">Trouver un nom pour votre compagnie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/hm.html?locale=fr_CA">Apporter des changements à votre société (Centre de dépôt en ligne)</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny" aria-expanded="false" href="#">Prestations</a><ul id="gc-mnu-benny" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations.html">Prestations<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d&#39;assurance-emploi et cong&eacute;s</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/famille.html">Prestations pour les familles et les proches aidants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/pensionspubliques.html">Pensions publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/etudes.html">Aide financière aux étudiants et planification des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/logement.html">Prestations relatives au logement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/handicap.html">Prestations d’invalidité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canada.ca/fr/services/prestations/clientele.html">Prestations par clientèle</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/calendrier.html">Dates de paiement des prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://benefitsfinder.services.gc.ca/hm?GoCTemplateCulture=fr-CA&cl=true">Chercheur de prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/aviser-gouvernement-deces.html">Aviser le gouvernement d’un décès</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-benny-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-reguliere.html">Présenter une demande d’assurance-emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/education/aide-etudiants/bourses-prets.html">Faire une demande de bourses et de prêts d’études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/ouvrir-session-dossier-compte-en-ligne.html">Ouvrir une session pour un compte en ligne du gouvernement du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/calculateur-prestations-enfants-familles.html">Calculateur de prestations pour enfants et familles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-declaration-internet.html">Soumettre une déclaration d’assurance-emploi</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health" aria-expanded="false" href="#">Santé</a><ul id="gc-mnu-health" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante.html">Santé<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/aliments-et-nutrition.html">Aliments et nutrition</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/services/maladies.html">Maladies et affections</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/sujets/immunisation-et-vaccins.html">Vaccins et immunisation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/medicaments-et-produits-sante.html">Médicaments et produits de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-produits.html">Sécurité des produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-et-risque-pour-sante.html">Sécurité et risque pour la santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/vie-saine.html">Vie saine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/sante-autochtones.html">Santé des Autochtones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/systeme-et-services-sante.html">Système et services de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/science-recherche-et-donnees.html">Science, recherche et données</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-health-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/drogues-medicaments/cannabis/titulaires-licences-demandeurs-industrie/cultivateurs-transformateurs-vendeurs-autorises.html">Cultivateurs, transformateurs et vendeurs de cannabis qui détiennent une licence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canadiensensante.gc.ca/recall-alert-rappel-avis/index-fra.php">Rappels d\'aliments et de produits et alertes de sécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/guides-alimentaires-canada.html">Guide alimentaire du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes" aria-expanded="false" href="#">Impôts</a><ul id="gc-mnu-taxes" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/impot-sur-le-revenu.html">Impôt sur le revenu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/tps-tvh-entreprises.html">TPS/TVH</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie.html">Retenues sur la paie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/numero-dentreprise.html">Numéro d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/regimes-depargne-et-de-pension.html">Régimes d’épargne et de pension</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/prestations-pour-enfants-et-familles.html">Crédits d’impôt et prestations pour les particuliers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/taxes-daccise-droits-et-prelevements.html">Taxes d’accise, droits et prélèvements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/bienfaisance.html">Organismes de bienfaisance et dons</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-taxes-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-particuliers/dossier-particuliers.html">Mon dossier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/dossier-entreprise.html">Mon dossier d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/representer-client.html">Représenter un client</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/impotnet-tps-tvh.html">Transmettre une déclaration de TPS/TVH (IMPÔTNET)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/faire-paiement-a-agence-revenu-canada.html">Faire un paiement à l\'Agence du revenu du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/dates-versement-prestations.html">Trouver la date du prochain versement des prestations</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro" aria-expanded="false" href="#">Environnement et ressources naturelles</a><ul id="gc-mnu-enviro" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement.html">Environnement<span class="hidden-xs hidden-sm">et ressources naturelles</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/meteo.html">Météo, climat et catastrophes naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/energie.html">Énergie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/ressources-naturelles.html">Ressources naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://agriculture.canada.ca/fr/agriculture-environnement">Agriculture et environnement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/peches.html">Pêches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/faune-flore-especes.html">Faune, flore et espèces</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/pollution-gestion-dechets.html">Pollution et gestion des déchets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/conservation.html">Conservation et protection de l\'environnement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-enviro-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://meteo.gc.ca/canada_f.html">Prévisions météo locales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/energie/efficacite/transports/20997">Véhicules écoénergétiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/maisons">Efficacité énergétique des maisons</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/registre-public-especes-peril.html">Espèces en péril</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/meteo-saisonniere-dangereuse.html">Préparation aux conditions météorologiques dangereuses</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence" aria-expanded="false" href="#">Sécurité nationale et défense</a><ul id="gc-mnu-defence" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense.html"><span class="hidden-xs hidden-sm">Sécurité nationale et défense</span><span class="visible-xs-inline visible-sm-inline">Défense : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securitenationale.html">Sécurité nationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac.html">Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/achat-mise-a-niveau-equipement-defense.html">Achat et mise à niveau d’équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports.html">Sûreté des transports</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securiserfrontiere.html">Sécuriser la frontière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/cybersecurite.html">Cybersécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/emplois.html">Emplois en sécurité nationale et en défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/fonctionpublique/avantagesmilitaires.html">Services et avantages sociaux du personnel militaire</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-defence-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://forces.ca/fr/carrieres/">Emplois dans les Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/histoire-militaire/histoire-patrimoine/insignes-drapeaux/grades/insignes-grade-fonction.html">Grades militaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac/equipement.html">Équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/cadets-rangers-juniors-canadiens/cadets/rejoignez-nous.html">Joignez-vous aux cadets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://dgpaapp.forces.gc.ca/fr/politique-defense-canada/index.asp">Politique de défense du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture" aria-expanded="false" href="#">Culture, histoire et sport</a><ul id="gc-mnu-culture" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture.html">Culture<span class="hidden-xs hidden-sm">, histoire et sport</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/patrimoine-canadien/services/financement.html">Financement - Culture, histoire et sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/evenements-celebrations-commemorations.html">Événements, célébrations et commémorations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels.html">Lieux et attraits culturels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe.html">Identité canadienne et société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/sport.html">Sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/histoire-patrimoine.html">Histoire et patrimoine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/arts-media.html">Arts et média</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/programmes-culturels-jeunes.html">Programmes culturels pour les jeunes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/commerce-investissement-culturels.html">Commerce et investissement culturels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-culture-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.veterans.gc.ca/fra/remembrance/memorials/canadian-virtual-war-memorial">Visitez le Mémorial virtuel de guerre du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe/hymnes-symboles.html">Hymnes et symboles du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://crtc.gc.ca/fra/8045/d2018.htm">Trouvez une décision du CRTC</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://bibliotheque-archives.canada.ca/fra/collection/aide-recherche/genealogie-histoire-famille/Pages/genealogie-histoire-famille.aspx">Faites des recherches sur votre histoire familiale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.bac-lac.gc.ca/fra/recensements/Pages/recensements.aspx">Cherchez des documents de recensement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels/attraits-capitale-canada.html">Lieux et attraits dans la capitale du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing" aria-expanded="false" href="#">Services de police, justice et urgences</a><ul id="gc-mnu-policing" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police.html">Services de police<span class="hidden-xs hidden-sm">, justice et urgences</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice.html">Services de police</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/justice.html">Justice</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/urgences.html">Urgences</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/correctionnels.html">Services correctionnels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/liberationconditionnelle.html">Libération conditionnelle, suspension du casier, radiation et clémence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/victimes.html">Victimes d\'actes criminels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-policing-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/cfp-pcaf/online_en-ligne/index-fra.htm">Demander ou renouveler un permis d\'arme à feu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/fr/verification-casier-judiciaire">Obtenir une attestation de vérification de casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/commission-liberations-conditionnelles/services/suspension-du-casier/guide-et-formulaires-de-demande.html">Demander la suspension d’un casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.preparez-vous.gc.ca/cnt/hzd/drng-fr.aspx">Que faire durant une urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/securite-communautaire-police/conduite-facultes-affaiblies.html">Connaissez la loi sur la conduite avec facultés affaiblies</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/aider-resoudre-un-crime.html">Aidez à résoudre un crime</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans" aria-expanded="false" href="#">Transport et infrastructure</a><ul id="gc-mnu-trans" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport.html">Transport<span class="hidden-xs hidden-sm">et infrastructure</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation.html">Aviation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/maritime.html">Transport maritime</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier.html">Transport routier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/ferroviaire.html">Transport ferroviaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/marchandises-dangereuses.html">Marchandises dangereuses</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/infrastructures.html">Infrastructure</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-trans-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport/vehicules-zero-emission.html">Véhicules zéro émission</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation/securite-drones.html">Sécurité des drones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports/aerienne/articles-interdits-bord-avion.html">Articles interdits à bord d’un avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/securitemaritime/epe-immabatiments-menu-728.htm">Immatriculer votre bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier/securite-sieges-auto-enfants.html">Sécurité des sièges d\'auto pour enfants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/tmd/clair-tdesm-211.htm">Transporter des marchandises dangereuses - Règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/transports-canada/organisation/lois-reglements/reglements/sor-96-433.html">Règlement de l’aviation canadien</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld" aria-expanded="false" href="#">Canada et le monde</a><ul id="gc-mnu-canworld" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">Le Canada et le monde<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/offices-bureaux/index.aspx?lang=fra">Bureaux internationaux et contacts d’urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/study_work_travel-etude_travail_voyage/index.aspx?lang=fra">Étude, travail et voyage partout dans le monde</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/country-pays/index.aspx?lang=fra">Information par pays et territoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/stories-histoires/index.aspx?lang=fra">Histoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/international_relations-relations_internationales/index.aspx?lang=fra">Relations internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/index.aspx?lang=fra">Enjeux mondiaux et aide internationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/funding-financement/index.aspx?lang=fra">Financement d’initiatives internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-canworld-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/scholarships-bourses/non_can/index.aspx?lang=fra">Trouver une bourse d’études canadienne en tant qu’étudiant international</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://treaty-accord.gc.ca/index.aspx?Lang=fra">Traités internationaux signés par le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/index.aspx?lang=fra">Trouver des occasions d’étude ou de recherche au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/ambassades-consulats">Communiquer avec une ambassade ou un consulat</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/protocol-protocole/reps.aspx?lang=fra">Communiquer avec un représentant étranger au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/gac-amc/about-a_propos/services/authentication-authentification/step-etape-1.aspx?lang=fra">Authentifier un document</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money" aria-expanded="false" href="#">Argent et finances</a><ul id="gc-mnu-money" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance.html"><span class="hidden-xs hidden-sm">Argent et finances</span><span class="visible-xs-inline visible-sm-inline">Finances : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/gerer.html">Gérer votre argent</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/dettes.html">Dettes et emprunts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/epargne.html">Épargne et investissement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/financementetudes.html">Financement des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/fraude.html">Protection contre la fraude et les escroqueries</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/outils.html">Calculatrices et outils financiers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/programmes-litteratie-financiere.html">Programmes de littératie financière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/questions-consommation.html">Questions de consommation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/faillite.html">Insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/systeme/finances.html">Finances publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis/secteursindustriereglementationfederale/regleservicesfinanciers.html">Réglementation des services financiers et monétaires</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-money-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/app/scr/bsf-osb/ins/connexion.html?lang=fra">Trouver un dossier de faillite ou d’insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/education/aide-financiere-etudiants/pret-etudiants.html">Prêts étudiants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/hypotheques.html">Obtenir des renseignements sur les hypothèques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/dossier-pointage-credit.html">Dossiers et cotes de crédit</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://itools-ioutils.fcac-acfc.gc.ca/BP-PB/planificateur-budgetaire">Faire un budget</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/administrateurs-regimes-enregistres/fesp/plafonds-cd-reer-rpdb-celi-mgap.html">Taux et limites de contribution</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science" aria-expanded="false" href="#">Science et innovation</a><ul id="gc-mnu-science" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science.html">Science<span class="hidden-xs hidden-sm">et innovation</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/financementrecherche.html">Financement, subventions et prix pour la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/themesscientifiques.html">Thèmes scientifiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/donnees-ouvertes.html">Données ouvertes, statistiques et archives</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/instituts.html">Instituts et établissements de recherches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">R-D et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/repertoirescientifiques.html">Répertoire des scientifiques et des professionnels de la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/ressourcespedagogiques.html">Ressources pédagogiques scientifiques</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-science-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/certifications-evaluations-normes/codes-canada/publications-codes-canada">Code national du bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/horloge-web/">Heures officielles au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/recherche-developpement/produits-services/logiciels-applications/calculatrice-soleil/">Trouver les heures de levers et de couchers du soleil</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/soutien-linnovation-technologique/soutien-financier-linnovation-technologique-pari-cnrc">Bourses pour l’innovation technologique (PARI)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://science-libraries.canada.ca/fra/accueil/">Bibliothèque scientifique fédérale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://asc-csa.gc.ca/fra/astronomie/auroramax/hd-480.asp">Aurores boréales en direct</a></li></ul></li></ul></li>',
 };
 
-const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}}@layer default{:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:focus,:host .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}:host .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]):not(:hover){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw + 50%)}}}@layer focus{:host .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
+const gcdsTopicMenuCss = () => `@layer reset, default, mobile, xsMobile, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}}@layer default{:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);position:relative}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(                     --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness                   )}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(                 --gcds-topic-menu-topiclist-item-first-margin-block-end               );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(                   --gcds-topic-menu-mostrequested-item-first-margin-block-end                 )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(                 --gcds-topic-menu-mostrequested-item-last-margin-block-start               );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(           --gcds-topic-menu-menuitem-text-underline-offset         );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:focus,:host .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}:host .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]):not(:hover){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(           --gcds-topic-menu-mobile-themelist-margin-block-start         );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(                   --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end                 );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(                     --gcds-topic-menu-mobile-topiclist-menuitem-hover-text                   )}}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(                   --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border                 );color:var(                 --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text               );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(                 --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text               );text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(                     --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text                   );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(                         --gcds-topic-menu-mobile-mostrequested-hover-text                       );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(               --gcds-topic-menu-mobile-mostrequested-background             )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(               --gcds-topic-menu-mobile-item-expanded-margin-inline-start             )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(                   --gcds-topic-menu-mobile-item-expanded-padding-inline-start                 )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(               --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start             )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(             --gcds-topic-menu-mobile-mostrequested-background           )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:"\\25BA\\a0"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:"\\25BC\\a0"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw + 50%)}}}@layer focus{:host .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}`;
 
 /**
  * The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
@@ -11304,10 +17789,10 @@ class GcdsTopicMenu {
     }
     render() {
         const { home, lang } = this;
-        return (hAsync(Host, { key: 'f57f3ad6fed21288c1dee157293a55838ed3f621' }, hAsync("nav", { key: 'dca2b15071085e65059b7d885ca95187207c314a', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: 'aeec862fe3f79f7b6c6d6b6fc666081af9d13073', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), hAsync("button", { key: '6a241941b31045146497c495a6f3055f1fde01e4', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (hAsync(Fragment, null, I18N[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), hAsync("gcds-icon", { key: 'd58eaf62692b3cb1ea320432cd039abbd19161ed', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: '9ea57afd155a5085be2dc684ef9da7caf08fdd23', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (hAsync(Host, { key: '1936f54bc8f2ed6c9ec2e2def9f0f16321eded97' }, hAsync("nav", { key: 'a48ef744a47b8369bac52206ebf45b6daf770319', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: '3f0efb671e1d51faf88b973f32b1a057c9d5bf66', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), hAsync("button", { key: '709a8b58c6856780b6a51d5f0fb05e95e851de81', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (hAsync(Fragment, null, I18N[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), hAsync("gcds-icon", { key: '15d20053343aa55cb6559d37c6b5ffa5a45e06f6', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: 'ae9ef701537dbb33065a579de9cc81c6015b5a18', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
-    static get style() { return gcdsTopicMenuCss; }
+    static get style() { return gcdsTopicMenuCss(); }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-topic-menu",
@@ -11366,6 +17851,7 @@ registerComponents([
   GcdsSignature,
   GcdsSrOnly,
   GcdsStepper,
+  GcdsTable,
   GcdsText,
   GcdsTextarea,
   GcdsTopNav,
@@ -11421,7 +17907,7 @@ var BUILD = {
   vdomRender: true,
   vdomStyle: true,
   vdomText: true,
-  watchCallback: true,
+  propChangeCallback: true,
   taskQueue: true,
   hotModuleReplacement: false,
   isDebug: false,
@@ -11454,9 +17940,11 @@ var BUILD = {
   constructableCSS: true,
   devTools: false,
   shadowDelegatesFocus: true,
+  shadowSlotAssignmentManual: false,
   initializeNextTick: false,
   asyncLoading: true,
   asyncQueue: false,
+  // TODO: deprecated in favour of `setTagTransformer` and `transformTag`. Remove in 5.0
   transformTagName: false,
   attachStyles: true,
   // TODO(STENCIL-914): remove this option when `experimentalSlotFixes` is the default behavior
@@ -11469,13 +17957,255 @@ var NAMESPACE = (
 );
 
 /*
- Stencil Hydrate Runner v4.35.1 | MIT Licensed | https://stenciljs.com
+ Stencil Hydrate Runner v4.43.4 | MIT Licensed | https://stenciljs.com
  */
+var __create = Object.create;
 var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
+
+// node_modules/balanced-match/index.js
+var require_balanced_match = __commonJS({
+  "node_modules/balanced-match/index.js"(exports, module) {
+    "use strict";
+    module.exports = balanced;
+    function balanced(a, b, str) {
+      if (a instanceof RegExp) a = maybeMatch(a, str);
+      if (b instanceof RegExp) b = maybeMatch(b, str);
+      var r = range(a, b, str);
+      return r && {
+        start: r[0],
+        end: r[1],
+        pre: str.slice(0, r[0]),
+        body: str.slice(r[0] + a.length, r[1]),
+        post: str.slice(r[1] + b.length)
+      };
+    }
+    function maybeMatch(reg, str) {
+      var m = str.match(reg);
+      return m ? m[0] : null;
+    }
+    balanced.range = range;
+    function range(a, b, str) {
+      var begs, beg, left, right, result;
+      var ai = str.indexOf(a);
+      var bi = str.indexOf(b, ai + 1);
+      var i = ai;
+      if (ai >= 0 && bi > 0) {
+        if (a === b) {
+          return [ai, bi];
+        }
+        begs = [];
+        left = str.length;
+        while (i >= 0 && !result) {
+          if (i == ai) {
+            begs.push(i);
+            ai = str.indexOf(a, i + 1);
+          } else if (begs.length == 1) {
+            result = [begs.pop(), bi];
+          } else {
+            beg = begs.pop();
+            if (beg < left) {
+              left = beg;
+              right = bi;
+            }
+            bi = str.indexOf(b, i + 1);
+          }
+          i = ai < bi && ai >= 0 ? ai : bi;
+        }
+        if (begs.length) {
+          result = [left, right];
+        }
+      }
+      return result;
+    }
+  }
+});
+
+// node_modules/brace-expansion/index.js
+var require_brace_expansion = __commonJS({
+  "node_modules/brace-expansion/index.js"(exports, module) {
+    var balanced = require_balanced_match();
+    module.exports = expandTop;
+    var escSlash = "\0SLASH" + Math.random() + "\0";
+    var escOpen = "\0OPEN" + Math.random() + "\0";
+    var escClose = "\0CLOSE" + Math.random() + "\0";
+    var escComma = "\0COMMA" + Math.random() + "\0";
+    var escPeriod = "\0PERIOD" + Math.random() + "\0";
+    function numeric(str) {
+      return parseInt(str, 10) == str ? parseInt(str, 10) : str.charCodeAt(0);
+    }
+    function escapeBraces(str) {
+      return str.split("\\\\").join(escSlash).split("\\{").join(escOpen).split("\\}").join(escClose).split("\\,").join(escComma).split("\\.").join(escPeriod);
+    }
+    function unescapeBraces(str) {
+      return str.split(escSlash).join("\\").split(escOpen).join("{").split(escClose).join("}").split(escComma).join(",").split(escPeriod).join(".");
+    }
+    function parseCommaParts(str) {
+      if (!str)
+        return [""];
+      var parts = [];
+      var m = balanced("{", "}", str);
+      if (!m)
+        return str.split(",");
+      var pre = m.pre;
+      var body = m.body;
+      var post = m.post;
+      var p = pre.split(",");
+      p[p.length - 1] += "{" + body + "}";
+      var postParts = parseCommaParts(post);
+      if (post.length) {
+        p[p.length - 1] += postParts.shift();
+        p.push.apply(p, postParts);
+      }
+      parts.push.apply(parts, p);
+      return parts;
+    }
+    function expandTop(str) {
+      if (!str)
+        return [];
+      if (str.substr(0, 2) === "{}") {
+        str = "\\{\\}" + str.substr(2);
+      }
+      return expand2(escapeBraces(str), true).map(unescapeBraces);
+    }
+    function embrace(str) {
+      return "{" + str + "}";
+    }
+    function isPadded(el) {
+      return /^-?0\d/.test(el);
+    }
+    function lte(i, y) {
+      return i <= y;
+    }
+    function gte(i, y) {
+      return i >= y;
+    }
+    function expand2(str, isTop) {
+      var expansions = [];
+      var m = balanced("{", "}", str);
+      if (!m) return [str];
+      var pre = m.pre;
+      var post = m.post.length ? expand2(m.post, false) : [""];
+      if (/\$$/.test(m.pre)) {
+        for (var k = 0; k < post.length; k++) {
+          var expansion = pre + "{" + m.body + "}" + post[k];
+          expansions.push(expansion);
+        }
+      } else {
+        var isNumericSequence = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(m.body);
+        var isAlphaSequence = /^[a-zA-Z]\.\.[a-zA-Z](?:\.\.-?\d+)?$/.test(m.body);
+        var isSequence = isNumericSequence || isAlphaSequence;
+        var isOptions = m.body.indexOf(",") >= 0;
+        if (!isSequence && !isOptions) {
+          if (m.post.match(/,(?!,).*\}/)) {
+            str = m.pre + "{" + m.body + escClose + m.post;
+            return expand2(str);
+          }
+          return [str];
+        }
+        var n;
+        if (isSequence) {
+          n = m.body.split(/\.\./);
+        } else {
+          n = parseCommaParts(m.body);
+          if (n.length === 1) {
+            n = expand2(n[0], false).map(embrace);
+            if (n.length === 1) {
+              return post.map(function(p) {
+                return m.pre + n[0] + p;
+              });
+            }
+          }
+        }
+        var N;
+        if (isSequence) {
+          var x = numeric(n[0]);
+          var y = numeric(n[1]);
+          var width = Math.max(n[0].length, n[1].length);
+          var incr = n.length == 3 ? Math.abs(numeric(n[2])) : 1;
+          var test = lte;
+          var reverse = y < x;
+          if (reverse) {
+            incr *= -1;
+            test = gte;
+          }
+          var pad = n.some(isPadded);
+          N = [];
+          for (var i = x; test(i, y); i += incr) {
+            var c;
+            if (isAlphaSequence) {
+              c = String.fromCharCode(i);
+              if (c === "\\")
+                c = "";
+            } else {
+              c = String(i);
+              if (pad) {
+                var need = width - c.length;
+                if (need > 0) {
+                  var z = new Array(need + 1).join("0");
+                  if (i < 0)
+                    c = "-" + z + c.slice(1);
+                  else
+                    c = z + c;
+                }
+              }
+            }
+            N.push(c);
+          }
+        } else {
+          N = [];
+          for (var j = 0; j < n.length; j++) {
+            N.push.apply(N, expand2(n[j], false));
+          }
+        }
+        for (var j = 0; j < N.length; j++) {
+          for (var k = 0; k < post.length; k++) {
+            var expansion = pre + N[j] + post[k];
+            if (!isTop || isSequence || expansion)
+              expansions.push(expansion);
+          }
+        }
+      }
+      return expansions;
+    }
+  }
+});
 
 // src/runtime/runtime-constants.ts
 var CONTENT_REF_ID = "r";
@@ -11503,8 +18233,8 @@ var createAttributeProxy = (caseInsensitive) => new Proxy(new MockAttributeMap(c
 var MockAttributeMap = class {
   constructor(caseInsensitive = false) {
     this.caseInsensitive = caseInsensitive;
-    this.__items = [];
   }
+  __items = [];
   get length() {
     return this.__items.length;
   }
@@ -11593,6 +18323,9 @@ function sortAttributes(a, b) {
   return 0;
 }
 var MockAttr = class {
+  _name;
+  _value;
+  _namespaceURI;
   constructor(attrName, attrValue, namespaceURI = null) {
     this._name = attrName;
     this._value = String(attrValue);
@@ -11630,87 +18363,9 @@ var MockAttr = class {
   }
 };
 
-// src/mock-doc/class-list.ts
-var MockClassList = class {
-  constructor(elm) {
-    this.elm = elm;
-  }
-  add(...classNames) {
-    const clsNames = getItems(this.elm);
-    let updated = false;
-    classNames.forEach((className) => {
-      className = String(className);
-      validateClass(className);
-      if (clsNames.includes(className) === false) {
-        clsNames.push(className);
-        updated = true;
-      }
-    });
-    if (updated) {
-      this.elm.setAttributeNS(null, "class", clsNames.join(" "));
-    }
-  }
-  remove(...classNames) {
-    const clsNames = getItems(this.elm);
-    let updated = false;
-    classNames.forEach((className) => {
-      className = String(className);
-      validateClass(className);
-      const index = clsNames.indexOf(className);
-      if (index > -1) {
-        clsNames.splice(index, 1);
-        updated = true;
-      }
-    });
-    if (updated) {
-      this.elm.setAttributeNS(null, "class", clsNames.filter((c) => c.length > 0).join(" "));
-    }
-  }
-  contains(className) {
-    className = String(className);
-    return getItems(this.elm).includes(className);
-  }
-  toggle(className) {
-    className = String(className);
-    if (this.contains(className) === true) {
-      this.remove(className);
-    } else {
-      this.add(className);
-    }
-  }
-  get length() {
-    return getItems(this.elm).length;
-  }
-  item(index) {
-    return getItems(this.elm)[index];
-  }
-  toString() {
-    return getItems(this.elm).join(" ");
-  }
-};
-function validateClass(className) {
-  if (className === "") {
-    throw new Error("The token provided must not be empty.");
-  }
-  if (/\s/.test(className)) {
-    throw new Error(
-      `The token provided ('${className}') contains HTML space characters, which are not valid in tokens.`
-    );
-  }
-}
-function getItems(elm) {
-  const className = elm.getAttribute("class");
-  if (typeof className === "string" && className.length > 0) {
-    return className.trim().split(" ").filter((c) => c.length > 0);
-  }
-  return [];
-}
-
 // src/mock-doc/css-style-declaration.ts
 var MockCSSStyleDeclaration = class {
-  constructor() {
-    this._styles = /* @__PURE__ */ new Map();
-  }
+  _styles = /* @__PURE__ */ new Map();
   setProperty(prop, value) {
     prop = jsCaseToCssCase(prop);
     if (value == null || value === "") {
@@ -11796,6 +18451,8 @@ var MockCustomElementRegistry = class {
   constructor(win2) {
     this.win = win2;
   }
+  __registry;
+  __whenDefined;
   define(tagName, cstr, options) {
     if (tagName.toLowerCase() !== tagName) {
       throw new Error(
@@ -12030,15 +18687,17 @@ function dashToPascalCase(str) {
 
 // src/mock-doc/event.ts
 var MockEvent = class {
+  bubbles = false;
+  cancelBubble = false;
+  cancelable = false;
+  composed = false;
+  currentTarget = null;
+  defaultPrevented = false;
+  srcElement = null;
+  target = null;
+  timeStamp;
+  type;
   constructor(type, eventInitDict) {
-    this.bubbles = false;
-    this.cancelBubble = false;
-    this.cancelable = false;
-    this.composed = false;
-    this.currentTarget = null;
-    this.defaultPrevented = false;
-    this.srcElement = null;
-    this.target = null;
     if (typeof type !== "string") {
       throw new Error(`Event type required`);
     }
@@ -12080,69 +18739,71 @@ var MockEvent = class {
   }
 };
 var MockCustomEvent = class extends MockEvent {
+  detail = null;
   constructor(type, customEventInitDic) {
     super(type);
-    this.detail = null;
     if (customEventInitDic != null) {
       Object.assign(this, customEventInitDic);
     }
   }
 };
 var MockKeyboardEvent = class extends MockEvent {
+  code = "";
+  key = "";
+  altKey = false;
+  ctrlKey = false;
+  metaKey = false;
+  shiftKey = false;
+  location = 0;
+  repeat = false;
   constructor(type, keyboardEventInitDic) {
     super(type);
-    this.code = "";
-    this.key = "";
-    this.altKey = false;
-    this.ctrlKey = false;
-    this.metaKey = false;
-    this.shiftKey = false;
-    this.location = 0;
-    this.repeat = false;
     if (keyboardEventInitDic != null) {
       Object.assign(this, keyboardEventInitDic);
     }
   }
 };
 var MockMouseEvent = class extends MockEvent {
+  screenX = 0;
+  screenY = 0;
+  clientX = 0;
+  clientY = 0;
+  ctrlKey = false;
+  shiftKey = false;
+  altKey = false;
+  metaKey = false;
+  button = 0;
+  buttons = 0;
+  relatedTarget = null;
   constructor(type, mouseEventInitDic) {
     super(type);
-    this.screenX = 0;
-    this.screenY = 0;
-    this.clientX = 0;
-    this.clientY = 0;
-    this.ctrlKey = false;
-    this.shiftKey = false;
-    this.altKey = false;
-    this.metaKey = false;
-    this.button = 0;
-    this.buttons = 0;
-    this.relatedTarget = null;
     if (mouseEventInitDic != null) {
       Object.assign(this, mouseEventInitDic);
     }
   }
 };
 var MockUIEvent = class extends MockEvent {
+  detail = null;
+  view = null;
   constructor(type, uiEventInitDic) {
     super(type);
-    this.detail = null;
-    this.view = null;
     if (uiEventInitDic != null) {
       Object.assign(this, uiEventInitDic);
     }
   }
 };
 var MockFocusEvent = class extends MockUIEvent {
+  relatedTarget = null;
   constructor(type, focusEventInitDic) {
     super(type);
-    this.relatedTarget = null;
     if (focusEventInitDic != null) {
       Object.assign(this, focusEventInitDic);
     }
   }
 };
 var MockEventListener = class {
+  type;
+  handler;
   constructor(type, handler) {
     this.type = type;
     this.handler = handler;
@@ -12627,11 +19288,11 @@ var fromCodePoint = (
   }
 );
 function replaceCodePoint(codePoint) {
-  var _a2;
+  var _a3;
   if (codePoint >= 55296 && codePoint <= 57343 || codePoint > 1114111) {
     return 65533;
   }
-  return (_a2 = decodeMap.get(codePoint)) !== null && _a2 !== void 0 ? _a2 : codePoint;
+  return (_a3 = decodeMap.get(codePoint)) !== null && _a3 !== void 0 ? _a3 : codePoint;
 }
 
 // node_modules/entities/lib/esm/decode.js
@@ -12828,9 +19489,9 @@ var EntityDecoder = class {
    * @returns The number of characters that were consumed.
    */
   emitNumericEntity(lastCp, expectedLength) {
-    var _a2;
+    var _a3;
     if (this.consumed <= expectedLength) {
-      (_a2 = this.errors) === null || _a2 === void 0 ? void 0 : _a2.absenceOfDigitsInNumericCharacterReference(this.consumed);
+      (_a3 = this.errors) === null || _a3 === void 0 ? void 0 : _a3.absenceOfDigitsInNumericCharacterReference(this.consumed);
       return 0;
     }
     if (lastCp === CharCodes.SEMI) {
@@ -12890,11 +19551,11 @@ var EntityDecoder = class {
    * @returns The number of characters consumed.
    */
   emitNotTerminatedNamedEntity() {
-    var _a2;
+    var _a3;
     const { result, decodeTree } = this;
     const valueLength = (decodeTree[result] & BinTrieFlags.VALUE_LENGTH) >> 14;
     this.emitNamedEntityData(result, valueLength, this.consumed);
-    (_a2 = this.errors) === null || _a2 === void 0 ? void 0 : _a2.missingSemicolonAfterCharacterReference();
+    (_a3 = this.errors) === null || _a3 === void 0 ? void 0 : _a3.missingSemicolonAfterCharacterReference();
     return this.consumed;
   }
   /**
@@ -12922,7 +19583,7 @@ var EntityDecoder = class {
    * @returns The number of characters consumed.
    */
   end() {
-    var _a2;
+    var _a3;
     switch (this.state) {
       case EntityDecoderState.NamedEntity: {
         return this.result !== 0 && (this.decodeMode !== DecodingMode.Attribute || this.result === this.treeIndex) ? this.emitNotTerminatedNamedEntity() : 0;
@@ -12935,7 +19596,7 @@ var EntityDecoder = class {
         return this.emitNumericEntity(0, 3);
       }
       case EntityDecoderState.NumericStart: {
-        (_a2 = this.errors) === null || _a2 === void 0 ? void 0 : _a2.absenceOfDigitsInNumericCharacterReference(this.consumed);
+        (_a3 = this.errors) === null || _a3 === void 0 ? void 0 : _a3.absenceOfDigitsInNumericCharacterReference(this.consumed);
         return 0;
       }
       case EntityDecoderState.EntityStart: {
@@ -13416,8 +20077,8 @@ var TAG_NAME_TO_ID = /* @__PURE__ */ new Map([
   [TAG_NAMES.XMP, TAG_ID.XMP]
 ]);
 function getTagID(tagName) {
-  var _a2;
-  return (_a2 = TAG_NAME_TO_ID.get(tagName)) !== null && _a2 !== void 0 ? _a2 : TAG_ID.UNKNOWN;
+  var _a3;
+  return (_a3 = TAG_NAME_TO_ID.get(tagName)) !== null && _a3 !== void 0 ? _a3 : TAG_ID.UNKNOWN;
 }
 var $ = TAG_ID;
 var SPECIAL_ELEMENTS = {
@@ -13684,8 +20345,8 @@ var Tokenizer = class {
   }
   //Errors
   _err(code, cpOffset = 0) {
-    var _a2, _b;
-    (_b = (_a2 = this.handler).onParseError) === null || _b === void 0 ? void 0 : _b.call(_a2, this.preprocessor.getError(code, cpOffset));
+    var _a3, _b;
+    (_b = (_a3 = this.handler).onParseError) === null || _b === void 0 ? void 0 : _b.call(_a3, this.preprocessor.getError(code, cpOffset));
   }
   // NOTE: `offset` may never run across line boundaries.
   getCurrentLocation(offset) {
@@ -13827,13 +20488,13 @@ var Tokenizer = class {
     this.currentLocation = this.getCurrentLocation(0);
   }
   _leaveAttrName() {
-    var _a2;
+    var _a3;
     var _b;
     const token = this.currentToken;
     if (getTokenAttr(token, this.currentAttr.name) === null) {
       token.attrs.push(this.currentAttr);
       if (token.location && this.currentLocation) {
-        const attrLocations = (_a2 = (_b = token.location).attrs) !== null && _a2 !== void 0 ? _a2 : _b.attrs = /* @__PURE__ */ Object.create(null);
+        const attrLocations = (_a3 = (_b = token.location).attrs) !== null && _a3 !== void 0 ? _a3 : _b.attrs = /* @__PURE__ */ Object.create(null);
         attrLocations[this.currentAttr.name] = this.currentLocation;
         this._leaveAttrValue();
       }
@@ -17181,10 +23842,10 @@ var Parser = class {
   //Errors
   /** @internal */
   _err(token, code, beforeToken) {
-    var _a2;
+    var _a3;
     if (!this.onParseError)
       return;
-    const loc = (_a2 = token.location) !== null && _a2 !== void 0 ? _a2 : BASE_LOC;
+    const loc = (_a3 = token.location) !== null && _a3 !== void 0 ? _a3 : BASE_LOC;
     const err2 = {
       code,
       startLine: loc.startLine,
@@ -17199,18 +23860,18 @@ var Parser = class {
   //Stack events
   /** @internal */
   onItemPush(node, tid, isTop) {
-    var _a2, _b;
-    (_b = (_a2 = this.treeAdapter).onItemPush) === null || _b === void 0 ? void 0 : _b.call(_a2, node);
+    var _a3, _b;
+    (_b = (_a3 = this.treeAdapter).onItemPush) === null || _b === void 0 ? void 0 : _b.call(_a3, node);
     if (isTop && this.openElements.stackTop > 0)
       this._setContextModes(node, tid);
   }
   /** @internal */
   onItemPop(node, isTop) {
-    var _a2, _b;
+    var _a3, _b;
     if (this.options.sourceCodeLocationInfo) {
       this._setEndLocation(node, this.currentToken);
     }
-    (_b = (_a2 = this.treeAdapter).onItemPop) === null || _b === void 0 ? void 0 : _b.call(_a2, node, this.openElements.current);
+    (_b = (_a3 = this.treeAdapter).onItemPop) === null || _b === void 0 ? void 0 : _b.call(_a3, node, this.openElements.current);
     if (isTop) {
       let current;
       let currentTagId;
@@ -19284,9 +25945,9 @@ function eofInBody(p, token) {
   }
 }
 function endTagInText(p, token) {
-  var _a2;
+  var _a3;
   if (token.tagID === TAG_ID.SCRIPT) {
-    (_a2 = p.scriptHandler) === null || _a2 === void 0 ? void 0 : _a2.call(p, p.openElements.current);
+    (_a3 = p.scriptHandler) === null || _a3 === void 0 ? void 0 : _a3.call(p, p.openElements.current);
   }
   p.openElements.pop();
   p.insertionMode = p.originalInsertionMode;
@@ -19948,7 +26609,7 @@ function startTagAfterBody(p, token) {
   }
 }
 function endTagAfterBody(p, token) {
-  var _a2;
+  var _a3;
   if (token.tagID === TAG_ID.HTML) {
     if (!p.fragmentContext) {
       p.insertionMode = InsertionMode.AFTER_AFTER_BODY;
@@ -19956,7 +26617,7 @@ function endTagAfterBody(p, token) {
     if (p.options.sourceCodeLocationInfo && p.openElements.tagIDs[0] === TAG_ID.HTML) {
       p._setEndLocation(p.openElements.items[0], token);
       const bodyElement = p.openElements.items[1];
-      if (bodyElement && !((_a2 = p.treeAdapter.getNodeSourceCodeLocation(bodyElement)) === null || _a2 === void 0 ? void 0 : _a2.endTag)) {
+      if (bodyElement && !((_a3 = p.treeAdapter.getNodeSourceCodeLocation(bodyElement)) === null || _a3 === void 0 ? void 0 : _a3.endTag)) {
         p._setEndLocation(bodyElement, token);
       }
     }
@@ -20112,16 +26773,16 @@ var getCodePoint = (
   )
 );
 function getEscaper(regex, map2) {
-  return function escape(data) {
-    let match;
+  return function escape2(data) {
+    let match2;
     let lastIdx = 0;
     let result = "";
-    while (match = regex.exec(data)) {
-      if (lastIdx !== match.index) {
-        result += data.substring(lastIdx, match.index);
+    while (match2 = regex.exec(data)) {
+      if (lastIdx !== match2.index) {
+        result += data.substring(lastIdx, match2.index);
       }
-      result += map2.get(match[0].charCodeAt(0));
-      lastIdx = match.index + 1;
+      result += map2.get(match2[0].charCodeAt(0));
+      lastIdx = match2.index + 1;
     }
     return result + data.substring(lastIdx);
   };
@@ -20370,14 +27031,14 @@ var jquery_default = (
   *
   * Date: 2023-12-11T17:55Z
   */
-  function(global2, factory) {
+  (function(global2, factory) {
     "use strict";
     if (true) {
       return factory(global2, true);
     } else {
       factory(global2);
     }
-  }({
+  })({
     document: {
       createElement() {
         return {};
@@ -20773,8 +27434,8 @@ var jquery_default = (
       )
     };
     var rpseudo = new RegExp(pseudos);
-    var runescape = new RegExp("\\\\[\\da-fA-F]{1,6}" + whitespace + "?|\\\\([^\\r\\n\\f])", "g"), funescape = function(escape, nonHex) {
-      var high = "0x" + escape.slice(1) - 65536;
+    var runescape = new RegExp("\\\\[\\da-fA-F]{1,6}" + whitespace + "?|\\\\([^\\r\\n\\f])", "g"), funescape = function(escape2, nonHex) {
+      var high = "0x" + escape2.slice(1) - 65536;
       if (nonHex) {
         return nonHex;
       }
@@ -20789,7 +27450,7 @@ var jquery_default = (
     var rcomma = new RegExp("^" + whitespace + "*," + whitespace + "*");
     var tokenCache = createCache();
     function tokenize(selector, parseOnly) {
-      var matched, match, tokens, type, soFar, groups, preFilters, cached = tokenCache[selector + " "];
+      var matched, match2, tokens, type, soFar, groups, preFilters, cached = tokenCache[selector + " "];
       if (cached) {
         return parseOnly ? 0 : cached.slice(0);
       }
@@ -20797,29 +27458,29 @@ var jquery_default = (
       groups = [];
       preFilters = jQuery.expr.preFilter;
       while (soFar) {
-        if (!matched || (match = rcomma.exec(soFar))) {
-          if (match) {
-            soFar = soFar.slice(match[0].length) || soFar;
+        if (!matched || (match2 = rcomma.exec(soFar))) {
+          if (match2) {
+            soFar = soFar.slice(match2[0].length) || soFar;
           }
           groups.push(tokens = []);
         }
         matched = false;
-        if (match = rleadingCombinator.exec(soFar)) {
-          matched = match.shift();
+        if (match2 = rleadingCombinator.exec(soFar)) {
+          matched = match2.shift();
           tokens.push({
             value: matched,
             // Cast descendant combinators to space
-            type: match[0].replace(rtrimCSS, " ")
+            type: match2[0].replace(rtrimCSS, " ")
           });
           soFar = soFar.slice(matched.length);
         }
         for (type in filterMatchExpr) {
-          if ((match = jQuery.expr.match[type].exec(soFar)) && (!preFilters[type] || (match = preFilters[type](match)))) {
-            matched = match.shift();
+          if ((match2 = jQuery.expr.match[type].exec(soFar)) && (!preFilters[type] || (match2 = preFilters[type](match2)))) {
+            matched = match2.shift();
             tokens.push({
               value: matched,
               type,
-              matches: match
+              matches: match2
             });
             soFar = soFar.slice(matched.length);
           }
@@ -20837,41 +27498,41 @@ var jquery_default = (
       );
     }
     var preFilter = {
-      ATTR: function(match) {
-        match[1] = unescapeSelector(match[1]);
-        match[3] = unescapeSelector(match[3] || match[4] || match[5] || "");
-        if (match[2] === "~=") {
-          match[3] = " " + match[3] + " ";
+      ATTR: function(match2) {
+        match2[1] = unescapeSelector(match2[1]);
+        match2[3] = unescapeSelector(match2[3] || match2[4] || match2[5] || "");
+        if (match2[2] === "~=") {
+          match2[3] = " " + match2[3] + " ";
         }
-        return match.slice(0, 4);
+        return match2.slice(0, 4);
       },
-      CHILD: function(match) {
-        match[1] = match[1].toLowerCase();
-        if (match[1].slice(0, 3) === "nth") {
-          if (!match[3]) {
-            selectorError(match[0]);
+      CHILD: function(match2) {
+        match2[1] = match2[1].toLowerCase();
+        if (match2[1].slice(0, 3) === "nth") {
+          if (!match2[3]) {
+            selectorError(match2[0]);
           }
-          match[4] = +(match[4] ? match[5] + (match[6] || 1) : 2 * (match[3] === "even" || match[3] === "odd"));
-          match[5] = +(match[7] + match[8] || match[3] === "odd");
-        } else if (match[3]) {
-          selectorError(match[0]);
+          match2[4] = +(match2[4] ? match2[5] + (match2[6] || 1) : 2 * (match2[3] === "even" || match2[3] === "odd"));
+          match2[5] = +(match2[7] + match2[8] || match2[3] === "odd");
+        } else if (match2[3]) {
+          selectorError(match2[0]);
         }
-        return match;
+        return match2;
       },
-      PSEUDO: function(match) {
-        var excess, unquoted = !match[6] && match[2];
-        if (filterMatchExpr.CHILD.test(match[0])) {
+      PSEUDO: function(match2) {
+        var excess, unquoted = !match2[6] && match2[2];
+        if (filterMatchExpr.CHILD.test(match2[0])) {
           return null;
         }
-        if (match[3]) {
-          match[2] = match[4] || match[5] || "";
+        if (match2[3]) {
+          match2[2] = match2[4] || match2[5] || "";
         } else if (unquoted && rpseudo.test(unquoted) && // Get excess from tokenize (recursively)
         (excess = tokenize(unquoted, true)) && // advance to the next closing parenthesis
         (excess = unquoted.indexOf(")", unquoted.length - excess) - unquoted.length)) {
-          match[0] = match[0].slice(0, excess);
-          match[2] = unquoted.slice(0, excess);
+          match2[0] = match2[0].slice(0, excess);
+          match2[2] = unquoted.slice(0, excess);
         }
-        return match.slice(0, 3);
+        return match2.slice(0, 3);
       }
     };
     function toSelector(tokens) {
@@ -20954,7 +27615,7 @@ var jquery_default = (
       { dir: "parentNode", next: "legend" }
     );
     function find(selector, context, results, seed) {
-      var m, i2, elem, nid, match, groups, newSelector, newContext = context && context.ownerDocument, nodeType = context ? context.nodeType : 9;
+      var m, i2, elem, nid, match2, groups, newSelector, newContext = context && context.ownerDocument, nodeType = context ? context.nodeType : 9;
       results = results || [];
       if (typeof selector !== "string" || !selector || nodeType !== 1 && nodeType !== 9 && nodeType !== 11) {
         return results;
@@ -20963,8 +27624,8 @@ var jquery_default = (
         setDocument(context);
         context = context || document$1;
         if (documentIsHTML) {
-          if (nodeType !== 11 && (match = rquickExpr.exec(selector))) {
-            if (m = match[1]) {
+          if (nodeType !== 11 && (match2 = rquickExpr.exec(selector))) {
+            if (m = match2[1]) {
               if (nodeType === 9) {
                 if (elem = context.getElementById(m)) {
                   push.call(results, elem);
@@ -20976,10 +27637,10 @@ var jquery_default = (
                   return results;
                 }
               }
-            } else if (match[2]) {
+            } else if (match2[2]) {
               push.apply(results, context.getElementsByTagName(selector));
               return results;
-            } else if ((m = match[3]) && context.getElementsByClassName) {
+            } else if ((m = match2[3]) && context.getElementsByClassName) {
               push.apply(results, context.getElementsByClassName(m));
               return results;
             }
@@ -21475,11 +28136,11 @@ var jquery_default = (
       }
       return results;
     }
-    function condense(unmatched, map2, filter, context, xml) {
+    function condense(unmatched, map2, filter2, context, xml) {
       var elem, newUnmatched = [], i2 = 0, len = unmatched.length, mapped = map2 != null;
       for (; i2 < len; i2++) {
         if (elem = unmatched[i2]) {
-          if (!filter || filter(elem, context, xml)) {
+          if (!filter2 || filter2(elem, context, xml)) {
             newUnmatched.push(elem);
             if (mapped) {
               map2.push(i2);
@@ -21655,15 +28316,15 @@ var jquery_default = (
       };
       return bySet ? markFunction(superMatcher) : superMatcher;
     }
-    function compile(selector, match) {
+    function compile(selector, match2) {
       var i2, setMatchers = [], elementMatchers = [], cached = compilerCache[selector + " "];
       if (!cached) {
-        if (!match) {
-          match = tokenize(selector);
+        if (!match2) {
+          match2 = tokenize(selector);
         }
-        i2 = match.length;
+        i2 = match2.length;
         while (i2--) {
-          cached = matcherFromTokens(match[i2]);
+          cached = matcherFromTokens(match2[i2]);
           if (cached[jQuery.expando]) {
             setMatchers.push(cached);
           } else {
@@ -21679,10 +28340,10 @@ var jquery_default = (
       return cached;
     }
     function select(selector, context, results, seed) {
-      var i2, tokens, token, type, find2, compiled = typeof selector === "function" && selector, match = !seed && tokenize(selector = compiled.selector || selector);
+      var i2, tokens, token, type, find2, compiled = typeof selector === "function" && selector, match2 = !seed && tokenize(selector = compiled.selector || selector);
       results = results || [];
-      if (match.length === 1) {
-        tokens = match[0] = match[0].slice(0);
+      if (match2.length === 1) {
+        tokens = match2[0] = match2[0].slice(0);
         if (tokens.length > 2 && (token = tokens[0]).type === "ID" && context.nodeType === 9 && documentIsHTML && jQuery.expr.relative[tokens[1].type]) {
           context = (jQuery.expr.find.ID(
             unescapeSelector(token.matches[0]),
@@ -21717,7 +28378,7 @@ var jquery_default = (
           }
         }
       }
-      (compiled || compile(selector, match))(
+      (compiled || compile(selector, match2))(
         seed,
         context,
         !documentIsHTML,
@@ -21820,7 +28481,7 @@ function serializeNodeToHtml(elm, serializationOptions = {}) {
 }
 var shadowRootTag = "mock:shadow-root";
 function* streamToHtml(node, opts, output) {
-  var _a2, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+  var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
   const isShadowRoot = node.nodeType === 11 /* DOCUMENT_FRAGMENT_NODE */;
   if (node.nodeType === 1 /* ELEMENT_NODE */ || isShadowRoot) {
     const tagName = isShadowRoot ? shadowRootTag : getTagName(node);
@@ -21829,7 +28490,7 @@ function* streamToHtml(node, opts, output) {
     }
     const ignoreTag = opts.excludeTags != null && opts.excludeTags.includes(tagName);
     if (ignoreTag === false) {
-      const isWithinWhitespaceSensitiveNode = opts.newLines || ((_a2 = opts.indentSpaces) != null ? _a2 : 0) > 0 ? isWithinWhitespaceSensitive(node) : false;
+      const isWithinWhitespaceSensitiveNode = opts.newLines || ((_a3 = opts.indentSpaces) != null ? _a3 : 0) > 0 ? isWithinWhitespaceSensitive(node) : false;
       if (opts.newLines && !isWithinWhitespaceSensitiveNode) {
         yield "\n";
         output.currentLineWidth = 0;
@@ -21850,6 +28511,11 @@ function* streamToHtml(node, opts, output) {
         const mode = ` shadowrootmode="open"`;
         yield mode;
         output.currentLineWidth += mode.length;
+        if (node.delegatesFocus) {
+          const delegatesFocusAttr = " shadowrootdelegatesfocus";
+          yield delegatesFocusAttr;
+          output.currentLineWidth += delegatesFocusAttr.length;
+        }
       }
       const attrsLength = node.attributes.length;
       const attributes = opts.prettyHtml && attrsLength > 1 ? cloneAttributes(node.attributes, true) : node.attributes;
@@ -21857,6 +28523,9 @@ function* streamToHtml(node, opts, output) {
         const attr = attributes.item(i);
         const attrName = attr.name;
         if (attrName === "style") {
+          continue;
+        }
+        if (tag === "template" && isShadowRoot && (attrName === "shadowrootmode" || attrName === "shadowrootdelegatesfocus")) {
           continue;
         }
         let attrValue = attr.value;
@@ -21894,6 +28563,9 @@ function* streamToHtml(node, opts, output) {
           attrValue = attr.value = attrValue.split(" ").filter((t) => t !== "").sort().join(" ").trim();
         }
         if (attrValue === "") {
+          if (attrName === "shadowrootdelegatesfocus") {
+            continue;
+          }
           if (opts.removeBooleanAttributeQuotes && BOOLEAN_ATTR.has(attrName)) {
             continue;
           }
@@ -22198,6 +28870,7 @@ var BOOLEAN_ATTR = /* @__PURE__ */ new Set([
   "scoped",
   "seamless",
   "selected",
+  "shadowrootdelegatesfocus",
   "sortable",
   "truespeed",
   "typemustmatch",
@@ -22216,15 +28889,101 @@ var STRUCTURE_ELEMENTS = /* @__PURE__ */ new Set([
   "style"
 ]);
 
+// src/mock-doc/token-list.ts
+var MockTokenList = class {
+  constructor(elm, attr) {
+    this.elm = elm;
+    this.attr = attr;
+  }
+  add(...tokens) {
+    const items = getItems(this.elm, this.attr);
+    let updated = false;
+    tokens.forEach((token) => {
+      token = String(token);
+      validateToken(token);
+      if (items.includes(token) === false) {
+        items.push(token);
+        updated = true;
+      }
+    });
+    if (updated) {
+      this.elm.setAttributeNS(null, this.attr, items.join(" "));
+    }
+  }
+  remove(...tokens) {
+    const items = getItems(this.elm, this.attr);
+    let updated = false;
+    tokens.forEach((token) => {
+      token = String(token);
+      validateToken(token);
+      const index = items.indexOf(token);
+      if (index > -1) {
+        items.splice(index, 1);
+        updated = true;
+      }
+    });
+    if (updated) {
+      this.elm.setAttributeNS(null, this.attr, items.filter((c) => c.length > 0).join(" "));
+    }
+  }
+  contains(token) {
+    token = String(token);
+    return getItems(this.elm, this.attr).includes(token);
+  }
+  toggle(token) {
+    token = String(token);
+    if (this.contains(token) === true) {
+      this.remove(token);
+    } else {
+      this.add(token);
+    }
+  }
+  get length() {
+    return getItems(this.elm, this.attr).length;
+  }
+  item(index) {
+    return getItems(this.elm, this.attr)[index];
+  }
+  toString() {
+    return getItems(this.elm, this.attr).join(" ");
+  }
+};
+function validateToken(token) {
+  if (token === "") {
+    throw new Error("The token provided must not be empty.");
+  }
+  if (/\s/.test(token)) {
+    throw new Error(`The token provided ('${token}') contains HTML space characters, which are not valid in tokens.`);
+  }
+}
+function getItems(elm, attr) {
+  const value = elm.getAttribute(attr);
+  if (typeof value === "string" && value.length > 0) {
+    return value.trim().split(" ").filter((c) => c.length > 0);
+  }
+  return [];
+}
+
 // src/mock-doc/node.ts
 var MockNode2 = class {
+  _nodeValue;
+  nodeName;
+  nodeType;
+  ownerDocument;
+  parentNode;
+  _childNodes = [];
   constructor(ownerDocument, nodeType, nodeName, nodeValue) {
     this.ownerDocument = ownerDocument;
     this.nodeType = nodeType;
     this.nodeName = nodeName;
     this._nodeValue = nodeValue;
     this.parentNode = null;
-    this.childNodes = [];
+  }
+  get childNodes() {
+    return this._childNodes;
+  }
+  set childNodes(value) {
+    this._childNodes = value;
   }
   appendChild(newNode) {
     if (newNode.nodeType === 11 /* DOCUMENT_FRAGMENT_NODE */) {
@@ -22250,9 +29009,7 @@ var MockNode2 = class {
     const firstChild = this.firstChild;
     items.forEach((item) => {
       const isNode = typeof item === "object" && item !== null && "nodeType" in item;
-      if (firstChild) {
-        this.insertBefore(isNode ? item : this.ownerDocument.createTextNode(String(item)), firstChild);
-      }
+      this.insertBefore(isNode ? item : this.ownerDocument.createTextNode(String(item)), firstChild);
     });
   }
   cloneNode(deep) {
@@ -22301,8 +29058,8 @@ var MockNode2 = class {
     return null;
   }
   get nodeValue() {
-    var _a2;
-    return (_a2 = this._nodeValue) != null ? _a2 : "";
+    var _a3;
+    return (_a3 = this._nodeValue) != null ? _a3 : "";
   }
   set nodeValue(value) {
     this._nodeValue = value;
@@ -22362,8 +29119,8 @@ var MockNode2 = class {
     return null;
   }
   get textContent() {
-    var _a2;
-    return (_a2 = this._nodeValue) != null ? _a2 : "";
+    var _a3;
+    return (_a3 = this._nodeValue) != null ? _a3 : "";
   }
   set textContent(value) {
     this._nodeValue = String(value);
@@ -22378,14 +29135,17 @@ var MockNode2 = class {
     return dispatchEvent(this, ev);
   }
 };
-MockNode2.ELEMENT_NODE = 1;
-MockNode2.TEXT_NODE = 3;
-MockNode2.PROCESSING_INSTRUCTION_NODE = 7;
-MockNode2.COMMENT_NODE = 8;
-MockNode2.DOCUMENT_NODE = 9;
-MockNode2.DOCUMENT_TYPE_NODE = 10;
-MockNode2.DOCUMENT_FRAGMENT_NODE = 11;
+__publicField(MockNode2, "ELEMENT_NODE", 1);
+__publicField(MockNode2, "TEXT_NODE", 3);
+__publicField(MockNode2, "PROCESSING_INSTRUCTION_NODE", 7);
+__publicField(MockNode2, "COMMENT_NODE", 8);
+__publicField(MockNode2, "DOCUMENT_NODE", 9);
+__publicField(MockNode2, "DOCUMENT_TYPE_NODE", 10);
+__publicField(MockNode2, "DOCUMENT_FRAGMENT_NODE", 11);
 var MockNodeList = class {
+  childNodes;
+  length;
+  ownerDocument;
   constructor(ownerDocument, childNodes, length) {
     this.ownerDocument = ownerDocument;
     this.childNodes = childNodes;
@@ -22393,6 +29153,10 @@ var MockNodeList = class {
   }
 };
 var MockElement = class extends MockNode2 {
+  __namespaceURI;
+  __attributeMap;
+  __shadowRoot;
+  __style;
   attachInternals() {
     return new Proxy({}, {
       get: function(_target, prop, _receiver) {
@@ -22415,15 +29179,25 @@ var MockElement = class extends MockNode2 {
     addEventListener(this, type, handler);
   }
   attachShadow(_opts) {
+    var _a3;
     const shadowRoot = this.ownerDocument.createDocumentFragment();
+    shadowRoot.delegatesFocus = (_a3 = _opts.delegatesFocus) != null ? _a3 : false;
     this.shadowRoot = shadowRoot;
     return shadowRoot;
   }
   blur() {
-    dispatchEvent(
-      this,
-      new MockFocusEvent("blur", { relatedTarget: null, bubbles: true, cancelable: true, composed: true })
-    );
+    if (isCurrentlyDispatching(this, "blur")) {
+      return;
+    }
+    markAsDispatching(this, "blur");
+    try {
+      dispatchEvent(
+        this,
+        new MockFocusEvent("blur", { relatedTarget: null, bubbles: true, cancelable: true, composed: true })
+      );
+    } finally {
+      unmarkAsDispatching(this, "blur");
+    }
   }
   get localName() {
     if (!this.nodeName) {
@@ -22473,7 +29247,13 @@ var MockElement = class extends MockNode2 {
     this.setAttributeNS(null, "class", value);
   }
   get classList() {
-    return new MockClassList(this);
+    return new MockTokenList(this, "class");
+  }
+  get part() {
+    return new MockTokenList(this, "part");
+  }
+  set part(value) {
+    this.setAttributeNS(null, "part", String(value));
   }
   click() {
     dispatchEvent(this, new MockEvent("click", { bubbles: true, cancelable: true, composed: true }));
@@ -22506,7 +29286,7 @@ var MockElement = class extends MockNode2 {
   get firstElementChild() {
     return this.children[0] || null;
   }
-  focus(_options) {
+  focus(_options2) {
     dispatchEvent(
       this,
       new MockFocusEvent("focus", { relatedTarget: null, bubbles: true, cancelable: true, composed: true })
@@ -22577,8 +29357,8 @@ var MockElement = class extends MockNode2 {
     });
   }
   set innerHTML(html) {
-    var _a2;
-    if (NON_ESCAPABLE_CONTENT.has((_a2 = this.nodeName) != null ? _a2 : "") === true) {
+    var _a3;
+    if (NON_ESCAPABLE_CONTENT.has((_a3 = this.nodeName) != null ? _a3 : "") === true) {
       setTextContent(this, html);
     } else {
       for (let i = this.childNodes.length - 1; i >= 0; i--) {
@@ -22821,8 +29601,8 @@ var MockElement = class extends MockNode2 {
     this.setAttributeNS(null, "tabindex", value);
   }
   get tagName() {
-    var _a2;
-    return (_a2 = this.nodeName) != null ? _a2 : "";
+    var _a3;
+    return (_a3 = this.nodeName) != null ? _a3 : "";
   }
   set tagName(value) {
     this.nodeName = value;
@@ -23044,11 +29824,11 @@ function getElementsByClassName(elm, classNames, foundElms) {
   }
 }
 function getElementsByTagName(elm, tagName, foundElms) {
-  var _a2;
+  var _a3;
   const children = elm.children;
   for (let i = 0, ii = children.length; i < ii; i++) {
     const childElm = children[i];
-    if (tagName === "*" || ((_a2 = childElm.nodeName) != null ? _a2 : "").toLowerCase() === tagName) {
+    if (tagName === "*" || ((_a3 = childElm.nodeName) != null ? _a3 : "").toLowerCase() === tagName) {
       foundElms.push(childElm);
     }
     getElementsByTagName(childElm, tagName, foundElms);
@@ -23080,13 +29860,13 @@ function insertBefore(parentNode, newNode, referenceNode) {
   return newNode;
 }
 var MockHTMLElement = class extends MockElement {
+  __namespaceURI = "http://www.w3.org/1999/xhtml";
   constructor(ownerDocument, nodeName) {
     super(ownerDocument, typeof nodeName === "string" ? nodeName.toUpperCase() : null);
-    this.__namespaceURI = "http://www.w3.org/1999/xhtml";
   }
   get tagName() {
-    var _a2;
-    return (_a2 = this.nodeName) != null ? _a2 : "";
+    var _a3;
+    return (_a3 = this.nodeName) != null ? _a3 : "";
   }
   set tagName(value) {
     this.nodeName = value;
@@ -23165,6 +29945,28 @@ function setTextContent(elm, text) {
   const textNode = new MockTextNode(elm.ownerDocument, text);
   elm.appendChild(textNode);
 }
+var currentlyDispatching = /* @__PURE__ */ new WeakMap();
+function isCurrentlyDispatching(target, eventType) {
+  const dispatchingEvents = currentlyDispatching.get(target);
+  return dispatchingEvents != null && dispatchingEvents.has(eventType);
+}
+function markAsDispatching(target, eventType) {
+  let dispatchingEvents = currentlyDispatching.get(target);
+  if (dispatchingEvents == null) {
+    dispatchingEvents = /* @__PURE__ */ new Set();
+    currentlyDispatching.set(target, dispatchingEvents);
+  }
+  dispatchingEvents.add(eventType);
+}
+function unmarkAsDispatching(target, eventType) {
+  const dispatchingEvents = currentlyDispatching.get(target);
+  if (dispatchingEvents != null) {
+    dispatchingEvents.delete(eventType);
+    if (dispatchingEvents.size === 0) {
+      currentlyDispatching.delete(target);
+    }
+  }
+}
 
 // src/mock-doc/comment-node.ts
 var MockComment = class _MockComment extends MockNode2 {
@@ -23226,15 +30028,16 @@ var MockDocumentTypeNode = class extends MockHTMLElement {
 var MockCSSRule = class {
   constructor(parentStyleSheet) {
     this.parentStyleSheet = parentStyleSheet;
-    this.cssText = "";
-    this.type = 0;
   }
+  cssText = "";
+  type = 0;
 };
 var MockCSSStyleSheet = class {
+  ownerNode;
+  type = "text/css";
+  parentStyleSheet = null;
+  cssRules = [];
   constructor(ownerNode) {
-    this.type = "text/css";
-    this.parentStyleSheet = null;
-    this.cssRules = [];
     this.ownerNode = ownerNode;
   }
   get rules() {
@@ -23329,6 +30132,8 @@ function createElement(ownerDocument, tagName) {
       return new MockImageElement(ownerDocument);
     case "input":
       return new MockInputElement(ownerDocument);
+    case "label":
+      return new MockLabelElement(ownerDocument);
     case "link":
       return new MockLinkElement(ownerDocument);
     case "meta":
@@ -23407,6 +30212,9 @@ var MockButtonElement = class extends MockHTMLElement {
   constructor(ownerDocument) {
     super(ownerDocument, "button");
   }
+  get labels() {
+    return getLabelsForElement(this);
+  }
 };
 patchPropAttributes(
   MockButtonElement.prototype,
@@ -23453,6 +30261,9 @@ var MockInputElement = class extends MockHTMLElement {
       return this.ownerDocument.getElementById(listId);
     }
     return null;
+  }
+  get labels() {
+    return getLabelsForElement(this);
   }
 };
 patchPropAttributes(
@@ -23502,6 +30313,26 @@ var MockFormElement = class extends MockHTMLElement {
 patchPropAttributes(MockFormElement.prototype, {
   name: String
 });
+var MockLabelElement = class extends MockHTMLElement {
+  constructor(ownerDocument) {
+    super(ownerDocument, "label");
+  }
+  get htmlFor() {
+    return this.getAttributeNS(null, "for") || "";
+  }
+  set htmlFor(value) {
+    this.setAttributeNS(null, "for", value);
+  }
+  get control() {
+    var _a3, _b;
+    const forAttr = this.htmlFor;
+    if (forAttr) {
+      return (_b = (_a3 = this.ownerDocument) == null ? void 0 : _a3.getElementById(forAttr)) != null ? _b : null;
+    }
+    const labelableSelector = 'button, input:not([type="hidden"]), meter, output, progress, select, textarea';
+    return this.querySelector(labelableSelector);
+  }
+};
 var MockLinkElement = class extends MockHTMLElement {
   constructor(ownerDocument) {
     super(ownerDocument, "link");
@@ -23520,6 +30351,7 @@ patchPropAttributes(MockLinkElement.prototype, {
   type: String
 });
 var MockMetaElement = class extends MockHTMLElement {
+  content;
   constructor(ownerDocument) {
     super(ownerDocument, "meta");
   }
@@ -23544,35 +30376,33 @@ patchPropAttributes(MockScriptElement.prototype, {
   type: String
 });
 var MockDOMMatrix = class _MockDOMMatrix {
-  constructor() {
-    this.a = 1;
-    this.b = 0;
-    this.c = 0;
-    this.d = 1;
-    this.e = 0;
-    this.f = 0;
-    this.m11 = 1;
-    this.m12 = 0;
-    this.m13 = 0;
-    this.m14 = 0;
-    this.m21 = 0;
-    this.m22 = 1;
-    this.m23 = 0;
-    this.m24 = 0;
-    this.m31 = 0;
-    this.m32 = 0;
-    this.m33 = 1;
-    this.m34 = 0;
-    this.m41 = 0;
-    this.m42 = 0;
-    this.m43 = 0;
-    this.m44 = 1;
-    this.is2D = true;
-    this.isIdentity = true;
-  }
   static fromMatrix() {
     return new _MockDOMMatrix();
   }
+  a = 1;
+  b = 0;
+  c = 0;
+  d = 1;
+  e = 0;
+  f = 0;
+  m11 = 1;
+  m12 = 0;
+  m13 = 0;
+  m14 = 0;
+  m21 = 0;
+  m22 = 1;
+  m23 = 0;
+  m24 = 0;
+  m31 = 0;
+  m32 = 0;
+  m33 = 1;
+  m34 = 0;
+  m41 = 0;
+  m42 = 0;
+  m43 = 0;
+  m44 = 1;
+  is2D = true;
+  isIdentity = true;
   inverse() {
     return new _MockDOMMatrix();
   }
@@ -23618,12 +30448,10 @@ var MockDOMMatrix = class _MockDOMMatrix {
   }
 };
 var MockDOMPoint = class {
-  constructor() {
-    this.w = 1;
-    this.x = 0;
-    this.y = 0;
-    this.z = 0;
-  }
+  w = 1;
+  x = 0;
+  y = 0;
+  z = 0;
   toJSON() {
   }
   matrixTransform() {
@@ -23631,14 +30459,13 @@ var MockDOMPoint = class {
   }
 };
 var MockSVGRect = class {
-  constructor() {
-    this.height = 10;
-    this.width = 10;
-    this.x = 0;
-    this.y = 0;
-  }
+  height = 10;
+  width = 10;
+  x = 0;
+  y = 0;
 };
 var MockStyleElement = class extends MockHTMLElement {
+  sheet;
   constructor(ownerDocument) {
     super(ownerDocument, "style");
     this.sheet = new MockCSSStyleSheet(this);
@@ -23663,10 +30490,7 @@ var MockStyleElement = class extends MockHTMLElement {
   }
 };
 var MockSVGElement = class extends MockElement {
-  constructor() {
-    super(...arguments);
-    this.__namespaceURI = "http://www.w3.org/2000/svg";
-  }
+  __namespaceURI = "http://www.w3.org/2000/svg";
   // SVGElement properties and methods
   get ownerSVGElement() {
     return null;
@@ -23691,7 +30515,7 @@ var MockSVGElement = class extends MockElement {
   }
 };
 var MockSVGGraphicsElement = class extends MockSVGElement {
-  getBBox(_options) {
+  getBBox(_options2) {
     return new MockSVGRect();
   }
   getCTM() {
@@ -23723,6 +30547,7 @@ var MockBaseElement = class extends MockHTMLElement {
   }
 };
 var MockTemplateElement = class _MockTemplateElement extends MockHTMLElement {
+  content;
   constructor(ownerDocument) {
     super(ownerDocument, "template");
     this.content = new MockDocumentFragment(ownerDocument);
@@ -23829,6 +30654,8 @@ patchPropAttributes(MockSlotElement.prototype, {
   name: String
 });
 var CanvasRenderingContext = class {
+  context;
+  contextAttributes;
   constructor(context, contextAttributes) {
     this.context = context;
     this.contextAttributes = contextAttributes;
@@ -23916,10 +30743,34 @@ function fullUrl(elm, attrName) {
   }
   return val.replace(/\'|\"/g, "").trim();
 }
-function patchPropAttributes(prototype, attrs, defaults = {}) {
+function getLabelsForElement(elm) {
+  const labels = [];
+  const id = elm.id;
+  const doc = elm.ownerDocument;
+  if (doc) {
+    if (id) {
+      const allLabels = doc.getElementsByTagName("label");
+      for (let i = 0; i < allLabels.length; i++) {
+        const label = allLabels[i];
+        if (label.htmlFor === id) {
+          labels.push(label);
+        }
+      }
+    }
+    let parent = elm.parentNode;
+    while (parent) {
+      if (parent.nodeName === "LABEL" && !labels.includes(parent)) {
+        labels.push(parent);
+      }
+      parent = parent.parentNode;
+    }
+  }
+  return labels;
+}
+function patchPropAttributes(prototype, attrs, defaults2 = {}) {
   Object.keys(attrs).forEach((propName) => {
     const attr = attrs[propName];
-    const defaultValue = defaults[propName];
+    const defaultValue = defaults2[propName];
     if (attr === Boolean) {
       Object.defineProperty(prototype, propName, {
         get() {
@@ -24017,8 +30868,8 @@ function createConsole() {
 
 // src/mock-doc/headers.ts
 var MockHeaders = class {
+  _values = [];
   constructor(init) {
-    this._values = [];
     if (typeof init === "object") {
       if (typeof init[Symbol.iterator] === "function") {
         const kvs = [];
@@ -24156,18 +31007,19 @@ var MockDOMParser = class {
 
 // src/mock-doc/request-response.ts
 var MockRequest = class _MockRequest {
+  _method = "GET";
+  _url = "/";
+  bodyUsed = false;
+  cache = "default";
+  credentials = "same-origin";
+  headers;
+  integrity = "";
+  keepalive = false;
+  mode = "cors";
+  redirect = "follow";
+  referrer = "about:client";
+  referrerPolicy = "";
   constructor(input, init = {}) {
-    this._method = "GET";
-    this._url = "/";
-    this.bodyUsed = false;
-    this.cache = "default";
-    this.credentials = "same-origin";
-    this.integrity = "";
-    this.keepalive = false;
-    this.mode = "cors";
-    this.redirect = "follow";
-    this.referrer = "about:client";
-    this.referrerPolicy = "";
     if (typeof input === "string") {
       this.url = input;
     } else if (input) {
@@ -24207,12 +31059,14 @@ var MockRequest = class _MockRequest {
   }
 };
 var MockResponse = class _MockResponse {
+  _body;
+  headers;
+  ok = true;
+  status = 200;
+  statusText = "";
+  type = "default";
+  url = "";
   constructor(body, init = {}) {
-    this.ok = true;
-    this.status = 200;
-    this.statusText = "";
-    this.type = "default";
-    this.url = "";
     this._body = body;
     if (init) {
       Object.assign(this, init);
@@ -24353,9 +31207,7 @@ var GLOBAL_CONSTRUCTORS = [
 
 // src/mock-doc/history.ts
 var MockHistory = class {
-  constructor() {
-    this.items = [];
-  }
+  items = [];
   get length() {
     return this.items.length;
   }
@@ -24390,20 +31242,18 @@ var MockIntersectionObserver = class {
 
 // src/mock-doc/location.ts
 var MockLocation = class {
-  constructor() {
-    this.ancestorOrigins = null;
-    this.protocol = "";
-    this.host = "";
-    this.hostname = "";
-    this.port = "";
-    this.pathname = "";
-    this.search = "";
-    this.hash = "";
-    this.username = "";
-    this.password = "";
-    this.origin = "";
-    this._href = "";
-  }
+  ancestorOrigins = null;
+  protocol = "";
+  host = "";
+  hostname = "";
+  port = "";
+  pathname = "";
+  search = "";
+  hash = "";
+  username = "";
+  password = "";
+  origin = "";
+  _href = "";
   get href() {
     return this._href;
   }
@@ -24434,17 +31284,17 @@ var MockLocation = class {
 
 // src/mock-doc/navigator.ts
 var MockNavigator = class {
-  constructor() {
-    this.appCodeName = "MockNavigator";
-    this.appName = "MockNavigator";
-    this.appVersion = "MockNavigator";
-    this.platform = "MockNavigator";
-    this.userAgent = "MockNavigator";
-  }
+  appCodeName = "MockNavigator";
+  appName = "MockNavigator";
+  appVersion = "MockNavigator";
+  platform = "MockNavigator";
+  userAgent = "MockNavigator";
 };
 
 // src/mock-doc/performance.ts
 var MockPerformance = class {
+  timeOrigin;
+  eventCounts;
   constructor() {
     this.timeOrigin = Date.now();
     this.eventCounts = /* @__PURE__ */ new Map();
@@ -24572,9 +31422,7 @@ var MockShadowRoot = class extends MockDocumentFragment {
 
 // src/mock-doc/storage.ts
 var MockStorage = class {
-  constructor() {
-    this.items = /* @__PURE__ */ new Map();
-  }
+  items = /* @__PURE__ */ new Map();
   key(_value) {
   }
   getItem(key) {
@@ -24606,6 +31454,43 @@ var nativeSetTimeout = globalThis.setTimeout;
 var nativeURL = globalThis.URL;
 var nativeWindow = globalThis.window;
 var MockWindow = class {
+  __timeouts;
+  __history;
+  __elementCstr;
+  __charDataCstr;
+  __docTypeCstr;
+  __docCstr;
+  __docFragCstr;
+  __domTokenListCstr;
+  __nodeCstr;
+  __nodeListCstr;
+  __localStorage;
+  __sessionStorage;
+  __location;
+  __navigator;
+  __clearInterval;
+  __clearTimeout;
+  __setInterval;
+  __setTimeout;
+  __maxTimeout;
+  __allowInterval;
+  URL;
+  console;
+  customElements;
+  document;
+  performance;
+  devicePixelRatio;
+  innerHeight;
+  innerWidth;
+  pageXOffset;
+  pageYOffset;
+  screen;
+  screenLeft;
+  screenTop;
+  screenX;
+  screenY;
+  scrollX;
+  scrollY;
   constructor(html = null) {
     if (html !== false) {
       this.document = new MockDocument(html, this);
@@ -24730,16 +31615,7 @@ var MockWindow = class {
     return dispatchEvent(this, ev);
   }
   get Element() {
-    if (this.__elementCstr == null) {
-      const ownerDocument = this.document;
-      this.__elementCstr = class extends MockElement {
-        constructor() {
-          super(ownerDocument, "");
-          throw new Error("Illegal constructor: cannot construct Element");
-        }
-      };
-    }
-    return this.__elementCstr;
+    return MockElement;
   }
   fetch(input, init) {
     if (typeof fetch === "function") {
@@ -24787,27 +31663,10 @@ var MockWindow = class {
     return JSON;
   }
   get HTMLElement() {
-    if (this.__htmlElementCstr == null) {
-      const ownerDocument = this.document;
-      this.__htmlElementCstr = class extends MockHTMLElement {
-        constructor() {
-          super(ownerDocument, "");
-          const observedAttributes = this.constructor.observedAttributes;
-          if (Array.isArray(observedAttributes) && typeof this.attributeChangedCallback === "function") {
-            observedAttributes.forEach((attrName) => {
-              const attrValue = this.getAttribute(attrName);
-              if (attrValue != null) {
-                this.attributeChangedCallback(attrName, null, attrValue);
-              }
-            });
-          }
-        }
-      };
-    }
-    return this.__htmlElementCstr;
+    return MockHTMLElement;
   }
-  set HTMLElement(htmlElementCstr) {
-    this.__htmlElementCstr = htmlElementCstr;
+  get SVGElement() {
+    return MockSVGElement;
   }
   get IntersectionObserver() {
     return MockIntersectionObserver;
@@ -24858,16 +31717,7 @@ var MockWindow = class {
     };
   }
   get Node() {
-    if (this.__nodeCstr == null) {
-      const ownerDocument = this.document;
-      this.__nodeCstr = class extends MockNode2 {
-        constructor() {
-          super(ownerDocument, 0, "test", "");
-          throw new Error("Illegal constructor: cannot construct Node");
-        }
-      };
-    }
-    return this.__nodeCstr;
+    return MockNode2;
   }
   get NodeList() {
     if (this.__nodeListCstr == null) {
@@ -24940,7 +31790,7 @@ var MockWindow = class {
     if (this.__timeouts == null) {
       this.__timeouts = /* @__PURE__ */ new Set();
     }
-    ms = Math.min(ms, this.__maxTimeout);
+    ms = Math.min(ms != null ? ms : 0, this.__maxTimeout);
     if (this.__allowInterval) {
       const intervalId = this.__setInterval(() => {
         if (this.__timeouts) {
@@ -24988,7 +31838,7 @@ var MockWindow = class {
     if (this.__timeouts == null) {
       this.__timeouts = /* @__PURE__ */ new Set();
     }
-    ms = Math.min(ms, this.__maxTimeout);
+    ms = Math.min(ms != null ? ms : 0, this.__maxTimeout);
     const timeoutId = this.__setTimeout.call(
       nativeWindow || this,
       () => {
@@ -25295,6 +32145,9 @@ function resetWindowDimensions(win2) {
 
 // src/mock-doc/document.ts
 var MockDocument = class _MockDocument extends MockHTMLElement {
+  defaultView;
+  cookie;
+  referrer;
   constructor(html = null, win2 = null) {
     super(null, null);
     this.nodeName = "#document" /* DOCUMENT_NODE */;
@@ -25334,7 +32187,7 @@ var MockDocument = class _MockDocument extends MockHTMLElement {
   }
   set location(val) {
     if (this.defaultView != null) {
-      this.defaultView.location = val;
+      this.defaultView.location.href = val;
     }
   }
   get baseURI() {
@@ -25531,6 +32384,7 @@ var DOC_KEY_KEEPERS = /* @__PURE__ */ new Set([
   "ownerDocument",
   "parentNode",
   "childNodes",
+  "_childNodes",
   "_shadowRoot"
 ]);
 function getElementById(elm, id) {
@@ -25620,6 +32474,9 @@ var H = win.HTMLElement || class {
 var supportsShadow = BUILD.shadowDom;
 var supportsConstructableStylesheets = BUILD.constructableCSS ? /* @__PURE__ */ (() => {
   try {
+    if (!win.document.adoptedStyleSheets) {
+      return false;
+    }
     new CSSStyleSheet();
     return typeof new CSSStyleSheet().replaceSync === "function";
   } catch (e) {
@@ -25630,8 +32487,34 @@ var supportsConstructableStylesheets = BUILD.constructableCSS ? /* @__PURE__ */ 
 // src/utils/helpers.ts
 var isString = (v) => typeof v === "string";
 
+// src/utils/shadow-css.ts
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ *
+ * This file is a port of shadowCSS from `webcomponents.js` to TypeScript.
+ * https://github.com/webcomponents/webcomponentsjs/blob/4efecd7e0e/src/ShadowCSS/ShadowCSS.js
+ * https://github.com/angular/angular/blob/master/packages/compiler/src/shadow_css.ts
+ */
+var _polyfillHost = "-shadowcsshost";
+var _polyfillSlotted = "-shadowcssslotted";
+var _polyfillHostContext = "-shadowcsscontext";
+var _parenSuffix = ")(?:\\(((?:\\([^)(]*\\)|[^)(]*)+?)\\))?([^,{]*)";
+var _cssColonHostRe = new RegExp("(" + _polyfillHost + _parenSuffix, "gim");
+var _cssColonHostContextRe = new RegExp("(" + _polyfillHostContext + _parenSuffix, "gim");
+var _cssColonSlottedRe = new RegExp("(" + _polyfillSlotted + _parenSuffix, "gim");
+var _polyfillHostNoCombinator = _polyfillHost + "-no-combinator";
+
+// src/runtime/mode.ts
+var setMode = (handler) => modeResolutionChain.push(handler);
+
 // src/utils/local-value.ts
 var LocalValue = class _LocalValue {
+  type;
+  value;
   constructor(type, value) {
     if (type === "undefined" /* Undefined */ || type === "null" /* Null */) {
       this.type = type;
@@ -25856,49 +32739,6 @@ var LocalValue = class _LocalValue {
   }
 };
 
-// src/utils/message-utils.ts
-var catchError = (diagnostics, err2, msg) => {
-  const diagnostic = {
-    level: "error",
-    type: "build",
-    header: "Build Error",
-    messageText: "build error",
-    lines: []
-  };
-  if (isString(msg)) {
-    diagnostic.messageText = msg.length ? msg : "UNKNOWN ERROR";
-  } else if (err2 != null) {
-    if (err2.stack != null) {
-      diagnostic.messageText = err2.stack.toString();
-    } else {
-      if (err2.message != null) {
-        diagnostic.messageText = err2.message.length ? err2.message : "UNKNOWN ERROR";
-      } else {
-        diagnostic.messageText = err2.toString();
-      }
-    }
-  }
-  if (diagnostics != null && !shouldIgnoreError(diagnostic.messageText)) {
-    diagnostics.push(diagnostic);
-  }
-  return diagnostic;
-};
-var hasError = (diagnostics) => {
-  if (diagnostics == null || diagnostics.length === 0) {
-    return false;
-  }
-  return diagnostics.some((d) => d.level === "error" && d.type !== "runtime");
-};
-var shouldIgnoreError = (msg) => {
-  return msg === TASK_CANCELED_MSG;
-};
-var TASK_CANCELED_MSG = `task canceled`;
-
-// src/utils/regular-expression.ts
-var escapeRegExpSpecialCharacters = (text) => {
-  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-};
-
 // src/utils/remote-value.ts
 var RemoteValue = class _RemoteValue {
   /**
@@ -25994,6 +32834,1661 @@ var RemoteValue = class _RemoteValue {
   }
 };
 
+// src/utils/serialize.ts
+function encodeBase64Unicode(str) {
+  const utf8Bytes = new TextEncoder().encode(str);
+  let binary = "";
+  for (let i = 0; i < utf8Bytes.length; i++) {
+    binary += String.fromCharCode(utf8Bytes[i]);
+  }
+  return btoa(binary);
+}
+function decodeBase64Unicode(base64) {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return new TextDecoder().decode(bytes);
+}
+function serializeProperty(value) {
+  if (["string", "boolean", "undefined"].includes(typeof value) || typeof value === "number" && value !== Infinity && value !== -Infinity && !isNaN(value)) {
+    return value;
+  }
+  const arg = LocalValue.getArgument(value);
+  return SERIALIZED_PREFIX + encodeBase64Unicode(JSON.stringify(arg));
+}
+function deserializeProperty(value) {
+  if (typeof value !== "string" || !value.startsWith(SERIALIZED_PREFIX)) {
+    return value;
+  }
+  return RemoteValue.fromLocalValue(JSON.parse(decodeBase64Unicode(value.slice(SERIALIZED_PREFIX.length))));
+}
+var CAPTURE_EVENT_SUFFIX = "Capture";
+var CAPTURE_EVENT_REGEX = new RegExp(CAPTURE_EVENT_SUFFIX + "$");
+var baseClass = BUILD.lazyLoad ? class {
+} : globalThis.HTMLElement || class {
+};
+
+// src/runtime/tag-transform.ts
+var tagTransformer = void 0;
+function transformTag(tag) {
+  if (!tagTransformer) return tag;
+  return tagTransformer(tag);
+}
+function setTagTransformer(transformer) {
+  if (tagTransformer) {
+    console.warn(`
+      A tagTransformer has already been set. 
+      Overwriting it may lead to error and unexpected results if your components have already been defined.
+    `);
+  }
+  tagTransformer = transformer;
+}
+// Tag transform state object for factory closure
+var $stencilTagTransform = { setTagTransformer: setTagTransformer, transformTag: transformTag };
+
+
+// src/utils/message-utils.ts
+var catchError = (diagnostics, err2, msg) => {
+  const diagnostic = {
+    level: "error",
+    type: "build",
+    header: "Build Error",
+    messageText: "build error",
+    lines: []
+  };
+  if (isString(msg)) {
+    diagnostic.messageText = msg.length ? msg : "UNKNOWN ERROR";
+  } else if (err2 != null) {
+    if (err2.stack != null) {
+      diagnostic.messageText = err2.stack.toString();
+    } else {
+      if (err2.message != null) {
+        diagnostic.messageText = err2.message.length ? err2.message : "UNKNOWN ERROR";
+      } else {
+        diagnostic.messageText = err2.toString();
+      }
+    }
+  }
+  if (diagnostics != null && !shouldIgnoreError(diagnostic.messageText)) {
+    diagnostics.push(diagnostic);
+  }
+  return diagnostic;
+};
+var hasError = (diagnostics) => {
+  if (diagnostics == null || diagnostics.length === 0) {
+    return false;
+  }
+  return diagnostics.some((d) => d.level === "error" && d.type !== "runtime");
+};
+var shouldIgnoreError = (msg) => {
+  return msg === TASK_CANCELED_MSG;
+};
+var TASK_CANCELED_MSG = `task canceled`;
+
+// node_modules/minimatch/dist/esm/index.js
+var import_brace_expansion = __toESM(require_brace_expansion(), 1);
+
+// node_modules/minimatch/dist/esm/assert-valid-pattern.js
+var MAX_PATTERN_LENGTH = 1024 * 64;
+var assertValidPattern = (pattern) => {
+  if (typeof pattern !== "string") {
+    throw new TypeError("invalid pattern");
+  }
+  if (pattern.length > MAX_PATTERN_LENGTH) {
+    throw new TypeError("pattern is too long");
+  }
+};
+
+// node_modules/minimatch/dist/esm/brace-expressions.js
+var posixClasses = {
+  "[:alnum:]": ["\\p{L}\\p{Nl}\\p{Nd}", true],
+  "[:alpha:]": ["\\p{L}\\p{Nl}", true],
+  "[:ascii:]": ["\\x00-\\x7f", false],
+  "[:blank:]": ["\\p{Zs}\\t", true],
+  "[:cntrl:]": ["\\p{Cc}", true],
+  "[:digit:]": ["\\p{Nd}", true],
+  "[:graph:]": ["\\p{Z}\\p{C}", true, true],
+  "[:lower:]": ["\\p{Ll}", true],
+  "[:print:]": ["\\p{C}", true],
+  "[:punct:]": ["\\p{P}", true],
+  "[:space:]": ["\\p{Z}\\t\\r\\n\\v\\f", true],
+  "[:upper:]": ["\\p{Lu}", true],
+  "[:word:]": ["\\p{L}\\p{Nl}\\p{Nd}\\p{Pc}", true],
+  "[:xdigit:]": ["A-Fa-f0-9", false]
+};
+var braceEscape = (s) => s.replace(/[[\]\\-]/g, "\\$&");
+var regexpEscape = (s) => s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+var rangesToString = (ranges) => ranges.join("");
+var parseClass = (glob, position) => {
+  const pos = position;
+  if (glob.charAt(pos) !== "[") {
+    throw new Error("not in a brace expression");
+  }
+  const ranges = [];
+  const negs = [];
+  let i = pos + 1;
+  let sawStart = false;
+  let uflag = false;
+  let escaping = false;
+  let negate = false;
+  let endPos = pos;
+  let rangeStart = "";
+  WHILE: while (i < glob.length) {
+    const c = glob.charAt(i);
+    if ((c === "!" || c === "^") && i === pos + 1) {
+      negate = true;
+      i++;
+      continue;
+    }
+    if (c === "]" && sawStart && !escaping) {
+      endPos = i + 1;
+      break;
+    }
+    sawStart = true;
+    if (c === "\\") {
+      if (!escaping) {
+        escaping = true;
+        i++;
+        continue;
+      }
+    }
+    if (c === "[" && !escaping) {
+      for (const [cls, [unip, u, neg]] of Object.entries(posixClasses)) {
+        if (glob.startsWith(cls, i)) {
+          if (rangeStart) {
+            return ["$.", false, glob.length - pos, true];
+          }
+          i += cls.length;
+          if (neg)
+            negs.push(unip);
+          else
+            ranges.push(unip);
+          uflag = uflag || u;
+          continue WHILE;
+        }
+      }
+    }
+    escaping = false;
+    if (rangeStart) {
+      if (c > rangeStart) {
+        ranges.push(braceEscape(rangeStart) + "-" + braceEscape(c));
+      } else if (c === rangeStart) {
+        ranges.push(braceEscape(c));
+      }
+      rangeStart = "";
+      i++;
+      continue;
+    }
+    if (glob.startsWith("-]", i + 1)) {
+      ranges.push(braceEscape(c + "-"));
+      i += 2;
+      continue;
+    }
+    if (glob.startsWith("-", i + 1)) {
+      rangeStart = c;
+      i += 2;
+      continue;
+    }
+    ranges.push(braceEscape(c));
+    i++;
+  }
+  if (endPos < i) {
+    return ["", false, 0, false];
+  }
+  if (!ranges.length && !negs.length) {
+    return ["$.", false, glob.length - pos, true];
+  }
+  if (negs.length === 0 && ranges.length === 1 && /^\\?.$/.test(ranges[0]) && !negate) {
+    const r = ranges[0].length === 2 ? ranges[0].slice(-1) : ranges[0];
+    return [regexpEscape(r), false, endPos - pos, false];
+  }
+  const sranges = "[" + (negate ? "^" : "") + rangesToString(ranges) + "]";
+  const snegs = "[" + (negate ? "" : "^") + rangesToString(negs) + "]";
+  const comb = ranges.length && negs.length ? "(" + sranges + "|" + snegs + ")" : ranges.length ? sranges : snegs;
+  return [comb, uflag, endPos - pos, true];
+};
+
+// node_modules/minimatch/dist/esm/unescape.js
+var unescape = (s, { windowsPathsNoEscape = false } = {}) => {
+  return windowsPathsNoEscape ? s.replace(/\[([^\/\\])\]/g, "$1") : s.replace(/((?!\\).|^)\[([^\/\\])\]/g, "$1$2").replace(/\\([^\/])/g, "$1");
+};
+
+// node_modules/minimatch/dist/esm/ast.js
+var _a2;
+var types = /* @__PURE__ */ new Set(["!", "?", "+", "*", "@"]);
+var isExtglobType = (c) => types.has(c);
+var isExtglobAST = (c) => isExtglobType(c.type);
+var adoptionMap = /* @__PURE__ */ new Map([
+  ["!", ["@"]],
+  ["?", ["?", "@"]],
+  ["@", ["@"]],
+  ["*", ["*", "+", "?", "@"]],
+  ["+", ["+", "@"]]
+]);
+var adoptionWithSpaceMap = /* @__PURE__ */ new Map([
+  ["!", ["?"]],
+  ["@", ["?"]],
+  ["+", ["?", "*"]]
+]);
+var adoptionAnyMap = /* @__PURE__ */ new Map([
+  ["!", ["?", "@"]],
+  ["?", ["?", "@"]],
+  ["@", ["?", "@"]],
+  ["*", ["*", "+", "?", "@"]],
+  ["+", ["+", "@", "?", "*"]]
+]);
+var usurpMap = /* @__PURE__ */ new Map([
+  ["!", /* @__PURE__ */ new Map([["!", "@"]])],
+  ["?", /* @__PURE__ */ new Map([["*", "*"], ["+", "*"]])],
+  ["@", /* @__PURE__ */ new Map([["!", "!"], ["?", "?"], ["@", "@"], ["*", "*"], ["+", "+"]])],
+  ["+", /* @__PURE__ */ new Map([["?", "*"], ["*", "*"]])]
+]);
+var startNoTraversal = "(?!(?:^|/)\\.\\.?(?:$|/))";
+var startNoDot = "(?!\\.)";
+var addPatternStart = /* @__PURE__ */ new Set(["[", "."]);
+var justDots = /* @__PURE__ */ new Set(["..", "."]);
+var reSpecials = new Set("().*{}+?[]^$\\!");
+var regExpEscape = (s) => s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+var qmark = "[^/]";
+var star = qmark + "*?";
+var starNoEmpty = qmark + "+?";
+var _root, _hasMagic, _uflag, _parts, _parent, _parentIndex, _negs, _filledNegs, _options, _toString, _emptyExt, _AST_instances, fillNegs_fn, _AST_static, parseAST_fn, canAdoptWithSpace_fn, canAdopt_fn, canAdoptType_fn, adoptWithSpace_fn, adopt_fn, canUsurpType_fn, canUsurp_fn, usurp_fn, flatten_fn, partsToRegExp_fn, parseGlob_fn;
+var AST = class {
+  constructor(type, parent, options = {}) {
+    __privateAdd(this, _AST_instances);
+    __publicField(this, "type");
+    __privateAdd(this, _root);
+    __privateAdd(this, _hasMagic);
+    __privateAdd(this, _uflag, false);
+    __privateAdd(this, _parts, []);
+    __privateAdd(this, _parent);
+    __privateAdd(this, _parentIndex);
+    __privateAdd(this, _negs);
+    __privateAdd(this, _filledNegs, false);
+    __privateAdd(this, _options);
+    __privateAdd(this, _toString);
+    // set to true if it's an extglob with no children
+    // (which really means one child of '')
+    __privateAdd(this, _emptyExt, false);
+    this.type = type;
+    if (type)
+      __privateSet(this, _hasMagic, true);
+    __privateSet(this, _parent, parent);
+    __privateSet(this, _root, __privateGet(this, _parent) ? __privateGet(__privateGet(this, _parent), _root) : this);
+    __privateSet(this, _options, __privateGet(this, _root) === this ? options : __privateGet(__privateGet(this, _root), _options));
+    __privateSet(this, _negs, __privateGet(this, _root) === this ? [] : __privateGet(__privateGet(this, _root), _negs));
+    if (type === "!" && !__privateGet(__privateGet(this, _root), _filledNegs))
+      __privateGet(this, _negs).push(this);
+    __privateSet(this, _parentIndex, __privateGet(this, _parent) ? __privateGet(__privateGet(this, _parent), _parts).length : 0);
+  }
+  get hasMagic() {
+    if (__privateGet(this, _hasMagic) !== void 0)
+      return __privateGet(this, _hasMagic);
+    for (const p of __privateGet(this, _parts)) {
+      if (typeof p === "string")
+        continue;
+      if (p.type || p.hasMagic)
+        return __privateSet(this, _hasMagic, true);
+    }
+    return __privateGet(this, _hasMagic);
+  }
+  // reconstructs the pattern
+  toString() {
+    if (__privateGet(this, _toString) !== void 0)
+      return __privateGet(this, _toString);
+    if (!this.type) {
+      return __privateSet(this, _toString, __privateGet(this, _parts).map((p) => String(p)).join(""));
+    } else {
+      return __privateSet(this, _toString, this.type + "(" + __privateGet(this, _parts).map((p) => String(p)).join("|") + ")");
+    }
+  }
+  push(...parts) {
+    for (const p of parts) {
+      if (p === "")
+        continue;
+      if (typeof p !== "string" && !(p instanceof _a2 && __privateGet(p, _parent) === this)) {
+        throw new Error("invalid part: " + p);
+      }
+      __privateGet(this, _parts).push(p);
+    }
+  }
+  toJSON() {
+    var _a3;
+    const ret = this.type === null ? __privateGet(this, _parts).slice().map((p) => typeof p === "string" ? p : p.toJSON()) : [this.type, ...__privateGet(this, _parts).map((p) => p.toJSON())];
+    if (this.isStart() && !this.type)
+      ret.unshift([]);
+    if (this.isEnd() && (this === __privateGet(this, _root) || __privateGet(__privateGet(this, _root), _filledNegs) && ((_a3 = __privateGet(this, _parent)) == null ? void 0 : _a3.type) === "!")) {
+      ret.push({});
+    }
+    return ret;
+  }
+  isStart() {
+    var _a3;
+    if (__privateGet(this, _root) === this)
+      return true;
+    if (!((_a3 = __privateGet(this, _parent)) == null ? void 0 : _a3.isStart()))
+      return false;
+    if (__privateGet(this, _parentIndex) === 0)
+      return true;
+    const p = __privateGet(this, _parent);
+    for (let i = 0; i < __privateGet(this, _parentIndex); i++) {
+      const pp = __privateGet(p, _parts)[i];
+      if (!(pp instanceof _a2 && pp.type === "!")) {
+        return false;
+      }
+    }
+    return true;
+  }
+  isEnd() {
+    var _a3, _b, _c;
+    if (__privateGet(this, _root) === this)
+      return true;
+    if (((_a3 = __privateGet(this, _parent)) == null ? void 0 : _a3.type) === "!")
+      return true;
+    if (!((_b = __privateGet(this, _parent)) == null ? void 0 : _b.isEnd()))
+      return false;
+    if (!this.type)
+      return (_c = __privateGet(this, _parent)) == null ? void 0 : _c.isEnd();
+    const pl = __privateGet(this, _parent) ? __privateGet(__privateGet(this, _parent), _parts).length : 0;
+    return __privateGet(this, _parentIndex) === pl - 1;
+  }
+  copyIn(part) {
+    if (typeof part === "string")
+      this.push(part);
+    else
+      this.push(part.clone(this));
+  }
+  clone(parent) {
+    const c = new _a2(this.type, parent);
+    for (const p of __privateGet(this, _parts)) {
+      c.copyIn(p);
+    }
+    return c;
+  }
+  static fromGlob(pattern, options = {}) {
+    var _a3;
+    const ast = new _a2(null, void 0, options);
+    __privateMethod(_a3 = _a2, _AST_static, parseAST_fn).call(_a3, pattern, ast, 0, options, 0);
+    return ast;
+  }
+  // returns the regular expression if there's magic, or the unescaped
+  // string if not.
+  toMMPattern() {
+    if (this !== __privateGet(this, _root))
+      return __privateGet(this, _root).toMMPattern();
+    const glob = this.toString();
+    const [re, body, hasMagic, uflag] = this.toRegExpSource();
+    const anyMagic = hasMagic || __privateGet(this, _hasMagic) || __privateGet(this, _options).nocase && !__privateGet(this, _options).nocaseMagicOnly && glob.toUpperCase() !== glob.toLowerCase();
+    if (!anyMagic) {
+      return body;
+    }
+    const flags = (__privateGet(this, _options).nocase ? "i" : "") + (uflag ? "u" : "");
+    return Object.assign(new RegExp(`^${re}$`, flags), {
+      _src: re,
+      _glob: glob
+    });
+  }
+  get options() {
+    return __privateGet(this, _options);
+  }
+  // returns the string match, the regexp source, whether there's magic
+  // in the regexp (so a regular expression is required) and whether or
+  // not the uflag is needed for the regular expression (for posix classes)
+  // TODO: instead of injecting the start/end at this point, just return
+  // the BODY of the regexp, along with the start/end portions suitable
+  // for binding the start/end in either a joined full-path makeRe context
+  // (where we bind to (^|/), or a standalone matchPart context (where
+  // we bind to ^, and not /).  Otherwise slashes get duped!
+  //
+  // In part-matching mode, the start is:
+  // - if not isStart: nothing
+  // - if traversal possible, but not allowed: ^(?!\.\.?$)
+  // - if dots allowed or not possible: ^
+  // - if dots possible and not allowed: ^(?!\.)
+  // end is:
+  // - if not isEnd(): nothing
+  // - else: $
+  //
+  // In full-path matching mode, we put the slash at the START of the
+  // pattern, so start is:
+  // - if first pattern: same as part-matching mode
+  // - if not isStart(): nothing
+  // - if traversal possible, but not allowed: /(?!\.\.?(?:$|/))
+  // - if dots allowed or not possible: /
+  // - if dots possible and not allowed: /(?!\.)
+  // end is:
+  // - if last pattern, same as part-matching mode
+  // - else nothing
+  //
+  // Always put the (?:$|/) on negated tails, though, because that has to be
+  // there to bind the end of the negated pattern portion, and it's easier to
+  // just stick it in now rather than try to inject it later in the middle of
+  // the pattern.
+  //
+  // We can just always return the same end, and leave it up to the caller
+  // to know whether it's going to be used joined or in parts.
+  // And, if the start is adjusted slightly, can do the same there:
+  // - if not isStart: nothing
+  // - if traversal possible, but not allowed: (?:/|^)(?!\.\.?$)
+  // - if dots allowed or not possible: (?:/|^)
+  // - if dots possible and not allowed: (?:/|^)(?!\.)
+  //
+  // But it's better to have a simpler binding without a conditional, for
+  // performance, so probably better to return both start options.
+  //
+  // Then the caller just ignores the end if it's not the first pattern,
+  // and the start always gets applied.
+  //
+  // But that's always going to be $ if it's the ending pattern, or nothing,
+  // so the caller can just attach $ at the end of the pattern when building.
+  //
+  // So the todo is:
+  // - better detect what kind of start is needed
+  // - return both flavors of starting pattern
+  // - attach $ at the end of the pattern when creating the actual RegExp
+  //
+  // Ah, but wait, no, that all only applies to the root when the first pattern
+  // is not an extglob. If the first pattern IS an extglob, then we need all
+  // that dot prevention biz to live in the extglob portions, because eg
+  // +(*|.x*) can match .xy but not .yx.
+  //
+  // So, return the two flavors if it's #root and the first child is not an
+  // AST, otherwise leave it to the child AST to handle it, and there,
+  // use the (?:^|/) style of start binding.
+  //
+  // Even simplified further:
+  // - Since the start for a join is eg /(?!\.) and the start for a part
+  // is ^(?!\.), we can just prepend (?!\.) to the pattern (either root
+  // or start or whatever) and prepend ^ or / at the Regexp construction.
+  toRegExpSource(allowDot) {
+    var _a3;
+    const dot = allowDot != null ? allowDot : !!__privateGet(this, _options).dot;
+    if (__privateGet(this, _root) === this) {
+      __privateMethod(this, _AST_instances, flatten_fn).call(this);
+      __privateMethod(this, _AST_instances, fillNegs_fn).call(this);
+    }
+    if (!isExtglobAST(this)) {
+      const noEmpty = this.isStart() && this.isEnd();
+      const src = __privateGet(this, _parts).map((p) => {
+        var _a4;
+        const [re, _, hasMagic, uflag] = typeof p === "string" ? __privateMethod(_a4 = _a2, _AST_static, parseGlob_fn).call(_a4, p, __privateGet(this, _hasMagic), noEmpty) : p.toRegExpSource(allowDot);
+        __privateSet(this, _hasMagic, __privateGet(this, _hasMagic) || hasMagic);
+        __privateSet(this, _uflag, __privateGet(this, _uflag) || uflag);
+        return re;
+      }).join("");
+      let start2 = "";
+      if (this.isStart()) {
+        if (typeof __privateGet(this, _parts)[0] === "string") {
+          const dotTravAllowed = __privateGet(this, _parts).length === 1 && justDots.has(__privateGet(this, _parts)[0]);
+          if (!dotTravAllowed) {
+            const aps = addPatternStart;
+            const needNoTrav = (
+              // dots are allowed, and the pattern starts with [ or .
+              dot && aps.has(src.charAt(0)) || // the pattern starts with \., and then [ or .
+              src.startsWith("\\.") && aps.has(src.charAt(2)) || // the pattern starts with \.\., and then [ or .
+              src.startsWith("\\.\\.") && aps.has(src.charAt(4))
+            );
+            const needNoDot = !dot && !allowDot && aps.has(src.charAt(0));
+            start2 = needNoTrav ? startNoTraversal : needNoDot ? startNoDot : "";
+          }
+        }
+      }
+      let end = "";
+      if (this.isEnd() && __privateGet(__privateGet(this, _root), _filledNegs) && ((_a3 = __privateGet(this, _parent)) == null ? void 0 : _a3.type) === "!") {
+        end = "(?:$|\\/)";
+      }
+      const final2 = start2 + src + end;
+      return [
+        final2,
+        unescape(src),
+        __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)),
+        __privateGet(this, _uflag)
+      ];
+    }
+    const repeated = this.type === "*" || this.type === "+";
+    const start = this.type === "!" ? "(?:(?!(?:" : "(?:";
+    let body = __privateMethod(this, _AST_instances, partsToRegExp_fn).call(this, dot);
+    if (this.isStart() && this.isEnd() && !body && this.type !== "!") {
+      const s = this.toString();
+      const me = this;
+      __privateSet(me, _parts, [s]);
+      me.type = null;
+      __privateSet(me, _hasMagic, void 0);
+      return [s, unescape(this.toString()), false, false];
+    }
+    let bodyDotAllowed = !repeated || allowDot || dot || !startNoDot ? "" : __privateMethod(this, _AST_instances, partsToRegExp_fn).call(this, true);
+    if (bodyDotAllowed === body) {
+      bodyDotAllowed = "";
+    }
+    if (bodyDotAllowed) {
+      body = `(?:${body})(?:${bodyDotAllowed})*?`;
+    }
+    let final = "";
+    if (this.type === "!" && __privateGet(this, _emptyExt)) {
+      final = (this.isStart() && !dot ? startNoDot : "") + starNoEmpty;
+    } else {
+      const close = this.type === "!" ? (
+        // !() must match something,but !(x) can match ''
+        "))" + (this.isStart() && !dot && !allowDot ? startNoDot : "") + star + ")"
+      ) : this.type === "@" ? ")" : this.type === "?" ? ")?" : this.type === "+" && bodyDotAllowed ? ")" : this.type === "*" && bodyDotAllowed ? `)?` : `)${this.type}`;
+      final = start + body + close;
+    }
+    return [
+      final,
+      unescape(body),
+      __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)),
+      __privateGet(this, _uflag)
+    ];
+  }
+};
+_root = new WeakMap();
+_hasMagic = new WeakMap();
+_uflag = new WeakMap();
+_parts = new WeakMap();
+_parent = new WeakMap();
+_parentIndex = new WeakMap();
+_negs = new WeakMap();
+_filledNegs = new WeakMap();
+_options = new WeakMap();
+_toString = new WeakMap();
+_emptyExt = new WeakMap();
+_AST_instances = new WeakSet();
+fillNegs_fn = function() {
+  if (this !== __privateGet(this, _root))
+    throw new Error("should only call on root");
+  if (__privateGet(this, _filledNegs))
+    return this;
+  this.toString();
+  __privateSet(this, _filledNegs, true);
+  let n;
+  while (n = __privateGet(this, _negs).pop()) {
+    if (n.type !== "!")
+      continue;
+    let p = n;
+    let pp = __privateGet(p, _parent);
+    while (pp) {
+      for (let i = __privateGet(p, _parentIndex) + 1; !pp.type && i < __privateGet(pp, _parts).length; i++) {
+        for (const part of __privateGet(n, _parts)) {
+          if (typeof part === "string") {
+            throw new Error("string part in extglob AST??");
+          }
+          part.copyIn(__privateGet(pp, _parts)[i]);
+        }
+      }
+      p = pp;
+      pp = __privateGet(p, _parent);
+    }
+  }
+  return this;
+};
+_AST_static = new WeakSet();
+parseAST_fn = function(str, ast, pos, opt, extDepth) {
+  var _a3, _b, _c, _d, _e;
+  const maxDepth = (_a3 = opt.maxExtglobRecursion) != null ? _a3 : 2;
+  let escaping = false;
+  let inBrace = false;
+  let braceStart = -1;
+  let braceNeg = false;
+  if (ast.type === null) {
+    let i2 = pos;
+    let acc2 = "";
+    while (i2 < str.length) {
+      const c = str.charAt(i2++);
+      if (escaping || c === "\\") {
+        escaping = !escaping;
+        acc2 += c;
+        continue;
+      }
+      if (inBrace) {
+        if (i2 === braceStart + 1) {
+          if (c === "^" || c === "!") {
+            braceNeg = true;
+          }
+        } else if (c === "]" && !(i2 === braceStart + 2 && braceNeg)) {
+          inBrace = false;
+        }
+        acc2 += c;
+        continue;
+      } else if (c === "[") {
+        inBrace = true;
+        braceStart = i2;
+        braceNeg = false;
+        acc2 += c;
+        continue;
+      }
+      const doRecurse = !opt.noext && isExtglobType(c) && str.charAt(i2) === "(" && extDepth <= maxDepth;
+      if (doRecurse) {
+        ast.push(acc2);
+        acc2 = "";
+        const ext2 = new _a2(c, ast);
+        i2 = __privateMethod(_b = _a2, _AST_static, parseAST_fn).call(_b, str, ext2, i2, opt, extDepth + 1);
+        ast.push(ext2);
+        continue;
+      }
+      acc2 += c;
+    }
+    ast.push(acc2);
+    return i2;
+  }
+  let i = pos + 1;
+  let part = new _a2(null, ast);
+  const parts = [];
+  let acc = "";
+  while (i < str.length) {
+    const c = str.charAt(i++);
+    if (escaping || c === "\\") {
+      escaping = !escaping;
+      acc += c;
+      continue;
+    }
+    if (inBrace) {
+      if (i === braceStart + 1) {
+        if (c === "^" || c === "!") {
+          braceNeg = true;
+        }
+      } else if (c === "]" && !(i === braceStart + 2 && braceNeg)) {
+        inBrace = false;
+      }
+      acc += c;
+      continue;
+    } else if (c === "[") {
+      inBrace = true;
+      braceStart = i;
+      braceNeg = false;
+      acc += c;
+      continue;
+    }
+    const doRecurse = isExtglobType(c) && str.charAt(i) === "(" && /* c8 ignore start - the maxDepth is sufficient here */
+    (extDepth <= maxDepth || ast && __privateMethod(_c = ast, _AST_instances, canAdoptType_fn).call(_c, c));
+    if (doRecurse) {
+      const depthAdd = ast && __privateMethod(_d = ast, _AST_instances, canAdoptType_fn).call(_d, c) ? 0 : 1;
+      part.push(acc);
+      acc = "";
+      const ext2 = new _a2(c, part);
+      part.push(ext2);
+      i = __privateMethod(_e = _a2, _AST_static, parseAST_fn).call(_e, str, ext2, i, opt, extDepth + depthAdd);
+      continue;
+    }
+    if (c === "|") {
+      part.push(acc);
+      acc = "";
+      parts.push(part);
+      part = new _a2(null, ast);
+      continue;
+    }
+    if (c === ")") {
+      if (acc === "" && __privateGet(ast, _parts).length === 0) {
+        __privateSet(ast, _emptyExt, true);
+      }
+      part.push(acc);
+      acc = "";
+      ast.push(...parts, part);
+      return i;
+    }
+    acc += c;
+  }
+  ast.type = null;
+  __privateSet(ast, _hasMagic, void 0);
+  __privateSet(ast, _parts, [str.substring(pos - 1)]);
+  return i;
+};
+canAdoptWithSpace_fn = function(child) {
+  return __privateMethod(this, _AST_instances, canAdopt_fn).call(this, child, adoptionWithSpaceMap);
+};
+canAdopt_fn = function(child, map2 = adoptionMap) {
+  if (!child || typeof child !== "object" || child.type !== null || __privateGet(child, _parts).length !== 1 || this.type === null) {
+    return false;
+  }
+  const gc = __privateGet(child, _parts)[0];
+  if (!gc || typeof gc !== "object" || gc.type === null) {
+    return false;
+  }
+  return __privateMethod(this, _AST_instances, canAdoptType_fn).call(this, gc.type, map2);
+};
+canAdoptType_fn = function(c, map2 = adoptionAnyMap) {
+  var _a3;
+  return !!((_a3 = map2.get(this.type)) == null ? void 0 : _a3.includes(c));
+};
+adoptWithSpace_fn = function(child, index) {
+  const gc = __privateGet(child, _parts)[0];
+  const blank = new _a2(null, gc, this.options);
+  __privateGet(blank, _parts).push("");
+  gc.push(blank);
+  __privateMethod(this, _AST_instances, adopt_fn).call(this, child, index);
+};
+adopt_fn = function(child, index) {
+  const gc = __privateGet(child, _parts)[0];
+  __privateGet(this, _parts).splice(index, 1, ...__privateGet(gc, _parts));
+  for (const p of __privateGet(gc, _parts)) {
+    if (typeof p === "object")
+      __privateSet(p, _parent, this);
+  }
+  __privateSet(this, _toString, void 0);
+};
+canUsurpType_fn = function(c) {
+  const m = usurpMap.get(this.type);
+  return !!(m == null ? void 0 : m.has(c));
+};
+canUsurp_fn = function(child) {
+  if (!child || typeof child !== "object" || child.type !== null || __privateGet(child, _parts).length !== 1 || this.type === null || __privateGet(this, _parts).length !== 1) {
+    return false;
+  }
+  const gc = __privateGet(child, _parts)[0];
+  if (!gc || typeof gc !== "object" || gc.type === null) {
+    return false;
+  }
+  return __privateMethod(this, _AST_instances, canUsurpType_fn).call(this, gc.type);
+};
+usurp_fn = function(child) {
+  const m = usurpMap.get(this.type);
+  const gc = __privateGet(child, _parts)[0];
+  const nt = m == null ? void 0 : m.get(gc.type);
+  if (!nt)
+    return false;
+  __privateSet(this, _parts, __privateGet(gc, _parts));
+  for (const p of __privateGet(this, _parts)) {
+    if (typeof p === "object")
+      __privateSet(p, _parent, this);
+  }
+  this.type = nt;
+  __privateSet(this, _toString, void 0);
+  __privateSet(this, _emptyExt, false);
+};
+flatten_fn = function() {
+  var _a3, _b;
+  if (!isExtglobAST(this)) {
+    for (const p of __privateGet(this, _parts)) {
+      if (typeof p === "object")
+        __privateMethod(_a3 = p, _AST_instances, flatten_fn).call(_a3);
+    }
+  } else {
+    let iterations = 0;
+    let done = false;
+    do {
+      done = true;
+      for (let i = 0; i < __privateGet(this, _parts).length; i++) {
+        const c = __privateGet(this, _parts)[i];
+        if (typeof c === "object") {
+          __privateMethod(_b = c, _AST_instances, flatten_fn).call(_b);
+          if (__privateMethod(this, _AST_instances, canAdopt_fn).call(this, c)) {
+            done = false;
+            __privateMethod(this, _AST_instances, adopt_fn).call(this, c, i);
+          } else if (__privateMethod(this, _AST_instances, canAdoptWithSpace_fn).call(this, c)) {
+            done = false;
+            __privateMethod(this, _AST_instances, adoptWithSpace_fn).call(this, c, i);
+          } else if (__privateMethod(this, _AST_instances, canUsurp_fn).call(this, c)) {
+            done = false;
+            __privateMethod(this, _AST_instances, usurp_fn).call(this, c);
+          }
+        }
+      }
+    } while (!done && ++iterations < 10);
+  }
+  __privateSet(this, _toString, void 0);
+};
+partsToRegExp_fn = function(dot) {
+  return __privateGet(this, _parts).map((p) => {
+    if (typeof p === "string") {
+      throw new Error("string type in extglob ast??");
+    }
+    const [re, _, _hasMagic2, uflag] = p.toRegExpSource(dot);
+    __privateSet(this, _uflag, __privateGet(this, _uflag) || uflag);
+    return re;
+  }).filter((p) => !(this.isStart() && this.isEnd()) || !!p).join("|");
+};
+parseGlob_fn = function(glob, hasMagic, noEmpty = false) {
+  let escaping = false;
+  let re = "";
+  let uflag = false;
+  let inStar = false;
+  for (let i = 0; i < glob.length; i++) {
+    const c = glob.charAt(i);
+    if (escaping) {
+      escaping = false;
+      re += (reSpecials.has(c) ? "\\" : "") + c;
+      inStar = false;
+      continue;
+    }
+    if (c === "\\") {
+      if (i === glob.length - 1) {
+        re += "\\\\";
+      } else {
+        escaping = true;
+      }
+      continue;
+    }
+    if (c === "[") {
+      const [src, needUflag, consumed, magic] = parseClass(glob, i);
+      if (consumed) {
+        re += src;
+        uflag = uflag || needUflag;
+        i += consumed - 1;
+        hasMagic = hasMagic || magic;
+        inStar = false;
+        continue;
+      }
+    }
+    if (c === "*") {
+      if (inStar)
+        continue;
+      inStar = true;
+      re += noEmpty && /^[*]+$/.test(glob) ? starNoEmpty : star;
+      hasMagic = true;
+      continue;
+    } else {
+      inStar = false;
+    }
+    if (c === "?") {
+      re += qmark;
+      hasMagic = true;
+      continue;
+    }
+    re += regExpEscape(c);
+  }
+  return [re, unescape(glob), !!hasMagic, uflag];
+};
+__privateAdd(AST, _AST_static);
+_a2 = AST;
+
+// node_modules/minimatch/dist/esm/escape.js
+var escape = (s, { windowsPathsNoEscape = false } = {}) => {
+  return windowsPathsNoEscape ? s.replace(/[?*()[\]]/g, "[$&]") : s.replace(/[?*()[\]\\]/g, "\\$&");
+};
+
+// node_modules/minimatch/dist/esm/index.js
+var minimatch = (p, pattern, options = {}) => {
+  assertValidPattern(pattern);
+  if (!options.nocomment && pattern.charAt(0) === "#") {
+    return false;
+  }
+  return new Minimatch(pattern, options).match(p);
+};
+var starDotExtRE = /^\*+([^+@!?\*\[\(]*)$/;
+var starDotExtTest = (ext2) => (f) => !f.startsWith(".") && f.endsWith(ext2);
+var starDotExtTestDot = (ext2) => (f) => f.endsWith(ext2);
+var starDotExtTestNocase = (ext2) => {
+  ext2 = ext2.toLowerCase();
+  return (f) => !f.startsWith(".") && f.toLowerCase().endsWith(ext2);
+};
+var starDotExtTestNocaseDot = (ext2) => {
+  ext2 = ext2.toLowerCase();
+  return (f) => f.toLowerCase().endsWith(ext2);
+};
+var starDotStarRE = /^\*+\.\*+$/;
+var starDotStarTest = (f) => !f.startsWith(".") && f.includes(".");
+var starDotStarTestDot = (f) => f !== "." && f !== ".." && f.includes(".");
+var dotStarRE = /^\.\*+$/;
+var dotStarTest = (f) => f !== "." && f !== ".." && f.startsWith(".");
+var starRE = /^\*+$/;
+var starTest = (f) => f.length !== 0 && !f.startsWith(".");
+var starTestDot = (f) => f.length !== 0 && f !== "." && f !== "..";
+var qmarksRE = /^\?+([^+@!?\*\[\(]*)?$/;
+var qmarksTestNocase = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExt([$0]);
+  if (!ext2)
+    return noext;
+  ext2 = ext2.toLowerCase();
+  return (f) => noext(f) && f.toLowerCase().endsWith(ext2);
+};
+var qmarksTestNocaseDot = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExtDot([$0]);
+  if (!ext2)
+    return noext;
+  ext2 = ext2.toLowerCase();
+  return (f) => noext(f) && f.toLowerCase().endsWith(ext2);
+};
+var qmarksTestDot = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExtDot([$0]);
+  return !ext2 ? noext : (f) => noext(f) && f.endsWith(ext2);
+};
+var qmarksTest = ([$0, ext2 = ""]) => {
+  const noext = qmarksTestNoExt([$0]);
+  return !ext2 ? noext : (f) => noext(f) && f.endsWith(ext2);
+};
+var qmarksTestNoExt = ([$0]) => {
+  const len = $0.length;
+  return (f) => f.length === len && !f.startsWith(".");
+};
+var qmarksTestNoExtDot = ([$0]) => {
+  const len = $0.length;
+  return (f) => f.length === len && f !== "." && f !== "..";
+};
+var defaultPlatform = typeof process === "object" && process ? typeof process.env === "object" && process.env && process.env.__MINIMATCH_TESTING_PLATFORM__ || process.platform : "posix";
+var path = {
+  win32: { sep: "\\" },
+  posix: { sep: "/" }
+};
+var sep = defaultPlatform === "win32" ? path.win32.sep : path.posix.sep;
+minimatch.sep = sep;
+var GLOBSTAR = Symbol("globstar **");
+minimatch.GLOBSTAR = GLOBSTAR;
+var qmark2 = "[^/]";
+var star2 = qmark2 + "*?";
+var twoStarDot = "(?:(?!(?:\\/|^)(?:\\.{1,2})($|\\/)).)*?";
+var twoStarNoDot = "(?:(?!(?:\\/|^)\\.).)*?";
+var filter = (pattern, options = {}) => (p) => minimatch(p, pattern, options);
+minimatch.filter = filter;
+var ext = (a, b = {}) => Object.assign({}, a, b);
+var defaults = (def) => {
+  if (!def || typeof def !== "object" || !Object.keys(def).length) {
+    return minimatch;
+  }
+  const orig = minimatch;
+  const m = (p, pattern, options = {}) => orig(p, pattern, ext(def, options));
+  return Object.assign(m, {
+    Minimatch: class Minimatch extends orig.Minimatch {
+      constructor(pattern, options = {}) {
+        super(pattern, ext(def, options));
+      }
+      static defaults(options) {
+        return orig.defaults(ext(def, options)).Minimatch;
+      }
+    },
+    AST: class AST extends orig.AST {
+      /* c8 ignore start */
+      constructor(type, parent, options = {}) {
+        super(type, parent, ext(def, options));
+      }
+      /* c8 ignore stop */
+      static fromGlob(pattern, options = {}) {
+        return orig.AST.fromGlob(pattern, ext(def, options));
+      }
+    },
+    unescape: (s, options = {}) => orig.unescape(s, ext(def, options)),
+    escape: (s, options = {}) => orig.escape(s, ext(def, options)),
+    filter: (pattern, options = {}) => orig.filter(pattern, ext(def, options)),
+    defaults: (options) => orig.defaults(ext(def, options)),
+    makeRe: (pattern, options = {}) => orig.makeRe(pattern, ext(def, options)),
+    braceExpand: (pattern, options = {}) => orig.braceExpand(pattern, ext(def, options)),
+    match: (list, pattern, options = {}) => orig.match(list, pattern, ext(def, options)),
+    sep: orig.sep,
+    GLOBSTAR
+  });
+};
+minimatch.defaults = defaults;
+var braceExpand = (pattern, options = {}) => {
+  assertValidPattern(pattern);
+  if (options.nobrace || !/\{(?:(?!\{).)*\}/.test(pattern)) {
+    return [pattern];
+  }
+  return (0, import_brace_expansion.default)(pattern);
+};
+minimatch.braceExpand = braceExpand;
+var makeRe = (pattern, options = {}) => new Minimatch(pattern, options).makeRe();
+minimatch.makeRe = makeRe;
+var match = (list, pattern, options = {}) => {
+  const mm = new Minimatch(pattern, options);
+  list = list.filter((f) => mm.match(f));
+  if (mm.options.nonull && !list.length) {
+    list.push(pattern);
+  }
+  return list;
+};
+minimatch.match = match;
+var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/;
+var regExpEscape2 = (s) => s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+var _Minimatch_instances, matchGlobstar_fn, matchGlobStarBodySections_fn, matchOne_fn;
+var Minimatch = class {
+  constructor(pattern, options = {}) {
+    __privateAdd(this, _Minimatch_instances);
+    __publicField(this, "options");
+    __publicField(this, "set");
+    __publicField(this, "pattern");
+    __publicField(this, "windowsPathsNoEscape");
+    __publicField(this, "nonegate");
+    __publicField(this, "negate");
+    __publicField(this, "comment");
+    __publicField(this, "empty");
+    __publicField(this, "preserveMultipleSlashes");
+    __publicField(this, "partial");
+    __publicField(this, "globSet");
+    __publicField(this, "globParts");
+    __publicField(this, "nocase");
+    __publicField(this, "isWindows");
+    __publicField(this, "platform");
+    __publicField(this, "windowsNoMagicRoot");
+    __publicField(this, "maxGlobstarRecursion");
+    __publicField(this, "regexp");
+    var _a3;
+    assertValidPattern(pattern);
+    options = options || {};
+    this.options = options;
+    this.maxGlobstarRecursion = (_a3 = options.maxGlobstarRecursion) != null ? _a3 : 200;
+    this.pattern = pattern;
+    this.platform = options.platform || defaultPlatform;
+    this.isWindows = this.platform === "win32";
+    this.windowsPathsNoEscape = !!options.windowsPathsNoEscape || options.allowWindowsEscape === false;
+    if (this.windowsPathsNoEscape) {
+      this.pattern = this.pattern.replace(/\\/g, "/");
+    }
+    this.preserveMultipleSlashes = !!options.preserveMultipleSlashes;
+    this.regexp = null;
+    this.negate = false;
+    this.nonegate = !!options.nonegate;
+    this.comment = false;
+    this.empty = false;
+    this.partial = !!options.partial;
+    this.nocase = !!this.options.nocase;
+    this.windowsNoMagicRoot = options.windowsNoMagicRoot !== void 0 ? options.windowsNoMagicRoot : !!(this.isWindows && this.nocase);
+    this.globSet = [];
+    this.globParts = [];
+    this.set = [];
+    this.make();
+  }
+  hasMagic() {
+    if (this.options.magicalBraces && this.set.length > 1) {
+      return true;
+    }
+    for (const pattern of this.set) {
+      for (const part of pattern) {
+        if (typeof part !== "string")
+          return true;
+      }
+    }
+    return false;
+  }
+  debug(..._) {
+  }
+  make() {
+    const pattern = this.pattern;
+    const options = this.options;
+    if (!options.nocomment && pattern.charAt(0) === "#") {
+      this.comment = true;
+      return;
+    }
+    if (!pattern) {
+      this.empty = true;
+      return;
+    }
+    this.parseNegate();
+    this.globSet = [...new Set(this.braceExpand())];
+    if (options.debug) {
+      this.debug = (...args) => console.error(...args);
+    }
+    this.debug(this.pattern, this.globSet);
+    const rawGlobParts = this.globSet.map((s) => this.slashSplit(s));
+    this.globParts = this.preprocess(rawGlobParts);
+    this.debug(this.pattern, this.globParts);
+    let set = this.globParts.map((s, _, __) => {
+      if (this.isWindows && this.windowsNoMagicRoot) {
+        const isUNC = s[0] === "" && s[1] === "" && (s[2] === "?" || !globMagic.test(s[2])) && !globMagic.test(s[3]);
+        const isDrive = /^[a-z]:/i.test(s[0]);
+        if (isUNC) {
+          return [...s.slice(0, 4), ...s.slice(4).map((ss) => this.parse(ss))];
+        } else if (isDrive) {
+          return [s[0], ...s.slice(1).map((ss) => this.parse(ss))];
+        }
+      }
+      return s.map((ss) => this.parse(ss));
+    });
+    this.debug(this.pattern, set);
+    this.set = set.filter((s) => s.indexOf(false) === -1);
+    if (this.isWindows) {
+      for (let i = 0; i < this.set.length; i++) {
+        const p = this.set[i];
+        if (p[0] === "" && p[1] === "" && this.globParts[i][2] === "?" && typeof p[3] === "string" && /^[a-z]:$/i.test(p[3])) {
+          p[2] = "?";
+        }
+      }
+    }
+    this.debug(this.pattern, this.set);
+  }
+  // various transforms to equivalent pattern sets that are
+  // faster to process in a filesystem walk.  The goal is to
+  // eliminate what we can, and push all ** patterns as far
+  // to the right as possible, even if it increases the number
+  // of patterns that we have to process.
+  preprocess(globParts) {
+    if (this.options.noglobstar) {
+      for (let i = 0; i < globParts.length; i++) {
+        for (let j = 0; j < globParts[i].length; j++) {
+          if (globParts[i][j] === "**") {
+            globParts[i][j] = "*";
+          }
+        }
+      }
+    }
+    const { optimizationLevel = 1 } = this.options;
+    if (optimizationLevel >= 2) {
+      globParts = this.firstPhasePreProcess(globParts);
+      globParts = this.secondPhasePreProcess(globParts);
+    } else if (optimizationLevel >= 1) {
+      globParts = this.levelOneOptimize(globParts);
+    } else {
+      globParts = this.adjascentGlobstarOptimize(globParts);
+    }
+    return globParts;
+  }
+  // just get rid of adjascent ** portions
+  adjascentGlobstarOptimize(globParts) {
+    return globParts.map((parts) => {
+      let gs = -1;
+      while (-1 !== (gs = parts.indexOf("**", gs + 1))) {
+        let i = gs;
+        while (parts[i + 1] === "**") {
+          i++;
+        }
+        if (i !== gs) {
+          parts.splice(gs, i - gs);
+        }
+      }
+      return parts;
+    });
+  }
+  // get rid of adjascent ** and resolve .. portions
+  levelOneOptimize(globParts) {
+    return globParts.map((parts) => {
+      parts = parts.reduce((set, part) => {
+        const prev = set[set.length - 1];
+        if (part === "**" && prev === "**") {
+          return set;
+        }
+        if (part === "..") {
+          if (prev && prev !== ".." && prev !== "." && prev !== "**") {
+            set.pop();
+            return set;
+          }
+        }
+        set.push(part);
+        return set;
+      }, []);
+      return parts.length === 0 ? [""] : parts;
+    });
+  }
+  levelTwoFileOptimize(parts) {
+    if (!Array.isArray(parts)) {
+      parts = this.slashSplit(parts);
+    }
+    let didSomething = false;
+    do {
+      didSomething = false;
+      if (!this.preserveMultipleSlashes) {
+        for (let i = 1; i < parts.length - 1; i++) {
+          const p = parts[i];
+          if (i === 1 && p === "" && parts[0] === "")
+            continue;
+          if (p === "." || p === "") {
+            didSomething = true;
+            parts.splice(i, 1);
+            i--;
+          }
+        }
+        if (parts[0] === "." && parts.length === 2 && (parts[1] === "." || parts[1] === "")) {
+          didSomething = true;
+          parts.pop();
+        }
+      }
+      let dd = 0;
+      while (-1 !== (dd = parts.indexOf("..", dd + 1))) {
+        const p = parts[dd - 1];
+        if (p && p !== "." && p !== ".." && p !== "**") {
+          didSomething = true;
+          parts.splice(dd - 1, 2);
+          dd -= 2;
+        }
+      }
+    } while (didSomething);
+    return parts.length === 0 ? [""] : parts;
+  }
+  // First phase: single-pattern processing
+  // <pre> is 1 or more portions
+  // <rest> is 1 or more portions
+  // <p> is any portion other than ., .., '', or **
+  // <e> is . or ''
+  //
+  // **/.. is *brutal* for filesystem walking performance, because
+  // it effectively resets the recursive walk each time it occurs,
+  // and ** cannot be reduced out by a .. pattern part like a regexp
+  // or most strings (other than .., ., and '') can be.
+  //
+  // <pre>/**/../<p>/<p>/<rest> -> {<pre>/../<p>/<p>/<rest>,<pre>/**/<p>/<p>/<rest>}
+  // <pre>/<e>/<rest> -> <pre>/<rest>
+  // <pre>/<p>/../<rest> -> <pre>/<rest>
+  // **/**/<rest> -> **/<rest>
+  //
+  // **/*/<rest> -> */**/<rest> <== not valid because ** doesn't follow
+  // this WOULD be allowed if ** did follow symlinks, or * didn't
+  firstPhasePreProcess(globParts) {
+    let didSomething = false;
+    do {
+      didSomething = false;
+      for (let parts of globParts) {
+        let gs = -1;
+        while (-1 !== (gs = parts.indexOf("**", gs + 1))) {
+          let gss = gs;
+          while (parts[gss + 1] === "**") {
+            gss++;
+          }
+          if (gss > gs) {
+            parts.splice(gs + 1, gss - gs);
+          }
+          let next = parts[gs + 1];
+          const p = parts[gs + 2];
+          const p2 = parts[gs + 3];
+          if (next !== "..")
+            continue;
+          if (!p || p === "." || p === ".." || !p2 || p2 === "." || p2 === "..") {
+            continue;
+          }
+          didSomething = true;
+          parts.splice(gs, 1);
+          const other = parts.slice(0);
+          other[gs] = "**";
+          globParts.push(other);
+          gs--;
+        }
+        if (!this.preserveMultipleSlashes) {
+          for (let i = 1; i < parts.length - 1; i++) {
+            const p = parts[i];
+            if (i === 1 && p === "" && parts[0] === "")
+              continue;
+            if (p === "." || p === "") {
+              didSomething = true;
+              parts.splice(i, 1);
+              i--;
+            }
+          }
+          if (parts[0] === "." && parts.length === 2 && (parts[1] === "." || parts[1] === "")) {
+            didSomething = true;
+            parts.pop();
+          }
+        }
+        let dd = 0;
+        while (-1 !== (dd = parts.indexOf("..", dd + 1))) {
+          const p = parts[dd - 1];
+          if (p && p !== "." && p !== ".." && p !== "**") {
+            didSomething = true;
+            const needDot = dd === 1 && parts[dd + 1] === "**";
+            const splin = needDot ? ["."] : [];
+            parts.splice(dd - 1, 2, ...splin);
+            if (parts.length === 0)
+              parts.push("");
+            dd -= 2;
+          }
+        }
+      }
+    } while (didSomething);
+    return globParts;
+  }
+  // second phase: multi-pattern dedupes
+  // {<pre>/*/<rest>,<pre>/<p>/<rest>} -> <pre>/*/<rest>
+  // {<pre>/<rest>,<pre>/<rest>} -> <pre>/<rest>
+  // {<pre>/**/<rest>,<pre>/<rest>} -> <pre>/**/<rest>
+  //
+  // {<pre>/**/<rest>,<pre>/**/<p>/<rest>} -> <pre>/**/<rest>
+  // ^-- not valid because ** doens't follow symlinks
+  secondPhasePreProcess(globParts) {
+    for (let i = 0; i < globParts.length - 1; i++) {
+      for (let j = i + 1; j < globParts.length; j++) {
+        const matched = this.partsMatch(globParts[i], globParts[j], !this.preserveMultipleSlashes);
+        if (matched) {
+          globParts[i] = [];
+          globParts[j] = matched;
+          break;
+        }
+      }
+    }
+    return globParts.filter((gs) => gs.length);
+  }
+  partsMatch(a, b, emptyGSMatch = false) {
+    let ai = 0;
+    let bi = 0;
+    let result = [];
+    let which = "";
+    while (ai < a.length && bi < b.length) {
+      if (a[ai] === b[bi]) {
+        result.push(which === "b" ? b[bi] : a[ai]);
+        ai++;
+        bi++;
+      } else if (emptyGSMatch && a[ai] === "**" && b[bi] === a[ai + 1]) {
+        result.push(a[ai]);
+        ai++;
+      } else if (emptyGSMatch && b[bi] === "**" && a[ai] === b[bi + 1]) {
+        result.push(b[bi]);
+        bi++;
+      } else if (a[ai] === "*" && b[bi] && (this.options.dot || !b[bi].startsWith(".")) && b[bi] !== "**") {
+        if (which === "b")
+          return false;
+        which = "a";
+        result.push(a[ai]);
+        ai++;
+        bi++;
+      } else if (b[bi] === "*" && a[ai] && (this.options.dot || !a[ai].startsWith(".")) && a[ai] !== "**") {
+        if (which === "a")
+          return false;
+        which = "b";
+        result.push(b[bi]);
+        ai++;
+        bi++;
+      } else {
+        return false;
+      }
+    }
+    return a.length === b.length && result;
+  }
+  parseNegate() {
+    if (this.nonegate)
+      return;
+    const pattern = this.pattern;
+    let negate = false;
+    let negateOffset = 0;
+    for (let i = 0; i < pattern.length && pattern.charAt(i) === "!"; i++) {
+      negate = !negate;
+      negateOffset++;
+    }
+    if (negateOffset)
+      this.pattern = pattern.slice(negateOffset);
+    this.negate = negate;
+  }
+  // set partial to true to test if, for example,
+  // "/a/b" matches the start of "/*/b/*/d"
+  // Partial means, if you run out of file before you run
+  // out of pattern, then that's fine, as long as all
+  // the parts match.
+  matchOne(file, pattern, partial = false) {
+    let fileStartIndex = 0;
+    let patternStartIndex = 0;
+    if (this.isWindows) {
+      const fileDrive = typeof file[0] === "string" && /^[a-z]:$/i.test(file[0]);
+      const fileUNC = !fileDrive && file[0] === "" && file[1] === "" && file[2] === "?" && /^[a-z]:$/i.test(file[3]);
+      const patternDrive = typeof pattern[0] === "string" && /^[a-z]:$/i.test(pattern[0]);
+      const patternUNC = !patternDrive && pattern[0] === "" && pattern[1] === "" && pattern[2] === "?" && typeof pattern[3] === "string" && /^[a-z]:$/i.test(pattern[3]);
+      const fdi = fileUNC ? 3 : fileDrive ? 0 : void 0;
+      const pdi = patternUNC ? 3 : patternDrive ? 0 : void 0;
+      if (typeof fdi === "number" && typeof pdi === "number") {
+        const [fd, pd] = [
+          file[fdi],
+          pattern[pdi]
+        ];
+        if (fd.toLowerCase() === pd.toLowerCase()) {
+          pattern[pdi] = fd;
+          patternStartIndex = pdi;
+          fileStartIndex = fdi;
+        }
+      }
+    }
+    const { optimizationLevel = 1 } = this.options;
+    if (optimizationLevel >= 2) {
+      file = this.levelTwoFileOptimize(file);
+    }
+    if (pattern.includes(GLOBSTAR)) {
+      return __privateMethod(this, _Minimatch_instances, matchGlobstar_fn).call(this, file, pattern, partial, fileStartIndex, patternStartIndex);
+    }
+    return __privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file, pattern, partial, fileStartIndex, patternStartIndex);
+  }
+  braceExpand() {
+    return braceExpand(this.pattern, this.options);
+  }
+  parse(pattern) {
+    assertValidPattern(pattern);
+    const options = this.options;
+    if (pattern === "**")
+      return GLOBSTAR;
+    if (pattern === "")
+      return "";
+    let m;
+    let fastTest = null;
+    if (m = pattern.match(starRE)) {
+      fastTest = options.dot ? starTestDot : starTest;
+    } else if (m = pattern.match(starDotExtRE)) {
+      fastTest = (options.nocase ? options.dot ? starDotExtTestNocaseDot : starDotExtTestNocase : options.dot ? starDotExtTestDot : starDotExtTest)(m[1]);
+    } else if (m = pattern.match(qmarksRE)) {
+      fastTest = (options.nocase ? options.dot ? qmarksTestNocaseDot : qmarksTestNocase : options.dot ? qmarksTestDot : qmarksTest)(m);
+    } else if (m = pattern.match(starDotStarRE)) {
+      fastTest = options.dot ? starDotStarTestDot : starDotStarTest;
+    } else if (m = pattern.match(dotStarRE)) {
+      fastTest = dotStarTest;
+    }
+    const re = AST.fromGlob(pattern, this.options).toMMPattern();
+    if (fastTest && typeof re === "object") {
+      Reflect.defineProperty(re, "test", { value: fastTest });
+    }
+    return re;
+  }
+  makeRe() {
+    if (this.regexp || this.regexp === false)
+      return this.regexp;
+    const set = this.set;
+    if (!set.length) {
+      this.regexp = false;
+      return this.regexp;
+    }
+    const options = this.options;
+    const twoStar = options.noglobstar ? star2 : options.dot ? twoStarDot : twoStarNoDot;
+    const flags = new Set(options.nocase ? ["i"] : []);
+    let re = set.map((pattern) => {
+      const pp = pattern.map((p) => {
+        if (p instanceof RegExp) {
+          for (const f of p.flags.split(""))
+            flags.add(f);
+        }
+        return typeof p === "string" ? regExpEscape2(p) : p === GLOBSTAR ? GLOBSTAR : p._src;
+      });
+      pp.forEach((p, i) => {
+        const next = pp[i + 1];
+        const prev = pp[i - 1];
+        if (p !== GLOBSTAR || prev === GLOBSTAR) {
+          return;
+        }
+        if (prev === void 0) {
+          if (next !== void 0 && next !== GLOBSTAR) {
+            pp[i + 1] = "(?:\\/|" + twoStar + "\\/)?" + next;
+          } else {
+            pp[i] = twoStar;
+          }
+        } else if (next === void 0) {
+          pp[i - 1] = prev + "(?:\\/|" + twoStar + ")?";
+        } else if (next !== GLOBSTAR) {
+          pp[i - 1] = prev + "(?:\\/|\\/" + twoStar + "\\/)" + next;
+          pp[i + 1] = GLOBSTAR;
+        }
+      });
+      return pp.filter((p) => p !== GLOBSTAR).join("/");
+    }).join("|");
+    const [open, close] = set.length > 1 ? ["(?:", ")"] : ["", ""];
+    re = "^" + open + re + close + "$";
+    if (this.negate)
+      re = "^(?!" + re + ").+$";
+    try {
+      this.regexp = new RegExp(re, [...flags].join(""));
+    } catch (ex) {
+      this.regexp = false;
+    }
+    return this.regexp;
+  }
+  slashSplit(p) {
+    if (this.preserveMultipleSlashes) {
+      return p.split("/");
+    } else if (this.isWindows && /^\/\/[^\/]+/.test(p)) {
+      return ["", ...p.split(/\/+/)];
+    } else {
+      return p.split(/\/+/);
+    }
+  }
+  match(f, partial = this.partial) {
+    this.debug("match", f, this.pattern);
+    if (this.comment) {
+      return false;
+    }
+    if (this.empty) {
+      return f === "";
+    }
+    if (f === "/" && partial) {
+      return true;
+    }
+    const options = this.options;
+    if (this.isWindows) {
+      f = f.split("\\").join("/");
+    }
+    const ff = this.slashSplit(f);
+    this.debug(this.pattern, "split", ff);
+    const set = this.set;
+    this.debug(this.pattern, "set", set);
+    let filename = ff[ff.length - 1];
+    if (!filename) {
+      for (let i = ff.length - 2; !filename && i >= 0; i--) {
+        filename = ff[i];
+      }
+    }
+    for (let i = 0; i < set.length; i++) {
+      const pattern = set[i];
+      let file = ff;
+      if (options.matchBase && pattern.length === 1) {
+        file = [filename];
+      }
+      const hit = this.matchOne(file, pattern, partial);
+      if (hit) {
+        if (options.flipNegate) {
+          return true;
+        }
+        return !this.negate;
+      }
+    }
+    if (options.flipNegate) {
+      return false;
+    }
+    return this.negate;
+  }
+  static defaults(def) {
+    return minimatch.defaults(def).Minimatch;
+  }
+};
+_Minimatch_instances = new WeakSet();
+matchGlobstar_fn = function(file, pattern, partial, fileIndex, patternIndex) {
+  const firstgs = pattern.indexOf(GLOBSTAR, patternIndex);
+  const lastgs = pattern.lastIndexOf(GLOBSTAR);
+  const [head, body, tail] = partial ? [
+    pattern.slice(patternIndex, firstgs),
+    pattern.slice(firstgs + 1),
+    []
+  ] : [
+    pattern.slice(patternIndex, firstgs),
+    pattern.slice(firstgs + 1, lastgs),
+    pattern.slice(lastgs + 1)
+  ];
+  if (head.length) {
+    const fileHead = file.slice(fileIndex, fileIndex + head.length);
+    if (!__privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, fileHead, head, partial, 0, 0))
+      return false;
+    fileIndex += head.length;
+  }
+  let fileTailMatch = 0;
+  if (tail.length) {
+    if (tail.length + fileIndex > file.length)
+      return false;
+    let tailStart = file.length - tail.length;
+    if (__privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file, tail, partial, tailStart, 0)) {
+      fileTailMatch = tail.length;
+    } else {
+      if (file[file.length - 1] !== "" || fileIndex + tail.length === file.length) {
+        return false;
+      }
+      tailStart--;
+      if (!__privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file, tail, partial, tailStart, 0))
+        return false;
+      fileTailMatch = tail.length + 1;
+    }
+  }
+  if (!body.length) {
+    let sawSome = !!fileTailMatch;
+    for (let i2 = fileIndex; i2 < file.length - fileTailMatch; i2++) {
+      const f = String(file[i2]);
+      sawSome = true;
+      if (f === "." || f === ".." || !this.options.dot && f.startsWith(".")) {
+        return false;
+      }
+    }
+    return partial || sawSome;
+  }
+  const bodySegments = [[[], 0]];
+  let currentBody = bodySegments[0];
+  let nonGsParts = 0;
+  const nonGsPartsSums = [0];
+  for (const b of body) {
+    if (b === GLOBSTAR) {
+      nonGsPartsSums.push(nonGsParts);
+      currentBody = [[], 0];
+      bodySegments.push(currentBody);
+    } else {
+      currentBody[0].push(b);
+      nonGsParts++;
+    }
+  }
+  let i = bodySegments.length - 1;
+  const fileLength = file.length - fileTailMatch;
+  for (const b of bodySegments) {
+    b[1] = fileLength - (nonGsPartsSums[i--] + b[0].length);
+  }
+  return !!__privateMethod(this, _Minimatch_instances, matchGlobStarBodySections_fn).call(this, file, bodySegments, fileIndex, 0, partial, 0, !!fileTailMatch);
+};
+matchGlobStarBodySections_fn = function(file, bodySegments, fileIndex, bodyIndex, partial, globStarDepth, sawTail) {
+  const bs = bodySegments[bodyIndex];
+  if (!bs) {
+    for (let i = fileIndex; i < file.length; i++) {
+      sawTail = true;
+      const f = file[i];
+      if (f === "." || f === ".." || !this.options.dot && f.startsWith(".")) {
+        return false;
+      }
+    }
+    return sawTail;
+  }
+  const [body, after] = bs;
+  while (fileIndex <= after) {
+    const m = __privateMethod(this, _Minimatch_instances, matchOne_fn).call(this, file.slice(0, fileIndex + body.length), body, partial, fileIndex, 0);
+    if (m && globStarDepth < this.maxGlobstarRecursion) {
+      const sub = __privateMethod(this, _Minimatch_instances, matchGlobStarBodySections_fn).call(this, file, bodySegments, fileIndex + body.length, bodyIndex + 1, partial, globStarDepth + 1, sawTail);
+      if (sub !== false)
+        return sub;
+    }
+    const f = file[fileIndex];
+    if (f === "." || f === ".." || !this.options.dot && f.startsWith(".")) {
+      return false;
+    }
+    fileIndex++;
+  }
+  return partial || null;
+};
+matchOne_fn = function(file, pattern, partial, fileIndex, patternIndex) {
+  let fi;
+  let pi;
+  let pl;
+  let fl;
+  for (fi = fileIndex, pi = patternIndex, fl = file.length, pl = pattern.length; fi < fl && pi < pl; fi++, pi++) {
+    this.debug("matchOne loop");
+    let p = pattern[pi];
+    let f = file[fi];
+    this.debug(pattern, p, f);
+    if (p === false || p === GLOBSTAR)
+      return false;
+    let hit;
+    if (typeof p === "string") {
+      hit = f === p;
+      this.debug("string match", p, f, hit);
+    } else {
+      hit = p.test(f);
+      this.debug("pattern match", p, f, hit);
+    }
+    if (!hit)
+      return false;
+  }
+  if (fi === fl && pi === pl) {
+    return true;
+  } else if (fi === fl) {
+    return partial;
+  } else if (pi === pl) {
+    return fi === fl - 1 && file[fi] === "";
+  } else {
+    throw new Error("wtf?");
+  }
+};
+minimatch.AST = AST;
+minimatch.Minimatch = Minimatch;
+minimatch.escape = escape;
+minimatch.unescape = unescape;
+
 // src/utils/result.ts
 var result_exports = {};
 __export(result_exports, {
@@ -26043,21 +34538,6 @@ var unwrapErr = (result) => {
   }
 };
 
-// src/utils/serialize.ts
-function serializeProperty(value) {
-  if (["string", "boolean", "undefined"].includes(typeof value) || typeof value === "number" && value !== Infinity && value !== -Infinity && !isNaN(value)) {
-    return value;
-  }
-  const arg = LocalValue.getArgument(value);
-  return SERIALIZED_PREFIX + btoa(JSON.stringify(arg));
-}
-function deserializeProperty(value) {
-  if (typeof value !== "string" || !value.startsWith(SERIALIZED_PREFIX)) {
-    return value;
-  }
-  return RemoteValue.fromLocalValue(JSON.parse(atob(value.slice(SERIALIZED_PREFIX.length))));
-}
-
 // src/utils/util.ts
 var lowerPathParam = (fn) => (p) => fn(p.toLowerCase());
 var isDtsFile = lowerPathParam((p) => p.endsWith(".d.ts") || p.endsWith(".d.mts") || p.endsWith(".d.cts"));
@@ -26072,47 +34552,9 @@ var isJsxFile = lowerPathParam(
 );
 var isJsFile = lowerPathParam((p) => p.endsWith(".js") || p.endsWith(".mjs") || p.endsWith(".cjs"));
 
-// src/utils/shadow-css.ts
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- *
- * This file is a port of shadowCSS from `webcomponents.js` to TypeScript.
- * https://github.com/webcomponents/webcomponentsjs/blob/4efecd7e0e/src/ShadowCSS/ShadowCSS.js
- * https://github.com/angular/angular/blob/master/packages/compiler/src/shadow_css.ts
- */
-var _polyfillHost = "-shadowcsshost";
-var _polyfillSlotted = "-shadowcssslotted";
-var _polyfillHostContext = "-shadowcsscontext";
-var _parenSuffix = ")(?:\\(((?:\\([^)(]*\\)|[^)(]*)+?)\\))?([^,{]*)";
-var _cssColonHostRe = new RegExp("(" + _polyfillHost + _parenSuffix, "gim");
-var _cssColonHostContextRe = new RegExp("(" + _polyfillHostContext + _parenSuffix, "gim");
-var _cssColonSlottedRe = new RegExp("(" + _polyfillSlotted + _parenSuffix, "gim");
-var _polyfillHostNoCombinator = _polyfillHost + "-no-combinator";
-var createSupportsRuleRe = (selector) => {
-  const safeSelector = escapeRegExpSpecialCharacters(selector);
-  return new RegExp(
-    // First capture group: match any context before the selector that's not inside @supports selector()
-    // Using negative lookahead to avoid matching inside @supports selector(...) condition
-    `(^|[^@]|@(?!supports\\s+selector\\s*\\([^{]*?${safeSelector}))(${safeSelector}\\b)`,
-    "g"
-  );
-};
-var _colonSlottedRe = createSupportsRuleRe("::slotted");
-var _colonHostRe = createSupportsRuleRe(":host");
-var _colonHostContextRe = createSupportsRuleRe(":host-context");
-
-// src/runtime/mode.ts
-var setMode = (handler) => modeResolutionChain.push(handler);
-var CAPTURE_EVENT_SUFFIX = "Capture";
-var CAPTURE_EVENT_REGEX = new RegExp(CAPTURE_EVENT_SUFFIX + "$");
-
 // src/compiler/html/canonical-link.ts
 var updateCanonicalLink = (doc, href) => {
-  var _a2;
+  var _a3;
   let canonicalLinkElm = doc.head.querySelector('link[rel="canonical"]');
   if (typeof href === "string") {
     if (canonicalLinkElm == null) {
@@ -26125,7 +34567,7 @@ var updateCanonicalLink = (doc, href) => {
     if (canonicalLinkElm != null) {
       const existingHref = canonicalLinkElm.getAttribute("href");
       if (!existingHref) {
-        (_a2 = canonicalLinkElm.parentNode) == null ? void 0 : _a2.removeChild(canonicalLinkElm);
+        (_a3 = canonicalLinkElm.parentNode) == null ? void 0 : _a3.removeChild(canonicalLinkElm);
       }
     }
   }
@@ -26207,16 +34649,16 @@ var parseCss = (css, filePath) => {
   const stylesheet = () => {
     const rulesList = rules();
     return {
-      type: 14 /* StyleSheet */,
+      type: 15 /* StyleSheet */,
       stylesheet: {
         source: filePath,
         rules: rulesList
       }
     };
   };
-  const open = () => match(/^{\s*/);
-  const close = () => match(/^}/);
-  const match = (re) => {
+  const open = () => match2(/^{\s*/);
+  const close = () => match2(/^}/);
+  const match2 = (re) => {
     const m = re.exec(css);
     if (!m) return;
     const str = m[0];
@@ -26235,7 +34677,7 @@ var parseCss = (css, filePath) => {
     }
     return rules2;
   };
-  const whitespace = () => match(/^\s*/);
+  const whitespace = () => match2(/^\s*/);
   const comments = (rules2) => {
     let c;
     rules2 = rules2 || [];
@@ -26264,7 +34706,7 @@ var parseCss = (css, filePath) => {
     });
   };
   const selector = () => {
-    const m = match(/^([^{]+)/);
+    const m = match2(/^([^{]+)/);
     if (!m) return null;
     return trim(m[0]).replace(/\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*\/+/g, "").replace(/"(?:\\"|[^"])*"|'(?:\\'|[^'])*'/g, function(m2) {
       return m2.replace(/,/g, "\u200C");
@@ -26274,17 +34716,17 @@ var parseCss = (css, filePath) => {
   };
   const declaration = () => {
     const pos = position();
-    let prop = match(/^(\*?[-#\/\*\\\w]+(\[[0-9a-z_-]+\])?)\s*/);
+    let prop = match2(/^(\*?[-#\/\*\\\w]+(\[[0-9a-z_-]+\])?)\s*/);
     if (!prop) return null;
     prop = trim(prop[0]);
-    if (!match(/^:\s*/)) return error(`property missing ':'`);
-    const val = match(/^((?:'(?:\\'|.)*?'|"(?:\\"|.)*?"|\([^\)]*?\)|[^};])+)/);
+    if (!match2(/^:\s*/)) return error(`property missing ':'`);
+    const val = match2(/^((?:'(?:\\'|.)*?'|"(?:\\"|.)*?"|\([^\)]*?\)|[^};])+)/);
     const ret = pos({
       type: 4 /* Declaration */,
       property: prop.replace(commentre, ""),
       value: val ? trim(val[0]).replace(commentre, "") : ""
     });
-    match(/^[;\s]*/);
+    match2(/^[;\s]*/);
     return ret;
   };
   const declarations = () => {
@@ -26303,9 +34745,9 @@ var parseCss = (css, filePath) => {
     let m;
     const values = [];
     const pos = position();
-    while (m = match(/^((\d+\.\d+|\.\d+|\d+)%?|[a-z]+)\s*/)) {
+    while (m = match2(/^((\d+\.\d+|\.\d+|\d+)%?|[a-z]+)\s*/)) {
       values.push(m[1]);
-      match(/^,\s*/);
+      match2(/^,\s*/);
     }
     if (!values.length) return null;
     return pos({
@@ -26316,10 +34758,10 @@ var parseCss = (css, filePath) => {
   };
   const atkeyframes = () => {
     const pos = position();
-    let m = match(/^@([-\w]+)?keyframes\s*/);
+    let m = match2(/^@([-\w]+)?keyframes\s*/);
     if (!m) return null;
     const vendor = m[1];
-    m = match(/^([-\w]+)\s*/);
+    m = match2(/^([-\w]+)\s*/);
     if (!m) return error(`@keyframes missing name`);
     const name = m[1];
     if (!open()) return error(`@keyframes missing '{'`);
@@ -26339,21 +34781,21 @@ var parseCss = (css, filePath) => {
   };
   const atsupports = () => {
     const pos = position();
-    const m = match(/^@supports *([^{]+)/);
+    const m = match2(/^@supports *([^{]+)/);
     if (!m) return null;
     const supports = trim(m[1]);
     if (!open()) return error(`@supports missing '{'`);
     const style = comments().concat(rules());
     if (!close()) return error(`@supports missing '}'`);
     return pos({
-      type: 15 /* Supports */,
+      type: 16 /* Supports */,
       supports,
       rules: style
     });
   };
   const athost = () => {
     const pos = position();
-    const m = match(/^@host\s*/);
+    const m = match2(/^@host\s*/);
     if (!m) return null;
     if (!open()) return error(`@host missing '{'`);
     const style = comments().concat(rules());
@@ -26363,23 +34805,42 @@ var parseCss = (css, filePath) => {
       rules: style
     });
   };
-  const atmedia = () => {
+  const atquery = (name) => {
     const pos = position();
-    const m = match(/^@media *([^{]+)/);
+    const regex = new RegExp("^@" + name + " *([^{]+)");
+    const m = match2(regex);
     if (!m) return null;
     const media = trim(m[1]);
-    if (!open()) return error(`@media missing '{'`);
+    if (!open()) return error(`@${name} missing '{'`);
     const style = comments().concat(rules());
-    if (!close()) return error(`@media missing '}'`);
+    if (!close()) return error(`@${name} missing '}'`);
     return pos({
-      type: 10 /* Media */,
+      type: name === "media" ? 10 /* Media */ : 11 /* Container */,
       media,
       rules: style
     });
   };
+  const nestedAtQuery = (name) => {
+    const pos = position();
+    const regex = new RegExp("^@" + name + " *([^{]+)");
+    const m = match2(regex);
+    if (!m) return null;
+    const media = trim(m[1]);
+    const decls = declarations();
+    if (!decls) return null;
+    return pos({
+      type: name === "media" ? 10 /* Media */ : name === "container" ? 11 /* Container */ : 16 /* Supports */,
+      media,
+      declarations: decls
+    });
+  };
+  const nestedAtrule = () => {
+    if (css[0] !== "@") return null;
+    return nestedAtQuery("media") || nestedAtQuery("supports") || nestedAtQuery("container");
+  };
   const atcustommedia = () => {
     const pos = position();
-    const m = match(/^@custom-media\s+(--[^\s]+)\s*([^{;]+);/);
+    const m = match2(/^@custom-media\s+(--[^\s]+)\s*([^{;]+);/);
     if (!m) return null;
     return pos({
       type: 2 /* CustomMedia */,
@@ -26389,7 +34850,7 @@ var parseCss = (css, filePath) => {
   };
   const atpage = () => {
     const pos = position();
-    const m = match(/^@page */);
+    const m = match2(/^@page */);
     if (!m) return null;
     const sel = selector() || [];
     if (!open()) return error(`@page missing '{'`);
@@ -26401,14 +34862,14 @@ var parseCss = (css, filePath) => {
     }
     if (!close()) return error(`@page missing '}'`);
     return pos({
-      type: 12 /* Page */,
+      type: 13 /* Page */,
       selectors: sel,
       declarations: decls
     });
   };
   const atdocument = () => {
     const pos = position();
-    const m = match(/^@([-\w]+)?document *([^{]+)/);
+    const m = match2(/^@([-\w]+)?document *([^{]+)/);
     if (!m) return null;
     const vendor = trim(m[1]);
     const doc = trim(m[2]);
@@ -26424,7 +34885,7 @@ var parseCss = (css, filePath) => {
   };
   const atfontface = () => {
     const pos = position();
-    const m = match(/^@font-face\s*/);
+    const m = match2(/^@font-face\s*/);
     if (!m) return null;
     if (!open()) return error(`@font-face missing '{'`);
     let decls = comments();
@@ -26443,7 +34904,7 @@ var parseCss = (css, filePath) => {
     const re = new RegExp("^@" + nodeName + "\\s*([^;]+);");
     return () => {
       const pos = position();
-      const m = match(re);
+      const m = match2(re);
       if (!m) return null;
       const node = {
         type: nodeType
@@ -26454,23 +34915,76 @@ var parseCss = (css, filePath) => {
   };
   const atimport = compileAtrule("import", 7 /* Import */);
   const atcharset = compileAtrule("charset", 0 /* Charset */);
-  const atnamespace = compileAtrule("namespace", 11 /* Namespace */);
+  const atnamespace = compileAtrule("namespace", 12 /* Namespace */);
   const atrule = () => {
     if (css[0] !== "@") return null;
-    return atkeyframes() || atmedia() || atcustommedia() || atsupports() || atimport() || atcharset() || atnamespace() || atdocument() || atpage() || athost() || atfontface();
+    return atkeyframes() || atquery("media") || atquery("container") || atcustommedia() || atsupports() || atimport() || atcharset() || atnamespace() || atdocument() || atpage() || athost() || atfontface();
   };
   const rule = () => {
     const pos = position();
     const sel = selector();
     if (!sel) return error("selector missing");
     comments();
+    if (!open()) return error(`missing '{'`);
+    const decls = [];
+    const nestedRules = [];
+    comments(decls);
+    while (css.length && css.charAt(0) !== "}") {
+      whitespace();
+      if (!css.length || css.charAt(0) === "}") {
+        break;
+      }
+      const nextChar = css.charAt(0);
+      if (nextChar === "@") {
+        const nestedAt = nestedAtrule();
+        if (nestedAt) {
+          nestedRules.push(nestedAt);
+          comments(nestedRules);
+          continue;
+        }
+      }
+      if (nextChar === "&" || nextChar === ":" || /[a-zA-Z\.\#\[]/.test(nextChar)) {
+        let hasOpenBrace = false;
+        if (nextChar === "&" || nextChar === ":") {
+          const lookAhead = css.match(/^[^{}]+/);
+          hasOpenBrace = lookAhead && css[lookAhead[0].length] === "{";
+        } else {
+          const lookAhead = css.match(/^[^{};]+/);
+          if (lookAhead) {
+            const nextSigChar = css[lookAhead[0].length];
+            hasOpenBrace = nextSigChar === "{";
+          }
+        }
+        if (hasOpenBrace) {
+          const nestedRule = rule();
+          if (nestedRule) {
+            nestedRules.push(nestedRule);
+            comments(nestedRules);
+            continue;
+          }
+        }
+      }
+      const decl = declaration();
+      if (decl) {
+        decls.push(decl);
+        comments(decls);
+        continue;
+      }
+      break;
+    }
+    if (!close()) return error(`missing '}'`);
     return pos({
-      type: 13 /* Rule */,
+      type: 14 /* Rule */,
       selectors: sel,
-      declarations: declarations()
+      declarations: decls,
+      rules: nestedRules.length > 0 ? nestedRules : null
     });
   };
   class ParsePosition {
+    start;
+    end;
+    source;
+    content;
     constructor(start) {
       this.start = start;
       this.end = { line: lineno, column };
@@ -26565,16 +35079,16 @@ var serializeCss = (stylesheet, serializeOpts) => {
   return out.join("");
 };
 var serializeCssVisitNode = (opts, node, index, len) => {
-  var _a2;
+  var _a3;
   const nodeType = node.type;
   if (nodeType === 4 /* Declaration */) {
     return serializeCssDeclaration(node, index, len);
   }
-  if (nodeType === 13 /* Rule */) {
+  if (nodeType === 14 /* Rule */) {
     return serializeCssRule(opts, node);
   }
   if (nodeType === 1 /* Comment */) {
-    if (((_a2 = node.comment) == null ? void 0 : _a2[0]) === "!") {
+    if (((_a3 = node.comment) == null ? void 0 : _a3[0]) === "!") {
       return `/*${node.comment}*/`;
     } else {
       return "";
@@ -26582,6 +35096,9 @@ var serializeCssVisitNode = (opts, node, index, len) => {
   }
   if (nodeType === 10 /* Media */) {
     return serializeCssMedia(opts, node);
+  }
+  if (nodeType === 11 /* Container */) {
+    return serializeCssContainer(opts, node);
   }
   if (nodeType === 8 /* KeyFrames */) {
     return serializeCssKeyframes(opts, node);
@@ -26592,7 +35109,7 @@ var serializeCssVisitNode = (opts, node, index, len) => {
   if (nodeType === 5 /* FontFace */) {
     return serializeCssFontFace(opts, node);
   }
-  if (nodeType === 15 /* Supports */) {
+  if (nodeType === 16 /* Supports */) {
     return serializeCssSupports(opts, node);
   }
   if (nodeType === 7 /* Import */) {
@@ -26601,7 +35118,7 @@ var serializeCssVisitNode = (opts, node, index, len) => {
   if (nodeType === 0 /* Charset */) {
     return "@charset " + node.charset + ";";
   }
-  if (nodeType === 12 /* Page */) {
+  if (nodeType === 13 /* Page */) {
     return serializeCssPage(opts, node);
   }
   if (nodeType === 6 /* Host */) {
@@ -26613,17 +35130,19 @@ var serializeCssVisitNode = (opts, node, index, len) => {
   if (nodeType === 3 /* Document */) {
     return serializeCssDocument(opts, node);
   }
-  if (nodeType === 11 /* Namespace */) {
+  if (nodeType === 12 /* Namespace */) {
     return "@namespace " + node.namespace + ";";
   }
   return "";
 };
 var serializeCssRule = (opts, node) => {
-  var _a2, _b;
+  var _a3, _b;
   const decls = node.declarations;
   const usedSelectors = opts.usedSelectors;
-  const selectors = (_b = (_a2 = node.selectors) == null ? void 0 : _a2.slice()) != null ? _b : [];
-  if (decls == null || decls.length === 0) {
+  const selectors = (_b = (_a3 = node.selectors) == null ? void 0 : _a3.slice()) != null ? _b : [];
+  const hasDecls = decls != null && decls.length > 0;
+  const hasNestedRules = node.rules != null && node.rules.length > 0;
+  if (!hasDecls && !hasNestedRules) {
     return "";
   }
   if (usedSelectors) {
@@ -26693,7 +35212,12 @@ var serializeCssRule = (opts, node) => {
       }
     }
   }
-  return `${cleanedSelectors}{${serializeCssMapVisit(opts, decls)}}`;
+  let declsCss = decls && decls.length > 0 ? serializeCssMapVisit(opts, decls) : "";
+  const nestedRulesCss = node.rules ? serializeCssMapVisit(opts, node.rules) : "";
+  if (declsCss && nestedRulesCss && declsCss.length > 0) {
+    declsCss += ";";
+  }
+  return `${cleanedSelectors}{${declsCss}${nestedRulesCss}}`;
 };
 var serializeCssDeclaration = (node, index, len) => {
   if (node.value === "") {
@@ -26705,7 +35229,7 @@ var serializeCssDeclaration = (node, index, len) => {
   return node.property + ":" + node.value + ";";
 };
 var serializeCssMedia = (opts, node) => {
-  const mediaCss = serializeCssMapVisit(opts, node.rules);
+  const mediaCss = node.declarations ? serializeCssMapVisit(opts, node.declarations) : serializeCssMapVisit(opts, node.rules);
   if (mediaCss === "") {
     return "";
   }
@@ -26719,8 +35243,8 @@ var serializeCssKeyframes = (opts, node) => {
   return "@" + (node.vendor || "") + "keyframes " + node.name + "{" + keyframesCss + "}";
 };
 var serializeCssKeyframe = (opts, node) => {
-  var _a2, _b;
-  return ((_b = (_a2 = node.values) == null ? void 0 : _a2.join(",")) != null ? _b : "") + "{" + serializeCssMapVisit(opts, node.declarations) + "}";
+  var _a3, _b;
+  return ((_b = (_a3 = node.values) == null ? void 0 : _a3.join(",")) != null ? _b : "") + "{" + serializeCssMapVisit(opts, node.declarations) + "}";
 };
 var serializeCssFontFace = (opts, node) => {
   const fontCss = serializeCssMapVisit(opts, node.declarations);
@@ -26730,15 +35254,22 @@ var serializeCssFontFace = (opts, node) => {
   return "@font-face{" + fontCss + "}";
 };
 var serializeCssSupports = (opts, node) => {
-  const supportsCss = serializeCssMapVisit(opts, node.rules);
+  const supportsCss = node.declarations ? serializeCssMapVisit(opts, node.declarations) : serializeCssMapVisit(opts, node.rules);
   if (supportsCss === "") {
     return "";
   }
   return "@supports " + node.supports + "{" + supportsCss + "}";
 };
+var serializeCssContainer = (opts, node) => {
+  const containerCss = node.declarations ? serializeCssMapVisit(opts, node.declarations) : serializeCssMapVisit(opts, node.rules);
+  if (containerCss === "") {
+    return "";
+  }
+  return "@container " + removeMediaWhitespace(node.media) + "{" + containerCss + "}";
+};
 var serializeCssPage = (opts, node) => {
-  var _a2, _b;
-  const sel = (_b = (_a2 = node.selectors) == null ? void 0 : _a2.join(", ")) != null ? _b : "";
+  var _a3, _b;
+  const sel = (_b = (_a3 = node.selectors) == null ? void 0 : _a3.join(", ")) != null ? _b : "";
   return "@page " + sel + "{" + serializeCssMapVisit(opts, node.declarations) + "}";
 };
 var serializeCssDocument = (opts, node) => {
@@ -26785,10 +35316,10 @@ var removeSelectorWhitespace = (selector) => {
   return rtn;
 };
 var removeMediaWhitespace = (media) => {
-  var _a2;
+  var _a3;
   let rtn = "";
   let char = "";
-  media = (_a2 = media == null ? void 0 : media.trim()) != null ? _a2 : "";
+  media = (_a3 = media == null ? void 0 : media.trim()) != null ? _a3 : "";
   for (let i = 0, l = media.length; i < l; i++) {
     char = media[i];
     if (CSS_WS_REG.test(char)) {
@@ -27497,4 +36028,6 @@ exports.hydrateDocument = hydrateDocument;
 exports.renderToString = renderToString;
 exports.serializeDocumentToString = serializeDocumentToString;
 exports.serializeProperty = serializeProperty;
+exports.setTagTransformer = setTagTransformer;
 exports.streamToString = streamToString;
+exports.transformTag = transformTag;

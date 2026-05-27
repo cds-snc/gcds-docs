@@ -7,4 +7,3 @@ export function generateSpacingArray() {
     return values;
 }
 export const SpacingArray = generateSpacingArray();
-//# sourceMappingURL=spacing.js.map

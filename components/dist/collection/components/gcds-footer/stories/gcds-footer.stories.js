@@ -138,4 +138,3 @@ Playground.args = {
     subLinks: '',
     lang: 'en',
 };
-//# sourceMappingURL=gcds-footer.stories.js.map

@@ -498,4 +498,3 @@ Playground.args = {
   <p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>`,
 };
-//# sourceMappingURL=gcds-grid.stories.js.map

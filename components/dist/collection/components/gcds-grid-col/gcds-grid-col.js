@@ -71,7 +71,6 @@ export class GcdsGridCol {
         return {
             "tag": {
                 "type": "string",
-                "attribute": "tag",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -87,11 +86,11 @@ export class GcdsGridCol {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "tag",
                 "defaultValue": "'div'"
             },
             "tablet": {
                 "type": "number",
-                "attribute": "tablet",
                 "mutable": true,
                 "complexType": {
                     "original": "1 | 2 | 3 | 4 | 5 | 6",
@@ -107,11 +106,11 @@ export class GcdsGridCol {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "tablet",
                 "defaultValue": "6"
             },
             "desktop": {
                 "type": "number",
-                "attribute": "desktop",
                 "mutable": true,
                 "complexType": {
                     "original": "| 1\n    | 2\n    | 3\n    | 4\n    | 5\n    | 6\n    | 7\n    | 8\n    | 9\n    | 10\n    | 11\n    | 12",
@@ -126,7 +125,8 @@ export class GcdsGridCol {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "desktop"
             }
         };
     }
@@ -141,4 +141,3 @@ export class GcdsGridCol {
             }];
     }
 }
-//# sourceMappingURL=gcds-grid-col.js.map

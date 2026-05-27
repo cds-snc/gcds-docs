@@ -1,2 +1,1 @@
-import{G as o,d as s}from"./p-Kdp3rLYB.js";const p=o;const r=s;export{p as GcdsErrorMessage,r as defineCustomElement};
-//# sourceMappingURL=gcds-error-message.js.map
+import{G as a,d as o}from"./p-DaaFqEA1.js";const s=a,p=o;export{s as GcdsErrorMessage,p as defineCustomElement}

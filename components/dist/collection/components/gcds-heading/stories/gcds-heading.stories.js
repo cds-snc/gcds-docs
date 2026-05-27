@@ -247,4 +247,3 @@ Playground.args = {
     default: 'Heading',
     headingRole: 'primary',
 };
-//# sourceMappingURL=gcds-heading.stories.js.map

@@ -291,7 +291,7 @@ export class GcdsTextarea {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '4c93c2645ce5374794cac263a3206ee8cc2ed1f5' }, h("div", { key: 'c9c7c6b5b5f26e2c1c1e451ae64f478746b18e21', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '43a9fed50882d577a2fbeb50519d233ef069b94c' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '80d8daf6be299b6dd933842182e507ba119ad651' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.onFocus(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), maxlength ? (h(Fragment, null, h("gcds-sr-only", { tag: "span", id: `textarea__count-${textareaId}` }, i18n[lang].characters.maxlength.replace('{{num}}', maxlength)), !hideLimit && (h("gcds-text", { id: `textarea__visual-count-${textareaId}`, "aria-hidden": "true" }, i18n[lang].characters.left, value == undefined ? maxlength : maxlength - value.length)), h("gcds-sr-only", { tag: "span" }, h("span", { id: `textarea__sr-count-${textareaId}`, role: "status", "aria-atomic": "true" })))) : null)));
+        return (h(Host, { key: 'f807f25b63c0abb356df1365d9382f318bae2775' }, h("div", { key: 'd27317f81d9523571726a5b2715517176b4a7af7', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'b05b09daf2c31c6aad4d0ffb304c05c2f217661b' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '049f2689bf962525062abb78941ad3fec2a55ced' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.onFocus(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), maxlength ? (h(Fragment, null, h("gcds-sr-only", { tag: "span", id: `textarea__count-${textareaId}` }, i18n[lang].characters.maxlength.replace('{{num}}', maxlength)), !hideLimit && (h("gcds-text", { id: `textarea__visual-count-${textareaId}`, "aria-hidden": "true" }, i18n[lang].characters.left, value == undefined ? maxlength : maxlength - value.length)), h("gcds-sr-only", { tag: "span" }, h("span", { id: `textarea__sr-count-${textareaId}`, role: "status", "aria-atomic": "true" })))) : null)));
     }
     static get is() { return "gcds-textarea"; }
     static get encapsulation() { return "shadow"; }
@@ -311,7 +311,6 @@ export class GcdsTextarea {
         return {
             "autofocus": {
                 "type": "boolean",
-                "attribute": "autofocus",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -326,11 +325,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "autofocus"
             },
             "form": {
                 "type": "string",
-                "attribute": "form",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -345,11 +344,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "form"
             },
             "hideLimit": {
                 "type": "boolean",
-                "attribute": "hide-limit",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -365,11 +364,11 @@ export class GcdsTextarea {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-limit",
                 "defaultValue": "false"
             },
             "maxlength": {
                 "type": "number",
-                "attribute": "maxlength",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -384,11 +383,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "maxlength"
             },
             "minlength": {
                 "type": "number",
-                "attribute": "minlength",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -403,11 +402,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "minlength"
             },
             "cols": {
                 "type": "number",
-                "attribute": "cols",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -422,11 +421,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "cols"
             },
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -442,11 +441,11 @@ export class GcdsTextarea {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "disabled",
                 "defaultValue": "false"
             },
             "errorMessage": {
                 "type": "string",
-                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -461,11 +460,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "error-message"
             },
             "hideLabel": {
                 "type": "boolean",
-                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -481,11 +480,11 @@ export class GcdsTextarea {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-label",
                 "defaultValue": "false"
             },
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -500,11 +499,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "hint"
             },
             "label": {
                 "type": "string",
-                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -519,11 +518,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "label"
             },
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -538,11 +537,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "name"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -558,11 +557,11 @@ export class GcdsTextarea {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "required",
                 "defaultValue": "false"
             },
             "rows": {
                 "type": "number",
-                "attribute": "rows",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -578,11 +577,11 @@ export class GcdsTextarea {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "rows",
                 "defaultValue": "5"
             },
             "textareaId": {
                 "type": "string",
-                "attribute": "textarea-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -597,11 +596,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "textarea-id"
             },
             "value": {
                 "type": "string",
-                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -616,11 +615,11 @@ export class GcdsTextarea {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "value"
             },
             "validator": {
                 "type": "unknown",
-                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -633,12 +632,14 @@ export class GcdsTextarea {
                         "ValidatorEntry": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
+                            "id": "src/validators/index.ts::ValidatorEntry",
+                            "referenceLocation": "ValidatorEntry"
                         },
                         "Validator": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
+                            "id": "src/validators/index.ts::Validator",
+                            "referenceLocation": "Validator"
                         }
                     }
                 },
@@ -653,7 +654,6 @@ export class GcdsTextarea {
             },
             "validateOn": {
                 "type": "string",
-                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -669,11 +669,11 @@ export class GcdsTextarea {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "validate-on",
                 "defaultValue": "'blur'"
             },
             "validity": {
                 "type": "unknown",
-                "attribute": "validity",
                 "mutable": false,
                 "complexType": {
                     "original": "ValidityState",
@@ -885,4 +885,3 @@ export class GcdsTextarea {
     }
     static get attachInternalsMemberName() { return "internals"; }
 }
-//# sourceMappingURL=gcds-textarea.js.map

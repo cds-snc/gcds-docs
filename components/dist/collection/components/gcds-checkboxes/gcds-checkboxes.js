@@ -316,7 +316,7 @@ export class GcdsCheckboxes {
         }
         this.shadowElement = [];
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: 'a523f6d77cd9e2fd3f30b9d90fc4ca4e32c97f22', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && (h("span", { class: "legend__required" }, i18n[this.lang].required)))) : (h(Fragment, null, legend, required && (h("span", { class: "legend__required" }, i18n[this.lang].required))))), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '2ada091aa7634da7f9bcf86f966c91d6aea49d37', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && (h("span", { class: "legend__required" }, i18n[this.lang].required)))) : (h(Fragment, null, legend, required && (h("span", { class: "legend__required" }, i18n[this.lang].required))))), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -342,7 +342,6 @@ export class GcdsCheckboxes {
         return {
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -357,11 +356,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "name"
             },
             "legend": {
                 "type": "string",
-                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -376,11 +375,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "legend"
             },
             "options": {
                 "type": "string",
-                "attribute": "options",
                 "mutable": true,
                 "complexType": {
                     "original": "string | Array<CheckboxObject>",
@@ -393,7 +392,8 @@ export class GcdsCheckboxes {
                         "CheckboxObject": {
                             "location": "import",
                             "path": "./checkbox",
-                            "id": "src/components/gcds-checkboxes/checkbox.tsx::CheckboxObject"
+                            "id": "src/components/gcds-checkboxes/checkbox.tsx::CheckboxObject",
+                            "referenceLocation": "CheckboxObject"
                         }
                     }
                 },
@@ -405,11 +405,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "options"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -424,11 +424,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "required"
             },
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -443,11 +443,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "disabled"
             },
             "autofocus": {
                 "type": "boolean",
-                "attribute": "autofocus",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -462,11 +462,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "autofocus"
             },
             "form": {
                 "type": "string",
-                "attribute": "form",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -481,11 +481,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "form"
             },
             "hideLabel": {
                 "type": "boolean",
-                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -501,11 +501,11 @@ export class GcdsCheckboxes {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-label",
                 "defaultValue": "false"
             },
             "hideLegend": {
                 "type": "boolean",
-                "attribute": "hide-legend",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -521,11 +521,11 @@ export class GcdsCheckboxes {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-legend",
                 "defaultValue": "false"
             },
             "value": {
                 "type": "string",
-                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string | Array<string>",
@@ -546,11 +546,11 @@ export class GcdsCheckboxes {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "value",
                 "defaultValue": "[]"
             },
             "errorMessage": {
                 "type": "string",
-                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -565,11 +565,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "error-message"
             },
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -584,11 +584,11 @@ export class GcdsCheckboxes {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "hint"
             },
             "validator": {
                 "type": "unknown",
-                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -601,12 +601,14 @@ export class GcdsCheckboxes {
                         "ValidatorEntry": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
+                            "id": "src/validators/index.ts::ValidatorEntry",
+                            "referenceLocation": "ValidatorEntry"
                         },
                         "Validator": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
+                            "id": "src/validators/index.ts::Validator",
+                            "referenceLocation": "Validator"
                         }
                     }
                 },
@@ -621,7 +623,6 @@ export class GcdsCheckboxes {
             },
             "validateOn": {
                 "type": "string",
-                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -637,11 +638,11 @@ export class GcdsCheckboxes {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "validate-on",
                 "defaultValue": "'blur'"
             },
             "validity": {
                 "type": "unknown",
-                "attribute": "validity",
                 "mutable": false,
                 "complexType": {
                     "original": "ValidityState",
@@ -887,4 +888,3 @@ export class GcdsCheckboxes {
     }
     static get attachInternalsMemberName() { return "internals"; }
 }
-//# sourceMappingURL=gcds-checkboxes.js.map

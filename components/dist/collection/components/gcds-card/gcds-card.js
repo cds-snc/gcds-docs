@@ -90,7 +90,7 @@ export class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: 'dd00869ab8d4fb7fd9abf68b0432899a475cedf8' }, h("div", { key: '8f57992a1de761c5510f037b2a8136459f07b14d', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '42c7fc2a3c8b69d1cc454adb9ca1767fc9986566', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '32c13a05860a19a0a43ea995f645507604d9452c' }, h("gcds-sr-only", { key: '2e47faade10e8138cbca10994293d9cd23c573a5', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: '6ccf1faa6faf20a9991e5374fef4ce96b71532ae', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
+            return (h(Host, { key: '902ab3fc2b4d1a491d2f2909de5e37a423eb23f2' }, h("div", { key: '031a4590ddc8a53a23ed4fe0038d5d24fc97ed17', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '4e88651121d4bbfcd79352402d8557ad72997bad', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '1a588e4fda30fc3831bc01946619ccb4a8b75fc9' }, h("gcds-sr-only", { key: 'e59a94f22d1ca8b191e09518c00c2ffe5923eab2', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: '5cafcc07dde740da62f2aedb007bb11942728256', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     static get is() { return "gcds-card"; }
@@ -109,7 +109,6 @@ export class GcdsCard {
         return {
             "cardTitle": {
                 "type": "string",
-                "attribute": "card-title",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -124,11 +123,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "card-title"
             },
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -143,11 +142,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "href"
             },
             "cardTitleTag": {
                 "type": "string",
-                "attribute": "card-title-tag",
                 "mutable": false,
                 "complexType": {
                     "original": "'h3' | 'h4' | 'h5' | 'h6'",
@@ -162,11 +161,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "card-title-tag"
             },
             "description": {
                 "type": "string",
-                "attribute": "description",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -181,11 +180,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "description"
             },
             "badge": {
                 "type": "string",
-                "attribute": "badge",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -200,11 +199,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "badge"
             },
             "imgSrc": {
                 "type": "string",
-                "attribute": "img-src",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -219,11 +218,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "img-src"
             },
             "imgAlt": {
                 "type": "string",
-                "attribute": "img-alt",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -238,11 +237,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "img-alt"
             },
             "rel": {
                 "type": "string",
-                "attribute": "rel",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -257,11 +256,11 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "rel"
             },
             "target": {
                 "type": "string",
-                "attribute": "target",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -276,7 +275,8 @@ export class GcdsCard {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "target"
             }
         };
     }
@@ -348,4 +348,3 @@ export class GcdsCard {
             }];
     }
 }
-//# sourceMappingURL=gcds-card.js.map

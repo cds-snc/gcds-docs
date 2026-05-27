@@ -160,4 +160,3 @@ Playground.args = {
     lang: 'en',
     default: '',
 };
-//# sourceMappingURL=gcds-top-nav.stories.js.map

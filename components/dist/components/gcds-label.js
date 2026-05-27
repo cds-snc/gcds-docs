@@ -1,2 +1,1 @@
-import{G as o,d as s}from"./p-CojfDvvN.js";const t=o;const p=s;export{t as GcdsLabel,p as defineCustomElement};
-//# sourceMappingURL=gcds-label.js.map
+import{G as o,d as s}from"./p-BAoUWknL.js";const p=o,r=s;export{p as GcdsLabel,r as defineCustomElement}

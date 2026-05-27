@@ -13,4 +13,3 @@ export function isRadioObject(obj) {
     const hasOnlyValidKeys = objKeys.every(key => validKeys.includes(key));
     return hasValidTypes && hasOnlyValidKeys;
 }
-//# sourceMappingURL=radio.js.map

@@ -1,2 +1,1 @@
-import{G as o,d as s}from"./p-ohgpBu1D.js";const p=o;const t=s;export{p as GcdsHint,t as defineCustomElement};
-//# sourceMappingURL=gcds-hint.js.map
+import{G as o,d as s}from"./p-NQwQN00X.js";const p=o,r=s;export{p as GcdsHint,r as defineCustomElement}

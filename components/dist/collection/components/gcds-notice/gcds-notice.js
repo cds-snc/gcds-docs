@@ -91,7 +91,7 @@ export class GcdsNotice {
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (h(Host, { key: '03e09c9feca750421af5461d3530a3b459f8c0a1' }, this.validateRequiredProps() && (h("section", { key: 'a662553fe15c9b04690a5fa3b5904d7c8f04ebcf', class: `gcds-notice notice--role-${noticeRole}` }, h("gcds-icon", { key: '710bf5e2c0eddf52f765d1247b79147139a57f44', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), h("div", { key: '148dc06af3014b33b0180865839cf920b18aabdd' }, h("gcds-heading", { key: '7f9c4947154fc5ecf7cf7023968da3d5e7c48c46', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: 'f954a5fd1b3846dfe82e69be40eac77cc10a363a', tag: "span" }, i18n[this.lang][noticeRole]), noticeTitle), h("slot", { key: 'ac208cbe2c085f09358cd043b5a925b881d21300' }))))));
+        return (h(Host, { key: 'eeefda750a72d686551bf8fb9d19e01041443383' }, this.validateRequiredProps() && (h("section", { key: '6e02932b54e765e2209dbfce48d195cf49c18b71', class: `gcds-notice notice--role-${noticeRole}` }, h("gcds-icon", { key: '3dc298767a00715811ccec1f9c372acf919fd3d4', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), h("div", { key: '214a8893e623fa271f673cb79df6a732a6c72964' }, h("gcds-heading", { key: 'ea7a87df48aa86ca8c85128dfcdd49ea39430217', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '517fd7249667e0f971b009f65b070dc11440d69e', tag: "span" }, i18n[this.lang][noticeRole]), noticeTitle), h("slot", { key: 'fdf48fa2daceb1af2f8058e53e4a3d00d6424444' }))))));
     }
     static get is() { return "gcds-notice"; }
     static get encapsulation() { return "shadow"; }
@@ -109,7 +109,6 @@ export class GcdsNotice {
         return {
             "noticeRole": {
                 "type": "string",
-                "attribute": "notice-role",
                 "mutable": false,
                 "complexType": {
                     "original": "'danger' | 'info' | 'success' | 'warning'",
@@ -124,11 +123,11 @@ export class GcdsNotice {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "notice-role"
             },
             "noticeTitle": {
                 "type": "string",
-                "attribute": "notice-title",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -143,11 +142,11 @@ export class GcdsNotice {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "notice-title"
             },
             "noticeTitleTag": {
                 "type": "string",
-                "attribute": "notice-title-tag",
                 "mutable": false,
                 "complexType": {
                     "original": "'h2' | 'h3' | 'h4' | 'h5'",
@@ -162,7 +161,8 @@ export class GcdsNotice {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "notice-title-tag"
             }
         };
     }
@@ -174,4 +174,3 @@ export class GcdsNotice {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-notice.js.map

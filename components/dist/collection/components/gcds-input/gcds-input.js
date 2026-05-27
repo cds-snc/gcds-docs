@@ -308,7 +308,7 @@ export class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'b76e47c010dd01a1a75da9e9de0c3a1c7ccc63a6' }, h("div", { key: '82bf8e2f6bdc4000b43b5f20de322ec4e551987e', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'f693f9bb7803e33fbbcf9f32be06cd9853b078fd' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'd669799bd304f8e4d90315e2e3d64f4f7847d9c0' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: 'b9d81df6f50cd08e4b9377996a79824c9bbe488a' }, h("div", { key: 'e39afd146c1c70a88a2eb55570cd50892f0d20c3', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '0f3ad082733230e3fc87e1fc4b76f72199805034' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: '5f56bec9c378c59913566d81a58dd4b853963653' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -337,7 +337,6 @@ export class GcdsInput {
         return {
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -353,11 +352,11 @@ export class GcdsInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "disabled",
                 "defaultValue": "false"
             },
             "errorMessage": {
                 "type": "string",
-                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -372,11 +371,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "error-message"
             },
             "hideLabel": {
                 "type": "boolean",
-                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -392,11 +391,11 @@ export class GcdsInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-label",
                 "defaultValue": "false"
             },
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -411,11 +410,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "hint"
             },
             "inputId": {
                 "type": "string",
-                "attribute": "input-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -430,11 +429,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "input-id"
             },
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -449,11 +448,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "name"
             },
             "label": {
                 "type": "string",
-                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -468,11 +467,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "label"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -488,11 +487,11 @@ export class GcdsInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "required",
                 "defaultValue": "false"
             },
             "size": {
                 "type": "number",
-                "attribute": "size",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -507,11 +506,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "size"
             },
             "type": {
                 "type": "string",
-                "attribute": "type",
                 "mutable": false,
                 "complexType": {
                     "original": "'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url'",
@@ -527,11 +526,11 @@ export class GcdsInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "type",
                 "defaultValue": "'text'"
             },
             "inputmode": {
                 "type": "string",
-                "attribute": "inputmode",
                 "mutable": false,
                 "complexType": {
                     "original": "| 'none'\n    | 'text'\n    | 'decimal'\n    | 'numeric'\n    | 'tel'\n    | 'search'\n    | 'email'\n    | 'url'",
@@ -547,11 +546,11 @@ export class GcdsInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "inputmode",
                 "defaultValue": "null"
             },
             "value": {
                 "type": "string",
-                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -566,11 +565,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "value"
             },
             "autocomplete": {
                 "type": "string",
-                "attribute": "autocomplete",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -585,11 +584,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "autocomplete"
             },
             "autofocus": {
                 "type": "boolean",
-                "attribute": "autofocus",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -604,11 +603,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "autofocus"
             },
             "form": {
                 "type": "string",
-                "attribute": "form",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -623,11 +622,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "form"
             },
             "max": {
                 "type": "any",
-                "attribute": "max",
                 "mutable": false,
                 "complexType": {
                     "original": "number | string",
@@ -642,11 +641,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "max"
             },
             "maxlength": {
                 "type": "number",
-                "attribute": "maxlength",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -661,11 +660,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "maxlength"
             },
             "min": {
                 "type": "any",
-                "attribute": "min",
                 "mutable": false,
                 "complexType": {
                     "original": "number | string",
@@ -680,11 +679,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "min"
             },
             "minlength": {
                 "type": "number",
-                "attribute": "minlength",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -699,11 +698,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "minlength"
             },
             "pattern": {
                 "type": "string",
-                "attribute": "pattern",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -718,11 +717,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "pattern"
             },
             "readonly": {
                 "type": "boolean",
-                "attribute": "readonly",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -737,11 +736,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "readonly"
             },
             "step": {
                 "type": "any",
-                "attribute": "step",
                 "mutable": false,
                 "complexType": {
                     "original": "number | 'any'",
@@ -756,11 +755,11 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "step"
             },
             "validity": {
                 "type": "unknown",
-                "attribute": "validity",
                 "mutable": false,
                 "complexType": {
                     "original": "ValidityState",
@@ -783,7 +782,6 @@ export class GcdsInput {
             },
             "validator": {
                 "type": "unknown",
-                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -796,12 +794,14 @@ export class GcdsInput {
                         "ValidatorEntry": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
+                            "id": "src/validators/index.ts::ValidatorEntry",
+                            "referenceLocation": "ValidatorEntry"
                         },
                         "Validator": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
+                            "id": "src/validators/index.ts::Validator",
+                            "referenceLocation": "Validator"
                         }
                     }
                 },
@@ -816,7 +816,6 @@ export class GcdsInput {
             },
             "validateOn": {
                 "type": "string",
-                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -832,11 +831,11 @@ export class GcdsInput {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "validate-on",
                 "defaultValue": "'blur'"
             },
             "suggestions": {
                 "type": "string",
-                "attribute": "suggestions",
                 "mutable": true,
                 "complexType": {
                     "original": "string | Array<SuggestionOption>",
@@ -849,7 +848,8 @@ export class GcdsInput {
                         "SuggestionOption": {
                             "location": "import",
                             "path": "./suggestion-option",
-                            "id": "src/components/gcds-input/suggestion-option.tsx::SuggestionOption"
+                            "id": "src/components/gcds-input/suggestion-option.tsx::SuggestionOption",
+                            "referenceLocation": "SuggestionOption"
                         }
                     }
                 },
@@ -861,7 +861,8 @@ export class GcdsInput {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "suggestions"
             }
         };
     }
@@ -1084,4 +1085,3 @@ export class GcdsInput {
     }
     static get attachInternalsMemberName() { return "internals"; }
 }
-//# sourceMappingURL=gcds-input.js.map

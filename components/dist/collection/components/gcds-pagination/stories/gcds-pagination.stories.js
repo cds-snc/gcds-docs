@@ -243,4 +243,3 @@ Playground.args = {
     nextLabel: '',
     lang: 'en',
 };
-//# sourceMappingURL=gcds-pagination.stories.js.map

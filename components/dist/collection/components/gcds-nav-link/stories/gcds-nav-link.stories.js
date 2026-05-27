@@ -122,4 +122,3 @@ Playground.args = {
     current: false,
     default: 'Nav link',
 };
-//# sourceMappingURL=gcds-nav-link.stories.js.map

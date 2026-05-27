@@ -9,6 +9,7 @@ import { EventEmitter } from '../../stencil-public-runtime';
  * @slot skip-to-nav - Slot to add a hidden skip to content navigation at the top of the header.
  * @slot signature - Slot to replace Government of Canada signature.
  * @slot toggle - Slot to add a custom language toggle in the top-right of the header.
+ * @slot account - Slot to add a custom account link in the bottom-right of the header.
  */
 export declare class GcdsHeader {
     el: HTMLElement;
@@ -55,5 +56,7 @@ export declare class GcdsHeader {
     private get hasSearch();
     private get hasBanner();
     private get hasBreadcrumb();
+    private get hasAccount();
+    private get hasThemeTopicMenu();
     render(): any;
 }

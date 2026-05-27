@@ -1,4 +1,5 @@
 import { SpacingValues } from '../../utils/types/spacing';
+export type IconNames = 'arrow-down' | 'arrow-up' | 'arrow-up-down' | 'checkmark-circle' | 'chevron-down' | 'chevron-left' | 'chevron-right' | 'chevron-up' | 'close' | 'download' | 'email' | 'exclamation-circle' | 'external' | 'filter' | 'info-circle' | 'phone' | 'search' | 'sort' | 'tune' | 'warning-triangle';
 /**
  * An icon is a symbol that visually represents an action or idea.
  */
@@ -22,7 +23,7 @@ export declare class GcdsIcon {
     /**
      * Name of the icon.
      */
-    name: 'checkmark-circle' | 'chevron-down' | 'chevron-left' | 'chevron-right' | 'chevron-up' | 'close' | 'download' | 'email' | 'exclamation-circle' | 'external' | 'info-circle' | 'phone' | 'search' | 'warning-triangle';
+    name: IconNames;
     validateName(newValue: string): void;
     /**
      * Defines the size of the icon.

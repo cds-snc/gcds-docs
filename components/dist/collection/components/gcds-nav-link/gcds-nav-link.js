@@ -45,7 +45,7 @@ export class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (h(Host, { key: 'a6e2fa48b4b77a616dc53e40bc118cd919cf8ac2', role: "listitem" }, h("a", Object.assign({ key: '2f7e253d103f1c87c7b4450f879288705cdf0795', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: 'fa0abad92cfc665af35535215fb259477c3b704a' }))));
+        return (h(Host, { key: '69d1a5cf3b6ec8277ecbc0b994c679a85485f288', role: "listitem" }, h("a", Object.assign({ key: 'e6fa6df38ec8f39e69e6e030846353e969640680', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '77b17d920b3c8e9fed6467aff446f928d246cf19' }))));
     }
     static get is() { return "gcds-nav-link"; }
     static get encapsulation() { return "shadow"; }
@@ -63,7 +63,6 @@ export class GcdsNavLink {
         return {
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -78,11 +77,11 @@ export class GcdsNavLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "href"
             },
             "current": {
                 "type": "boolean",
-                "attribute": "current",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -97,7 +96,8 @@ export class GcdsNavLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "current"
             }
         };
     }
@@ -178,4 +178,3 @@ export class GcdsNavLink {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-nav-link.js.map

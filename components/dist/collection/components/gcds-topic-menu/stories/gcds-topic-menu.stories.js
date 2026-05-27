@@ -59,4 +59,3 @@ Playground.args = {
     home: false,
     lang: 'en',
 };
-//# sourceMappingURL=gcds-topic-menu.stories.js.map

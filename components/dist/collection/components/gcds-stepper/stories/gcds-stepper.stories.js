@@ -129,4 +129,3 @@ Playground.args = {
     tag: 'h2',
     default: 'Section title',
 };
-//# sourceMappingURL=gcds-stepper.stories.js.map

@@ -34,7 +34,7 @@ export class GcdsBreadcrumbs {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (h(Host, { key: '03039bf66fd3e4f7939818708e4b2e3eecb9ea16' }, h("nav", { key: 'a544a335b8a3308bac153517792c2ff9b24cc436', "aria-label": i18n[lang].label, class: "gcds-breadcrumbs" }, h("ol", { key: 'f4daf2765861e5b362e50c5197e34457c2088aa4', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: i18n[lang].link }, "Canada.ca")) : null, h("slot", { key: '0001a34312ea97c7e9c4f41f656051482184142e' })))));
+        return (h(Host, { key: 'f0eefe430929add48ae1206e8d6df0e3d04ceb65' }, h("nav", { key: '6080bc827624fe8711ced9bd3b53defda780be6f', "aria-label": i18n[lang].label, class: "gcds-breadcrumbs" }, h("ol", { key: '734f991a4ede7c602d744d2b40dd92da2d419faf', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: i18n[lang].link }, "Canada.ca")) : null, h("slot", { key: '7204e441446c6640b0530a98ac1439c4d1185b35' })))));
     }
     static get is() { return "gcds-breadcrumbs"; }
     static get encapsulation() { return "shadow"; }
@@ -52,7 +52,6 @@ export class GcdsBreadcrumbs {
         return {
             "hideCanadaLink": {
                 "type": "boolean",
-                "attribute": "hide-canada-link",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -68,6 +67,7 @@ export class GcdsBreadcrumbs {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-canada-link",
                 "defaultValue": "false"
             }
         };
@@ -79,4 +79,3 @@ export class GcdsBreadcrumbs {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-breadcrumbs.js.map

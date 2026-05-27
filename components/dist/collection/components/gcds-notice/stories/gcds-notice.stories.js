@@ -164,4 +164,3 @@ Playground.args = {
     default: 'Message.',
     lang: 'en',
 };
-//# sourceMappingURL=gcds-notice.stories.js.map

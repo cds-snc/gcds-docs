@@ -34,6 +34,7 @@ export declare class GcdsPagination {
      * List display - Total number of pages
      */
     totalPages: number;
+    watchTotalPages(): void;
     /**
      * List display - Current page number
      */

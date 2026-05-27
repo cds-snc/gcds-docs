@@ -151,4 +151,3 @@ export async function getNavItems(el) {
     });
     return indexedItems;
 }
-//# sourceMappingURL=utils.js.map

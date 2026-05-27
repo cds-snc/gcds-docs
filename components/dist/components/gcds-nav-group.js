@@ -1,2 +1,1 @@
-import{G as s,d as o}from"./p-DETVIs8g.js";const t=s;const p=o;export{t as GcdsNavGroup,p as defineCustomElement};
-//# sourceMappingURL=gcds-nav-group.js.map
+import{G as o,d as s}from"./p-C3LKmWe8.js";const m=o,p=s;export{m as GcdsNavGroup,p as defineCustomElement}

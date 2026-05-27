@@ -396,4 +396,3 @@ Playground.args = {
     name: 'close',
     size: 'text',
 };
-//# sourceMappingURL=gcds-icon.stories.js.map

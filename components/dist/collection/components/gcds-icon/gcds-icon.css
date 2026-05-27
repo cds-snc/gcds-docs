@@ -23,47 +23,65 @@
   }
 }
 @layer names {
+  :host .gcds-icon-arrow-down:before {
+    content: "\f013";
+  }
+  :host .gcds-icon-arrow-up:before {
+    content: "\f011";
+  }
+  :host .gcds-icon-arrow-up-down:before {
+    content: "\f012";
+  }
   :host .gcds-icon-checkmark-circle:before {
-    content: "\e908";
+    content: "\f021";
   }
   :host .gcds-icon-chevron-down:before {
-    content: "\e900";
+    content: "\f020";
   }
   :host .gcds-icon-chevron-left:before {
-    content: "\e901";
+    content: "\f01f";
   }
   :host .gcds-icon-chevron-right:before {
-    content: "\e902";
+    content: "\f01e";
   }
   :host .gcds-icon-chevron-up:before {
-    content: "\e903";
+    content: "\f01d";
   }
   :host .gcds-icon-close:before {
-    content: "\e90b";
+    content: "\f01c";
   }
   :host .gcds-icon-download:before {
-    content: "\e906";
+    content: "\f01b";
   }
   :host .gcds-icon-email:before {
-    content: "\e905";
+    content: "\f01a";
   }
   :host .gcds-icon-exclamation-circle:before {
-    content: "\e909";
+    content: "\f019";
   }
   :host .gcds-icon-external:before {
-    content: "\e904";
+    content: "\f018";
+  }
+  :host .gcds-icon-filter:before {
+    content: "\f005";
   }
   :host .gcds-icon-info-circle:before {
-    content: "\e90a";
+    content: "\f017";
   }
   :host .gcds-icon-phone:before {
-    content: "\e90c";
+    content: "\f016";
   }
   :host .gcds-icon-search:before {
-    content: "\e907";
+    content: "\f002";
+  }
+  :host .gcds-icon-sort:before {
+    content: "\f003";
+  }
+  :host .gcds-icon-tune:before {
+    content: "\f000";
   }
   :host .gcds-icon-warning-triangle:before {
-    content: "\e90d";
+    content: "\f014";
   }
 }
 @layer margin {

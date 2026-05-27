@@ -243,7 +243,7 @@ export class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '7deee676b0827c3e01221aecefee0c4f3a7c5c06', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '22b973e0119120f67a27012a6fad1daa13e9b3b8', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '5cb85da0e84610d01a9caa75e0be0583b9bac3f2', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && h("span", { class: "legend__required" }, i18n[lang].required))) : (h(Fragment, null, legend, required && h("span", { class: "legend__required" }, i18n[lang].required)))), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
+            return (h(Host, { key: '3bd16e4a6cc77fc6114f37791a4342baef496716', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '8c91df0fae62ebcae079551bc5362e1770d2da23', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '7372c1addc1d1c715b58ca0dd3dcc75fc6c38be4', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && h("span", { class: "legend__required" }, i18n[lang].required))) : (h(Fragment, null, legend, required && h("span", { class: "legend__required" }, i18n[lang].required)))), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value, title: radioTitle, form: form }, inheritedAttributes);
                     if (radio.hint) {
@@ -278,7 +278,6 @@ export class GcdsRadios {
         return {
             "options": {
                 "type": "string",
-                "attribute": "options",
                 "mutable": true,
                 "complexType": {
                     "original": "string | Array<RadioObject>",
@@ -291,7 +290,8 @@ export class GcdsRadios {
                         "RadioObject": {
                             "location": "import",
                             "path": "./radio",
-                            "id": "src/components/gcds-radios/radio.tsx::RadioObject"
+                            "id": "src/components/gcds-radios/radio.tsx::RadioObject",
+                            "referenceLocation": "RadioObject"
                         }
                     }
                 },
@@ -303,11 +303,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "options"
             },
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -322,11 +322,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "name"
             },
             "autofocus": {
                 "type": "boolean",
-                "attribute": "autofocus",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -341,11 +341,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "autofocus"
             },
             "form": {
                 "type": "string",
-                "attribute": "form",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -360,11 +360,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "form"
             },
             "legend": {
                 "type": "string",
-                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -379,11 +379,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "legend"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -398,11 +398,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "required"
             },
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -417,11 +417,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "hint"
             },
             "errorMessage": {
                 "type": "string",
-                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -436,11 +436,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "error-message"
             },
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -455,11 +455,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "disabled"
             },
             "value": {
                 "type": "string",
-                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -474,11 +474,11 @@ export class GcdsRadios {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "value"
             },
             "validity": {
                 "type": "unknown",
-                "attribute": "validity",
                 "mutable": false,
                 "complexType": {
                     "original": "ValidityState",
@@ -501,7 +501,6 @@ export class GcdsRadios {
             },
             "validator": {
                 "type": "unknown",
-                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -514,12 +513,14 @@ export class GcdsRadios {
                         "ValidatorEntry": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
+                            "id": "src/validators/index.ts::ValidatorEntry",
+                            "referenceLocation": "ValidatorEntry"
                         },
                         "Validator": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
+                            "id": "src/validators/index.ts::Validator",
+                            "referenceLocation": "Validator"
                         }
                     }
                 },
@@ -534,7 +535,6 @@ export class GcdsRadios {
             },
             "validateOn": {
                 "type": "string",
-                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -550,11 +550,11 @@ export class GcdsRadios {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "validate-on",
                 "defaultValue": "'blur'"
             },
             "hideLegend": {
                 "type": "boolean",
-                "attribute": "hide-legend",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -570,6 +570,7 @@ export class GcdsRadios {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-legend",
                 "defaultValue": "false"
             }
         };
@@ -770,4 +771,3 @@ export class GcdsRadios {
     }
     static get attachInternalsMemberName() { return "internals"; }
 }
-//# sourceMappingURL=gcds-radios.js.map

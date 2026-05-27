@@ -114,4 +114,3 @@ function constructClasses(page, current, total) {
     return `collapse-${side}-${group}`;
 }
 export { constructClasses, constructHref };
-//# sourceMappingURL=render.js.map

@@ -231,4 +231,3 @@ Playground.args = {
     banner: '',
     lang: 'en',
 };
-//# sourceMappingURL=gcds-header.stories.js.map

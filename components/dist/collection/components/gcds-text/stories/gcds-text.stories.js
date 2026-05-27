@@ -266,4 +266,3 @@ Playground.args = {
     textRole: 'primary',
     default: 'This is some example content to display the gcds-text component. It is a paragraph displaying non-heading content with matching GC Design System styles to provide accessible text sizes and colour contrast.',
 };
-//# sourceMappingURL=gcds-text.stories.js.map

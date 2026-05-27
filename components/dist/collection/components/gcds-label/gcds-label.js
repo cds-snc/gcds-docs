@@ -25,7 +25,7 @@ export class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: '37a6681d7fed70d37313a5d93d5d61de1502e538', id: `label-for-${labelFor}` }, h("label", { key: '1ce8e12182daeeff2d47e667028c735c9bab44e3', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: '5883396a2787821cf582b66bf21e6553fcc2641e' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
+        return (h(Host, { key: '767bb6fb7624e2bf10eb66ac8c91e7af80d33305', id: `label-for-${labelFor}` }, h("label", { key: '0cfa64b20e425fe7db457bbab0f364f8348adcd8', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: '2b10ced874e632d6f340946639fd54c9cfb33443' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
     }
     static get is() { return "gcds-label"; }
     static get originalStyleUrls() {
@@ -42,7 +42,6 @@ export class GcdsLabel {
         return {
             "hideLabel": {
                 "type": "boolean",
-                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -57,11 +56,11 @@ export class GcdsLabel {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "hide-label"
             },
             "label": {
                 "type": "string",
-                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -76,11 +75,11 @@ export class GcdsLabel {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "label"
             },
             "labelFor": {
                 "type": "string",
-                "attribute": "label-for",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -95,11 +94,11 @@ export class GcdsLabel {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "label-for"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -114,7 +113,8 @@ export class GcdsLabel {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "required"
             }
         };
     }
@@ -125,4 +125,3 @@ export class GcdsLabel {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-label.js.map

@@ -7,7 +7,7 @@ import { Host, h } from "@stencil/core";
 export class GcdsHint {
     render() {
         const { hintId } = this;
-        return (h(Host, { key: '43409b1e4ecafb39638dc4ce60ba021024737559', id: `hint-${hintId}` }, h("gcds-text", { key: '4681f54c9870c6eacc680bf3e4b1fce706d4aa59', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '2c5b966609edebec1090969cc9e02b13205aadfb' }))));
+        return (h(Host, { key: '61a3e7529f1f8cdab787a3be7f6b1d38b06cf29d', id: `hint-${hintId}` }, h("gcds-text", { key: '32304bb4004c7357f63ea4c04b39be5fa1b491a8', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '2313fb6ca5b5fde4572e522c86d249508eecf900' }))));
     }
     static get is() { return "gcds-hint"; }
     static get encapsulation() { return "shadow"; }
@@ -25,7 +25,6 @@ export class GcdsHint {
         return {
             "hintId": {
                 "type": "string",
-                "attribute": "hint-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -40,10 +39,10 @@ export class GcdsHint {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "hint-id"
             }
         };
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-hint.js.map

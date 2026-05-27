@@ -71,6 +71,8 @@ export { GcdsSrOnly as GcdsSrOnly } from '../types/components/gcds-sr-only/gcds-
 export { defineCustomElement as defineCustomElementGcdsSrOnly } from './gcds-sr-only';
 export { GcdsStepper as GcdsStepper } from '../types/components/gcds-stepper/gcds-stepper';
 export { defineCustomElement as defineCustomElementGcdsStepper } from './gcds-stepper';
+export { GcdsTable as GcdsTable } from '../types/components/gcds-table/gcds-table';
+export { defineCustomElement as defineCustomElementGcdsTable } from './gcds-table';
 export { GcdsText as GcdsText } from '../types/components/gcds-text/gcds-text';
 export { defineCustomElement as defineCustomElementGcdsText } from './gcds-text';
 export { GcdsTextarea as GcdsTextarea } from '../types/components/gcds-textarea/gcds-textarea';
@@ -113,4 +115,5 @@ export interface SetPlatformOptions {
   rel?: (el: EventTarget, eventName: string, listener: EventListenerOrEventListenerObject, options: boolean | AddEventListenerOptions) => void;
 }
 export declare const setPlatformOptions: (opts: SetPlatformOptions) => void;
+
 export * from '../types';

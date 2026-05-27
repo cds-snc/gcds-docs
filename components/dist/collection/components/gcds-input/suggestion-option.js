@@ -8,4 +8,3 @@ export function isSuggestionObject(obj) {
     const hasOnlyValidKeys = objKeys.every(key => validKeys.includes(key));
     return hasValidTypes && hasOnlyValidKeys;
 }
-//# sourceMappingURL=suggestion-option.js.map

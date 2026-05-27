@@ -421,4 +421,3 @@ Playground.args = {
     border: true,
     default: '<p>This is a responsive container, you can replace this text with any content or other components.</p>',
 };
-//# sourceMappingURL=gcds-container.stories.js.map

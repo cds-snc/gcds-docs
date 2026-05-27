@@ -22,7 +22,7 @@ export class GcdsContainer {
     render() {
         const { alignment, border, layout, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: 'c8b1e6c3e57435cc8998b15b27cb46d7c6aa2957' }, h(Tag, { key: '2288e5b16bcb4a169b9ba792f17fba37966041a8', class: `
+        return (h(Host, { key: 'ad484bbd9acbfd917d528e05f9467c2bf2b4fae9' }, h(Tag, { key: '0a4f80b47a7b1a2f0ba81368ecb3004a8fc5a57f', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${alignment && layout != 'page' ? `alignment-${alignment}` : ''}
@@ -30,7 +30,7 @@ export class GcdsContainer {
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, h("slot", { key: '660586f2cb48bcfdf6eec5917e58cd6775c2f387' }))));
+          ` }, h("slot", { key: '0be601a53f54cb8bfb36ec45ec9ace5d8f9cca62' }))));
     }
     static get is() { return "gcds-container"; }
     static get encapsulation() { return "shadow"; }
@@ -48,7 +48,6 @@ export class GcdsContainer {
         return {
             "alignment": {
                 "type": "string",
-                "attribute": "alignment",
                 "mutable": false,
                 "complexType": {
                     "original": "'start' | 'center' | 'end'",
@@ -63,11 +62,11 @@ export class GcdsContainer {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "alignment"
             },
             "border": {
                 "type": "boolean",
-                "attribute": "border",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -83,11 +82,11 @@ export class GcdsContainer {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "border",
                 "defaultValue": "false"
             },
             "layout": {
                 "type": "string",
-                "attribute": "layout",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'page'",
@@ -102,20 +101,21 @@ export class GcdsContainer {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "layout"
             },
             "margin": {
                 "type": "string",
-                "attribute": "margin",
                 "mutable": false,
                 "complexType": {
                     "original": "SpacingValues",
-                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "resolved": "\"0\" | \"100\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"125\" | \"1250\" | \"150\" | \"175\" | \"200\" | \"225\" | \"25\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"75\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\"",
                     "references": {
                         "SpacingValues": {
                             "location": "import",
                             "path": "../../utils/types/spacing",
-                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                            "id": "src/utils/types/spacing.tsx::SpacingValues",
+                            "referenceLocation": "SpacingValues"
                         }
                     }
                 },
@@ -127,20 +127,21 @@ export class GcdsContainer {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "margin"
             },
             "padding": {
                 "type": "string",
-                "attribute": "padding",
                 "mutable": false,
                 "complexType": {
                     "original": "SpacingValues",
-                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "resolved": "\"0\" | \"100\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"125\" | \"1250\" | \"150\" | \"175\" | \"200\" | \"225\" | \"25\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"75\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\"",
                     "references": {
                         "SpacingValues": {
                             "location": "import",
                             "path": "../../utils/types/spacing",
-                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                            "id": "src/utils/types/spacing.tsx::SpacingValues",
+                            "referenceLocation": "SpacingValues"
                         }
                     }
                 },
@@ -152,11 +153,11 @@ export class GcdsContainer {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "padding"
             },
             "size": {
                 "type": "string",
-                "attribute": "size",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -172,11 +173,11 @@ export class GcdsContainer {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "size",
                 "defaultValue": "'full'"
             },
             "tag": {
                 "type": "string",
-                "attribute": "tag",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -192,10 +193,10 @@ export class GcdsContainer {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "tag",
                 "defaultValue": "'div'"
             }
         };
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-container.js.map

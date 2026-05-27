@@ -65,4 +65,3 @@ Playground.args = {
     default: 'Text only seen by assistive technologies',
     tag: 'p',
 };
-//# sourceMappingURL=gcds-sr-only.stories.js.map

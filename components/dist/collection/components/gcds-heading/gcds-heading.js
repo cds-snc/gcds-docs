@@ -54,13 +54,13 @@ export class GcdsHeading {
     render() {
         const { characterLimit, marginTop, marginBottom, tag, headingRole } = this;
         const Tag = tag;
-        return (h(Host, { key: '5d6d74358f199427e5c9994d9c7a7b472d11a911' }, h(Tag, { key: 'af7503ae216fa3ee40bdac28e0323c0f877946bd', class: `
+        return (h(Host, { key: '27a2ae93a052f3ed90830b1834c510a3da6aaeb1' }, h(Tag, { key: '582d4079c24ad038345816c59331500238824e03', class: `
             gcds-heading
             ${headingRole ? `role-${headingRole}` : ''}
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", { key: '2b60752a725f01335d1885d97409175462dc173d' }))));
+          ` }, h("slot", { key: '54569b6f4c34e43be86c45e61b80723e3aa3043c' }))));
     }
     static get is() { return "gcds-heading"; }
     static get encapsulation() { return "shadow"; }
@@ -78,7 +78,6 @@ export class GcdsHeading {
         return {
             "tag": {
                 "type": "string",
-                "attribute": "tag",
                 "mutable": true,
                 "complexType": {
                     "original": "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
@@ -93,11 +92,11 @@ export class GcdsHeading {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "tag"
             },
             "headingRole": {
                 "type": "string",
-                "attribute": "heading-role",
                 "mutable": true,
                 "complexType": {
                     "original": "'light' | 'primary' | 'secondary'",
@@ -113,11 +112,11 @@ export class GcdsHeading {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "heading-role",
                 "defaultValue": "'primary'"
             },
             "characterLimit": {
                 "type": "boolean",
-                "attribute": "character-limit",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -133,20 +132,21 @@ export class GcdsHeading {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "character-limit",
                 "defaultValue": "true"
             },
             "marginTop": {
                 "type": "string",
-                "attribute": "margin-top",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
-                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "resolved": "\"0\" | \"100\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"125\" | \"1250\" | \"150\" | \"175\" | \"200\" | \"225\" | \"25\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"75\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\"",
                     "references": {
                         "SpacingValues": {
                             "location": "import",
                             "path": "../../utils/types/spacing",
-                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                            "id": "src/utils/types/spacing.tsx::SpacingValues",
+                            "referenceLocation": "SpacingValues"
                         }
                     }
                 },
@@ -158,20 +158,21 @@ export class GcdsHeading {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "margin-top"
             },
             "marginBottom": {
                 "type": "string",
-                "attribute": "margin-bottom",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
-                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "resolved": "\"0\" | \"100\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"125\" | \"1250\" | \"150\" | \"175\" | \"200\" | \"225\" | \"25\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"75\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\"",
                     "references": {
                         "SpacingValues": {
                             "location": "import",
                             "path": "../../utils/types/spacing",
-                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                            "id": "src/utils/types/spacing.tsx::SpacingValues",
+                            "referenceLocation": "SpacingValues"
                         }
                     }
                 },
@@ -184,6 +185,7 @@ export class GcdsHeading {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "margin-bottom",
                 "defaultValue": "'300'"
             }
         };
@@ -205,4 +207,3 @@ export class GcdsHeading {
             }];
     }
 }
-//# sourceMappingURL=gcds-heading.js.map
