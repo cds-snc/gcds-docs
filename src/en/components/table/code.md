@@ -78,37 +78,54 @@ Each column object takes the following properties:
 
 Use `data` to pass the content of the table. Pass an array of objects where each object represents one row, and each key matches a column `field`.
 
-[Preview and code snippet]
+{% examplesPreview "400" "columns-data-preview" %}
+<gcds-table
+  columns='{{ tablepreview[locale].columns | stringify }}'
+  data='{{ tablepreview.data | stringify }}'
+></gcds-table>
+{% endexamplesPreview %}
 
 #### `filter`
 
 Set `filter` to `true` to display a filter input, so people can narrow down results by keyword.
 
-[Preview and code snippet]
+{% examplesPreview "705" "filter-preview" %}
+<gcds-table filter></gcds-table>
+{% endexamplesPreview %}
 
 #### `filter-value`
 
 Use `filter-value` to set a default keyword in the filter input, so some rows are already filtered when the table loads. By default, there’s no set value.
 
-[Preview and code snippet]
+{% examplesPreview "460" "filter-value-preview" %}
+<gcds-table filter filter-value="Dav"></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination`
 
 Set `pagination` to `true` to split the table into pages when there are many rows. By default, `pagination` is set to `false`.
 
-[Preview and code snippet]
+{% examplesPreview "705" "pagination-preview" %}
+<gcds-table pagination></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination-current-page`
 
 Use `pagination-current-page` to set which page is displayed when the table first loads. By default, it’s set to `1`, which shows the first page.
 
-[Preview and code snippet]
+{% examplesPreview "705" "pagination-current-page-preview" %}
+<gcds-table pagination pagination-current-page="2"
+></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination-size`
 
-Use `pagination-size `to set how many rows are displayed per page. The default is `10`.
+Use `pagination-size` to set how many rows are displayed per page. The default is `10`.
 
-[Preview and code snippet]
+{% examplesPreview "810" "pagination-size-preview" %}
+<gcds-table pagination pagination-size="12"
+></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination-size-options`
 
@@ -116,7 +133,9 @@ Use `pagination-size-options` to define the page size choices available to peopl
 
 **Note**: Including `0` in the options adds an “All” choice that displays all rows at once. Use with caution on large datasets, as it may affect performance.
 
-[Preview and code snippet]
+{% examplesPreview "705" "pagination-size-options-preview" %}
+<gcds-table pagination pagination-size-options="[10, 15, 20, 25, 0]"></gcds-table>
+{% endexamplesPreview %}
 
 #### `sort`
 
@@ -124,7 +143,9 @@ Set `sort` to `true` to allow users to sort the table by clicking on column head
 
 **Note**: The `sort` property in each column object has the final say. If a column sets `sort` to false, that column will not be sortable even if the table-level `sort` is set to `true`.
 
-[Preview and code snippet]
+{% examplesPreview "705" "sort-preview" %}
+<gcds-table sort></gcds-table>
+{% endexamplesPreview %}
 
 <!-- Slot section -->
 
@@ -135,7 +156,14 @@ Set `sort` to `true` to allow users to sort the table by clicking on column head
 
 Use the `caption` slot to give an accessible name to the table, so that assistive technologies can identify it and announce it.
 
-[Preview and code snippet]
+{% examplesPreview "770" "caption-preview" %}
+<gcds-table>
+  <div slot="caption">
+    <h5>Table caption</h5>
+    <p>Detailed caption for the table</p>
+  </div>
+</gcds-table>
+{% endexamplesPreview %}
 
 #### Framework-specific slots for custom content
 
@@ -153,7 +181,40 @@ Each framework handles custom cell content differently. HTML, Vue, and Angular u
 
   If interactive elements need to use the row data in their functions, you can use the properties of `row`, `rowIndex`, `column` and `value` through `this`.
 
-  [Preview and code snippet for HTML]
+  ```html
+  <gcds-table
+    columns='[
+      ...,
+      {
+        field: "submission_id",
+        header: "ID",
+        slotted: true,
+      },
+      {
+        field: "actions",
+        header: "Actions",
+        slotted: true,
+      },
+      ...,
+    ];'
+  >
+    <template slot="cell:submission_id">
+      <a
+        data-bind-template-href="/view_submission/{submission_id}"
+        data-bind="submission_id"
+      ></a>
+    </template>
+    <template slot="cell:actions">
+      <gcds-button
+        button-role="secondary"
+        size="small"
+        onclick="console.log(this.row, this.rowIndex, this.column, this.value)"
+      >
+        Console log row data
+      </gcds-button>
+    </template>
+  </gcds-table>
+  ```
 
 </gcds-details>
 
@@ -163,7 +224,42 @@ Each framework handles custom cell content differently. HTML, Vue, and Angular u
 
   Use `{ row }` to access row data inside the slot.
 
-  [Preview and code snippet for Vue]
+  ```html
+  <GcdsTable
+    :columns="[
+      ...,
+      {
+        field: 'submission_id',
+        header: 'ID',
+        slotted: true,
+      },
+      {
+        field: 'actions',
+        header: 'Actions',
+        slotted: true,
+      },
+    ]"
+  >
+    <template #submission_id="{ row }">
+      <a
+        :href="`/view_submission/${row.submission_id}`"
+      >
+        {{ '{{ row.submission_id }}' }}
+      </a>
+    </template>
+    <template #actions="{ row, rowIndex, column, value }">
+      <gcds-button
+        button-role="secondary"
+        size="small"
+        @click="() => {
+          console.log(row, rowIndex, column, value);
+        }"
+      >
+        Console log row data
+      </gcds-button>
+    </template>
+  </GcdsTable>
+  ```
 
 </gcds-details>
 
@@ -173,7 +269,45 @@ Each framework handles custom cell content differently. HTML, Vue, and Angular u
 
   If interactive elements need to use the row data in their functions, you can use the properties of `row`, `rowIndex`, `column` and `value` through `let-*`.
 
-  [Preview and code snippet for Angular]
+  ```html
+  <gcds-table-ng
+    [columns]="[
+      ...,
+      {
+        field: 'submission_id',
+        header: 'ID',
+        slotted: true,
+      },
+      {
+        field: 'actions',
+        header: 'Actions',
+        slotted: true,
+      },
+    ]"
+  >
+    <ng-template gcdsCell="submission_id" let-row>
+      <a
+        [href]="'/view_submission/' + row.submission_id"
+      >
+        {{ '{{ row.submission_id }}' }}
+      </a>
+    </ng-template>
+    <ng-template
+      gcdsCell="actions"
+      let-row
+      let-rowIndex="rowIndex"
+      let-column="column"
+      let-value="value"
+    >
+      <gcds-button
+        button-role="secondary"
+        (click)="logRow(row, rowIndex, column, value)"
+      >
+        Console log row data
+      </gcds-button>
+    </ng-template>
+  </gcds-table-ng>
+  ```
 
 </gcds-details>
 
@@ -181,7 +315,44 @@ Each framework handles custom cell content differently. HTML, Vue, and Angular u
 
   Use the `renderCell` property to define the content to render in the cell. Unlike the other frameworks, React uses a `renderCell` property instead of slots. This property extends the column object with a function that returns what to display.
 
-  [Preview and code snippet for React]
+  ```html
+  <GcdsTable
+    columns={[
+      ...,
+      {
+        field: 'submission_id',
+        header: 'ID',
+        slotted: true,
+        renderCell: ({ row }) => {
+          return (
+            <a
+              href={`/view_submission/${row.submission_id}`}
+            >
+              {{ '{{ row.submission_id }}' }}
+            </a>
+          );
+        },
+      },
+      {
+        field: 'actions',
+        header: 'Actions',
+        slotted: true,
+        renderCell: ({ row, rowIndex, column, value }) => {
+          return (
+            <GcdsButton
+              buttonRole="secondary"
+              size="small"
+              onClick={() => console.log(row, rowIndex, column, value)}
+            >
+              Console log row data
+            </GcdsButton>
+          )
+        }
+      },
+    ]}
+  >
+  </GcdsTable>
+  ```
 
 </gcds-details>
 
@@ -193,7 +364,7 @@ Each framework handles custom cell content differently. HTML, Vue, and Angular u
   title="Overview of gcds-table properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-table--events-properties&lang=en"
   width="1200"
-  height="1050"
+  height="3500"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

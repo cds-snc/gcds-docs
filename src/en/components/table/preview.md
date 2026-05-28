@@ -6,4 +6,8 @@ eleventyExcludeFromCollections: true
 templateEngineOverride: njk
 ---
 
-
+<gcds-table
+  sort="true"
+  pagination="true"
+  filter="true"
+></gcds-table>

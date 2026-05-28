@@ -34,20 +34,12 @@ Use a table to:
 
 ## Related components
 
-<ul>
-  <li>
-    <a href="{{ links.card }}">Card</a> for grouping small pieces of related information as a single unit.
-  </li>
-  <li>
-    <a href="{{ links.container }}">Container</a> for basic layouts with a set width.
-  </li>
-  <li>
-    <a href="{{ links.grid }}">Grid</a> for positioning unstructured elements on a page using a responsive, flexible column layout.
-  </li>
-  <li>
-    List for presenting items that do not share multiple common attributes or are not meant for comparison.
-  </li>
-  <li>
-    Charts for visualizing data to reveal trends, patterns, or differences at a glance.
-  </li>
-</ul>
+<a href="{{ links.card }}">Card</a> for grouping small pieces of related information as a single unit.
+
+<a href="{{ links.container }}">Container</a> for basic layouts with a set width.
+
+<a href="{{ links.grid }}">Grid</a> for positioning unstructured elements on a page using a responsive, flexible column layout.
+
+List for presenting items that do not share multiple common attributes or are not meant for comparison.
+
+Charts for visualizing data to reveal trends, patterns, or differences at a glance.

@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/general.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/component-preview.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/table-preview.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/prism.min.js');
   eleventyConfig.addPassthroughCopy(
     './src/scripts/component-preview-iframe.js',
@@ -602,7 +603,7 @@ module.exports = function (eleventyConfig) {
           <iframe
             class="preview-iframe"
             title="${iframeTitle}"
-            sandbox="allow-scripts allow-same-origin"
+            sandbox="allow-scripts allow-same-origin allow-forms"
             frameborder="0"
             width="100%"
             height="${height}"

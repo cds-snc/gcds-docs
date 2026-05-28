@@ -78,37 +78,54 @@ Chaque objet de colonne accepte les propriétés suivantes :
 
 Utilisez `data` pour transmettre le contenu du tableau. Passez un tableau (array) d’objets où chaque objet représente une ligne et chaque clé correspond à un `field` de colonne.
 
-[Preview and code snippet]
+{% examplesPreview "400" "columns-data-preview" %}
+<gcds-table
+  columns='{{ tablepreview[locale].columns | stringify }}'
+  data='{{ tablepreview.data | stringify }}'
+></gcds-table>
+{% endexamplesPreview %}
 
 #### `filter`
 
 Définissez `filter` à `true` pour afficher un champ de filtre qui permet aux personnes d’affiner les résultats par mot-clé.
 
-[Preview and code snippet]
+{% examplesPreview "705" "filter-preview" %}
+<gcds-table filter></gcds-table>
+{% endexamplesPreview %}
 
 #### `filter-value`
 
 Utilisez `filter-value` pour définir un mot-clé par défaut dans le champ de filtre, afin que certaines lignes soient déjà filtrées au chargement du tableau. Par défaut, aucune valeur n’est définie.
 
-[Preview and code snippet]
+{% examplesPreview "460" "filter-value-preview" %}
+<gcds-table filter filter-value="Dav"></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination`
 
 Définissez `pagination` à `true` pour diviser le tableau en pages lorsqu’il contient de nombreuses lignes. Par défaut, pagination est défini à `false`.
 
-[Preview and code snippet]
+{% examplesPreview "705" "pagination-preview" %}
+<gcds-table pagination></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination-current-page`
 
 Utilisez `pagination-current-page` pour définir la page affichée au chargement du tableau. Par défaut, la valeur est définie à `1`, ce qui affiche la première page.
 
-[Preview and code snippet]
+{% examplesPreview "705" "pagination-current-page-preview" %}
+<gcds-table pagination pagination-current-page="2"
+></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination-size`
 
 Utilisez `pagination-size` pour définir le nombre de lignes affichées par page. Par défaut, la valeur est `10`.
 
-[Preview and code snippet]
+{% examplesPreview "810" "pagination-size-preview" %}
+<gcds-table pagination pagination-size="12"
+></gcds-table>
+{% endexamplesPreview %}
 
 #### `pagination-size-options`
 
@@ -116,7 +133,9 @@ Utilisez `pagination-size-options` pour définir les choix du nombre de lignes a
 
 **Remarque** : Inclure `0` dans les options ajoute une option « Tout » qui affiche toutes les lignes à la fois. Utilisez cette option avec prudence pour les grands ensembles de données, car elle peut affecter la performance.
 
-[Preview and code snippet]
+{% examplesPreview "705" "pagination-size-options-preview" %}
+<gcds-table pagination pagination-size-options="[10, 15, 20, 25, 0]"></gcds-table>
+{% endexamplesPreview %}
 
 #### `sort`
 
@@ -124,7 +143,9 @@ Définissez `sort` à `true` pour permettre aux personnes de trier le tableau en
 
 **Remarque** : La propriété `sort` définie dans chaque objet de colonne a priorité. Si une colonne définit `sort` à `false`, cette colonne ne pourra pas être triée, même si la propriété sort du tableau est définie à `true`.
 
-[Preview and code snippet]
+{% examplesPreview "705" "sort-preview" %}
+<gcds-table sort></gcds-table>
+{% endexamplesPreview %}
 
 <!-- Slot section -->
 
@@ -135,7 +156,14 @@ Définissez `sort` à `true` pour permettre aux personnes de trier le tableau en
 
 Utilisez l’emplacement `caption` pour donner un nom accessible au tableau, afin que les technologies d’assistance puissent l’identifier et l’annoncer.
 
-[Preview and code snippet]
+{% examplesPreview "770" "caption-preview" %}
+<gcds-table>
+  <div slot="caption">
+    <h5>Titre du tableau</h5>
+    <p>Titre détaillée du tableau</p>
+  </div>
+</gcds-table>
+{% endexamplesPreview %}
 
 #### Syntaxe du contenu personnalisé selon le cadre d’applications
 
@@ -147,13 +175,46 @@ Chaque cadre d’applications gère le contenu personnalisé différemment. HTML
 
   Utilisez l’emplacement `cell:<field>` pour définir du contenu personnalisé pour une colonne précise. Remplacez `<field>` par la valeur field définie dans votre objet de colonne.
 
-Utilisez `data-bind-*` pour assigner directement une valeur de ligne à un attribut. 
+  Utilisez `data-bind-*` pour assigner directement une valeur de ligne à un attribut. 
 
-Utilisez `data-bind-template-*` lorsque vous devez insérer une valeur de ligne dans une chaîne avant de l’assigner à un attribut. Par exemple, utilisez-le pour construire les attributs `alt` et `src` d’une image.
+  Utilisez `data-bind-template-*` lorsque vous devez insérer une valeur de ligne dans une chaîne avant de l’assigner à un attribut. Par exemple, utilisez-le pour construire les attributs `alt` et `src` d’une image.
 
-Si les éléments interactifs doivent utiliser les données de la ligne dans leurs fonctions, vous pouvez accéder aux propriétés `row`, `rowIndex`, `column` et `value` en utilisant `this`.
+  Si les éléments interactifs doivent utiliser les données de la ligne dans leurs fonctions, vous pouvez accéder aux propriétés `row`, `rowIndex`, `column` et `value` en utilisant `this`.
 
-  [Preview and code snippet for HTML]
+  ```html
+  <gcds-table
+    columns='[
+      ...,
+      {
+        field: "submission_id",
+        header: "ID",
+        slotted: true,
+      },
+      {
+        field: "actions",
+        header: "Actes",
+        slotted: true,
+      },
+      ...,
+    ];'
+  >
+    <template slot="cell:submission_id">
+      <a
+        data-bind-template-href="/view_submission/{submission_id}"
+        data-bind="submission_id"
+      ></a>
+    </template>
+    <template slot="cell:actions">
+      <gcds-button
+        button-role="secondary"
+        size="small"
+        onclick="console.log(this.row, this.rowIndex, this.column, this.value)"
+      >
+        Données des lignes du journal de la console
+      </gcds-button>
+    </template>
+  </gcds-table>
+  ```
 
 </gcds-details>
 
@@ -161,19 +222,92 @@ Si les éléments interactifs doivent utiliser les données de la ligne dans leu
 
   Utilisez l’emplacement `#<field>` pour définir du contenu personnalisé pour une colonne précise. Remplacez `<field>` par la valeur field définie dans votre objet de colonne.
 
-Utilisez `{ row }` pour accéder aux données de ligne dans l’emplacement.
+  Utilisez `{ row }` pour accéder aux données de ligne dans l’emplacement.
 
-  [Preview and code snippet for Vue]
+  ```html
+  <GcdsTable
+    :columns="[
+      ...,
+      {
+        field: 'submission_id',
+        header: 'ID',
+        slotted: true,
+      },
+      {
+        field: 'actions',
+        header: 'Actes',
+        slotted: true,
+      },
+    ]"
+  >
+    <template #submission_id="{ row }">
+      <a
+        :href="`/view_submission/${row.submission_id}`"
+      >
+        {{ '{{ row.submission_id }}' }}
+      </a>
+    </template>
+    <template #actions="{ row, rowIndex, column, value }">
+      <gcds-button
+        button-role="secondary"
+        size="small"
+        @click="() => {
+          console.log(row, rowIndex, column, value);
+        }"
+      >
+        Données des lignes du journal de la console
+      </gcds-button>
+    </template>
+  </GcdsTable>
+  ```
 
 </gcds-details>
 
 <gcds-details details-title="Exemple Angular">
 
-Utilisez la directive `gcdsCell=”<field>”` pour assigner du contenu personnalisé à la bonne colonne.
+  Utilisez la directive `gcdsCell=”<field>”` pour assigner du contenu personnalisé à la bonne colonne.
 
-Si des éléments interactifs doivent utiliser les données de la ligne dans leurs fonctions, vous pouvez accéder aux propriétés `row`, `rowIndex`, `column` et `value` en utilisant `let-*`.
+  Si des éléments interactifs doivent utiliser les données de la ligne dans leurs fonctions, vous pouvez accéder aux propriétés `row`, `rowIndex`, `column` et `value` en utilisant `let-*`.
 
-  [Preview and code snippet for Angular]
+  ```html
+  <gcds-table-ng
+    [columns]="[
+      ...,
+      {
+        field: 'submission_id',
+        header: 'ID',
+        slotted: true,
+      },
+      {
+        field: 'actions',
+        header: 'Actes',
+        slotted: true,
+      },
+    ]"
+  >
+    <ng-template gcdsCell="submission_id" let-row>
+      <a
+        [href]="'/view_submission/' + row.submission_id"
+      >
+        {{ '{{ row.submission_id }}' }}
+      </a>
+    </ng-template>
+    <ng-template
+      gcdsCell="actions"
+      let-row
+      let-rowIndex="rowIndex"
+      let-column="column"
+      let-value="value"
+    >
+      <gcds-button
+        button-role="secondary"
+        (click)="logRow(row, rowIndex, column, value)"
+      >
+        Données des lignes du journal de la console
+      </gcds-button>
+    </ng-template>
+  </gcds-table-ng>
+  ```
 
 </gcds-details>
 
@@ -181,7 +315,44 @@ Si des éléments interactifs doivent utiliser les données de la ligne dans leu
 
   Utilisez la propriété `renderCell` pour définir le contenu à afficher dans la cellule. Contrairement aux autres cadres d’applications, React utilise une propriété `renderCell` au lieu d’emplacements. Cette propriété permet de définir une fonction dans l’objet de colonne qui retourne le contenu à afficher.
 
-  [Preview and code snippet for React]
+  ```html
+  <GcdsTable
+    columns={[
+      ...,
+      {
+        field: 'submission_id',
+        header: 'ID',
+        slotted: true,
+        renderCell: ({ row }) => {
+          return (
+            <a
+              href={`/view_submission/${row.submission_id}`}
+            >
+              {{ '{{ row.submission_id }}' }}
+            </a>
+          );
+        },
+      },
+      {
+        field: 'actions',
+        header: 'Actes',
+        slotted: true,
+        renderCell: ({ row, rowIndex, column, value }) => {
+          return (
+            <GcdsButton
+              buttonRole="secondary"
+              size="small"
+              onClick={() => console.log(row, rowIndex, column, value)}
+            >
+              Données des lignes du journal de la console
+            </GcdsButton>
+          )
+        }
+      },
+    ]}
+  >
+  </GcdsTable>
+  ```
 
 </gcds-details>
 
@@ -193,7 +364,7 @@ Si des éléments interactifs doivent utiliser les données de la ligne dans leu
   title="Survol des propriétés et des évènements relatifs à gcds-table."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-table--events-properties&lang=fr"
   width="1200"
-  height="1050"
+  height="3500"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

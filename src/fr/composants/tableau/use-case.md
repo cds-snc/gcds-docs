@@ -32,22 +32,14 @@ Utilisez un tableau pour :
 
 <hr/>
 
-## Related components
+## Composants connexes
 
-<ul>
-  <li>
-    <a href="{{ links.card }}">Carte</a> pour regrouper de petits éléments informatifs en un seul élément.
-  </li>
-  <li>
-    <a href="{{ links.container }}">Conteneur</a> pour des mises en page simples à largeur définie.
-  </li>
-  <li>
-    <a href="{{ links.grid }}">Grille</a> pour positionner des éléments non structurés sur une page à l’aide d’une mise en page en colonnes flexible et adaptative.
-  </li>
-  <li>
-    Liste pour présenter des éléments qui ne partagent pas plusieurs caractéristiques communes ou qui ne sont pas destinés à être comparés.
-  </li>
-  <li>
-    Graphiques pour visualiser des données et faire ressortir rapidement des tendances, des variations ou des écarts.
-  </li>
-</ul>
+<a href="{{ links.card }}">Carte</a> pour regrouper de petits éléments informatifs en un seul élément.
+
+<a href="{{ links.container }}">Conteneur</a> pour des mises en page simples à largeur définie.
+
+<a href="{{ links.grid }}">Grille</a> pour positionner des éléments non structurés sur une page à l’aide d’une mise en page en colonnes flexible et adaptative.
+
+Liste pour présenter des éléments qui ne partagent pas plusieurs caractéristiques communes ou qui ne sont pas destinés à être comparés.
+
+Graphiques pour visualiser des données et faire ressortir rapidement des tendances, des variations ou des écarts.
