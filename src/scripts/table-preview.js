@@ -30,31 +30,39 @@ document.addEventListener('DOMContentLoaded', function () {
     );
 
     componentPreviews.forEach(iframe => {
-      let tableData = data;
-
       iframe.addEventListener('load', () => {
         const iframeDoc =
           iframe.contentDocument || iframe.contentWindow.document;
-        const table = iframeDoc.querySelector('gcds-table');
+
         const iframeBodyElement = iframeDoc.querySelector('body');
 
-        // Use only the first 10 rows for filter and sort previews
-        if (
-          iframeBodyElement.classList.contains('filter-preview') ||
-          iframeBodyElement.classList.contains('sort-preview') ||
-          iframeBodyElement.classList.contains('caption-preview') ||
-          iframeBodyElement.classList.contains('filter-value-preview')
-        ) {
-          tableData = tableData.slice(0, 10);
-        }
+        const interval = setInterval(() => {
+          const table = iframeDoc.querySelector('gcds-table');
 
-        if (
-          table &&
-          !iframeBodyElement.classList.contains('columns-data-preview')
-        ) {
-          table.columns = columns;
-          table.data = tableData;
-        }
+          // Wait until table exists
+          if (!table) {
+            return;
+          }
+
+          clearInterval(interval);
+
+          let tableData = data;
+
+          // Use only the first 10 rows for filter and sort previews
+          if (
+            iframeBodyElement.classList.contains('filter-preview') ||
+            iframeBodyElement.classList.contains('sort-preview') ||
+            iframeBodyElement.classList.contains('caption-preview') ||
+            iframeBodyElement.classList.contains('filter-value-preview')
+          ) {
+            tableData = tableData.slice(0, 10);
+          }
+
+          if (!iframeBodyElement.classList.contains('columns-data-preview')) {
+            table.columns = columns;
+            table.data = tableData;
+          }
+        }, 100);
       });
     });
   }
@@ -64,11 +72,18 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.pathname.includes('/components/table/preview') ||
     window.location.pathname.includes('/composants/tableau/preview')
   ) {
-    const table = document.querySelector('gcds-table');
-    if (table) {
+    const interval = setInterval(() => {
+      const table = document.querySelector('gcds-table');
+
+      if (!table) {
+        return;
+      }
+
+      clearInterval(interval);
+
       table.columns = columns;
       table.data = data;
-    }
+    }, 100);
   }
 });
 
