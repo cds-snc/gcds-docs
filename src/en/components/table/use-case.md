@@ -7,9 +7,9 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames: data table, data grid.
-  description: 
+  description: A structured layout of related data in rows and columns.
   thumbnail: /images/common/components/preview-table.svg
-  alt: 
+  alt: Four rows of short thick bars arranged in three columns, separated by horizontal lines, represent the table component. The first row has three dark bars representing header cells, followed by three rows of lighter bars representing data cells. Below, a dark square with the number 1, two grey squares, and a right-pointing arrow represent the pagination control.
   state: published
 translationKey: 'table'
 tags: ['tableEN', 'usage']

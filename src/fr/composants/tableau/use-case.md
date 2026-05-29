@@ -7,9 +7,9 @@ eleventyNavigation:
   locale: fr
   parent: componentsFR
   otherNames: tableau de données.
-  description: 
+  description: Une présentation structurée de données sur un même sujet, en lignes et en colonnes.
   thumbnail: /images/common/components/preview-table.svg
-  alt: 
+  alt: Quatre rangées de courtes bandes épaisses disposées en trois colonnes, séparées par des lignes horizontales, représentent le composant tableau. La première rangée contient trois bandes foncées représentant les cellules d'en-tête, suivie de trois rangées de bandes plus pâles représentant les cellules de données. Sous le tableau, un carré foncé affichant le chiffre 1, deux carrés gris et une flèche pointant vers la droite représentent le contrôle de pagination.
   state: published
 translationKey: 'table'
 tags: ['tableFR', 'usage']
