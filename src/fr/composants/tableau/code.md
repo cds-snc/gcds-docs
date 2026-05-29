@@ -67,7 +67,7 @@ Utilisez l’attribut `columns` pour définir les colonnes du tableau. Passez un
 Chaque objet de colonne accepte les propriétés suivantes :
 
 - `alignment` : Utilisez `alignment` pour contrôler le positionnement horizontal du contenu dans les cellules de la colonne. Définissez la valeur à `start` pour aligner le contenu à gauche, à `center` pour l’aligner au centre, ou à `end` pour l’aligner à droite.
-- `field` : Utilisez `field` pour définir l’identifiant unique qui lie la colonne aux bonnes données. La valeur doit correspondre à la clé utilisée pour ces données dans votre objet data.
+- `field` : Utilisez `field` pour définir l’identifiant unique qui lie la colonne aux bonnes données. La valeur doit correspondre à la clé utilisée pour ces données dans votre objet `data`.
 - `header` : Utilisez `header` pour définir l’en-tête de colonne affiché en haut de la colonne.
 - `rowHeader` : Définissez `rowHeader` à true pour marquer chaque cellule de la colonne comme un en-tête de ligne. Les en-têtes de ligne indiquent le sujet de chaque ligne.
 - `slotted` : Définissez `slotted` à true pour indiquer que la cellule affichera du contenu personnalisé. Pour voir comment chaque cadre d’applications affiche ce contenu, consultez la section [Syntaxe du contenu personnalisé selon le cadre d’applications](#syntaxe-du-contenu-personnalisé-selon-le-cadre-dapplications).
