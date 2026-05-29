@@ -141,7 +141,7 @@ Use `pagination-size-options` to define the page size choices available to peopl
 
 Set `sort` to `true` to allow users to sort the table by clicking on column headers. Set to `false` to disable sorting across all columns. By default, `sort` is set to `false`.
 
-**Note**: The `sort` property in each column object has the final say. If a column sets `sort` to false, that column will not be sortable even if the table-level `sort` is set to `true`.
+**Note**: The `sort` property in each column object has the final say. If a column sets `sort` to `false`, that column will not be sortable even if the table-level `sort` is set to `true`.
 
 {% examplesPreview "705" "sort-preview" %}
 <gcds-table sort></gcds-table>
