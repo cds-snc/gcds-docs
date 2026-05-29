@@ -311,7 +311,7 @@ Chaque cadre d’applications gère le contenu personnalisé différemment. HTML
 
 </gcds-details>
 
-<gcds-details details-title="Exemple columns en React">
+<gcds-details details-title="Exemple React">
 
   Utilisez la propriété `renderCell` pour définir le contenu à afficher dans la cellule. Contrairement aux autres cadres d’applications, React utilise une propriété `renderCell` au lieu d’emplacements. Cette propriété permet de définir une fonction dans l’objet de colonne qui retourne le contenu à afficher.
 
