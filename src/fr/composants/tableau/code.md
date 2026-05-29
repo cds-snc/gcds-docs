@@ -76,7 +76,7 @@ Chaque objet de colonne accepte les propriétés suivantes :
 
 #### `data`
 
-Utilisez `data` pour transmettre le contenu du tableau. Passez un tableau (array) d’objets où chaque objet représente une ligne et chaque clé correspond à un `field` de colonne.
+Utilisez `data` pour transmettre le contenu du tableau. Passez un tableau (_array_) d’objets où chaque objet représente une ligne et chaque clé correspond à un `field` de colonne.
 
 {% examplesPreview "400" "columns-data-preview" %}
 <gcds-table
