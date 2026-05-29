@@ -8,8 +8,6 @@ date: 'git Last Modified'
 
 ## Table anatomy
 
-This is an anatomy of the expanded table component. By default, the content is collapsed.
-
 <ol class="anatomy-list">
   <li>
     The <strong>caption</strong> labels the table’s purpose and gives context for the data presented.

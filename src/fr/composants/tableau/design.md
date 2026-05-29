@@ -8,8 +8,6 @@ date: 'git Last Modified'
 
 ## Structure du tableau
 
-This is an anatomy of the expanded table component. By default, the content is collapsed.
-
 <ol class="anatomy-list">
   <li>
     Le <strong>titre</strong> indique à quoi sert le tableau et contextualise les données présentées.
