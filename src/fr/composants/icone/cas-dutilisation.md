@@ -176,7 +176,7 @@ Choisissez une icône correspondant à l’action que vous souhaitez mettre en �
     <gcds-heading tag="h3">Filtrer<br/>
       <code>gcds-icon-filter-icon</code>
     </gcds-heading>
-    <gcds-text>Filtre du contenu.</gcds-text>
+    <gcds-text>Filtrer du contenu.</gcds-text>
   </div>
 
 
