@@ -122,8 +122,8 @@ Use `pagination-current-page` to set which page is displayed when the table firs
 
 Use `pagination-size` to set how many rows are displayed per page. The default is `10`.
 
-{% examplesPreview "810" "pagination-size-preview" %}
-<gcds-table pagination pagination-size="12"
+{% examplesPreview "705" "pagination-size-preview" %}
+<gcds-table pagination pagination-size="10"
 ></gcds-table>
 {% endexamplesPreview %}
 

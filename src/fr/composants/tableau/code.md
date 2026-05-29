@@ -78,7 +78,7 @@ Chaque objet de colonne accepte les propriétés suivantes :
 
 Utilisez `data` pour transmettre le contenu du tableau. Passez un tableau (_array_) d’objets où chaque objet représente une ligne et chaque clé correspond à un `field` de colonne.
 
-{% examplesPreview "400" "columns-data-preview" %}
+{% examplesPreview "400" "columns-data-preview" "fr" %}
 <gcds-table
   columns='{{ tablepreview[locale].columns | stringify }}'
   data='{{ tablepreview.data | stringify }}'
@@ -89,7 +89,7 @@ Utilisez `data` pour transmettre le contenu du tableau. Passez un tableau (_arra
 
 Définissez `filter` à `true` pour afficher un champ de filtre qui permet aux personnes d’affiner les résultats par mot-clé.
 
-{% examplesPreview "705" "filter-preview" %}
+{% examplesPreview "705" "filter-preview" "fr" %}
 <gcds-table filter></gcds-table>
 {% endexamplesPreview %}
 
@@ -97,7 +97,7 @@ Définissez `filter` à `true` pour afficher un champ de filtre qui permet aux p
 
 Utilisez `filter-value` pour définir un mot-clé par défaut dans le champ de filtre, afin que certaines lignes soient déjà filtrées au chargement du tableau. Par défaut, aucune valeur n’est définie.
 
-{% examplesPreview "460" "filter-value-preview" %}
+{% examplesPreview "460" "filter-value-preview" "fr" %}
 <gcds-table filter filter-value="Dav"></gcds-table>
 {% endexamplesPreview %}
 
@@ -105,7 +105,7 @@ Utilisez `filter-value` pour définir un mot-clé par défaut dans le champ de f
 
 Définissez `pagination` à `true` pour diviser le tableau en pages lorsqu’il contient de nombreuses lignes. Par défaut, pagination est défini à `false`.
 
-{% examplesPreview "705" "pagination-preview" %}
+{% examplesPreview "705" "pagination-preview" "fr" %}
 <gcds-table pagination></gcds-table>
 {% endexamplesPreview %}
 
@@ -113,7 +113,7 @@ Définissez `pagination` à `true` pour diviser le tableau en pages lorsqu’il 
 
 Utilisez `pagination-current-page` pour définir la page affichée au chargement du tableau. Par défaut, la valeur est définie à `1`, ce qui affiche la première page.
 
-{% examplesPreview "705" "pagination-current-page-preview" %}
+{% examplesPreview "705" "pagination-current-page-preview" "fr" %}
 <gcds-table pagination pagination-current-page="2"
 ></gcds-table>
 {% endexamplesPreview %}
@@ -122,8 +122,8 @@ Utilisez `pagination-current-page` pour définir la page affichée au chargement
 
 Utilisez `pagination-size` pour définir le nombre de lignes affichées par page. Par défaut, la valeur est `10`.
 
-{% examplesPreview "810" "pagination-size-preview" %}
-<gcds-table pagination pagination-size="12"
+{% examplesPreview "705" "pagination-size-preview" "fr" %}
+<gcds-table pagination pagination-size="10"
 ></gcds-table>
 {% endexamplesPreview %}
 
@@ -133,7 +133,7 @@ Utilisez `pagination-size-options` pour définir les choix du nombre de lignes a
 
 **Remarque** : Inclure `0` dans les options ajoute une option « Tout » qui affiche toutes les lignes à la fois. Utilisez cette option avec prudence pour les grands ensembles de données, car elle peut affecter la performance.
 
-{% examplesPreview "705" "pagination-size-options-preview" %}
+{% examplesPreview "705" "pagination-size-options-preview" "fr" %}
 <gcds-table pagination pagination-size-options="[10, 15, 20, 25, 0]"></gcds-table>
 {% endexamplesPreview %}
 
@@ -143,20 +143,20 @@ Définissez `sort` à `true` pour permettre aux personnes de trier le tableau en
 
 **Remarque** : La propriété `sort` définie dans chaque objet de colonne a priorité. Si une colonne définit `sort` à `false`, cette colonne ne pourra pas être triée, même si la propriété `sort` du tableau est définie à `true`.
 
-{% examplesPreview "705" "sort-preview" %}
+{% examplesPreview "705" "sort-preview" "fr" %}
 <gcds-table sort></gcds-table>
 {% endexamplesPreview %}
 
 <!-- Slot section -->
 
-{% examplesContent "en", "slot" %}
+{% examplesContent "fr", "slot" %}
 {% endexamplesContent %}
 
 #### `caption`
 
 Utilisez l’emplacement `caption` pour donner un nom accessible au tableau, afin que les technologies d’assistance puissent l’identifier et l’annoncer.
 
-{% examplesPreview "770" "caption-preview" %}
+{% examplesPreview "770" "caption-preview" "fr" %}
 <gcds-table>
   <div slot="caption">
     <h5>Titre du tableau</h5>
