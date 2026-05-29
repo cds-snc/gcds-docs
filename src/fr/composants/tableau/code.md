@@ -141,7 +141,7 @@ Utilisez `pagination-size-options` pour définir les choix du nombre de lignes a
 
 Définissez `sort` à `true` pour permettre aux personnes de trier le tableau en cliquant sur les en-têtes de colonne. Définissez `sort` à `false` pour désactiver le tri pour toutes les colonnes. Par défaut, `sort` est défini à `false`.
 
-**Remarque** : La propriété `sort` définie dans chaque objet de colonne a priorité. Si une colonne définit `sort` à `false`, cette colonne ne pourra pas être triée, même si la propriété sort du tableau est définie à `true`.
+**Remarque** : La propriété `sort` définie dans chaque objet de colonne a priorité. Si une colonne définit `sort` à `false`, cette colonne ne pourra pas être triée, même si la propriété `sort` du tableau est définie à `true`.
 
 {% examplesPreview "705" "sort-preview" %}
 <gcds-table sort></gcds-table>
