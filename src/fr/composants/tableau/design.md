@@ -40,7 +40,7 @@ date: 'git Last Modified'
 
 - Incluez au moins un en-tête de colonne ou de ligne afin que les relations entre les valeurs soient explicites.
 - Organisez les lignes et les colonnes de façon à refléter la manière dont l’information doit être comprise (par exemple, par ordre chronologique, par importance ou par association).
-  - Évitez les tableaux complexes ou imbriqués lorsque possible, car ils sont difficiles à utiliser avec des technologies d’assistance.
+- Évitez les tableaux complexes ou imbriqués lorsque possible, car ils sont difficiles à utiliser avec des technologies d’assistance.
   - Évitez de fusionner ou de diviser des cellules.
   - Évitez d’utiliser plus d’un niveau d’en-tête de colonne ou de ligne.
   - Divisez les tableaux complexes en plusieurs tableaux plus simples pour en faciliter la lecture.
