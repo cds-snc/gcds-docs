@@ -70,7 +70,7 @@ Each column object takes the following properties:
 - `field`: Use `field` to define the unique id that connects the column to the correct data. The value must match the key used for that data in your data object.
 - `header`: Use `header` to set the column heading that appears at the top of the column.
 - `rowHeader`: Set `rowHeader` to `true` if you want to mark each cell in the column as a row header. Row headers label what each row is about.
-- `slotted`: Set `slotted` to true to flag that the cell will render custom content. To see how each framework handles this, go to [Framework-specific slots for custom content](#framework-specific-slots-for-custom-content).
+- `slotted`: Set `slotted` to `true` to flag that the cell will render custom content. To see how each framework handles this, go to [Framework-specific slots for custom content](#framework-specific-slots-for-custom-content).
 - `sort`: Set `sort` to `true` to allow people to sort the table by that column.
 - `sortDirection`: Use `sortDirection` to set a default sort order for the column when the page loads. Set to `asc` for ascending order or `desc` for descending order.
 
