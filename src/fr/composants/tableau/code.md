@@ -62,7 +62,7 @@ Définissez `filter` à `true` pour permettre le filtrage, afin que les personne
 
 #### `columns`
 
-Utilisez l’attribut `columns` pour définir les colonnes du tableau. Passez un tableau (array) d’objets où chaque objet définit une colonne et contrôle son apparence et son comportement.
+Utilisez l’attribut `columns` pour définir les colonnes du tableau. Passez un tableau (_array_) d’objets où chaque objet définit une colonne et contrôle son apparence et son comportement.
 
 Chaque objet de colonne accepte les propriétés suivantes :
 
