@@ -52,7 +52,7 @@ Définissez `filter` à `true` pour permettre le filtrage, afin que les personne
 ### Dans cette section
 
 - [Attributs facultatifs](#section-optional)
-- [Emplacements (slots)](#section-slot)
+- [Emplacements (_slots_)](#section-slot)
 
 
 <!-- Optional section -->
