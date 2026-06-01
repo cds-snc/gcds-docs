@@ -21,6 +21,18 @@ Render an icon by changing the `name` attribute to a corresponding icon name.
 
 <gcds-grid class="bg-light px-300 md:px-500 py-500 md:py-800 b-radius-lg" columns-desktop="repeat(4, 1fr)" columns-tablet="repeat(3, 1fr)" columns="1fr 1fr" tag="ul" gap="300" gap-tablet="450">
   <li class="list-none text-center">
+    <gcds-icon size="h2" name="arrow-up" label="Arrow pointing up."></gcds-icon>
+    <p class="mb-0"><code>arrow-up</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="arrow-down" label="Arrow pointing down."></gcds-icon>
+    <p class="mb-0"><code>arrow-down</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="arrow-up-down" label="An arrow pointing up beside an arrow pointing down."></gcds-icon>
+    <p class="mb-0"><code>arrow-up-down</code></p>
+  </li>
+  <li class="list-none text-center">
     <gcds-icon name="info-circle" size="h2" label="A filled-in circle with the letter “i” in the centre."></gcds-icon>
     <p class="mb-0"><code>info-circle</code></p>
   </li>
@@ -37,19 +49,19 @@ Render an icon by changing the `name` attribute to a corresponding icon name.
     <p class="mb-0"><code>checkmark-circle</code></p>
   </li>
   <li class="list-none text-center">
-    <gcds-icon name="chevron-left" size="h2" label="An arrow pointing left."></gcds-icon>
+    <gcds-icon name="chevron-left" size="h2" label="A chevron pointing left."></gcds-icon>
     <p class="mb-0"><code>chevron-left</code></p>
   </li>
   <li class="list-none text-center">
-    <gcds-icon name="chevron-right" size="h2" label="An arrow pointing right."></gcds-icon>
+    <gcds-icon name="chevron-right" size="h2" label="A chevron pointing right."></gcds-icon>
     <p class="mb-0"><code>chevron-right</code></p>
   </li>
   <li class="list-none text-center">
-    <gcds-icon name="chevron-up" size="h2" label="An arrow pointing up."></gcds-icon>
+    <gcds-icon name="chevron-up" size="h2" label="A chevron pointing up."></gcds-icon>
     <p class="mb-0"><code>chevron-up</code></p>
   </li>
   <li class="list-none text-center">
-    <gcds-icon name="chevron-down" size="h2" label="An arrow pointing down."></gcds-icon>
+    <gcds-icon name="chevron-down" size="h2" label="A chevron pointing down."></gcds-icon>
     <p class="mb-0"><code>chevron-down</code></p>
   </li>
   <li class="list-none text-center">
@@ -69,12 +81,24 @@ Render an icon by changing the `name` attribute to a corresponding icon name.
     <p class="mb-0"><code>external</code></p>
   </li>
   <li class="list-none text-center">
+    <gcds-icon size="h2" name="filter" label="A funnel"></gcds-icon>
+    <p class="mb-0"><code>filter</code></p>
+  </li>
+  <li class="list-none text-center">
     <gcds-icon name="phone" size="h2" label="A telephone."></gcds-icon>
     <p class="mb-0"><code>phone</code></p>
   </li>
   <li class="list-none text-center">
     <gcds-icon name="search" size="h2" label="A magnifying glass."></gcds-icon>
     <p class="mb-0"><code>search</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="sort" label="Four horizontal lines of different length."></gcds-icon>
+    <p class="mb-0"><code>sort</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="tune" label="Three horizontal adjustment sliders."></gcds-icon>
+    <p class="mb-0"><code>tune</code></p>
   </li>
 </gcds-grid>
 
