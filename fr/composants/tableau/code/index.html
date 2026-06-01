@@ -1,0 +1,3493 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tableau - Système de design GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- GCDS CSS Shortcuts -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-css-shortcuts.min.css" />
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <script src="/gcds-docs/scripts/prism.min.js"></script>
+
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <script src="/gcds-docs/scripts/code-copy.js"></script>
+    <script src="/gcds-docs/scripts/component-preview.js"></script>
+    <script src="/gcds-docs/scripts/general.js"></script>
+    
+      <script type="module" src=/gcds-docs/scripts/table-preview.js></script>
+    
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+  
+
+
+
+
+<gcds-header
+  lang="fr"
+  skip-to-href="#mc"
+  lang-href='/en/components/table/code/'
+>
+  
+
+  <gcds-breadcrumbs lang="fr" slot="breadcrumb">
+    
+      <gcds-breadcrumbs-item href=/gcds-docs/fr>
+        Système de design GC
+      </gcds-breadcrumbs-item>
+
+      
+
+      
+      
+        
+          <gcds-breadcrumbs-item href=/gcds-docs/fr/composants/>
+            Composants
+          </gcds-breadcrumbs-item>
+        
+      
+    
+  </gcds-breadcrumbs>
+
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche" data-placeholder-long="Système de design GC" data-placeholder-short="SDGC">
+</gcds-search>
+
+
+</gcds-header>
+    <div class="content-wrapper">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<gcds-side-nav label="Système de design GC" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
+  <gcds-nav-link slot="home" href="/fr">Système de design GC</gcds-nav-link>
+  <gcds-nav-link href="/fr/demarrer" >Démarrer</gcds-nav-link>
+
+  
+
+  <gcds-nav-group
+    menu-label="Modèles de page"
+    open-trigger="Modèles de page"
+    
+  >
+    <gcds-nav-link
+      href="/fr/modeles-de-page"
+      
+    >
+      Aperçu des modèles de page
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/modeles-de-page/basic/"
+      
+    >
+      Page de base
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Composants"
+    open-trigger="Composants"
+    open
+  >
+    <gcds-nav-link
+      href="/fr/composants"
+      
+    >
+      Aperçu des composants
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/avis/"
+      
+    >
+      Avis
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/barre-de-navigation-laterale/"
+      
+    >
+      Barre de navigation latérale
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/barre-de-navigation-superieure/"
+      
+    >
+      Barre de navigation supérieure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/bascule-de-langue/"
+      
+    >
+      Bascule de langue
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/bouton/"
+      
+    >
+      Bouton
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/boutons-radio/"
+      
+    >
+      Boutons radio
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/carte/"
+      
+    >
+      Carte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/cases-a-cocher/"
+      
+    >
+      Cases à cocher
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/champ-de-date/"
+      
+    >
+      Champ de date
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/champ-de-saisie/"
+      
+    >
+      Champ de saisie
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/chemin-de-navigation/"
+      
+    >
+      Chemin de navigation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/conteneur/"
+      
+    >
+      Conteneur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/date-de-modification/"
+      
+    >
+      Date de modification
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/details/"
+      
+    >
+      Détails
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/en-tete/"
+      
+    >
+      En-tête
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/grille/"
+      
+    >
+      Grille
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/icone/"
+      
+    >
+      Icône
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/indicateur-detape/"
+      
+    >
+      Indicateur d&#39;étape
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/jeu-de-champs/"
+      
+    >
+      Jeu de champs
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/lien/"
+      
+    >
+      Lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/masquage-accessible/"
+      
+    >
+      Masquage accessible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/menu-thematique/"
+      
+    >
+      Menu thématique
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/message-derreur/"
+      
+    >
+      Message d&#39;erreur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/pagination/"
+      
+    >
+      Pagination
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/pied-de-page/"
+      
+    >
+      Pied de page
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/recherche/"
+      
+    >
+      Recherche
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/resume-de-erreurs/"
+      
+    >
+      Résumé des erreurs
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/signature/"
+      
+    >
+      Signature
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/selection/"
+      
+    >
+      Sélection
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/tableau/"
+      current
+    >
+      Tableau
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/texte/"
+      
+    >
+      Texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/titre/"
+      
+    >
+      Titre
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/televerseur-de-fichiers/"
+      
+    >
+      Téléverseur de fichiers
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/zone-de-texte/"
+      
+    >
+      Zone de texte
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Raccourcis CSS"
+    open-trigger="Raccourcis CSS"
+    
+  >
+    <gcds-nav-link
+      href="/fr/raccourcis-css"
+      
+    >
+      Aperçu des raccourcis CSS
+    </gcds-nav-link>
+  
+    <gcds-nav-group
+      menu-label="Par défaut"
+      open-trigger="Par défaut"
+      
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/reinitialisation-des-styles/"
+      
+    >
+      Réinitialisation des styles
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Styles conditionnels"
+      open-trigger="Styles conditionnels"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/mise-en-page-reactive/"
+      
+    >
+      Mise en page réactive
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/etat/"
+      
+    >
+      État
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Mise en page"
+      open-trigger="Mise en page"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/affichage/"
+      
+    >
+      Affichage
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/dimensionnement-de-la-boite/"
+      
+    >
+      Dimensionnement de la boîte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/dimensionnement-du-conteneur/"
+      
+    >
+      Dimensionnement du conteneur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/debordement/"
+      
+    >
+      Débordement
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/position/"
+      
+    >
+      Position
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/visibilite/"
+      
+    >
+      Visibilité
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Typographie"
+      open-trigger="Typographie"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/alignement-de-texte/"
+      
+    >
+      Alignement de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/couleur-de-lien/"
+      
+    >
+      Couleur de lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/couleur-de-texte/"
+      
+    >
+      Couleur de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/debordement-de-texte/"
+      
+    >
+      Débordement de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/decoration-de-texte-de-lien/"
+      
+    >
+      Décoration de texte de lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/famille-de-police/"
+      
+    >
+      Famille de police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/hauteur-de-ligne/"
+      
+    >
+      Hauteur de ligne
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/police/"
+      
+    >
+      Police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/saut-de-mot/"
+      
+    >
+      Saut de mot
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/style-de-liste/"
+      
+    >
+      Style de liste
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/style-de-police/"
+      
+    >
+      Style de police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/taille-de-lien/"
+      
+    >
+      Taille de lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/taille-de-police/"
+      
+    >
+      Taille de police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/transformation-de-texte/"
+      
+    >
+      Transformation de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/epaisseur-de-police/"
+      
+    >
+      Épaisseur de police
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Espacement"
+      open-trigger="Espacement"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/marge/"
+      
+    >
+      Marge
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/marge-interieure/"
+      
+    >
+      Marge intérieure
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Boîte d’élément flexible et grille"
+      open-trigger="Boîte d’élément flexible et grille"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/agencement-de-contenu/"
+      
+    >
+      Agencement de contenu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/agencement-des-elements/"
+      
+    >
+      Agencement des éléments
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/agencement-individuel/"
+      
+    >
+      Agencement individuel
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/alignement-de-contenu/"
+      
+    >
+      Alignement de contenu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/alignement-des-elements/"
+      
+    >
+      Alignement des éléments
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/alignement-individuel/"
+      
+    >
+      Alignement individuel
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/colonnes-de-grille/"
+      
+    >
+      Colonnes de grille
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/direction-de-lelement-flexible/"
+      
+    >
+      Direction de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/degagement/"
+      
+    >
+      Dégagement
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/habillage-de-lelement-flexible/"
+      
+    >
+      Habillage de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/justification-de-contenu/"
+      
+    >
+      Justification de contenu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/justification-des-elements/"
+      
+    >
+      Justification des éléments
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/justification-individuelle/"
+      
+    >
+      Justification individuelle
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/lignes-de-grille/"
+      
+    >
+      Lignes de grille
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/ordre/"
+      
+    >
+      Ordre
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/retrecissement-de-lelement-flexible/"
+      
+    >
+      Rétrécissement de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/elargissement-de-lelement-flexible/"
+      
+    >
+      Élargissement de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/element-flexible/"
+      
+    >
+      Élément flexible
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Arrière-plan et bordure"
+      open-trigger="Arrière-plan et bordure"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/couleur-de-la-bordure/"
+      
+    >
+      Couleur de la bordure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/couleur-de-larriere-plan/"
+      
+    >
+      Couleur de l’arrière-plan
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/largeur-de-la-bordure/"
+      
+    >
+      Largeur de la bordure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/rayon-de-la-bordure/"
+      
+    >
+      Rayon de la bordure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/style-de-la-bordure/"
+      
+    >
+      Style de la bordure
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Icône et image"
+      open-trigger="Icône et image"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/image/"
+      
+    >
+      Image
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/noms-des-icones/"
+      
+    >
+      Noms des icônes
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/taille-de-licone/"
+      
+    >
+      Taille de l&#39;icône
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Interactif"
+      open-trigger="Interactif"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/curseur/"
+      
+    >
+      Curseur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/transition/"
+      
+    >
+      Transition
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/raccourcis-css/evenements-de-pointeur/"
+      
+    >
+      Événements de pointeur
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Styles"
+    open-trigger="Styles"
+    
+  >
+    <gcds-nav-link href="/fr/styles">Aperçu des styles</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/unites-de-style" >Unités de style</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/couleur" >Unités de style de couleur</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/espacement" >Unités de style d’espacement</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/typographie" >Unités de style typographie</gcds-nav-link>
+  </gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Contact"
+    open-trigger="Contact"
+    
+  
+    
+  
+    
+  
+    
+  
+  >
+    <gcds-nav-link href="/fr/contactez" >Nous contacter</gcds-nav-link>
+    <gcds-nav-link href="/fr/simpliquer" >S’impliquer</gcds-nav-link>
+    <gcds-nav-link href="/fr/inscrivez-vous-a-une-demonstration" >Trouver une démo</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-side-nav>
+        <main id="mc" class="general-layout" data-pagefind-body>
+          
+  
+    <h1 id="tableau-brgcdstable">Tableau <br><code>&lt;gcds-table&gt;</code></h1>
+<p><em>Autres noms : tableau de données</em></p>
+<p>Un tableau est une présentation structurée de données sur un même sujet, en lignes et en colonnes.</p>
+<p><ul class="d-flex flex-wrap gap-300">
+<li class="github-link">
+<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-table">GitHub</gcds-link>
+</li>
+<li class="figma-link">
+<gcds-link external href="https://www.figma.com/community/file/1369337721343886324">
+Figma
+</gcds-link>
+</li>
+</ul></p>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Aperçu du composant de le tableau
+</h2>
+<div>
+<iframe
+            title="Aperçu du composant de le tableau"
+            src="/fr/composants/tableau/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
+
+    <nav class="tabs mb-300" aria-label="Onglet de consignes">
+      <ul>
+        
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/tableau/ >
+                Cas d&#39;utilisation
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/tableau/design/ >
+                Design
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/tableau/code/ aria-current=page>
+                Code
+              </a>
+            </li>
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  
+
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-des-tableaux">Codage et accessibilité des tableaux</a></li>
+<li><a href="#section-examples">Exemples</a></li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-des-tableaux">Codage et accessibilité des tableaux</h2>
+<h3 id="utilisez-le-bon-nom-de-composant">Utilisez le bon nom de composant</h3>
+<ul class="list-disc mb-300"><li>Utilisez <code>gcds-table</code> en HTML, Vue ou React.</li>
+<li>Utilisez <code>gcds-table-ng</code> en Angular.</li>
+</ul>
+<h3 id="definissez-les-colonnes-et-les-donnees">Définissez les colonnes et les données</h3>
+<p>Pour construire un tableau, vous devez au minimum définir les colonnes et les données.</p>
+<ul class="list-disc mb-300"><li>Utilisez l’attribut <code>columns</code> pour définir les colonnes du tableau et leur comportement.</li>
+<li>Utilisez l’attribut <code>data</code> pour remplir le tableau avec du contenu.</li>
+</ul>
+<h3 id="ajoutez-un-titre">Ajoutez un titre</h3>
+<p>Utilisez l’emplacement <code>caption</code> pour donner un nom accessible au tableau, afin que les technologies d’assistance puissent l’identifier et l’annoncer.</p>
+<h3 id="ajoutez-loption-de-filtre-pour-affiner-les-resultats">Ajoutez l’option de filtre pour affiner les résultats</h3>
+<p>Définissez <code>filter</code> à <code>true</code> pour permettre le filtrage, afin que les personnes puissent affiner les résultats par mot-clé.</p>
+<h3 id="ajoutez-loption-de-tri-pour-reorganiser-les-donnees">Ajoutez l’option de tri pour réorganiser les données</h3>
+<ul class="list-disc mb-300"><li>Définissez <code>sort</code> à <code>true</code> pour activer le tri par colonne, afin que les personnes puissent réorganiser les données d’une colonne par priorité, chronologie, grandeur ou autre.</li>
+<li>Si le tableau a un tri par défaut qui reflète la façon dont les personnes vont naturellement lire les données, définissez-le à l’aide de la propriété <code>sortDirection</code> dans l’objet de colonne concerné.</li>
+</ul>
+<h3 id="ajoutez-une-pagination-pour-les-tableaux-volumineux">Ajoutez une pagination pour les tableaux volumineux</h3>
+<ul class="list-disc mb-300"><li>Définissez <code>pagination</code> à <code>true</code> pour diviser les données en pages.</li>
+<li>Ajustez <code>pagination-size-options</code> pour contrôler le nombre de lignes affichées par page.</li>
+</ul>
+<!-- ----- Examples ----- -->
+<p><div>
+<gcds-heading id="section-examples" tag="h2">
+Exemples
+</gcds-heading>
+<gcds-text>Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.</gcds-text>
+</div></p>
+<h3 id="dans-cette-section">Dans cette section</h3>
+<ul class="list-disc mb-300"><li><a href="#section-optional">Attributs facultatifs</a></li>
+<li><a href="#section-slot">Emplacements (<em>slots</em>)</a></li>
+</ul>
+<!-- Optional section -->
+<p><div>
+<gcds-heading id="section-optional" tag="h3">
+Attributs facultatifs
+</gcds-heading>
+<gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
+</div></p>
+<h4 id="columns"><code>columns</code></h4>
+<p>Utilisez l’attribut <code>columns</code> pour définir les colonnes du tableau. Passez un tableau (<em>array</em>) d’objets où chaque objet définit une colonne et contrôle son apparence et son comportement.</p>
+<p>Chaque objet de colonne accepte les propriétés suivantes :</p>
+<ul class="list-disc mb-300"><li><code>alignment</code> : Utilisez <code>alignment</code> pour contrôler le positionnement horizontal du contenu dans les cellules de la colonne. Définissez la valeur à <code>start</code> pour aligner le contenu à gauche, à <code>center</code> pour l’aligner au centre, ou à <code>end</code> pour l’aligner à droite.</li>
+<li><code>field</code> : Utilisez <code>field</code> pour définir l’identifiant unique qui lie la colonne aux bonnes données. La valeur doit correspondre à la clé utilisée pour ces données dans votre objet <code>data</code>.</li>
+<li><code>header</code> : Utilisez <code>header</code> pour définir l’en-tête de colonne affiché en haut de la colonne.</li>
+<li><code>rowHeader</code> : Définissez <code>rowHeader</code> à <code>true</code> pour marquer chaque cellule de la colonne comme un en-tête de ligne. Les en-têtes de ligne indiquent le sujet de chaque ligne.</li>
+<li><code>slotted</code> : Définissez <code>slotted</code> à true pour indiquer que la cellule affichera du contenu personnalisé. Pour voir comment chaque cadre d’applications affiche ce contenu, consultez la section <a href="#syntaxe-du-contenu-personnalis%C3%A9-selon-le-cadre-dapplications">Syntaxe du contenu personnalisé selon le cadre d’applications</a>.</li>
+<li><code>sort</code> : Définissez <code>sort</code> à <code>true</code> pour permettre aux personnes de trier le tableau selon cette colonne.</li>
+<li><code>sortDirection</code> : Utilisez <code>sortDirection</code> pour définir l’ordre de tri par défaut de la colonne au chargement de la page. Définissez la valeur à <code>asc</code> pour un ordre croissant ou à <code>desc</code> pour un ordre décroissant.</li>
+</ul>
+<h4 id="data"><code>data</code></h4>
+<p>Utilisez <code>data</code> pour transmettre le contenu du tableau. Passez un tableau (<em>array</em>) d’objets où chaque objet représente une ligne et chaque clé correspond à un <code>field</code> de colonne.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="400"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;columns-data-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table columns='[ { &quot;field&quot;: &quot;submission_id&quot;, &quot;header&quot;: &quot;ID&quot;, &quot;rowHeader&quot;: true }, { &quot;field&quot;: &quot;submitter_name&quot;, &quot;header&quot;: &quot;Nom&quot; }, { &quot;field&quot;: &quot;date_submitted&quot;, &quot;header&quot;: &quot;Date de soumission&quot; }, { &quot;field&quot;: &quot;assigned_reviewer&quot;, &quot;header&quot;: &quot;Examinateur&quot; } ]' data='[ { &quot;submission_id&quot;: &quot;EXP-2026-001&quot;, &quot;submitter_name&quot;: &quot;John A. Smith&quot;, &quot;date_submitted&quot;: &quot;2026-01-15 4:30&quot;, &quot;assigned_reviewer&quot;: &quot;Sarah Chen&quot; }, { &quot;submission_id&quot;: &quot;EXP-2026-002&quot;, &quot;submitter_name&quot;: &quot;Maria Gonzalez&quot;, &quot;date_submitted&quot;: &quot;2026-01-15 5:15&quot;, &quot;assigned_reviewer&quot;: &quot;David Patel&quot; }, { &quot;submission_id&quot;: &quot;EXP-2026-003&quot;, &quot;submitter_name&quot;: &quot;Robert James&quot;, &quot;date_submitted&quot;: &quot;2026-01-15 6:22&quot;, &quot;assigned_reviewer&quot;: &quot;Lisa Wong&quot; }, { &quot;submission_id&quot;: &quot;EXP-2026-004&quot;, &quot;submitter_name&quot;: &quot;Emily R. Davis&quot;, &quot;date_submitted&quot;: &quot;2026-01-15 8:45&quot;, &quot;assigned_reviewer&quot;: &quot;Michael Tran&quot; }, { &quot;submission_id&quot;: &quot;EXP-2026-005&quot;, &quot;submitter_name&quot;: &quot;Ahmed Khalil&quot;, &quot;date_submitted&quot;: &quot;2026-01-15 9:20&quot;, &quot;assigned_reviewer&quot;: &quot;Sarah Chen&quot; } ]'></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table
+columns='[
+{
+&quot;field&quot;: &quot;submission_id&quot;,
+&quot;header&quot;: &quot;ID&quot;,
+&quot;rowHeader&quot;: true
+},
+{
+&quot;field&quot;: &quot;submitter_name&quot;,
+&quot;header&quot;: &quot;Nom&quot;
+},
+{
+&quot;field&quot;: &quot;date_submitted&quot;,
+&quot;header&quot;: &quot;Date de soumission&quot;
+},
+{
+&quot;field&quot;: &quot;assigned_reviewer&quot;,
+&quot;header&quot;: &quot;Examinateur&quot;
+}
+]'
+data='[
+{
+&quot;submission_id&quot;: &quot;EXP-2026-001&quot;,
+&quot;submitter_name&quot;: &quot;John A. Smith&quot;,
+&quot;date_submitted&quot;: &quot;2026-01-15 4:30&quot;,
+&quot;assigned_reviewer&quot;: &quot;Sarah Chen&quot;
+},
+{
+&quot;submission_id&quot;: &quot;EXP-2026-002&quot;,
+&quot;submitter_name&quot;: &quot;Maria Gonzalez&quot;,
+&quot;date_submitted&quot;: &quot;2026-01-15 5:15&quot;,
+&quot;assigned_reviewer&quot;: &quot;David Patel&quot;
+},
+{
+&quot;submission_id&quot;: &quot;EXP-2026-003&quot;,
+&quot;submitter_name&quot;: &quot;Robert James&quot;,
+&quot;date_submitted&quot;: &quot;2026-01-15 6:22&quot;,
+&quot;assigned_reviewer&quot;: &quot;Lisa Wong&quot;
+},
+{
+&quot;submission_id&quot;: &quot;EXP-2026-004&quot;,
+&quot;submitter_name&quot;: &quot;Emily R. Davis&quot;,
+&quot;date_submitted&quot;: &quot;2026-01-15 8:45&quot;,
+&quot;assigned_reviewer&quot;: &quot;Michael Tran&quot;
+},
+{
+&quot;submission_id&quot;: &quot;EXP-2026-005&quot;,
+&quot;submitter_name&quot;: &quot;Ahmed Khalil&quot;,
+&quot;date_submitted&quot;: &quot;2026-01-15 9:20&quot;,
+&quot;assigned_reviewer&quot;: &quot;Sarah Chen&quot;
+}
+]'
+&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="filter"><code>filter</code></h4>
+<p>Définissez <code>filter</code> à <code>true</code> pour afficher un champ de filtre qui permet aux personnes d’affiner les résultats par mot-clé.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="705"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;filter-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table filter></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table filter&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="filtervalue"><code>filter-value</code></h4>
+<p>Utilisez <code>filter-value</code> pour définir un mot-clé par défaut dans le champ de filtre, afin que certaines lignes soient déjà filtrées au chargement du tableau. Par défaut, aucune valeur n’est définie.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="460"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;filter-value-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table filter filter-value=&quot;Dav&quot;></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table filter filter-value=&quot;Dav&quot;&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="pagination"><code>pagination</code></h4>
+<p>Définissez <code>pagination</code> à <code>true</code> pour diviser le tableau en pages lorsqu’il contient de nombreuses lignes. Par défaut, pagination est défini à <code>false</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="705"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;pagination-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table pagination></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table pagination&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="paginationcurrentpage"><code>pagination-current-page</code></h4>
+<p>Utilisez <code>pagination-current-page</code> pour définir la page affichée au chargement du tableau. Par défaut, la valeur est définie à <code>1</code>, ce qui affiche la première page.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="705"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;pagination-current-page-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table pagination pagination-current-page=&quot;2&quot;></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table pagination pagination-current-page=&quot;2&quot;
+&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="paginationsize"><code>pagination-size</code></h4>
+<p>Utilisez <code>pagination-size</code> pour définir le nombre de lignes affichées par page. Par défaut, la valeur est <code>10</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="705"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;pagination-size-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table pagination pagination-size=&quot;10&quot;></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table pagination pagination-size=&quot;10&quot;
+&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="paginationsizeoptions"><code>pagination-size-options</code></h4>
+<p>Utilisez <code>pagination-size-options</code> pour définir les choix du nombre de lignes affichées par page dans le contrôle des lignes. Les options par défaut sont <code>[10, 25, 50, 0]</code>.</p>
+<p><strong>Remarque</strong> : Inclure <code>0</code> dans les options ajoute une option « Tout » qui affiche toutes les lignes à la fois. Utilisez cette option avec prudence pour les grands ensembles de données, car elle peut affecter la performance.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="705"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;pagination-size-options-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table pagination pagination-size-options=&quot;[10, 15, 20, 25, 0]&quot;></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table pagination pagination-size-options=&quot;[10, 15, 20, 25, 0]&quot;&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="sort"><code>sort</code></h4>
+<p>Définissez <code>sort</code> à <code>true</code> pour permettre aux personnes de trier le tableau en cliquant sur les en-têtes de colonne. Définissez <code>sort</code> à <code>false</code> pour désactiver le tri pour toutes les colonnes. Par défaut, <code>sort</code> est défini à <code>false</code>.</p>
+<p><strong>Remarque</strong> : La propriété <code>sort</code> définie dans chaque objet de colonne a priorité. Si une colonne définit <code>sort</code> à <code>false</code>, cette colonne ne pourra pas être triée, même si la propriété <code>sort</code> du tableau est définie à <code>true</code>.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="705"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;sort-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table sort></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table sort&gt;&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<!-- Slot section -->
+<p><div>
+<gcds-heading id="section-slot" tag="h3">
+Emplacements (slots)
+</gcds-heading>
+<gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
+</div></p>
+<h4 id="caption"><code>caption</code></h4>
+<p>Utilisez l’emplacement <code>caption</code> pour donner un nom accessible au tableau, afin que les technologies d’assistance puissent l’identifier et l’annoncer.</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Aperçu du composant"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="770"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;fr&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot;caption-preview shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-table><div slot=&quot;caption&quot;><h5>Titre du tableau</h5><p>Titre détaillée du tableau</p></div></gcds-table>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-table&gt;
+&lt;div slot=&quot;caption&quot;&gt;
+&lt;h5&gt;Titre du tableau&lt;/h5&gt;
+&lt;p&gt;Titre détaillée du tableau&lt;/p&gt;
+&lt;/div&gt;
+&lt;/gcds-table&gt;</code></pre>
+</div></p>
+<h4 id="syntaxe-du-contenu-personnalise-selon-le-cadre-dapplications">Syntaxe du contenu personnalisé selon le cadre d’applications</h4>
+<p>Utilisez du contenu personnalisé dans les cellules lorsque vous avez besoin de plus que du texte, par exemple un lien, une image ou un bouton. Pour activer le contenu personnalisé dans une colonne, définissez <code>slotted</code> à <code>true</code> dans votre objet de colonne.</p>
+<p>Chaque cadre d’applications gère le contenu personnalisé différemment. HTML, Vue et Angular utilisent des emplacements ou des directives, tandis que React utilise la propriété <code>renderCell</code>.</p>
+<gcds-details details-title="Exemple HTML">
+<p>Utilisez l’emplacement <code>cell:&lt;field&gt;</code> pour définir du contenu personnalisé pour une colonne précise. Remplacez <code>&lt;field&gt;</code> par la valeur field définie dans votre objet de colonne.</p>
+<p>Utilisez <code>data-bind-*</code> pour assigner directement une valeur de ligne à un attribut.</p>
+<p>Utilisez <code>data-bind-template-*</code> lorsque vous devez insérer une valeur de ligne dans une chaîne avant de l’assigner à un attribut. Par exemple, utilisez-le pour construire les attributs <code>alt</code> et <code>src</code> d’une image.</p>
+<p>Si les éléments interactifs doivent utiliser les données de la ligne dans leurs fonctions, vous pouvez accéder aux propriétés <code>row</code>, <code>rowIndex</code>, <code>column</code> et <code>value</code> en utilisant <code>this</code>.</p>
+
+<div style="position: relative" id="code-container-280" >
+  <pre class="language-html"><code id="code-280" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-table</span>
+  <span class="token attr-name">columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>[
+    ...,
+    {
+      field: "submission_id",
+      header: "ID",
+      slotted: true,
+    },
+    {
+      field: "actions",
+      header: "Actes",
+      slotted: true,
+    },
+    ...,
+  ];<span class="token punctuation">'</span></span>
+<span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cell:submission_id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span>
+      <span class="token attr-name">data-bind-template-href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/view_submission/{submission_id}<span class="token punctuation">"</span></span>
+      <span class="token attr-name">data-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submission_id<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cell:actions<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span>
+      <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>secondary<span class="token punctuation">"</span></span>
+      <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>small<span class="token punctuation">"</span></span>
+      <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>row<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rowIndex<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>column<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span>
+    <span class="token punctuation">></span></span>
+      Données des lignes du journal de la console
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-table</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-280"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="Exemple Vue">
+<p>Utilisez l’emplacement <code>#&lt;field&gt;</code> pour définir du contenu personnalisé pour une colonne précise. Remplacez <code>&lt;field&gt;</code> par la valeur field définie dans votre objet de colonne.</p>
+<p>Utilisez <code>{ row }</code> pour accéder aux données de ligne dans l’emplacement.</p>
+
+<div style="position: relative" id="code-container-289" >
+  <pre class="language-html"><code id="code-289" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>GcdsTable</span>
+  <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[
+    ...,
+    {
+      field: 'submission_id',
+      header: 'ID',
+      slotted: true,
+    },
+    {
+      field: 'actions',
+      header: 'Actes',
+      slotted: true,
+    },
+  ]<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">#submission_id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{ row }<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span>
+      <span class="token attr-name">:href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>`/view_submission/${row.submission_id}`<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span>
+      {{ row.submission_id }}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">#actions</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{ row, rowIndex, column, value }<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span>
+      <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>secondary<span class="token punctuation">"</span></span>
+      <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>small<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>() => {
+        console.log(row, rowIndex, column, value);
+      }<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span>
+      Données des lignes du journal de la console
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>GcdsTable</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-289"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="Exemple Angular">
+<p>Utilisez la directive <code>gcdsCell=”&lt;field&gt;”</code> pour assigner du contenu personnalisé à la bonne colonne.</p>
+<p>Si des éléments interactifs doivent utiliser les données de la ligne dans leurs fonctions, vous pouvez accéder aux propriétés <code>row</code>, <code>rowIndex</code>, <code>column</code> et <code>value</code> en utilisant <code>let-*</code>.</p>
+
+<div style="position: relative" id="code-container-298" >
+  <pre class="language-html"><code id="code-298" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-table-ng</span>
+  <span class="token attr-name">[columns]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[
+    ...,
+    {
+      field: 'submission_id',
+      header: 'ID',
+      slotted: true,
+    },
+    {
+      field: 'actions',
+      header: 'Actes',
+      slotted: true,
+    },
+  ]<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng-template</span> <span class="token attr-name">gcdsCell</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submission_id<span class="token punctuation">"</span></span> <span class="token attr-name">let-row</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span>
+      <span class="token attr-name">[href]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>/view_submission/' + row.submission_id<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span>
+      {{ row.submission_id }}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng-template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng-template</span>
+    <span class="token attr-name">gcdsCell</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>actions<span class="token punctuation">"</span></span>
+    <span class="token attr-name">let-row</span>
+    <span class="token attr-name">let-rowIndex</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rowIndex<span class="token punctuation">"</span></span>
+    <span class="token attr-name">let-column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>column<span class="token punctuation">"</span></span>
+    <span class="token attr-name">let-value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>value<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span>
+      <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>secondary<span class="token punctuation">"</span></span>
+      <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>logRow(row, rowIndex, column, value)<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span>
+      Données des lignes du journal de la console
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng-template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-table-ng</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-298"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="Exemple React">
+<p>Utilisez la propriété <code>renderCell</code> pour définir le contenu à afficher dans la cellule. Contrairement aux autres cadres d’applications, React utilise une propriété <code>renderCell</code> au lieu d’emplacements. Cette propriété permet de définir une fonction dans l’objet de colonne qui retourne le contenu à afficher.</p>
+
+<div style="position: relative" id="code-container-304" >
+  <pre class="language-html"><code id="code-304" class="language-html">&lt;GcdsTable
+  columns={[
+    ...,
+    {
+      field: 'submission_id',
+      header: 'ID',
+      slotted: true,
+      renderCell: ({ row }) => {
+        return (
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span>
+            <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>{`/view_submission/${row.submission_id}`}</span>
+          <span class="token punctuation">></span></span>
+            {{ row.submission_id }}
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        );
+      },
+    },
+    {
+      field: 'actions',
+      header: 'Actes',
+      slotted: true,
+      renderCell: ({ row, rowIndex, column, value }) => {
+        return (
+          &lt;GcdsButton
+            buttonRole="secondary"
+            size="small"
+            onClick={() => console.log(row, rowIndex, column, value)}
+          >
+            Données des lignes du journal de la console
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>GcdsButton</span><span class="token punctuation">></span></span>
+        )
+      }
+    },
+  ]}
+>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>GcdsTable</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-304"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<!-- ----- Code builder ----- -->
+<h3 id="generateur-de-code">Générateur de code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-300"><li>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+</li>
+<li>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+</li>
+</ol>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-table."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-table--events-properties&lang=fr"
+  width="1200"
+  height="3500"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
+
+
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
+
+  
+  <p>
+    Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
+  </p>
+  
+
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="/fr/contactez/#contactez-nous"
+    class="mb-300"
+  >
+    Fournir des commentaires
+  </gcds-button>
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="https://github.com/cds-snc/gcds-components/issues/new/choose"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Signaler un problème sur GitHub
+  </gcds-button>
+</section>
+
+
+
+          <gcds-date-modified class="mb-300">
+            2026-06-01
+          </gcds-date-modified>
+        </main>
+      </gcds-grid>
+
+    <gcds-footer
+  display="full"
+  lang="fr"
+  contextual-heading="Système de design GC"
+  contextual-links='{ "À propos": "/fr/a-propos", "Déclaration d&#39;accessibilité": "/fr/accessibilite/", "Accord sur les niveaux de service": "/fr/entente-sur-les-niveaux-de-service/" }'
+  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html", "Conditions d&#39;utilisation": "/fr/conditions-dutilisation", "Confidentialité": "/fr/avis-de-confidentialite/" }'
+></gcds-footer>
+
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>
