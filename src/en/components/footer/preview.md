@@ -6,4 +6,4 @@ eleventyExcludeFromCollections: true
 templateEngineOverride: njk
 ---
 
-<gcds-footer display="full" aria-label="{{title}}"></gcds-footer>
+<img src="/images/en/components/example/example-footer-full.svg" alt=""/>

@@ -1,0 +1,45 @@
+---
+title: Table
+layout: 'layouts/component-documentation.njk'
+eleventyNavigation:
+  key: tableEN
+  title: Table
+  locale: en
+  parent: componentsEN
+  otherNames: data table, data grid.
+  description: A structured layout of related data in rows and columns.
+  thumbnail: /images/common/components/preview-table.svg
+  alt: Four rows of short thick bars arranged in three columns, separated by horizontal lines, represent the table component. The first row has three dark bars representing header cells, followed by three rows of lighter bars representing data cells. Below, a dark square with the number 1, two grey squares, and a right-pointing arrow represent the pagination control.
+  state: published
+translationKey: 'table'
+tags: ['tableEN', 'usage']
+permalink: /en/components/table/
+date: 'git Last Modified'
+---
+
+Take a look at what tables do to see if they fit the problem you’re solving for.
+
+## Problems tables solve
+
+Tables organize items with shared attributes into a structured format. They help turn raw data into clear information.
+
+Use a table to:
+
+- Help people scan and compare information across multiple records, like reviewing a metrics report or financial summary. Add sorting to let people reorganize data and surface patterns.
+- Help people find specific information within a larger dataset, like looking up a tax rate or office location. Add filtering or sorting to let people narrow down results.
+
+**Note**: On mobile, the table’s responsive layout removes columns. This makes the table better suited for finding specific information than for side-by-side comparison. If comparing across records is the primary task for mobile users, consider paring down the dataset.
+
+<hr/>
+
+## Related components
+
+<a href="{{ links.card }}">Card</a> for grouping small pieces of related information as a single unit.
+
+<a href="{{ links.container }}">Container</a> for basic layouts with a set width.
+
+<a href="{{ links.grid }}">Grid</a> for positioning unstructured elements on a page using a responsive, flexible column layout.
+
+List for presenting items that do not share multiple common attributes or are not meant for comparison.
+
+Charts for visualizing data to reveal trends, patterns, or differences at a glance.

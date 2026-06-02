@@ -18,6 +18,10 @@
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
 
     <script src="{{ '/scripts/component-preview-iframe.js' | url }}"></script>
+
+    {% if page.url === '/en/components/table/preview/' or page.url === '/fr/composants/tableau/preview/' %}
+      <script type="module" src={{ '/scripts/table-preview.js' | url }}></script>
+    {% endif %}
   </head>
   <body class="overflow-visible box-border px-225 py-300">
     {% block content %}{{ content | safe }}{% endblock %}

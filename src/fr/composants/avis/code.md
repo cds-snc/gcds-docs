@@ -3,14 +3,16 @@ title: Avis
 layout: 'layouts/component-documentation.njk'
 translationKey: 'noticeCode'
 tags: ['noticeFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
-## Créer un avis
+## Sur cette page
 
-Utilisez le composant d'avis pour transmettre aux gens des messages importants et propres au contexte. L'avis communique divers niveaux d'urgence et différents messages à l'aide de contenu et d'éléments visuels.
+- [Codage et accessibilité de l'avis](#codage-et-accessibilite-de-lavis)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Accessibilité et lignes directrices relatives au code
+## Codage et accessibilité de l'avis
 
 ### Définir le rôle de l'avis
 
@@ -20,6 +22,76 @@ Utilisez l'attribut `notice-role` pour classer l'avis dans les catégories `info
 
 - Utilisez l'attribut `notice-title` pour créer un titre clair et informatif pour l'avis. Veillez à ce que le titre transmette l'objectif du message.
 - Utilisez `notice-title-tag` pour définir [le bon niveau](/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique) de titre pour l'avis. La définition du niveau adapté pour le titre n'a pas d'incidence sur la taille de la police, mais elle permet de maintenir la bonne hiérarchie et l'accessibilité pour les technologies d'assistance.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `notice-role`
+
+L'attribut `notice-role` définit le style d'avis à afficher.
+
+{% examplesPreview "150", "", "fr" %}
+<gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
+  <gcds-text margin-bottom="0">
+    Il s'agit d'un message de succès.
+  </gcds-text>
+</gcds-notice>
+{% endexamplesPreview %}
+
+#### `notice-title`
+
+L'attribut `notice-title` définit le titre de l'avis.
+
+{% examplesPreview "150", "", "fr" %}
+<gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
+  <gcds-text margin-bottom="0">
+    Il s'agit d'un message de succès.
+  </gcds-text>
+</gcds-notice>
+{% endexamplesPreview %}
+
+#### `notice-title-tag`
+
+L'attribut `notice-title-tag` définit l'élément de titre HTML pour le titre. Cette propriété ne modifie pas la taille de la police. Utilisez-la pour assigner le niveau de titre approprié et maintenir la hiérarchie des titres et l'accessibilité.
+
+{% examplesPreview "150", "", "fr" %}
+<gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
+  <gcds-text margin-bottom="0">
+    Il s'agit d'un message de succès.
+  </gcds-text>
+</gcds-notice>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à placer le message de l'avis.
+
+{% examplesPreview "150", "", "fr" %}
+<gcds-notice notice-role="success" notice-title="Titre de l'avis succès" notice-title-tag="h2">
+  <gcds-text margin-bottom="0">
+    Il s'agit d'un message de succès.
+  </gcds-text>
+</gcds-notice>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

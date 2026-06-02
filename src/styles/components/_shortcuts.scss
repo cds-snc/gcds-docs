@@ -3,7 +3,7 @@
 }
 
 .shortcut-table {
-  &>p {
+  & > p {
     display: none;
   }
 
@@ -11,7 +11,7 @@
     width: fit-content;
     background-color: var(--gcds-color-grayscale-50);
 
-    &>p {
+    & > p {
       margin: 0;
     }
   }
@@ -53,6 +53,7 @@
   }
 
   // Code example styles
+  &.example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only),
   .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only) {
     max-width: 100%;
     background-color: var(--gcds-bg-primary);
@@ -151,7 +152,7 @@
   }
 
   .example-table,
-  .example-table+.d-inline-table {
+  .example-table + .d-inline-table {
     border-collapse: collapse;
     margin: var(--gcds-spacing-200);
 

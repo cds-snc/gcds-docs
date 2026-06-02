@@ -27,6 +27,9 @@
     <script src="{{ '/scripts/code-copy.js' | url }}"></script>
     <script src="{{ '/scripts/component-preview.js' | url }}"></script>
     <script src="{{ '/scripts/general.js' | url }}"></script>
+    {% if page.url === '/en/components/table/code/' or page.url === '/fr/composants/tableau/code/' %}
+      <script type="module" src={{ '/scripts/table-preview.js' | url }}></script>
+    {% endif %}
     <link rel="icon" type="image/x-icon" sizes="96x96" href="{{ '/favicon.ico' | url }}">
 
     <!-- GC Design System  Components-->
@@ -39,7 +42,6 @@
   </head>
   <body>
     {% include "partials/header.njk" %}
-
     <div class="content-wrapper">
       <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         {% include "partials/nav.njk" %}

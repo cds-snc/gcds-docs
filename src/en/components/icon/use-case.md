@@ -98,11 +98,33 @@ Choose an icon to match the action you want to indicate.
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 3fr" align-items="start">
   {% componentPreview "" "px-50 py-400" "mt-500" %}
+  <gcds-grid columns="repeat(2, 3.25rem)" columns-tablet="repeat(2, 3.25rem)" columns-desktop="repeat(2, 3.25rem)" gap="150" justify-content="center">
+    <gcds-icon size="h2" name="arrow-up" label="Arrow pointing up."></gcds-icon>
+    <gcds-icon size="h2" name="arrow-down" label="Arrow pointing down."></gcds-icon>
+  </gcds-grid>
+  {% endcomponentPreview %}
+  <div>
+    <gcds-heading tag="h3">Arrow-[up/down]</gcds-heading>
+    <gcds-text>Indicate the active sort order (ascending or descending).</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="arrow-up-down" label="An arrow pointing up beside an arrow pointing down."></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Arrow-up-down</gcds-heading>
+    <gcds-text>Indicate that content items can be sorted.</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-50 py-400" "mt-500" %}
   <gcds-grid columns="repeat(4, 3.25rem)" columns-tablet="repeat(2, 3.25rem)" columns-desktop="repeat(2, 3.25rem)" gap="150" justify-content="center">
-    <gcds-icon size="h2" name="chevron-left" label="An arrow pointing left."></gcds-icon>
-    <gcds-icon size="h2" name="chevron-right" label="An arrow pointing right."></gcds-icon>
-    <gcds-icon size="h2" name="chevron-up" label="An arrow pointing up."></gcds-icon>
-    <gcds-icon size="h2" name="chevron-down" label="An arrow pointing down."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-left" label="A chveron pointing left."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-right" label="A chveron pointing right."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-up" label="A chveron pointing up."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-down" label="A chveron pointing down."></gcds-icon>
   </gcds-grid>
   {% endcomponentPreview %}
   <div>
@@ -158,6 +180,17 @@ Choose an icon to match the action you want to indicate.
     <gcds-text>Open a link in a new tab or window.</gcds-text>
   </div>
 
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="filter" label="A funnel"></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Filter</gcds-heading>
+    <gcds-text>Filter content.</gcds-text>
+  </div>
+
 {% componentPreview "" "px-225 py-450" "mt-500" %}
 
 <p class="text-center">
@@ -180,6 +213,28 @@ Choose an icon to match the action you want to indicate.
   <div>
     <gcds-heading tag="h3">Search</gcds-heading>
     <gcds-text>Search for specific information.</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="sort" label="Four horizontal lines of different length."></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Sort</gcds-heading>
+    <gcds-text>Sort content.</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="tune" label="Three horizontal adjustment sliders."></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Tune</gcds-heading>
+    <gcds-text>Tune or adjust settings.</gcds-text>
   </div>
 </gcds-grid>
 </div>
