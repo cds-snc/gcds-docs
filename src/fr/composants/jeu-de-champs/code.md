@@ -14,9 +14,24 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité des jeux de champs
 
-### Hiérarchie des titres
+### Choisir le niveau de titre
 
-Utilisez l’attribut `legend-size` pour placer visuellement la légende parmi les titres de la page. Définissez la valeur de l’attribut à `h2` | `h3` | `h4` | `h5` | `h6` pour donner à la légende du jeu de champs la taille appropriée.
+- Utilisez l’attribut `legend-size` pour placer visuellement la légende parmi les titres de la page.
+- Définissez la valeur de l’attribut à `h2` | `h3` | `h4` | `h5` | `h6` pour générer la légende.
+
+{% include "partials/hint.njk" %}
+
+### Ajouter des composants de formulaire
+
+- Ajoutez des composants de formulaire au jeu champs :
+  - [gcds-checkboxes]({{ links.checkboxes }})
+  - [gcds-date-input]({{ links.dateInput }})
+  - [gcds-file-uploader]({{ links.fileUploader }})
+  - [gcds-input]({{ links.input }})
+  - [gcds-radios]({{ links.radios }})
+  - [gcds-select]({{ links.select }})
+  - [gcds-textarea]({{ links.textarea }})
+- Suivez les instructions respectives pour chaque composant du jeu de champs.
 
 <!-- ----- Examples ----- -->
 

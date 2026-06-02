@@ -22,23 +22,29 @@ For the date input to function properly, always use the following attributes wit
 - `legend`
 - `format`
 
-### Format the date input
-- Choose the format of the date input by entering either `full`,  `compact`, or `iso` in the `format` attribute of the date input.
-- The `full` value will render the date input with a year, month, and day form field in the order month, day, and year in English and the order of day, month, and year in French. In this format, the month is written while the day and year are numbers.
-- The `compact` value will render the date input with a year and month form field in the order of month and year in both English and French. In this format, the month is written and the year is a number.
--  The `iso` value will render the date input with a year, month, and day form field in that order. In this format, all inputs are numeric, following ISO standards.  
+### Choose a format
 
-### Entering and receiving the value from date input
+Use `full`, `compact`, or `iso` in the format attribute of date input.
 
-Date input can receive and output different value formats depending on the `format` attribute:
-- The `full` and `iso` format will expect/output a value formatted `YYYY-MM-DD`.
-- The `compact` format will expect/output a value formatted `YYYY-MM`.
+- The `full` value will render with a year, month, and day form field.
+  - In this format, the month is a word.
+  - In English, the order is month, day, year.
+  - In French, the order is day, month, year.
+  - It will output a value formatted `YYYY-MM-DD`.
+- The `compact` value will render the with a year and month form fields.
+  - In this format, the month is a word.
+  - In English and French the order is month, year.
+  - It will output a value formatted `YYYY-MM`.
+- The `iso` value will render the date input with a year, month, and day form field in that order.
+  - In this format, all inputs are numeric, following ISO standards.
+  - It will output a value formatted `YYYY-MM-DD`.
 
 {% include "partials/valid-props.njk" %}
 
-{% include "partials/error-message.njk" %}
-
 {% include "partials/hint.njk" %}
+
+{% include "partials/error-message.njk", component: "date input" %}
+
 
 <!-- ----- Examples ----- -->
 

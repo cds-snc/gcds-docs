@@ -14,33 +14,34 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité des champs de saisie
 
-### Appliquez les attributs requis
+### Appliquez les attributs essentiels
 
-Pour que le champ de saisie fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-input>`:
+Utilisez toujours les attributs essentiels suivants avec `gcds-input` :
 
 - `name`
 - `label`
 - `input-id`
 
-### Adaptez le champ de saisie au type de réponse
+### Adapter la taille du champ à la réponse
 
-- Définissez l'attribut `size` pour les réponses dont vous connaissez la longueur précise (taille "50" = 50 caractères). Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.
-- Réglez la saisie de manière à ce qu'elle couvre presque tout le conteneur, par exemple à 90 %, lorsque vous ne savez pas la longueur exacte de la réponse.
-- Utilisez le maximum de 75 caractères pour les réponses sans longueur fixe.
+- Pour les réponses d’une longueur précise, définissez l’attribut `size`.
+  - Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.
+  - Taille "50" = 50 caractères.
+- Pour les réponses sans longueur précise, ajustez le champ pour qu’il prenne environ 90 % de la taille du conteneur.
+  - Utilisez un maximum de 75 caractères pour les réponses sans longueur fixe.
+- Utilisez le composant [zone de texte]({{ links.textarea }}) pour les réponses nécessitant plus de 75 caractères.
 
-{% include "partials/error-message.njk" %}
+### Afficher un clavier numérique sur mobile
+
+- Utilisez `inputmode=”numeric”` avec `type=”text”` pour les nombres non incrémentiels, comme les numéros de compte, les numéros de carte de crédit ou les codes d’authentification. 
+- Le clavier numérique s’ouvrira sur les appareils mobiles.
+- Cela ne change pas la façon dont la valeur est validée.
 
 {% include "partials/hint.njk" %}
 
-### Utiliser l’attribut `inputmode`
+{% include "partials/hide-the-label.njk" %}
 
-- Utilisez l’attribut `inputmode` pour suggérer un clavier virtuel approprié sur les appareils mobiles, sans modifier la façon dont la valeur est validée.
-- Utilisez `inputmode=”numeric”` avec `type=”text”` pour les nombres ne pouvant pas être incrémentés, tels que les numéros de compte, les numéros de carte de crédit ou les codes d’authentification. Le clavier numérique s’ouvrira sur les appareils mobiles.
-
-### Masquer l’étiquette du champ de saisie
-
-- Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance.
-- Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+{% include "partials/error-message.njk", component: "le champ de saisie" %}
 
 <!-- ----- Examples ----- -->
 

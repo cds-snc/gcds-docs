@@ -16,26 +16,32 @@ date: 'git Last Modified'
 
 ### Appliquez les attributs requis
 
-Pour que le téléverseur de fichiers fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-file-uploader>`:
+Utilisez toujours les attributs essentiels suivants avec `gcds-file-uploader` :
 
 - `name`
 - `label`
 - `uploader-id`
 
-{% include "partials/error-message.njk" %}
+### Autoriser le traitement de plusieurs fichiers
 
-### Téléchargez plusieurs fichiers
+Utilisez l’attribut `multiple` pour permettre la sélection de plus d’un fichier.
 
-Utilisez l'attribut `multiple` pour permettre la sélection de plus d'un fichier.
+### Définir les types de fichiers
 
-### Validez les types de fichiers à téléverser
+Utilisez l’attribut `accept` pour définir les types de fichier que le téléverseur de fichiers peut accepter.
 
-Utilisez l'attribut `accept` pour définir les types de fichiers acceptés par le téléverseur de fichiers.
+### Ajouter du texte explicatif
 
-### Masquer l’étiquette du téléverseur de fichiers
+Utilisez l’attribut `hint` pour ajouter du texte explicatif.
+
+### Masquer l’étiquette
 
 - Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance.
-- Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+- Évitez d’ajouter du texte explicatif lorsque l’étiquette est masquée.
+
+{% include "partials/hide-the-label.njk" %}
+
+{% include "partials/error-message.njk", component: "le téléverseur de fichiers" %}
 
 <!-- ----- Examples ----- -->
 

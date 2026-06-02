@@ -14,16 +14,22 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité les cases à cocher
 
-### Appliquer les attributs requis
+### Appliquer les attributs essentiels
 
-Pour que les cases à cocher fonctionnent correctement, utilisez toujours les attributs suivants avec `gcds-checkbox` :
+Utilisez toujours les attributs essentiels suivants avec `gcds-checkboxes` :
 
 - `name`
 - `options`
 
 ### Utiliser l'attribut `options` avec les cases à cocher
 
-L'attribut `options` utilise un tableau d'objets pour rendre chaque case à cocher. Voici en exemple l'un de ces objets :
+- L’attribut `options` utilise un tableau d’objets pour générer chaque case à cocher.
+- À l’intérieur de chaque objet dans le tableau `options`, utilisez toujours les propriétés essentielles à cet objet :
+  - `id`
+  - `label`
+- Les autres propriétés sont facultatives.
+
+Exemple:
 
 ```javascript
 {
@@ -35,24 +41,32 @@ L'attribut `options` utilise un tableau d'objets pour rendre chaque case à coch
 }
 ```
 
-À l'intérieur de l'attribut `options`, utilisez toujours les propriétés `id` et `label` de l'objet pour chaque case à cocher. Les autres propriétés sont facultatives.
+### Définir les attributs en fonction du nombre de cases à cocher
+
+#### Une seule case à cocher
+
+- Ajoutez un seul objet dans l’attribut `options` pour générer une case à cocher unique.
+- Le [jeu de champs]({{ links.fieldset }}) est supprimé lorsqu’il n’y a qu’une seule case à cocher.
+
+### Un groupe de cases à cocher
+
+- Ajoutez plus d’un objet dans l’attribut `options` pour générer plusieurs cases à cocher.
+- Utilisez l’attribut `legend` pour afficher le [jeu de champs]({{ links.fieldset }}).
 
 ### Utiliser l'attribut `value`
 
-- L'attribut `value` fournit une référence rapide aux valeurs des cases cochées à l'intérieur du composant `gcds-checkboxes`.
-- L'attribut `value` est formaté comme un tableau de chaînes. Exemple : `[“checkboxOneValue”, checkboxTwoValue”]`
+- L’attribut `value` fournit une référence rapide aux valeurs des cases à cocher sélectionnées dans le composant `gcds-checkboxes`. 
+- L'attribut `value` est formaté comme un tableau de chaînes.
 
-{% include "partials/error-message.njk" %}
+Exemple :
 
-### Pour un groupe de cases à cocher
+```javascript
+[“checkboxOneValue”, checkboxTwoValue”]
+```
 
-- Utilisez l'attribut `legend` lorsque vous passez plus d'un objet à l'attribut `options`. Lorsqu'il y a plus d'une case à cocher, il faut définir l'attribut `legend` pour que le composant `gcds-checkboxes` puisse afficher son rendu.
-- Utilisez les attributs `hint` et `error-message` pour ajouter des renseignements supplémentaires au jeu de champs intégré à `gcds-checkboxes`.
+### Ajouter du texte explicatif
 
-### Pour une seule case à cocher
-
-- Passez un seul objet à l'attribut `options` pour afficher une seule case à cocher sans jeu de champs.
-- Utilisez les attributs `hint` et `error-message` pour ajouter des renseignements supplémentaires à la case à cocher.
+Utilisez l’attribut `hint` pour ajouter du texte explicatif.
 
 ### Masquer la légende ou les étiquettes des cases à cocher
 
@@ -60,6 +74,8 @@ L'attribut `options` utilise un tableau d'objets pour rendre chaque case à coch
   - Définissez l’attribut `hide-legend` à true afin de masquer visuellement la légende d’un groupe de cases à cocher.
   - Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette d’une seule case à cocher.
 - Évitez d’ajouter du texte explicatif lorsque vous masquez la légende. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+
+{% include "partials/error-message.njk", component: "les cases à cocher" %}
 
 <!-- ----- Examples ----- -->
 

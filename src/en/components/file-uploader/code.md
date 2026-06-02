@@ -16,26 +16,27 @@ date: 'git Last Modified'
 
 ### Apply required attributes
 
-For the file uploader to function properly, always use the following attributes with `<gcds-file-uploader>`:
+Always use the following required attributes with `gcds-file-uploader`:
 
 - `name`
 - `label`
 - `uploader-id`
 
-{% include "partials/error-message.njk" %}
+### Allow multiple files
 
-### Upload multiple files
+Use the `multiple` attribute to allow the selection of more than one file.
 
-Allow the selection of more than one file using the `multiple` attribute.
+### Define file types
 
-### Validate file types for upload
+Use the `accept` attribute to define the file types that the file uploader can accept.
 
-Define the file types the file uploader accepts using the `accept` attribute.
+### Add hint text
 
-### Hide the file uploader label
+Use the `hint` attribute to add hint text.
 
-- Set the `hide-label` attribute to true to visually hide the label while maintaining it for assistive technologies.
-- Avoid adding hint text when you’re hiding the label or else provide an empty hint string.
+{% include "partials/hide-the-label.njk" %}
+
+{% include "partials/error-message.njk", component: "file uploader" %}
 
 <!-- ----- Examples ----- -->
 
