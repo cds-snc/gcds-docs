@@ -6,11 +6,13 @@ tags: ['breadcrumbsFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un composant chemin de navigation
+## Sur cette page
 
-Utilisez le chemin de navigation pour indiquer l'emplacement de la page actuelle par rapport à ses pages parents dans la structure du site.
+- [Codage et accessibilité de chemin de navigation](#codage-et-accessibilite-de-chemin-de-navigation)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Codage et accessibilité pour le composant chemin de navigation
+## Codage et accessibilité de chemin de navigation
 
 ### Commencez par le lien Canada.ca et le lien de la page d'accueil
 
@@ -26,6 +28,74 @@ Placez le chemin de navigation en haut d'une page, avant l'élément `<main>`. D
 ### Utiliser les éléments du chemin de navigation pour les liens du chemin de navigation
 
 Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant `<gcds-breadcrumbs-item>`. Le lien peut être ajouté par le biais de la propriété `href`.
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### Sous-composant `gcds-breadcrumbs-item` `href`
+
+L'attribut `href` définit l'URL de destination d'un `gcds-breadcrumbs-item` et est obligatoire pour que l'élément du chemin de navigation fonctionne comme un lien.
+
+{% examplesPreview "100", "", "fr" %}
+<gcds-breadcrumbs>
+  <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `hide-canada-link`
+
+L'attribut `hide-canada-link` contrôle l'affichage du lien canada.ca par défaut dans le chemin de navigation. Par défaut, il est défini à `false`, ce qui signifie que le lien canada.ca apparaît comme premier élément du chemin de navigation.
+
+{% examplesPreview "100", "", "fr" %}
+<gcds-breadcrumbs>
+  <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+Lorsqu'il est défini à `true`, le lien canada.ca par défaut est masqué, et seuls les éléments du chemin de navigation fournis sont affichés.
+
+{% examplesPreview "100", "", "fr" %}
+<gcds-breadcrumbs hide-canada-link>
+  <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter des sous-composants gcds-breadcrumbs-item. L'emplacement par défaut de l'élément du chemin de navigation sert à ajouter le texte de cet élément.
+
+{% examplesPreview "100", "", "fr" %}
+<gcds-breadcrumbs hide-canada-link>
+  <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

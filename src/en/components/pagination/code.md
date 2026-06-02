@@ -6,9 +6,11 @@ tags: ['paginationEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a pagination component
+## On this page
 
-Use pagination to break up content and spread it over numerous pages. This can help make large content sections easier to read and gives a person a sense of their position within the documents.
+- [Coding and accessibility for pagination](#coding-and-accessibility-for-pagination)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for pagination
 
@@ -80,6 +82,114 @@ url = {
 ```
 
 {% endraw %}
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `label`
+
+The `label` attribute defines the text that labels the pagination navigation landmark, giving it a clear and accessible name.
+
+{% examplesPreview "110" %}
+<gcds-pagination label="List pagination example" total-pages="15" current-page="9">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `current-page`
+
+The `current-page` attribute sets the current page for a pagination with list display.
+
+{% examplesPreview "110" %}
+<gcds-pagination label="List pagination example" total-pages="15" current-page="9">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `display`
+
+The `display` attribute sets the display style of the pagination. The available options are:
+
+- `list` (default)
+- `simple`
+
+<!-- Force line break -->
+
+{% examplesPreview "110" %}
+<gcds-pagination label="List pagination example" display="list" total-pages="15" current-page="9">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `next-href`
+
+The `next-href` attribute specifies the next page’s URL for a pagination with simple display.
+
+{% examplesPreview "290" %}
+<gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `next-label`
+
+The `next-label` attribute defines the next page’s label for a pagination with simple display.
+
+{% examplesPreview "290" %}
+<gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `previous-href`
+
+The `previous-href` attribute specifies the previous page’s URL for a pagination with simple display.
+
+{% examplesPreview "290" %}
+<gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `previous-label`
+
+The `previous-label` attribute defines the previous page’s label for a pagination with simple display.
+
+{% examplesPreview "290" %}
+<gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `total-pages`
+
+The `total-pages` attribute sets the total number of pages for a pagination with list display.
+
+{% examplesPreview "110" %}
+<gcds-pagination label="List pagination example" total-pages="15" current-page="9">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `url`
+
+The `url` attribute defines the object (in a JavaScript environment) or string (in HTML) that generates the query strings and fragment for the list-styled pagination links.
+
+{% examplesPreview "110" %}
+<gcds-pagination label="List pagination example" total-pages="15" current-page="9" url='{"queryStrings": { "querystring::offset": 10 }, "fragment": "main" }'>
+</gcds-pagination>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

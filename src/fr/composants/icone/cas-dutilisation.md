@@ -98,11 +98,38 @@ Choisissez une icône correspondant à l’action que vous souhaitez mettre en �
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 3fr" align-items="start">
   {% componentPreview "" "px-50 py-400" "mt-500" %}
+  <gcds-grid columns="repeat(2, 3.25rem)" columns-tablet="repeat(2, 3.25rem)" columns-desktop="repeat(2, 3.25rem)" gap="150" justify-content="center">
+    <gcds-icon size="h2" name="arrow-up" label="Flèche point vers le haut."></gcds-icon>
+    <gcds-icon size="h2" name="arrow-down" label="Flèche point vers le bas."></gcds-icon>
+  </gcds-grid>
+  {% endcomponentPreview %}
+  <div>
+    <gcds-heading tag="h3">Flèche haut/bas<br/>
+      <code>gcds-arrow-up</code><br/>
+      <code>gcds-arrow-down</code>
+    </gcds-heading>
+    <gcds-text>Indiquer l’ordre de tri actif (ascendant ou descendant).</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="arrow-up-down" label="Une flèche pointant vers le haut à côté d’une flèche pointant vers le bas."></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Flèche-haut-bas<br/>
+      <code>gcds-icon-arrow-up-down</code>
+    </gcds-heading>
+    <gcds-text>Indiquer que le contenu peut être trié.</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-50 py-400" "mt-500" %}
   <gcds-grid columns="repeat(4, 3.25rem)" columns-tablet="repeat(2, 3.25rem)" columns-desktop="repeat(2, 3.25rem)" gap="150" justify-content="center">
-    <gcds-icon size="h2" name="chevron-left" label="Une flèche pointant vers la gauche."></gcds-icon>
-    <gcds-icon size="h2" name="chevron-right" label="Une flèche pointant vers la droite."></gcds-icon>
-    <gcds-icon size="h2" name="chevron-up" label="Une flèche pointant vers le haut."></gcds-icon>
-    <gcds-icon size="h2" name="chevron-down" label="Une flèche pointant vers le bas."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-left" label="Un chevron pointant vers la gauche."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-right" label="Un chevron pointant vers la droite."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-up" label="Un chevron pointant vers le haut."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-down" label="Un chevron pointant vers le bas."></gcds-icon>
   </gcds-grid>
   {% endcomponentPreview %}
   <div>
@@ -138,6 +165,20 @@ Choisissez une icône correspondant à l’action que vous souhaitez mettre en �
     <gcds-heading tag="h3">Téléchargement <code>gcds-icon-download</code></gcds-heading>
     <gcds-text>Télécharger un fichier.</gcds-text>
   </div>
+
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="filter" label="Un entonnoir."></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Filtrer<br/>
+      <code>gcds-icon-filter-icon</code>
+    </gcds-heading>
+    <gcds-text>Filtrer du contenu.</gcds-text>
+  </div>
+
 
 {% componentPreview "" "px-225 py-450" "mt-500" %}
 
@@ -185,6 +226,28 @@ Choisissez une icône correspondant à l’action que vous souhaitez mettre en �
   <div>
     <gcds-heading tag="h3">Recherche <code>gcds-icon-search</code></gcds-heading>
     <gcds-text>Rechercher des renseignements précis.</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="sort" label="Quatre lignes horizontales de différentes longueurs."></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Trier</gcds-heading>
+    <gcds-text>Trier du contenu.</gcds-text>
+  </div>
+
+  {% componentPreview "" "px-225 py-450" "mt-500" %}
+  <p class="text-center">
+  <gcds-icon size="h2" name="tune" label="Trois curseurs de réglage horizontaux."></gcds-icon>
+  </p>
+  {% endcomponentPreview %}
+
+  <div>
+    <gcds-heading tag="h3">Réglages</gcds-heading>
+    <gcds-text>Ajuster des paramètres.</gcds-text>
   </div>
 </gcds-grid>
 </div>

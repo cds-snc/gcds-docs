@@ -10,8 +10,8 @@ date: "git Last Modified"
 
 <ol class="anatomy-list">
   <li>The <strong>fieldset legend</strong> states the information a person should enter in the date input field. Text is left-aligned and in sentence case (only the initial letter is capitalized). For the date input component, the fieldset is typically labelled as "date" or with the specific date type sought. The hint text shows the format of the date.</li>
-  <li>The <strong>month label</strong> identifies the month select field.</li>
-  <li>The <strong>month select field</strong> field provides a predefined, chronological list of months for a person to select from.</li>
+  <li>The <strong>month label</strong> identifies the month field.</li>
+  <li>The <strong>month input</strong> field can be a dropdown of written months to select from, or an input to enter 1-2 digits.</li>
   <li>The <strong>day label</strong> identifies the day input.</li>
   <li>The <strong>day input</strong> field can be 1 or 2 digits.</li>
   <li>The <strong>year label</strong> identifies the year input field.</li>
@@ -22,6 +22,10 @@ date: "git Last Modified"
 
 
 ## Design and accessibility for date inputs
+
+### Select a format that assists with data entry
+
+Use a format that matches the format of the information you're asking for. For example, if you are asking for a birth date from a health card, use the Y/M/D format.
 
 ### Support task success with hint text
 

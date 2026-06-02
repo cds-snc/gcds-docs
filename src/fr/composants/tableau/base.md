@@ -1,0 +1,19 @@
+---
+layout: 'layouts/base.njk'
+github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-table
+figma: https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-3396&mode=design&t=1DaL24vHpjRRfHHm-0
+permalink: false
+tags: ['tableFR', 'header']
+---
+
+# Tableau <br>`<gcds-table>`
+
+_Autres noms : tableau de données_
+
+Un tableau est une présentation structurée de données sur un même sujet, en lignes et en colonnes.
+
+{% docLinks locale stage figma github %}
+{% enddocLinks %}
+
+{% baseComponentPreview "Aperçu du composant de le tableau" page.filePathStem %}
+{% endbaseComponentPreview %}

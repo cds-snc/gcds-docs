@@ -6,9 +6,11 @@ tags: ['breadcrumbsEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a breadcrumbs component
+## On this page
 
-Use breadcrumbs to indicate the location of the current page in relation to its parents in the site structure.
+- [Coding and accessibility for breadcrumbs](#coding-and-accessibility-for-breadcrumbs)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for breadcrumbs
 
@@ -26,6 +28,76 @@ Place breadcrumbs at the top of a page, before the `<main>` element. This way a 
 ### Use breadcrumb items for breadcrumbs links
 
 Add a new breadcrumbs link to the breadcrumbs component by using the `<gcds-breadcrumbs-item>` component. The link can be added through the `href` property.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### Breadcrumbs item `href`
+
+The `href` attribute defines the destination URL for a `gcds-breadcrumbs-item` and is required for the breadcrumb item to function as a link.
+
+{% examplesPreview %}
+<gcds-breadcrumbs>
+  <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `hide-canada-link`
+
+The `hide-canada-link` attribute controls whether the default canada.ca link is displayed in the breadcrumbs. By default, it is set to `false`, which means the canada.ca link appears as the first breadcrumb item.
+
+{% examplesPreview %}
+<gcds-breadcrumbs>
+  <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+When set to `true`, the default canada.ca link is hidden, and only the breadcrumb items provided are displayed.
+
+{% examplesPreview %}
+<gcds-breadcrumbs hide-canada-link>
+  <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for adding `gcds-breadcrumbs-item` subcomponents. The `default` slot of the breadcrumbs item is for adding the item's text.
+
+{% examplesPreview %}
+<gcds-breadcrumbs hide-canada-link>
+  <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

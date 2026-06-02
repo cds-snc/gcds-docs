@@ -6,18 +6,44 @@ tags: ['langtoggleEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a language toggle
+## On this page
 
-Use a language toggle so people are able to switch between languages without losing track of where they were before switching.
+- [Coding and accessibility for language toggle](#coding-and-accessibility-for-language-toggle)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
-Place the language toggle in the top right of the header landmark for predictability and findability.
+## Coding and accessibility for language toggle
 
-## Coding and accessibility for the language toggle
-
+- Place the language toggle in the top right of the header landmark for predictability and findability.
 - Use the `href-attribute` to set the url of the page in the other Official Language.
 - Set the `lang` attribute with `en` to indicate the language toggle in French and `fr` will indicate the language toggle in English.
 
 Note: If using the header component, the language toggle can be assigned using the `lang-href` attribute.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `href`
+
+The `href` attribute specifies the URL of the same page in another language, typically English or French. Use this attribute to provide a link that allows users to switch between available language versions.
+
+{% examplesPreview %}
+<gcds-lang-toggle href="#">
+</gcds-lang-toggle>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

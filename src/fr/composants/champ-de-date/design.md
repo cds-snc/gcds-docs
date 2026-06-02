@@ -6,21 +6,26 @@ tags: ['dateinputFR', 'design']
 date: 'git Last Modified'
 ---
 
-## Structure de la champ de date
+## Structure du champ de date
 
 <ol class="anatomy-list">
   <li>La <strong>légende du jeu de champs</strong> indique l’information qu’une personne doit saisir dans le champ de date. Le texte est aligné à gauche et porte une majuscule initiale. Pour le champ de date, la légende sera généralement intitulée «&nbsp;Date&nbsp;» ou mentionnera le type de date précis recherché. Le texte explicatif indique le format de la date.</li>
   <li>L’<strong>étiquette Jour</strong> identifie le champ de saisie du jour.</li>
   <li>Le <strong>champ de saisie du jour</strong> peut comporter 1 ou 2 chiffres.</li>
-  <li>L’<strong>étiquette Mois</strong> identifie le champ de sélection du mois.</li>
-  <li>Le <strong>champ de sélection du mois</strong> offre une liste prédéfinie et chronologique des mois, parmi lesquels une personne fait une sélection.</li>
+  <li>L’<strong>étiquette Mois</strong> identifie le champ du mois.</li>
+  <li>Le <strong>champ de saisie du mois</strong> peut prendre la forme soit d’une liste déroulante des mois écrits au long parmi lesquels on fait une sélection, soit d'un champ de saisie permettant la saisie de 1 ou 2 chiffres.</li>
   <li>L’<strong>étiquette Année</strong> identifie le champ de saisie de l’année.</li>
   <li>Le <strong>champ de saisie</strong> de l’année comporte 4 chiffres.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="L’anatomie du champ de date représentée par 6 éléments: la légende du jeu de champs, l’étiquette Jour, le champ de saisir du jour, l’étiquette Mois, le champ de sélection du mois, l’étiquette année et le champ de saisie de l’année." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="Structure du champ de date représentée par 6 éléments : la légende du jeu de champs, l’étiquette Jour, le champ de saisie du jour, l’étiquette Mois, le champ de sélection du mois, l’étiquette Année et le champ de saisie de l’année." />
 
-## Accessibilité et design des champ de date
+
+## Accessibilité et design des champs de date
+
+### Sélectionnez un format qui aide à la saisie de données
+
+Utilisez le format qui correspond aux renseignements que vous demandez. Par exemple, si vous demandez pour la date de naissance inscrite sur une carte santé, utilisez le format A/M/J.
 
 ### Favorisez la réussite de la tâche à l’aide d’un texte explicatif
 
