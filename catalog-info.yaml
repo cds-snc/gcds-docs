@@ -13,5 +13,5 @@ metadata:
 spec:
   type: website
   lifecycle: production 
-  owner: cds-snc/design-system 
+  owner: group:cds-snc/design-system
   system: gc-design-system
