@@ -1,24 +1,18 @@
 module.exports = {
   en: {
-    heading: 'Handle error messages and validation',
-    listitems: [
-      'Use the `required` attribute to activate the required validator. Validation will happen by default on the `onBlur` event. A missing or invalid entry will prompt an inline error message with preset text.',
-      'If you need to change the validation event, use the `validate-on` attribute. Validation can happen on blur, when the element loses focus, or manually with the `validate()` method.',
-      'Use the `required` attribute for fields that must be filled in. This places "required" at the end of the label.',
-      'Use the `error-message` attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.',
-      'For optional fields, avoid adding the `error-message` attribute.',
-      'For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.',
-    ],
+    heading: 'Add validation and error messages',
+    use: 'Use the `required` attribute to activate the <gcds-link href="/en/components/validate-form-components/#builtin-validation-and-error-messages">built-in error messages and validation</gcds-link> for ',
+    fields:
+      'Fields with specific input requirements will validate if the entry is invalid, even if it is not required.',
+    optional:
+      'For optional fields that need validation, like email address formats, add <gcds-link href="/en/components/validate-form-components/#customize-validation-and-error-messages">custom validation with a custom error message</gcds-link>.',
   },
   fr: {
-    heading: "Traiter les messages d'erreur et la validation",
-    listitems: [
-      "Utilisez l'attribut `required` pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement `onBlur`. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.",
-      "Si vous devez modifier l'évènement de validation, utilisez l'attribut `validate-on`. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode `validate()`.",
-      "Utilisez l'attribut `required` pour les champs qui doivent obligatoirement être remplis. La mention «&nbsp;obligatoire&nbsp;» sera alors ajoutée à la fin de l'étiquette.",
-      "Utilisez l'attribut `error-message` pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.",
-      "Pour les champs facultatifs, évitez d'ajouter l'attribut `error-message`.",
-      "Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.",
-    ],
+    heading: "Ajouter la validation et les messages d'erreur",
+    use: 'Utilisez l\'attribut `required` pour activer <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#validation-et-messages-derreur-integres">la validation et les messages d\'erreur intégrés</gcds-link> pour ',
+    fields:
+      "Les champs comportant des exigences de saisie spécifiques feront l'objet d'une validation, même s'ils ne sont pas obligatoires.",
+    optional:
+      'Pour les champs facultatifs qui doivent être validés, par exemple pour vérifier le format d\'une adresse courriel, ajoutez <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#personnaliser-la-validation-et-les-messages-derreur">une validation et des messages d\'erreur personnalisés</gcds-link>.',
   },
 };
