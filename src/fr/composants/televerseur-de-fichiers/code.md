@@ -14,7 +14,7 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité du téléverseur de fichiers
 
-### Appliquez les attributs requis
+### Appliquez les attributs essentiels
 
 Utilisez toujours les attributs essentiels suivants avec `gcds-file-uploader` :
 
@@ -33,11 +33,6 @@ Utilisez l’attribut `accept` pour définir les types de fichier que le télév
 ### Ajouter du texte explicatif
 
 Utilisez l’attribut `hint` pour ajouter du texte explicatif.
-
-### Masquer l’étiquette
-
-- Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance.
-- Évitez d’ajouter du texte explicatif lorsque l’étiquette est masquée.
 
 {% include "partials/hide-the-label.njk" %}
 

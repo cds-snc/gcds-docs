@@ -30,7 +30,7 @@ Use the `default-value` attribute to set the first option in the select list. Th
 
 {% include "partials/hide-the-label.njk" %}
 
-{% include "partials/error-message.njk" %}
+{% include "partials/error-message.njk", component: "select" %}
 
 <!-- ----- Examples ----- -->
 

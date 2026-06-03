@@ -33,7 +33,7 @@ Utilisez toujours les attributs essentiels suivants avec `gcds-textarea` :
 
 {% include "partials/hide-the-label.njk" %}
 
-{% include "partials/error-message.njk" %}
+{% include "partials/error-message.njk", "la zone de texte" %}
 
 <!-- ----- Examples ----- -->
 

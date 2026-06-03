@@ -116,9 +116,9 @@ Chaque validation possède une propriété `validate` qui peut être appelée pa
 
 La propriété `validate` génère un objet avec plusieurs propriétés que le composant peut lire :
 
-- La **propriété `valid`** contient une valeur booléenne indiquant si la valeur soumise par le composant de formulaire satisfait aux critères de validation.
-- La **propriété `reason`** contient un objet avec les propriétés `en` et `fr`, qui contiennent le texte du message d’erreur dans chaque langue.
-- La **propriété `errors`** est une propriété facultative conçue pour les composants de formulaire plus complexes comportant plusieurs éléments. Elle contient un objet avec des propriétés booléennes indiquant au composant de formulaire quel élément est invalide. La nécessité de cette propriété dans un validateur sera définie lors de la création de chaque composant de formulai
+- La propriété `valid` contient une valeur booléenne indiquant si la valeur soumise par le composant de formulaire satisfait aux critères de validation.
+- La propriété `reason` contient un objet avec les propriétés `en` et `fr`, qui contiennent le texte du message d’erreur dans chaque langue.
+- La propriété `errors` est une propriété facultative conçue pour les composants de formulaire plus complexes comportant plusieurs éléments. Elle contient un objet avec des propriétés booléennes indiquant au composant de formulaire quel élément est invalide. La nécessité de cette propriété dans un validateur sera définie lors de la création de chaque composant de formulaire.
 
 <gcds-details details-title="Exemple de markup avec validator">
 

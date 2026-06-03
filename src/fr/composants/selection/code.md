@@ -22,7 +22,7 @@ Utilisez toujours les attributs essentiels suivants avec `gcds-select` :
 - `label`
 - `select-id`
 
-### Configuration de la valeur par défaut
+### Définir la valeur par défaut
 
 Utilisez l'attribut `default-value` pour configurer la première option dans la liste de sélection. Cela empêche la présélection d'une option.
 

@@ -116,9 +116,9 @@ Each validate has a `validate` property that can be called by the form component
 
 The `validate` property returns an object with multiple properties for the component to read:
 
-- The **`valid` property** contains a boolean value stating if the passed value of the form component passes the validation test.
-- The **`reason` property** contains an object with `en` and `fr` properties containing the text for the error message in each language.
-- The **`errors` property** is an optional property built for more complex form components with multiple form elements that contains an object with boolean properties to inform the form component which element is not valid. The need for this property in a validator will be defined when each form component is created.
+- The `valid` property contains a boolean value stating if the passed value of the form component passes the validation test.
+- The `reason` property contains an object with `en` and `fr` properties containing the text for the error message in each language.
+- The `errors` property is an optional property built for more complex form components with multiple form elements that contains an object with boolean properties to inform the form component which element is not valid. The need for this property in a validator will be defined when each form component is created.
 
 <gcds-details details-title="Validator markup example">
 

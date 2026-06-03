@@ -9,7 +9,7 @@ module.exports = {
   fr: {
     heading: "Masquer l'étiquette",
     listitems: [
-      "Utilisez l'attribut `hide-label` pour masquer l'étiquette visuellement tout en la conservant pour les technologies d'assistance.",
+      "Réglez l'attribut `hide-label` à true (vrai) pour masquer visuellement l'étiquette tout en la conservant pour les technologies d'assistance.",
       "Évitez d'ajouter un texte explicatif lorsque l'étiquette est masquée.",
     ],
   },

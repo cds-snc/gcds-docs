@@ -21,7 +21,7 @@ Always use the following required attributes with `gcds-checkboxes`:
 - `name`
 - `options`
 
-### Use the `options` attribute with checkboxes
+### Use the `options` attribute
 
 - The `options` attribute uses an array of objects to render each checkbox.
 - Within each object in the `options` array, always use the object's required properties:
@@ -68,12 +68,12 @@ Example:
 
 Use the `hint` attribute to add hint text.
 
-### Hide the checkboxes legend or labels
+### Hide the legend or labels
 
 - Visually hide the legend or label, while maintaining it for assistive technologies.
   - Set the `hide-legend` attribute to true to visually hide the legend for checkbox groups.
   - Set the `hide-label` attribute to true to visually hide the label for a single checkbox.
-- Avoid adding hint text when you’re hiding the legend or else provide an empty hint string.
+- Avoid adding hint text if the legend and/or labels are hidden.
 
 {% include "partials/error-message.njk", component: 'checkboxes' %}
 

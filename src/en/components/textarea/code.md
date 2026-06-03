@@ -33,7 +33,7 @@ Always use the following required attributes with `gcds-textarea`:
 
 {% include "partials/hide-the-label.njk" %}
 
-{% include "partials/error-message.njk" %}
+{% include "partials/error-message.njk", component: "textarea" %}
 
 <!-- ----- Examples ----- -->
 

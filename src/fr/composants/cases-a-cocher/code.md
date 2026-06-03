@@ -21,7 +21,7 @@ Utilisez toujours les attributs essentiels suivants avec `gcds-checkboxes` :
 - `name`
 - `options`
 
-### Utiliser l'attribut `options` avec les cases à cocher
+### Utiliser l'attribut `options`
 
 - L’attribut `options` utilise un tableau d’objets pour générer chaque case à cocher.
 - À l’intérieur de chaque objet dans le tableau `options`, utilisez toujours les propriétés essentielles à cet objet :
@@ -68,9 +68,9 @@ Exemple :
 
 Utilisez l’attribut `hint` pour ajouter du texte explicatif.
 
-### Masquer la légende ou les étiquettes des cases à cocher
+### Masquer la légende ou les étiquettes
 
-- Masquez visuellement la légende ou l’étiquette, tout en la conservant pour les technologies d’assistance.
+- Utilisez les attributs `hide-legend` et `hide-label` pour masquer visuellement la légende ou l’étiquette tout en la conservant pour les technologies d’assistance. 
   - Définissez l’attribut `hide-legend` à true afin de masquer visuellement la légende d’un groupe de cases à cocher.
   - Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette d’une seule case à cocher.
 - Évitez d’ajouter du texte explicatif lorsque vous masquez la légende. Vous pouvez également fournir une chaîne vide pour le texte explicatif.

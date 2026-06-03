@@ -16,7 +16,7 @@ date: 'git Last Modified'
 
 ### Apply required attributes
 
-For the date input to function properly, always use the following attributes with `<gcds-date-input>`:
+Always use the following required attributes with `gcds-date-input`:
 
 - `name`
 - `legend`
@@ -31,7 +31,7 @@ Use `full`, `compact`, or `iso` in the format attribute of date input.
   - In English, the order is month, day, year.
   - In French, the order is day, month, year.
   - It will output a value formatted `YYYY-MM-DD`.
-- The `compact` value will render the with a year and month form fields.
+- The `compact` value will render with a year and month form fields.
   - In this format, the month is a word.
   - In English and French the order is month, year.
   - It will output a value formatted `YYYY-MM`.

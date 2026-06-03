@@ -1,17 +1,16 @@
 module.exports = {
   en: {
-    heading: 'Include a hint text for task success',
+    heading: 'Add hint text',
     listitems: [
       'Use the `hint` attribute to add hint text.',
-      'Avoid adding hint text in the field (sometimes called placeholder text) where it will disappear once the field is selected or a response starts to be entered.',
+      'Avoid adding hint text in the field where it will disappear once the field is selected or a response starts to be entered.',
     ],
   },
   fr: {
-    heading:
-      'Ajouter un texte explicatif pour favoriser la réussite des tâches',
+    heading: 'Ajouter du texte explicatif',
     listitems: [
       "Utilisez l'attribut `hint` pour ajouter du texte explicatif.",
-      "Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.",
+      "Évitez d’ajouter, directement dans un champ, du texte explicatif qui disparaît lorsque le champ est sélectionné ou lorsqu'on y saisit une réponse.",
     ],
   },
 };

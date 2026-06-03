@@ -29,7 +29,7 @@ Always use the following required attributes with `gcds-input`:
   - Size "50" = 50 characters.
 - For responses without a specific length, set the input to span around 90% of the container.
   - Use the maximum 75 characters for responses without a fixed length.
-  - Use [textarea]({{ link.textarea }}) for responses need more than 75 characters.
+  - Use [textarea]({{ link.textarea }}) for responses that need more than 75 characters.
 
 ### Display numeric keyboard for mobile 
 
