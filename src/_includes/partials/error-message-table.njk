@@ -1,0 +1,55 @@
+<gcds-details details-title="{{ errortable[locale].detailsTitle }}">
+  <div class="table-overflow">
+    <table class="error-message-table">
+      <thead>
+        <tr>
+          {% for value in errortable[locale].thead %}
+            <th>{{ value }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% assign componentKeys = errortable[locale].components | keys %}
+        {% for componentKey in componentKeys %}
+          {% assign componentLabel = errortable[locale].components | getValue: componentKey %}
+          {% assign errorKeys = errortable.componentValidationErrors | getValue: componentKey %}
+          {% assign errors = errortable[locale].validationErrors %}
+          {% assign reasons = errortable[locale].reason %}
+          {% assign rowCount = errorKeys | countRows: errors %}
+
+          {% assign firstRow = true %}
+          {% for key in errorKeys %}
+            {% assign msg = errors | getValue: key %}
+            {% assign reason = reasons | getValue: key %}
+
+            {% if msg | isObject %}
+              {% assign variants = msg | keys %}
+              {% for variant in variants %}
+                {% assign text = msg | getValue: variant %}
+                {% assign reasonText = reason | getValue: variant %}
+                <tr>
+                  {% if firstRow %}
+                    <td rowspan="{{ rowCount }}">{{ componentLabel }}</td>
+                    {% assign firstRow = false %}
+                  {% endif %}
+                  <td>{{ reasonText }}</td>
+                  <td>{{ text }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                {% if firstRow %}
+                  <td rowspan="{{ rowCount }}">{{ componentLabel }}</td>
+                  {% assign firstRow = false %}
+                {% endif %}
+                <td>{{ reason }}</td>
+                <td>{{ msg }}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</gcds-details>

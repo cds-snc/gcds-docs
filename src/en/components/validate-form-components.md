@@ -18,11 +18,7 @@ date: 'git Last Modified'
 
 GC Design System (GCDS) form components have built-in validation. They validate by default on blur. Fields with specific input requirements will validate if the entry is invalid, even if it is not required. A missing or invalid entry will prompt an inline error message with default text.
 
-<gcds-details details-title="Default validation and error messages">
-
-Table of form error messages
-
-</gcds-details>
+{% include "partials/error-message-table.njk" %}
 
 ### Enable default validation
 
