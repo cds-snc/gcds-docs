@@ -18,11 +18,7 @@ date: 'git Last Modified'
 
 Les composants de formulaire de Système de design GC ont une propriété de validation intégrée. La validation s’exécute par défaut lors de l’évènement blur. Les champs comportant des exigences de saisie spécifiques seront validés même s’ils ne sont pas obligatoires. En cas de saisie manquante ou invalide, un message d'erreur intercalé prédéfini s’affichera.
 
-<gcds-details details-title="Validation et messages d’erreur par défaut ">
-
-Table of form error messages
-
-</gcds-details>
+{% include "partials/error-message-table.njk" %}
 
 ### Activer la validation par défaut
 
