@@ -150,7 +150,7 @@ The `validate` property returns an object with multiple properties for the compo
   }
   ```
 
-  <h4>Validator return with `errors`</h4>
+  <h4>Validator return with <code>errors</code></h4>
 
   ```javascript
  date-input {
@@ -217,7 +217,7 @@ The format of the validator property will be slightly different for different fo
 
 <gcds-details details-title="gcds-checkboxes">
 
-  <p>Format of the `gcds-checkboxes` validator:</p>
+  <p>Format of the <code>gcds-checkboxes</code> validator:</p>
 
   ```javascript
   const validator = () => {
@@ -240,7 +240,7 @@ The format of the validator property will be slightly different for different fo
 
 <gcds-details details-title="gcds-date-input">
 
-  <p>Format of the `gcds-date-input` validator:</p>
+  <p>Format of the <code>gcds-date-input</code> validator:</p>
 
   ```javascript
   const validator = () => {
@@ -268,7 +268,7 @@ The format of the validator property will be slightly different for different fo
 
 <gcds-details details-title="gcds-file-uploader">
 
-  <p>Format of the `gcds-file-uploader` validator:</p>
+  <p>Format of the <code>gcds-file-uploader</code> validator:</p>
 
   ```javascript
   const validator = () => {
@@ -291,7 +291,7 @@ The format of the validator property will be slightly different for different fo
 
 <gcds-details details-title="gcds-input, gcds-select, gcds-textarea, gcds-radios">
 
-  <p>The validation of `gcds-input`, `gcds-select`, `gcds-textarea`, `gcds-radios` follow the same pattern.</p>
+  <p>The validation of <code>gcds-input</code>, <code>gcds-select</code>, <code>gcds-textarea</code>, <code>gcds-radios<code> follow the same pattern.</p>
 
   <p>Format of the their respective validator:</p>
 
