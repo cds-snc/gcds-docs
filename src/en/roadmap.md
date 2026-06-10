@@ -39,7 +39,7 @@ Next priorities are yet to be defined, this page will be updated by end of Q1 (J
 ## Completed in 2025/2026
 
 <gcds-details details-title="Product growth">
-<ul class="list-disc ps-400 mb-300">
+<ul class="list-disc ps-400">
 <li>Launched GC Design System version 1.0, officially going live with semantic versioning</li>
 <li>Added CSS Shortcuts which allows applying GC Design System styles to HTML</li>
 <li>Aligned component properties, behaviours, and names between Figma and code to ensure consistency</li>
