@@ -14,29 +14,26 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité des zones de texte
 
-### Appliquez les attributs requis
+### Appliquez les attributs essentiels
 
-Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-textarea>`:
+Utilisez toujours les attributs essentiels suivants avec `gcds-textarea` :
 
 - `name`
 - `label`
 - `textarea-id`
 
-### Adaptez la zone de texte au type de réponse
+### Adapter la taille du champ à la réponse
 
-- Utilisez des zones de texte pour les réponses qui peuvent nécessiter plus de 75 caractères.
-- Faites en sorte que la hauteur d'une zone de texte soit proportionnelle à la quantité de texte que vous attendez de l'utilisateur·rice. Vous pouvez définir la hauteur d'une zone de texte en spécifiant l'attribut «&nbsp;rows&nbsp;».
-- Évitez de définir une largeur inférieure à 50 % (1/2 largeur).
-- Utilisez le maximum pour les réponses sans longueur fixe.
-
-{% include "partials/error-message.njk" %}
+- Utilisez l’attribut `rows` pour définir la hauteur d’une zone de texte de façon à ce qu’elle corresponde à la quantité de texte attendue.
+- Utilisez [le composant champ de saisie]({{ links.input }}) pour les réponses qui nécessitent moins de 75 caractères.
+- Évitez de définir une largeur inférieure à 50 %.
+- Utilisez une hauteur maximale de 7 lignes pour les réponses sans longueur fixe.
 
 {% include "partials/hint.njk" %}
 
-### Masquer l’étiquette de la zone de texte
+{% include "partials/hide-the-label.njk" %}
 
-- Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance.
-- Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+{% include "partials/error-message.njk", "la zone de texte" %}
 
 <!-- ----- Examples ----- -->
 

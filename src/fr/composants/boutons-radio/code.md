@@ -14,17 +14,23 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité des boutons radio
 
-### Appliquer les attributs requis
+### Appliquer les attributs essentiels
 
-Pour que les boutons radio fonctionnent correctement, utilisez toujours les attributs suivants avec `gcds-radios` :
+Utilisez toujours les attributs essentiels suivants avec `gcds-radios` :
 
 - `name`
 - `legend`
 - `options`
 
-### Utiliser l'attribut `options` avec le groupe de boutons radio
+### Utiliser l'attribut `options`
 
-L'attribut `options` utilise un tableau d'objets pour rendre chaque bouton radio. Voici en exemple l'un de ces objets :
+- L’attribut `options` utilise un tableau d’objets pour générer chaque bouton radio.
+- À l’intérieur de chaque attribut `options` de chaque bouton radio, utilisez toujours les propriétés essentielles à cet objet :
+  - `id`  
+  - `label`
+- Les autres propriétés sont facultatives.
+
+Exemple :
 
 ```javascript
 {
@@ -36,17 +42,15 @@ L'attribut `options` utilise un tableau d'objets pour rendre chaque bouton radio
 }
 ```
 
-À l'intérieur de l'attribut `options`, utilisez toujours les propriétés `id`, `label` et `value` de l'objet pour chaque bouton radio. Les autres propriétés sont facultatives.
-
 ### Utiliser l'attribut `value`
 
-L'attribut `value` fournit une référence rapide aux valeurs des boutons radio sélectionnés à l'intérieur du composant `gcds-radios`.
+L’attribut `value` fournit une référence rapide à la valeur sélectionnée à l’intérieur du composant `gcds-radios`.
 
-{% include "partials/error-message.njk" %}
+### Ajouter du texte explicatif
 
-### Ajouter du texte explicatif pour assurer le succès d'une tâche
+Utilisez l’attribut `hint` pour ajouter du texte explicatif.
 
-Utilisez l'attribut `hint` ou la clé `hint` de l'objet `options` pour ajouter du texte explicatif afin d'aider une personne à faire une sélection et à éviter un état d'erreur.
+{% include "partials/error-message.njk", component: 'les boutons radio' %}
 
 <!-- ----- Examples ----- -->
 

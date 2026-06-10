@@ -14,26 +14,23 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité de la sélection
 
-### Appliquez les attributs requis
+### Appliquez les attributs essentiels
 
-Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-select>`:
+Utilisez toujours les attributs essentiels suivants avec `gcds-select` :
 
 - `name`
 - `label`
 - `select-id`
 
-### Configuration de la valeur par défaut
+### Définir la valeur par défaut
 
 Utilisez l'attribut `default-value` pour configurer la première option dans la liste de sélection. Cela empêche la présélection d'une option.
 
-{% include "partials/error-message.njk" %}
-
 {% include "partials/hint.njk" %}
 
-### Masquer l’étiquette de la sélection
+{% include "partials/hide-the-label.njk" %}
 
-Définissez l’attribut hide-label à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance.
-Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+{% include "partials/error-message.njk" %}
 
 <!-- ----- Examples ----- -->
 

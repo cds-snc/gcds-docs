@@ -16,31 +16,32 @@ date: 'git Last Modified'
 
 ### Apply required attributes
 
-For the input to function properly, always use the following attributes with `<gcds-input>`:
+Always use the following required attributes with `gcds-input`:
 
 - `name`
 - `label`
 - `input-id`
 
-### Size inputs to fit response type
+### Size the field to fit the response
 
-- Set the `size` attribute of the input for responses you know have a specific length (size "50" = 50 characters). For example, 6 characters for a postal code or 10 characters for a phone number.
-- Set the input to span almost the entire container, like at 90%, when you're unsure of the character count of the response.
-- Use the maximum 75 characters for responses without a fixed length.
+- For responses with a specific length, set the `size` attribute.
+  - For example, 6 characters for a postal code or 10 characters for a phone number.
+  - Size "50" = 50 characters.
+- For responses without a specific length, set the input to span around 90% of the container.
+  - Use the maximum 75 characters for responses without a fixed length.
+  - Use [textarea]({{ link.textarea }}) for responses that need more than 75 characters.
 
-{% include "partials/error-message.njk" %}
+### Display numeric keyboard for mobile 
+
+- Use `inputmode=”numeric”` with `type=”text”` for non-incremental numbers, such as account numbers, credit card numbers, or authentication codes. 
+- This will open the numeric keyboard on mobile devices.
+- This does not change how the value is validated.
 
 {% include "partials/hint.njk" %}
 
-### Use the `inputmode` attribute
+{% include "partials/hide-the-label.njk" %}
 
-- Use the `inputmode` attribute to suggest an appropriate virtual keyboard on mobile devices, without changing how the value is validated.
-- Use `inputmode=”numeric”` with `type=”text”` for non-incremental numbers, such as account numbers, credit card numbers, or authentication codes. This will open the numeric keyboard on mobile devices.
-
-### Hide the input label
-
-- Set the `hide-label` attribute to true to visually hide the label while maintaining it for assistive technologies.
-- Avoid adding hint text when you’re hiding the label or else provide an empty hint string.
+{% include "partials/error-message.njk", component: "input" %}
 
 <!-- ----- Examples ----- -->
 

@@ -16,7 +16,7 @@ date: 'git Last Modified'
 
 ### Apply required attributes
 
-For the select to function properly, always use the following attributes with `<gcds-select>`:
+Always use the following required attributes with `gcds-select`:
 
 - `name`
 - `label`
@@ -26,14 +26,11 @@ For the select to function properly, always use the following attributes with `<
 
 Use the `default-value` attribute to set the first option in the select list. This avoids pre-selection of an option.
 
-{% include "partials/error-message.njk" %}
-
 {% include "partials/hint.njk" %}
 
-### Hide the select label
+{% include "partials/hide-the-label.njk" %}
 
-- Set the `hide-label` attribute to true to visually hide the label while maintaining it for assistive technologies.
-- Avoid adding hint text when you’re hiding the label or else provide an empty hint string.
+{% include "partials/error-message.njk", component: "select" %}
 
 <!-- ----- Examples ----- -->
 

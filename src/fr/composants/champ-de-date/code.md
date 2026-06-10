@@ -14,31 +14,36 @@ date: 'git Last Modified'
 
 ## Codage et accessibilité des champs de date
 
-### Appliquez les attributs requis
+### Appliquez les attributs essentiels
 
-- Pour que le champ de date fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-date-input>` :
+Utilisez toujours les attributs obligatoires suivants avec `gcds-date-input` :
 
 - `name`
 - `legend`
 - `format`
 
-### Appliquez un format au champ de date
-- Choisissez le format en indiquant soit `full`, `compact` ou `iso` dans l’attribut `format` du champ de date.
-- La valeur `full` affichera un composant de champ de date avec des champs pour le jour, le mois et l’année dont l’ordre en français est Jour, Mois, Année et dont l’ordre en anglais est Mois, Jour, Année. Dans ce format, le mois est écrit en lettres tandis que le jour et l'année sont écrits en chiffres.
-- La valeur `compact` affichera un composant de champ de date avec des champs pour le mois et l’année dont l’ordre est Mois, Année aussi bien en français qu’en anglais. Dans ce format, le mois est écrit en lettres et l’année est écrite en chiffres.
-- La valeur `iso` affichera un composant de champ de date avec des champs pour l’année, le mois et le jour, dans cet ordre. Dans ce format, toute valeur est écrite en chiffres, conformément aux normes ISO.
+### Choisir un format
 
-### Valeurs du champ de date reçues et rendues
+Utilisez `full`,  `compact` ou `iso`  comme attribut de format du champ de date.
 
-Le champ de date peut recevoir et rendre des valeurs d’un format différent que celui affiché côté utilisateur en fonction de l’attribut `format`.
-- Les formats `full` et `iso` produisent une valeur dont le format est `YYYY-MM-DD`.
-- Le format `compact` produira une valeur dont le format est `YYYY-MM`.
+- La valeur `full` générera des champs de formulaire pour l’année, le mois et le jour.
+  - Dans ce format, le mois est un mot.
+  - En anglais, l’ordre est mois, jour, année.
+  - En français, l’ordre est jour, mois, année.
+  - Le format du rendu sera `AAAA-MM-JJ`.
+- La valeur `compact` générera des champs de formulaire pour l’année et le mois.
+  - Dans ce format, le mois est un mot.
+  - En anglais et en français, l’ordre est mois, année.
+  - Le format du rendu sera `AAAA-MM`.
+- La valeur `iso` générera des champs de formulaire pour l’année, le mois et le jour, dans cet ordre.
+  - Dans ce format, toutes les valeurs sont numériques, conformément aux normes ISO.
+  - Le format du rendu sera `AAAA-MM-JJ`.
 
 {% include "partials/valid-props.njk" %}
 
-{% include "partials/error-message.njk" %}
-
 {% include "partials/hint.njk" %}
+
+{% include "partials/error-message.njk", component: "le champ de date" %}
 
 <!-- ----- Examples ----- -->
 

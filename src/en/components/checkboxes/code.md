@@ -16,14 +16,20 @@ date: 'git Last Modified'
 
 ### Apply required attributes
 
-For the checkboxes to function properly, always use the following attributes with `gcds-checkboxes`:
+Always use the following required attributes with `gcds-checkboxes`:
 
 - `name`
 - `options`
 
-### Use the `options` attribute with checkboxes
+### Use the `options` attribute
 
-The `options` attribute takes an array of objects to render each checkbox. The following is an example of one of the objects:
+- The `options` attribute uses an array of objects to render each checkbox.
+- Within each object in the `options` array, always use the object's required properties:
+  - `id`
+  - `label`
+- The rest of the properties are optional.
+
+Example:
 
 ```javascript
 {
@@ -35,31 +41,41 @@ The `options` attribute takes an array of objects to render each checkbox. The f
 }
 ```
 
-Within the `options` attribute, always use the object's `id` and `label` properties for each checkbox. The rest of the properties are optional.
+### Set attributes based on number of checkboxes
+
+#### Single checkbox
+
+- Add a single object in the `options` attribute to render a single checkbox.
+- [Fieldset]({{ links.fieldset }}) is removed from a single checkbox.
+
+#### Group of checkboxes
+
+- Add more than one object in the `options` attribute to render multiple checkboxes.
+- Use the `legend` attribute to render the [fieldset]({{ links.fieldset }}).
 
 ### Use the `value` attribute
 
-- The `value` attribute provides a quick reference to the values of checked checkboxes inside the `gcds-checkboxes` component.
-- `value` is formatted as an array of strings. Example: `[“checkboxOneValue”, checkboxTwoValue”]`
+- The `value` attribute provides a quick reference to the values checked inside the `gcds-checkboxes` component.
+- `value` is formatted as an array of strings.
 
-{% include "partials/error-message.njk" %}
+Example:
 
-### For a group of checkboxes
+```js
+[“checkboxOneValue”, checkboxTwoValue”]
+```
 
-- Use the `legend` attribute when passing more than one object to the `options` attribute. `gcds-checkboxes` will not render if there is no `legend` defined with more than one checkbox.
-- Use the `hint` and `error-message` attributes to add additional information to the fieldset built into `gcds-checkboxes`.
+### Add hint text
 
-### For a single checkbox
+Use the `hint` attribute to add hint text.
 
-- Pass a single object to the `options` attribute to render a single checkbox without a fieldset.
-- Use the `hint` and `error-message` attributes to add additional information to the checkbox.
-
-### Hide the checkboxes legend or labels
+### Hide the legend or labels
 
 - Visually hide the legend or label, while maintaining it for assistive technologies.
   - Set the `hide-legend` attribute to true to visually hide the legend for checkbox groups.
   - Set the `hide-label` attribute to true to visually hide the label for a single checkbox.
-- Avoid adding hint text when you’re hiding the legend or else provide an empty hint string.
+- Avoid adding hint text if the legend and/or labels are hidden.
+
+{% include "partials/error-message.njk", component: 'checkboxes' %}
 
 <!-- ----- Examples ----- -->
 

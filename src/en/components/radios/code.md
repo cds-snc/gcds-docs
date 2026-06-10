@@ -16,15 +16,21 @@ date: 'git Last Modified'
 
 ### Apply required attributes
 
-For the radios to function properly, always use the following attributes with `gcds-radios`:
+Always use the following required attributes with `gcds-radios`:
 
 - `name`
 - `legend`
 - `options`
 
-### Use the options attribute with radios
+### Use the `options` attribute
 
-The options attribute takes an array of objects to render each radio button. The following is an example of one of the objects:
+- The `options` attribute uses an array of objects to render each radio button.
+- Within the `options` attribute of each radio button, always use the object's required properties:
+  - id  
+  - label
+- The rest of the properties are optional.
+
+Example:
 
 ```javascript
 {
@@ -36,17 +42,15 @@ The options attribute takes an array of objects to render each radio button. The
 }
 ```
 
-Within the options attribute, always use the object’s `id`, `label` and `value` properties for each radio button. The rest of the properties are optional.
-
 ### Use the `value` attribute
 
-The `value` attribute provides a quick reference to the values of the checked radio button inside the `gcds-radios` component.
+The `value` attribute provides a quick reference of the value selected inside the `gcds-radios` component.
 
-{% include "partials/error-message.njk" %}
+### Add hint text
 
-### Include hint text for task success
+Use the `hint` attribute to add hint text.
 
-Use the `hint` attribute or the `hint` key in the `options` object to add hint text to help a person choose an input and avoid an error state.
+{% include "partials/error-message.njk", component: "radios" %}
 
 <!-- ----- Examples ----- -->
 

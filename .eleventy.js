@@ -755,6 +755,28 @@ module.exports = function (eleventyConfig) {
   });
 
   /*
+   * Utility filters for generating the validation error tables in the documentation
+   */
+  eleventyConfig.addFilter('keys', obj => Object.keys(obj));
+  eleventyConfig.addFilter('getValue', (obj, key) => obj[key]);
+  eleventyConfig.addFilter(
+    'isObject',
+    val => typeof val === 'object' && val !== null && !Array.isArray(val),
+  );
+  eleventyConfig.addFilter('countRows', (errorKeys, validationErrors) => {
+    let count = 0;
+    for (const key of errorKeys) {
+      const msg = validationErrors[key];
+      if (typeof msg === 'object' && msg !== null && !Array.isArray(msg)) {
+        count += Object.keys(msg).length;
+      } else {
+        count += 1;
+      }
+    }
+    return count;
+  });
+
+  /*
    * See if string contains a substring
    */
   eleventyConfig.addFilter('contains', function (str, substr) {

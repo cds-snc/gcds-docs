@@ -16,27 +16,24 @@ date: 'git Last Modified'
 
 ### Apply required attributes
 
-For the textarea to function properly, always use the following attributes with `<gcds-textarea>`:
+Always use the following required attributes with `gcds-textarea`:
 
 - `name`
 - `label`
 - `textarea-id`
 
-### Size textareas to fit response type
+### Size the field to fit the response
 
-- Use textareas for responses that may need more than 75 characters.
-- Make the height of a textarea proportionate to the amount of text you expect someone to enter. You can set the height of a textarea by specifying the `rows` attribute.
-- Avoid setting the width any lower than 50% (1/2 width).
-- Use the maximum for responses without a fixed length.
-
-{% include "partials/error-message.njk" %}
+- Use the `rows` attribute to set the height of a textarea to match the amount of text you expect someone to enter.
+- Use [input]({{ links.input }}) for responses that need less than 75 characters.
+- Avoid setting the width lower than 50%.
+- Use the maximum height of 7 rows for responses without a fixed length.
 
 {% include "partials/hint.njk" %}
 
-### Hide the textarea label
+{% include "partials/hide-the-label.njk" %}
 
-- Set the hide-label attribute to true to visually hide the label while maintaining it for assistive technologies.
-- Avoid adding hint text when you’re hiding the label or else provide an empty hint string.
+{% include "partials/error-message.njk", component: "textarea" %}
 
 <!-- ----- Examples ----- -->
 

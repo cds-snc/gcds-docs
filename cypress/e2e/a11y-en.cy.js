@@ -15,7 +15,7 @@ Object.keys(enLinks.links).forEach(key => {
   ) {
     let regex = /components\/[a-z]/;
     const pageName = key.replace(/([A-Z])/g, ' $1');
-    if (regex.test(url)) {
+    if (regex.test(url) && !url.includes('validate')) {
       pagesEn.push({
         name: `${pageName} - use case`,
         url,

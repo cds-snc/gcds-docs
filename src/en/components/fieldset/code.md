@@ -14,13 +14,24 @@ date: 'git Last Modified'
 
 ## Coding and accessibility for fieldsets
 
-### Heading hierarchy
+### Choose the heading level
 
-Use the `legend-size` attribute to visually place the legend among the headings on the page. Set the attribute value to `h2` | `h3` | `h4` | `h5` | `h6` to render the fieldset legend to the appropriate size.
+- Use the `legend-size` attribute to visually place the legend among the headings on the page.
+- Set the attribute value to `h2` | `h3` | `h4` | `h5` | `h6` to render the legend.
 
-### Keep hint text static and perceivable
+{% include "partials/hint.njk" %}
 
-Maintain the default `hint` attribute to provide additional context so a person can provide a complete value and avoid an error state. This places hint text under the fieldset `legend` and above the grouping.
+### Add form components
+
+- Add form components to the fieldset grouping:
+  - [gcds-checkboxes]({{ links.checkboxes }})
+  - [gcds-date-input]({{ links.dateInput }})
+  - [gcds-file-uploader]({{ links.fileUploader }})
+  - [gcds-input]({{ links.input }})
+  - [gcds-radios]({{ links.radios }})
+  - [gcds-select]({{ links.select }})
+  - [gcds-textarea]({{ links.textarea }})
+- Follow the respective guidance for each component within fieldset.
 
 <!-- ----- Examples ----- -->
 
