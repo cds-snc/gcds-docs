@@ -58,7 +58,7 @@ Next priorities are yet to be defined, this page will be updated by end of Q1 (J
 </gcds-details>
 
 <gcds-details details-title="Engagement and collaboration">
-<ul class="list-disc ps-400 mb-300">
+<ul class="list-disc ps-400">
 <li>Delivered 4 public "GC Design System Forum" events with 978 total attendees</li>
 <li>Hosted 6 public demos with 652 total attendees</li>
 <li>Collaborated with Natural Resources Canada on the MapML plugin</li>
