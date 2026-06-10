@@ -1,0 +1,3286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Validate form components - GC Design System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- GCDS CSS Shortcuts -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-css-shortcuts.min.css" />
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <script src="/gcds-docs/scripts/prism.min.js"></script>
+
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <script src="/gcds-docs/scripts/code-copy.js"></script>
+    <script src="/gcds-docs/scripts/component-preview.js"></script>
+    <script src="/gcds-docs/scripts/general.js"></script>
+    
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+<gcds-header
+  lang="en"
+  skip-to-href="#mc"
+  lang-href='/fr/composants/valider-les-composants-de-formulaire/'
+>
+  
+
+  <gcds-breadcrumbs lang="en" slot="breadcrumb">
+    
+      <gcds-breadcrumbs-item href=/gcds-docs/en>
+        GC Design System
+      </gcds-breadcrumbs-item>
+
+      
+
+      
+      
+        
+          <gcds-breadcrumbs-item href=/gcds-docs/en/components/>
+            Components
+          </gcds-breadcrumbs-item>
+        
+      
+    
+  </gcds-breadcrumbs>
+
+  
+<gcds-search search-id="search" slot="search" placeholder="GC Design System" action="/en/search" data-placeholder-long="GC Design System" data-placeholder-short="GCDS">
+</gcds-search>
+
+
+</gcds-header>
+    <div class="content-wrapper">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<gcds-side-nav label="GC Design System" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
+  <gcds-nav-link slot="home" href="/en">GC Design System</gcds-nav-link>
+  <gcds-nav-link href="/en/start-to-use" >Start to use</gcds-nav-link>
+
+  
+
+  <gcds-nav-group
+    menu-label="Page templates"
+    open-trigger="Page templates"
+    
+  >
+    <gcds-nav-link
+      href="/en/page-templates"
+      
+    >
+      Page templates overview
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/page-templates/basic/"
+      
+    >
+      Basic page
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Components"
+    open-trigger="Components"
+    open
+  >
+    <gcds-nav-link
+      href="/en/components"
+      
+    >
+      Components overview
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/breadcrumbs/"
+      
+    >
+      Breadcrumbs
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/button/"
+      
+    >
+      Button
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/card/"
+      
+    >
+      Card
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/checkboxes/"
+      
+    >
+      Checkboxes
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/container/"
+      
+    >
+      Container
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/date-input/"
+      
+    >
+      Date input
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/date-modified/"
+      
+    >
+      Date modified
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/details/"
+      
+    >
+      Details
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/error-message/"
+      
+    >
+      Error message
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/error-summary/"
+      
+    >
+      Error summary
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/fieldset/"
+      
+    >
+      Fieldset
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/file-uploader/"
+      
+    >
+      File uploader
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/footer/"
+      
+    >
+      Footer
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/grid/"
+      
+    >
+      Grid
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/header/"
+      
+    >
+      Header
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/heading/"
+      
+    >
+      Heading
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/icon/"
+      
+    >
+      Icon
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/input/"
+      
+    >
+      Input
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/language-toggle/"
+      
+    >
+      Language toggle
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/link/"
+      
+    >
+      Link
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/notice/"
+      
+    >
+      Notice
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/pagination/"
+      
+    >
+      Pagination
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/radios/"
+      
+    >
+      Radios
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/screenreader-only/"
+      
+    >
+      Screenreader-only
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/search/"
+      
+    >
+      Search
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/select/"
+      
+    >
+      Select
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/side-navigation/"
+      
+    >
+      Side navigation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/signature/"
+      
+    >
+      Signature
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/stepper/"
+      
+    >
+      Stepper
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/table/"
+      
+    >
+      Table
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/text/"
+      
+    >
+      Text
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/textarea/"
+      
+    >
+      Textarea
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/theme-and-topic-menu/"
+      
+    >
+      Theme and topic menu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/top-navigation/"
+      
+    >
+      Top navigation
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="CSS shortcuts"
+    open-trigger="CSS shortcuts"
+    
+  >
+    <gcds-nav-link
+      href="/en/css-shortcuts"
+      
+    >
+      CSS shortcuts overview
+    </gcds-nav-link>
+  
+    <gcds-nav-group
+      menu-label="Defaults"
+      open-trigger="Defaults"
+      
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/reset-styles/"
+      
+    >
+      Reset styles
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Conditional styling"
+      open-trigger="Conditional styling"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/responsive-layout/"
+      
+    >
+      Responsive layout
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/state/"
+      
+    >
+      State
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Layout"
+      open-trigger="Layout"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/box-sizing/"
+      
+    >
+      Box sizing
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/container-sizing/"
+      
+    >
+      Container sizing
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/display/"
+      
+    >
+      Display
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/overflow/"
+      
+    >
+      Overflow
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/position/"
+      
+    >
+      Position
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/visibility/"
+      
+    >
+      Visibility
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Typography"
+      open-trigger="Typography"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/font/"
+      
+    >
+      Font
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/font-family/"
+      
+    >
+      Font family
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/font-size/"
+      
+    >
+      Font size
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/font-style/"
+      
+    >
+      Font style
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/font-weight/"
+      
+    >
+      Font weight
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/line-height/"
+      
+    >
+      Line height
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/link-colour/"
+      
+    >
+      Link colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/link-size/"
+      
+    >
+      Link size
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/link-text-decoration/"
+      
+    >
+      Link text decoration
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/list-style/"
+      
+    >
+      List style
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/text-align/"
+      
+    >
+      Text align
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/text-colour/"
+      
+    >
+      Text colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/text-overflow/"
+      
+    >
+      Text overflow
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/text-transform/"
+      
+    >
+      Text transform
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/word-break/"
+      
+    >
+      Word break
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Spacing"
+      open-trigger="Spacing"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/margin/"
+      
+    >
+      Margin
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/padding/"
+      
+    >
+      Padding
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Flexbox and grid"
+      open-trigger="Flexbox and grid"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/align-content/"
+      
+    >
+      Align content
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/align-items/"
+      
+    >
+      Align items
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/align-self/"
+      
+    >
+      Align self
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/flex/"
+      
+    >
+      Flex
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/flex-direction/"
+      
+    >
+      Flex direction
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/flex-grow/"
+      
+    >
+      Flex grow
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/flex-shrink/"
+      
+    >
+      Flex shrink
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/flex-wrap/"
+      
+    >
+      Flex wrap
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/gap/"
+      
+    >
+      Gap
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/grid-columns/"
+      
+    >
+      Grid columns
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/grid-rows/"
+      
+    >
+      Grid rows
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/justify-content/"
+      
+    >
+      Justify content
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/justify-items/"
+      
+    >
+      Justify items
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/justify-self/"
+      
+    >
+      Justify self
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/order/"
+      
+    >
+      Order
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/place-content/"
+      
+    >
+      Place content
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/place-items/"
+      
+    >
+      Place items
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/place-self/"
+      
+    >
+      Place self
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Background and border"
+      open-trigger="Background and border"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/background-colour/"
+      
+    >
+      Background colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/border-colour/"
+      
+    >
+      Border colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/border-radius/"
+      
+    >
+      Border radius
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/border-style/"
+      
+    >
+      Border style
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/border-width/"
+      
+    >
+      Border width
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Icon and image"
+      open-trigger="Icon and image"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/icon-names/"
+      
+    >
+      Icon names
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/icon-size/"
+      
+    >
+      Icon size
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/image/"
+      
+    >
+      Image
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Interactive"
+      open-trigger="Interactive"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/cursor/"
+      
+    >
+      Cursor
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/pointer-events/"
+      
+    >
+      Pointer events
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/css-shortcuts/transition/"
+      
+    >
+      Transition
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Styles"
+    open-trigger="Styles"
+    
+  >
+    <gcds-nav-link href="/en/styles">Styles overview</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/design-tokens" >Design tokens</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/colour" >Colour tokens</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/spacing" >Spacing tokens</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/typography" >Typography tokens</gcds-nav-link>
+  </gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Contact"
+    open-trigger="Contact"
+    
+  
+    
+  
+    
+  
+    
+  
+  >
+    <gcds-nav-link href="/en/contact" >Contact us</gcds-nav-link>
+    <gcds-nav-link href="/en/get-involved" >Get involved</gcds-nav-link>
+    <gcds-nav-link href="/en/register-for-a-demo" >Find a demo</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-side-nav>
+        <main id="mc" class="general-layout" data-pagefind-body>
+          <h1 id="validate-form-components">Validate form components</h1>
+<h2 id="builtin-validation-and-error-messages">Built-in validation and error messages</h2>
+<p>GC Design System (GCDS) form components have built-in validation. They validate by default on blur. Fields with specific input requirements will validate if the entry is invalid, even if it is not required. A missing or invalid entry will prompt an inline error message with default text.</p>
+<gcds-details details-title="Default validation and error messages">
+  <div class="table-overflow">
+    <table class="error-message-table">
+      <thead>
+        <tr>
+<p><th>Component</th></p>
+<p><th>Reason</th></p>
+<p><th>Error message</th></p>
+<p></tr>
+</thead>
+<tbody></p>
+<p><tr></p>
+<p><td rowspan="2">Checkboxes</td></p>
+<p><td>Group: missing value</td>
+<td>Choose an option to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Single: missing value</td>
+<td>You must check the box to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td rowspan="16">Date input</td></p>
+<p><td>Missing all</td>
+<td>Enter the date.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing month</td>
+<td>Enter the month.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing month</td>
+<td>Select the month.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing year</td>
+<td>Enter the year.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing day</td>
+<td>Enter the day.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing month and day</td>
+<td>Select the month and enter the day.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing month and year</td>
+<td>Select the month and enter the year.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing month and day</td>
+<td>Enter the month and day.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing month and year</td>
+<td>Enter the year and month.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing day and year</td>
+<td>Enter the day and year.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid year length</td>
+<td>Year must be 4 digits.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid year</td>
+<td>Enter a valid year.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid month</td>
+<td>Enter a valid month.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid day</td>
+<td>Enter a valid day.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid number: min</td>
+<td>Enter a number that's {min} or more to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid number: max</td>
+<td>Enter a number that's {max} or less to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td rowspan="1">File uploader</td></p>
+<p><td>Missing file</td>
+<td>You must upload a file to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td rowspan="11">Input</td></p>
+<p><td>Missing or invalid email</td>
+<td>Enter a valid email address to continue. Use a standard format. Example: name@address.ca.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing or invalid url</td>
+<td>Enter a URL in the specified format to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid format</td>
+<td>Use the specified format to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid length: too long</td>
+<td>Enter {max} characters or less to continue. You've entered {current} characters.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid length: too short</td>
+<td>Enter at least {min} characters to continue. You've entered {current} characters.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid number: min</td>
+<td>Enter a number that's {min} or more to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid number: max</td>
+<td>Enter a number that's {max} or less to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid step</td>
+<td>Enter a number from the specified options to continue. The closest numbers to what you entered are {lower} and {upper}. </td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing number</td>
+<td>Enter a number to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing value</td>
+<td>Enter information to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing email</td>
+<td>Enter a valid email address to continue. Use a standard format. Example: name@address.ca.</td>
+</tr></p>
+<p><tr></p>
+<p><td rowspan="1">Radios</td></p>
+<p><td>Missing value</td>
+<td>Choose an option to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td rowspan="1">Select</td></p>
+<p><td>Missing value</td>
+<td>Choose an option to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td rowspan="4">Textarea</td></p>
+<p><td>Invalid format</td>
+<td>Use the specified format to continue.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid length: too long</td>
+<td>Enter {max} characters or less to continue. You've entered {current} characters.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Invalid length: too short</td>
+<td>Enter at least {min} characters to continue. You've entered {current} characters.</td>
+</tr></p>
+<p><tr></p>
+<p><td>Missing value</td>
+<td>Enter information to continue.</td>
+</tr></p>
+<p></tbody>
+</table></p>
+  </div>
+</gcds-details>
+<h3 id="enable-default-validation">Enable default validation</h3>
+<ul class="list-disc mb-300"><li>Use the <code>required</code> attribute on form components to activate required field validation.</li>
+<li>Turn off browser validation by adding <code>novalidate</code> to the form tag.</li>
+</ul>
+<hr/>
+<h2 id="how-validation-works">How validation works</h2>
+<p>GC Design System form components validate through a series of validation properties, events, and objects.</p>
+<h3 id="validation-properties">Validation properties</h3>
+<p>Validation is controlled by the <code>validator</code> and <code>validate-on</code> properties.</p>
+<table>
+<thead>
+<tr>
+<th><code>validator</code></th>
+<th><code>validate-on</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Determines what gets validated.</td>
+<td>Determines when the validation check will happen.</td>
+</tr>
+<tr>
+<td>The form component will validate an array of functions in the order they appear.</td>
+<td><ul class="list-disc"><li><code>blur</code>: The check happens the moment a user clicks out of or tabs away from the box.</li><li><code>submit</code>: The check happens when the form is submitted.</li><li><code>other</code>: The check happens on a different event set by the developer. The developer defines this using the <code>validate()</code> method on each component.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<gcds-details details-title="Validator examples">
+  <h4>Javascript</h4>
+
+<div style="position: relative" id="code-container-323" >
+  <pre class="language-javascript"><code id="code-323" class="language-javascript"><span class="token keyword">const</span> gcdsComponent <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'gcds-input'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gcdsComponent<span class="token punctuation">.</span>validator <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token function">customValidation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-323"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+  <h4>React</h4>
+
+<div style="position: relative" id="code-container-325" >
+  <pre class="language-javascript"><code id="code-325" class="language-javascript"><span class="token operator">&lt;</span>GcdsInput
+  validator<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token function">customValidation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-325"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="Validate-on examples">
+  <h4>Blur</h4>
+
+<div style="position: relative" id="code-container-329" >
+  <pre class="language-html"><code id="code-329" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span>
+  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blur-validate<span class="token punctuation">"</span></span>
+  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Validate on blur<span class="token punctuation">"</span></span>
+  <span class="token attr-name">required</span>
+  <span class="token attr-name">validate-on</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blur<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-329"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+  <h4>Submit</h4>
+
+<div style="position: relative" id="code-container-331" >
+  <pre class="language-html"><code id="code-331" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span>
+  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit-validate<span class="token punctuation">"</span></span>
+  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Validate on submit<span class="token punctuation">"</span></span>
+  <span class="token attr-name">required</span>
+  <span class="token attr-name">validate-on</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-331"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+  <h4>Other</h4>
+
+<div style="position: relative" id="code-container-333" >
+  <pre class="language-html"><code id="code-333" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span>
+  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>other-validate<span class="token punctuation">"</span></span>
+  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Validate on other<span class="token punctuation">"</span></span>
+  <span class="token attr-name">required</span>
+  <span class="token attr-name">validate-on</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>other<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-333"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<h3 id="validation-events">Validation events</h3>
+<p>After running validation, form components generate a <code>gcdsError</code> or <code>gcdsValid</code> event.</p>
+<table>
+<thead>
+<tr>
+<th><code>gcdsError</code></th>
+<th><code>gcdsValid</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The data did not pass the checks.</td>
+<td>The data passed the checks.</td>
+</tr>
+<tr>
+<td>The event will contain a <code>detail</code> with the associated error message. That error message will be displayed on the component.</td>
+<td>An error message will not be displayed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="validation-objects">Validation objects</h3>
+<p>Each validate has a <code>validate</code> property that can be called by the form component.</p>
+<p>The <code>validate</code> property returns an object with multiple properties for the component to read:</p>
+<ul class="list-disc mb-300"><li>The <code>valid</code> property contains a boolean value stating if the passed value of the form component passes the validation test.</li>
+<li>The <code>reason</code> property contains an object with <code>en</code> and <code>fr</code> properties containing the text for the error message in each language.</li>
+<li>The <code>errors</code> property is an optional property built for more complex form components with multiple form elements that contains an object with boolean properties to inform the form component which element is not valid. The need for this property in a validator will be defined when each form component is created.</li>
+</ul>
+<gcds-details details-title="Validator markup example">
+
+<div style="position: relative" id="code-container-398" >
+  <pre class="language-javascript"><code id="code-398" class="language-javascript"><span class="token comment">// Required field validator used in gcds-input</span>
+<span class="token keyword">const</span> <span class="token literal-property property">requiredField</span><span class="token operator">:</span> Validator<span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">validate</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">value</span><span class="token operator">:</span> string</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">valid</span><span class="token operator">:</span> value <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> value<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">reason</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">en</span><span class="token operator">:</span> <span class="token string">'Enter information to continue.'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">fr</span><span class="token operator">:</span> <span class="token string">'Saisissez des renseignements pour continuer.'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-398"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="Validator return examples">
+  <h4>Validator return</h4>
+
+<div style="position: relative" id="code-container-402" >
+  <pre class="language-javascript"><code id="code-402" class="language-javascript"><span class="token keyword">interface</span> <span class="token class-name">ValidatorReturn</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">valid</span><span class="token operator">:</span> boolean<span class="token punctuation">;</span>
+  <span class="token literal-property property">reason</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">en</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    <span class="token literal-property property">fr</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  errors<span class="token operator">?</span><span class="token operator">:</span> object<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-402"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+  <h4>Validator return with <code>errors</code></h4>
+
+<div style="position: relative" id="code-container-404" >
+  <pre class="language-javascript"><code id="code-404" class="language-javascript">date<span class="token operator">-</span>input <span class="token punctuation">{</span>
+  <span class="token literal-property property">valid</span><span class="token operator">:</span> boolean<span class="token punctuation">;</span>
+  <span class="token literal-property property">reason</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">en</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    <span class="token literal-property property">fr</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token literal-property property">errors</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">year</span><span class="token operator">:</span> boolean<span class="token punctuation">;</span>
+    <span class="token literal-property property">month</span><span class="token operator">:</span> boolean<span class="token punctuation">;</span>
+    <span class="token literal-property property">day</span><span class="token operator">:</span> boolean<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-404"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<hr/>
+<h2 id="customize-validation-and-error-messages">Customize validation and error messages</h2>
+<p>By using a combination of customizable properties and events, you can implement validation that meets your specific needs.</p>
+<ul class="list-disc mb-300"><li>Add custom validation using the <code>validator</code> property.</li>
+<li>Change the validation event using the <code>validate-on</code> property.</li>
+</ul>
+<gcds-details details-title="Text validation example">
+
+<div style="position: relative" id="code-container-426" >
+  <pre class="language-html"><code id="code-426" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span>
+  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form-name<span class="token punctuation">"</span></span>
+  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Name of component library<span class="token punctuation">"</span></span>
+   <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>library-name<span class="token punctuation">"</span></span>
+   <span class="token attr-name">required</span>
+ <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">></span></span>
+
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+     <span class="token keyword">const</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'gcds-input[name="library-name"]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     <span class="token keyword">const</span> <span class="token function-variable function">libraryName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">validate</span><span class="token operator">:</span> <span class="token parameter">value</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+         <span class="token keyword">return</span> <span class="token punctuation">{</span>
+          valid<span class="token operator">:</span> value <span class="token operator">===</span> <span class="token string">'@cdssnc/gcds-components'</span><span class="token punctuation">,</span>
+          reason<span class="token operator">:</span> <span class="token punctuation">{</span>
+            en<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The entered value must be '@gcds-core/components.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+            fr<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">La valeur saisie doit être « @gcds-core/components »</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+         <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    input<span class="token punctuation">.</span>validator <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token function">libraryName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-426"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<h3 id="validator-format-for-different-components">Validator format for different components</h3>
+<p>The format of the validator property will be slightly different for different form components.</p>
+<gcds-details details-title="gcds-checkboxes">
+  <p>Format of the <code>gcds-checkboxes</code> validator:</p>
+
+<div style="position: relative" id="code-container-436" >
+  <pre class="language-javascript"><code id="code-436" class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">validator</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    validate<span class="token operator">:</span> value<span class="token operator">:</span> string<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        valid<span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+        reason<span class="token operator">:</span> <span class="token punctuation">{</span>
+          en<span class="token operator">:</span> string<span class="token punctuation">,</span>
+          fr<span class="token operator">:</span> string<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-436"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="gcds-date-input">
+  <p>Format of the <code>gcds-date-input</code> validator:</p>
+
+<div style="position: relative" id="code-container-440" >
+  <pre class="language-javascript"><code id="code-440" class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">validator</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    validate<span class="token operator">:</span> <span class="token function-variable function">value</span><span class="token operator">:</span> <span class="token parameter">string</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        valid<span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+        reason<span class="token operator">:</span> <span class="token punctuation">{</span>
+          en<span class="token operator">:</span> string<span class="token punctuation">,</span>
+          fr<span class="token operator">:</span> string<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        errors<span class="token operator">:</span> <span class="token punctuation">{</span>
+          year<span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+          month<span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+          day<span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-440"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="gcds-file-uploader">
+  <p>Format of the <code>gcds-file-uploader</code> validator:</p>
+
+<div style="position: relative" id="code-container-444" >
+  <pre class="language-javascript"><code id="code-444" class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">validator</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    validate<span class="token operator">:</span> <span class="token function-variable function">value</span><span class="token operator">:</span> <span class="token parameter">FileList</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        valid<span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+        reason<span class="token operator">:</span> <span class="token punctuation">{</span>
+          en<span class="token operator">:</span> string<span class="token punctuation">,</span>
+          fr<span class="token operator">:</span> string<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-444"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<gcds-details details-title="gcds-input, gcds-select, gcds-textarea, gcds-radios">
+  <p>The validation of <code>gcds-input</code>, <code>gcds-select</code>, <code>gcds-textarea</code>, <code>gcds-radios</code> follow the same pattern.</p>
+  <p>Format of the their respective validator:</p>
+
+<div style="position: relative" id="code-container-449" >
+  <pre class="language-javascript"><code id="code-449" class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">validator</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    validate<span class="token operator">:</span> <span class="token function-variable function">value</span><span class="token operator">:</span> <span class="token parameter">string</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        valid<span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+        reason<span class="token operator">:</span> <span class="token punctuation">{</span>
+          en<span class="token operator">:</span> string<span class="token punctuation">,</span>
+          fr<span class="token operator">:</span> string<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-449"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+</gcds-details>
+<section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
+  <p>
+    Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
+  </p>
+<p><gcds-button
+    type="link"
+    button-role="secondary"
+    href="/en/contact/#contact-us"
+    class="mb-300"
+  >
+Give feedback
+</gcds-button>
+<gcds-button
+    type="link"
+    button-role="secondary"
+    href="https://github.com/cds-snc/gcds-components/issues/new/choose"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+Report an issue on GitHub
+</gcds-button></p>
+</section>
+
+
+          <gcds-date-modified class="mb-300">
+            2026-06-10
+          </gcds-date-modified>
+        </main>
+      </gcds-grid>
+
+    <gcds-footer
+  display="full"
+  lang="en"
+  contextual-heading="GC Design System"
+  contextual-links='{ "About us": "/en/about-us", "Accessibility statement": "/en/accessibility/", "Service level agreement": "/en/service-level-agreement/" }'
+  sub-links='{ "Social media": "https://www.canada.ca/en/social.html", "Mobile applications": "https://www.canada.ca/en/mobile.html", "About Canada.ca": "https://www.canada.ca/en/government/about-canada-ca.html", "Terms of use": "/en/terms-of-use", "Privacy": "/en/privacy-notice" }'
+></gcds-footer>
+
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>

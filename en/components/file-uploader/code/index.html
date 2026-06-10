@@ -888,9 +888,15 @@
     
       
       
+    
+      
+      
 
         
 
+      
+    
+      
       
     
       
@@ -2786,38 +2792,29 @@ File uploader component preview
 </ul>
 <h2 id="coding-and-accessibility-for-file-uploader">Coding and accessibility for file uploader</h2>
 <h3 id="apply-required-attributes">Apply required attributes</h3>
-<p>For the file uploader to function properly, always use the following attributes with <code>&lt;gcds-file-uploader&gt;</code>:</p>
+<p>Always use the following required attributes with <code>gcds-file-uploader</code>:</p>
 <ul class="list-disc mb-300"><li><code>name</code></li>
 <li><code>label</code></li>
 <li><code>uploader-id</code></li>
 </ul>
-<h3 id="handle-error-messages-and-validation">Handle error messages and validation</h3>
+<h3 id="allow-multiple-files">Allow multiple files</h3>
+<p>Use the <code>multiple</code> attribute to allow the selection of more than one file.</p>
+<h3 id="define-file-types">Define file types</h3>
+<p>Use the <code>accept</code> attribute to define the file types that the file uploader can accept.</p>
+<h3 id="add-hint-text">Add hint text</h3>
+<p>Use the <code>hint</code> attribute to add hint text.</p>
+<h3 id="hide-the-label">Hide the label</h3>
 <ul class="list-disc mb-300"><li>
-<p>Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
+<p>Set the <code>hide-label</code> attribute to true to visually hide the label while maintaining it for assistive technologies.</p>
 </li>
 <li>
-<p>If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate()</code> method.</p>
-</li>
-<li>
-<p>Use the <code>required</code> attribute for fields that must be filled in. This places &quot;required&quot; at the end of the label.</p>
-</li>
-<li>
-<p>Use the <code>error-message</code> attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.</p>
-</li>
-<li>
-<p>For optional fields, avoid adding the <code>error-message</code> attribute.</p>
-</li>
-<li>
-<p>For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
+<p>Avoid adding hint text when the label is hidden.</p>
 </li>
 </ul>
-<h3 id="upload-multiple-files">Upload multiple files</h3>
-<p>Allow the selection of more than one file using the <code>multiple</code> attribute.</p>
-<h3 id="validate-file-types-for-upload">Validate file types for upload</h3>
-<p>Define the file types the file uploader accepts using the <code>accept</code> attribute.</p>
-<h3 id="hide-the-file-uploader-label">Hide the file uploader label</h3>
-<ul class="list-disc mb-300"><li>Set the <code>hide-label</code> attribute to true to visually hide the label while maintaining it for assistive technologies.</li>
-<li>Avoid adding hint text when you’re hiding the label or else provide an empty hint string.</li>
+<h3 id="add-validation-and-error-messages">Add validation and error messages</h3>
+<ul class="list-disc mb-300"><li>Use the <code>required</code> attribute to activate the <gcds-link href="/en/components/validate-form-components/#builtin-validation-and-error-messages">built-in error messages and validation</gcds-link> for  file uploader.</li>
+<li>Fields with specific input requirements will validate if the entry is invalid, even if it is not required.</li>
+<li>For optional fields that need validation, like email address formats, add <gcds-link href="/en/components/validate-form-components/#customize-validation-and-error-messages">custom validation with a custom error message</gcds-link>.</li>
 </ul>
 <!-- ----- Examples ----- -->
 <p><div>
@@ -3369,7 +3366,7 @@ Optional attributes
 
 
           <gcds-date-modified class="mb-300">
-            2026-06-08
+            2026-06-10
           </gcds-date-modified>
         </main>
       </gcds-grid>

@@ -1574,6 +1574,12 @@
       
       
     
+      
+      
+    
+      
+      
+    
   
 
   
@@ -2785,39 +2791,30 @@ Aperçu du composant de téléverseur de fichiers
 <li><a href="#generateur-de-code">Générateur de code</a></li>
 </ul>
 <h2 id="codage-et-accessibilite-du-televerseur-de-fichiers">Codage et accessibilité du téléverseur de fichiers</h2>
-<h3 id="appliquez-les-attributs-requis">Appliquez les attributs requis</h3>
-<p>Pour que le téléverseur de fichiers fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-file-uploader&gt;</code>:</p>
+<h3 id="appliquez-les-attributs-essentiels">Appliquez les attributs essentiels</h3>
+<p>Utilisez toujours les attributs essentiels suivants avec <code>gcds-file-uploader</code> :</p>
 <ul class="list-disc mb-300"><li><code>name</code></li>
 <li><code>label</code></li>
 <li><code>uploader-id</code></li>
 </ul>
-<h3 id="traiter-les-messages-derreur-et-la-validation">Traiter les messages d'erreur et la validation</h3>
+<h3 id="autoriser-le-traitement-de-plusieurs-fichiers">Autoriser le traitement de plusieurs fichiers</h3>
+<p>Utilisez l’attribut <code>multiple</code> pour permettre la sélection de plus d’un fichier.</p>
+<h3 id="definir-les-types-de-fichiers">Définir les types de fichiers</h3>
+<p>Utilisez l’attribut <code>accept</code> pour définir les types de fichier que le téléverseur de fichiers peut accepter.</p>
+<h3 id="ajouter-du-texte-explicatif">Ajouter du texte explicatif</h3>
+<p>Utilisez l’attribut <code>hint</code> pour ajouter du texte explicatif.</p>
+<h3 id="masquer-letiquette">Masquer l'étiquette</h3>
 <ul class="list-disc mb-300"><li>
-<p>Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
+<p>Réglez l'attribut <code>hide-label</code> à true (vrai) pour masquer visuellement l'étiquette tout en la conservant pour les technologies d'assistance.</p>
 </li>
 <li>
-<p>Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
-</li>
-<li>
-<p>Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
-</li>
-<li>
-<p>Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
+<p>Évitez d'ajouter un texte explicatif lorsque l'étiquette est masquée.</p>
 </li>
 </ul>
-<h3 id="telechargez-plusieurs-fichiers">Téléchargez plusieurs fichiers</h3>
-<p>Utilisez l'attribut <code>multiple</code> pour permettre la sélection de plus d'un fichier.</p>
-<h3 id="validez-les-types-de-fichiers-a-televerser">Validez les types de fichiers à téléverser</h3>
-<p>Utilisez l'attribut <code>accept</code> pour définir les types de fichiers acceptés par le téléverseur de fichiers.</p>
-<h3 id="masquer-letiquette-du-televerseur-de-fichiers">Masquer l’étiquette du téléverseur de fichiers</h3>
-<ul class="list-disc mb-300"><li>Définissez l’attribut <code>hide-label</code> à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance.</li>
-<li>Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.</li>
+<h3 id="ajouter-la-validation-et-les-messages-derreur">Ajouter la validation et les messages d'erreur</h3>
+<ul class="list-disc mb-300"><li>Utilisez l'attribut <code>required</code> pour activer <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#validation-et-messages-derreur-integres">la validation et les messages d'erreur intégrés</gcds-link> pour  le téléverseur de fichiers.</li>
+<li>Les champs comportant des exigences de saisie spécifiques feront l'objet d'une validation, même s'ils ne sont pas obligatoires.</li>
+<li>Pour les champs facultatifs qui doivent être validés, par exemple pour vérifier le format d'une adresse courriel, ajoutez <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#personnaliser-la-validation-et-les-messages-derreur">une validation et des messages d'erreur personnalisés</gcds-link>.</li>
 </ul>
 <!-- ----- Examples ----- -->
 <p><div>
@@ -3369,7 +3366,7 @@ Attributs facultatifs
 
 
           <gcds-date-modified class="mb-300">
-            2026-06-08
+            2026-06-10
           </gcds-date-modified>
         </main>
       </gcds-grid>

@@ -1574,6 +1574,12 @@
       
       
     
+      
+      
+    
+      
+      
+    
   
 
   
@@ -2785,60 +2791,44 @@ Aperçu du composant de champ de date
 <li><a href="#generateur-de-code">Générateur de code</a></li>
 </ul>
 <h2 id="codage-et-accessibilite-des-champs-de-date">Codage et accessibilité des champs de date</h2>
-<h3 id="appliquez-les-attributs-requis">Appliquez les attributs requis</h3>
-<ul class="list-disc mb-300"><li>
-<p>Pour que le champ de date fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-date-input&gt;</code> :</p>
-</li>
-<li>
-<p><code>name</code></p>
-</li>
-<li>
-<p><code>legend</code></p>
-</li>
-<li>
-<p><code>format</code></p>
-</li>
+<h3 id="appliquez-les-attributs-essentiels">Appliquez les attributs essentiels</h3>
+<p>Utilisez toujours les attributs obligatoires suivants avec <code>gcds-date-input</code> :</p>
+<ul class="list-disc mb-300"><li><code>name</code></li>
+<li><code>legend</code></li>
+<li><code>format</code></li>
 </ul>
-<h3 id="appliquez-un-format-au-champ-de-date">Appliquez un format au champ de date</h3>
-<ul class="list-disc mb-300"><li>Choisissez le format en indiquant soit <code>full</code>, <code>compact</code> ou <code>iso</code> dans l’attribut <code>format</code> du champ de date.</li>
-<li>La valeur <code>full</code> affichera un composant de champ de date avec des champs pour le jour, le mois et l’année dont l’ordre en français est Jour, Mois, Année et dont l’ordre en anglais est Mois, Jour, Année. Dans ce format, le mois est écrit en lettres tandis que le jour et l'année sont écrits en chiffres.</li>
-<li>La valeur <code>compact</code> affichera un composant de champ de date avec des champs pour le mois et l’année dont l’ordre est Mois, Année aussi bien en français qu’en anglais. Dans ce format, le mois est écrit en lettres et l’année est écrite en chiffres.</li>
-<li>La valeur <code>iso</code> affichera un composant de champ de date avec des champs pour l’année, le mois et le jour, dans cet ordre. Dans ce format, toute valeur est écrite en chiffres, conformément aux normes ISO.</li>
+<h3 id="choisir-un-format">Choisir un format</h3>
+<p>Utilisez <code>full</code>,  <code>compact</code> ou <code>iso</code>  comme attribut de format du champ de date.</p>
+<ul class="list-disc mb-300"><li>La valeur <code>full</code> générera des champs de formulaire pour l’année, le mois et le jour.<ul class="list-disc mb-300"><li>Dans ce format, le mois est un mot.</li>
+<li>En anglais, l’ordre est mois, jour, année.</li>
+<li>En français, l’ordre est jour, mois, année.</li>
+<li>Le format du rendu sera <code>AAAA-MM-JJ</code>.</li>
 </ul>
-<h3 id="valeurs-du-champ-de-date-recues-et-rendues">Valeurs du champ de date reçues et rendues</h3>
-<p>Le champ de date peut recevoir et rendre des valeurs d’un format différent que celui affiché côté utilisateur en fonction de l’attribut <code>format</code>.</p>
-<ul class="list-disc mb-300"><li>Les formats <code>full</code> et <code>iso</code> produisent une valeur dont le format est <code>YYYY-MM-DD</code>.</li>
-<li>Le format <code>compact</code> produira une valeur dont le format est <code>YYYY-MM</code>.</li>
+</li>
+<li>La valeur <code>compact</code> générera des champs de formulaire pour l’année et le mois.<ul class="list-disc mb-300"><li>Dans ce format, le mois est un mot.</li>
+<li>En anglais et en français, l’ordre est mois, année.</li>
+<li>Le format du rendu sera <code>AAAA-MM</code>.</li>
+</ul>
+</li>
+<li>La valeur <code>iso</code> générera des champs de formulaire pour l’année, le mois et le jour, dans cet ordre.<ul class="list-disc mb-300"><li>Dans ce format, toutes les valeurs sont numériques, conformément aux normes ISO.</li>
+<li>Le format du rendu sera <code>AAAA-MM-JJ</code>.</li>
+</ul>
+</li>
 </ul>
 <h3 id="utilisez-des-proprietes-valides">Utilisez des propriétés valides</h3>
 <p>Les propriétés du composant ont une validation intégrée. Les propriétés requises ou susceptibles d'être mal utilisées feront l'objet d'une validation. S'il y a des erreurs de validation, le composant ne fonctionnera pas et ne s'affichera pas. Consultez la console du navigateur pour plus de détails et ajustez les propriétés en conséquence pour que le rendu fonctionne correctement.</p>
-<h3 id="traiter-les-messages-derreur-et-la-validation">Traiter les messages d'erreur et la validation</h3>
+<h3 id="ajouter-du-texte-explicatif">Ajouter du texte explicatif</h3>
 <ul class="list-disc mb-300"><li>
-<p>Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
+<p>Utilisez l'attribut <code>hint</code> pour ajouter du texte explicatif.</p>
 </li>
 <li>
-<p>Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
-</li>
-<li>
-<p>Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
-</li>
-<li>
-<p>Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
+<p>Évitez d’ajouter, directement dans un champ, du texte explicatif qui disparaît lorsque le champ est sélectionné ou lorsqu'on y saisit une réponse.</p>
 </li>
 </ul>
-<h3 id="ajouter-un-texte-explicatif-pour-favoriser-la-reussite-des-taches">Ajouter un texte explicatif pour favoriser la réussite des tâches</h3>
-<ul class="list-disc mb-300"><li>
-<p>Utilisez l'attribut <code>hint</code> pour ajouter un texte explicatif qui aidera la personne à fournir une valeur complète dans le champ de saisie, évitant ainsi d'obtenir un état d'erreur.</p>
-</li>
-<li>
-<p>Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.</p>
-</li>
+<h3 id="ajouter-la-validation-et-les-messages-derreur">Ajouter la validation et les messages d'erreur</h3>
+<ul class="list-disc mb-300"><li>Utilisez l'attribut <code>required</code> pour activer <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#validation-et-messages-derreur-integres">la validation et les messages d'erreur intégrés</gcds-link> pour  le champ de date.</li>
+<li>Les champs comportant des exigences de saisie spécifiques feront l'objet d'une validation, même s'ils ne sont pas obligatoires.</li>
+<li>Pour les champs facultatifs qui doivent être validés, par exemple pour vérifier le format d'une adresse courriel, ajoutez <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#personnaliser-la-validation-et-les-messages-derreur">une validation et des messages d'erreur personnalisés</gcds-link>.</li>
 </ul>
 <!-- ----- Examples ----- -->
 <p><div>
@@ -3390,7 +3380,7 @@ Attributs facultatifs
 
 
           <gcds-date-modified class="mb-300">
-            2026-06-08
+            2026-06-10
           </gcds-date-modified>
         </main>
       </gcds-grid>

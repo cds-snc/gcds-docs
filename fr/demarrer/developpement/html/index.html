@@ -561,9 +561,15 @@
     
       
       
+    
+      
+      
 
         
 
+      
+    
+      
       
     
       
@@ -2925,12 +2931,12 @@
       console.error('Error fetching latest version:', error);
 
       // Update the latest version and release date in the description
-      cdnLatestVersion.textContent = '1.3.0';
-      cdnLatestVersionDate.textContent = '2026-05-27';
+      cdnLatestVersion.textContent = '1.3.1';
+      cdnLatestVersionDate.textContent = '2026-06-08';
 
       // Update CDN links with fallback version if fetch fails
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', '1.3.0');
+        element.textContent = element.textContent.replace('||version||', '1.3.1');
       });
     }
   }
@@ -2941,7 +2947,7 @@
 </script>
 
           <gcds-date-modified class="mb-300">
-            2026-06-08
+            2026-06-10
           </gcds-date-modified>
         </main>
       </gcds-grid>

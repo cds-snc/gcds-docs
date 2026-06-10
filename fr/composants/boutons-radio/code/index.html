@@ -1574,6 +1574,12 @@
       
       
     
+      
+      
+    
+      
+      
+    
   
 
   
@@ -2785,17 +2791,24 @@ Aperçu du composant de boutons radio
 <li><a href="#generateur-de-code">Générateur de code</a></li>
 </ul>
 <h2 id="codage-et-accessibilite-des-boutons-radio">Codage et accessibilité des boutons radio</h2>
-<h3 id="appliquer-les-attributs-requis">Appliquer les attributs requis</h3>
-<p>Pour que les boutons radio fonctionnent correctement, utilisez toujours les attributs suivants avec <code>gcds-radios</code> :</p>
+<h3 id="appliquer-les-attributs-essentiels">Appliquer les attributs essentiels</h3>
+<p>Utilisez toujours les attributs essentiels suivants avec <code>gcds-radios</code> :</p>
 <ul class="list-disc mb-300"><li><code>name</code></li>
 <li><code>legend</code></li>
 <li><code>options</code></li>
 </ul>
-<h3 id="utiliser-lattribut-options-avec-le-groupe-de-boutons-radio">Utiliser l'attribut <code>options</code> avec le groupe de boutons radio</h3>
-<p>L'attribut <code>options</code> utilise un tableau d'objets pour rendre chaque bouton radio. Voici en exemple l'un de ces objets :</p>
+<h3 id="utiliser-lattribut-options">Utiliser l'attribut <code>options</code></h3>
+<ul class="list-disc mb-300"><li>L’attribut <code>options</code> utilise un tableau d’objets pour générer chaque bouton radio.</li>
+<li>À l’intérieur de chaque attribut <code>options</code> de chaque bouton radio, utilisez toujours les propriétés essentielles à cet objet :<ul class="list-disc mb-300"><li><code>id</code>  </li>
+<li><code>label</code></li>
+</ul>
+</li>
+<li>Les autres propriétés sont facultatives.</li>
+</ul>
+<p>Exemple :</p>
 
-<div style="position: relative" id="code-container-52" >
-  <pre class="language-javascript"><code id="code-52" class="language-javascript"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-81" >
+  <pre class="language-javascript"><code id="code-81" class="language-javascript"><span class="token punctuation">{</span>
   <span class="token string">'id'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
   <span class="token string">'label'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
   <span class="token string">'value'</span><span class="token operator">!</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
@@ -2804,36 +2817,20 @@ Aperçu du composant de boutons radio
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-52"
+    data-clipboard-target="#code-81"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
-<p>À l'intérieur de l'attribut <code>options</code>, utilisez toujours les propriétés <code>id</code>, <code>label</code> et <code>value</code> de l'objet pour chaque bouton radio. Les autres propriétés sont facultatives.</p>
 <h3 id="utiliser-lattribut-value">Utiliser l'attribut <code>value</code></h3>
-<p>L'attribut <code>value</code> fournit une référence rapide aux valeurs des boutons radio sélectionnés à l'intérieur du composant <code>gcds-radios</code>.</p>
-<h3 id="traiter-les-messages-derreur-et-la-validation">Traiter les messages d'erreur et la validation</h3>
-<ul class="list-disc mb-300"><li>
-<p>Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
-</li>
-<li>
-<p>Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
-</li>
-<li>
-<p>Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
-</li>
-<li>
-<p>Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
-</li>
+<p>L’attribut <code>value</code> fournit une référence rapide à la valeur sélectionnée à l’intérieur du composant <code>gcds-radios</code>.</p>
+<h3 id="ajouter-du-texte-explicatif">Ajouter du texte explicatif</h3>
+<p>Utilisez l’attribut <code>hint</code> pour ajouter du texte explicatif.</p>
+<h3 id="ajouter-la-validation-et-les-messages-derreur">Ajouter la validation et les messages d'erreur</h3>
+<ul class="list-disc mb-300"><li>Utilisez l'attribut <code>required</code> pour activer <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#validation-et-messages-derreur-integres">la validation et les messages d'erreur intégrés</gcds-link> pour  les boutons radio.</li>
+<li>Les champs comportant des exigences de saisie spécifiques feront l'objet d'une validation, même s'ils ne sont pas obligatoires.</li>
+<li>Pour les champs facultatifs qui doivent être validés, par exemple pour vérifier le format d'une adresse courriel, ajoutez <gcds-link href="/fr/composants/valider-les-composants-de-formulaire/#personnaliser-la-validation-et-les-messages-derreur">une validation et des messages d'erreur personnalisés</gcds-link>.</li>
 </ul>
-<h3 id="ajouter-du-texte-explicatif-pour-assurer-le-succes-dune-tache">Ajouter du texte explicatif pour assurer le succès d'une tâche</h3>
-<p>Utilisez l'attribut <code>hint</code> ou la clé <code>hint</code> de l'objet <code>options</code> pour ajouter du texte explicatif afin d'aider une personne à faire une sélection et à éviter un état d'erreur.</p>
 <!-- ----- Examples ----- -->
 <p><div>
 <gcds-heading id="section-examples" tag="h2">
@@ -3348,7 +3345,7 @@ Attributs facultatifs
 
 
           <gcds-date-modified class="mb-300">
-            2026-06-08
+            2026-06-10
           </gcds-date-modified>
         </main>
       </gcds-grid>
