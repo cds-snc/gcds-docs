@@ -1,0 +1,23 @@
+---
+type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type MarginSize = '0' | '300' | '600';
+
+interface Props {
+  mt?: MarginSize;
+  mb?: MarginSize;
+  tag: HeadingTag;
+}
+
+const { mt, mb = '300', tag } = Astro.props;
+
+// Determine default marginTop based on tag
+const marginTop: MarginSize = mt ?? (tag === 'h1' ? '0' : '600');
+---
+
+<gcds-heading
+  tag={tag}
+  margin-top={marginTop}
+  margin-bottom={mb}
+>
+  <slot />
+</gcds-heading>

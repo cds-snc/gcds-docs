@@ -1,0 +1,39 @@
+---
+import { buildSideNavConfig } from '../routing/routes';
+
+// Navigation in this component is manifest-driven.
+// Add or update items in: src/routing/route-manifest.json
+// - Add top-level links under sideNavRoutes with "type": "link"
+// - Add grouped items under sideNavRoutes with "type": "group" and either "items" or "manifestKey"
+// - Add/update the home slot using "type": "slot" and "slotName": "home"
+const navConfig = buildSideNavConfig(Astro.url.pathname);
+---
+
+<gcds-side-nav label={navConfig.sideNavLabel} class="lg:position-sticky box-border overflow-x-visible align-self-start px-75">
+    {navConfig.homeSlot && (
+            <gcds-nav-link slot="home" href={navConfig.homeSlot.href}>{navConfig.homeSlot.text}</gcds-nav-link>
+    )}
+
+    {navConfig.links.map((link) => (
+            <gcds-nav-link href={link.href}>{link.text}</gcds-nav-link>
+    ))}
+
+    {navConfig.groups.map((group) => (
+            <gcds-nav-group open-trigger={group.trigger} menu-label={group.menuLabel}>
+                {group.links.map((link) => (
+                        <gcds-nav-link href={link.href}>{link.text}</gcds-nav-link>
+                ))}
+            </gcds-nav-group>
+    ))}
+</gcds-side-nav>
+
+<style>
+    gcds-side-nav {
+        top: 0;
+        max-height: 100dvh;
+        overflow-y: auto;
+
+        /* avoids jump when the scrollbar appears */
+        scrollbar-gutter: stable;
+    }
+</style>

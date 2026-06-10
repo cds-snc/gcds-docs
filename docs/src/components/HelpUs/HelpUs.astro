@@ -1,0 +1,30 @@
+---
+import { Heading, Text } from '../../components';
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { messages } from './messages.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
+---
+
+<section>
+  <Heading tag="h2">{localizedContent.heading}</Heading>
+
+  {localizedContent.text.map((paragraph: string) => (
+    <Text>{paragraph}</Text>
+  ))}
+
+  <gcds-button button-role="secondary" type="link" href={localizedContent.btnFeedbackHref}>
+    {localizedContent.btnFeedback}
+  </gcds-button>
+  <gcds-button
+    button-role="secondary"
+    type="link"
+    href={localizedContent.btnReportHref}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {localizedContent.btnReport}
+  </gcds-button>
+</section>

@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+import { Heading, HelpUs, Text } from '../../../components';
+
+import newAccessibility from '../../../assets/img/home/new-accessibility.jpg';
+import newDemo from '../../../assets/img/home/new-demo.jpg';
+import newGetInvolved from '../../../assets/img/home/new-get-involved.jpg';
+import newReleases from '../../../assets/img/home/new-releases.jpg';
+import newRoadmap from '../../../assets/img/home/new-roadmap.jpg';
+import newVideos from '../../../assets/img/home/new-videos.jpg';
+import toolsComponents from '../../../assets/img/home/tools-components.png';
+import toolsCssUtil from '../../../assets/img/home/tools-css-util.png';
+import toolsTemplates from '../../../assets/img/home/tools-templates.png';
+import toolsTokens from '../../../assets/img/home/tools-tokens.png';
+---
+
+<BaseLayout pageTitle="Home" paddingTop={false}>
+    <section class="section--hero" slot="hero">
+        <div>
+            <article class="container-xl mx-auto">
+                <Heading tag="h1">GC Design System</Heading>
+                <Text role="light"><strong>Build modern, accessible, human <br/>government services people can use.</strong></Text>
+            </article>
+        </div>
+    </section>
+    <section class="section--start">
+        <Heading tag="h2">Start using GC Design System</Heading>
+        <gcds-grid class="mt-600" columns-tablet="1fr 1fr" columns="1fr">
+            <div>
+                <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
+                        alt="Figma logo"
+                        width="45"
+                        height="45"
+                />
+                <Heading tag="h3" mt="0">Design experiences</Heading>
+                <Text>Visit our Figma library to explore design assets.</Text>
+                <gcds-link href="" external>Start designing</gcds-link>
+            </div>
+            <div>
+                <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                        alt="Github logo"
+                        width="45"
+                        height="45"
+                />
+                <Heading tag="h3" mt="0">Develop products</Heading>
+                <Text>Install the component package.</Text>
+                <gcds-link href="" external>Start developing</gcds-link>
+            </div>
+        </gcds-grid>
+    </section>
+    <section class="section--tools">
+        <Heading tag="h2">A design system just for you</Heading>
+        <Text>Take a look around. <a href="">Tell us what you think.</a></Text>
+        <gcds-grid columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+            <gcds-card
+                    card-title="Design tokens"
+                    href="#"
+                    description="Find out about our design tokens, spacing, and typography styles that make up the base of GC Design System."
+                    img-src={toolsTokens.src}
+            />
+            <gcds-card
+                    card-title="Components"
+                    href="#"
+                    description="Select reusable code for common components, paired with best practice advice, for the framework you're using."
+                    img-src={toolsComponents.src}
+            />
+            <gcds-card
+                    card-title="CSS framework"
+                    href="#"
+                    description="TODO - Lorem Ipsum is dummy text of the printing and  typesetting industry. Lorem Ipsum has been dummy text since the 1500s."
+                    img-src={toolsCssUtil.src}
+            />
+            <gcds-card
+                    card-title="Page templates"
+                    href="#"
+                    description="Start your project with basic, pre-built pages that provide a consistent, recognizable Canada.ca experience."
+                    img-src={toolsTemplates.src}
+            />
+            <gcds-card
+                    card-title="Patterns"
+                    href="#"
+                    description="TODO - Lorem Ipsum is dummy text of the printing and  typesetting industry. Lorem Ipsum has been dummy text since the 1500s."
+                    img-src={toolsTemplates.src}
+            />
+            <gcds-card
+                    card-title="Learning videos"
+                    href="#"
+                    description="TODO - Lorem Ipsum is dummy text of the printing and  typesetting industry. Lorem Ipsum has been dummy text since the 1500s."
+                    img-src={toolsTemplates.src}
+            />
+        </gcds-grid>
+    </section>
+    <section class="banner-mailing-list bg-full-width bg-light-blue my-600 py-600">
+        <Heading tag="h2" mt="0">Subscribe to our mailing list</Heading>
+        <Text>Subscribe to our mailing list to get GC Design System updates, release communications, and special events.</Text>
+        <gcds-button>Subscribe</gcds-button>
+    </section>
+    <section class="section--new">
+        <Heading tag="h2">What's new</Heading>
+        <gcds-grid columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+            <gcds-card
+                    card-title="Attend a demo"
+                    href="#"
+                    description="Learn how GC Design System can work for you and your team."
+                    img-src={newDemo.src}
+            />
+            <gcds-card
+                    card-title="About accessibility"
+                    href="#"
+                    description="Review accessibility practices and checks within the design system."
+                    img-src={newAccessibility.src}
+            />
+            <gcds-card
+                    card-title="Roadmap"
+                    href="#"
+                    description="TODO"
+                    img-src={newRoadmap.src}
+            />
+            <gcds-card
+                    card-title="Get involved"
+                    href="#"
+                    description="Check out what the team's working on and how you can contribute."
+                    img-src={newGetInvolved.src}
+            />
+            <gcds-card
+                    card-title="Catch up on releases"
+                    href="#"
+                    description="Read about the latest additions and features."
+                    img-src={newReleases.src}
+            />
+            <gcds-card
+                    card-title="Learning videos"
+                    href="#"
+                    description="TODO"
+                    img-src={newVideos.src}
+            />
+        </gcds-grid>
+    </section>
+    <HelpUs />
+</BaseLayout>
+
+<style>
+    .section--hero {
+        /* background: url(https://design-system.canada.ca/images/common/home/home-hero.jpg) top center no-repeat; */
+        background-size: auto;
+        background-size: cover;
+
+        div {
+            background: linear-gradient(to right, var(--gcds-bg-primary), transparent);
+        }
+
+        article {
+            z-index: 20;
+            position: relative;
+            padding: 10rem 0;
+
+            --gcds-heading-default-text: #fff;
+        }
+    }
+</style>

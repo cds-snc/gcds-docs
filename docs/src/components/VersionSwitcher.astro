@@ -1,0 +1,115 @@
+---
+import versionConfig from "../routing/versioned/version-config.json";
+import { getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
+
+type PackageType = "component" | "css-shortcuts" | "tokens";
+
+interface Props {
+  package: PackageType;
+  value?: string;
+}
+
+const { package: packageName, value } = Astro.props as Props;
+
+// Maps the external prop value to the matching section in version-config.json.
+const packageToContentDir: Record<PackageType, string> = {
+  component: "components",
+  "css-shortcuts": "css-shortcuts",
+  tokens: "tokens",
+};
+
+// Find the config section for this package and sort versions newest -> oldest.
+const section = versionConfig.sections.find(
+  (s) => s.contentDir === packageToContentDir[packageName],
+);
+const versions = (section?.versions ?? []).slice().sort((a, b) =>
+  b.localeCompare(a, undefined, { numeric: true }),
+);
+// The first item after sorting is treated as the latest version.
+const latestVersion = versions[0];
+const selectedVersion = value ?? latestVersion;
+
+const pathSegments = getPathParts(Astro.url.pathname);
+const localeSegment = resolveLocaleFromPathname(Astro.url.pathname);
+const sectionSegment = pathSegments[1] ?? section?.routeKey ?? "components";
+const hasVersionInPath = /^\d+\.\d+\.\d+$/.test(pathSegments[2] ?? "");
+const pageSlug = hasVersionInPath
+  ? pathSegments.slice(3).join("/")
+  : pathSegments.slice(2).join("/");
+---
+<div class="version-switcher">
+  <span class="version-switcher__label">Version:</span>
+  <gcds-select
+    label="Version"
+    hide-label
+    name={`${packageName}-version`}
+    data-version-switcher
+    data-locale={localeSegment}
+    data-section={sectionSegment}
+    data-page-slug={pageSlug}
+  >
+    {versions.map((version) => (
+      <option value={version} selected={version === selectedVersion}>
+        {version === latestVersion ? `${version} (latest)` : version}
+      </option>
+    ))}
+  </gcds-select>
+</div>
+
+<style>
+  .version-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .version-switcher__label {
+    font-weight: 700;
+    line-height: 1;
+    transform: translateY(-8px);
+    white-space: nowrap;
+  }
+</style>
+
+<script is:inline>
+  const switchers = document.querySelectorAll("gcds-select[data-version-switcher]");
+
+  for (const switcher of switchers) {
+    if (switcher.dataset.bound === "true") {
+      continue;
+    }
+
+    switcher.dataset.bound = "true";
+
+    const redirectToVersion = (selected) => {
+      if (!selected) {
+        return;
+      }
+
+      const locale = switcher.dataset.locale;
+      const section = switcher.dataset.section;
+      const slug = switcher.dataset.pageSlug;
+
+      if (!locale || !section) {
+        return;
+      }
+
+      const nextPath = slug
+        ? `/${locale}/${section}/${selected}/${slug}`
+        : `/${locale}/${section}/${selected}`;
+
+      if (window.location.pathname !== nextPath) {
+        window.location.assign(nextPath);
+      }
+    };
+
+    switcher.addEventListener("change", () => {
+      redirectToVersion(switcher.value);
+    });
+
+    switcher.addEventListener("gcdsChange", (event) => {
+      redirectToVersion(event?.detail?.value ?? switcher.value);
+    });
+  }
+</script>
+

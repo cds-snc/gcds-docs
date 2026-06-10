@@ -1,0 +1,22 @@
+---
+import { defaultLocale, routes, supportedLocales, type Locale } from '../i18n/config';
+import { buildLocalizedRoutePath } from '../utils/i18n';
+
+interface Props {
+  currentLocale: Locale;
+  routeKey: string;
+}
+
+const { currentLocale, routeKey } = Astro.props as Props;
+const otherLocale = supportedLocales.find((locale) => locale !== currentLocale) ?? defaultLocale;
+const href = buildLocalizedRoutePath(routeKey, otherLocale, routes);
+---
+
+<gcds-header
+  lang={currentLocale}
+  lang-href={href}
+  skip-to-href="#main-content"
+>
+  <gcds-search slot="search"></gcds-search>
+</gcds-header>
+

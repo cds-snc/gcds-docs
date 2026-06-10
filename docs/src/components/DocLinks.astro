@@ -1,0 +1,35 @@
+---
+
+const { figma, github } = Astro.props;
+---
+
+<ul class="doc-links d-flex flex-wrap gap-300 mb-450">
+  {github && (
+    <li>
+      <gcds-link external="" href={github}>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+          alt="GitHub logo"
+        />GitHub
+      </gcds-link>
+    </li>
+  )}
+  {figma && (
+    <li>
+      <gcds-link external="" href={figma}>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
+          alt="Figma logo"
+        />Figma
+      </gcds-link>
+    </li>
+  )}
+</ul>
+
+<style>
+  .doc-links img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline-end: var(--gcds-spacing-100);
+  }
+</style>

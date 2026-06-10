@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+import { Heading, Text } from '../../../components';
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Rédaction de documents"];
+const happy = true;
+---
+
+<BaseLayout pageTitle="À propos">
+    <Heading tag="h1">À propos de nous</Heading>
+    <Text>Cette page est un exemple de test et d'apprentissage créé avec Astro, montrant comment structurer et afficher des composants, transmettre des propriétés et utiliser la logique de base dans un fichier <code>.astro</code>. Voici un aperçu du processus :</Text>
+
+    <Heading tag="h2">Mise en page et importations</Heading>
+    <Text>La page importe un composant de mise en page personnalisé <code>BaseLayout</code> et y intègre tout le contenu, en définissant les propriétés <code>pageTitle</code> et <code>locale</code> comme propriétés.</Text>
+    <Text>Elle importe également les composants <code>Heading</code> et <code>Text</code> pour le rendu sémantique et stylisé du titre et du texte.</Text>
+
+    <Heading tag="h2">Configuration des données</Heading>
+    <Text>Plusieurs variables sont déclarées à l'aide de la section frontmatter d'Astro (<code>---</code> section):</Text>
+    <Text>Compétences : Un tableau de chaînes représentant les compétences techniques est généré dynamiquement à partir du tableau de compétences à l'aide de <code>.map()</code> :</Text>
+    <p class="mb-300">
+        {skills.map((skill, index) => (
+                <>
+                    <span>{skill}</span>
+                    {index !== skills.length - 1 && ', '}
+                </>
+        ))}
+    </p>
+
+    <Text>Booléen <code>happy</code> utilisé pour contrôler le rendu conditionnel :</Text>
+    {happy && <Text>Je suis ravi d'apprendre Astro !</Text>}
+</BaseLayout>
