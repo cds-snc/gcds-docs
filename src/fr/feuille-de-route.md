@@ -49,7 +49,7 @@ Les prochaines priorités n’ont pas encore été définies; cette page sera mi
 </gcds-details>
 
 <gcds-details details-title="Recherche">
-<ul class="list-disc ps-400 mb-300">
+<ul class="list-disc ps-400">
 <li>Analyse comparative de la satisfaction de la clientèle avant le lancement</li>
 <li>6 séries de tests d’accessibilité réalisées avec Fable</li>
 <li>Tests de convivialité réalisés sur les icônes de Système de design GC</li>
