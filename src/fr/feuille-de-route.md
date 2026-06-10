@@ -58,7 +58,7 @@ Les prochaines priorités n’ont pas encore été définies; cette page sera mi
 </gcds-details>
 
 <gcds-details details-title="Sensibilisation et collaboration">
-<ul class="list-disc ps-400 mb-300">
+<ul class="list-disc ps-400">
 <li>Nous avons organisé 4 événements publics « Forum de Système de design GC » avec une participation totale de 978 personnes</li>
 <li>Nous avons organisé 6 séances de démonstration publiques avec une participation totale de 652 personnes</li>
 <li>Collaboration avec Ressources naturelles Canada sur le plugiciel MapML</li>
