@@ -268,7 +268,7 @@ Le format de la propriété ’validator’ sera légèrement différent selon l
 
 <gcds-details details-title="gcds-file-uploader">
 
-  <p>Format de la propriété <code>validator</code> pour <code>gcds-file-uploader<code> :</p>
+  <p>Format de la propriété <code>validator</code> pour <code>gcds-file-uploader</code> :</p>
 
   ```javascript
   const validator = () => {
