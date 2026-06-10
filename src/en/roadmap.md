@@ -37,13 +37,15 @@ Here's what we'll be focusing on in each quarter.
 Next priorities are yet to be defined, this page will be updated by end of Q1 (June 2026).
 
 ## Completed in 2025/2026
-<gcds-details details-title="Product">
+
+<gcds-details details-title="Product growth">
 <ul class="list-disc ps-400 mb-300">
 <li>Launched GC Design System version 1.0, officially going live with semantic versioning</li>
 <li>Added CSS Shortcuts which allows applying GC Design System styles to HTML</li>
 <li>Aligned component properties, behaviours, and names between Figma and code to ensure consistency</li>
 <li>Improved onboarding flows for designers and developers with tailored guidance for installation and using Figma</li>
 <li>Added better validation support for form input components</li>
+</ul>
 </gcds-details>
 
 <gcds-details details-title="Research">
