@@ -291,7 +291,7 @@ The format of the validator property will be slightly different for different fo
 
 <gcds-details details-title="gcds-input, gcds-select, gcds-textarea, gcds-radios">
 
-  <p>The validation of <code>gcds-input</code>, <code>gcds-select</code>, <code>gcds-textarea</code>, <code>gcds-radios<code> follow the same pattern.</p>
+  <p>The validation of <code>gcds-input</code>, <code>gcds-select</code>, <code>gcds-textarea</code>, <code>gcds-radios</code> follow the same pattern.</p>
 
   <p>Format of the their respective validator:</p>
 
