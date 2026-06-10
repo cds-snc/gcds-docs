@@ -49,7 +49,7 @@ Next priorities are yet to be defined, this page will be updated by end of Q1 (J
 </gcds-details>
 
 <gcds-details details-title="Research">
-<ul class="list-disc ps-400 mb-300">
+<ul class="list-disc ps-400">
 <li>Benchmarked client satisfaction prior to going live</li>
 <li>Completed 6 rounds of accessibility testing with Fable</li>
 <li>Conducted usability testing of GC Design System icons</li>
