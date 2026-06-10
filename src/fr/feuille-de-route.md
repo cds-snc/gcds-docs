@@ -39,7 +39,7 @@ Les prochaines priorités n’ont pas encore été définies; cette page sera mi
 ## Réalisations en 2025-2026
 
 <gcds-details details-title="Croissance du produit">
-<ul class="list-disc ps-400 mb-300">
+<ul class="list-disc ps-400 ">
 <li>Lancement de la version 1.0 de Système de design GC, officiellement avec un contrôle sémantique des versions</li>
 <li>Ajout des Raccourcis CSS qui permettent d’appliquer les styles de Système de design au code HTML</li>
 <li>Harmonisation des propriétés, comportements et noms de composants entre Figma et le code pour assurer la cohérence</li>
