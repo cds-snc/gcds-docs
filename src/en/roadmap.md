@@ -14,136 +14,57 @@ eleventyNavigation:
 
 This roadmap shows planned work for GC Design System. While the system is stable and suitable for production use, improvements continue. You can use this roadmap to help you decide when adopting GC Design System makes sense for your service.
 
-## Themes for 2025/2026
+## Themes for 2026/2027
 
 <ol class="list-disc ps-400 mb-300">
-  <li>Increase trust in GC Design System to encourage adoption</li>
-  <li>Improve clarity in the strategy and direction of GC Design System</li>
-  <li>Increase collaboration with other teams and departments</li>
+  <li>Strengthen trust and reliability for GC Design System users</li>
+  <li>Reduce the cost required for teams to adopt GC Design System</li>
+  <li>Ensure continued support for real service needs across government</li>
 </ol>
 
 Here's what we'll be focusing on in each quarter.
 
-<gcds-details details-title="Quarter 1: April 2025 – June 2025">
+### Quarter 1: April to June 2026
+<ol class="list-disc ps-400 mb-300">
+  <li>Research, design, and development of a table component</li>
+  <li>Add coded examples and guidance to each component page</li>
+  <li>Add detailed validation guidance for adding custom validation to GC Design System form components</li>
+  <li>Develop a GC Design System plugin/extension for code display that will enable self-serve accessibility checks on components</li>
+  <li>Add the sign in button to the header component</li>
+</ol>
 
-#### Product
+### Upcoming quarters
+Next priorities are yet to be defined, this page will be updated by end of Q1 (June 2026).
 
-| Deliverable                                          | Status       |
-| ---------------------------------------------------- | ------------ |
-| Improve onboarding flow for developers               | ✅ Completed |
-| Improve onboarding flow for designers                | ✅ Completed |
-| Improve form input components with better validation | ✅ Completed |
+## Completed in 2025/2026
 
-#### Research
-
-| Activity                                 | Status       |
-| ---------------------------------------- | ------------ |
-| Usability of GC Design System Icons      | ✅ Completed |
-| General accessibility testing with Fable | ✅ Completed |
-| Support ticket analysis                  | ✅ Completed |
-
-#### Engagement and collaboration
-
-| Activity                                                                 | Status       |
-| ------------------------------------------------------------------------ | ------------ |
-| English and French demos                                                 | ✅ Completed |
-| Forum                                                                    | ✅ Completed |
-| Newsletter and blog posts                                                | ✅ Completed |
-| Digital Transformation Office on new Footer links                        | ✅ Completed |
-| Engage with the IT Accessibility Office for the next accessibility audit | ✅ Completed |
-| Explore Modal component from Department of Fisheries and Oceans          | ✅ Completed |
-
+<gcds-details details-title="Product growth">
+<ul class="list-disc ps-400">
+<li>Launched GC Design System version 1.0, officially going live with semantic versioning</li>
+<li>Added CSS Shortcuts which allows applying GC Design System styles to HTML</li>
+<li>Aligned component properties, behaviours, and names between Figma and code to ensure consistency</li>
+<li>Improved onboarding flows for designers and developers with tailored guidance for installation and using Figma</li>
+<li>Added better validation support for form input components</li>
+</ul>
 </gcds-details>
 
-<gcds-details details-title="Quarter 2: July 2025 – September 2025">
-
-#### Product
-
-| Deliverable             | Status       |
-| ----------------------- | ------------ |
-| Launch CSS Shortcuts v1 | ✅ Completed |
-| Security enhancements   | ✅ Completed |
-
-#### Research
-
-| Activity                                 | Status         |
-| ---------------------------------------- | -------------- |
-| Post launch analysis                     | ✅ Completed   |
-| Data table component research            | 🔄 In progress |
-| General accessibility testing with Fable | ✅ Completed   |
-| Support ticket analysis                  | ✅ Completed   |
-
-#### Engagement and collaboration
-
-| Activity                                                                                    | Status         |
-| ------------------------------------------------------------------------------------------- | -------------- |
-| English and French demos                                                                    | ✅ Completed   |
-| GC Design System Forum including a presentation from the Department of Fisheries and Oceans | ✅ Completed   |
-| Newsletter and blog posts                                                                   | ✅ Completed   |
-| Collaboration with National Resources Canada on MapML plugin                                | 🔄 In progress |
-| Collaboration with Department of Fisheries and Oceans on an Angular starter app             | 🔄 In progress |
-
+<gcds-details details-title="Research">
+<ul class="list-disc ps-400">
+<li>Benchmarked client satisfaction prior to going live</li>
+<li>Completed 6 rounds of accessibility testing with Fable</li>
+<li>Conducted usability testing of GC Design System icons</li>
+<li>Performed ongoing support ticket analysis</li>
+</ul>
 </gcds-details>
 
-<gcds-details details-title="Quarter 3: October 2025 – December 2025">
-
-#### Product
-
-| Deliverable                                                      | Status           |
-| ---------------------------------------------------------------- | ---------------- |
-| Exit alpha: go live                                              | ✅ Completed     |
-| Additional starter apps for React, Angular                       | 📅 Planned       |
-| Explore [Sa11y](https://sa11y.netlify.app/) accessibility plugin | 🔽 Deprioritized |
-
-#### Research
-
-| Activity                                 | Status           |
-| ---------------------------------------- | ---------------- |
-| Flexibility and customization needs      | 🔽 Deprioritized |
-| CSS Shortcuts usability                  | ✅ Completed     |
-| Support ticket analysis                  | ✅ Completed     |
-| General accessibility testing with Fable | ✅ Completed     |
-
-#### Engagement & Collaboration
-
-| Activity                                                                                                  | Status         |
-| --------------------------------------------------------------------------------------------------------- | -------------- |
-| English and French demos                                                                                  | ✅ Completed   |
-| GC Design System Forum                                                                                    | ✅ Completed   |
-| Newsletter and blog posts                                                                                 | ✅ Completed   |
-| Collaboration with Department of Fisheries and Oceans and Library and Archives Canada on .NET starter app | 🔄 In progress |
-
-</gcds-details>
-
-<gcds-details details-title="Quarter 4: January 2026 – March 2026">
-
-#### Product
-
-| Deliverable                                                                                              | Status           |
-| -------------------------------------------------------------------------------------------------------- | ---------------- |
-| Release Data table component                                                                             | 🔄 In progress   |
-| Additional component or pattern: Autocomplete or Modal (Department of Fisheries and Oceans contribution) | 🔽 Deprioritized |
-| Resolve priority blockers to adoption                                                                    | 🔄 In progress   |
-
-#### Research
-
-| Activity                                         | Status         |
-| ------------------------------------------------ | -------------- |
-| Design and a11y rationale                        | 📅 Planned     |
-| Flexibility and customization needs              | 📅 Planned     |
-| Onboarding validation                            | 📅 Planned     |
-| Data table component usability and accessibility | 🔄 In progress |
-| Support ticket analysis                          | 📅 Planned     |
-
-#### Engagement and collaboration
-
-| Activity                                                                            | Status     |
-| ----------------------------------------------------------------------------------- | ---------- |
-| English and French demos                                                            | 📅 Planned |
-| GC Design System Forum                                                              | 📅 Planned |
-| Newsletter and blog posts                                                           | 📅 Planned |
-| Collaboration with Digital Transformation Office on most used patterns of Canada.ca | 📅 Planned |
-
+<gcds-details details-title="Engagement and collaboration">
+<ul class="list-disc ps-400">
+<li>Delivered 4 public "GC Design System Forum" events with 978 total attendees</li>
+<li>Hosted 6 public demos with 652 total attendees</li>
+<li>Collaborated with Natural Resources Canada on the MapML plugin</li>
+<li>Added a testimonials page</li>
+<li>Added 3 GC Design System components into Adobe Experience Manager as part of the integration with Canada.ca</li>
+</ul>
 </gcds-details>
 
 ## Completed in 2024/2025
