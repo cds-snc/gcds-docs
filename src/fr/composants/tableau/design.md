@@ -19,7 +19,7 @@ date: 'git Last Modified'
     Le <strong>contrôle de lignes</strong> (facultatif) permet aux personnes de choisir le nombre de lignes à afficher par page.
   </li>
   <li>
-    L’<strong>état d’affichage</strong> (facultatif) indique la plage de lignes visibles et le nombre total de lignes.
+    L’<strong>état d’affichage</strong> indique la plage de lignes visibles et le nombre total de lignes.
   </li>
   <li>
     L’<strong>en-tête de colonne</strong> est un titre qui décrit les données de la colonne. Il sert aussi de déclencheur interactif pour trier les données.
