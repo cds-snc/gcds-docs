@@ -19,7 +19,7 @@ date: 'git Last Modified'
     The <strong>row control</strong> (optional) lets people set the number of rows displayed per page.
   </li>
   <li>
-    The <strong>display status</strong> (optional) shows the range of visible rows and the total number of rows.
+    The <strong>display status</strong> shows the range of visible rows and the total number of rows.
   </li>
   <li>
     The <strong>column header</strong> is a title that describes the column’s data. It also acts as an interactive triggre to sort the data.
