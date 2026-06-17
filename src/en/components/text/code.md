@@ -36,6 +36,7 @@ tags: ['textEN', 'code']
   - Words in other languages, including Latin.
   - Titles of publications, works of art, and mathematical and scientific material.
 - Use the `em` tag within the `gcds-text` component to emphasize specific words or phrases.
+- Use the HTML `code` element within the `gcds-text` component to wrap content that represents code. The `code` element is styled with the monospace typography token.
 
 <!-- ----- Examples ----- -->
 
