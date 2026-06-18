@@ -2802,15 +2802,16 @@ Aperçu du composant de texte
 </ul>
 <h3 id="utilisez-des-styles-de-texte-avec-prudence">Utilisez des styles de texte avec prudence</h3>
 <ul class="list-disc mb-300"><li>Ne soulignez que les liens.</li>
-<li>Utilisez le texte en caractères gras avec prudence.</li>
+<li>Limitez l'utilisation du texte en caractères gras.</li>
 <li>Évitez d'utiliser du texte en gras comme titre. Le titre est le composant accessible permettant d'identifier les sections de contenu.</li>
 <li>Pour le texte en caractères gras, utilisez la balise <code>strong</code> dans le composant <code>gcds-text</code> pour mettre en évidence les termes et souligner les points clés.</li>
-<li>Utilisez uniquement les caractères en italiques dans les cas suivants :<ul class="list-disc mb-300"><li>Références juridiques, comme la <em>Loi canadienne sur l'accessibilité</em>.</li>
+<li>Utilisez uniquement les caractères en italique dans les cas suivants :<ul class="list-disc mb-300"><li>Références juridiques, comme la <em>Loi canadienne sur l'accessibilité</em>.</li>
 <li>Mots dans d'autres langues, y compris le latin.</li>
 <li>Titres de publications, d'œuvres d'art et de matériel mathématique et scientifique.</li>
 </ul>
 </li>
 <li>Utilisez la balise <code>em</code> dans le composant <code>gcds-text</code> pour mettre l'accent sur des mots ou des phrases spécifiques.</li>
+<li>Utilisez l'élément HTML <code>code</code> dans le composant <code>gcds-text</code> pour entourer le contenu représentant du code. L'élément <code>code</code> utilise la typographie à espacement fixe (<em>monospace</em>).</li>
 </ul>
 <!-- ----- Examples ----- -->
 <p><div>
@@ -3170,7 +3171,7 @@ Emplacements (slots)
 
 
           <gcds-date-modified class="mb-300">
-            2026-06-16
+            2026-06-18
           </gcds-date-modified>
         </main>
       </gcds-grid>
