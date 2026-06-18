@@ -28,14 +28,15 @@ tags: ['textFR', 'code']
 ### Utilisez des styles de texte avec prudence
 
 - Ne soulignez que les liens.
-- Utilisez le texte en caractères gras avec prudence.
+- Limitez l'utilisation du texte en caractères gras.
 - Évitez d'utiliser du texte en gras comme titre. Le titre est le composant accessible permettant d'identifier les sections de contenu.
 - Pour le texte en caractères gras, utilisez la balise `strong` dans le composant `gcds-text` pour mettre en évidence les termes et souligner les points clés.
-- Utilisez uniquement les caractères en italiques dans les cas suivants :
+- Utilisez uniquement les caractères en italique dans les cas suivants :
   - Références juridiques, comme la _Loi canadienne sur l'accessibilité_.
   - Mots dans d'autres langues, y compris le latin.
   - Titres de publications, d'œuvres d'art et de matériel mathématique et scientifique.
 - Utilisez la balise `em` dans le composant `gcds-text` pour mettre l'accent sur des mots ou des phrases spécifiques.
+- Utilisez l'élément HTML `code` dans le composant `gcds-text` pour entourer le contenu représentant du code. L'élément `code` utilise la typographie à espacement fixe (_monospace_). 
 
 <!-- ----- Examples ----- -->
 

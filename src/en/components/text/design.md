@@ -40,6 +40,7 @@ Tip: To adopt a more human tone, think about explaining aloud to someone. How do
 
 - Set the text size based on the role of the content and product context.
 - Use regular text for most non-heading content. Regular text uses the default font size.
+- Only use small text for supporting information like captions or footnotes.
 
 ### Use text styling sparingly
 
@@ -52,3 +53,4 @@ Tip: To adopt a more human tone, think about explaining aloud to someone. How do
   - Legal reference, like the _Accessible Canada Act_.
   - Words in other languages, including Latin.
   - Titles of publications, works of art, and mathematical and scientific material.
+- Use monospace text for code, commands, file names, and other technical content that should be read or copied exactly.
