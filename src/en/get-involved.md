@@ -37,7 +37,7 @@ A growing community of government users helps shape GC Design System through the
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Register for the GC Design System Forum"
-    href="https://events.teams.microsoft.com/event/41217817-0550-4fd2-9fca-171b93076e98@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
+    href="https://events.teams.microsoft.com/event/36f50509-5284-4e92-b188-539b768e2941@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
     description="Register to our recurring Forum events to stay current with GC Design System, our partners and clients."
   ></gcds-card>
 </gcds-grid>
