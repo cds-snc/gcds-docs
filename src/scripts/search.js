@@ -100,6 +100,7 @@ if (searchTerm) {
     document.getElementById('results-count').append(resultsHeading);
 
     const totalPages = Math.ceil(results.length / pageSize);
+    index = Math.min(index, totalPages);
     let pageResults = results.slice(
       pageSize * (index - 1),
       pageSize * index
