@@ -26,7 +26,10 @@ pagefind.options({
 });
 
 const searchTerm = url.get('q');
-let index = url.get('page');
+let index = Number.parseInt(url.get('page') || '1', 10);
+if (!Number.isFinite(index) || index < 1) {
+  index = 1;
+}
 let lang = 'en';
 const pageSize = 10;
 
@@ -34,12 +37,8 @@ if (window.location.href.includes('/fr/')) {
   lang = 'fr';
 }
 
-if (!index) {
-  index = 1;
-}
-
 if (searchTerm) {
-  let results = {};
+  let results = [];
   // I realized we don't have a value property for gcds-search, want to add that
   // document.getElementById('searchbar').value = searchTerm;
   try {
@@ -88,7 +87,7 @@ if (searchTerm) {
   };
 
   const spinnerText = document.createElement('gcds-sr-only');
-  spinnerText.innerHTML = langObject[lang].loading;
+  spinnerText.textContent = langObject[lang].loading;
   resultSection.appendChild(spinnerText);
   resultSection.classList.add('results-loader');
 
@@ -97,13 +96,14 @@ if (searchTerm) {
     // Results heading
     let resultsHeading = document.createElement('gcds-heading');
     resultsHeading.setAttribute('tag', 'h2');
-    resultsHeading.innerHTML = langObject[lang].results;
+    resultsHeading.textContent = langObject[lang].results;
     document.getElementById('results-count').append(resultsHeading);
 
     const totalPages = Math.ceil(results.length / pageSize);
+    index = Math.min(index, totalPages);
     let pageResults = results.slice(
       pageSize * (index - 1),
-      pageSize * index + 1,
+      pageSize * index
     );
     const bulkResults = document.createElement('div');
 
@@ -165,7 +165,7 @@ function formatResult(result) {
     '--gcds-text-role-primary: var(--gcds-color-green-700);',
   );
   url.marginBottom = '100';
-  url.innerHTML = result.url;
+  url.textContent = result.url;
 
   let excerpt = document.createElement('gcds-text');
   excerpt.marginBottom = '75';
