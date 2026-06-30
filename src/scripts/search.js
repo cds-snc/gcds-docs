@@ -88,7 +88,7 @@ if (searchTerm) {
   };
 
   const spinnerText = document.createElement('gcds-sr-only');
-  spinnerText.innerHTML = langObject[lang].loading;
+  spinnerText.textContent = langObject[lang].loading;
   resultSection.appendChild(spinnerText);
   resultSection.classList.add('results-loader');
 
@@ -97,7 +97,7 @@ if (searchTerm) {
     // Results heading
     let resultsHeading = document.createElement('gcds-heading');
     resultsHeading.setAttribute('tag', 'h2');
-    resultsHeading.innerHTML = langObject[lang].results;
+    resultsHeading.textContent = langObject[lang].results;
     document.getElementById('results-count').append(resultsHeading);
 
     const totalPages = Math.ceil(results.length / pageSize);
@@ -165,7 +165,7 @@ function formatResult(result) {
     '--gcds-text-role-primary: var(--gcds-color-green-700);',
   );
   url.marginBottom = '100';
-  url.innerHTML = result.url;
+  url.textContent = result.url;
 
   let excerpt = document.createElement('gcds-text');
   excerpt.marginBottom = '75';
