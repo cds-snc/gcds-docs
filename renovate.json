@@ -9,6 +9,7 @@
       "matchPackageNames": [
         "@gcds-core/*"
       ],
+      "rangeStrategy": "bump",
       "groupName": "GCDS packages",
       "prPriority": 1,
       "automerge": false,
