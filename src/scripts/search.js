@@ -26,7 +26,10 @@ pagefind.options({
 });
 
 const searchTerm = url.get('q');
-let index = url.get('page');
+let index = Number.parseInt(url.get('page') || '1', 10);
+if (!Number.isFinite(index) || index < 1) {
+  index = 1;
+}
 let lang = 'en';
 const pageSize = 10;
 
@@ -34,12 +37,8 @@ if (window.location.href.includes('/fr/')) {
   lang = 'fr';
 }
 
-if (!index) {
-  index = 1;
-}
-
 if (searchTerm) {
-  let results = {};
+  let results = [];
   // I realized we don't have a value property for gcds-search, want to add that
   // document.getElementById('searchbar').value = searchTerm;
   try {
@@ -103,7 +102,7 @@ if (searchTerm) {
     const totalPages = Math.ceil(results.length / pageSize);
     let pageResults = results.slice(
       pageSize * (index - 1),
-      pageSize * index + 1,
+      pageSize * index
     );
     const bulkResults = document.createElement('div');
 
