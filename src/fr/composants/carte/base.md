@@ -9,7 +9,7 @@ tags: ['cardFR', 'header']
 
 _Autres noms : tuile, carte de contenu._
 
-La carte est un encadré contenant du contenu structuré et pratique sur un sujet unique.
+Une carte est un conteneur de navigation présentant du contenu structuré sur un sujet unique.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
