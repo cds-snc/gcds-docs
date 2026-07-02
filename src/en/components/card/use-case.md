@@ -26,7 +26,7 @@ Cards organize information on the same subject in a static box shaped like a pla
 Use a card to:
 
 - Group small pieces of related information as a unit.
-- Present bite-sized previews and summaries of information with a means to obtain more details elsewhere.
+- Present bite-sized previews and summaries of information with a link to navigate to more details elsewhere.
 - Support content discovery by creating more visual interest.
 
 Note: For Canada.ca, avoid using cards in place of the doormats with the templates for landing page and theme and topic page.
