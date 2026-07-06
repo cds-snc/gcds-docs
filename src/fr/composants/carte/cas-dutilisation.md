@@ -26,7 +26,7 @@ Les cartes permettent d'organiser des renseignements relatifs à un même sujet 
 Utilisez une carte pour :
 
 - Combiner de brèves informations apparentées.
-- Présenter de brefs aperçus et résumés informatifs, avec la possibilité d'en savoir plus ailleurs.
+- Présenter des aperçus et de brefs résumés informatifs avec un lien menant vers des renseignements plus détaillés.
 - Encourager la découverte de contenu en créant des éléments visuellement intéressants.
 
 Remarque : Pour Canada.ca, évitez d'utiliser des cartes au lieu du menu d'accueil thématique inclu dans les modèles de page d'accueil et de page de thème et de sujet.
