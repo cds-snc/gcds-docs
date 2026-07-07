@@ -1,4 +1,6 @@
-# Astro Starter Kit: Basics
+# TODO: Merge with existing docs readme
+
+## Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics
