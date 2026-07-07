@@ -1,5 +1,8 @@
 ---
 const tabs = ["Overview", "Examples"];
+// Default selected tab for the initial (SSR) render. The client script below
+// reconciles this with the value persisted in localStorage once JS runs.
+const defaultTab = "Overview";
 ---
 
 <div>
@@ -7,7 +10,7 @@ const tabs = ["Overview", "Examples"];
     {tabs.map((tab) => (
       <button
         type="button"
-        class={`tab ${"selectedTab" === tab ? "active" : ""}`}
+        class={`tab ${tab === defaultTab ? "active" : ""}`}
         id={`tab-${tab}`}
       >
         {tab}
