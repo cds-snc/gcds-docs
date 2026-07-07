@@ -7,6 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 
+// Matches a semantic version like "1.0.0" (used for version dirs and config).
+const SEMVER_PATTERN = /^\d+\.\d+\.\d+$/;
+
 class RouteValidator {
   constructor() {
     this.routeManifestPath = path.join(projectRoot, 'src', 'routing', 'route-manifest.json');
@@ -29,20 +32,21 @@ class RouteValidator {
   }
 
   /**
-   * Get candidate file paths for a given locale and slug
+   * Build candidate file paths for a slug under a given base directory.
+   * Shared by the non-versioned and versioned resolvers so both stay consistent.
    */
-  getCandidateFiles(locale, slugPath) {
+  buildCandidateFiles(baseDir, slugPath) {
     const fileBase = slugPath === '' ? 'index' : slugPath;
     const candidates = [
-      path.join(this.contentPagesRoot, locale, `${fileBase}.astro`),
-      path.join(this.contentPagesRoot, locale, `${fileBase}.mdx`)
+      path.join(baseDir, `${fileBase}.astro`),
+      path.join(baseDir, `${fileBase}.mdx`)
     ];
 
     // Support nested content folders like "start-to-use/index.mdx".
     if (fileBase !== 'index') {
       candidates.push(
-        path.join(this.contentPagesRoot, locale, fileBase, 'index.astro'),
-        path.join(this.contentPagesRoot, locale, fileBase, 'index.mdx')
+        path.join(baseDir, fileBase, 'index.astro'),
+        path.join(baseDir, fileBase, 'index.mdx')
       );
     }
 
@@ -50,18 +54,18 @@ class RouteValidator {
   }
 
   /**
+   * Get candidate file paths for a given locale and slug
+   */
+  getCandidateFiles(locale, slugPath) {
+    return this.buildCandidateFiles(path.join(this.contentPagesRoot, locale), slugPath);
+  }
+
+  /**
    * Get candidate versioned files for a locale + section + version + slug.
    */
   getVersionedCandidateFiles(locale, contentDir, version, slugPath) {
     const sectionRoot = path.join(this.versionedContentRoot, contentDir, version, locale);
-    const fileBase = slugPath === '' ? 'index' : slugPath;
-
-    return [
-      path.join(sectionRoot, `${fileBase}.astro`),
-      path.join(sectionRoot, `${fileBase}.mdx`),
-      path.join(sectionRoot, fileBase, 'index.astro'),
-      path.join(sectionRoot, fileBase, 'index.mdx')
-    ];
+    return this.buildCandidateFiles(sectionRoot, slugPath);
   }
 
   /**
@@ -102,7 +106,7 @@ class RouteValidator {
     try {
       const entries = await readdir(sectionPath, { withFileTypes: true });
       return entries
-        .filter((entry) => entry.isDirectory() && /^\d+\.\d+\.\d+$/.test(entry.name))
+        .filter((entry) => entry.isDirectory() && SEMVER_PATTERN.test(entry.name))
         .map((entry) => entry.name)
         .sort((a, b) => this.compareSemver(a, b));
     } catch {
@@ -215,7 +219,7 @@ class RouteValidator {
 
     for (const section of sections) {
       const versions = section.versions
-        .filter((version) => /^\d+\.\d+\.\d+$/.test(version))
+        .filter((version) => SEMVER_PATTERN.test(version))
         .sort((a, b) => this.compareSemver(a, b));
 
       if (versions.length === 0) {
@@ -398,12 +402,25 @@ class RouteValidator {
         ...versionedResult.notes
       ]
     });
+
+    // Only non-versioned routes are treated as hard failures for now. Versioned
+    // content is still being migrated, so its misses stay warnings until then.
+    return { missingNonVersioned: missingRoutes.length };
   }
 }
 
 const main = async () => {
   const validator = new RouteValidator();
-  await validator.validate();
+  const { missingNonVersioned } = await validator.validate();
+
+  if (missingNonVersioned > 0) {
+    console.error(
+      chalk.red('✖') +
+        chalk.bold.red(' [route-check] FAIL: ') +
+        chalk.red(`${missingNonVersioned} non-versioned route(s) are missing content files (see above).`)
+    );
+    process.exitCode = 1;
+  }
 };
 
 main().catch((error) => {
@@ -413,6 +430,7 @@ main().catch((error) => {
       chalk.red(`route validation failed to run`)
   );
   console.warn(chalk.gray(`   ${error.message}`));
+  process.exitCode = 1;
 });
 
 
