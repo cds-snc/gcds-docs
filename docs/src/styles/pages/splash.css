@@ -58,7 +58,6 @@
     margin: 0 0 var(--gcds-spacing-100);
     font-size: var(--gcds-font-text-small);
     font-weight: var(--gcds-text-weight-bold);
-    /*letter-spacing: var(--gcds-border-width-sm);*/
     text-transform: uppercase;
     color: var(--gcds-color-grayscale-800);
 }
