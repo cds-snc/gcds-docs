@@ -69,7 +69,9 @@ class RouteValidator {
    */
   joinUrlSegments(...segments) {
     return segments
-      .filter((segment) => typeof segment === 'string' && segment.length > 0)
+      .filter((segment) => typeof segment === 'string')
+      .map((segment) => segment.replace(/^\/+|\/+$/g, ''))
+      .filter((segment) => segment.length > 0)
       .join('/');
   }
 
@@ -161,9 +163,20 @@ class RouteValidator {
     }
   }
 
+  /**
+   * Resolve the stable, locale-independent key used to look an item up in
+   * itemVersionRules.
+   *
+   * Slugs differ across locales, so rules are keyed by the English slug
+   * (canonical), with an optional explicit `item.key` override.
+   */
+  itemRuleKey(item) {
+    return item?.key ?? this.localized(item?.slug, 'en');
+  }
+
   isItemExpectedInVersion(section, item, version) {
-    const itemKey = this.localized(item?.slug, 'en') || this.localized(item?.slug, 'fr');
-    const rule = section.itemRules?.[itemKey];
+    const itemKey = this.itemRuleKey(item);
+    const rule = itemKey ? section.itemRules?.[itemKey] : undefined;
     if (!rule) {
       return true;
     }
