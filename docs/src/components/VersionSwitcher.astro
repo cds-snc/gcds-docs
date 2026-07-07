@@ -22,6 +22,11 @@ const packageToContentDir: Record<PackageType, string> = {
 const section = versionConfig.sections.find(
   (s) => s.contentDir === packageToContentDir[packageName],
 );
+if (!section) {
+  console.warn(
+    `[VersionSwitcher] No version-config section found for package "${packageName}"; not rendering the switcher.`,
+  );
+}
 const versions = (section?.versions ?? []).slice().sort((a, b) =>
   b.localeCompare(a, undefined, { numeric: true }),
 );
@@ -37,23 +42,23 @@ const pageSlug = hasVersionInPath
   ? pathSegments.slice(3).join("/")
   : pathSegments.slice(2).join("/");
 ---
-<div class="version-switcher">
-  <span class="version-switcher__label">Version:</span>
-  <gcds-select
-    label="Version"
-    name={`${packageName}-version`}
-    data-version-switcher
-    data-locale={localeSegment}
-    data-section={sectionSegment}
-    data-page-slug={pageSlug}
-  >
-    {versions.map((version) => (
-      <option value={version} selected={version === selectedVersion}>
-        {version === latestVersion ? `${version} (latest)` : version}
-      </option>
-    ))}
-  </gcds-select>
-</div>
+{versions.length > 0 && (
+  <version-switcher-control class="version-switcher">
+    <gcds-select
+      label="Version"
+      name={`${packageName}-version`}
+      data-locale={localeSegment}
+      data-section={sectionSegment}
+      data-page-slug={pageSlug}
+    >
+      {versions.map((version) => (
+        <option value={version} selected={version === selectedVersion}>
+          {version === latestVersion ? `${version} (latest)` : version}
+        </option>
+      ))}
+    </gcds-select>
+  </version-switcher-control>
+)}
 
 <style>
   .version-switcher {
@@ -61,54 +66,61 @@ const pageSlug = hasVersionInPath
     align-items: center;
     gap: 0.5rem;
   }
-
-  .version-switcher__label {
-    font-weight: 700;
-    line-height: 1;
-    transform: translateY(-8px);
-    white-space: nowrap;
-  }
 </style>
 
-<script is:inline>
-  const switchers = document.querySelectorAll("gcds-select[data-version-switcher]");
+<script>
+  // Self-contained custom element: each switcher binds only its own
+  // gcds-select, so behaviour stays correct even with multiple instances.
+  class VersionSwitcherControl extends HTMLElement {
+    connectedCallback() {
+      // Guard against connectedCallback firing again on reconnect (e.g. View
+      // Transitions) so we don't stack duplicate event listeners.
+      if (this.dataset.bound === "true") {
+        return;
+      }
 
-  for (const switcher of switchers) {
-    if (switcher.dataset.bound === "true") {
-      continue;
+      const switcher = this.querySelector("gcds-select") as
+        | (HTMLElement & { value: string })
+        | null;
+      if (!switcher) {
+        return;
+      }
+
+      this.dataset.bound = "true";
+
+      const redirectToVersion = (selected?: string) => {
+        if (!selected) {
+          return;
+        }
+
+        const { locale, section, pageSlug: slug } = switcher.dataset;
+
+        if (!locale || !section) {
+          return;
+        }
+
+        const nextPath = slug
+          ? `/${locale}/${section}/${selected}/${slug}`
+          : `/${locale}/${section}/${selected}`;
+
+        if (window.location.pathname !== nextPath) {
+          window.location.assign(nextPath);
+        }
+      };
+
+      switcher.addEventListener("change", () => {
+        redirectToVersion(switcher.value);
+      });
+
+      switcher.addEventListener("gcdsChange", (event) => {
+        const detail = (event as CustomEvent<{ value?: string }>).detail;
+        redirectToVersion(detail?.value ?? switcher.value);
+      });
     }
+  }
 
-    switcher.dataset.bound = "true";
-
-    const redirectToVersion = (selected) => {
-      if (!selected) {
-        return;
-      }
-
-      const locale = switcher.dataset.locale;
-      const section = switcher.dataset.section;
-      const slug = switcher.dataset.pageSlug;
-
-      if (!locale || !section) {
-        return;
-      }
-
-      const nextPath = slug
-        ? `/${locale}/${section}/${selected}/${slug}`
-        : `/${locale}/${section}/${selected}`;
-
-      if (window.location.pathname !== nextPath) {
-        window.location.assign(nextPath);
-      }
-    };
-
-    switcher.addEventListener("change", () => {
-      redirectToVersion(switcher.value);
-    });
-
-    switcher.addEventListener("gcdsChange", (event) => {
-      redirectToVersion(event?.detail?.value ?? switcher.value);
-    });
+  if (!customElements.get("version-switcher-control")) {
+    customElements.define("version-switcher-control", VersionSwitcherControl);
   }
 </script>
 

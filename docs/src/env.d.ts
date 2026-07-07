@@ -6,5 +6,9 @@ declare namespace astroHTML.JSX {
     [tagName: `gcds-${string}`]: HTMLAttributes & {
       [attr: string]: unknown;
     };
+    // Local custom element defined in VersionSwitcher.astro.
+    "version-switcher-control": HTMLAttributes & {
+      [attr: string]: unknown;
+    };
   }
 }
