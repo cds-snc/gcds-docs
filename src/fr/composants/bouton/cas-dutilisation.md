@@ -19,6 +19,8 @@ date: 'git Last Modified'
 
 Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent de résoudre votre problème. Sélectionnez ensuite le meilleur sous-type, appelé «&nbsp;rôle du bouton&nbsp;», pour le cas d'utilisation dont vous avez besoin.
 
+## Problèmes résolus par les boutons
+
 Utilisez un bouton pour lancer une action, comme :
 
 - Démarrer une tâche ou un flux de travail.
@@ -45,16 +47,16 @@ Le type de bouton change le HTML pour effectuer une tâche précise. Choisissez 
 
 Utilisez le type «&nbsp;Bouton&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
-- Supprime, copie ou télécharge des renseignements;
-- Choisisse entre deux options;
+- Supprime, copie ou télécharge des renseignements.
+- Choisisse entre deux options.
 - Donne son consentement ou son accord.
 
 ### Type «&nbsp;Soumission&nbsp;»
 
 Utilisez le type «&nbsp;Soumission&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
-- Envoie une formulaire ou une requête.
-- Enregistre des renseignements;
+- Envoie un formulaire ou une requête.
+- Enregistre des renseignements.
 - Se connecte ou se déconnecte d'un compte.
 
 ### Type «&nbsp;Réinitialisation&nbsp;»
@@ -63,18 +65,20 @@ Utilisez le type «&nbsp;Réinitialisation&nbsp;» lorsque vous vous attendez à
 
 - Supprime les données saisies dans un formulaire.
 
+Conseil : Utilisez le type «&nbsp;Réinitialisation&nbsp;» avec parcimonie, puisqu'il s'agit d'une action destructive.
+
 ### Type «&nbsp;Lien&nbsp;»
 
 Utilisez le type «&nbsp;Lien&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
 - Se dirige vers une autre page.
-- Se dirige vers un site externe. Une icône de lien externe sera ajoutée après le lien.
+- Se dirige vers un site externe. Une icône de lien externe apparaît à la fin du lien.
 
 Remarque : Utilisez le [composant lien]({{ links.link }}) pour intégrer un lien dans le texte d'un paragraphe ou d'une barre de navigation.
 
 ## Choisissez le rôle du bouton
 
-Le rôle du bouton change son apparence afin de signaler visuellement l'action qui se produira. Choisissez le rôle qui correspond le mieux à l'action.
+Le rôle d'un bouton modifie son apparence pour indiquer visuellement l'action qu'il déclenche. Choisissez le rôle qui correspond le mieux à cette action.
 
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
@@ -85,25 +89,25 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
     <h3 class="mt-0">Bouton principal</h3>
     <ul class="list-disc mb-300">
       <li>Actions cruciales au sein d'un processus ou en tant que bouton par défaut.</li>
-      <li>Utiliser une seule fois par page.</li>
+      <li>À utiliser une seule fois par page.</li>
     </ul>
-    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite.</p>
+    <p>Remarque : Si une page comporte plusieurs appels à l'action principaux, il est difficile pour une personne de savoir quoi faire ensuite.</p>
   </div>
 </gcds-grid>
 <br/>
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
   {% componentPreview "Aperçu du Bouton de démarrage" "px-225 py-300" "mt-500" %}
-  <gcds-button button-role="start">Bouton de démarrage </gcds-button>
+  <gcds-button button-role="start">Bouton de démarrage</gcds-button>
   {% endcomponentPreview %}
   <div>
     <h3 class="mt-0">Bouton de démarrage</h3>
     <p>Anciennement le «&nbsp;bouton de super-tâche&nbsp;».</p>
     <ul class="list-disc mb-300">
-      <li>Le début d'une tâche ou d'un flux de travail. </li>
-      <li>Plus grand que les autres boutons; donc à utiliser seul et non à côté d'autres boutons.</li>
+      <li>Pour le début d'une tâche ou d'un flux de travail. </li>
+      <li>Plus grand que les autres boutons, donc à utiliser seul et non à côté d'autres boutons.</li>
       <li>À utiliser une seule fois sur une page.</li>
     </ul>
-    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite.</p>
+    <p>Conseil : Utilisez soit un bouton principal, soit un bouton de démarrage sur une même page, mais pas les deux.</p>
   </div>
 </gcds-grid>
 <br/>
@@ -128,10 +132,10 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
   <div>
     <h3 class="mt-0">Bouton «&nbsp;Danger&nbsp;»</h3>
     <ul class="list-disc mb-300">
-      <li>Pour signaler des actions conséquentes comme la suppression ou la réinitialisation de renseignements.</li>
-      <li>Les changements qui s'exécutent peuvent être difficiles à renverser.</li>
+      <li>Pour les actions importantes comme supprimer, effacer ou retirer des renseignements.</li>
+      <li>Pour les changements qui peuvent être difficiles à annuler.</li>
     </ul>
-    <p>Conseil : Pour les actions permanentes, confirmez deux fois l'action afin qu'une personne accepte explicitement de la poursuivre.</p>
+    <p>Conseil : Pour les actions permanentes, demandez une seconde confirmation afin qu'une personne accepte explicitement l'action avant qu'elle ne soit effectuée.</p>
   </div>
 </gcds-grid>
 </div>

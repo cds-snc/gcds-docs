@@ -24,10 +24,10 @@ Utilisez l’attribut petit bouton pour les actions lorsque l’espace est limit
 
 Remarque : La hauteur des petits boutons est conforme au niveau AA de la norme WCAG, mais pas au niveau AAA.
 
-### Utilisez le bouton désactivé avec discernement
+### Utilisez le bouton désactivé avec parcimonie
 
-- Utilisez le bouton désactivé de façon judicieuse afin d’indiquer qu’il faut faire quelque chose avant qu’une action puisse être prise.
-- Là où c’est possible, utilisez d’autres méthodes d’intervention comme un message d’erreur pour empêcher la soumission de formulaires incomplets.
+- Utilisez le bouton désactivé de façon limitée pour indiquer qu’une personne doit effectuer une action avant d'en lancer une autre.
+- Lorsque possible, privilégiez d'autres moyens, comme un message d’erreur, pour empêcher l'envoi d'un formulaire incomplet.
 
 <!-- ----- Examples ----- -->
 
@@ -46,7 +46,7 @@ Remarque : La hauteur des petits boutons est conforme au niveau AA de la norme W
 
 #### `button-id`
 
-L'attribut `button-id` précise le `id` du bouton.
+Utilisez `button-id` pour préciser le `id` du bouton.
 
 {% examplesPreview "100", "", "fr" %}
 <gcds-button id="submit-ei-application">
@@ -56,7 +56,7 @@ L'attribut `button-id` précise le `id` du bouton.
 
 #### `button-role`
 
-L'attribut `button-role` définit le style principal d'un bouton. Les options sont :
+Utilisez `button-role` pour définir le style principal d'un bouton. Choisissez parmi :
 
 - `primary` (par défaut)
 - `secondary`
@@ -74,7 +74,7 @@ L'attribut `button-role` définit le style principal d'un bouton. Les options so
 
 #### `disabled`
 
-L'attribut `disabled` est un `booléen` qui contrôle si un bouton est interactif ou non.
+Définissez `disabled` à `true` pour rendre le bouton non interactif. Par défaut, `disabled` est défini à `false`.
 
 {% examplesPreview "100", "", "fr" %}
 <gcds-button button-role="danger" disabled>
@@ -84,7 +84,7 @@ L'attribut `disabled` est un `booléen` qui contrôle si un bouton est interacti
 
 #### `name`
 
-L'attribut `name` précise le nom du bouton lors de l'envoi des données du formulaire. Il permet d'identifier quel bouton a déclenché l'envoi du formulaire, notamment lorsque plusieurs boutons sont présents dans un formulaire.
+Utilisez `name` pour préciser le nom du bouton lors de l'envoi des données du formulaire. Cet attribut permet d'identifier quel bouton a déclenché l'envoi, notamment lorsque plusieurs boutons sont présents dans un formulaire.
 
 {% examplesPreview "180", "", "fr" %}
 
@@ -96,7 +96,7 @@ L'attribut `name` précise le nom du bouton lors de l'envoi des données du form
 
 #### `size`
 
-L'attribut `size` définit la taille du bouton. Les options sont :
+Utilisez `size` pour définir la taille du bouton. Choisissez parmi :
 
 - `regular` (par défaut)
 - `small`
@@ -110,7 +110,7 @@ L'attribut `size` définit la taille du bouton. Les options sont :
 
 #### `type`
 
-L'attribut `type` définit la fonction du bouton. Les options sont :
+Utilisez `type` pour définir la fonction du bouton. Choisissez parmi :
 
 - `button` (par défaut)
 - `link`
@@ -123,12 +123,12 @@ L'attribut `type` définit la fonction du bouton. Les options sont :
 <gcds-button>Bouton</gcds-button>
 <gcds-button type="link">Lien</gcds-button>
 <gcds-button type="reset">Réinitialiser</gcds-button>
-<gcds-button type="submit"> Soumettre</gcds-button>
+<gcds-button type="submit">Soumettre</gcds-button>
 {% endexamplesPreview %}
 
 #### `value`
 
-L'attribut `value` définit les données envoyées au serveur lorsque le bouton est utilisé pour soumettre un formulaire. Cette valeur n'est transmise que si le bouton a un attribut `name` et que c'est lui qui a déclenché la soumission. Si plusieurs boutons submit sont présents, seul celui sur lequel l'utilisateur a cliqué envoie sa valeur.
+Utilisez `value` pour définir les données envoyées au serveur lorsque le bouton sert à soumettre un formulaire. Le bouton ne transmet cette valeur que s'il a un attribut `name` et que c'est lui qui a déclenché la soumission. Si plusieurs boutons `submit` sont présents, seul le bouton sélectionné envoie sa valeur.
 
 {% examplesPreview "180", "", "fr" %}
 
@@ -142,7 +142,7 @@ L'attribut `value` définit les données envoyées au serveur lorsque le bouton 
 
 #### `download`
 
-L'attribut `download` indique qu'activer le bouton téléchargera le fichier référencé par l'attribut `href`, plutôt que d'y naviguer.
+Utilisez `download` pour faire en sorte que le bouton télécharge le fichier référencé par l'attribut `href`, plutôt que d'y naviguer.
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
@@ -154,7 +154,7 @@ L'attribut `download` indique qu'activer le bouton téléchargera le fichier ré
 
 #### `href`
 
-L'attribut `href` définit la destination du lien.
+Utilisez `href` pour définir la destination du lien.
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
@@ -166,7 +166,7 @@ L'attribut `href` définit la destination du lien.
 
 #### `rel`
 
-L'attribut `rel` définit la relation entre le document actuel et le document lié. Il est souvent utilisé pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.
+Utilisez `rel` pour définir la relation entre le document actuel et le document lié. Utilisez-le pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
@@ -178,7 +178,7 @@ L'attribut `rel` définit la relation entre le document actuel et le document li
 
 #### `target`
 
-L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le lien dans le même contexte de navigation ou dans un nouvel onglet ou une nouvelle fenêtre.
+Utilisez `target` pour définir où s'ouvre le lien : dans le même contexte de navigation, ou dans un nouvel onglet ou une nouvelle fenêtre.
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
@@ -195,7 +195,7 @@ L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le
 
 #### `default`
 
-L'emplacement par défaut sert à ajouter le texte du libellé du bouton ou du lien.
+Utilisez l'emplacement par défaut pour ajouter le texte du bouton ou du lien.
 
 {% examplesPreview "100", "", "fr" %}
 <gcds-button>Soumettre</gcds-button>
