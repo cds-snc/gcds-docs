@@ -1,5 +1,5 @@
 .preview-container {
-  border: 1px solid var(--gcds-border-default);
+  border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
   margin-block-end: var(--gcds-spacing-300);
 }
 
