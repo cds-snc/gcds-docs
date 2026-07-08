@@ -2786,6 +2786,7 @@ Aperçu du composant de bouton
   
 
   <p>Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent de résoudre votre problème. Sélectionnez ensuite le meilleur sous-type, appelé « rôle du bouton », pour le cas d'utilisation dont vous avez besoin.</p>
+<h2 id="problemes-resolus-par-les-boutons">Problèmes résolus par les boutons</h2>
 <p>Utilisez un bouton pour lancer une action, comme :</p>
 <ul class="list-disc mb-300"><li>Démarrer une tâche ou un flux de travail.</li>
 <li>Soumettre, enregistrer ou supprimer des données de formulaire.</li>
@@ -2802,28 +2803,29 @@ Aperçu du composant de bouton
 <p>Le type de bouton change le HTML pour effectuer une tâche précise. Choisissez le type selon la fonction dont vous avez besoin.</p>
 <h3 id="type-nbspboutonnbsp">Type « Bouton »</h3>
 <p>Utilisez le type « Bouton » lorsque vous vous attendez à ce qu'une personne :</p>
-<ul class="list-disc mb-300"><li>Supprime, copie ou télécharge des renseignements;</li>
-<li>Choisisse entre deux options;</li>
+<ul class="list-disc mb-300"><li>Supprime, copie ou télécharge des renseignements.</li>
+<li>Choisisse entre deux options.</li>
 <li>Donne son consentement ou son accord.</li>
 </ul>
 <h3 id="type-nbspsoumissionnbsp">Type « Soumission »</h3>
 <p>Utilisez le type « Soumission » lorsque vous vous attendez à ce qu'une personne :</p>
-<ul class="list-disc mb-300"><li>Envoie une formulaire ou une requête.</li>
-<li>Enregistre des renseignements;</li>
+<ul class="list-disc mb-300"><li>Envoie un formulaire ou une requête.</li>
+<li>Enregistre des renseignements.</li>
 <li>Se connecte ou se déconnecte d'un compte.</li>
 </ul>
 <h3 id="type-nbspreinitialisationnbsp">Type « Réinitialisation »</h3>
 <p>Utilisez le type « Réinitialisation » lorsque vous vous attendez à ce qu'une personne :</p>
 <ul class="list-disc mb-300"><li>Supprime les données saisies dans un formulaire.</li>
 </ul>
+<p>Conseil : Utilisez le type « Réinitialisation » avec parcimonie, puisqu'il s'agit d'une action destructive.</p>
 <h3 id="type-nbspliennbsp">Type « Lien »</h3>
 <p>Utilisez le type « Lien » lorsque vous vous attendez à ce qu'une personne :</p>
 <ul class="list-disc mb-300"><li>Se dirige vers une autre page.</li>
-<li>Se dirige vers un site externe. Une icône de lien externe sera ajoutée après le lien.</li>
+<li>Se dirige vers un site externe. Une icône de lien externe apparaît à la fin du lien.</li>
 </ul>
 <p>Remarque : Utilisez le <a href="/fr/composants/lien">composant lien</a> pour intégrer un lien dans le texte d'un paragraphe ou d'une barre de navigation.</p>
 <h2 id="choisissez-le-role-du-bouton">Choisissez le rôle du bouton</h2>
-<p>Le rôle du bouton change son apparence afin de signaler visuellement l'action qui se produira. Choisissez le rôle qui correspond le mieux à l'action.</p>
+<p>Le rôle d'un bouton modifie son apparence pour indiquer visuellement l'action qu'il déclenche. Choisissez le rôle qui correspond le mieux à cette action.</p>
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
 <p><div class="mt-500 b-sm b-default component-preview">
@@ -2838,9 +2840,9 @@ Aperçu du bouton principal
     <h3 class="mt-0">Bouton principal</h3>
     <ul class="list-disc mb-300">
       <li>Actions cruciales au sein d'un processus ou en tant que bouton par défaut.</li>
-      <li>Utiliser une seule fois par page.</li>
+      <li>À utiliser une seule fois par page.</li>
     </ul>
-    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite.</p>
+    <p>Remarque : Si une page comporte plusieurs appels à l'action principaux, il est difficile pour une personne de savoir quoi faire ensuite.</p>
   </div>
 </gcds-grid>
 <br/>
@@ -2850,18 +2852,18 @@ Aperçu du bouton principal
 Aperçu du Bouton de démarrage
 </p>
 <div class="px-225 py-300"></p>
-<p><gcds-button button-role="start">Bouton de démarrage </gcds-button></p>
+<p><gcds-button button-role="start">Bouton de démarrage</gcds-button></p>
 <p></div>
 </div></p>
   <div>
     <h3 class="mt-0">Bouton de démarrage</h3>
     <p>Anciennement le «&nbsp;bouton de super-tâche&nbsp;».</p>
     <ul class="list-disc mb-300">
-      <li>Le début d'une tâche ou d'un flux de travail. </li>
-      <li>Plus grand que les autres boutons; donc à utiliser seul et non à côté d'autres boutons.</li>
+      <li>Pour le début d'une tâche ou d'un flux de travail. </li>
+      <li>Plus grand que les autres boutons, donc à utiliser seul et non à côté d'autres boutons.</li>
       <li>À utiliser une seule fois sur une page.</li>
     </ul>
-    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite.</p>
+    <p>Conseil : Utilisez soit un bouton principal, soit un bouton de démarrage sur une même page, mais pas les deux.</p>
   </div>
 </gcds-grid>
 <br/>
@@ -2896,10 +2898,10 @@ Aperçu du bouton « Danger »
   <div>
     <h3 class="mt-0">Bouton «&nbsp;Danger&nbsp;»</h3>
     <ul class="list-disc mb-300">
-      <li>Pour signaler des actions conséquentes comme la suppression ou la réinitialisation de renseignements.</li>
-      <li>Les changements qui s'exécutent peuvent être difficiles à renverser.</li>
+      <li>Pour les actions importantes comme supprimer, effacer ou retirer des renseignements.</li>
+      <li>Pour les changements qui peuvent être difficiles à annuler.</li>
     </ul>
-    <p>Conseil : Pour les actions permanentes, confirmez deux fois l'action afin qu'une personne accepte explicitement de la poursuivre.</p>
+    <p>Conseil : Pour les actions permanentes, demandez une seconde confirmation afin qu'une personne accepte explicitement l'action avant qu'elle ne soit effectuée.</p>
   </div>
 </gcds-grid>
 </div>
@@ -2937,7 +2939,7 @@ Aperçu du bouton « Danger »
 
 
           <gcds-date-modified class="mb-300">
-            2026-07-06
+            2026-07-08
           </gcds-date-modified>
         </main>
       </gcds-grid>

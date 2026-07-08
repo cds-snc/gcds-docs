@@ -2819,7 +2819,7 @@ Optional attributes
 <gcds-text>These attributes allow you to customize or extend the component’s behaviour and presentation.</gcds-text>
 </div></p>
 <h4 id="buttonid"><code>button-id</code></h4>
-<p>The <code>button-id</code> attribute specifies the <code>id</code> for a button.</p>
+<p>Use <code>button-id</code> to set the <code>id</code> for a button.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2856,7 +2856,7 @@ Optional attributes
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="buttonrole"><code>button-role</code></h4>
-<p>The <code>button-role</code> attribute sets the main style for a button. The available options are:</p>
+<p>Use <code>button-role</code> to set the main style for a button. Choose from:</p>
 <ul class="list-disc mb-300"><li><code>primary</code> (default)</li>
 <li><code>secondary</code></li>
 <li><code>danger</code></li>
@@ -2900,7 +2900,7 @@ Optional attributes
 &lt;gcds-button button-role=&quot;danger&quot;&gt;Delete&lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="disabled"><code>disabled</code></h4>
-<p>The <code>disabled</code> attribute is a <code>boolean</code> that controls whether a button is interactive or not.</p>
+<p>Set <code>disabled</code> to <code>true</code> to make the button non-interactive. By default, <code>disabled</code> is set to <code>false</code>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2937,7 +2937,7 @@ Optional attributes
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="name"><code>name</code></h4>
-<p>The <code>name</code> attribute specifies the name of the button when submitting form data. It is useful for identifying which button triggered a form submission, especially when multiple buttons exist in a form.</p>
+<p>Use <code>name</code> to specify the name of the button when submitting form data. This attribute helps identify which button triggered a form submission, especially when multiple buttons exist in a form.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2975,7 +2975,7 @@ Optional attributes
 &lt;/form&gt;</code></pre>
 </div></p>
 <h4 id="size"><code>size</code></h4>
-<p>The <code>size</code> attribute sets the button size. The available options are:</p>
+<p>Use <code>size</code> to set the button size. Choose from:</p>
 <ul class="list-disc mb-300"><li><code>regular</code> (default)</li>
 <li><code>small</code></li>
 </ul>
@@ -3015,7 +3015,7 @@ Optional attributes
 &lt;gcds-button size=&quot;small&quot;&gt;Small size&lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="type"><code>type</code></h4>
-<p>The <code>type</code> attribute defines the button's function. The available options are:</p>
+<p>Use <code>type</code> to define the button's function. Choose from:</p>
 <ul class="list-disc mb-300"><li><code>button</code> (default)</li>
 <li><code>link</code></li>
 <li><code>reset</code></li>
@@ -3059,7 +3059,7 @@ Optional attributes
 &lt;gcds-button type=&quot;submit&quot;&gt;Submit&lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="value"><code>value</code></h4>
-<p>The <code>value</code> attribute defines the data that will be sent to the server when the button is used to submit a form. This <code>value</code> is only included if the button has a <code>name</code> attribute and was the one that triggered the submission. If multiple submit buttons exist, only the clicked one sends its value.</p>
+<p>Use <code>value</code> to define the data sent to the server when the button submits a form. The button only sends this <code>value</code> if it has a <code>name</code> attribute and if it triggered the submission. If multiple submit buttons exist, only the clicked button sends its value.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -3098,7 +3098,7 @@ Optional attributes
 </div></p>
 <!-- Optional for links section -->
 <h4 id="download"><code>download</code></h4>
-<p>The <code>download</code> attribute specifies that activating the button will download the file referenced by the <code>href</code> attribute, rather than navigating to it.</p>
+<p>Use <code>download</code> to make the button download the file referenced by the <code>href</code> attribute, rather than navigate to it.</p>
 <p><strong>This attribute is only supported when the button <code>type</code> is set to <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3136,7 +3136,7 @@ Optional attributes
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="href"><code>href</code></h4>
-<p>The <code>href</code> attribute defines the destination of the link.</p>
+<p>Use <code>href</code> to define the destination of the link.</p>
 <p><strong>This attribute is only supported when the button <code>type</code> is set to <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3174,7 +3174,7 @@ Optional attributes
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="rel"><code>rel</code></h4>
-<p>The <code>rel</code> attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.</p>
+<p>Use <code>rel</code> to specify the relationship between the current document and the linked document. Use it for security and privacy purposes, especially when links open in a new tab or window.</p>
 <p><strong>This attribute is only supported when the button <code>type</code> is set to <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3212,7 +3212,7 @@ Optional attributes
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="target"><code>target</code></h4>
-<p>The <code>target</code> attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.</p>
+<p>Use <code>target</code> to specify where the linked resource opens: in the same browsing context, or in a new tab or window.</p>
 <p><strong>This attribute is only supported when the button <code>type</code> is set to <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3257,7 +3257,7 @@ Slots
 <gcds-text>The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.</gcds-text>
 </div></p>
 <h4 id="default"><code>default</code></h4>
-<p>The <code>default</code> slot is for adding the button or link label text.</p>
+<p>Use the <code>default</code> slot to add the button or link label text.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -3348,7 +3348,7 @@ Slots
 
 
           <gcds-date-modified class="mb-300">
-            2026-07-06
+            2026-07-08
           </gcds-date-modified>
         </main>
       </gcds-grid>

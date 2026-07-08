@@ -2796,9 +2796,9 @@ Aperçu du composant de bouton
 <h3 id="selectionnez-la-bonne-taille">Sélectionnez la bonne taille</h3>
 <p>Utilisez l’attribut petit bouton pour les actions lorsque l’espace est limité.</p>
 <p>Remarque : La hauteur des petits boutons est conforme au niveau AA de la norme WCAG, mais pas au niveau AAA.</p>
-<h3 id="utilisez-le-bouton-desactive-avec-discernement">Utilisez le bouton désactivé avec discernement</h3>
-<ul class="list-disc mb-300"><li>Utilisez le bouton désactivé de façon judicieuse afin d’indiquer qu’il faut faire quelque chose avant qu’une action puisse être prise.</li>
-<li>Là où c’est possible, utilisez d’autres méthodes d’intervention comme un message d’erreur pour empêcher la soumission de formulaires incomplets.</li>
+<h3 id="utilisez-le-bouton-desactive-avec-parcimonie">Utilisez le bouton désactivé avec parcimonie</h3>
+<ul class="list-disc mb-300"><li>Utilisez le bouton désactivé de façon limitée pour indiquer qu’une personne doit effectuer une action avant d'en lancer une autre.</li>
+<li>Lorsque possible, privilégiez d'autres moyens, comme un message d’erreur, pour empêcher l'envoi d'un formulaire incomplet.</li>
 </ul>
 <!-- ----- Examples ----- -->
 <p><div>
@@ -2819,7 +2819,7 @@ Attributs facultatifs
 <gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
 </div></p>
 <h4 id="buttonid"><code>button-id</code></h4>
-<p>L'attribut <code>button-id</code> précise le <code>id</code> du bouton.</p>
+<p>Utilisez <code>button-id</code> pour préciser le <code>id</code> du bouton.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2856,7 +2856,7 @@ Attributs facultatifs
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="buttonrole"><code>button-role</code></h4>
-<p>L'attribut <code>button-role</code> définit le style principal d'un bouton. Les options sont :</p>
+<p>Utilisez <code>button-role</code> pour définir le style principal d'un bouton. Choisissez parmi :</p>
 <ul class="list-disc mb-300"><li><code>primary</code> (par défaut)</li>
 <li><code>secondary</code></li>
 <li><code>danger</code></li>
@@ -2900,7 +2900,7 @@ Attributs facultatifs
 &lt;gcds-button button-role=&quot;danger&quot;&gt;Supprimer&lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="disabled"><code>disabled</code></h4>
-<p>L'attribut <code>disabled</code> est un <code>booléen</code> qui contrôle si un bouton est interactif ou non.</p>
+<p>Définissez <code>disabled</code> à <code>true</code> pour rendre le bouton non interactif. Par défaut, <code>disabled</code> est défini à <code>false</code>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2937,7 +2937,7 @@ Attributs facultatifs
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="name"><code>name</code></h4>
-<p>L'attribut <code>name</code> précise le nom du bouton lors de l'envoi des données du formulaire. Il permet d'identifier quel bouton a déclenché l'envoi du formulaire, notamment lorsque plusieurs boutons sont présents dans un formulaire.</p>
+<p>Utilisez <code>name</code> pour préciser le nom du bouton lors de l'envoi des données du formulaire. Cet attribut permet d'identifier quel bouton a déclenché l'envoi, notamment lorsque plusieurs boutons sont présents dans un formulaire.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2975,7 +2975,7 @@ Attributs facultatifs
 &lt;/form&gt;</code></pre>
 </div></p>
 <h4 id="size"><code>size</code></h4>
-<p>L'attribut <code>size</code> définit la taille du bouton. Les options sont :</p>
+<p>Utilisez <code>size</code> pour définir la taille du bouton. Choisissez parmi :</p>
 <ul class="list-disc mb-300"><li><code>regular</code> (par défaut)</li>
 <li><code>small</code></li>
 </ul>
@@ -3015,7 +3015,7 @@ Attributs facultatifs
 &lt;gcds-button size=&quot;small&quot;&gt;Taille petite&lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="type"><code>type</code></h4>
-<p>L'attribut <code>type</code> définit la fonction du bouton. Les options sont :</p>
+<p>Utilisez <code>type</code> pour définir la fonction du bouton. Choisissez parmi :</p>
 <ul class="list-disc mb-300"><li><code>button</code> (par défaut)</li>
 <li><code>link</code></li>
 <li><code>reset</code></li>
@@ -3043,7 +3043,7 @@ Attributs facultatifs
           </head>
           <body class=&quot; shortcut-preview examples-preview&quot;>
             <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
-              <gcds-button>Bouton</gcds-button><gcds-button type=&quot;link&quot;>Lien</gcds-button><gcds-button type=&quot;reset&quot;>Réinitialiser</gcds-button><gcds-button type=&quot;submit&quot;> Soumettre</gcds-button>
+              <gcds-button>Bouton</gcds-button><gcds-button type=&quot;link&quot;>Lien</gcds-button><gcds-button type=&quot;reset&quot;>Réinitialiser</gcds-button><gcds-button type=&quot;submit&quot;>Soumettre</gcds-button>
             </div>
             <script>
               document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
@@ -3056,10 +3056,10 @@ Attributs facultatifs
 <pre class=""><code class="language-html font-size-text-small">&lt;gcds-button&gt;Bouton&lt;/gcds-button&gt;
 &lt;gcds-button type=&quot;link&quot;&gt;Lien&lt;/gcds-button&gt;
 &lt;gcds-button type=&quot;reset&quot;&gt;Réinitialiser&lt;/gcds-button&gt;
-&lt;gcds-button type=&quot;submit&quot;&gt; Soumettre&lt;/gcds-button&gt;</code></pre>
+&lt;gcds-button type=&quot;submit&quot;&gt;Soumettre&lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="value"><code>value</code></h4>
-<p>L'attribut <code>value</code> définit les données envoyées au serveur lorsque le bouton est utilisé pour soumettre un formulaire. Cette valeur n'est transmise que si le bouton a un attribut <code>name</code> et que c'est lui qui a déclenché la soumission. Si plusieurs boutons submit sont présents, seul celui sur lequel l'utilisateur a cliqué envoie sa valeur.</p>
+<p>Utilisez <code>value</code> pour définir les données envoyées au serveur lorsque le bouton sert à soumettre un formulaire. Le bouton ne transmet cette valeur que s'il a un attribut <code>name</code> et que c'est lui qui a déclenché la soumission. Si plusieurs boutons <code>submit</code> sont présents, seul le bouton sélectionné envoie sa valeur.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -3098,7 +3098,7 @@ Attributs facultatifs
 </div></p>
 <!-- Optional for links section -->
 <h4 id="download"><code>download</code></h4>
-<p>L'attribut <code>download</code> indique qu'activer le bouton téléchargera le fichier référencé par l'attribut <code>href</code>, plutôt que d'y naviguer.</p>
+<p>Utilisez <code>download</code> pour faire en sorte que le bouton télécharge le fichier référencé par l'attribut <code>href</code>, plutôt que d'y naviguer.</p>
 <p><strong>Cet attribut fonctionne uniquement lorsque le <code>type</code> du bouton est défini à <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3136,7 +3136,7 @@ Attributs facultatifs
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="href"><code>href</code></h4>
-<p>L'attribut <code>href</code> définit la destination du lien.</p>
+<p>Utilisez <code>href</code> pour définir la destination du lien.</p>
 <p><strong>Cet attribut fonctionne uniquement lorsque le <code>type</code> du bouton est défini à <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3174,7 +3174,7 @@ Attributs facultatifs
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="rel"><code>rel</code></h4>
-<p>L'attribut <code>rel</code> définit la relation entre le document actuel et le document lié. Il est souvent utilisé pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.</p>
+<p>Utilisez <code>rel</code> pour définir la relation entre le document actuel et le document lié. Utilisez-le pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.</p>
 <p><strong>Cet attribut fonctionne uniquement lorsque le <code>type</code> du bouton est défini à <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3212,7 +3212,7 @@ Attributs facultatifs
 &lt;/gcds-button&gt;</code></pre>
 </div></p>
 <h4 id="target"><code>target</code></h4>
-<p>L'attribut <code>target</code> définit où s'ouvre le lien. Par exemple, il peut ouvrir le lien dans le même contexte de navigation ou dans un nouvel onglet ou une nouvelle fenêtre.</p>
+<p>Utilisez <code>target</code> pour définir où s'ouvre le lien : dans le même contexte de navigation, ou dans un nouvel onglet ou une nouvelle fenêtre.</p>
 <p><strong>Cet attribut fonctionne uniquement lorsque le <code>type</code> du bouton est défini à <code>link</code></strong>.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
@@ -3257,7 +3257,7 @@ Emplacements (slots)
 <gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
 </div></p>
 <h4 id="default"><code>default</code></h4>
-<p>L'emplacement par défaut sert à ajouter le texte du libellé du bouton ou du lien.</p>
+<p>Utilisez l'emplacement par défaut pour ajouter le texte du bouton ou du lien.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -3348,7 +3348,7 @@ Emplacements (slots)
 
 
           <gcds-date-modified class="mb-300">
-            2026-07-06
+            2026-07-08
           </gcds-date-modified>
         </main>
       </gcds-grid>
