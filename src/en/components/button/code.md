@@ -46,7 +46,7 @@ Note: The height of small buttons is WCAG AA compliant, but not AAA compliant.
 
 #### `button-id`
 
-The `button-id` attribute specifies the `id` for a button.
+Use `button-id` to set the `id` for a button.
 
 {% examplesPreview %}
 <gcds-button id="submit-ei-application">
@@ -56,7 +56,7 @@ The `button-id` attribute specifies the `id` for a button.
 
 #### `button-role`
 
-The `button-role` attribute sets the main style for a button. The available options are:
+Use `button-role` to set the main style for a button. Choose from:
 
 - `primary` (default)
 - `secondary`
@@ -74,7 +74,7 @@ The `button-role` attribute sets the main style for a button. The available opti
 
 #### `disabled`
 
-The `disabled` attribute is a `boolean` that controls whether a button is interactive or not.
+Set `disabled` to `true` to make the button non-interactive. By default, `disabled` is set to `false`.
 
 {% examplesPreview %}
 <gcds-button button-role="danger" disabled>
@@ -84,7 +84,7 @@ The `disabled` attribute is a `boolean` that controls whether a button is intera
 
 #### `name`
 
-The `name` attribute specifies the name of the button when submitting form data. It is useful for identifying which button triggered a form submission, especially when multiple buttons exist in a form.
+Use `name` to specify the name of the button when submitting form data. This attribute helps identify which button triggered a form submission, especially when multiple buttons exist in a form.
 
 {% examplesPreview "180" %}
 
@@ -96,7 +96,7 @@ The `name` attribute specifies the name of the button when submitting form data.
 
 #### `size`
 
-The `size` attribute sets the button size. The available options are:
+Use `size` to set the button size. Choose from:
 
 - `regular` (default)
 - `small`
@@ -110,7 +110,7 @@ The `size` attribute sets the button size. The available options are:
 
 #### `type`
 
-The `type` attribute defines the button's function. The available options are:
+Use `type` to define the button's function. Choose from:
 
 - `button` (default)
 - `link`
@@ -128,7 +128,7 @@ The `type` attribute defines the button's function. The available options are:
 
 #### `value`
 
-The `value` attribute defines the data that will be sent to the server when the button is used to submit a form. This `value` is only included if the button has a `name` attribute and was the one that triggered the submission. If multiple submit buttons exist, only the clicked one sends its value.
+Use `value` to define the data sent to the server when the button submits a form. The button only sends this `value` if it has a `name` attribute and if it triggered the submission. If multiple submit buttons exist, only the clicked button sends its value.
 
 {% examplesPreview "180" %}
 
@@ -142,7 +142,7 @@ The `value` attribute defines the data that will be sent to the server when the 
 
 #### `download`
 
-The `download` attribute specifies that activating the button will download the file referenced by the `href` attribute, rather than navigating to it.
+Use `download` to make the button download the file referenced by the `href` attribute, rather than navigate to it.
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
@@ -154,7 +154,7 @@ The `download` attribute specifies that activating the button will download the 
 
 #### `href`
 
-The `href` attribute defines the destination of the link.
+Use `href` to define the destination of the link.
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
@@ -166,7 +166,7 @@ The `href` attribute defines the destination of the link.
 
 #### `rel`
 
-The `rel` attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.
+Use `rel` to specify the relationship between the current document and the linked document. Use it for security and privacy purposes, especially when links open in a new tab or window.
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
@@ -178,7 +178,7 @@ The `rel` attribute specifies the relationship between the current document and 
 
 #### `target`
 
-The `target` attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.
+Use `target` to specify where the linked resource opens: in the same browsing context, or in a new tab or window.
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
@@ -195,7 +195,7 @@ The `target` attribute specifies where the linked resource is opened. For exampl
 
 #### `default`
 
-The `default` slot is for adding the button or link label text.
+Use the `default` slot to add the button or link label text.
 
 {% examplesPreview %}
 <gcds-button>Submit</gcds-button>
