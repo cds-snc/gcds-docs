@@ -74,6 +74,15 @@ const buildVersionedCandidateKeys = (locale: string, slugPath: string) => {
 };
 
 export function getStaticPaths() {
+  // TODO(routing dedup): these helpers intentionally duplicate the module-scope
+  // ones (isSemver, compareSemver, getLatestVersion, toSlugPartsFromFileBase,
+  // the section maps). They can't just be hoisted — Astro extracts
+  // getStaticPaths() into an isolated prerender chunk that does NOT include
+  // module-scope frontmatter consts, so referencing them fails the build
+  // ("<name> is not defined"). To dedup properly, move the pure logic into an
+  // importable module (e.g. src/utils/routing.ts) and import it in both places;
+  // imports survive the extraction. The import.meta.glob calls must stay local
+  // (glob patterns are resolved relative to this file).
   const contentPagesPath = '../../content/pages';
   const versionedContentPath = '../../content/versioned';
   const staticPageModules = import.meta.glob('../../content/pages/**/*.{astro,mdx}', { eager: true });
