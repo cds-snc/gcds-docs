@@ -59,6 +59,7 @@
     "sideNav": "/en/components/side-navigation",
     "signature": "/en/components/signature",
     "stepper": "/en/components/stepper",
+    "table": "/en/components/table",
     "text": "/en/components/text",
     "textarea": "/en/components/textarea",
     "topNav": "/en/components/top-navigation",
@@ -152,6 +153,8 @@
     "shortcutsVisibility": "/en/css-shortcuts/visibility",
     "shortcutsWordBreak": "/en/css-shortcuts/word-break",
 
+    "formValidation": "/en/components/validate-form-components",
+
     "figma": "https://www.figma.com/community/file/1128687821123298228",
     "figmaAdd": "https://help.figma.com/hc/en-us/articles/1500008731201-Add-or-remove-a-library-from-a-design-file",
     "figmaCopy": "https://help.figma.com/hc/en-us/articles/360038510873-Duplicate-Community-files#:~:text=about%20saving%20files%20%E2%86%92-,Duplicate%20files,-Duplicate%20a%20file",
@@ -192,6 +195,8 @@
     "githubCompsIssues": "https://github.com/cds-snc/gcds-components/issues/new/choose",
     "githubCompsPriority": "https://github.com/cds-snc/gcds-components/issues/new?assignees=&labels=&projects=&template=contributions.yml&title=contribution%3A+",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",
+    "githubFigmaReleases": "https://github.com/cds-snc/gcds-figma-library/releases",
+    "githubFigmaTokensReleases": "https://github.com/cds-snc/gcds-figma-tokens/releases",
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",

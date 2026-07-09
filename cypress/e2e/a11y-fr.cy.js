@@ -15,7 +15,7 @@ Object.keys(frLinks.links).forEach(key => {
   ) {
     let regex = /composants\/[a-z]/;
     const pageName = key.replace(/([A-Z])/g, ' $1');
-    if (regex.test(url)) {
+    if (regex.test(url) && !url.includes('valider')) {
       pagesFr.push({
         name: `${pageName} - use case`,
         url,
@@ -38,7 +38,7 @@ Object.keys(frLinks.links).forEach(key => {
 });
 
 describe(`A11Y test French documentation site`, () => {
-  after
+  after;
   for (const page of pagesFr) {
     it(`${page.name}: ${page.url}`, () => {
       cy.visit(page.url, { timeout: 30000 });

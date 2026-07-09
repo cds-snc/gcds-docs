@@ -37,7 +37,7 @@ A growing community of government users helps shape GC Design System through the
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Register for the GC Design System Forum"
-    href="https://events.teams.microsoft.com/event/5981a141-75bc-47d3-9050-03a63adb8cb1@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
+    href="https://events.teams.microsoft.com/event/36f50509-5284-4e92-b188-539b768e2941@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
     description="Register to our recurring Forum events to stay current with GC Design System, our partners and clients."
   ></gcds-card>
 </gcds-grid>
@@ -50,7 +50,24 @@ You can contribute to upcoming GC Design System work.
 
 We’re actively seeking contributions for the following items:
 
-- **Data tables** to organize and display large amounts of data in rows and columns.
+---
+
+### Components
+  - **Tag / Badge:** For categorizing and highlighting content, statuses, or metadata in a clear and consistent way.
+  - **Modal:** For interruptive interactions that require user attention, such as confirmations or important actions.
+  - **Alert:** For communicating system status, feedback, and important messages to users.
+  - **Tabs:** For organizing related content into sections within the same view.
+  - **Subway / On this page:** For helping users navigate longer pages or multi-step content with clear structure and orientation.
+  - **Autocomplete (Select):** For improving usability when selecting from long or complex lists.
+
+### Styles
+  - **More icons:** A consistent set of icons to support common actions and concepts across more GC services.
+  - **Colours:** Continued evolution of the colour system to support accessibility, flexibility, and clarity in different contexts.
+
+### Templates and getting started
+- **Page templates:** Reusable page structures for common service patterns to help teams get started quickly.
+- **Starter apps:** Reference implementations that show how to use GCDS in real environments and reduce setup time.
+- **Patterns:** Common interaction patterns and layouts that help teams build consistent, usable services faster.
 
 We’re also interested in user interactions that have a common application across GC services.
 
@@ -81,8 +98,6 @@ Submit your feature request directly in GitHub, with an <gcds-link href="{{ link
 <hr class="mt-600" />
 
 ## What else is coming soon
-
-### Upcoming components and templates
 
 More on our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>.
 

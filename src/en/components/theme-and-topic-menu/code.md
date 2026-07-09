@@ -6,9 +6,11 @@ tags: ['themeand-topic-menuEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a theme and topic menu
+## On this page
 
-Use the theme and topic menu to provide global navigation to Government of Canada sites.
+- [Coding and accessibility for theme and topic menu](#coding-and-accessibility-for-theme-and-topic-menu)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for theme and topic menu
 
@@ -17,6 +19,31 @@ Use the theme and topic menu to provide global navigation to Government of Canad
 Add the theme and topic menu directly to the <gcds-link href="{{ links.header }}">header</gcds-link> component by passing a child element with the `slot="menu"` attribute in the header. This will place the theme and topic menu in the header after the language toggle, signature, and search slots.
 
 **Note**: If applying the theme and topic menu to the front page of Canada.ca, use the `home` attribute to render with the correct styling.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Optional attributes](#section-optional)
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `home`
+
+The `home` attribute sets the homepage styling.
+
+{% examplesPreview %}
+<gcds-topic-menu home>
+</gcds-topic-menu>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

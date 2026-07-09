@@ -19,37 +19,38 @@ tags: ['textFR', 'design']
 
 ### Rédigez du contenu facile à lire en un coup d'oeil
 
-- Structurez le contenu de manière à placer les informations les plus importantes pour la tâche en premier.
+- Structurez le contenu de façon à placer d'abord l'information la plus importante pour accomplir la tâche.
 - Gardez le contenu bref et axé sur les tâches. Notre «&nbsp;besoin de dire&nbsp;» n'est pas égal au «&nbsp;besoin de savoir&nbsp;» d'un lecteur.
 - Supprimez les détails et les explications inutiles. Incluez uniquement les renseignements dont une personne a besoin.
-- Utilisez des phrases courtes qui communiquent une seule idée. Indiquez clairement le sujet de l'action dans chaque phrase.
-- Évitez le chargement frontal de contenu qui pourrait plutôt être placé là où une personne en a besoin. Plutôt que d'expliquer un processus, faites que le processus est plus facile à suivre et à comprendre.
+- Utilisez des phrases courtes qui expriment une seule idée. Indiquez clairement qui ou quoi effectue l'action dans chaque phrase.
+- Évitez de présenter trop tôt de l'information qui pourrait plutôt être placée là où une personne en a besoin. Au lieu d'expliquer un processus, rendez-le plus facile à suivre et à comprendre.
 
-Conseil : Demandez-vous si le message risque d'être interprété autrement.
+Conseil : Demandez-vous si le message pourrait être interprété autrement.
 
 ### Adoptez un ton humain
 
-- Utilisez le langage parlé par les personnes qui utilisent votre produit. Renseignez-vous sur eux et leur langage en lisant leurs demandes ou problèmes et en testant vos messages avec eux dans le cadre d'une recherche sur les utilisateurs.
-- Utilisez un langage simple et accessible, comme si vous décriviez la situation directement à la personne.
-- Autant que possible, remplacez la terminologie et le jargon du codage (code non valide, champ non reconnu, obligatoire et périphérique) par des termes plus simples.
-- S'ils doivent être utilisés, donnez une brève définition après l'utilisation du terme.
+- Utilisez le même langage que les personnes qui utilisent votre produit. Renseignez-vous sur elles et leur façon de s'exprimer en lisant leurs demandes ou problèmes et en testant vos messages avec elles dans le cadre de recherches auprès des utilisateurs.
+- Utilisez un langage simple et conversationnel, comme si vous décriviez la situation directement à la personne.
+- Autant que possible, remplacez le jargon et les termes technique, comme _code invalide_, _champ non reconnu_, et _obligatoire_ par des termes plus simples. Si vous devez les utiliser, fournissez une brève définition après le terme.
 - Utilisez la majuscule seulement en début de phrase et évitez les points d'exclamation.
 
-Conseil : Pour adopter un ton plus humain, faites comme si vous parliez à quelqu'un à voix haute. Que pensez-vous du contenu lorsque vous le prononcez de vive voix?
+Conseil : Pour adopter un ton plus humain, faites comme si vous parliez à quelqu'un à voix haute. Le contenu sonne-t-il naturellement lorsque vous le prononcez de vive voix?
 
 ### Choisissez la taille de texte
 
 - Définissez la taille du texte en fonction du rôle du contenu et du contexte du produit.
-- Utilisez du texte ordinaire pour la plupart du contenu qui n'est pas un titre. Le texte normal utilise la taille de police par défaut.
+- Utilisez le texte normal pour la plupart du contenu autre que les titres. Le texte normal utilise la taille de police par défaut.
+- Utiliser le petit texte uniquement pour les informations complémentaires, comme les légendes ou les notes de bas de page.
 
-### Utilisez des styles de texte avec prudence
+### Utilisez les styles de texte avec parcimonie
 
 - Ne soulignez que les liens.
-- Utilisez du texte en caractères gras plutôt qu'en italiques pour mettre en évidence des points clés ou des termes dans le contenu.
-- Limitez votre utilisation de caractères en gras pour éviter de compromettre la lisibilité et l'accessibilité.
-- Évitez d'utiliser du texte en gras comme titre. Le [titre]({{ links.heading }}) est le composant accessible permettant d'identifier les sections de contenu.
-- Évitez de mettre en italiques de gros blocs de texte, des paragraphes entiers ou de longs contenus. Le contenu en italiques est souvent difficile à lire pour les personnes ayant une déficience visuelle ou une déficience cognitive.
-- Utilisez uniquement les caractères en italiques dans les cas suivants :
+- Utilisez le gras plutôt que l'italique pour mettre en évidence des points importants ou pour faire ressortir des termes dans le contenu.
+- Limitez l'utilisation du gras pour préserver la lisibilité et l'accessibilité.
+- Évitez d'utiliser du texte en gras comme titre. Le [titre]({{ links.heading }}) est le composant accessible conçu pour identifier les sections de contenu.
+- Évitez d'utiliser l'italique pour de gros blocs de texte, des paragraphes entiers ou du contenu long. L'italique est souvent difficile à lire pour les personnes ayant une déficience visuelle ou un handicap cognitif.
+- Utilisez uniquement l'italique dans les cas suivants :
   - Références juridiques, comme la _Loi canadienne sur l'accessibilité_.
   - Mots dans d'autres langues, y compris le latin.
-  - Titres de publications, d'œuvres d'art et de matériel mathématique et scientifique.
+  - Titres de publications, d'œuvres d'art et de documents mathématiques ou scientifiques.
+- Utilisez le texte à espacement fixe (_monospace_) pour le code, les commandes, les noms de fichiers et tout autre contenu technique qui doit être lu ou copié tel quel.

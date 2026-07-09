@@ -14,139 +14,60 @@ eleventyNavigation:
 
 Cette feuille de route montre les travaux prévus pour Système de design GC. Bien que le système soit stable et adapté à la production, nous continuons à l’améliorer. Cette feuille de route peut vous être utile pour décider à quel moment l’adoption de Système de design GC conviendrait à votre service.
 
-## Thèmes pour 2025/2026
+## Thèmes pour 2026-2027
 
 <ol class="list-disc ps-400 mb-300">
-  <li>Accroître la confiance envers Système de design GC pour encourager son adoption</li>
-  <li>Améliorer la clarté dans la stratégie et la direction de Système de design GC</li>
-  <li>Accroître la collaboration avec d’autres équipes et ministères</li>
+  <li>Renforcer la confiance et la fiabilité des utilisateurs et utilisatrices de Système de design GC</li>
+  <li>Réduire les coûts requis pour que les équipes puissent adopter Système de design GC</li>
+  <li>Assurer un soutien continu pour les besoins réels en matière de services à l’échelle du gouvernement</li>
 </ol>
 
-Voici ce sur quoi nous nous concentrerons chaque trimestre.
+Voici sur quoi nous nous concentrerons chaque trimestre.
 
-<gcds-details details-title="1er trimestre : avril 2025 à juin 2025">
+### 1er trimestre : avril 2026 à juin 2026
+<ol class="list-disc ps-400 mb-300">
+  <li>Recherche, conception et développement d’un composant tableau</li>
+  <li>Ajout d’exemples codés et de conseils à chaque page de composant</li>
+  <li>Nouvelles directives détaillées pour l’ajout d’une fonction de validation personnalisée aux composants de formulaire offerts dans Système de design GC</li>
+  <li>Développement d’un plugiciel/d’une extension Système de design GC pour l’affichage du code qui permettra des vérifications d’accessibilité en libre-service sur les composants</li>
+  <li>Ajout d’un bouton d’ouverture de session au composant en-tête</li>
+</ol>
 
-#### Produits
+### Trimestres à venir
+Les prochaines priorités n’ont pas encore été définies; cette page sera mise à jour d’ici la fin du T1 (juin 2026).
 
-| Livrable                                                                          | État       |
-| --------------------------------------------------------------------------------- | ---------- |
-| Améliorer le processus d’intégration pour les personnes qui font du développement | ✅ Terminé |
-| Améliorer le processus d’intégration pour les personnes qui font de la conception | ✅ Terminé |
-| Améliorer les composants de saisie de formulaire avec une fonction de validation  | ✅ Terminé |
+## Réalisations en 2025-2026
 
-#### Recherche
-
-| Activité                                         | État       |
-| ------------------------------------------------ | ---------- |
-| Utilisabilité des icônes de Système de design GC | ✅ Terminé |
-| Tests d’accessibilité généralisés avec Fable     | ✅ Terminé |
-| Analyse des tickets de soutien                   | ✅ Terminé |
-
-#### Mobilisation et collaboration
-
-| Activité                                                                                       | État       |
-| ---------------------------------------------------------------------------------------------- | ---------- |
-| Démos en englais et français                                                                   | ✅ Terminé |
-| Forum de Système de design GC                                                                  | ✅ Terminé |
-| Infolettre et articles de blog                                                                 | ✅ Terminé |
-| Ajout du Bureau de la transformation numérique dans les nouveaux liens du pied de page         | ✅ Terminé |
-| Dialogue avec le Bureau de l’accessibilité des TI pour la prochaine évaluation d’accessibilité | ✅ Terminé |
-| Exploration du composant modal de Pêches et Océans Canada                                      | ✅ Terminé |
-
+<gcds-details details-title="Croissance du produit">
+<ul class="list-disc ps-400 ">
+<li>Lancement de la version 1.0 de Système de design GC, officiellement avec un contrôle sémantique des versions</li>
+<li>Ajout des Raccourcis CSS qui permettent d’appliquer les styles de Système de design au code HTML</li>
+<li>Harmonisation des propriétés, comportements et noms de composants entre Figma et le code pour assurer la cohérence</li>
+<li>Flux d’intégration améliorés pour les concepteur·rice·s et les développeur·euse·s avec des conseils personnalisés pour l’installation et l’utilisation de Figma</li>
+<li>Meilleure prise en charge de la validation pour les composants de saisie de formulaire</li>
+</ul>
 </gcds-details>
 
-<gcds-details details-title="2e trimestre : juillet 2025 à septembre 2025">
-
-#### Produit
-
-| Livrable                              | État       |
-| ------------------------------------- | ---------- |
-| Lancement de la v1 des Raccourcis CSS | ✅ Terminé |
-| Améliorations en matière de sécurité  | ✅ Terminé |
-
-#### Recherche
-
-| Activité                                      | État        |
-| --------------------------------------------- | ----------- |
-| Analyse post-production                       | ✅ Terminé  |
-| Recherche sur le composant Tableau de données | 🔄 En cours |
-| Tests d’accessibilité généralisés avec Fable  | ✅ Terminé  |
-| Analyse des tickets de soutien                | ✅ Terminé  |
-
-#### Mobilisation et collaboration
-
-| Activité                                                                           | État        |
-| ---------------------------------------------------------------------------------- | ----------- |
-| Démos en anglais et français                                                       | ✅ Terminé  |
-| Forum de Système de design GC incluant une présentation de Pêches et Océans Canada | ✅ Terminé  |
-| Infolettre et articles de blogue                                                   | ✅ Terminé  |
-| Collaboration avec Ressources naturelles Canada sur le plugiciel MapML             | 🔄 En cours |
-| Collaboration avec Pêches et Océans Canada sur l’application de démarrage Angular  | 🔄 En cours |
-
+<gcds-details details-title="Recherche">
+<ul class="list-disc ps-400">
+<li>Analyse comparative de la satisfaction de la clientèle avant le lancement</li>
+<li>6 séries de tests d’accessibilité réalisées avec Fable</li>
+<li>Tests de convivialité réalisés sur les icônes de Système de design GC</li>
+<li>Analyse continue des billets de soutien</li>
+</ul>
 </gcds-details>
 
-<gcds-details details-title="3e trimestre : octobre 2025 à décembre 2025">
-
-#### Produit
-
-| Livrable                                                        | État          |
-| --------------------------------------------------------------- | ------------- |
-| Sortie d’alpha: mise en production                              | ✅ Terminé    |
-| Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu      |
-| Explorer le plugiciel d’accessibilité Sa11y                     | 🔽 Dépriorisé |
-
-#### Recherche
-
-| Activité                                                 | État          |
-| -------------------------------------------------------- | ------------- |
-| Besoins en matière de flexibilité et de personnalisation | 🔽 Dépriorisé |
-| Utilisabilité des Raccourcis CSS                         | ✅ Terminé    |
-| Analyse des tickets de soutien                           | ✅ Terminé    |
-| Tests d’accessibilité généralisés avec Fable             | ✅ Terminé    |
-
-#### Mobilisation et collaboration
-
-| Activité                                                                                                          | État        |
-| ----------------------------------------------------------------------------------------------------------------- | ----------- |
-| Démos en anglais et français                                                                                      | ✅ Terminé  |
-| Forum de Système de design GC                                                                                     | ✅ Terminé  |
-| Infolettre et articles de blogue                                                                                  | ✅ Terminé  |
-| Collaboration avec Pêches et Océans Canada et Bibliothèque et Archives Canada sur l’application de démarrage .NET | 🔄 En cours |
-
+<gcds-details details-title="Sensibilisation et collaboration">
+<ul class="list-disc ps-400">
+<li>Nous avons organisé 4 événements publics « Forum de Système de design GC » avec une participation totale de 978 personnes</li>
+<li>Nous avons organisé 6 séances de démonstration publiques avec une participation totale de 652 personnes</li>
+<li>Collaboration avec Ressources naturelles Canada sur le plugiciel MapML</li>
+<li>Ajout d’une page de témoignages</li>
+<li>Ajout de 3 composants Système de design GC à Adobe Experience Manager dans le cadre de l’intégration avec Canada.ca</li>
+</ul>
 </gcds-details>
 
-<gcds-details details-title="4e trimestre : janvier 2026 à mars 2026">
-
-#### Produit
-
-| Livrable                                                                                                       | État          |
-| -------------------------------------------------------------------------------------------------------------- | ------------- |
-| Publication du composant Tableau de données                                                                    | 🔄 En cours   |
-| Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 🔽 Dépriorisé |
-| Résoudre les obstacles à l’adoption prioritaires                                                               | 🔄 En cours   |
-
-#### Recherche
-
-| Activité                                                      | État        |
-| ------------------------------------------------------------- | ----------- |
-| Présentation du raisonnement design et accessibilité          | 📅 Prévu    |
-| Besoins en matière de flexibilité et de personnalisation      | 📅 Prévu    |
-| Validation du processus d’intégration                         | 📅 Prévu    |
-| Composant Tableau de données : utilisabilité et accessibilité | 🔄 En cours |
-| Analyse des tickets de soutien                                | 📅 Prévu    |
-
-#### Mobilisation et collaboration
-
-| Activité                                                                                                   | État     |
-| ---------------------------------------------------------------------------------------------------------- | -------- |
-| Démos en anglais et français                                                                               | 📅 Prévu |
-| Forum de Système de design GC                                                                              | 📅 Prévu |
-| Infolettre et articles de blogue                                                                           | 📅 Prévu |
-| Collaboration avec le Bureau de la transformation numérique sur les modèles les plus utilisés de Canada.ca | 📅 Prévu |
-
-</gcds-details>
-
-## Réalisé en 2024/2025
+## Réalisations en 2024-2025
 
 <gcds-details details-title="Croissance du produit">
 <ul class="list-disc ps-400 mb-300">

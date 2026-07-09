@@ -6,9 +6,11 @@ tags: ['headingEN', 'code']
 # date: "git Last Modified"
 ---
 
-## Build a Heading
+## On this page
 
-Headings structure content by establishing levels of hierarchy that organize page content.
+- [Coding and accessibility for headings](#coding-and-accessibility-for-headings)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for headings
 
@@ -39,7 +41,101 @@ Heading levels follow a sequential, hierarchical order: higher levels have large
 - Maintain default spacing for a comfortable and accessible reading experience. These defaults create visual breaks and separation between different sections.
 - Keep spacing values to the following to maintain a visual balance across headings on a page:
   - Default `margin-bottom`: `300` for all
-  - Default `margin-top`: `0` for H1 and `600` for H2–3
+  - Default `margin-top`: `0` for H1 and `600` for H2–6
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `tag`
+
+The `tag` attribute sets the appropriate HTML heading element for the selected level.
+
+{% examplesPreview "170" %}
+<gcds-heading tag="h2">
+  Heading
+</gcds-heading>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `character-limit`
+
+The `character-limit` attribute defines the line length to a maximum number of characters per line for each heading level, ensuring a comfortable, accessible reading length.
+
+{% examplesPreview "170" %}
+<gcds-heading tag="h2" character-limit="false">
+  Heading
+</gcds-heading>
+{% endexamplesPreview %}
+
+#### `heading-role`
+
+The `heading-role` attribute sets the main style of the heading. The available options are:
+
+- `primary` (default)
+- `secondary`
+- `light`
+
+<!-- Force line break -->
+
+{% examplesPreview "170" %}
+<gcds-heading tag="h2" heading-role="secondary">
+  Heading
+</gcds-heading>
+{% endexamplesPreview %}
+
+#### `margin-bottom`
+
+The `margin-bottom` attribute sets a margin below the heading. The default `margin-bottom` is `300`.
+
+{% examplesPreview "200" %}
+<gcds-heading tag="h2" margin-bottom="600">
+  Heading
+</gcds-heading>
+{% endexamplesPreview %}
+
+#### `margin-top`
+
+The `margin-top` attribute sets a margin above the heading. The default `margin-top` for `h1` is set to `0`, while for `h2` to `h6` headings, it's `600`.
+
+{% examplesPreview "140" %}
+<gcds-heading tag="h2" margin-top="200">
+  Heading
+</gcds-heading>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for adding text to the heading.
+
+{% examplesPreview "170" %}
+<gcds-heading tag="h2">
+  Heading
+</gcds-heading>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

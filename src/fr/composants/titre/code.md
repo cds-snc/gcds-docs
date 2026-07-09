@@ -6,9 +6,11 @@ tags: ['headingFR', 'code']
 # date: "git Last Modified"
 ---
 
-## Créer un titre
+## Sur cette page
 
-Les titres établissent des niveaux hiérarchiques qui organisent le contenu d'une page.
+- [Codage et accessibilité du composant titre](#codage-et-accessibilite-du-composant-titre)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité du composant titre
 
@@ -39,7 +41,101 @@ Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux
 - Conservez l'espacement par défaut pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent des espaces visuels et des séparations entre les différentes sections.
 - Conservez les valeurs d'espacement suivantes pour maintenir un équilibre visuel entre les titres d'une page :
   - Par défaut `margin-bottom`: `300` pour tous les niveaux
-  - Par défaut `margin-top`: `0` pour H1 et `600` pour H2 et 3
+  - Par défaut `margin-top`: `0` pour H1 et `600` pour H2 à H6
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `tag`
+
+L'attribut `tag` définit l'élément de titre HTML approprié pour le niveau sélectionné.
+
+{% examplesPreview "170", "", "fr" %}
+<gcds-heading tag="h2">
+  Titre
+</gcds-heading>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `character-limit`
+
+L'attribut `character-limit` définit la longueur de ligne maximale en nombre de caractères pour chaque niveau de titre, assurant une longueur de lecture confortable et accessible.
+
+{% examplesPreview "170", "", "fr" %}
+<gcds-heading tag="h2" character-limit="false">
+  Titre
+</gcds-heading>
+{% endexamplesPreview %}
+
+#### `heading-role`
+
+L'attribut `heading-role` définit le style principal du titre. Les options sont :
+
+- `primary` (par défaut)
+- `secondary`
+- `light`
+
+<!-- Force line break -->
+
+{% examplesPreview "170", "", "fr" %}
+<gcds-heading tag="h2" heading-role="secondary">
+  Titre
+</gcds-heading>
+{% endexamplesPreview %}
+
+#### `margin-bottom`
+
+L'attribut `margin-bottom` définit la marge sous le titre. La valeur par défaut est `300`.
+
+{% examplesPreview "200", "", "fr" %}
+<gcds-heading tag="h2" margin-bottom="600">
+  Titre
+</gcds-heading>
+{% endexamplesPreview %}
+
+#### `margin-top`
+
+L'attribut `margin-top` définit la marge au-dessus du titre. La valeur par défaut est `0` pour `h1`, et `600` pour `h2` à `h6`.
+
+{% examplesPreview "140", "", "fr" %}
+<gcds-heading tag="h2" margin-top="200">
+  Titre
+</gcds-heading>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter du texte au titre.
+
+{% examplesPreview "170", "", "fr" %}
+<gcds-heading tag="h2">
+  Heading
+</gcds-heading>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

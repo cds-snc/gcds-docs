@@ -43,4 +43,4 @@ date: 'git Last Modified'
 
 Nous mettons à jour notre bibliothèque à mesure que nous ajoutons des composants ou améliorons leur fonctionnalité. Pour garder votre projet à jour avec les dernières conceptions, vous devrez également mettre à jour votre bibliothèque en suivant les étapes <strong>2. Copier</strong>, <strong>3. Publier</strong> et <strong>4. Ajouter</strong> ci-dessus.
 
-Vous pouvez toujours vérifier si vous avez la dernière version en visitant notre <gcds-link href="{{ links.figma }}" external> journal des modifications</gcds-link>. Pour recevoir des avis par courriel lorsque nous apportons des mises à jour à Système de design GC, <gcds-link href="{{ links.contactMailingList }}">inscrivez-vous à notre liste de diffusion</gcds-link>.
+Vous pouvez toujours vérifier si vous avez la dernière version en visitant notre <gcds-link href="{{ links.githubFigmaReleases }}" external> journal des modifications</gcds-link>. Pour recevoir des avis par courriel lorsque nous apportons des mises à jour à Système de design GC, <gcds-link href="{{ links.contactMailingList }}">inscrivez-vous à notre liste de diffusion</gcds-link>.

@@ -59,6 +59,7 @@
     "sideNav": "/fr/composants/barre-de-navigation-laterale",
     "signature": "/fr/composants/signature",
     "stepper": "/fr/composants/indicateur-detape",
+    "table": "/fr/composants/tableau",
     "text": "/fr/composants/texte",
     "textarea": "/fr/composants/zone-de-texte",
     "topNav": "/fr/composants/barre-de-navigation-superieure",
@@ -152,6 +153,8 @@
     "shortcutsVisibility": "/fr/raccourcis-css/visibilite",
     "shortcutsWordBreak": "/fr/raccourcis-css/saut-de-mot",
 
+    "formValidation": "/fr/composants/valider-les-composants-de-formulaire",
+
     "figma": "https://www.figma.com/community/file/1369337721343886324",
     "figmaAdd": "https://help-figma-com.translate.goog/hc/en-us/articles/1500008731201-Add-or-remove-a-library-from-a-design-file?_x_tr_sl=auto&_x_tr_tl=fr-CA&_x_tr_hl=en-US&_x_tr_pto=wapp",
     "figmaCopy": "https://help-figma-com.translate.goog/hc/en-us/articles/360038510873-Duplicate-Community-files?_x_tr_sl=auto&_x_tr_tl=fr&_x_tr_hl=en&_x_tr_pto=wapp#:~:text=about%20saving%20files%20%E2%86%92-,Duplicate%20files,-Duplicate%20a%20file",
@@ -192,6 +195,8 @@
     "githubCompsIssues": "https://github.com/cds-snc/gcds-components/issues/new/choose",
     "githubCompsPriority": "https://github.com/cds-snc/gcds-components/issues/new?assignees=&labels=&projects=&template=contributions.yml&title=contribution%3A+",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",
+    "githubFigmaReleases": "https://github.com/cds-snc/gcds-figma-library/releases",
+    "githubFigmaTokensReleases": "https://github.com/cds-snc/gcds-figma-tokens/releases",
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",

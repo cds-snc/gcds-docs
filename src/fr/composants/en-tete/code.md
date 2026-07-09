@@ -6,11 +6,13 @@ tags: ['headerFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un en-tête
+## Sur cette page
 
-Utilisez ce point de repère d'en-tête pour transmettre de l'information sur un service du gouvernement du Canada ou l'un de ses produits numériques.
+- [Codage et accessibilité de en-tête](#codage-et-accessibilite-de-entete)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Codage et accessibilité de l'en-tête
+## Codage et accessibilité de en-tête
 
 Les composants de Système de design du GC sont conçus pour s'adapter à la taille de l'écran ou du cadre où ils sont visualisés. À titre d'exception, la taille du texte dans l'en-tête et le pied de page est fixe.
 
@@ -45,6 +47,146 @@ Les composants de Système de design du GC sont conçus pour s'adapter à la tai
 
 - Ajoutez une [barre de navigation supérieure]({{ links.topNav }}) en passant un élément enfant à l'aide de l'attribut `slot="menu"`. Cela placera l'élément dans l'en-tête, sous les emplacements du bouton de bascule de langue, de la signature et de la barre de recherche.
 - Vous avez le choix d'ajouter une bannière en faisant passer un élément enfant avec l'attribut `slot="banner"`. Cela placera l'élément en haut de l'en-tête sous l'élément `skip-to-nav`.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `lang-href`
+
+L'attribut `lang-href` définit l'URL de la même page dans une autre langue, généralement l'anglais ou le français. Utilisez cet attribut pour fournir un lien permettant aux utilisateurs de basculer entre les versions linguistiques disponibles.
+
+{% examplesPreview "160", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+</gcds-header>
+{% endexamplesPreview %}
+
+#### `skip-to-href`
+
+L'attribut `skip-to-href` spécifie l'URL ou l'ancre du lien « Passer au contenu ». Ce lien permet aux utilisateurs, notamment ceux qui utilisent des technologies d'assistance, d'accéder rapidement au contenu principal de la page, améliorant ainsi l'accessibilité.
+
+{% examplesPreview "160", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+</gcds-header>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `signature-has-link`
+
+L'attribut `signature-has-link` contrôle si la signature de l'en-tête est cliquable et pointe vers Canada.ca. Par défaut, il est défini à `true`, ce qui rend la signature cliquable.
+
+{% examplesPreview "160", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+</gcds-header>
+{% endexamplesPreview %}
+
+Lorsqu'il est défini à `false`, la signature s'affiche sans lien.
+
+{% examplesPreview "160", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here" signature-has-link="false">
+</gcds-header>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `banner`
+
+L'emplacement `banner` sert à ajouter une bannière en haut de l'en-tête. Utilisez-le pour afficher des alertes à l'échelle du site ou des messages promotionnels.
+
+{% examplesPreview "200", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <div slot="banner">Banner slot</div>
+</gcds-header>
+{% endexamplesPreview %}
+
+#### `breadcrumb`
+
+L'emplacement `breadcrumbs` sert à ajouter un [chemin de navigation]({{links.breadcrumbs}}) sous l'en-tête. Utilisez-le pour indiquer où se trouve l'utilisateur dans le site et comment il y est arrivé.
+
+{% examplesPreview "210", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <gcds-breadcrumbs slot="breadcrumb">
+    <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
+  </gcds-breadcrumbs>
+</gcds-header>
+{% endexamplesPreview %}
+
+#### `menu`
+
+L'emplacement `menu` sert à ajouter un menu de navigation sous la ligne de séparation. Par exemple, vous pouvez y placer le composant [top-nav]({{links.topNav}}) pour fournir les liens de navigation principaux du site.
+
+{% examplesPreview "240", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <gcds-top-nav label="Top navigation" alignment="right" slot="menu">
+    <gcds-nav-link href="#home" slot="home">Notification GC</gcds-nav-link>
+    <gcds-nav-link href="#">Pourquoi Notification GC</gcds-nav-link>
+    <gcds-nav-link href="#">Nous joindre</gcds-nav-link>
+  </gcds-top-nav>
+</gcds-header>
+{% endexamplesPreview %}
+
+#### `search`
+
+L'emplacement `search` sert à ajouter un [champ de recherche]({{links.search}}) à l'en-tête. Utilisez-le pour permettre aux utilisateurs de chercher du contenu directement depuis l'en-tête.
+
+{% examplesPreview "220", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <gcds-search slot="search"></gcds-search>
+</gcds-header>
+{% endexamplesPreview %}
+
+#### `signature`
+
+L'emplacement `signature` sert à remplacer la [signature par défaut du gouvernement du Canada]({{links.signature}}). Utilisez-le pour afficher une signature ou un logo personnalisé.
+
+{% examplesPreview "160", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <gcds-signature slot="signature"></gcds-signature>
+</gcds-header>
+{% endexamplesPreview %}
+
+#### `skip-to-nav`
+
+L'emplacement `skip-to-nav` sert à ajouter un lien « Passer au contenu » en haut de l'en-tête. Par défaut, l'en-tête inclut déjà un lien « Passer au contenu principal » dont la cible peut être définie à l'aide de la propriété [`skip-to-href`](/fr/composants/en-tete/code#skiptohref). Utilisez cet emplacement pour ajouter des liens de saut supplémentaires ou un lien « Passer au contenu » personnalisé.
+
+{% examplesPreview "200", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <gcds-link href="#main-content" slot="skip-to-nav">Passer au contentu principal</gcds-link>
+</gcds-header>
+{% endexamplesPreview %}
+
+#### `toggle`
+
+L'emplacement `toggle` sert à ajouter un bouton de [basculement de langue]({{links.langToggle}}) personnalisé dans l'en-tête. Par défaut, l'en-tête inclut déjà un bouton pour basculer entre l'anglais et le français, dont la cible peut être définie avec la propriété [`lang-href`](/fr/composants/en-tete/code#langhref). Utilisez cet emplacement pour prendre en charge des langues supplémentaires.
+
+{% examplesPreview "160", "", "fr" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <gcds-lang-toggle href="url-here" slot="toggle">
+  </gcds-lang-toggle>
+</gcds-header>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Side navigation anatomy
 
 <ol class="anatomy-list">
-  <li>The <strong>nav landmark label</strong> displays the product or site name and is used by assistive technologies.</li>
+  <li>The <strong>home nav link</strong> identifies the site using text or a logo and it links to the home page. It uses a nav link that is added within the <code>home</code> slot.</li>
   <li>The <strong>nav link</strong> takes a person to a page. The link is highlighted in blue to indicate the current page state.</li>
   <li>The <strong>nav group</strong> displays the group name and expands and collapses the submenu. The submenu is a list of related nav links that are revealed when the nav group expands. The chevron icon points right when the submenu is hidden and down when it’s revealed. </li>
 </ol>
@@ -18,12 +18,10 @@ date: 'git Last Modified'
 
 ## Design and accessibility for side navigation
 
-### Set the label
+### Set the home nav link
 
-- The label can be a shorter version of the full name.
+- The home nav link can be a shorter version of the full name.
 - For logos, include descriptive text.
-
-Note: On mobile, the label does not link to the homepage.
 
 ### Choose meaningful nav link text
 
