@@ -50,6 +50,7 @@ const pageSlug = hasVersionInPath
       data-locale={localeSegment}
       data-section={sectionSegment}
       data-page-slug={pageSlug}
+      data-latest-version={latestVersion}
     >
       {versions.map((version) => (
         <option value={version} selected={version === selectedVersion}>
@@ -93,15 +94,19 @@ const pageSlug = hasVersionInPath
           return;
         }
 
-        const { locale, section, pageSlug: slug } = switcher.dataset;
+        const { locale, section, pageSlug: slug, latestVersion } = switcher.dataset;
 
         if (!locale || !section) {
           return;
         }
 
-        const nextPath = slug
-          ? `/${locale}/${section}/${selected}/${slug}`
-          : `/${locale}/${section}/${selected}`;
+        // The latest version lives at the canonical unversioned URL
+        // (/en/components/button); older versions include the version segment
+        // (/en/components/1.0.0/button). Mirrors the route generation in
+        // src/pages/[locale]/[...slug].astro.
+        const versionSegment = selected === latestVersion ? "" : `/${selected}`;
+        const basePath = `/${locale}/${section}${versionSegment}`;
+        const nextPath = slug ? `${basePath}/${slug}` : basePath;
 
         if (window.location.pathname !== nextPath) {
           window.location.assign(nextPath);
