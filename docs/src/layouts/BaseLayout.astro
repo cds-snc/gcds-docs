@@ -8,7 +8,12 @@ import '../styles/global.css';
 import BaseHead from '../components/BaseHead.astro';
 import SideNav from '../components/SideNav.astro';
 
-const { pageTitle, paddingTop = true } = Astro.props;
+// .astro pages pass these as direct props (<BaseLayout pageTitle=… />).
+// MDX pages set them via `layout:` frontmatter, which Astro delivers under
+// Astro.props.frontmatter — so fall back to that.
+const { frontmatter } = Astro.props;
+const pageTitle = Astro.props.pageTitle ?? frontmatter?.pageTitle;
+const paddingTop = Astro.props.paddingTop ?? frontmatter?.paddingTop ?? true;
 
 // Determine the current locale and route key based on the URL.
 const parts = getPathParts(Astro.url.pathname);
