@@ -5,6 +5,7 @@ import { findRouteKeyFromPath, getContentRoot, getPathParts, resolveLocaleFromPa
 import { getLastModifiedForRoute } from '../utils/lastModified';
 
 import '../styles/global.css';
+import BaseHead from '../components/BaseHead.astro';
 import SideNav from '../components/SideNav.astro';
 
 const { pageTitle, paddingTop = true } = Astro.props;
@@ -22,22 +23,7 @@ const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {
 
 <html lang={currentLocale}>
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle} | GC Design System</title>
-    <meta name="og:title" content={`${pageTitle} | GC Design System`} />
-
-    <!-- GC Design System CSS Shortcuts -->
-    <link
-        rel="stylesheet"
-        href="/assets/gcds/gcds-css-shortcuts.min.css"
-    />
-
-    <!-- GC Design System -->
-    <link rel="stylesheet" href="/assets/gcds/gcds.css">
-    <script type="module" src="/assets/gcds/gcds.esm.js"></script>
+    <BaseHead pageTitle={pageTitle} />
   </head>
   <body>
     <Header currentLocale={currentLocale} routeKey={routeKey} />
