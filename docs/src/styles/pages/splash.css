@@ -32,85 +32,13 @@
     overflow: hidden;
 }
 
-.splash-signature-row,
-.splash-copy,
-.splash-language-grid,
+.splash-content,
 .splash-footer-row {
     padding-inline: clamp(1.25rem, 3vw, 2.5rem);
 }
 
-.splash-signature-row {
+.splash-content {
     padding-top: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-.splash-signature {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.splash-copy {
-    padding-top: var(--gcds-spacing-200);
-    padding-bottom: var(--gcds-spacing-200);
-}
-
-.splash-eyebrow {
-    margin: 0 0 var(--gcds-spacing-100);
-    font-size: var(--gcds-font-text-small);
-    font-weight: var(--gcds-text-weight-bold);
-    text-transform: uppercase;
-    color: var(--gcds-color-grayscale-800);
-}
-
-.splash-tagline {
-    margin: 0;
-    max-width: 40rem;
-    font-size: clamp(1.125rem, 2vw, 1.4rem);
-    line-height: 1.5;
-    color: #1f1f1f;
-}
-
-.splash-language-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--gcds-spacing-200);
-    padding-top: 0.75rem;
-    padding-bottom: 1.75rem;
-}
-
-.splash-language {
-    display: flex;
-}
-
-.splash-language--right {
-    justify-content: flex-end;
-    text-align: right;
-}
-
-.splash-language p {
-    margin: 0;
-}
-
-.splash-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: var(--gcds-spacing-200);
-    padding: 0.9rem 1.4rem;
-    border: 0.125rem solid var(--gcds-color-blue-muted);
-    background: var(--gcds-color-blue-muted);
-    color: var(--gcds-color-white);
-    font-weight: var(--gcds-font-weights-bold);
-    text-decoration: none;
-    box-shadow: 0 0.125rem 0 rgba(0, 0, 0, 0.15);
-    transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
-}
-
-.splash-button:hover,
-.splash-button:focus-visible {
-    background: var(--gcds-color-white);
-    color: var(--gcds-color-blue-muted);
-    border-color: var(--gcds-color-blue-muted);
 }
 
 .splash-footer-row {
@@ -136,12 +64,6 @@
     text-decoration: underline;
 }
 
-.splash-wordmark {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
 @media (max-width: 48rem) {
     .splash-page {
         padding: 0;
@@ -155,25 +77,9 @@
         justify-content: center;
     }
 
-    .splash-language-grid,
     .splash-footer-row {
-        grid-template-columns: 1fr;
         flex-direction: column;
         align-items: stretch;
         text-align: left;
-    }
-
-    .splash-language,
-    .splash-language--right {
-        justify-content: flex-start;
-        text-align: left;
-    }
-
-    .splash-button {
-        width: 100%;
-    }
-
-    .splash-wordmark-wrap {
-        align-self: flex-end;
     }
 }
