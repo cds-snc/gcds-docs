@@ -60,7 +60,7 @@ Tip: If using with other navigation components, like the <gcds-link href="{{ lin
 ### Write specific parent page link text
 
 - Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.
-- Keep parent link text short (ideally under 20 characters) and distinctive so a person can scan the links in the breadcrumbs and find what they're looking for.
+- Keep parent link text short (ideally under 20 characters) and distinctive. This helps people scan the links in the breadcrumbs and find what they're looking for.
 - Shorten parent page link text to improve readability and reduce space. Where possible, reflect the title of the page in the breadcrumb without including the full page name.
 
 ### Place breadcrumbs before the main element

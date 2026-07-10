@@ -24,7 +24,7 @@ Examinez les cas d'utilisation des chemins de navigation pour déterminer s'ils 
 
 ## Problèmes résolus par les chemins de navigation
 
-En plus de signaler à un·e visiteur·se son emplacement actuel sur le site et l'aider à se repérer dans le modèle de navigation du site, utilisez le chemin de navigation pour :
+En plus de signaler à une personne son emplacement actuel sur le site et l'aider à se repérer dans le modèle de navigation du site, utilisez le chemin de navigation pour :
 
 - Offrir un moyen linéaire de naviguer entre les différents niveaux d'un site Web;
 - Présenter une partie de la structure du site Web pour aider les gens à comprendre où trouver les éléments recherchés;
