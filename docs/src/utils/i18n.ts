@@ -57,6 +57,10 @@ export function getContentRoot(pathname: string): string {
 
 /**
  * Build a locale-prefixed route path for a given route key.
+ *
+ * NOTE: only handles the localized non-versioned URL shape and doesn't know
+ * about versioned routes. See the TODO on findRouteKeyFromPath — the header
+ * language toggle is a known-incomplete implementation.
  */
 export function buildLocalizedRoutePath(
   routeKey: string,
@@ -77,8 +81,25 @@ export function buildLocalizedRoutePath(
 }
 
 /**
- * Given a locale and URL parts (e.g., ['_en', 'components', 'button']),
- * this function looks up the corresponding route key from the i18n routes config.
+ * Given a locale and URL parts (e.g., ['en', 'components', 'button']), look up
+ * the corresponding route key from the i18n routes config.
+ *
+ * TODO(i18n language toggle): this and buildLocalizedRoutePath are an
+ * incomplete early implementation. The header language switcher renders wrong
+ * URLs on several pages because of three separate gaps:
+ *   1. The `routes` config (i18n/config.ts) only covers home/about/components/
+ *      button, so pages like start-to-use / demarrer fall through to "home"
+ *      (e.g. /en/start-to-use toggles to /fr/ instead of /fr/demarrer).
+ *   2. Versioned paths break child matching: for /en/components/1.1.0/button,
+ *      parts[2] is the version "1.1.0" (not the child slug), so this returns
+ *      the parent key "components" instead of "button".
+ *   3. Even when the child resolves, buildLocalizedRoutePath emits the
+ *      localized non-versioned shape (/fr/composants/bouton), which is not the
+ *      versioned route shape (/fr/components/bouton — routeKey is not localized).
+ * A correct fix derives the other-locale URL from the actual route data
+ * (manifests + content) for both versioned and non-versioned pages. Deferred
+ * until the routing model settles and FR content is migrated (targets 404 until
+ * then).
  */
 export function findRouteKeyFromPath(
   locale: string,
