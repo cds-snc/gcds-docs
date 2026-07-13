@@ -61,7 +61,7 @@ export type SlotRoute = {
   slug?: LocalizedValue;
 };
 
-export type SideNavRoute = GroupRoute | LinkRoute | HomeRoute | SlotRoute | { type: string };
+export type SideNavRoute = GroupRoute | LinkRoute | HomeRoute | SlotRoute;
 
 export type PopulatedManifest = {
   items?: ManifestItem[];
