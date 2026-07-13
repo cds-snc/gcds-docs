@@ -8,11 +8,11 @@ date: 'git Last Modified'
 
 ## Sur cette page
 
-- [Codage et accessibilité de chemin de navigation](#codage-et-accessibilite-de-chemin-de-navigation)
+- [Codage et accessibilité du chemin de navigation](#codage-et-accessibilite-du-chemin-de-navigation)
 - [Exemples](#section-examples)
 - [Générateur de code](#generateur-de-code)
 
-## Codage et accessibilité de chemin de navigation
+## Codage et accessibilité du chemin de navigation
 
 ### Commencez par le lien Canada.ca et le lien de la page d'accueil
 
@@ -23,11 +23,11 @@ Conseil : Lorsqu'un processus n'a pas de page d'accueil traditionnelle, insére
 
 ### Placez le chemin de navigation avant l'élément `<main>`
 
-Placez le chemin de navigation en haut d'une page, avant l'élément `<main>`. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.
+Placez le chemin de navigation en haut de la page, avant l'élément `<main>`. De cette façon, un lien « Passer au contenu principal » permettra aux personnes d'ignorer les liens de navigation, y compris le chemin de navigation.
 
 ### Utiliser les éléments du chemin de navigation pour les liens du chemin de navigation
 
-Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant `<gcds-breadcrumbs-item>`. Le lien peut être ajouté par le biais de la propriété `href`.
+Ajoutez un nouveau lien au chemin de navigation à l'aide du composant `<gcds-breadcrumbs-item>`. Ajoutez-le au moyen de la propriété `href`.
 
 {% examplesContent "fr", "examples" %}
 {% endexamplesContent %}
@@ -43,9 +43,9 @@ Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant
 {% examplesContent "fr", "essential" %}
 {% endexamplesContent %}
 
-#### Sous-composant `gcds-breadcrumbs-item` `href`
+#### `href` (sous-composant `gcds-breadcrumbs-item`)
 
-L'attribut `href` définit l'URL de destination d'un `gcds-breadcrumbs-item` et est obligatoire pour que l'élément du chemin de navigation fonctionne comme un lien.
+Utilisez `href` pour définir l'URL de destination d'un `gcds-breadcrumbs-item`. Cet attribut est obligatoire pour que l'élément du chemin de navigation fonctionne comme un lien.
 
 {% examplesPreview "100", "", "fr" %}
 <gcds-breadcrumbs>
@@ -61,7 +61,7 @@ L'attribut `href` définit l'URL de destination d'un `gcds-breadcrumbs-item` et 
 
 #### `hide-canada-link`
 
-L'attribut `hide-canada-link` contrôle l'affichage du lien canada.ca par défaut dans le chemin de navigation. Par défaut, il est défini à `false`, ce qui signifie que le lien canada.ca apparaît comme premier élément du chemin de navigation.
+Utilisez `hide-canada-link` pour afficher ou masquer le lien canada.ca par défaut dans le chemin de navigation. Par défaut, cet attribut est défini à `false`, ce qui signifie que le lien canada.ca apparaît comme premier élément du chemin de navigation.
 
 {% examplesPreview "100", "", "fr" %}
 <gcds-breadcrumbs>
@@ -86,7 +86,7 @@ Lorsqu'il est défini à `true`, le lien canada.ca par défaut est masqué, et s
 
 #### `default`
 
-L'emplacement par défaut sert à ajouter des sous-composants gcds-breadcrumbs-item. L'emplacement par défaut de l'élément du chemin de navigation sert à ajouter le texte de cet élément.
+Utilisez l'emplacement par défaut pour ajouter des sous-composants `gcds-breadcrumbs-item`. Utilisez l'emplacement par défaut du sous-composant `gcds-breadcrumbs-item` pour ajouter le texte de cet élément du chemin de navigation.
 
 {% examplesPreview "100", "", "fr" %}
 <gcds-breadcrumbs hide-canada-link>
