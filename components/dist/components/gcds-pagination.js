@@ -1,1 +1,1 @@
-import{G as o,d as s}from"./p-BicA4RPH.js";const p=o,r=s;export{p as GcdsPagination,r as defineCustomElement}
+import{G as o,d as s}from"./p-B6W47Jxj.js";const p=o,r=s;export{p as GcdsPagination,r as defineCustomElement}

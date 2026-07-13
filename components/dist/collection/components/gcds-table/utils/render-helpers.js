@@ -68,7 +68,6 @@ const renderTableStatus = (el, table, paginationState, lang) => {
     }
     else if (el.filter &&
         el.filterValue &&
-        el.pagination &&
         table.getPageCount() === 1) {
         return I18N[lang].showingMatches.replace('{matchNumber}', filteredRows);
         // No results match filter
@@ -156,7 +155,17 @@ const renderFilterSortModal = element => {
             if (element.sortEnabled()) {
                 element.sortRadios.value = getSortValue(element.initialSorting);
             }
-        } }, I18N[lang].modalClose)), h("form", { class: "gcds-table__modal-body", onSubmit: ev => {
+        } }, I18N[lang].modalClose)), h("form", { class: "gcds-table__modal-body", onKeyUp: ev => {
+            var _a, _b, _c, _d, _e;
+            if (ev.key === 'Enter') {
+                if (((_b = (_a = document.activeElement) === null || _a === void 0 ? void 0 : _a.shadowRoot) === null || _b === void 0 ? void 0 : _b.activeElement) === element.filterInput ||
+                    ((_d = (_c = document.activeElement) === null || _c === void 0 ? void 0 : _c.shadowRoot) === null || _d === void 0 ? void 0 : _d.activeElement) === element.sortRadios) {
+                    ev.preventDefault();
+                    (_e = element.filterSortModal.querySelector('form')) === null || _e === void 0 ? void 0 : _e.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+                }
+            }
+        }, onSubmit: ev => {
+            var _a;
             ev.preventDefault();
             if (element.filter) {
                 element.filterValue = element.filterInput.value;
@@ -178,6 +187,7 @@ const renderFilterSortModal = element => {
             }
             updateTableOptions(element);
             element.filterSortModal.close();
+            (_a = element.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
         } }, h("div", { class: "gcds-table__modal-content" }, element.filter && (h("gcds-input", { class: "gcds-table__modal-filter", type: "search", label: I18N[lang].filter, name: "filter", inputId: "gcds-table-filter", autoFocus: true, value: filterValue, ref: el => (element.filterInput = el) })), element.sortEnabled() && renderSortRadios(element)), h("div", { class: "gcds-table__modal-footer" }, h("gcds-button", { "button-role": "secondary", onClick: () => {
             if (element.filter) {
                 element.filterInput.value = element.initialFilter;

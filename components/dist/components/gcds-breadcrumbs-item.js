@@ -1,1 +1,1 @@
-import{G as s,d as o}from"./p-DKOfsGMf.js";const f=s,p=o;export{f as GcdsBreadcrumbsItem,p as defineCustomElement}
+import{G as o,d as p}from"./p-DuipMahh.js";const s=o,a=p;export{s as GcdsBreadcrumbsItem,a as defineCustomElement}

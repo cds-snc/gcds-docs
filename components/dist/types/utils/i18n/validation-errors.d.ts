@@ -53,14 +53,14 @@ export declare const validationErrors: {
         readonly valueMissing: "Saisissez des renseignements pour continuer.";
         readonly typeMismatch: {
             readonly email: "Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.";
-            readonly url: "Entrez une adresse Web en utilisant le format spécifié pour continuer.";
+            readonly url: "Saisissez une adresse Web dans le format indiqué pour continuer.";
         };
-        readonly patternMismatch: "Utilisez le format spécifié pour continuer.";
-        readonly tooLong: "Entrez {max} caractères ou moins pour continuer. Vous en avez présentement {current}.";
-        readonly tooShort: "Entrez au moins {min} caractères pour continuer. Vous en avez présentement {current}.";
-        readonly rangeUnderflow: "Entrez un nombre plus grand ou égal à {min} pour continuer.";
-        readonly rangeOverflow: "Entrez un nombre plus petit ou égal à {max} pour continuer.";
-        readonly stepMismatch: "Entrez un nombre parmi les options spécifiées pour continuer. Les nombres les plus proches de votre entrée sont {lower} et {upper}.";
+        readonly patternMismatch: "Utilisez le format indiqué pour continuer.";
+        readonly tooLong: "Saisissez {max} caractères ou moins pour continuer. Vous avez saisi {current} caractères.";
+        readonly tooShort: "Saisissez au moins {min} caractères pour continuer. Vous avez saisi {current} caractères.";
+        readonly rangeUnderflow: "Saisissez un nombre égal ou supérieur à {min} pour continuer.";
+        readonly rangeOverflow: "Saisissez un nombre égal ou inférieur à {max} pour continuer.";
+        readonly stepMismatch: "Saisissez un nombre parmi les options disponibles pour continuer. Les nombres les plus proches de celui que vous avez saisi sont {lower} et {upper}.";
         readonly badInput: "Entrez un nombre pour continuer.";
         readonly required: "Saisissez des renseignements pour continuer.";
         readonly requiredEmail: "Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.";
@@ -81,7 +81,7 @@ export declare const validationErrors: {
             readonly missingmonthinputyear: "Saisissez l'année et le mois.";
             readonly missingdayyear: "Saisissez le jour et l'année.";
             readonly invalidyearlength: "L'année doit inclure 4 chiffres.";
-            readonly invalidyear: "Entrez une année valide.";
+            readonly invalidyear: "Saisissez une année valide.";
             readonly invalidmonth: "Saisissez un mois valide.";
             readonly invalidday: "Saisissez un jour valide.";
         };
