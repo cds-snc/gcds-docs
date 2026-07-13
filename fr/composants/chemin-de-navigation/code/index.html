@@ -2792,20 +2792,20 @@ Aperçu du composant de chemin de navigation
   
 
   <h2 id="sur-cette-page">Sur cette page</h2>
-<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-de-chemin-de-navigation">Codage et accessibilité de chemin de navigation</a></li>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-du-chemin-de-navigation">Codage et accessibilité du chemin de navigation</a></li>
 <li><a href="#section-examples">Exemples</a></li>
 <li><a href="#generateur-de-code">Générateur de code</a></li>
 </ul>
-<h2 id="codage-et-accessibilite-de-chemin-de-navigation">Codage et accessibilité de chemin de navigation</h2>
+<h2 id="codage-et-accessibilite-du-chemin-de-navigation">Codage et accessibilité du chemin de navigation</h2>
 <h3 id="commencez-par-le-lien-canadaca-et-le-lien-de-la-page-daccueil">Commencez par le lien Canada.ca et le lien de la page d'accueil</h3>
 <ul class="list-disc mb-300"><li>Maintenez le lien Canada.ca comme premier lien de chemin de navigation par défaut pour la plupart des pages et sites Web.</li>
 <li>Choisissez de remplacer le lien Canada.ca par le lien de la page d'accueil sur les pages transactionnelles et les sites Web ou produits autonomes. Pour supprimer le lien Canada.ca à la tête du chemin de navigation, définissez l'attribut <code>hide-canada-link</code> à <code>true</code>.</li>
 </ul>
 <p>Conseil : Lorsqu'un processus n'a pas de page d'accueil traditionnelle, insérez le lien vers la page de départ du processus.</p>
 <h3 id="placez-le-chemin-de-navigation-avant-lelement-main">Placez le chemin de navigation avant l'élément <code>&lt;main&gt;</code></h3>
-<p>Placez le chemin de navigation en haut d'une page, avant l'élément <code>&lt;main&gt;</code>. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.</p>
+<p>Placez le chemin de navigation en haut de la page, avant l'élément <code>&lt;main&gt;</code>. De cette façon, un lien « Passer au contenu principal » permettra aux personnes d'ignorer les liens de navigation, y compris le chemin de navigation.</p>
 <h3 id="utiliser-les-elements-du-chemin-de-navigation-pour-les-liens-du-chemin-de-navigation">Utiliser les éléments du chemin de navigation pour les liens du chemin de navigation</h3>
-<p>Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant <code>&lt;gcds-breadcrumbs-item&gt;</code>. Le lien peut être ajouté par le biais de la propriété <code>href</code>.</p>
+<p>Ajoutez un nouveau lien au chemin de navigation à l'aide du composant <code>&lt;gcds-breadcrumbs-item&gt;</code>. Ajoutez-le au moyen de la propriété <code>href</code>.</p>
 <p><div>
 <gcds-heading id="section-examples" tag="h2">
 Exemples
@@ -2824,8 +2824,8 @@ Attributs essentiels
 </gcds-heading>
 <gcds-text>Ces attributs sont requis pour que le composant fonctionne correctement.</gcds-text>
 </div></p>
-<h4 id="souscomposant-gcdsbreadcrumbsitem-href">Sous-composant <code>gcds-breadcrumbs-item</code> <code>href</code></h4>
-<p>L'attribut <code>href</code> définit l'URL de destination d'un <code>gcds-breadcrumbs-item</code> et est obligatoire pour que l'élément du chemin de navigation fonctionne comme un lien.</p>
+<h4 id="href-souscomposant-gcdsbreadcrumbsitem"><code>href</code> (sous-composant <code>gcds-breadcrumbs-item</code>)</h4>
+<p>Utilisez <code>href</code> pour définir l'URL de destination d'un <code>gcds-breadcrumbs-item</code>. Cet attribut est obligatoire pour que l'élément du chemin de navigation fonctionne comme un lien.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2870,7 +2870,7 @@ Attributs facultatifs
 <gcds-text>Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.</gcds-text>
 </div></p>
 <h4 id="hidecanadalink"><code>hide-canada-link</code></h4>
-<p>L'attribut <code>hide-canada-link</code> contrôle l'affichage du lien canada.ca par défaut dans le chemin de navigation. Par défaut, il est défini à <code>false</code>, ce qui signifie que le lien canada.ca apparaît comme premier élément du chemin de navigation.</p>
+<p>Utilisez <code>hide-canada-link</code> pour afficher ou masquer le lien canada.ca par défaut dans le chemin de navigation. Par défaut, cet attribut est défini à <code>false</code>, ce qui signifie que le lien canada.ca apparaît comme premier élément du chemin de navigation.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -2952,7 +2952,7 @@ Emplacements (slots)
 <gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
 </div></p>
 <h4 id="default"><code>default</code></h4>
-<p>L'emplacement par défaut sert à ajouter des sous-composants gcds-breadcrumbs-item. L'emplacement par défaut de l'élément du chemin de navigation sert à ajouter le texte de cet élément.</p>
+<p>Utilisez l'emplacement par défaut pour ajouter des sous-composants <code>gcds-breadcrumbs-item</code>. Utilisez l'emplacement par défaut du sous-composant <code>gcds-breadcrumbs-item</code> pour ajouter le texte de cet élément du chemin de navigation.</p>
 <p><div class="b-md shortcut-preview">
 <iframe
             class="preview-iframe"
@@ -3046,7 +3046,7 @@ Emplacements (slots)
 
 
           <gcds-date-modified class="mb-300">
-            2026-07-08
+            2026-07-13
           </gcds-date-modified>
         </main>
       </gcds-grid>
