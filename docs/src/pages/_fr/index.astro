@@ -1,4 +1,11 @@
 ---
+// DEPRECATED — legacy migration scaffolding, not routed. Astro ignores
+// `_`-prefixed folders, so nothing here produces a route (verified: a build
+// emits no /_en/ or /_fr/ output). Canonical content now lives in
+// src/content/pages/{en,fr} + src/content/versioned, served by the dynamic
+// router src/pages/[locale]/[...slug].astro.
+// TODO: delete src/pages/_en and src/pages/_fr once all their content is
+// migrated (the FR button under _fr/composants/bouton is not yet ported).
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import { Heading, HelpUs, Text } from '../../components';
