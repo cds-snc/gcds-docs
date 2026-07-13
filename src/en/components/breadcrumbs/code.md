@@ -27,7 +27,7 @@ Place breadcrumbs at the top of a page, before the `<main>` element. This way a 
 
 ### Use breadcrumb items for breadcrumbs links
 
-Add a new breadcrumbs link to the breadcrumbs component by using the `<gcds-breadcrumbs-item>` component. The link can be added through the `href` property.
+Add a new breadcrumbs link to the breadcrumbs component by using the `<gcds-breadcrumbs-item>` component. Add it through the `href` property.
 
 <!-- ----- Examples ----- -->
 
@@ -47,7 +47,7 @@ Add a new breadcrumbs link to the breadcrumbs component by using the `<gcds-brea
 
 #### Breadcrumbs item `href`
 
-The `href` attribute defines the destination URL for a `gcds-breadcrumbs-item` and is required for the breadcrumb item to function as a link.
+Use `href` to define the destination URL for a `gcds-breadcrumbs-item`. This attribute is required for the breadcrumb item to function as a link.
 
 {% examplesPreview %}
 <gcds-breadcrumbs>
@@ -63,7 +63,7 @@ The `href` attribute defines the destination URL for a `gcds-breadcrumbs-item` a
 
 #### `hide-canada-link`
 
-The `hide-canada-link` attribute controls whether the default canada.ca link is displayed in the breadcrumbs. By default, it is set to `false`, which means the canada.ca link appears as the first breadcrumb item.
+Use `hide-canada-link` to show or hide the default canada.ca link in the breadcrumbs. By default, it's set to `false`, which means the canada.ca link appears as the first breadcrumb item.
 
 {% examplesPreview %}
 <gcds-breadcrumbs>
@@ -88,7 +88,7 @@ When set to `true`, the default canada.ca link is hidden, and only the breadcrum
 
 #### `default`
 
-The `default` slot is for adding `gcds-breadcrumbs-item` subcomponents. The `default` slot of the breadcrumbs item is for adding the item's text.
+Use the `default` slot to add `gcds-breadcrumbs-item` subcomponents. Use the `default` slot of the breadcrumbs item to add the item's text.
 
 {% examplesPreview %}
 <gcds-breadcrumbs hide-canada-link>
