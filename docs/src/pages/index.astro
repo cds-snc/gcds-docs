@@ -28,8 +28,9 @@ import SplashLayout from '../layouts/SplashLayout.astro';
 
             <div class="splash-footer-row mt-600">
                 <div class="splash-footer-links">
-                    <a href="/src/pages/_en/terms-of-use" class="splash-footer-link">Terms of use</a>
-                    <a href="/src/pages/_fr/conditions-dutilisation" class="splash-footer-link" lang="fr">Conditions d’utilisation</a>
+                    {/* TODO: /en/terms-of-use and /fr/conditions-dutilisation are not migrated yet — these links 404 until those pages are created. */}
+                    <a href="/en/terms-of-use" class="splash-footer-link">Terms of use</a>
+                    <a href="/fr/conditions-dutilisation" class="splash-footer-link" lang="fr">Conditions d’utilisation</a>
                 </div>
 
                 <gcds-signature type="wordmark">
