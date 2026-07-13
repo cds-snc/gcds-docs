@@ -78,7 +78,7 @@
           "pageKey": "contact",
           "routeKey": "contact",
           "label": {"en": "Contact us", "fr": "Contactez-nous"},
-          "slug": {"en": "contact", "fr": "contactenez"}
+          "slug": {"en": "contact", "fr": "contactez"}
         },
         {
           "pageKey": "get-involved",
