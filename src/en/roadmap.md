@@ -26,15 +26,37 @@ Here's what we'll be focusing on in each quarter.
 
 ### Quarter 1: April to June 2026
 <ol class="list-disc ps-400 mb-300">
-  <li>Research, design, and development of a table component</li>
-  <li>Add coded examples and guidance to each component page</li>
-  <li>Add detailed validation guidance for adding custom validation to GC Design System form components</li>
-  <li>Develop a GC Design System plugin/extension for code display that will enable self-serve accessibility checks on components</li>
-  <li>Add the sign in button to the header component</li>
+  <li>[**Done**] Research, design, and development of a table component</li>
+  <li>[**Done**] Add coded examples and guidance to each component page</li>
+  <li>[**Done**] Add detailed validation guidance for adding custom validation to GC Design System form components</li>
+  <li>[**In Progress**] Develop a GC Design System plugin/extension for code display that will enable self-serve accessibility checks on components</li>
+  <li>[**In Progress**] Add the sign in button to the header component</li>
 </ol>
 
-### Upcoming quarters
-Next priorities are yet to be defined, this page will be updated by end of Q1 (June 2026).
+### Quarter 2: July to September 2026
+<ol class="list-disc ps-400 mb-300">
+  <li>Publish the Alert component</li>
+  <li>Research, design, and development of a Pill/Tag component</li>
+  <li>Add a React starter app</li>
+  <li>A Command Line Interface (CLI) tool for quickly generating app templates from GCDS starter apps</li>
+  <li>Research on the accessibility and usability of the table component</li>
+</ol>
+
+### Quarter 3: October to December 2026
+<ol class="list-disc ps-400 mb-300">
+  <li>Research, design, and development of a modal component (based on community contribution)</li>
+  <li>Develop an HTML starter app template</li>
+  <li>Research and development to better integrate with web analytics tools</li>
+  <li>Add an Angular starter app (based on community contributions)</li>
+  <li>Conduct accessibility and usability research</li>
+  <li>Publish a space for GCDS Extensions and Plugins - community components, patterns, templates, and frameworks</li>
+</ol>
+
+### Quarter 4:
+<ol class="list-disc ps-400 mb-300">
+  <li>Support for Dark mode</li>
+  <li>Conduct accessibility and usability research</li>
+</ol>
 
 ## Completed in 2025/2026
 
