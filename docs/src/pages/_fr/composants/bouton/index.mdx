@@ -1,0 +1,24 @@
+---
+layout: ../../../../layouts/BaseLayout.astro
+pageTitle: "Bouton"
+---
+
+import { DocLinks, Tabs } from "../../../../components";
+import ButtonOverview from "./overview.mdx";
+import ButtonExamples from "./examples.mdx";
+
+# Bouton <br/>`<gcds-button>`
+
+_Autres noms : appel à l’action._
+
+Un bouton est un objet interactif qui met l’accent sur une action.
+
+<DocLinks
+  figma="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=817-4607&p=f&t=sUfuiFgkFiAWYq3z-0"
+  github="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button"
+/>
+
+<Tabs client:load>
+  <ButtonOverview slot="overview" />
+  <ButtonExamples slot="examples" />
+</Tabs>

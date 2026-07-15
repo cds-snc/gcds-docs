@@ -1,0 +1,22 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+import '../styles/global.css';
+import '../styles/pages/splash.css';
+
+interface Props {
+    pageTitle: string;
+}
+
+const { pageTitle } = Astro.props as Props;
+---
+
+<html lang="en">
+    <head>
+        <BaseHead pageTitle={pageTitle} />
+    </head>
+    <body class="splash-body">
+        <slot />
+    </body>
+</html>
+

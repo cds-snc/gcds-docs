@@ -1,0 +1,131 @@
+---
+import versionConfig from "../routing/versioned/version-config.json";
+import { getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
+
+type PackageType = "component" | "css-shortcuts" | "tokens";
+
+interface Props {
+  package: PackageType;
+  value?: string;
+}
+
+const { package: packageName, value } = Astro.props as Props;
+
+// Maps the external prop value to the matching section in version-config.json.
+const packageToContentDir: Record<PackageType, string> = {
+  component: "components",
+  "css-shortcuts": "css-shortcuts",
+  tokens: "tokens",
+};
+
+// Find the config section for this package and sort versions newest -> oldest.
+const section = versionConfig.sections.find(
+  (s) => s.contentDir === packageToContentDir[packageName],
+);
+if (!section) {
+  console.warn(
+    `[VersionSwitcher] No version-config section found for package "${packageName}"; not rendering the switcher.`,
+  );
+}
+const versions = (section?.versions ?? []).slice().sort((a, b) =>
+  b.localeCompare(a, undefined, { numeric: true }),
+);
+// The first item after sorting is treated as the latest version.
+const latestVersion = versions[0];
+const selectedVersion = value ?? latestVersion;
+
+const pathSegments = getPathParts(Astro.url.pathname);
+const localeSegment = resolveLocaleFromPathname(Astro.url.pathname);
+const sectionSegment = pathSegments[1] ?? section?.routeKey ?? "components";
+const hasVersionInPath = /^\d+\.\d+\.\d+$/.test(pathSegments[2] ?? "");
+const pageSlug = hasVersionInPath
+  ? pathSegments.slice(3).join("/")
+  : pathSegments.slice(2).join("/");
+---
+{versions.length > 0 && (
+  <version-switcher-control class="version-switcher">
+    <gcds-select
+      label="Version"
+      name={`${packageName}-version`}
+      data-locale={localeSegment}
+      data-section={sectionSegment}
+      data-page-slug={pageSlug}
+      data-latest-version={latestVersion}
+    >
+      {versions.map((version) => (
+        <option value={version} selected={version === selectedVersion}>
+          {version === latestVersion ? `${version} (latest)` : version}
+        </option>
+      ))}
+    </gcds-select>
+  </version-switcher-control>
+)}
+
+<style>
+  .version-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>
+
+<script>
+  // Self-contained custom element: each switcher binds only its own
+  // gcds-select, so behaviour stays correct even with multiple instances.
+  class VersionSwitcherControl extends HTMLElement {
+    connectedCallback() {
+      // Guard against connectedCallback firing again on reconnect (e.g. View
+      // Transitions) so we don't stack duplicate event listeners.
+      if (this.dataset.bound === "true") {
+        return;
+      }
+
+      const switcher = this.querySelector("gcds-select") as
+        | (HTMLElement & { value: string })
+        | null;
+      if (!switcher) {
+        return;
+      }
+
+      this.dataset.bound = "true";
+
+      const redirectToVersion = (selected?: string) => {
+        if (!selected) {
+          return;
+        }
+
+        const { locale, section, pageSlug: slug, latestVersion } = switcher.dataset;
+
+        if (!locale || !section) {
+          return;
+        }
+
+        // The latest version lives at the canonical unversioned URL
+        // (/en/components/button); older versions include the version segment
+        // (/en/components/1.0.0/button). Mirrors the route generation in
+        // src/pages/[locale]/[...slug].astro.
+        const versionSegment = selected === latestVersion ? "" : `/${selected}`;
+        const basePath = `/${locale}/${section}${versionSegment}`;
+        const nextPath = slug ? `${basePath}/${slug}` : basePath;
+
+        if (window.location.pathname !== nextPath) {
+          window.location.assign(nextPath);
+        }
+      };
+
+      switcher.addEventListener("change", () => {
+        redirectToVersion(switcher.value);
+      });
+
+      switcher.addEventListener("gcdsChange", (event) => {
+        const detail = (event as CustomEvent<{ value?: string }>).detail;
+        redirectToVersion(detail?.value ?? switcher.value);
+      });
+    }
+  }
+
+  if (!customElements.get("version-switcher-control")) {
+    customElements.define("version-switcher-control", VersionSwitcherControl);
+  }
+</script>
+

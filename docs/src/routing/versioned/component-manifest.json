@@ -1,0 +1,267 @@
+{
+  "key": "COMPONENTS",
+  "items": [
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Components overview", "fr": "Aperçu des composants"},
+      "slug": {"en": "", "fr": ""},
+      "containsSubPages": false,
+      "pageType": "overview"
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Breadcrumbs", "fr": "Chemin de navigation"},
+      "slug": {"en": "breadcrumbs", "fr": "chemin-de-navigation"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Button", "fr": "Bouton"},
+      "slug": {"en": "button", "fr": "bouton"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Card", "fr": "Carte"},
+      "slug": {"en": "card", "fr": "carte"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Checkboxes", "fr": "Cases à cocher"},
+      "slug": {"en": "checkboxes", "fr": "cases-a-cocher"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Container", "fr": "Conteneur"},
+      "slug": {"en": "container", "fr": "conteneur"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Date input", "fr": "Champ de date"},
+      "slug": {"en": "date-input", "fr": "champ-de-date"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Date modified", "fr": "Date de modification"},
+      "slug": {"en": "date-modified", "fr": "date-de-modification"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Details", "fr": "Détails"},
+      "slug": {"en": "details", "fr": "details"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Error message", "fr": "Message d'erreur"},
+      "slug": {"en": "error-message", "fr": "message-derreur"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Error summary", "fr": "Résumé des erreurs"},
+      "slug": {"en": "error-summary", "fr": "resume-des-erreurs"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Fieldset", "fr": "Jeu de champs"},
+      "slug": {"en": "fieldset", "fr": "jeu-de-champs"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "File uploader", "fr": "Téléverseur de fichiers"},
+      "slug": {"en": "file-uploader", "fr": "televerseur-de-fichiers"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Footer", "fr": "Pied de page"},
+      "slug": {"en": "footer", "fr": "pied-de-page"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Grid", "fr": "Grille"},
+      "slug": {"en": "grid", "fr": "grille"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Header", "fr": "En-tête"},
+      "slug": {"en": "header", "fr": "en-tete"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Heading", "fr": "Titre"},
+      "slug": {"en": "heading", "fr": "titre"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Icon", "fr": "Icône"},
+      "slug": {"en": "icon", "fr": "icone"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Input", "fr": "Champ de saisie"},
+      "slug": {"en": "input", "fr": "champ-de-saisie"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Language toggle", "fr": "Bascule de langue"},
+      "slug": {"en": "language-toggle", "fr": "bascule-de-langue"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Link", "fr": "Lien"},
+      "slug": {"en": "link", "fr": "lien"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Notice", "fr": "Avis"},
+      "slug": {"en": "notice", "fr": "avis"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Pagination", "fr": "Pagination"},
+      "slug": {"en": "pagination", "fr": "pagination"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Radios", "fr": "Boutons radio"},
+      "slug": {"en": "radios", "fr": "boutons-radio"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Screenreader-only", "fr": "Masquage accessible"},
+      "slug": {"en": "screenreader-only", "fr": "masquage-accessible"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Search", "fr": "Recherche"},
+      "slug": {"en": "search", "fr": "recherche"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Select", "fr": "Sélection"},
+      "slug": {"en": "select", "fr": "selection"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Side navigation", "fr": "Barre de navigation latérale"},
+      "slug": {"en": "side-navigation", "fr": "barre-de-navigation-laterale"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Signature", "fr": "Signature"},
+      "slug": {"en": "signature", "fr": "signature"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Stepper", "fr": "Indicateur d'étape"},
+      "slug": {"en": "stepper", "fr": "indicateur-detape"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Text", "fr": "Texte"},
+      "slug": {"en": "text", "fr": "texte"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Textarea", "fr": "Zone de texte"},
+      "slug": {"en": "textarea", "fr": "zone-de-texte"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Theme and topic menu", "fr": "Menu thématique"},
+      "slug": {"en": "theme-and-topic-menu", "fr": "menu-thematique"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
+      "label": {"en": "Top navigation", "fr": "Barre de navigation supérieure"},
+      "slug": {"en": "top-navigation", "fr": "barre-de-navigation-superieure"},
+      "containsSubPages": true
+    }
+  ],
+  "subPages": [
+    {
+      "pageKey": "use-case",
+      "routeKey": "components",
+      "label": {"en": "Use case", "fr": "Cas d'utilisation"},
+      "slug": {"en": "", "fr": ""},
+      "files": {"en": "index", "fr": "index"}
+    },
+    {
+      "pageKey": "design",
+      "routeKey": "design",
+      "label": {"en": "Design", "fr": "design"},
+      "slug": {"en": "design", "fr": "design"},
+      "files": {"en": "design", "fr": "design"}
+    },
+    {
+      "pageKey": "code",
+      "routeKey": "Code",
+      "label": {"en": "Code", "fr": "Code"},
+      "slug": {"en": "code", "fr": "code"},
+      "files": {"en": "code", "fr": "code"}
+    }
+  ]
+}

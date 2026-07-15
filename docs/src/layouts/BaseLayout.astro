@@ -1,0 +1,57 @@
+---
+import { DateModified, Footer, Header } from '../components';
+import { routes } from '../i18n/config';
+import { findRouteKeyFromPath, getContentRoot, getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
+import { getLastModifiedForRoute } from '../utils/lastModified';
+
+import '../styles/global.css';
+import BaseHead from '../components/BaseHead.astro';
+import SideNav from '../components/SideNav.astro';
+
+// .astro pages pass these as direct props (<BaseLayout pageTitle=… />).
+// MDX pages set them via `layout:` frontmatter, which Astro delivers under
+// Astro.props.frontmatter — so fall back to that.
+const { frontmatter } = Astro.props;
+const pageTitle = Astro.props.pageTitle ?? frontmatter?.pageTitle;
+const paddingTop = Astro.props.paddingTop ?? frontmatter?.paddingTop ?? true;
+
+// Determine the current locale and route key based on the URL.
+const parts = getPathParts(Astro.url.pathname);
+const currentLocale = resolveLocaleFromPathname(Astro.url.pathname);
+const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
+
+const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {
+  contentRoot: getContentRoot(Astro.url.pathname),
+  locale: currentLocale
+});
+---
+
+<html lang={currentLocale}>
+  <head>
+    <BaseHead pageTitle={pageTitle} />
+  </head>
+  <body>
+    <Header currentLocale={currentLocale} routeKey={routeKey} />
+    <div class="content-wrapper">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
+        <SideNav />
+        <main id="main-content" class={`${paddingTop ? 'has-padding' : ''}`}>
+          <slot />
+          <DateModified value={lastModified} locale={currentLocale} />
+        </main>
+      </gcds-grid>
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style>
+  body,
+  html {
+    height: 100%;
+  }
+
+  #main-content.has-padding {
+    padding-block-start: var(--gcds-spacing-600);
+  }
+</style>

@@ -1,0 +1,92 @@
+---
+const tabs = ["Overview", "Examples"];
+// Default selected tab for the initial (SSR) render. The client script below
+// reconciles this with the value persisted in localStorage once JS runs.
+const defaultTab = "Overview";
+---
+
+<div>
+  <nav class="tabs-nav">
+    {tabs.map((tab) => (
+      <button
+        type="button"
+        class={`tab ${tab === defaultTab ? "active" : ""}`}
+        id={`tab-${tab}`}
+      >
+        {tab}
+      </button>
+    ))}
+  </nav>
+
+  <div class="tabs-content">
+    <div class="tab-content" id="overview">
+      <slot name="overview" />
+    </div>
+    <div class="tab-content" id="examples">
+      <slot name="examples" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .tabs-nav {
+  display: flex;
+  border-block-end: var(--gcds-border-width-md) solid
+    var(--gcds-color-grayscale-100);
+}
+
+.tab {
+  font: var(--gcds-font-text);
+  background-color: transparent;
+  border: none;
+  color: var(--gcds-link-default);
+  padding: var(--gcds-spacing-225) var(--gcds-spacing-150)
+    var(--gcds-spacing-175) var(--gcds-spacing-150);
+}
+
+.tab.active {
+  font-weight: bold;
+  border: var(--gcds-border-width-md) solid var(--gcds-color-grayscale-100);
+  border-block-end: 0 solid var(--gcds-color-grayscale-0);
+  border-radius: var(--gcds-button-border-radius)
+    var(--gcds-button-border-radius) 0 0;
+  box-shadow: 0 var(--gcds-border-width-xl) 0
+    calc(var(--gcds-border-width-md) * -1) var(--gcds-color-grayscale-0);
+}
+
+.tabs-content {
+  padding: var(--gcds-spacing-300) 0;
+}
+</style>
+
+<script type="text/javascript">
+  // Set up the initial tab state
+  const tabs = ["Overview", "Examples"];
+  const defaultTab = "Overview";
+  let selectedTab = localStorage.getItem("selectedTab") || defaultTab;
+
+  // Show the selected tab content
+  const showSelectedTab = (tab) => {
+    tabs.forEach((tabName) => {
+      const tabContent = document.getElementById(tabName.toLowerCase());
+      const tabButton = document.getElementById(`tab-${tabName}`);
+      if (tabContent && tabButton) {
+        tabContent.style.display = tabName === tab ? "block" : "none";
+        tabButton.classList.toggle("active", tabName === tab);
+      }
+    });
+  };
+
+  // Initialize the tabs by showing the selected tab
+  showSelectedTab(selectedTab);
+
+  // Handle tab button click to change the selected tab
+  document.querySelectorAll(".tab").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const tab = e.target.textContent.trim();
+      localStorage.setItem("selectedTab", tab);
+      selectedTab = tab;
+      showSelectedTab(tab);
+    });
+  });
+</script>

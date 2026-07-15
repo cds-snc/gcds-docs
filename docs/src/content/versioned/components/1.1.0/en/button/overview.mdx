@@ -1,0 +1,29 @@
+---
+---
+
+import { AnatomyImage, AnatomyList, CodePreview } from "~components";
+import anatomy from "./assets/gcds-button-anatomy.svg";
+
+Take a look at what buttons do to see if they fit the problem you're solving for. Then select the best subtype, called the button role, for the use case you need to meet.
+
+<CodePreview>
+  <gcds-button button-role="primary">Primary</gcds-button>
+</CodePreview>
+
+## Button anatomy
+
+<AnatomyList>
+  <li>
+    The <strong>container</strong> gives the button its visual prominence.
+  </li>
+  <li>
+    The <strong>label</strong> states the action that'll happen when someone
+    interacts with the button. Text is in sentence case, where only the first
+    letter is capitalized.
+  </li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Button anatomy: A label reads “Button label” surrounded by a blue container."
+/>

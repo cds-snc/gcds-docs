@@ -1,0 +1,41 @@
+---
+import SplashLayout from '../layouts/SplashLayout.astro';
+---
+
+<SplashLayout pageTitle="Welcome">
+    <main class="splash-page" id="main-content">
+        <div class="splash-background" aria-hidden="true"></div>
+
+        <section class="splash-panel">
+            <div class="splash-content">
+                <gcds-signature></gcds-signature>
+
+                <gcds-heading tag="h1" margin-top="200">GC Design System</gcds-heading>
+                <gcds-text margin-bottom="200">
+                    Access the documentation in English or French.<br />
+                    Accédez à la documentation en anglais ou en français.
+                </gcds-text>
+
+                <div class="d-flex justify-content-center align-items-center gap-300">
+                    <gcds-button button-role="secondary" type="link" href="/en">
+                        English
+                    </gcds-button>
+                    <gcds-button button-role="secondary" type="link" href="/fr">
+                        Français
+                    </gcds-button>
+                </div>
+            </div>
+
+            <div class="splash-footer-row mt-600">
+                <div class="splash-footer-links">
+                    {/* TODO: /en/terms-of-use and /fr/conditions-dutilisation are not migrated yet — these links 404 until those pages are created. */}
+                    <a href="/en/terms-of-use" class="splash-footer-link">Terms of use</a>
+                    <a href="/fr/conditions-dutilisation" class="splash-footer-link" lang="fr">Conditions d’utilisation</a>
+                </div>
+
+                <gcds-signature type="wordmark">
+                </gcds-signature>
+            </div>
+        </section>
+    </main>
+</SplashLayout>

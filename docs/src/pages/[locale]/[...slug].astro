@@ -1,0 +1,228 @@
+---
+import Text from '../../components/Text.astro';
+import Ol from '../../components/markdown/ol.astro';
+import Ul from '../../components/markdown/ul.astro';
+import type { ContentPageModule } from '../../types/content';
+import versionConfig from '../../routing/versioned/version-config.json';
+
+const CONTENT_PAGES_PATH = '../../content/pages';
+const VERSIONED_CONTENT_PATH = '../../content/versioned';
+
+// Vite requires glob patterns to be string literals.
+const renderPageModules = import.meta.glob('../../content/pages/**/*.{astro,mdx}', { eager: true }) as Record<string, ContentPageModule>;
+const renderVersionedModules = import.meta.glob('../../content/versioned/**/*.{astro,mdx}');
+
+const isSemver = (value: string) => /^\d+\.\d+\.\d+$/.test(value);
+
+const compareSemver = (a: string, b: string) => {
+  const aParts = a.split('.').map(Number);
+  const bParts = b.split('.').map(Number);
+  for (let i = 0; i < Math.max(aParts.length, bParts.length); i += 1) {
+    const aVal = aParts[i] ?? 0;
+    const bVal = bParts[i] ?? 0;
+    if (aVal !== bVal) {
+      return aVal - bVal;
+    }
+  }
+  return 0;
+};
+
+const versionedSections = Array.isArray(versionConfig?.sections) ? versionConfig.sections : [];
+const contentDirToRouteKey = new Map(versionedSections.map((section) => [section.contentDir, section.routeKey]));
+const routeKeyToSection = new Map(versionedSections.map((section) => [section.routeKey, section]));
+
+const getLatestVersion = (routeKey: string) => {
+  const section = routeKeyToSection.get(routeKey);
+  if (!section || !Array.isArray(section.versions)) {
+    return undefined;
+  }
+
+  const versions = section.versions.filter((version: string) => isSemver(version)).sort(compareSemver);
+  return versions[versions.length - 1];
+};
+
+const toSlugPartsFromFileBase = (fileBase: string) => {
+  const normalized = fileBase.replace(/\/index$/, '');
+  return normalized === 'index' || normalized === '' ? [] : normalized.split('/');
+};
+
+const buildContentCandidateKeys = (basePath: string) => [
+  `${basePath}.astro`,
+  `${basePath}.mdx`,
+  `${basePath}/index.astro`,
+  `${basePath}/index.mdx`
+];
+
+const buildVersionedCandidateKeys = (locale: string, slugPath: string) => {
+  const parts = slugPath.split('/').filter(Boolean);
+  const routeKey = parts[0];
+  const section = routeKeyToSection.get(routeKey);
+  if (!section) {
+    return [];
+  }
+
+  const hasExplicitVersion = isSemver(parts[1] ?? '');
+  const version = hasExplicitVersion ? parts[1] : getLatestVersion(routeKey);
+  if (!version) {
+    return [];
+  }
+
+  const pagePath = hasExplicitVersion ? parts.slice(2).join('/') : parts.slice(1).join('/');
+  const fileBase = pagePath || 'index';
+  const basePath = `${VERSIONED_CONTENT_PATH}/${section.contentDir}/${version}/${locale}/${fileBase}`;
+  return buildContentCandidateKeys(basePath);
+};
+
+export function getStaticPaths() {
+  // TODO(routing dedup): these helpers intentionally duplicate the module-scope
+  // ones (isSemver, compareSemver, getLatestVersion, toSlugPartsFromFileBase,
+  // the section maps). They can't just be hoisted — Astro extracts
+  // getStaticPaths() into an isolated prerender chunk that does NOT include
+  // module-scope frontmatter consts, so referencing them fails the build
+  // ("<name> is not defined"). To dedup properly, move the pure logic into an
+  // importable module (e.g. src/utils/routing.ts) and import it in both places;
+  // imports survive the extraction. The import.meta.glob calls must stay local
+  // (glob patterns are resolved relative to this file).
+  const contentPagesPath = '../../content/pages';
+  const versionedContentPath = '../../content/versioned';
+  const staticPageModules = import.meta.glob('../../content/pages/**/*.{astro,mdx}', { eager: true });
+  const staticVersionedModules = import.meta.glob('../../content/versioned/**/*.{astro,mdx}');
+  const isSemverLocal = (value: string) => /^\d+\.\d+\.\d+$/.test(value);
+  const compareSemverLocal = (a: string, b: string) => {
+    const aParts = a.split('.').map(Number);
+    const bParts = b.split('.').map(Number);
+    for (let i = 0; i < Math.max(aParts.length, bParts.length); i += 1) {
+      const aVal = aParts[i] ?? 0;
+      const bVal = bParts[i] ?? 0;
+      if (aVal !== bVal) {
+        return aVal - bVal;
+      }
+    }
+    return 0;
+  };
+
+  const sections = Array.isArray(versionConfig?.sections) ? versionConfig.sections : [];
+  const contentDirToRouteKeyLocal = new Map(sections.map((section) => [section.contentDir, section.routeKey]));
+  const routeKeyToSectionLocal = new Map(sections.map((section) => [section.routeKey, section]));
+  const getLatestVersionLocal = (routeKey: string) => {
+    const section = routeKeyToSectionLocal.get(routeKey);
+    if (!section || !Array.isArray(section.versions)) {
+      return undefined;
+    }
+    const versions = section.versions.filter((version: string) => isSemverLocal(version)).sort(compareSemverLocal);
+    return versions[versions.length - 1];
+  };
+
+  const toSlugPartsFromFileBaseLocal = (fileBase: string) => {
+    const normalized = fileBase.replace(/\/index$/, '');
+    return normalized === 'index' || normalized === '' ? [] : normalized.split('/');
+  };
+
+  const seen = new Set<string>();
+  const staticPaths: Array<{ params: { locale: string; slug?: string } }> = [];
+
+  const pushPath = (locale: string, slugParts: string[]) => {
+    const slug = slugParts.length > 0 ? slugParts.join('/') : undefined;
+    const key = `${locale}:${slug ?? ''}`;
+    if (seen.has(key)) {
+      return;
+    }
+
+    seen.add(key);
+    staticPaths.push({ params: { locale, slug } });
+  };
+
+  for (const filePath of Object.keys(staticPageModules)) {
+    const normalizedPath = filePath.replace(`${contentPagesPath}/`, '');
+    const segments = normalizedPath.split('/');
+
+    const locale = segments[0];
+    const fileWithoutExt = segments.slice(1).join('/').replace(/\.(astro|mdx)$/, '');
+    // Strip trailing "/index" so that both "about.mdx" and "about/index.mdx"
+    // resolve to the same slug (e.g. "about"), and a top-level "index.mdx"
+    // resolves to an empty slug (the locale root).
+    const normalizedBase = fileWithoutExt.replace(/\/index$/, '');
+    const slugParts = normalizedBase === 'index' || normalizedBase === '' ? [] : normalizedBase.split('/');
+
+    pushPath(locale, slugParts);
+  }
+
+  for (const filePath of Object.keys(staticVersionedModules)) {
+    const normalizedPath = filePath.replace(`${versionedContentPath}/`, '');
+    const segments = normalizedPath.split('/');
+    const contentDir = segments[0];
+    const version = segments[1];
+    const locale = segments[2];
+
+    if (!contentDir || !version || !locale || !isSemverLocal(version)) {
+      continue;
+    }
+
+    const routeKey = contentDirToRouteKeyLocal.get(contentDir);
+    if (!routeKey) {
+      continue;
+    }
+
+    const fileWithoutExt = segments.slice(3).join('/').replace(/\.(astro|mdx)$/, '');
+    // Only generate canonical versioned URLs from index files for now.
+    // This keeps unversioned + explicit version roots working while deeper
+    // subpages can be enabled once migrated.
+    if (!/\/index$/.test(fileWithoutExt)) {
+      continue;
+    }
+    const pageSlugParts = toSlugPartsFromFileBaseLocal(fileWithoutExt);
+
+    pushPath(locale, [routeKey, version, ...pageSlugParts]);
+
+    const latestVersion = getLatestVersionLocal(routeKey);
+    if (version === latestVersion) {
+      pushPath(locale, [routeKey, ...pageSlugParts]);
+    }
+  }
+
+  return staticPaths;
+}
+
+const locale = Astro.params.locale;
+const slugParam = Astro.params.slug;
+const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam ?? '';
+const fileBase = slugPath === '' ? 'index' : slugPath;
+
+// Check all four possible file locations for a given slug, in priority order:
+//   1. en/about.astro          — flat .astro file
+//   2. en/about.mdx            — flat .mdx file
+//   3. en/about/index.astro    — nested .astro index
+//   4. en/about/index.mdx      — nested .mdx index
+const astroKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}.astro`;
+const mdxKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}.mdx`;
+const astroIndexKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}/index.astro`;
+const mdxIndexKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}/index.mdx`;
+
+const pageModule =
+  renderPageModules[astroKey] ??
+  renderPageModules[mdxKey] ??
+  renderPageModules[astroIndexKey] ??
+  renderPageModules[mdxIndexKey];
+
+const versionedModuleLoader = buildVersionedCandidateKeys(locale ?? 'en', fileBase)
+  .map((key) => renderVersionedModules[key])
+  .find(Boolean);
+
+const versionedPageModule = versionedModuleLoader ? await versionedModuleLoader() : undefined;
+const resolvedPageModule = pageModule ?? (versionedPageModule as ContentPageModule | undefined);
+const Content = resolvedPageModule?.default;
+
+// Global MDX component substitutions — applies to all .mdx pages automatically.
+// Markdown paragraphs render as <gcds-text> instead of plain <p>.
+const mdxComponents = {
+  p: Text,
+  ol: Ol, // renders <ol class="list-decimal mb-300"> (CSS Shortcuts)
+  ul: Ul, // renders <ul class="list-disc mb-300"> (CSS Shortcuts)
+};
+---
+
+{/* Pass mdxComponents to remap markdown elements globally across all .mdx pages.
+    e.g. plain paragraphs render as <gcds-text> instead of <p>.
+    Add more mappings to mdxComponents in the frontmatter to override other elements (h1, ul, li, etc.). */}
+{Content ? <Content components={mdxComponents} /> : <p>Page not found.</p>}
+

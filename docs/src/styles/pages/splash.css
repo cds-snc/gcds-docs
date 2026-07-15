@@ -1,0 +1,85 @@
+.splash-body {
+    min-height: 100vh;
+    margin: var(--gcds-spacing-0);
+    font-family: var(--gcds-font-families-body), sans-serif;
+    background: var(--gcds-color-blue-muted);
+}
+
+.splash-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.splash-background {
+    position: absolute;
+    inset: 0;
+    background:
+            linear-gradient(180deg, rgba(20, 27, 34, 0.18) 0%, rgba(20, 27, 34, 0.48) 100%),
+            url("https://www.canada.ca/content/dam/canada/splash/sp-bg-1.jpg") center center / cover no-repeat;
+}
+
+.splash-panel {
+    position: relative;
+    width: min(100%, 62rem);
+    background: var(--gcds-bg-white);
+    box-shadow: 0 var(--gcds-spacing-100) 2rem rgba(0, 0, 0, 0.25);
+    border-radius: var(--gcds-border-radius-sm);
+    overflow: hidden;
+}
+
+.splash-content,
+.splash-footer-row {
+    padding-inline: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.splash-content {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.splash-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gcds-spacing-200);
+    border-top: 0.25rem solid var(--gcds-color-blue-muted);
+    padding-top: var(--gcds-spacing-200);
+    padding-bottom: var(--gcds-spacing-200);
+}
+
+.splash-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gcds-spacing-100);
+    font-size: var(--gcds-font-text-small);
+}
+
+.splash-footer-link {
+    color: var(--gcds-color-blue-muted);
+    text-decoration: underline;
+}
+
+@media (max-width: 48rem) {
+    .splash-page {
+        padding: 0;
+    }
+
+    .splash-panel {
+        min-height: 100vh;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .splash-footer-row {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: left;
+    }
+}
