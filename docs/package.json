@@ -18,7 +18,7 @@
     "@gcds-core/css-shortcuts": "^1.2.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
-    "astro": "^6.1.8",
+    "astro": "^7.0.0",
     "chalk": "^5.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
