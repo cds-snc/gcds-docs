@@ -52,8 +52,7 @@ Here's what we'll be focusing on in each quarter.
   <li>Research and development to better integrate with web analytics tools (like Adobe Analytics)</li>
   <li>Conduct accessibility and usability research</li>
   <li>Publish a space for GCDS Extensions and Plugins - community components, patterns, templates, and frameworks</li>
-  <li>Support for React Server Side Rendering (SSR)</li>
-  <li>Support for Vue Server Side Rendering (SSR)</li>
+  <li>Support for Server Side Rendering (SSR)</li>
 </ol>
 
 ### Quarter 4:
