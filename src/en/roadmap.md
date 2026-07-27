@@ -26,11 +26,11 @@ Here's what we'll be focusing on in each quarter.
 
 ### Quarter 1: April to June 2026
 <ol class="list-disc ps-400 mb-300">
-  <li> [**Done**] Research, design, and development of a table component</li>
-  <li> [**Done**] Add coded examples and guidance to each component page</li>
-  <li> [**Done**] Add detailed validation guidance for adding custom validation to GC Design System form components</li>
-  <li> [**In Progress**] Develop a GC Design System plugin/extension for code display that will enable self-serve accessibility checks on components</li>
-  <li> [**In Progress**] Add the sign in button to the header component</li>
+  <li> <strong>[ 🟢 Done]</strong> Research, design, and development of a table component</li>
+  <li> <strong>[ 🟢 Done]</strong> Add coded examples and guidance to each component page</li>
+  <li> <strong>[ 🟢 Done]</strong> Add detailed validation guidance for adding custom validation to GC Design System form components</li>
+  <li> <strong>[ 🟡 In Progress]</strong> Develop a GC Design System plugin/extension for code display that will enable self-serve accessibility checks on components</li>
+  <li> <strong>[ 🟡 In Progress]</strong> Add the sign in button to the header component</li>
 </ol>
 
 ### Quarter 2: July to September 2026
