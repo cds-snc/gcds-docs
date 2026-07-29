@@ -17,6 +17,28 @@ export const routes = {
       },
     },
   },
+  styles: {
+    en: "styles",
+    fr: "styles",
+    children: {
+      "design-tokens": {
+        en: "design-tokens",
+        fr: "unites-de-style",
+      },
+      colour: {
+        en: "colour",
+        fr: "couleur",
+      },
+      spacing: {
+        en: "spacing",
+        fr: "espacement",
+      },
+      typography: {
+        en: "typography",
+        fr: "typographie",
+      },
+    },
+  },
 };
 
 export const supportedLocales = ["en", "fr"] as const;

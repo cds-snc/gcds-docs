@@ -1,7 +1,7 @@
 import routeManifest from './route-manifest.json';
 import componentManifest from './versioned/component-manifest.json';
 import cssShortcutManifest from './versioned/css-shortcut-manifest.json';
-import tokensManifest from './versioned/tokens-manifest.json';
+import tokensManifest from './tokens-manifest.json';
 
 import type {
   GroupLinkOptions,

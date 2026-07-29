@@ -1,0 +1,44 @@
+---
+layout: '../../../../layouts/BaseLayout.astro'
+pageTitle: Styles
+description: Design tokens make up the foundations of GC Design System.
+dateModified: "2024-08-20T07:40:51-07:00"
+---
+
+import { HelpUs } from '~components';
+import { links } from '~i18n/links';
+import previewColour from '~assets/img/en/foundations/preview/preview-colour.svg';
+import previewSpacing from '~assets/img/en/foundations/preview/preview-spacing.svg';
+import previewTypography from '~assets/img/en/foundations/preview/preview-typography.svg';
+
+# Styles
+
+Design tokens make up the foundations of GC Design System.
+
+Our tokens capture brand and design decisions in code for basic style elements like colours, typography, and spacing.
+
+## Design tokens support consistency and communication
+
+We're using design tokens to:
+
+- **Create a consistent visual experience** by scaling design and brand decisions across components.
+- **Communicate meaning consistently** to establish a predictable and trustworthy experience for the people using your services.
+- **Improve communication between design and development** by defining each style decision with a name and visual representation.
+
+<gcds-button type="link" button-role="secondary" href={links.en.designTokens}>Explore tokens</gcds-button>
+
+<div class="my-600">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+    <gcds-card card-title="Colour" href={links.en.colour} card-title-tag="h3" img-src={previewColour.src} img-alt="" role="listitem">
+      <gcds-text>Colour tokens store the colour values for styling components.</gcds-text>
+    </gcds-card>
+    <gcds-card card-title="Spacing" href={links.en.spacing} card-title-tag="h3" img-src={previewSpacing.src} img-alt="" role="listitem">
+      <gcds-text>Spacing tokens help position elements onscreen and in components.</gcds-text>
+    </gcds-card>
+    <gcds-card card-title="Typography" href={links.en.typography} card-title-tag="h3" img-src={previewTypography.src} img-alt="" role="listitem">
+      <gcds-text>Typography tokens include the style, arrangement, and appearance of letters, numbers, and symbols.</gcds-text>
+    </gcds-card>
+  </gcds-grid>
+</div>
+
+<HelpUs />

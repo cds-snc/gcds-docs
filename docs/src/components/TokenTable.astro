@@ -1,0 +1,246 @@
+---
+import { resolveLocaleFromPathname } from "../utils/i18n";
+import {
+  tokens,
+  colourNames,
+  contrast,
+  swatchBorder,
+  hexToRgb,
+  colourFromValue,
+  reformatColourToken,
+  dig,
+  tokenCssName,
+  camelToKebab,
+  formatTypography,
+} from "../utils/tokens";
+
+interface Props {
+  token: string;
+  type: string;
+  headers: Record<string, string>;
+  useCases?: Record<string, string>;
+  previews?: Record<string, string>;
+  subTokens?: string;
+}
+
+const {
+  token,
+  type,
+  headers,
+  useCases = {},
+  previews = {},
+  subTokens,
+} = Astro.props as Props;
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const labels = colourNames[locale] ?? colourNames.en;
+const subTokenList = subTokens ? subTokens.split(" ") : null;
+const headerKeys = Object.keys(headers);
+
+const rows = token.split(" ").flatMap((concatToken) => {
+  let filtered = dig(concatToken.split("."), tokens);
+  if (filtered?.value) {
+    filtered = reformatColourToken(filtered);
+  }
+  if (!filtered || typeof filtered !== "object") return [];
+
+  return Object.entries(filtered)
+    .filter(([itemKey, itemVal]) => {
+      if (subTokenList && !subTokenList.includes(itemKey)) return false;
+      return (itemVal as { type?: string })?.type === type;
+    })
+    .map(([itemKey, itemVal]) => {
+      const value = (itemVal as { value: unknown }).value;
+      const isHex = typeof value === "string" && value.startsWith("#");
+      const isTypography = (itemVal as { type?: string })?.type === "typography";
+      const [colourGroup = "", colourWeight = ""] = isHex
+        ? colourFromValue(value as string, tokens.color).split("-")
+        : [];
+      return {
+        concatToken,
+        itemKey,
+        value,
+        cssName: tokenCssName(concatToken, itemKey),
+        aria: `${labels[colourGroup] ?? colourGroup} ${colourWeight}`.trim(),
+        border: isHex ? swatchBorder(value as string) : "black",
+        contrast: isHex ? contrast(value as string) : "",
+        rgb: isHex ? hexToRgb(value as string) : "",
+        useCase: useCases[`${concatToken}-${itemKey}`] ?? "",
+        preview: previews[`${concatToken}-${itemKey}`] ?? "",
+        previewClasses: `font-${camelToKebab(itemKey)} font-family-${camelToKebab(itemKey)}`,
+        fontValue: isTypography
+          ? formatTypography(value as Parameters<typeof formatTypography>[0])
+          : typeof value === "string"
+            ? value
+            : "",
+        px:
+          typeof value === "string" && value.endsWith("rem")
+            ? `${parseFloat(value) * 16}px`
+            : "",
+      };
+    });
+});
+---
+
+<div class="mb-300 table-overflow">
+  <table class={`table-display-token-${type}`}>
+    <thead>
+      <tr>
+        {Object.values(headers).map((label) => <th>{label}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr class={`row-${row.itemKey}`}>
+          {headerKeys.map((key) => (
+            <td>
+              {key === "color-preview" && (
+                <div
+                  role="img"
+                  aria-label={row.aria}
+                  class="color-preview"
+                  style={`background-color: ${row.value}; border: 1px solid ${row.border}`}
+                />
+              )}
+              {key === "spacing-preview" && (
+                <div
+                  class="spacing-preview"
+                  style={`width: ${row.value}; height: ${row.value};`}
+                />
+              )}
+              {key === "font-preview" && (
+                <span class={`font-preview ${row.previewClasses}`}>
+                  {row.preview}
+                </span>
+              )}
+              {key === "token-name" && <span lang="en">{row.cssName}</span>}
+              {key === "value" && row.value}
+              {key === "font-value" && row.fontValue}
+              {key === "contrast" && row.contrast}
+              {key === "rgb" && row.rgb}
+              {key === "px" && row.px}
+              {key === "use-case" && row.useCase}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style is:global>
+  .table-overflow {
+    @media (max-width: 64rem) {
+      max-width: var(--gcds-container-full);
+      overflow-x: auto;
+    }
+  }
+
+  table {
+    text-align: left;
+    width: var(--gcds-container-full);
+  }
+
+  .table-overflow table {
+    @media (max-width: 64rem) {
+      min-width: var(--gcds-container-md);
+    }
+  }
+
+  table tr {
+    vertical-align: baseline;
+  }
+
+  table thead tr {
+    border-block-end: var(--gcds-border-width-md) solid var(--gcds-border-default);
+  }
+
+  table tbody tr {
+    border-block-end: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+  }
+
+  table td,
+  table th {
+    padding: var(--gcds-spacing-225) var(--gcds-spacing-175);
+  }
+
+  table td:first-child,
+  table th:first-child {
+    padding-inline-start: 0;
+  }
+
+  table td:last-child,
+  table th:last-child {
+    padding-inline-end: 0;
+  }
+
+  table th {
+    font-weight: var(--gcds-font-weights-bold);
+    padding-block-start: 0;
+  }
+
+  table .color-preview {
+    width: var(--gcds-spacing-600);
+    height: var(--gcds-spacing-600);
+    margin-block-start: calc(-1 * var(--gcds-spacing-150));
+    border-radius: var(--gcds-spacing-600);
+  }
+
+  table .spacing-preview {
+    background-color: var(--gcds-color-blue-500);
+  }
+
+  .table-display-token-dimension {
+    margin-block-end: var(--gcds-spacing-900);
+  }
+
+  .table-display-token-dimension tr {
+    vertical-align: top;
+  }
+
+  .table-display-token-typography th,
+  .table-display-token-fontFamilies th,
+  .table-display-token-fontWeights th {
+    min-width: 13.125rem;
+  }
+
+  .table-display-token-fontFamilies .row-icons {
+    display: none;
+  }
+
+  .table-display-token-color tr {
+    vertical-align: top;
+  }
+
+  .table-display-token-color td {
+    padding-block: calc(var(--gcds-spacing-225) + var(--gcds-spacing-150));
+  }
+
+  .table-display-token-color th:nth-child(1) {
+    width: var(--gcds-spacing-600);
+  }
+
+  .table-display-token-color th:nth-child(2) {
+    width: 30%;
+  }
+
+  .table-display-token-color th:nth-child(4) {
+    width: 7ch;
+  }
+
+  .table-display-token-color th:nth-child(5) {
+    width: 35%;
+  }
+
+  .table-base-colors th:nth-child(2) {
+    width: 40%;
+  }
+
+  .table-base-colors th:nth-child(4) {
+    width: 7ch;
+  }
+
+  .table-base-colors th:nth-child(5) {
+    display: none;
+  }
+</style>
