@@ -102,8 +102,8 @@ Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le
 
 **Dernières versions** :
 
-- Nouveaux composants : <gcds-link href="{{ links.table }}">composant tableau</gcds-link> et format de date ISO pour le <gcds-link href="{{ links.dateInput }}">champ de date</gcds-link>
-- Nouvelle documentation : exemples de code pour les attributs et emplacements de tous les composants, et guide d'utilisation sur la <gcds-link href="{{ links.formValidation }}">validation des composants de formulaire</gcds-link>
+- **Composants :** Nouveau <gcds-link href="{{ links.table }}">composant tableau</gcds-link> et nouveau format de date ISO pour le <gcds-link href="{{ links.dateInput }}">champ de date</gcds-link>
+- **Documentation :** Nouveaux exemples de code pour les attributs et emplacements de tous les composants, et nouveau guide d'utilisation sur la <gcds-link href="{{ links.formValidation }}">validation des composants de formulaire</gcds-link>
 
 </section>
 
