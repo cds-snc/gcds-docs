@@ -2,7 +2,7 @@
 import { DateModified, Footer, Header } from '../components';
 import { routes } from '../i18n/config';
 import { findRouteKeyFromPath, getContentRoot, getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
-import { getLastModifiedForRoute } from '../utils/lastModified';
+import { resolveDateModified } from '../utils/lastModified';
 
 import '../styles/global.css';
 import BaseHead from '../components/BaseHead.astro';
@@ -20,7 +20,19 @@ const parts = getPathParts(Astro.url.pathname);
 const currentLocale = resolveLocaleFromPathname(Astro.url.pathname);
 const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
 
-const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {
+// Prefer an explicit `dateModified` from the page (frontmatter or prop) over the
+// git-derived date. Migrated content sets this to preserve the original
+// last-modified date — moving a page to Astro shouldn't bump its date.
+const frontmatterDate =
+  frontmatter?.dateModified instanceof Date
+    ? frontmatter.dateModified.toISOString()
+    : frontmatter?.dateModified;
+// OG (pre-migration) date; resolveDateModified keeps it until the file is
+// edited after migration, then auto-bumps to the git date.
+const ogDate = Astro.props.dateModified ?? frontmatterDate;
+const lastModified = await resolveDateModified(Astro.url.pathname, {
+  file: Astro.props.file,
+  ogDate,
   contentRoot: getContentRoot(Astro.url.pathname),
   locale: currentLocale
 });

@@ -7,21 +7,32 @@ import { buildSideNavConfig } from '../routing/routes';
 // - Add grouped items under sideNavRoutes with "type": "group" and either "items" or "manifestKey"
 // - Add/update the home slot using "type": "slot" and "slotName": "home"
 const navConfig = buildSideNavConfig(Astro.url.pathname);
+
+// Highlight the active link and open the group that contains it.
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const normalize = (href: string) => href.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) => normalize(href) === currentPath;
+const groupIsActive = (group: { links: Array<{ href: string }> }) =>
+  group.links.some((link) => {
+    const base = normalize(link.href);
+    return base === currentPath || currentPath.startsWith(`${base}/`);
+  });
 ---
 
 <gcds-side-nav label={navConfig.sideNavLabel} class="lg:position-sticky box-border overflow-x-visible align-self-start px-75">
     {navConfig.homeSlot && (
+            // Home slot is intentionally never marked current (no active highlight).
             <gcds-nav-link slot="home" href={navConfig.homeSlot.href}>{navConfig.homeSlot.text}</gcds-nav-link>
     )}
 
     {navConfig.links.map((link) => (
-            <gcds-nav-link href={link.href}>{link.text}</gcds-nav-link>
+            <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
     ))}
 
     {navConfig.groups.map((group) => (
-            <gcds-nav-group open-trigger={group.trigger} menu-label={group.menuLabel}>
+            <gcds-nav-group open-trigger={group.trigger} menu-label={group.menuLabel} open={groupIsActive(group) || undefined}>
                 {group.links.map((link) => (
-                        <gcds-nav-link href={link.href}>{link.text}</gcds-nav-link>
+                        <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
                 ))}
             </gcds-nav-group>
     ))}
