@@ -103,8 +103,8 @@ Browse the latest code additions and features in the <gcds-link href="{{ links.r
 
 **Recent releases**:
 
-- New components: <gcds-link href="{{ links.table }}">Table component</gcds-link> and ISO date format for <gcds-link href="{{ links.dateInput }}"date input</gcds-link>
-- New documentation: Code examples for attributes and slots for all components, and <gcds-link href="{{ links.formValidation }}"form validation guidance</gcds-link>
+- New components: <gcds-link href="{{ links.table }}">Table component</gcds-link> and ISO date format for <gcds-link href="{{ links.dateInput }}">date input</gcds-link>
+- New documentation: Code examples for attributes and slots for all components, and <gcds-link href="{{ links.formValidation }}">form validation guidance</gcds-link>
 
 </section>
 
