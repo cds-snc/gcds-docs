@@ -103,9 +103,8 @@ Browse the latest code additions and features in the <gcds-link href="{{ links.r
 
 **Recent releases**:
 
-- New: Stable v1.0.0 packages for <gcds-link href="{{ links.github }}" external>components</gcds-link> and <gcds-link href="{{ links.githubTokens }}" external>design tokens</gcds-link>
-- Update: Expanded colour scale with new and updated <gcds-link href="{{ links.colour }}">base tokens</gcds-link>
-- New: Dedicated <gcds-link href="{{ links.figmaTokens }}" external>Figma library for design tokens</gcds-link>
+- New components: <gcds-link href="{{ links.table }}">Table component</gcds-link> and ISO date format for <gcds-link href="{{ links.dateInput }}"date input</gcds-link>
+- New documentation: Code examples for attributes and slots for all components, and <gcds-link href="{{ links.formValidation }}"form validation guidance</gcds-link>
 
 </section>
 
