@@ -1,0 +1,40 @@
+{
+  "key": "TOKENS",
+  "items": [
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Styles overview", "fr": "Aperçu des styles"},
+      "slug": {"en": "", "fr": ""},
+      "pageType": "overview"
+    },
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Design tokens", "fr": "Unités de style"},
+      "slug": {"en": "design-tokens", "fr": "unites-de-style"},
+      "containsSubPages": false
+    },
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Colour", "fr": "Couleur"},
+      "slug": {"en": "colour", "fr": "couleur"},
+      "containsSubPages": false
+    },
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Spacing", "fr": "Espacement"},
+      "slug": {"en": "spacing", "fr": "espacement"},
+      "containsSubPages": false
+    },
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Typography", "fr": "Typographie"},
+      "slug": {"en": "typography", "fr": "typographie"},
+      "containsSubPages": false
+    }
+  ]
+}

@@ -13,7 +13,9 @@
       "groupName": "GCDS packages",
       "prPriority": 1,
       "automerge": false,
-      "prCreation": "immediate"
+      "prCreation": "immediate",
+      "minimumReleaseAge": "0 days",
+      "schedule": ["at any time"]
     }
   ]
 }
