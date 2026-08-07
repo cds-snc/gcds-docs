@@ -1,0 +1,50 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Alignement de texte
+description: "La classe alignement de texte définit la propriété text-align. Elle détermine l’alignement horizontal du texte dans sa boîte."
+dateModified: "2025-10-01T13:41:49-07:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote } from '~components';
+
+export const shortcuts = [
+  { class: "text-center", style: "text-align: center;" },
+  { class: "text-justify", style: "text-align: justify;" },
+  { class: "text-left", style: "text-align: left;" },
+  { class: "text-right", style: "text-align: right;" },
+];
+
+# Alignement de texte
+
+La classe alignement de texte définit la propriété `text-align`. Elle détermine l’alignement horizontal du texte dans sa boîte.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Centre<br />`text-center`
+
+<CodePreview demoClass="container-full b-sm b-default mb-0 p-150">
+<p class="text-center"> Ce texte est aligné au centre de sa boîte. </p>
+</CodePreview>
+
+### Justifier<br />`text-justify`
+
+<CodePreview demoClass="container-xs b-sm b-default p-150">
+<p class="text-justify"> Ce texte est étiré pour s'aligner uniformément sur les bords droit et gauche de sa boîte. </p>
+</CodePreview>
+
+### Gauche<br />`text-left`
+
+<CodePreview demoClass="container-full b-sm b-default p-150">
+<p class="text-left"> Ce texte est aligné du côté gauche de sa boîte. </p>
+</CodePreview>
+
+### Droit<br />`text-right`
+
+<CodePreview demoClass="container-full b-sm b-default p-150">
+<p class="text-right"> Ce texte est aligné du côté droit de sa boîte. </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="text-center" />

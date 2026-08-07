@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import rehypeSlug from "rehype-slug";
+import rehypeGcdsSlug from "./src/utils/rehype-gcds-slug.mjs";
 import { fileURLToPath } from "node:url";
 
 // Astro uses remark (for .md syntax) and rehype (for HTML output) instead of
@@ -42,7 +42,7 @@ export default defineConfig({
     // If we want anchor links again later, re-enable:
     //   import rehypeAutolinkHeadings from "rehype-autolink-headings";
     //   [rehypeAutolinkHeadings, { behavior: "wrap" }]
-    rehypePlugins: [rehypeSlug],
+    rehypePlugins: [rehypeGcdsSlug],
     // See the "markdown parity" TODO above. Once decided, register the plugins:
     // remarkPlugins: [remarkDisableBlockquote, remarkDisableCode],
   },

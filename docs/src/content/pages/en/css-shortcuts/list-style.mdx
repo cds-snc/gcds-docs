@@ -1,0 +1,159 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: List style
+description: 'The list style class sets the list-style property. It controls the appearance of list item markers.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import { CodePreview, ShortcutsTable, ResponsiveNote } from '~components';
+
+export const shortcuts = [
+  {
+    class: 'list-circle',
+    style: 'list-style: circle;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-disc',
+    style: 'list-style: disc;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-square',
+    style: 'list-style: square;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-decimal',
+    style: 'list-style: decimal;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-decimal-leading-zero',
+    style:
+      'list-style: decimal-leading-zero;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-upper-roman',
+    style: 'list-style: upper-roman;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-lower-roman',
+    style: 'list-style: lower-roman;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-upper-alpha',
+    style: 'list-style: upper-alpha;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  {
+    class: 'list-lower-alpha',
+    style: 'list-style: lower-alpha;\nmargin: 0 0 0 var(--gcds-spacing-400);',
+  },
+  { class: 'list-none', style: 'list-style: none;' },
+];
+
+# List style
+
+The list style class sets the `list-style` property. It controls the appearance of list item markers.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Circle<br />`list-circle`
+
+<CodePreview>
+  <ul class="list-circle">
+    <li>This list marker is a circle.</li>
+    <li>This list marker is a circle.</li>
+    <li>This list marker is a circle.</li>
+  </ul>
+</CodePreview>
+
+### Disc<br />`list-disc`
+
+<CodePreview>
+  <ul class="list-disc">
+    <li>This list marker is a filled-in circle.</li>
+    <li>This list marker is a filled-in circle.</li>
+    <li>This list marker is a filled-in circle.</li>
+  </ul>
+</CodePreview>
+
+### Square<br />`list-square`
+
+<CodePreview>
+  <ul class="list-square">
+    <li>This list marker is a square.</li>
+    <li>This list marker is a square.</li>
+    <li>This list marker is a square.</li>
+  </ul>
+</CodePreview>
+
+### Decimal<br />`list-decimal`
+
+<CodePreview>
+  <ol class="list-decimal">
+    <li>This list marker uses numbers.</li>
+    <li>This list marker uses numbers.</li>
+    <li>This list marker uses numbers.</li>
+  </ol>
+</CodePreview>
+
+### Decimal leading zero<br />`list-decimal-leading-zero`
+
+<CodePreview>
+  <ol class="list-decimal-leading-zero">
+    <li>This list marker uses a numbered list starting with 0.</li>
+    <li>This list marker uses a numbered list starting with 0.</li>
+    <li>This list marker uses a numbered list starting with 0.</li>
+  </ol>
+</CodePreview>
+
+### Uppercase Roman<br />`list-upper-roman`
+
+<CodePreview>
+  <ol class="list-upper-roman">
+    <li>This list marker is an uppercase Roman numeral.</li>
+    <li>This list marker is an uppercase Roman numeral.</li>
+    <li>This list marker is an uppercase Roman numeral.</li>
+  </ol>
+</CodePreview>
+
+### Lowercase Roman<br />`list-lower-roman`
+
+<CodePreview>
+  <ol class="list-lower-roman">
+    <li>This list marker is a lowercase Roman numeral.</li>
+    <li>This list marker is a lowercase Roman numeral.</li>
+    <li>This list marker is a lowercase Roman numeral.</li>
+  </ol>
+</CodePreview>
+
+### Uppercase alpha<br />`list-upper-alpha`
+
+<CodePreview>
+  <ol class="list-upper-alpha">
+    <li>This list marker is uppercase alphabetical.</li>
+    <li>This list marker is uppercase alphabetical.</li>
+    <li>This list marker is uppercase alphabetical.</li>
+  </ol>
+</CodePreview>
+
+### Lowercase alpha<br />`list-lower-alpha`
+
+<CodePreview>
+  <ol class="list-lower-alpha">
+    <li>This list marker is lowercase alphabetical.</li>
+    <li>This list marker is lowercase alphabetical.</li>
+    <li>This list marker is lowercase alphabetical.</li>
+  </ol>
+</CodePreview>
+
+### None<br />`list-none`
+
+<CodePreview>
+  <ul class="list-none">
+    <li>This is a list item without a list marker.</li>
+    <li>This is a list item without a list marker.</li>
+    <li>This is a list item without a list marker.</li>
+  </ul>
+</CodePreview>
+
+<ResponsiveNote partialClass="list-disc" />

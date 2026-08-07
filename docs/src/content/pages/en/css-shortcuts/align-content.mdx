@@ -1,0 +1,145 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Align content
+description: 'The align content class sets the align-content property. It controls how extra space is distributed between items in a flex or grid container along the cross axis.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'align-content-around', style: 'align-content: space-around;' },
+  { class: 'align-content-between', style: 'align-content: space-between;' },
+  { class: 'align-content-evenly', style: 'align-content: space-evenly;' },
+  { class: 'align-content-center', style: 'align-content: center;' },
+  { class: 'align-content-start', style: 'align-content: start;' },
+  { class: 'align-content-end', style: 'align-content: end;' },
+];
+
+# Align content
+
+The align content class sets the `align-content` property. It controls how extra space is distributed between items in a flex or grid container along the cross axis.
+
+<Notice
+  role="info"
+  title="Influenced by flex-direction"
+  html={`In flexbox, the <code>flex-direction</code> property sets the main and cross axis. The effects of <code>align-content</code> change based on the container's direction.`}
+/>
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Around<br />`align-content-around`
+
+Rows are evenly spaced along the cross axis with equal space around each line. This results in half-sized gaps at the start and end of the container.
+
+In **row layouts**, the spacing appears vertically between rows.<br/>
+In **column layouts**, the spacing appears horizontally between columns.
+
+<CodePreview demoClass="flex-wrap example-styled-items example-flex-items example-flex-align">
+  <div class="d-flex align-content-around">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### Between<br />`align-content-between`
+
+Rows are evenly space along the cross axis with equal space between each line. There's no space at the start or end of the container.
+
+In **row layouts**, the spacing appears vertically between rows.<br/>
+In **column layouts**, the spacing appears horizontally between columns.
+
+<CodePreview demoClass="flex-wrap example-styled-items example-flex-items example-flex-align">
+  <div class="d-flex align-content-between">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### Evenly<br />`align-content-evenly`
+
+Rows are evenly spaced along the cross axis with equal space between all lines and the container edges, including the start and end.
+
+In **row layouts**, the spacing appears vertically between rows.<br/>
+In **column layouts**, the spacing appears horizontally between columns.
+
+<CodePreview demoClass="flex-wrap example-styled-items example-flex-items example-flex-align">
+  <div class="d-flex align-content-evenly">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### Centre<br />`align-content-center`
+
+Rows are grouped together and centred along the cross axis within the container, with equal space above and below the entire group.
+
+In **row layouts**, the rows are centred vertically.<br/>
+In **column layouts**, the columns are centred horizontally.
+
+<CodePreview demoClass="flex-wrap example-styled-items example-flex-items example-flex-align">
+  <div class="d-flex align-content-center">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### Start<br />`align-content-start`
+
+Rows are grouped together at the start of the cross axis within the container. It leaves any extra space at the end of the container.
+
+In **row layouts**, the rows align to the top of the container.<br/>
+In **column layouts**, the columns align to the left of the container.
+
+<CodePreview demoClass="flex-wrap example-styled-items example-flex-items example-flex-align">
+  <div class="d-flex align-content-start">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### End<br />`align-content-end`
+
+Rows are grouped together at the end of the cross axis within the container. It leaves any extra space at the beginning of the container.
+
+In **row layouts**, the rows align to the bottom of the container.<br/>
+In **column layouts**, the rows align to the right of the container.
+
+<CodePreview demoClass="flex-wrap example-styled-items example-flex-items example-flex-align">
+  <div class="d-flex align-content-end">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+<ResponsiveNote partialClass="align-content-center" />

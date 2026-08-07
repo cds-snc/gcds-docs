@@ -1,0 +1,36 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Débordement de texte
+description: "La classe débordement de texte définit la propriété text-overflow. Elle détermine si le texte débordant est coupé avec ou sans une ellipse."
+dateModified: "2025-10-01T13:41:49-07:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote } from '~components';
+
+export const shortcuts = [
+  { class: "text-clip", style: "overflow: hidden;\ntext-overflow: clip;\nwhite-space: nowrap;" },
+  { class: "text-truncate", style: "overflow: hidden;\ntext-overflow: ellipsis;\nwhite-space: nowrap;" },
+];
+
+# Débordement de texte
+
+La classe débordement de texte définit la propriété `text-overflow`. Elle détermine si le texte débordant est coupé avec ou sans une ellipse.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Découper<br />`text-clip`
+
+<CodePreview demoClass="container-xs b-sm b-default p-150">
+<p class="text-clip"> Ce texte est coupé abruptement sans points de suspension lorsqu'il déborde. </p>
+</CodePreview>
+
+### Tronquer<br />`text-truncate`
+
+<CodePreview demoClass="container-xs b-sm b-default p-150">
+<p class="text-truncate"> Ce texte se termine par des points de suspension lorsqu'il déborde. </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="text-truncate" />

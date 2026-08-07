@@ -1,0 +1,162 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Noms des icônes
+description: "La classe icône définit la propriété content et d'autres styles de base d'icône tels que la famille de polices d'icônes, le style et l'épaisseur. Elle détermine l'icône gcds-icon à afficher."
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'gcds-icon-info-circle', style: 'content: "\\e90a";' },
+  { class: 'gcds-icon-warning-triangle', style: 'content: "\\e90d";' },
+  { class: 'gcds-icon-exclamation-circle', style: 'content: "\\e909";' },
+  { class: 'gcds-icon-checkmark-circle', style: 'content: "\\e908";' },
+  { class: 'gcds-icon-chevron-left', style: 'content: "\\e901";' },
+  { class: 'gcds-icon-chevron-right', style: 'content: "\\e902";' },
+  { class: 'gcds-icon-chevron-up', style: 'content: "\\e903";' },
+  { class: 'gcds-icon-chevron-down', style: 'content: "\\e900";' },
+  { class: 'gcds-icon-close', style: 'content: "\\e90b";' },
+  { class: 'gcds-icon-download', style: 'content: "\\e906";' },
+  { class: 'gcds-icon-email', style: 'content: "\\e905";' },
+  { class: 'gcds-icon-external', style: 'content: "\\e904";' },
+  { class: 'gcds-icon-phone', style: 'content: "\\e90c";' },
+  { class: 'gcds-icon-search', style: 'content: "\\e907";' },
+];
+
+# Noms des icônes
+
+La classe icône définit la propriété `content` et d'autres styles de base d'icône tels que la famille de polices d'icônes, le style et l'épaisseur. Elle détermine l'icône <gcds-link href="/fr/composants/icone">gcds-icon</gcds-link> à afficher.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Cercle info<br />`gcds-icon-info-circle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-info-circle"></span> Cet élément a une icône de
+    cercle d'information.
+  </p>
+</CodePreview>
+
+### Triangle avertissement<br />`gcds-icon-warning-triangle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-warning-triangle"></span> Cet élément a une icône de
+    triangle d'avertissement.
+  </p>
+</CodePreview>
+
+### Cercle exclamation<br />`gcds-icon-exclamation-circle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-exclamation-circle"></span> Cet élément a une icône
+    de cercle d'exclamation.
+  </p>
+</CodePreview>
+
+### Cercle coche<br />`gcds-icon-checkmark-circle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-checkmark-circle"></span> Cet élément a une icône de
+    cercle de coche.
+  </p>
+</CodePreview>
+
+### Chevron gauche<br />`gcds-icon-chevron-left`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-left"></span> Cet élément a une icône de
+    chevron pointant vers la gauche.
+  </p>
+</CodePreview>
+
+### Chevron droite<br />`gcds-icon-chevron-right`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-right"></span> Cet élément a une icône de
+    chevron pointant vers la droite.
+  </p>
+</CodePreview>
+
+### Chevron haut<br />`gcds-icon-chevron-up`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-up"></span> Cet élément a une icône de
+    chevron pointant vers le haut.
+  </p>
+</CodePreview>
+
+### Chevron bas<br />`gcds-icon-chevron-down`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-down"></span> Cet élément a une icône de
+    chevron pointant vers le bas.
+  </p>
+</CodePreview>
+
+### Fermer <br />`gcds-icon-close`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-close"></span> Cet élément a une icône de fermeture.
+  </p>
+</CodePreview>
+
+### Téléchargement <br />`gcds-icon-download`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-download"></span> Cet élément a une icône de
+    téléchargement.
+  </p>
+</CodePreview>
+
+### Courriel <br />`gcds-icon-email`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-email"></span> Cet élément a une icône de courriel.
+  </p>
+</CodePreview>
+
+### Externe <br />`gcds-icon-external`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-external"></span> Cet élément a une icône externe.
+  </p>
+</CodePreview>
+
+### Téléphone <br />`gcds-icon-phone`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-phone"></span> Cet élément a une icône de téléphone.
+  </p>
+</CodePreview>
+
+### Recherche <br />`gcds-icon-search`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-search"></span> Cet élément a une icône de recherche.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="icon-close" />
+<StateNote partialClass="icon-close" />

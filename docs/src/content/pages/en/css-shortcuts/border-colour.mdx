@@ -1,0 +1,79 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Border colour
+description: "The border colour class sets the border-colour property. It controls the colour of an element's border."
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'b-default', style: 'border-color: #7d828b;' },
+  { class: 'b-current', style: 'border-color: currentColor;' },
+  { class: 'b-dark', style: 'border-color: #000000;' },
+  { class: 'b-inherit', style: 'border-color: inherit;' },
+  { class: 'b-light', style: 'border-color: #ffffff;' },
+  { class: 'b-transparent', style: 'border-color: transparent;' },
+];
+
+# Border colour
+
+The border colour class sets the `border-colour` property. It controls the colour of an element's border.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Default<br />`b-default`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-default"> This element has the default border colour. </p>
+</CodePreview>
+
+### Current<br />`b-current`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-current" style="color: var(--gcds-color-blue-750)">
+    This element has a border colour based on the current colour.
+  </p>
+</CodePreview>
+
+### Dark<br />`b-dark`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-dark"> This element has a dark border colour. </p>
+</CodePreview>
+
+### Inherit<br />`b-inherit`
+
+<CodePreview demoClass="example-items-padding">
+  <div style="border-color: var(--gcds-danger-border)">
+    <p class="b-sm b-inherit">
+      This element inherits the border colour of the parent.
+    </p>
+  </div>
+</CodePreview>
+
+### Light<br />`b-light`
+
+<CodePreview demoClass="p-250 example-items-padding">
+  <div class="bg-dark text-light">
+    <p class="b-sm b-light"> This element has a light border colour. </p>
+  </div>
+</CodePreview>
+
+### Transparent<br />`b-transparent`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-transparent">
+    This element has a transparent border colour.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="b-default" />
+<StateNote partialClass="b-default" />

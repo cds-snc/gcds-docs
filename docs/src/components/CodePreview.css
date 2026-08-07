@@ -3,34 +3,114 @@
   margin-block-end: var(--gcds-spacing-300);
 }
 
-.code-preview {
+.demo-container {
   padding: var(--gcds-spacing-300);
+  overflow-x: hidden;
 }
 
-.button-group {
-  margin-block-start: var(--gcds-spacing-300);
+/* --- Demo helpers --- */
+.demo-container p:not([class^='mb-']) {
+  margin-block-end: 0;
 }
 
-.code-block {
-  all: unset;
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-  overflow-x: auto;
-  background: var(--gcds-bg-light);
-  border-block-start: 1px solid var(--gcds-border-default);
-  padding: var(--gcds-spacing-300);
+.demo-container .limited-size {
+  width: 15rem;
+  height: 6rem;
 }
 
-.hidden {
-  display: none;
+.demo-container
+  .example-styled-items
+  p:not(.visibility-hidden):not(.visibility-sr-only) {
+  max-width: 100%;
+  padding-inline: var(--gcds-spacing-250);
+  padding-block: var(--gcds-spacing-250);
+  background-color: var(--gcds-bg-primary);
+  color: var(--gcds-text-light);
 }
 
-.copy-status {
-  color: var(--gcds-color-green-700);
-  margin-inline-start: var(--gcds-spacing-150);
+.demo-container .example-items-with-margin p {
+  margin: var(--gcds-spacing-200);
 }
 
-gcds-button {
-  margin-inline-end: var(--gcds-spacing-200);
+.demo-container .example-items-padding p {
+  padding: var(--gcds-spacing-150);
+}
+
+.demo-container .example-visibility p:not(.visibility-sr-only) {
+  flex: 1;
+}
+
+.demo-container .example-border-radius {
+  width: 15rem;
+  height: 15rem;
+}
+
+.demo-container .example-grid-row {
+  grid-auto-flow: column;
+}
+
+.demo-container .example-flex-items {
+  background-color: var(--gcds-color-blue-100);
+}
+
+.demo-container .example-flex-items p {
+  border: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-0);
+}
+
+.demo-container .example-flex-align {
+  height: 15rem;
+}
+
+.demo-container .example-flex-align p {
+  width: 33.33%;
+}
+
+.demo-container .example-flex-place {
+  height: 15rem;
+}
+
+.demo-container .example-flex-wrap p {
+  width: 45%;
+}
+
+.demo-container .example-flex-wrap.flex-nowrap p {
+  flex: none;
+  width: 40%;
+}
+
+.demo-container:has(.example-margin) {
+  position: relative;
+}
+
+.demo-container:has(.example-margin)::before {
+  content: '';
+  position: absolute;
+  top: var(--gcds-spacing-300);
+  left: var(--gcds-spacing-300);
+  width: calc(100% - var(--gcds-spacing-600));
+  height: calc(100% - var(--gcds-spacing-600));
+  background-color: var(--gcds-color-blue-100);
+}
+
+.demo-container .example-margin {
+  position: relative;
+  z-index: 1;
+}
+
+.demo-container .example-margin.ms-0,
+.demo-container .example-margin.me-0,
+.demo-container .example-margin.my-900 {
+  margin-block-end: var(--gcds-spacing-900);
+}
+
+.demo-container .example-table,
+.demo-container .example-table + .d-inline-table {
+  margin: var(--gcds-spacing-200);
+  border-collapse: collapse;
+}
+
+.demo-container .example-table .d-table-cell,
+.demo-container .example-table + .d-inline-table .d-table-cell {
+  padding: var(--gcds-spacing-150);
+  border: var(--gcds-border-width-sm) solid currentColor;
 }

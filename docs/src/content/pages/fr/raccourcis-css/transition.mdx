@@ -1,0 +1,51 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Transition
+description: 'La classe de transition définit la propriété transition. Elle applique une animation qui permet de faire apparaître ou disparaître le contenu lorsqu’on le survole.'
+dateModified: '2026-01-06T08:32:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'transition-fade-in',
+    style:
+      'opacity: 0;\ntransition: opacity 0.15s ease-in-out;\n\n&:hover {\n opacity: 1;\n}',
+  },
+  {
+    class: 'transition-fade-out',
+    style:
+      'opacity: 1;\ntransition: opacity 0.15s ease-in-out;\n\n&:hover {\n opacity: 0;\n}',
+  },
+];
+
+# Transition
+
+La classe de transition définit la propriété `transition`. Elle applique une animation qui permet de faire apparaître ou disparaître le contenu lorsqu’on le survole.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Apparition graduelle<br />`transition-fade-in`
+
+<CodePreview>
+  <span class="transition-fade-in">
+    Lorsqu’on passe la souris dessus, cet élément apparaît graduellement.
+  </span>
+</CodePreview>
+
+### Disparition graduelle<br />`transition-fade-out`
+
+<CodePreview>
+  <span class="transition-fade-out">
+    Lorsqu’on passe la souris dessus, cet élément disparaît graduellement.
+  </span>
+</CodePreview>
+
+<ResponsiveNote partialClass="transition-fade-in" />

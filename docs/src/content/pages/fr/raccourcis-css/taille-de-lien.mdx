@@ -1,0 +1,45 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Taille de lien
+description: "La classe taille de lien définit la propriété font. Elle détermine la taille d'un lien."
+dateModified: "2026-02-12T12:40:07-05:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote, Notice } from '~components';
+
+export const shortcuts = [
+  { class: "link-size-regular", style: "font: var(--gcds-link-font-regular-desktop);\n\n@media only screen and (width < 48em) {\n  font: var(--gcds-link-font-regular-mobile);\n}" },
+  { class: "link-size-small", style: "font: var(--gcds-link-font-small-desktop);\n\n@media only screen and (width < 48em) {\n  font: var(--gcds-link-font-small-mobile);\n}" },
+  { class: "link-size-inherit", style: "font: inherit;\n\n@media only screen and (width < 48em) {\n  font: inherit;\n}" },
+];
+
+# Taille de lien
+
+La classe taille de lien définit la propriété `font`. Elle détermine la taille d'un lien.
+
+<Notice title="Utiliser avec prudence" html={`Dans la plupart des cas, il n’est pas nécessaire d'utiliser cette classe. Par défaut, le style des liens correspond <gcds-link href="/fr/composants/lien">à celui de Système de design GC (SGDC)</gcds-link>. Utilisez la balise HTML sémantique <code>a</code> ou le composant SGDC <code>gcds-link</code> lorsque possible.`} />
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Normale<br />`link-size-regular`
+
+<CodePreview>
+<a href="#" class="link-size-regular"> Il s’agit de la taille de lien normale. </a>
+</CodePreview>
+
+### Petite<br />`link-size-small`
+
+<CodePreview>
+<a href="#" class="link-size-small"> Il s’agit de la petite taille de lien. </a>
+</CodePreview>
+
+### Hériter<br />`link-size-inherit`
+
+<CodePreview demoClass="mt-0 mb-0">
+<h4> <a href="#" class="link-size-inherit"> Ce lien hérite sa taille de l'élément parent. </a> </h4>
+</CodePreview>
+
+<ResponsiveNote partialClass="link-size-inherit" />

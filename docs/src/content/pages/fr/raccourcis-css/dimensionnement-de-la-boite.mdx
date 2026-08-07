@@ -1,0 +1,44 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Dimensionnement de la boîte
+description: 'La classe de dimensionnement de la boîte définit la propriété box-sizing. Elle précise si la hauteur et la largeur d’un élément comprennent les bordures et le dégagement intérieur.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'box-border', style: 'box-sizing: border-box;' },
+  { class: 'box-content', style: 'box-sizing: content-box;' },
+];
+
+# Dimensionnement de la boîte
+
+La classe de dimensionnement de la boîte définit la propriété `box-sizing`. Elle précise si la hauteur et la largeur d’un élément comprennent les bordures et le dégagement intérieur.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Bordure <br />`box-border`
+
+<CodePreview demoClass="container-xs p-600 b-lg b-default bg-light">
+  <p class="box-border">
+    La taille de cet élément comprend le contenu, la bordure et le dégagement
+    intérieur.
+  </p>
+</CodePreview>
+
+### Contenu<br />`box-content`
+
+<CodePreview demoClass="container-xs p-600 b-lg b-default bg-light">
+  <p class="box-content">
+    La taille de cet élément comprend le contenu seulement.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="box-border" />

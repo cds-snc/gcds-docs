@@ -1,80 +1,108 @@
 ---
+import { Code } from 'astro:components';
+import prettier from 'prettier';
 import './CodePreview.css';
+
+interface Props {
+  code?: string;
+  demo?: string;
+  demoClass?: string;
+}
+
+const { code, demo, demoClass } = Astro.props as Props;
+
+// Add preview classes into the first tag of the demo markup only.
+function withDemoClass(html: string, css?: string): string {
+  if (!css) return html;
+  return html.replace(/<([a-zA-Z0-9-]+)([^>]*)>/, (_match: string, tag: string, attrs: string) => {
+    if (/class=["']/.test(attrs)) {
+      return `<${tag}${attrs.replace(/class=["']([^"']*)["']/, (_m: string, existing: string) => `class="${existing} ${css}"`)}>`;
+    }
+    return `<${tag}${attrs} class="${css}">`;
+  });
+}
+
+// Capture slotted content. The default slot is the demo; an optional `code`
+// slot overrides the shown code when it needs to be different from the demo.
+// Strip global markdown wrapping of text inside <gcds-text>.
+const stripGcdsText = (html: string): string => {
+  let prev: string;
+  do {
+    prev = html;
+    html = html.replace(/<gcds-text\b[^>]*>([\s\S]*?)<\/gcds-text>/g, '$1');
+  } while (html !== prev);
+  return html;
+};
+
+const renderSlot = async (name: string): Promise<string | undefined> =>
+  Astro.slots.has(name)
+    ? stripGcdsText((await Astro.slots.render(name)).trim())
+    : undefined;
+
+// JSX collapses the whitespace between tags on capture, so re-indent slot-
+// derived code with Prettier for the shown code. The demo renders from the raw
+// capture, so its output is unaffected by the formatting.
+const joinBrokenTags = (code: string): string => {
+  const lines = code.split('\n');
+  const out: string[] = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const open = lines[i].match(/^(\s*)<([a-zA-Z][\w-]*)\s*$/);
+    if (open) {
+      const [, indent, tag] = open;
+      const attrs: string[] = [];
+      let j = i + 1;
+      let closer: string | null = null;
+      while (j < lines.length) {
+        const end = lines[j].match(/^\s*(\/?)>\s*$/);
+        if (end) {
+          closer = end[1] ? ' />' : '>';
+          break;
+        }
+        attrs.push(lines[j].trim());
+        j += 1;
+      }
+      if (closer !== null) {
+        out.push(`${indent}<${tag}${attrs.length ? ' ' + attrs.join(' ') : ''}${closer}`);
+        i = j;
+        continue;
+      }
+    }
+    out.push(lines[i]);
+  }
+  return out.join('\n');
+};
+
+const prettify = async (html: string): Promise<string> => {
+  try {
+    const formatted = await prettier.format(html, {
+      parser: 'html',
+      htmlWhitespaceSensitivity: 'ignore',
+      printWidth: 60,
+    });
+    return joinBrokenTags(formatted.trim());
+  } catch {
+    return html;
+  }
+};
+
+const demoSlot = await renderSlot('default');
+const codeSlot = await renderSlot('code');
+
+// Shown code: `code` prop > `code` slot > default slot.
+let codeSource: string | undefined = code;
+if (codeSource === undefined) {
+  const rawForCode = codeSlot ?? demoSlot;
+  codeSource = rawForCode !== undefined ? await prettify(rawForCode) : undefined;
+}
+
+// Demo: `demo` prop > default slot > `code` prop.
+const demoSource = demo ?? demoSlot ?? code;
+const demoHtml = demoSource !== undefined ? withDemoClass(demoSource, demoClass) : undefined;
 ---
 
 <div class="preview-container">
-  <div class="code-preview">
-    <div class="demo-container">
-      <slot />
-    </div>
-
-    <div class="button-group">
-      <gcds-button class="toggle-btn" button-role="secondary" size="small">
-        View Code
-      </gcds-button>
-      <gcds-button class="copy-btn" button-role="secondary" size="small">
-        Copy Code
-      </gcds-button>
-      <span class="copy-status"></span>
-    </div>
+  <div class="demo-container">
+    <Fragment set:html={demoHtml} />
   </div>
-
-  <pre class="code-block hidden">
-    <code class="code-content"></code>
-  </pre>
+  {codeSource !== undefined && <Code code={codeSource} lang="html" />}
 </div>
-
-<script type="module">
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.preview-container').forEach(container => {
-      const toggleBtn = container.querySelector('.toggle-btn');
-      const copyBtn = container.querySelector('.copy-btn');
-      const codeBlock = container.querySelector('.code-block');
-      const copyStatus = container.querySelector('.copy-status');
-      const demoContainer = container.querySelector('.demo-container');
-      const codeContent = container.querySelector('.code-content');
-
-      function escapeHtml(unsafe) {
-        return unsafe
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-      }
-
-      const rawHtml = demoContainer.innerHTML.trim();
-      codeContent.innerHTML = escapeHtml(rawHtml);
-
-      let isCodeVisible = false;
-
-      toggleBtn.addEventListener('click', (event) => {
-        event.stopPropagation();
-
-        isCodeVisible = !isCodeVisible;
-
-        if (isCodeVisible) {
-          codeBlock.classList.remove('hidden');
-          toggleBtn.textContent = 'Hide Code';
-        } else {
-          codeBlock.classList.add('hidden');
-          toggleBtn.textContent = 'View Code';
-        }
-      });
-
-      copyBtn.addEventListener('click', async (event) => {
-        event.stopPropagation();
-
-        try {
-          const code = codeContent.innerText.trim();
-          await navigator.clipboard.writeText(code);
-          copyStatus.textContent = 'Copied!';
-        } catch {
-          copyStatus.textContent = 'Copy failed';
-        }
-
-        setTimeout(() => (copyStatus.textContent = ''), 2000);
-      });
-    });
-  });
-</script>

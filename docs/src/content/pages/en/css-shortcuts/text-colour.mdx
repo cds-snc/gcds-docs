@@ -1,0 +1,76 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Text colour
+description: 'The text colour class sets the color property. It controls the colour of text.'
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'text-primary', style: 'color: var(--gcds-text-primary);' },
+  { class: 'text-secondary', style: 'color: var(--gcds-text-secondary);' },
+  { class: 'text-current', style: 'color: currentColor;' },
+  { class: 'text-light', style: 'color: var(--gcds-text-light);' },
+  { class: 'text-transparent', style: 'color: transparent;' },
+];
+
+# Text colour
+
+The text colour class sets the `color` property. It controls the colour of text.
+
+<Notice
+  title="Use with caution"
+  html={`<gcds-link href="/en/styles/colour#text">View GCDS colour guidance</gcds-link> to choose the right text colour for your context.`}
+/>
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Primary<br />`text-primary`
+
+<CodePreview>
+  <p class="text-primary">
+    This text uses the default Government of Canada text colour.
+  </p>
+</CodePreview>
+
+### Secondary<br />`text-secondary`
+
+<CodePreview>
+  <p class="text-secondary"> This text uses the secondary text colour.</p>
+</CodePreview>
+
+### Current<br />`text-current`
+
+<CodePreview demoClass="p-150">
+  <div class="bg-primary text-light">
+    <p class="text-current">
+      This text's colour is based on the current colour property.
+    </p>
+  </div>
+</CodePreview>
+
+### Light<br />`text-light`
+
+<CodePreview demoClass="bg-dark p-150">
+  <p class="text-light"> This is the light text colour.</p>
+</CodePreview>
+
+### Transparent<br />`text-transparent`
+
+<CodePreview>
+  <p class="text-transparent">
+    This text is invisible, but still accessible to screenreaders.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="text-secondary" />
+<StateNote partialClass="text-secondary" />

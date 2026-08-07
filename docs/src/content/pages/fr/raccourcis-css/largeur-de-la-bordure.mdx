@@ -1,0 +1,95 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Largeur de la bordure
+description: 'La classe largeur de la bordure définit la propriété border-width. Elle détermine la largeur de la bordure d’un élément.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  LogicalPropertiesNote,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'b-<value>', style: 'border: <value> solid currentColor;' },
+  {
+    class: 'bt-<value>',
+    style: 'border-block-start: <value> solid currentColor;',
+  },
+  {
+    class: 'bb-<value>',
+    style: 'border-block-end: <value> solid currentColor;',
+  },
+  {
+    class: 'be-<value>',
+    style: 'border-inline-end: <value> solid currentColor;',
+  },
+  {
+    class: 'bs-<value>',
+    style: 'border-inline-start: <value> solid currentColor;',
+  },
+  { class: 'bx-<value>', style: 'border-inline: <value> solid currentColor;' },
+  { class: 'by-<value>', style: 'border-block: <value> solid currentColor;' },
+];
+export const tableDescription = `La classe <code>value</code> peut être définie à l’une des options suivantes :<ul class="list-disc mb-300"><li><code>0</code></li><li><code>sm</code> (0.0625rem)</li><li><code>md</code> (0.125rem)</li><li><code>lg</code> (0.25rem)</li><li><code>xl</code> (0.375rem)</li></ul>`;
+
+# Largeur de la bordure
+
+La classe largeur de la bordure définit la propriété `border-width`. Elle détermine la largeur de la bordure d’un élément.
+
+<LogicalPropertiesNote />
+<ShortcutsTable shortcuts={shortcuts} description={tableDescription} />
+
+## Exemples
+
+### Tous les côtés<br />`b-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="b-0">
+    Cet élément a une largeur de bordure de 0 sur tous les côtés.
+  </p>
+</CodePreview>
+
+### Côté supérieur<br />`bt-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bt-sm">Cet élément a une bordure étroite sur le côté supérieur.</p>
+</CodePreview>
+
+### Côté inférieur<br />`bb-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bb-md">Cet élément a une bordure moyenne sur le côté inférieur.</p>
+</CodePreview>
+
+### Côté droit<br />`be-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="be-lg"> Cet élément a une bordure large sur le côté droit. </p>
+</CodePreview>
+
+### Côté gauche<br />`bs-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bs-xl">Cet élément a une bordure extra large sur le côté gauche.</p>
+</CodePreview>
+
+### Côtés horizontaux<br />`bx-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bx-sm">
+    Cet élément a une bordure étroite sur les côtés gauche et droit.
+  </p>
+</CodePreview>
+
+### Côtés verticaux<br />`by-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="by-lg"> Cet élément a une bordure large en haut et en bas. </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="b-sm" />
+<StateNote partialClass="b-sm" />
