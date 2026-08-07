@@ -1,0 +1,51 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Transition
+description: 'The transition class sets the transition property. It applies an animation that allows fading content in or out when hovering.'
+dateModified: '2026-01-06T08:32:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'transition-fade-in',
+    style:
+      'opacity: 0;\ntransition: opacity 0.15s ease-in-out;\n\n&:hover {\n opacity: 1;\n}',
+  },
+  {
+    class: 'transition-fade-out',
+    style:
+      'opacity: 1;\ntransition: opacity 0.15s ease-in-out;\n\n&:hover {\n opacity: 0;\n}',
+  },
+];
+
+# Transition
+
+The transition class sets the `transition` property. It applies an animation that allows fading content in or out when hovering.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Fade in<br />`transition-fade-in`
+
+<CodePreview>
+  <span class="transition-fade-in">
+    When hovered over, this element fades in.
+  </span>
+</CodePreview>
+
+### Fade out<br />`transition-fade-out`
+
+<CodePreview>
+  <span class="transition-fade-out">
+    When hovered over, this element fades out.
+  </span>
+</CodePreview>
+
+<ResponsiveNote partialClass="transition-fade-in" />

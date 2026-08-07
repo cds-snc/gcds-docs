@@ -1,0 +1,96 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Place items
+description: 'The place items class sets the place-items property. It is a shorthand for setting the cross axis and the main axis. It controls how items are aligned inside their grid areas along both axes in a grid container.'
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'place-items-center', style: 'place-items: center;' },
+  { class: 'place-items-stretch', style: 'place-items: stretch;' },
+  { class: 'place-items-start', style: 'place-items: start;' },
+  { class: 'place-items-end', style: 'place-items: end;' },
+];
+
+# Place items
+
+The place items class sets the `place-items` property. It is a shorthand for setting the cross axis and the main axis. It controls how items are aligned inside their grid areas along both axes in a grid container.
+
+<Notice
+  title="No effect in flexbox"
+  role="info"
+  html={`In flexbox, <code>justify-items</code> is ignored, so <code>place-items</code> has no effect.`}
+/>
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Centre<br />`place-items-center`
+
+These items are centred both vertically and horizontally within their grid areas.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+  <div class="d-grid grid-cols-3 place-items-center">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### Stretch<br />`place-items-stretch`
+
+These items stretch to fill their grid areas both horizontally and vertically, if no fixed size is set.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+  <div class="d-grid grid-cols-3 place-items-stretch">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### Start<br />`place-items-start`
+
+These items align to the start edge of both axes within their grid areas.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+  <div class="d-grid grid-cols-3 place-items-start">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+### End<br />`place-items-end`
+
+These items align to the end edge of both axes within their grid areas.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+  <div class="d-grid grid-cols-3 place-items-end">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</CodePreview>
+
+<ResponsiveNote partialClass="place-items-center" />

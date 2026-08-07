@@ -1,0 +1,73 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Flex direction
+description: 'The flex direction class sets the flex-direction property. It defines the main axis along which the flex items are placed. This determines if their layout direction is horizontal (row) or vertical (column).'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import { CodePreview, ShortcutsTable, ResponsiveNote } from '~components';
+
+export const shortcuts = [
+  { class: 'flex-col', style: 'flex-direction: column;' },
+  { class: 'flex-col-reverse', style: 'flex-direction: column-reverse;' },
+  { class: 'flex-row', style: 'flex-direction: row;' },
+  { class: 'flex-row-reverse', style: 'flex-direction: row-reverse;' },
+];
+
+# Flex direction
+
+The flex direction class sets the `flex-direction` property. It defines the main axis along which the flex items are placed. This determines if their layout direction is horizontal (row) or vertical (column).
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Column<br />`flex-col`
+
+These items are placed vertically, starting with the first item at the top.
+
+<CodePreview demoClass="example-styled-items gap-300">
+  <div class="d-flex flex-col">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+### Reverse column<br />`flex-col-reverse`
+
+These items are placed vertically, starting with the last item at the top.
+
+<CodePreview demoClass="example-styled-items gap-300">
+  <div class="d-flex flex-col-reverse">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+### Row<br />`flex-row`
+
+These items are placed horizontally, starting with the first item on the left.
+
+<CodePreview demoClass="example-styled-items gap-300">
+  <div class="d-flex flex-row">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+### Reverse row<br />`flex-row-reverse`
+
+These items are placed horizontally, starting with the last item on the left.
+
+<CodePreview demoClass="example-styled-items gap-300">
+  <div class="d-flex flex-row-reverse">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+<ResponsiveNote partialClass="flex-col" />

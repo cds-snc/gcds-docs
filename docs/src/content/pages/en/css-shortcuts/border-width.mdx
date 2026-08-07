@@ -1,0 +1,95 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Border width
+description: 'The border width class sets the border-width property. It controls the width of an element’s border.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  LogicalPropertiesNote,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'b-<value>', style: 'border: <value> solid currentColor;' },
+  {
+    class: 'bt-<value>',
+    style: 'border-block-start: <value> solid currentColor;',
+  },
+  {
+    class: 'bb-<value>',
+    style: 'border-block-end: <value> solid currentColor;',
+  },
+  {
+    class: 'be-<value>',
+    style: 'border-inline-end: <value> solid currentColor;',
+  },
+  {
+    class: 'bs-<value>',
+    style: 'border-inline-start: <value> solid currentColor;',
+  },
+  { class: 'bx-<value>', style: 'border-inline: <value> solid currentColor;' },
+  { class: 'by-<value>', style: 'border-block: <value> solid currentColor;' },
+];
+export const tableDescription = `The class <code>value</code> can be set to one of the following:<ul class="list-disc mb-300"><li><code>0</code></li><li><code>sm</code> (0.0625rem)</li><li><code>md</code> (0.125rem)</li><li><code>lg</code> (0.25rem)</li><li><code>xl</code> (0.375rem)</li></ul>`;
+
+# Border width
+
+The border width class sets the `border-width` property. It controls the width of an element's border.
+
+<LogicalPropertiesNote />
+<ShortcutsTable shortcuts={shortcuts} description={tableDescription} />
+
+## Examples
+
+### All side<br />`b-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="b-0"> This element has a border width of 0 on all sides.</p>
+</CodePreview>
+
+### Top side<br />`bt-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bt-sm"> This element has a small border on the top side.</p>
+</CodePreview>
+
+### Bottom side<br />`bb-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bb-md"> This element has a medium border on the bottom side.</p>
+</CodePreview>
+
+### Right side<br />`be-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="be-lg"> This element has a large border on the right side.</p>
+</CodePreview>
+
+### Left side<br />`bs-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bs-xl">This element has an extra large border on the left side.</p>
+</CodePreview>
+
+### Horizontal sides<br />`bx-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="bx-sm">
+    This element has a small border on the left and right sides.
+  </p>
+</CodePreview>
+
+### Vertical sides<br />`by-<value>`
+
+<CodePreview demoClass="bg-light p-150">
+  <p class="by-lg">
+    This element has a large border on the top and bottom sides.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="b-sm" />
+<StateNote partialClass="b-sm" />

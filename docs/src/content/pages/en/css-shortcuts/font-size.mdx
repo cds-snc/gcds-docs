@@ -1,0 +1,128 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Font size
+description: 'The font size class sets the font-size property. It controls how big or small text elements appear on the page.'
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import { CodePreview, ShortcutsTable, Notice } from '~components';
+
+export const shortcuts = [
+  {
+    class: 'font-size-h1',
+    style:
+      'font-size: var(--gcds-font-sizes-h1);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-h1-mobile);\n}',
+  },
+  {
+    class: 'font-size-h2',
+    style:
+      'font-size: var(--gcds-font-sizes-h2);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-h2-mobile);\n}',
+  },
+  {
+    class: 'font-size-h3',
+    style:
+      'font-size: var(--gcds-font-sizes-h3);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-h3-mobile);\n}',
+  },
+  {
+    class: 'font-size-h4',
+    style:
+      'font-size: var(--gcds-font-sizes-h4);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-h4-mobile);\n}',
+  },
+  {
+    class: 'font-size-h5',
+    style:
+      'font-size: var(--gcds-font-sizes-h5);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-h5-mobile);\n}',
+  },
+  {
+    class: 'font-size-h6',
+    style:
+      'font-size: var(--gcds-font-sizes-h6);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-h6-mobile);\n}',
+  },
+  {
+    class: 'font-size-text',
+    style:
+      'font-size: var(--gcds-font-sizes-text);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-text-mobile);\n}',
+  },
+  {
+    class: 'font-size-text-small',
+    style:
+      'font-size: var(--gcds-font-sizes-text-small);\n\n@media only screen and (width < 48em) {\n font-size: var(--gcds-font-sizes-text-small-mobile);\n}',
+  },
+];
+
+# Font size
+
+The font size class sets the `font-size` property. It controls how big or small text elements appear on the page.
+
+<Notice
+  title="Use with caution"
+  html={`In most cases you do not need to use this class. Body text and heading elements are <gcds-link href="/en/styles/typography">styled to match GCDS by default</gcds-link>. Use semantic HTML tags , like <code>h1</code>, <code>h2</code> whenever possible.`}
+/>
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### H1<br />`font-size-h1`
+
+<CodePreview>
+  <p class="font-size-h1">
+    This element uses the font size intended for an H1.
+  </p>
+</CodePreview>
+
+### H2<br />`font-size-h2`
+
+<CodePreview>
+  <p class="font-size-h2">
+    This element uses the font size intended for an H2.
+  </p>
+</CodePreview>
+
+### H3<br />`font-size-h3`
+
+<CodePreview>
+  <p class="font-size-h3">
+    This element uses the font size intended for an H3.
+  </p>
+</CodePreview>
+
+### H4<br />`font-size-h4`
+
+<CodePreview>
+  <p class="font-size-h4">
+    This element uses the font size intended for an H4.
+  </p>
+</CodePreview>
+
+### H5<br />`font-size-h5`
+
+<CodePreview>
+  <p class="font-size-h5">
+    This element uses the font size intended for an H5.
+  </p>
+</CodePreview>
+
+### H6<br />`font-size-h6`
+
+<CodePreview>
+  <p class="font-size-h6">
+    This element uses the font size intended for an H6.
+  </p>
+</CodePreview>
+
+### Text<br />`font-size-text`
+
+<CodePreview>
+  <p class="font-size-text">
+    This element uses the font size intended for regular text.
+  </p>
+</CodePreview>
+
+### Small text<br />`font-text-small`
+
+<CodePreview>
+  <p class="font-text-small">
+    This element uses the font size intended for small text.
+  </p>
+</CodePreview>

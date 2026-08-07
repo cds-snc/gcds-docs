@@ -1,0 +1,48 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Link text decoration
+description: 'The link text decoration class sets the text-decoration property. It adds or removes an underline to a link.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'link-underline',
+    style: 'text-decoration: underline;\ntext-underline-position: under;',
+  },
+  { class: 'link-no-underline', style: 'text-decoration: none;' },
+];
+
+# Link text decoration
+
+The link text decoration class sets the `text-decoration` property. It adds or removes an underline to a link.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Underline<br />`link-underline`
+
+<CodePreview>
+  <a href="#" class="link-underline">
+    This link is underlined.
+  </a>
+</CodePreview>
+
+### No underline<br />`link-no-underline`
+
+<CodePreview>
+  <a href="#" class="link-no-underline">
+    This link is not underlined.
+  </a>
+</CodePreview>
+
+<ResponsiveNote partialClass="link-underline" />
+<StateNote partialClass="link-underline" />

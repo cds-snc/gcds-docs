@@ -1,0 +1,45 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Famille de police
+description: "La classe famille de polices définit la propriété font-family. Elle détermine la police d'un élément de texte."
+dateModified: "2026-02-12T12:40:07-05:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote, Notice } from '~components';
+
+export const shortcuts = [
+  { class: "font-family-heading", style: "font-family: var(--gcds-font-families-heading);" },
+  { class: "font-family-body", style: "font-family: var(--gcds-font-families-body);" },
+  { class: "font-family-monospace", style: "font-family: var(--gcds-font-families-monospace);" },
+];
+
+# Famille de police
+
+La classe famille de polices définit la propriété `font-family`. Elle détermine la police d'un élément de texte.
+
+<Notice title="Utiliser avec prudence" html={`Dans la plupart des cas, il n’est pas nécessaire d'utiliser cette classe. Par défaut, le style du corps du texte et des éléments de titre correspondent <gcds-link href="/fr/styles/typographie">à ceux de Système de design GC</gcds-link>. Utilisez des balises HTML sémantiques, comme <code>h1</code> et <code>h2</code> lorsque possible.`} />
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Titre<br />`font-family-heading`
+
+<CodePreview demoClass="mt-0 mb-0">
+<h4 class="font-family-heading"> Cet élément utilise la famille de polices des titres. </h4>
+</CodePreview>
+
+### Corps du texte<br />`font-family-body`
+
+<CodePreview>
+<p class="font-family-body"> Cet élément utilise la famille de polices du corps du texte. </p>
+</CodePreview>
+
+### Espacement constant<br />`font-family-monospace`
+
+<CodePreview>
+<code class="font-family-monospace"> Cet élément utilise la famille de polices à espacement constant. </code>
+</CodePreview>
+
+<ResponsiveNote partialClass="font-family-body" />

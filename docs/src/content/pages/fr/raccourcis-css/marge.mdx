@@ -1,0 +1,117 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Marge
+description: 'La classe marge définit la propriété margin. Elle détermine l’espace à l’extérieur de la bordure d’un élément.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  LogicalPropertiesNote,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'm-<value>',
+    style: 'margin: var(--gcds-spacing-<value>);',
+    legacy: 'margin',
+  },
+  {
+    class: 'mt-<value>',
+    style: 'margin-block-start: var(--gcds-spacing-<value>);',
+    legacy: 'margin-top',
+  },
+  {
+    class: 'mb-<value>',
+    style: 'margin-block-end: var(--gcds-spacing-<value>);',
+    legacy: 'margin-bottom',
+  },
+  {
+    class: 'ms-<value>',
+    style: 'margin-inline-start: var(--gcds-spacing-<value>);',
+    legacy: 'margin-left',
+  },
+  {
+    class: 'me-<value>',
+    style: 'margin-inline-end: var(--gcds-spacing-<value>);',
+    legacy: 'margin-right',
+  },
+  {
+    class: 'mx-<value>',
+    style: 'margin-inline: var(--gcds-spacing-<value>);',
+    legacy: 'margin-left + margin-right',
+  },
+  {
+    class: 'my-<value>',
+    style: 'margin-block: var(--gcds-spacing-<value>);',
+    legacy: 'margin-top + margin-bottom',
+  },
+];
+
+export const tableDescription = `La valeur <code>value</code> peut être définie à l’une de nos <a href="/fr/styles/espacement">unités d’espacement prédéfinies</a> (<code>0</code> - <code>1250</code>) ou <code>auto</code>.`;
+
+# Marge
+
+La classe marge définit la propriété `margin`. Elle détermine l’espace à l’extérieur de la bordure d’un élément.
+
+<LogicalPropertiesNote />
+
+<ShortcutsTable shortcuts={shortcuts} description={tableDescription} />
+
+## Exemples
+
+### Tous les côtés<br />`m-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150">
+  <p class="m-0">Cet élément n’a pas de marge sur tous les côtés.</p>
+</CodePreview>
+
+### Côté supérieur<br />`mt-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150">
+  <p class="mt-auto">
+    Cet élément permet au navigateur de calculer automatiquement la marge du
+    côté supérieur.
+  </p>
+</CodePreview>
+
+### Côté inférieur<br />`mb-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="mb-900">
+    Cet élément a une marge de --gcds-spacing-900 sur le côté inférieur.
+  </p>
+</CodePreview>
+
+### Côté gauche<br />`ms-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="m-900 ms-0">Cet élément n’a pas de marge sur le côté gauche.</p>
+</CodePreview>
+
+### Côté droit<br />`me-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="m-900 me-0">Cet élément n’a pas de marge à droite.</p>
+</CodePreview>
+
+### Côtés horizontaux<br />`mx-<value>`
+
+<CodePreview demoClass="bg-primary text-light p-150 example-margin">
+  <p class="container-md mx-auto">
+    Cet élément est centré horizontalement en laissant le navigateur calculer
+    automatiquement la marge.
+  </p>
+</CodePreview>
+
+### Côtés verticaux<br />`my-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="my-900">
+    Cet élément a une marge de --gcds-spacing-500 sur les côtés haut et bas.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="m-300" />

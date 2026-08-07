@@ -1,0 +1,69 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Dimensionnement du conteneur
+description: 'La classe boîte définit la propriété max-width . Elle change la taille d’une boîte à différentes tailles de fenêtre pour créer des mises en page réactives.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'container-xs', style: 'max-width: 20rem' },
+  { class: 'container-sm', style: 'max-width: 30rem' },
+  { class: 'container-md', style: 'max-width: 48rem' },
+  { class: 'container-lg', style: 'max-width: 62rem' },
+  { class: 'container-xl', style: 'max-width: 71.25rem' },
+  { class: 'container-full', style: 'max-width: 100%' },
+];
+
+# Dimensionnement du conteneur
+
+La classe boîte définit la propriété `max-width` . Elle change la taille d’une boîte à différentes tailles de fenêtre pour créer des mises en page réactives.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Très petite<br />`container-xs`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-sm">Cette boîte a une largeur maximale de 20rem.</div>
+</CodePreview>
+
+### Petite<br />`container-sm`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-sm">Cette boîte a une largeur maximale de 30rem.</div>
+</CodePreview>
+
+### Moyenne <br />`container-md`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-md">Cette boîte a une largeur maximale de 48rem.</div>
+</CodePreview>
+
+### Grande<br />`container-lg`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-lg">Cette boîte a une largeur maximale de 62rem.</div>
+</CodePreview>
+
+### Très grande<br />`container-xl`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-xl">
+    Cette boîte a une largeur maximale de 71.25rem.
+  </div>
+</CodePreview>
+
+### Pleine<br />`container-full`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-full">Cette boîte a une largeur maximale de 100 %.</div>
+</CodePreview>
+
+<ResponsiveNote partialClass="container-xl" />

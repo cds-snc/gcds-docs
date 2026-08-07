@@ -1,0 +1,35 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Responsive layout
+description: The responsive layout prefix applies a class only to the specified screen size.
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import { HelpUs, CodePreview, ShortcutsTable } from '~components';
+
+export const shortcuts = [
+  { class: 'xs:', style: '@media (width > 30em) { ... }', minWidth: '480px' },
+  { class: 'sm:', style: '@media (width > 40em) { ... }', minWidth: '640px' },
+  { class: 'md:', style: '@media (width > 48em) { ... }', minWidth: '768px' },
+  { class: 'lg:', style: '@media (width > 64em) { ... }', minWidth: '1024px' },
+  { class: 'xl:', style: '@media (width > 80em) { ... }', minWidth: '1280px' },
+];
+
+# Responsive layout
+
+The responsive layout prefix applies a class only to the specified screen size. It can be added to any class. A class without a prefix will apply to all screen sizes.
+
+Adding breakpoints directly to the classes lets you to create responsive layouts without writing custom CSS.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Breakpoint<br />`md:<class>`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <p class="md:d-block d-inline-block">
+    This element displays as a block if the screen size is bigger than 48em. If
+    the screen size is smaller, it will be displayed as an inline-block.
+  </p>
+</CodePreview>

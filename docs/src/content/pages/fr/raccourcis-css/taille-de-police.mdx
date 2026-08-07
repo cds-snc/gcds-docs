@@ -1,0 +1,78 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Taille de police
+description: "La classe taille de police définit la propriété font-size. Elle détermine la taille des éléments de texte sur la page."
+dateModified: "2026-02-12T12:40:07-05:00"
+---
+
+
+import { CodePreview, ShortcutsTable, Notice } from '~components';
+
+export const shortcuts = [
+  { class: "font-size-h1", style: "font-size: var(--gcds-font-sizes-h1);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-h1-mobile);\n}" },
+  { class: "font-size-h2", style: "font-size: var(--gcds-font-sizes-h2);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-h2-mobile);\n}" },
+  { class: "font-size-h3", style: "font-size: var(--gcds-font-sizes-h3);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-h3-mobile);\n}" },
+  { class: "font-size-h4", style: "font-size: var(--gcds-font-sizes-h4);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-h4-mobile);\n}" },
+  { class: "font-size-h5", style: "font-size: var(--gcds-font-sizes-h5);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-h5-mobile);\n}" },
+  { class: "font-size-h6", style: "font-size: var(--gcds-font-sizes-h6);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-h6-mobile);\n}" },
+  { class: "font-size-text", style: "font-size: var(--gcds-font-sizes-text);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-text-mobile);\n}" },
+  { class: "font-size-text-small", style: "font-size: var(--gcds-font-sizes-text-small);\n\n@media only screen and (width < 48em) {\n  font-size: var(--gcds-font-sizes-text-small-mobile);\n}" },
+];
+
+# Taille de police
+
+La classe taille de police définit la propriété `font-size`. Elle détermine la taille des éléments de texte sur la page.
+
+<Notice title="Utiliser avec prudence" html={`Dans la plupart des cas, il n’est pas nécessaire d'utiliser cette classe. Par défaut, le style du corps du texte et des éléments de titre correspondent <gcds-link href="/fr/styles/typographie">à ceux de Système de design GC</gcds-link>. Utilisez des balises HTML sémantiques, comme <code>h1</code> et <code>h2</code> lorsque possible.`} />
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### H1<br />`font-size-h1`
+
+<CodePreview>
+<p class="font-size-h1"> Cet élément utilise la taille de police prévue pour un titre H1. </p>
+</CodePreview>
+
+### H2<br />`font-size-h2`
+
+<CodePreview>
+<p class="font-size-h2"> Cet élément utilise la taille de police prévue pour un titre H2. </p>
+</CodePreview>
+
+### H3<br />`font-size-h3`
+
+<CodePreview>
+<p class="font-size-h3"> Cet élément utilise la taille de police prévue pour un titre H3. </p>
+</CodePreview>
+
+### H4<br />`font-size-h4`
+
+<CodePreview>
+<p class="font-size-h4"> Cet élément utilise la taille de police prévue pour un titre H4. </p>
+</CodePreview>
+
+### H5<br />`font-size-h5`
+
+<CodePreview>
+<p class="font-size-h5"> Cet élément utilise la taille de police prévue pour un titre H5. </p>
+</CodePreview>
+
+### H6<br />`font-size-h6`
+
+<CodePreview>
+<p class="font-size-h6"> Cet élément utilise la taille de police prévue pour un titre H6. </p>
+</CodePreview>
+
+### Texte<br />`font-size-text`
+
+<CodePreview>
+<p class="font-size-text"> Cet élément utilise la taille de police prévue pour du texte normal. </p>
+</CodePreview>
+
+### Petit texte<br />`font-text-small`
+
+<CodePreview>
+<p class="font-text-small"> Cet élément utilise la taille de police prévue pour du petit texte. </p>
+</CodePreview>

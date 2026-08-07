@@ -1,0 +1,80 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Couleur de la bordure
+description: 'La classe couleur de la bordure définit la propriété border-colour. Elle détermine la couleur de la bordure d’un élément.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'b-default', style: 'border-color: #7d828b;' },
+  { class: 'b-current', style: 'border-color: currentColor;' },
+  { class: 'b-dark', style: 'border-color: #000000;' },
+  { class: 'b-inherit', style: 'border-color: inherit;' },
+  { class: 'b-light', style: 'border-color: #ffffff;' },
+  { class: 'b-transparent', style: 'border-color: transparent;' },
+];
+
+# Couleur de la bordure
+
+La classe couleur de la bordure définit la propriété `border-colour`. Elle détermine la couleur de la bordure d’un élément.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Couleur par défaut<br />`b-default`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-default">Cet élément a la couleur de bordure par défaut.</p>
+</CodePreview>
+
+### Actuelle<br />`b-current`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-current" style="color: var(--gcds-color-blue-750)">
+    Cet élément a une couleur de bordure basée sur la couleur actuelle.
+  </p>
+</CodePreview>
+
+### Sombre<br />`b-dark`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-dark"> Cet élément a une couleur de bordure sombre. </p>
+</CodePreview>
+
+### Héritée<br />`b-inherit`
+
+<CodePreview demoClass="example-items-padding">
+  <div style="border-color: var(--gcds-danger-border)">
+    <p class="b-sm b-inherit">
+      Cet élément hérite la couleur de bordure de l’élément parent.
+    </p>
+
+  </div>
+</CodePreview>
+
+### Claire<br />`b-light`
+
+<CodePreview demoClass="p-250 example-items-padding">
+  <div class="bg-dark text-light">
+    <p class="b-sm b-light">Cet élément a une couleur de bordure claire.</p>
+  </div>
+</CodePreview>
+
+### Transparente<br />`b-transparent`
+
+<CodePreview demoClass="p-150">
+  <p class="b-sm b-transparent">
+    Cet élément a une couleur de bordure transparente.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="b-default" />
+<StateNote partialClass="b-default" />

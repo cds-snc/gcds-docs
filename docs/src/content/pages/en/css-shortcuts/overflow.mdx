@@ -1,0 +1,119 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Overflow
+description: 'The overflow class sets the overflow property. It controls how content is handled when it does not fit in its container and overflows.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'overflow-visible', style: 'overflow: visible;' },
+  { class: 'overflow-x-visible', style: 'overflow-x: visible;' },
+  { class: 'overflow-y-visible', style: 'overflow-y: visible;' },
+  { class: 'overflow-hidden', style: 'overflow: hidden;' },
+  { class: 'overflow-x-hidden', style: 'overflow-x: hidden;' },
+  { class: 'overflow-y-hidden', style: 'overflow-y: hidden;' },
+  { class: 'overflow-scroll', style: 'overflow: scroll;' },
+  { class: 'overflow-x-scroll', style: 'overflow-x: scroll;' },
+  { class: 'overflow-y-scroll', style: 'overflow-y: scroll;' },
+];
+
+# Overflow
+
+The overflow class sets the `overflow` property. It controls how content is handled when it does not fit in its container and overflows.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Visible<br />`overflow-visible`
+
+<CodePreview demoClass="bg-light b-md b-default mb-600 p-150 limited-size">
+  <div class="overflow-visible">
+    Content that doesn't fit in this element overflows horizontally and
+    vertically.
+  </div>
+</CodePreview>
+
+### Visible horizontal (x)<br />`overflow-x-visible`
+
+<CodePreview demoClass="bg-light b-md b-default p-150">
+  <div class="overflow-x-visible" style="width: 250px;">
+    <p style="width: 500px;">
+      Content that doesn't fit in this element overflows horizontally.
+    </p>
+  </div>
+</CodePreview>
+
+### Visible vertical (y)<br />`overflow-y-visible`
+
+<CodePreview demoClass="bg-light b-md b-default mb-300 p-150 limited-size">
+  <div class="overflow-y-visible">
+    Content that doesn't fit in this element overflows vertically.
+  </div>
+</CodePreview>
+
+### Hidden<br />`overflow-hidden`
+
+<CodePreview demoClass="bg-light b-md b-default p-150 limited-size">
+  <p class="overflow-hidden">
+    Content that doesn't fit in this element is invisible, but still exists for
+    screenreaders.
+  </p>
+</CodePreview>
+
+### Hidden horizontal (x)<br />`overflow-x-hidden`
+
+<CodePreview demoClass="bg-light b-md b-default p-150">
+  <div class="overflow-x-hidden" style="width: 250px;">
+    <p style="width: 500px;">
+      Content that doesn't fit to the left and right of this element is
+      invisible, but still exists for screenreaders.
+    </p>
+  </div>
+</CodePreview>
+
+### Hidden vertical (y)<br />`overflow-y-hidden`
+
+<CodePreview demoClass="bg-light b-md b-default p-150 limited-size">
+  <p class="overflow-y-hidden">
+    Content that doesn't fit above or below this element is invisible, but still
+    exists for screenreaders.
+  </p>
+</CodePreview>
+
+### Scroll<br />`overflow-scroll`
+
+<CodePreview demoClass="d-block bg-light b-md b-default p-150 limited-size">
+  <a href="#" class="overflow-scroll">
+    Content that doesn't fit in this element can be scrolled to with vertical
+    and horizontal scrollbars.
+  </a>
+</CodePreview>
+
+### Scroll horizontal (x)<br />`overflow-x-scroll`
+
+<CodePreview demoClass="d-block bg-light b-md b-default p-150">
+  <a href="#" class="overflow-x-scroll" style="width: 250px;">
+    <p style="width: 500px;">
+      Content that doesn't fit in this element can be scrolled to with a
+      horizontal scrollbar.
+    </p>
+  </a>
+</CodePreview>
+
+### Scroll vertical (y)<br />`overflow-y-scroll`
+
+<CodePreview demoClass="d-block bg-light b-md b-default p-150 limited-size">
+  <a href="#" class="overflow-y-scroll">
+    Content that doesn't fit in this element can be scrolled to with a vertical
+    scrollbar.
+  </a>
+</CodePreview>
+
+<ResponsiveNote partialClass="overflow-hidden" />

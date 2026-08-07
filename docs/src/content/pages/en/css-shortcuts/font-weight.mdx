@@ -1,0 +1,82 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Font weight
+description: 'The font weight class sets the font-weight property. It controls how bold text is.'
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'font-regular',
+    style: 'font-weight: var(--gcds-font-weights-regular);',
+  },
+  {
+    class: 'font-light',
+    style: 'font-weight: var(--gcds-font-weights-light);',
+  },
+  {
+    class: 'font-medium',
+    style: 'font-weight: var(--gcds-font-weights-medium);',
+  },
+  {
+    class: 'font-semibold',
+    style: 'font-weight: var(--gcds-font-weights-semibold);',
+  },
+  { class: 'font-bold', style: 'font-weight: var(--gcds-font-weights-bold);' },
+];
+
+# Font weight
+
+The font weight class sets the `font-weight` property. It controls how bold text is.
+
+<Notice
+  title="Use with caution"
+  html={`<gcds-link href="/en/styles/typography#font-weights">View GCDS typography guidance</gcds-link> to choose the right font weight for your context.`}
+/>
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Regular<br />`font-regular`
+
+<CodePreview>
+  <p class="font-regular"> This element uses the default font weight.</p>
+</CodePreview>
+
+### Light<br />`font-light`
+
+<CodePreview>
+  <p class="font-light"> This element uses a light font weight.</p>
+</CodePreview>
+
+### Medium<br />`font-medium`
+
+<CodePreview>
+  <p class="font-medium"> This element uses a medium font weight.</p>
+</CodePreview>
+
+### Semi-bold<br />`font-semibold`
+
+<CodePreview>
+  <p class="font-semibold"> This element uses a semi-bold font weight.</p>
+</CodePreview>
+
+### Bold<br />`font-bold`
+
+<CodePreview>
+  <p>
+    This element uses a <span class="font-bold"> bold</span> font weight.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="font-medium" />
+<StateNote partialClass="font-medium" />

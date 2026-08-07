@@ -1,0 +1,34 @@
+---
+import { buildShortcutsBrowseGroups } from "../../routing/routes";
+
+// Uses the same side-nav manifest as the sidebar, so the overview index
+// and the nav always list the same shortcuts in the same order.
+const groups = buildShortcutsBrowseGroups(Astro.url.pathname);
+---
+
+{
+  groups.map((group) => (
+    <>
+      <gcds-heading tag="h3" id={group.id}>{group.heading}</gcds-heading>
+      <gcds-grid
+        class="shortcuts-overview-list"
+        tag="ul"
+        columns-desktop="1fr 1fr 1fr"
+        columns-tablet="1fr 1fr"
+        columns="1fr"
+      >
+        {group.items.map((item) => (
+          <li>
+            <gcds-link href={item.href}>{item.title}</gcds-link>
+          </li>
+        ))}
+      </gcds-grid>
+    </>
+  ))
+}
+
+<style is:global>
+  .shortcuts-overview-list li {
+    list-style: none;
+  }
+</style>
