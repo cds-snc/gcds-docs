@@ -7,6 +7,7 @@ import { resolveDateModified } from '../utils/lastModified';
 import '../styles/global.css';
 import BaseHead from '../components/BaseHead.astro';
 import SideNav from '../components/SideNav.astro';
+import CodeBlockCopy from '../components/CodeBlockCopy.astro';
 
 // .astro pages pass these as direct props (<BaseLayout pageTitle=… />).
 // MDX pages set them via `layout:` frontmatter, which Astro delivers under
@@ -54,6 +55,7 @@ const lastModified = await resolveDateModified(Astro.url.pathname, {
       </gcds-grid>
       <Footer />
     </div>
+    <CodeBlockCopy />
   </body>
 </html>
 

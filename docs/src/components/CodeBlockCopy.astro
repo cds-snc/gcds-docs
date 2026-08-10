@@ -1,0 +1,69 @@
+---
+// Adds a "Copy" button to every fenced code block.
+---
+
+<script>
+  function enhanceCodeBlocks() {
+    const labels =
+      document.documentElement.lang === "fr"
+        ? { copy: "Copier", copied: "Copié", failed: "Échec de la copie" }
+        : { copy: "Copy", copied: "Copied", failed: "Copy failed" };
+
+    document.querySelectorAll("pre.astro-code").forEach((pre) => {
+      if (pre.parentElement?.classList.contains("code-block-wrapper")) return;
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-block-wrapper";
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const button = document.createElement("gcds-button");
+      button.setAttribute("button-role", "secondary");
+      button.setAttribute("size", "small");
+      button.className = "code-copy-btn";
+      button.textContent = labels.copy;
+
+      button.addEventListener("click", async () => {
+        const code = (
+          pre.querySelector<HTMLElement>("code")?.innerText ??
+          (pre as HTMLElement).innerText
+        ).trim();
+        try {
+          await navigator.clipboard.writeText(code);
+          button.textContent = labels.copied;
+        } catch {
+          button.textContent = labels.failed;
+        }
+        window.setTimeout(() => {
+          button.textContent = labels.copy;
+        }, 2000);
+      });
+
+      wrapper.appendChild(button);
+    });
+  }
+
+  enhanceCodeBlocks();
+  document.addEventListener("astro:page-load", enhanceCodeBlocks);
+</script>
+
+<style is:global>
+  .code-block-wrapper {
+    background: #24292e;
+    padding: var(--gcds-spacing-300);
+  }
+
+  .code-block-wrapper pre.astro-code {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+  }
+
+  .code-copy-btn {
+    display: inline-block;
+    margin-block-start: var(--gcds-spacing-300);
+    --gcds-button-secondary-default-text: var(--gcds-color-white);
+    --gcds-button-secondary-default-background: transparent;
+    --gcds-button-secondary-hover-background: rgba(255, 255, 255, 0.15);
+  }
+</style>

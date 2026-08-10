@@ -1,0 +1,53 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Couleur de lien
+description: "La classe couleur de lien définit la propriété color. Elle détermine la couleur du texte."
+dateModified: "2026-02-12T12:40:07-05:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote, StateNote, Notice } from '~components';
+
+export const shortcuts = [
+  { class: "link-default", style: "color: var(--gcds-link-default);" },
+  { class: "link-hover", style: "color: var(--gcds-link-hover);" },
+  { class: "link-inherit", style: "color: var(--gcds-link-inherit);" },
+  { class: "link-light", style: "color: var(--gcds-link-light);" },
+];
+
+# Couleur de lien
+
+La classe couleur de lien définit la propriété `color`. Elle détermine la couleur du texte.
+
+<Notice title="Utiliser avec prudence" html={`<gcds-link href="/fr/styles/couleur#lien">Voir les conseils de Système de design GC en matière de couleur</gcds-link> pour choisir la bonne couleur de lien pour votre contexte.`} />
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Couleur par défaut<br />`link-default`
+
+<CodePreview>
+<a href="#" class="link-default"> Ce lien utilise la couleur de lien par défaut. </a>
+</CodePreview>
+
+### Lien pointé<br />`link-hover`
+
+<CodePreview>
+<a href="#" class="link-hover"> Ce lien utilise la couleur de lien pointé en état de survol. </a>
+</CodePreview>
+
+### Hériter<br />`link-inherit`
+
+<CodePreview>
+<div style="color: var(--gcds-color-red-700);"> <a href="#" class="link-inherit"> Ce lien hérite sa couleur de l’élément parent. </a> </div>
+</CodePreview>
+
+### Clair<br />`link-light`
+
+<CodePreview demoClass="bg-dark p-150">
+<a href="#" class="link-light"> Ce lien utilise la couleur de lien clair. </a>
+</CodePreview>
+
+<ResponsiveNote partialClass="link-hover" />
+<StateNote partialClass="link-hover" />

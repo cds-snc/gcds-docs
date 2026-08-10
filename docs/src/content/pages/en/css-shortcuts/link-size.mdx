@@ -1,0 +1,72 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Link size
+description: 'The link size class sets the font property. It controls how big or small a link is.'
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'link-size-regular',
+    style:
+      'font: var(--gcds-link-font-regular-desktop);\n\n@media only screen and (width < 48em) {\n font: var(--gcds-link-font-regular-mobile);\n}',
+  },
+  {
+    class: 'link-size-small',
+    style:
+      'font: var(--gcds-link-font-small-desktop);\n\n@media only screen and (width < 48em) {\n font: var(--gcds-link-font-small-mobile);\n}',
+  },
+  {
+    class: 'link-size-inherit',
+    style:
+      'font: inherit;\n\n@media only screen and (width < 48em) {\n font: inherit;\n}',
+  },
+];
+
+# Link size
+
+The link size class sets the `font` property. It controls how big or small a link is.
+
+<Notice
+  title="Use with caution"
+  html={`In most cases you do not need to use this class. Links are <gcds-link href="/en/components/link">styled to match GCDS by default</gcds-link>. Use the semantic HTML tag <code>a</code> or the GCDS component <code>gcds-link</code> whenever possible.`}
+/>
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Regular<br />`link-size-regular`
+
+<CodePreview>
+  <a href="#" class="link-size-regular">
+    This is the regular link size.
+  </a>
+</CodePreview>
+
+### Small<br />`link-size-small`
+
+<CodePreview>
+  <a href="#" class="link-size-small">
+    This is the small link size.
+  </a>
+</CodePreview>
+
+### Inherit<br />`link-size-inherit`
+
+<CodePreview demoClass="mt-0 mb-0">
+  <h4>
+    <a href="#" class="link-size-inherit">
+      This link inherits its size from the parent element.
+    </a>
+  </h4>
+</CodePreview>
+
+<ResponsiveNote partialClass="link-size-inherit" />

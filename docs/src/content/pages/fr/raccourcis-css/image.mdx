@@ -1,0 +1,70 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Image
+description: "La classe image définit les propriétés width ou max-width d'une image. Elle détermine la taille de l'image."
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+import imageExample from '~assets/img/common/css-shortcuts/image-example.png';
+
+export const shortcuts = [
+  { class: 'img-full', style: 'width: 100%;' },
+  { class: 'img-responsive', style: 'max-width: 100%;' },
+];
+
+# Image
+
+La classe image définit les propriétés `width` ou `max-width` d'une image. Elle détermine la taille de l'image.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Pleine<br />`img-full`
+
+<CodePreview>
+  <figure>
+    <img
+      src={imageExample.src}
+      alt="Une bannière horizontale avec des fleurs violettes."
+      class="img-full"
+    />
+    <figcaption>Cette image occupe 100 % de la largeur disponible.</figcaption>
+  </figure>
+  <figure slot="code">
+    <img
+      src="/images/common/css-shortcuts/image-example.png"
+      alt="Une bannière horizontale avec des fleurs violettes."
+      class="img-full"
+    />
+    <figcaption>Cette image occupe 100 % de la largeur disponible.</figcaption>
+  </figure>
+</CodePreview>
+
+### Réactive<br />`img-responsive`
+
+<CodePreview>
+  <figure class="container-md">
+    <img
+      src={imageExample.src}
+      alt="Une bannière horizontale avec des fleurs violettes."
+      class="img-responsive"
+    />
+    <figcaption>Cette image s'adapte à son élément parent.</figcaption>
+  </figure>
+  <figure class="container-md" slot="code">
+    <img
+      src="/images/common/css-shortcuts/image-example.png"
+      alt="Une bannière horizontale avec des fleurs violettes."
+      class="img-responsive"
+    />
+    <figcaption>Cette image s'adapte à son élément parent.</figcaption>
+  </figure>
+</CodePreview>
+
+<ResponsiveNote partialClass="img-responsive" />

@@ -1,0 +1,126 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Cursor
+description: 'The cursor class sets the cursor property. It controls what cursor style is displayed when hovering over an element.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'cursor-default', style: 'cursor: default;' },
+  { class: 'cursor-copy', style: 'cursor: copy;' },
+  { class: 'cursor-grab', style: 'cursor: grab;' },
+  { class: 'cursor-help', style: 'cursor: help;' },
+  { class: 'cursor-move', style: 'cursor: move;' },
+  { class: 'cursor-not-allowed', style: 'cursor: not-allowed;' },
+  { class: 'cursor-pointer', style: 'cursor: pointer;' },
+  { class: 'cursor-text', style: 'cursor: text;' },
+  { class: 'cursor-zoom-in', style: 'cursor: zoom-in;' },
+  { class: 'cursor-zoom-out', style: 'cursor: zoom-out;' },
+];
+
+# Cursor
+
+The cursor class sets the `cursor` property. It controls what cursor style is displayed when hovering over an element.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Default<br />`cursor-default`
+
+<CodePreview>
+  <a href="#" class="cursor-default">
+    When hovered over, this element displays the default cursor.
+  </a>
+</CodePreview>
+
+### Copy<br />`cursor-copy`
+
+<CodePreview>
+  <a href="#" class="cursor-copy">
+    When hovered over, this element displays the copy cursor. It indicates that
+    the content can be copied.
+  </a>
+</CodePreview>
+
+### Grab<br />`cursor-grab`
+
+<CodePreview>
+  <a href="#" class="cursor-grab">
+    When hovered over, this element displays the grab cursor. It indicates that
+    the content can be grabbed.
+  </a>
+</CodePreview>
+
+### Help<br />`cursor-help`
+
+<CodePreview>
+  <a href="#" class="cursor-help">
+    When hovered over, this element displays the help cursor. It indicates that
+    more information is available.
+  </a>
+</CodePreview>
+
+### Move<br />`cursor-move`
+
+<CodePreview>
+  <a href="#" class="cursor-move">
+    When hovered over, this element displays the move cursor. It indicates that
+    the content can be dragged.
+  </a>
+</CodePreview>
+
+### Not allowed<br />`cursor-not-allowed`
+
+<CodePreview>
+  <a href="#" class="cursor-not-allowed">
+    When hovered over, this element displays the not allowed cursor. It
+    indicates that the action is not allowed.
+  </a>
+</CodePreview>
+
+### Pointer<br />`cursor-pointer`
+
+<CodePreview>
+  <a href="#" class="cursor-pointer">
+    When hovered over, this element displays the pointer cursor. It indicates
+    that the element is clickable.
+  </a>
+</CodePreview>
+
+### Text<br />`cursor-text`
+
+<CodePreview>
+  <a href="#" class="cursor-text">
+    When hovered over, this element displays the text cursor. It indicates that
+    text can be selected.
+  </a>
+</CodePreview>
+
+### Zoom in<br />`cursor-zoom-in`
+
+<CodePreview>
+  <a href="#" class="cursor-zoom-in">
+    When hovered over, this element displays the zoom in cursor. It indicates
+    the possibility to increase magnification.
+  </a>
+</CodePreview>
+
+### Zoom out<br />`cursor-zoom-out`
+
+<CodePreview>
+  <a href="#" class="cursor-zoom-out">
+    When hovered over, this element displays the zoom out cursor. It indicates
+    the possibility to decrease magnification.
+  </a>
+</CodePreview>
+
+<ResponsiveNote partialClass="cursor-pointer" />
+<StateNote partialClass="cursor-pointer" />

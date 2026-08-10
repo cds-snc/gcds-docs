@@ -1,0 +1,67 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Container sizing
+description: 'The container class sets the max-width property. It changes the size of a container at different viewport sizes to create responsive layouts.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'container-xs', style: 'max-width: 20rem' },
+  { class: 'container-sm', style: 'max-width: 30rem' },
+  { class: 'container-md', style: 'max-width: 48rem' },
+  { class: 'container-lg', style: 'max-width: 62rem' },
+  { class: 'container-xl', style: 'max-width: 71.25rem' },
+  { class: 'container-full', style: 'max-width: 100%' },
+];
+
+# Container sizing
+
+The container class sets the `max-width` property. It changes the size of a container at different viewport sizes to create responsive layouts.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Extra small<br />`container-xs`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-xs">This container has a max width of 20rem.</div>
+</CodePreview>
+
+### Small<br />`container-sm`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-sm">This container has a max width of 30rem.</div>
+</CodePreview>
+
+### Medium<br />`container-md`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-md">This container has a max width of 48rem.</div>
+</CodePreview>
+
+### Large<br />`container-lg`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-lg">This container has a max width of 62rem.</div>
+</CodePreview>
+
+### Extra large<br />`container-xl`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-xl">This container has a max width of 71.25rem.</div>
+</CodePreview>
+
+### Full<br />`container-full`
+
+<CodePreview demoClass="b-sm b-default p-150">
+  <div class="container-full">This container has a max width of 100%.</div>
+</CodePreview>
+
+<ResponsiveNote partialClass="container-xl" />

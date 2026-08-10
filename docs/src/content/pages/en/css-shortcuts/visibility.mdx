@@ -1,0 +1,70 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Visibility
+description: 'The visibility class sets the visibility property. It displays or hides an element without affecting the layout or flow of the document.'
+dateModified: '2025-10-20T12:42:53-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'visibility-hidden', style: 'visibility: hidden;' },
+  { class: 'visibility-visible', style: 'visibility: visible;' },
+  {
+    class: 'visibility-sr-only',
+    style:
+      'clip-path: inset(100%);\nclip: rect(1px, 1px, 1px, 1px);\nheight: 1px;\noverflow: hidden;\nposition: absolute;\nwhite-space: nowrap;\nwidth: 1px;',
+  },
+];
+
+# Visibility
+
+The visibility class sets the `visibility` property. It displays or hides an element without affecting the layout or flow of the document.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Hidden<br />`visibility-hidden`
+
+This element is hidden. It can't receive focus but maintains its position in the document affecting the layout of other elements.
+
+<CodePreview demoClass="example-visibility example-styled-items">
+  <div class="d-flex gap-300">
+    <p>1</p>
+    <p class="visibility-hidden">2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+### Visible<br />`visibility-visible`
+
+This element is visible. It can apply to elements hidden at different screen sizes.
+
+<CodePreview demoClass="example-visibility example-styled-items">
+  <div class="d-flex gap-300">
+    <p>1</p>
+    <p class="visibility-visible">2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+### Screenreader-only<br />`visibility-sr-only`
+
+This element is only visible to assistive technologies.
+
+<CodePreview demoClass="example-visibility example-styled-items">
+  <div class="d-flex gap-300">
+    <p>1</p>
+    <p class="visibility-sr-only">2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+<ResponsiveNote partialClass="visibility-hidden" />
+<StateNote partialClass="visibility-hidden" />

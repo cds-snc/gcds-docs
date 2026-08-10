@@ -1,0 +1,45 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Text overflow
+description: 'The text overflow class sets the text-overflow property. It controls if overflow text is clipped with or without an ellipsis.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import { CodePreview, ShortcutsTable, ResponsiveNote } from '~components';
+
+export const shortcuts = [
+  {
+    class: 'text-clip',
+    style: 'overflow: hidden;\ntext-overflow: clip;\nwhite-space: nowrap;',
+  },
+  {
+    class: 'text-truncate',
+    style: 'overflow: hidden;\ntext-overflow: ellipsis;\nwhite-space: nowrap;',
+  },
+];
+
+# Text overflow
+
+The text overflow class sets the `text-overflow` property. It controls if overflow text is clipped with or without an ellipsis.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Clip<br />`text-clip`
+
+<CodePreview demoClass="container-xs b-sm b-default p-150">
+  <p class="text-clip">
+    This text is clipped abruptly without an ellipsis when it overflows.
+  </p>
+</CodePreview>
+
+### Truncate<br />`text-truncate`
+
+<CodePreview demoClass="container-xs b-sm b-default p-150">
+  <p class="text-truncate">
+    This text ends with an ellipsis when it overflows.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="text-truncate" />

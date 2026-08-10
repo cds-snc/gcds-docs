@@ -1,0 +1,161 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Icon names
+description: 'The icon class sets the content property and other icon base styles like the icon font family, style and weight. It controls what gcds-icon to display.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'gcds-icon-info-circle', style: 'content: "\\e90a";' },
+  { class: 'gcds-icon-warning-triangle', style: 'content: "\\e90d";' },
+  { class: 'gcds-icon-exclamation-circle', style: 'content: "\\e909";' },
+  { class: 'gcds-icon-checkmark-circle', style: 'content: "\\e908";' },
+  { class: 'gcds-icon-chevron-left', style: 'content: "\\e901";' },
+  { class: 'gcds-icon-chevron-right', style: 'content: "\\e902";' },
+  { class: 'gcds-icon-chevron-up', style: 'content: "\\e903";' },
+  { class: 'gcds-icon-chevron-down', style: 'content: "\\e900";' },
+  { class: 'gcds-icon-close', style: 'content: "\\e90b";' },
+  { class: 'gcds-icon-download', style: 'content: "\\e906";' },
+  { class: 'gcds-icon-email', style: 'content: "\\e905";' },
+  { class: 'gcds-icon-external', style: 'content: "\\e904";' },
+  { class: 'gcds-icon-phone', style: 'content: "\\e90c";' },
+  { class: 'gcds-icon-search', style: 'content: "\\e907";' },
+];
+
+# Icon names
+
+The icon class sets the `content` property and other icon base styles like the icon font family, style and weight. It controls what <gcds-link href="/en/components/icon">gcds-icon</gcds-link> to display.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Info circle<br />`gcds-icon-info-circle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-info-circle"></span> This element has an info circle
+    icon.
+  </p>
+</CodePreview>
+
+### Warning triangle<br />`gcds-icon-warning-triangle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-warning-triangle"></span> This element has a warning
+    triangle icon.
+  </p>
+</CodePreview>
+
+### Exclamation circle<br />`gcds-icon-exclamation-circle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-exclamation-circle"></span> This element has an
+    exclamation circle icon.
+  </p>
+</CodePreview>
+
+### Checkmark circle<br />`gcds-icon-checkmark-circle`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-checkmark-circle"></span> This element has an
+    checkmark circle icon.
+  </p>
+</CodePreview>
+
+### Chevron left<br />`gcds-icon-chevron-left`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-left"></span> This element has a chevron icon
+    pointing left.
+  </p>
+</CodePreview>
+
+### Chevron right<br />`gcds-icon-chevron-right`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-right"></span> This element has a chevron
+    icon pointing right.
+  </p>
+</CodePreview>
+
+### Chevron up<br />`gcds-icon-chevron-up`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-up"></span> This element has a chevron icon
+    pointing up.
+  </p>
+</CodePreview>
+
+### Chevron down<br />`gcds-icon-chevron-down`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-chevron-down"></span> This element has a chevron icon
+    pointing down.
+  </p>
+</CodePreview>
+
+### Close <br />`gcds-icon-close`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-close"></span> This element has a close icon.
+  </p>
+</CodePreview>
+
+### Download <br />`gcds-icon-download`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-download"></span> This element has a download icon.
+  </p>
+</CodePreview>
+
+### Email <br />`gcds-icon-email`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-email"></span> This element has an email icon.
+  </p>
+</CodePreview>
+
+### External <br />`gcds-icon-external`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-external"></span> This element has an external icon.
+  </p>
+</CodePreview>
+
+### Phone <br />`gcds-icon-phone`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-phone"></span> This element has a phone icon.
+  </p>
+</CodePreview>
+
+### Search <br />`gcds-icon-search`
+
+<CodePreview>
+  <p>
+    <span class="gcds-icon-search"></span> This element has a search icon.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="icon-close" />
+<StateNote partialClass="icon-close" />

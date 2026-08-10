@@ -1,0 +1,122 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Marge intérieure
+description: 'La classe marge intérieure définit la propriété padding. Elle détermine l’espace à l’intérieur d’un élément, entre le contenu et la bordure.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  LogicalPropertiesNote,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'p-<value>',
+    style: 'padding: var(--gcds-spacing-<value>);',
+    legacy: 'padding',
+  },
+  {
+    class: 'pt-<value>',
+    style: 'padding-block-start: var(--gcds-spacing-<value>);',
+    legacy: 'padding-top',
+  },
+  {
+    class: 'pb-<value>',
+    style: 'padding-block-end: var(--gcds-spacing-<value>);',
+    legacy: 'padding-bottom',
+  },
+  {
+    class: 'ps-<value>',
+    style: 'padding-inline-start: var(--gcds-spacing-<value>);',
+    legacy: 'padding-left',
+  },
+  {
+    class: 'pe-<value>',
+    style: 'padding-inline-end: var(--gcds-spacing-<value>);',
+    legacy: 'padding-right',
+  },
+  {
+    class: 'px-<value>',
+    style: 'padding-inline: var(--gcds-spacing-<value>);',
+    legacy: 'padding-left + padding-right',
+  },
+  {
+    class: 'py-<value>',
+    style: 'padding-block: var(--gcds-spacing-<value>);',
+    legacy: 'padding-top + padding-bottom',
+  },
+];
+
+export const tableDescription = `La valeur <code>value</code> peut être définie à l’une de nos <a href="/fr/styles/espacement">unités d’espacement prédéfinies</a> (<code>0</code> - <code>1250</code>).`;
+
+# Marge intérieure
+
+La classe marge intérieure définit la propriété `padding`. Elle détermine l’espace à l’intérieur d’un élément, entre le contenu et la bordure.
+
+<LogicalPropertiesNote />
+
+<ShortcutsTable shortcuts={shortcuts} description={tableDescription} />
+
+## Exemples
+
+### Tous les côtés<br />`p-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="p-0">Cet élément n’a aucune marge intérieure sur tous les côtés.</p>
+</CodePreview>
+
+### Côté supérieur<br />`pt-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="pt-300">
+    Cet élément a une marge intérieure de --gcds-spacing-300 sur le côté
+    supérieur.
+  </p>
+</CodePreview>
+
+### Côté inférieur<br />`pb-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="pb-300">
+    Cet élément a une marge intérieure de --gcds-spacing-300 sur le côté
+    inférieur.
+  </p>
+</CodePreview>
+
+### Côté gauche<br />`ps-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="p-300 ps-0">
+    Cet élément n’a pas de marge intérieure sur le côté gauche.
+  </p>
+</CodePreview>
+
+### Côté droit<br />`pe-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="p-300 pe-0">
+    Cet élément n’a pas de marge intérieure sur le côté droit.
+  </p>
+</CodePreview>
+
+### Côtés horizontaux<br />`px-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="px-600">
+    Cet élément a un espacement de --gcds-spacing-600 sur les côtés gauche et
+    droit.
+  </p>
+</CodePreview>
+
+### Côtés verticaux<br />`py-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="py-500">
+    Cet élément a un espacement de --gcds-spacing-500 sur les côtés haut et bas.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="p-300" />

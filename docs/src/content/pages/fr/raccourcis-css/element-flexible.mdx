@@ -1,0 +1,58 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Élément flexible
+description: "La classe élément flexible définit la propriété abrégée flex sur un élément flexible. Elle détermine la façon dont un élément s’élargit, rétrécit et occupe de l'espace par rapport aux élément de même niveau à l'intérieur d'une boîte d’élément flexible."
+dateModified: "2025-10-01T13:41:49-07:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote } from '~components';
+
+export const shortcuts = [
+  { class: "flex-1", style: "flex: 1 1 0%;" },
+  { class: "flex-auto", style: "flex: 1 1 auto;" },
+  { class: "flex-initial", style: "flex: 0 1 auto;" },
+  { class: "flex-none", style: "flex: none;" },
+];
+
+# Élément flexible
+
+La classe élément flexible définit la propriété abrégée `flex` sur un élément flexible. Elle détermine la façon dont un élément s’élargit, rétrécit et occupe de l'espace par rapport aux élément de même niveau à l'intérieur d'une boîte d’élément flexible.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Élément flexible 1<br />`flex-1`
+
+Ces éléments s’élargissent et rétrécissent au besoin pour remplir l'espace disponible de manière égale, sans tenir compte de leur taille initiale.
+
+<CodePreview demoClass="gap-300 example-styled-items">
+<div class="d-flex"> <p class="flex-1">Contenu court.</p> <p class="flex-1">Contenu de longueur moyenne.</p> <p class="flex-1">Contenu qui prend plus d’espace que d’autres.</p> </div>
+</CodePreview>
+
+### Automatique<br />`flex-auto`
+
+Ces éléments s’élargissent et rétrécissent au besoin pour remplir l'espace disponible, en tenant compte de leur taille initiale.
+
+<CodePreview demoClass="gap-300 example-styled-items">
+<div class="d-flex"> <p class="flex-auto">Contenu court.</p> <p class="flex-auto">Contenu de longueur moyenne.</p> <p class="flex-auto">Contenu qui prend plus d’espace que d’autres.</p> </div>
+</CodePreview>
+
+### Taille initiale<br />`flex-initial`
+
+Ces éléments ne s’élargissent pas lorsqu'il y a de l'espace supplémentaire, mais peuvent rétrécir au besoin. Leur taille est basée sur leur contenu.
+
+<CodePreview demoClass="gap-300 example-styled-items">
+<div class="d-flex"> <p class="flex-initial">Contenu court.</p> <p class="flex-initial">Contenu de longueur moyenne.</p> <p class="flex-initial">Contenu qui prend plus d’espace que d’autres.</p> </div>
+</CodePreview>
+
+### Aucune<br />`flex-none`
+
+Ces éléments ne s’élargissent pas pour remplir l'espace disponible et ne rétrécissent pas s'il n'y a pas assez d'espace. Leur taille est basée sur leur contenu.
+
+<CodePreview demoClass="gap-300 example-styled-items">
+<div class="d-flex"> <p class="flex-none">Contenu court.</p> <p class="flex-none">Contenu de longueur moyenne.</p> <p class="flex-none">Contenu qui prend plus d’espace que d’autres.</p> </div>
+</CodePreview>
+
+<ResponsiveNote partialClass="flex-1" />
