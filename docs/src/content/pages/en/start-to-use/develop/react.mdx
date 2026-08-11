@@ -1,0 +1,48 @@
+---
+layout: '../../../../../layouts/BaseLayout.astro'
+pageTitle: Install React
+description: To make it easier to integrate GC Design System web components into React projects, the gcds-components-react package provides React wrappers.
+---
+
+import { NeedHelp, AddCssShortcuts, StartBuilding } from '~components';
+import { links } from '~i18n/links';
+
+# Install React
+
+To make it easier to integrate GC Design System web components into React projects, the <gcds-link href={links.en.npmGcdsComponentsReact} external>gcds-components-react</gcds-link> package provides React wrappers.
+
+These wrappers make it easier to work with web components in the React ecosystem. They offer JSX bindings for properties and custom events, auto-completion, and type safety.
+
+The web components inherit native properties and interoperability.
+
+## React installation instructions
+
+Follow these steps to install and use GC Design System components in your React project.
+
+### 1. Install the package
+
+Navigate to your project's root folder and run the following command:
+
+```bash
+npm install @gcds-core/components @gcds-core/components-react
+```
+
+### 2. Import GC Design System
+
+Place the following code in the `index.js` file of your app to import GC Design System styles:
+
+```js
+import '@gcds-core/components-react/gcds.css';
+```
+
+<AddCssShortcuts step="3" />
+
+Add the following code in the `index.js` file of your app to import GC Design System CSS Shortcuts:
+
+```js
+import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+```
+
+<StartBuilding step="4" />
+
+<NeedHelp />

@@ -17,6 +17,38 @@ export const routes = {
       },
     },
   },
+  "start-to-use": {
+    en: "start-to-use",
+    fr: "demarrer",
+    children: {
+      design: {
+        en: "design",
+        fr: "conception",
+      },
+      develop: {
+        en: "develop",
+        fr: "developpement",
+        children: {
+          angular: {
+            en: "angular",
+            fr: "angular",
+          },
+          html: {
+            en: "html",
+            fr: "html",
+          },
+          react: {
+            en: "react",
+            fr: "react",
+          },
+          vue: {
+            en: "vue",
+            fr: "vue",
+          },
+        }
+      },
+    },
+  },
   styles: {
     en: "styles",
     fr: "styles",

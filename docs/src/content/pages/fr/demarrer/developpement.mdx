@@ -1,0 +1,72 @@
+---
+layout: '../../../../layouts/BaseLayout.astro'
+pageTitle: Installation de Système de design GC
+description: Sélectionnez le cadre que vous utilisez pour obtenir des instructions sur la façon d'installer les composants Système de design GC dans votre projet.
+---
+
+import bannerAngular from '~assets/img/common/start-to-use/banner-angular.svg';
+import bannerHtml from '~assets/img/common/start-to-use/banner-html.svg';
+import bannerReact from '~assets/img/common/start-to-use/banner-react.svg';
+import bannerVue from '~assets/img/common/start-to-use/banner-vue.svg';
+import { links } from '~i18n/links';
+
+# Installation de Système de design GC
+
+## Sélectionnez votre cadre
+
+Sélectionnez le cadre que vous utilisez pour obtenir des instructions sur la façon d'installer les composants Système de design GC dans votre projet.
+
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+  <gcds-card
+    card-title="Angular"
+    href={links.fr.startToUseAngular}
+    img-src={bannerAngular.src}
+    img-alt=""
+    role="listitem"
+  >
+    Consultez les instructions d'installation pour Angular ou les projets basés sur Angular.
+  </gcds-card>
+  <gcds-card
+    card-title="React"
+    href={links.fr.startToUseReact}
+    img-src={bannerReact.src}
+    img-alt=""
+    role="listitem"
+  >
+    Consultez les instructions d'installation pour React ou les projets basés sur React.
+
+    P. ex., Next.js, Gatsby et Remix.
+  </gcds-card>
+  <gcds-card
+    card-title="Vue"
+    href={links.fr.startToUseVue}
+    img-src={bannerVue.src}
+    img-alt=""
+    role="listitem"
+  >
+    Consultez les instructions d'installation pour Vue ou les projets basés sur Vue.
+
+    P. ex., Nuxt, VuePress et Quasar.
+  </gcds-card>
+</gcds-grid>
+
+
+### Vous n'utilisez aucun de ces cadres?
+
+Si vous n'utilisez aucun des cadres mentionnés ci-haut, choisissez l'option « Autre » ci-dessous.
+
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+  <gcds-card
+    card-title="Autre"
+    href={links.fr.startToUseHtml}
+    img-src={bannerHtml.src}
+    img-alt=""
+    role="listitem"
+  >
+    Consultez les instructions d'installation pour tout autre type de projet.
+
+    P. ex., les sites statiques, les plateformes CMS, Node.js, Java, Svelte, .NET.
+  </gcds-card>
+</gcds-grid>
+
+Si vous avez besoin d'aide, <gcds-link href={links.fr.contact}>n'hésitez pas à nous écrire</gcds-link> et nous vous aiderons à partir du bon pied.
