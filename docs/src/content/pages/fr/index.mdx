@@ -1,0 +1,140 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Accueil
+description: Un système de design officiel et prêt pour la production destiné au gouvernement du Canada. Créez des services gouvernementaux modernes, accessibles et humains.
+dateModified: '2026-07-30T20:08:39-04:00'
+---
+
+import { links } from '~i18n/links';
+import componentsImg from '~assets/img/common/home/components.jpg';
+import templatesImg from '~assets/img/common/home/templates.jpg';
+import shortcutsImg from '~assets/img/fr/accueil/shortcuts.jpg';
+import stylesImg from '~assets/img/common/home/styles.jpg';
+
+# Système de design GC
+
+Un système de design officiel et prêt pour la production destiné au gouvernement du Canada. Créez des services gouvernementaux modernes, accessibles et humains.
+
+<gcds-button type="link" href={links.fr.startToUse}>Démarrer</gcds-button>
+<gcds-button type="link" href={links.fr.registerDemo} button-role="secondary">Participer à une démo</gcds-button>
+
+<section class="bt-sm mt-500">
+
+## Choisissez Système de design GC
+
+Système de design GC aide les fonctionnaires à concevoir des sites Web et des produits du gouvernement du Canada. Créez plus rapidement, sans compromettre ni l’identité de marque, ni l’accessibilité, ni le bilinguisme. Trouvez du code prêt pour la production, des ressources de design et de la documentation en un seul et même endroit.
+
+### Pour en savoir plus
+
+Renseignez-vous <gcds-link href={links.fr.about}>à propos de Système de design GC</gcds-link>, <gcds-link href={links.fr.gcdsInUse}>des équipes qui l’utilisent</gcds-link>, de nos <gcds-link href={links.fr.accessibility}>tests réguliers en matière d’accessibilité</gcds-link> et des façons d’améliorer l’accessibilité de vos produits et sites Web.
+
+### S’impliquer
+
+Nous adaptons continuellement notre produit pour mieux répondre à vos besoins et vous offrir plus d’options.
+
+<gcds-button type="link" href={links.fr.getInvolved} button-role="secondary">S’impliquer</gcds-button>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## Des outils pour les problèmes courants
+
+Appliquez ou combinez ces outils pour aborder les scénarios de services communs. Créez et construisez rapidement des expériences fiables et unifiées.
+
+<gcds-grid columns="1fr" columns-tablet="1.5fr 2.5fr" columns-desktop="1fr 3fr" gap="150" gap-tablet="300">
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={componentsImg.src}
+  alt="Trois formes distinctes, un rectangle rose à côté d'un carré vert et d'un carré jaune, forment le contour d'un plus grand carré."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.fr.components}>Composants</gcds-link>
+  </gcds-heading>
+
+Répondez aux besoins communs en matière d’interaction des services à l’aide du code, de la conception et des conseils pour la mise en œuvre de composants d’interface utilisateur.
+
+</div>
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={templatesImg.src}
+  alt="Un rectangle vertical rempli d'un dégradé du rose au bleu."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.fr.pageTemplates}>Modèles de page</gcds-link>
+  </gcds-heading>
+
+Commencez votre projet à l’aide de pages préconstruites offrant une expérience uniforme et reconnaissable pour Canada.ca.
+
+</div>
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={shortcutsImg.src}
+  alt="Un badge en haut à gauche avec le mot nouveau. Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.fr.shortcuts}>Raccourcis CSS <gcds-sr-only>(Nouveau)</gcds-sr-only></gcds-link>
+  </gcds-heading>
+
+Appliquez des styles et des mises en page prédéfinis en ajoutant nos classes utilitaires CSS personnalisées à votre code HTML.
+
+</div>
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={stylesImg.src}
+  alt="Un groupe de quatre points violets, bleus, verts et jaunes."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.fr.styles}>Styles</gcds-link>
+  </gcds-heading>
+
+Explorez les décisions de marque et de design codées qui façonnent une expérience visuelle cohérente.
+
+</div>
+
+</gcds-grid>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## Nouveautés
+
+Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le <gcds-link href={links.fr.releaseNotes} external>journal des modifications dans GitHub</gcds-link>.
+
+**Dernières versions** :
+
+- **Composants :** Nouveau <gcds-link href={links.fr.table}>composant tableau</gcds-link> et nouveau format de date ISO pour le <gcds-link href={links.fr.dateInput}>champ de date</gcds-link>
+- **Documentation :** Nouveaux exemples de code pour les attributs et emplacements de tous les composants, et nouveau guide d'utilisation sur la <gcds-link href={links.fr.formValidation}>validation des composants de formulaire</gcds-link>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## À venir
+
+Explorez notre <gcds-link href={links.fr.roadmap}>feuille de route</gcds-link> pour suivre nos progrès et voir sur quoi nous travaillerons prochainement.
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## Contactez-nous
+
+Si vous avez des questions, si vous voulez <gcds-link href={links.fr.getInvolved}>vous impliquer</gcds-link> ou si vous voulez vous inscrire à notre liste de diffusion, n’hésitez pas à communiquer avec nous.
+
+<gcds-button type="link" href={links.fr.contact} button-role="secondary">Nous contacter</gcds-button>
+
+</section>
