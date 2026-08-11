@@ -1,5 +1,7 @@
+export { default as AddCssShortcuts } from "./AddCssShortcuts/AddCssShortcuts.astro";
 export { default as AnatomyImage } from "./AnatomyImage.astro";
 export { default as AnatomyList } from "./AnatomyList.astro";
+export { default as CdnVersionScript } from "./CdnVersionScript.astro";
 export { default as CodePreview } from "./CodePreview.astro";
 export { default as CodePreviewReact } from "./CodePreviewReact.jsx";
 export { default as DocLinks } from "./DocLinks.astro";
@@ -8,6 +10,8 @@ export { default as Footer } from "./Footer.astro";
 export { default as Header } from "./Header.astro";
 export { default as Heading } from "./Heading.astro";
 export { default as HelpUs } from "./HelpUs/HelpUs.astro";
+export { default as NeedHelp } from "./NeedHelp/NeedHelp.astro";
+export { default as StartBuilding } from "./StartBuilding/StartBuilding.astro";
 export { default as Tabs } from "./Tabs.astro";
 export { default as Text } from "./Text.astro";
 export { default as TokenTable } from "./TokenTable.astro";
