@@ -156,13 +156,6 @@ module.exports = [
     link: 'https://events.teams.microsoft.com/event/78be9261-6c3b-4aee-bb34-34ed8c43a60d@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
   },
   {
-    date: '2026-08-20',
-    starttime: '14:00',
-    endtime: '15:00',
-    lang: 'fr',
-    link: 'https://events.teams.microsoft.com/event/ac640233-1a27-4975-84c0-c0184372957e@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
-  },
-  {
     date: '2026-10-13',
     starttime: '14:00',
     endtime: '15:00',
