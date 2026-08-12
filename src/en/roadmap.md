@@ -35,13 +35,13 @@ Here's what we'll be focusing on in each quarter.
 
 ### Quarter 2: July to September 2026
 <ol class="list-disc ps-400 mb-300">
-  <li>Publish the Alert component</li>
-  <li>Research, design, and development of a Pill/Tag component</li>
-  <li>Add a React starter app</li>
-  <li>Add an HTML starter app</li>
-  <li>A Command Line Interface (CLI) tool for quickly generating app templates from GCDS starter apps</li>
-  <li>Research on the accessibility and usability of the table component</li>
-  <li>Focus on community contributions and feature requests</li>
+  <li> <strong>[ 🟡 In Progress]</strong> Publish the Alert component</li>
+  <li> <strong>[ 🟡 In Progress]</strong> Research, design, and development of a Pill/Tag component</li>
+  <li> <strong>[ 🟢 Done]</strong> Add a React starter app</li>
+  <li> <strong>[ 🟡 In Progress]</strong> Add an HTML starter app</li>
+  <li> <strong>[ 🟡 In Progress]</strong> A Command Line Interface (CLI) tool for quickly generating app templates from GCDS starter apps</li>
+  <li> <strong>[ 🟢 Done]</strong> Research on the accessibility and usability of the table component</li>
+  <li> <strong>[ 🟡 In Progress]</strong> Focus on community contributions and feature requests</li>
 </ol>
 
 ### Quarter 3: October to December 2026
