@@ -53,15 +53,16 @@
     },
     {
       "type": "group",
-      "versioned": true,
+      "versioned": false,
       "groupKey": "css-shortcuts",
       "routeKey": "css-shortcuts",
+      "slug": {"en": "css-shortcuts", "fr": "raccourcis-css"},
       "label": {"en": "CSS Shortcuts", "fr": "Raccourcis CSS"},
       "manifestKey": "cssShortcuts"
     },
     {
       "type": "group",
-      "versioned": true,
+      "versioned": false,
       "groupKey": "styles",
       "routeKey": "styles",
       "label": {"en": "Styles", "fr": "Styles"},

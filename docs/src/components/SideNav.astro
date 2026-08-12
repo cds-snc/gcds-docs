@@ -7,33 +7,61 @@ import { buildSideNavConfig } from '../routing/routes';
 // - Add grouped items under sideNavRoutes with "type": "group" and either "items" or "manifestKey"
 // - Add/update the home slot using "type": "slot" and "slotName": "home"
 const navConfig = buildSideNavConfig(Astro.url.pathname);
+
+// Highlight the active link and open the group that contains it.
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const normalize = (href: string) => href.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) => normalize(href) === currentPath;
+
+type NavGroupLike = {
+  links: Array<{ href: string }>;
+  subGroups?: Array<{ links: Array<{ href: string }> }>;
+};
+
+// A group is active if it (or any of its sub-groups) contains the current page.
+const groupIsActive = (group: NavGroupLike) => {
+  const allLinks = [...group.links, ...(group.subGroups?.flatMap((sub) => sub.links) ?? [])];
+
+  return allLinks.some((link) => {
+    const base = normalize(link.href);
+    return base === currentPath || currentPath.startsWith(`${base}/`);
+  });
+};
 ---
 
 <gcds-side-nav label={navConfig.sideNavLabel} class="lg:position-sticky box-border overflow-x-visible align-self-start px-75">
-    {navConfig.homeSlot && (
-            <gcds-nav-link slot="home" href={navConfig.homeSlot.href}>{navConfig.homeSlot.text}</gcds-nav-link>
-    )}
+  {navConfig.homeSlot && (
+    // Home slot is intentionally never marked current (no active highlight).
+    <gcds-nav-link slot="home" href={navConfig.homeSlot.href}>{navConfig.homeSlot.text}</gcds-nav-link>
+  )}
 
-    {navConfig.links.map((link) => (
-            <gcds-nav-link href={link.href}>{link.text}</gcds-nav-link>
-    ))}
+  {navConfig.links.map((link) => (
+    <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
+  ))}
 
-    {navConfig.groups.map((group) => (
-            <gcds-nav-group open-trigger={group.trigger} menu-label={group.menuLabel}>
-                {group.links.map((link) => (
-                        <gcds-nav-link href={link.href}>{link.text}</gcds-nav-link>
-                ))}
-            </gcds-nav-group>
-    ))}
+  {navConfig.groups.map((group) => (
+    <gcds-nav-group open-trigger={group.trigger} menu-label={group.menuLabel} open={groupIsActive(group) || undefined}>
+      {group.links.map((link) => (
+        <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
+      ))}
+      {group.subGroups?.map((sub) => (
+        <gcds-nav-group open-trigger={sub.trigger} menu-label={sub.menuLabel} open={groupIsActive(sub) || undefined}>
+          {sub.links.map((link) => (
+            <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
+          ))}
+        </gcds-nav-group>
+      ))}
+    </gcds-nav-group>
+  ))}
 </gcds-side-nav>
 
 <style>
-    gcds-side-nav {
-        top: 0;
-        max-height: 100dvh;
-        overflow-y: auto;
+  gcds-side-nav {
+    top: 0;
+    max-height: 100dvh;
+    overflow-y: auto;
 
-        /* avoids jump when the scrollbar appears */
-        scrollbar-gutter: stable;
-    }
+    /* avoids jump when the scrollbar appears */
+    scrollbar-gutter: stable;
+  }
 </style>

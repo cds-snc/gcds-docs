@@ -1,0 +1,60 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Agencement des éléments
+description: "La classe agencement des éléments définit la propriété place-items. Il s’agit d’un raccourci pour définir à la fois l'axe transversal et l'axe principal. Elle détermine comment les éléments sont alignés à l'intérieur de leurs zones de grille le long des deux axes dans une boîte de grille."
+dateModified: "2026-02-12T12:40:07-05:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote, Notice } from '~components';
+
+export const shortcuts = [
+  { class: "place-items-center", style: "place-items: center;" },
+  { class: "place-items-stretch", style: "place-items: stretch;" },
+  { class: "place-items-start", style: "place-items: start;" },
+  { class: "place-items-end", style: "place-items: end;" },
+];
+
+# Agencement des éléments
+
+La classe agencement des éléments définit la propriété `place-items`. Il s’agit d’un raccourci pour définir à la fois l'axe transversal et l'axe principal. Elle détermine comment les éléments sont alignés à l'intérieur de leurs zones de grille le long des deux axes dans une boîte de grille.
+
+<Notice title="Aucun effet dans les boîtes d’éléments flexibles." role="info" html={`Dans une boîte d’élément flexible, <code>justify-items</code> est ignorée. Ainsi, la classe <code>place-items</code> n'a aucun effet.`} />
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Centré<br />`place-items-center`
+
+Ces éléments sont centrés à la fois verticalement et horizontalement dans leurs zones de grille.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+<div class="d-grid grid-cols-3 place-items-center"> <p>1</p> <p>2</p> <p>3</p> <p>4</p> <p>5</p> <p>6</p> </div>
+</CodePreview>
+
+### Étiré<br />`place-items-stretch`
+
+Si aucune taille fixe n'est définie, ces éléments s'étirent pour remplir leurs zones de grille à la fois horizontalement et verticalement.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+<div class="d-grid grid-cols-3 place-items-stretch"> <p>1</p> <p>2</p> <p>3</p> <p>4</p> <p>5</p> <p>6</p> </div>
+</CodePreview>
+
+### Bord initial<br />`place-items-start`
+
+Ces éléments s'alignent sur le bord initial des deux axes dans leurs zones de grille.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+<div class="d-grid grid-cols-3 place-items-start"> <p>1</p> <p>2</p> <p>3</p> <p>4</p> <p>5</p> <p>6</p> </div>
+</CodePreview>
+
+### Bord final<br />`place-items-end`
+
+Ces éléments s'alignent sur le bord final des deux axes dans leurs zones de grille.
+
+<CodePreview demoClass="example-styled-items example-flex-items example-flex-place">
+<div class="d-grid grid-cols-3 place-items-end"> <p>1</p> <p>2</p> <p>3</p> <p>4</p> <p>5</p> <p>6</p> </div>
+</CodePreview>
+
+<ResponsiveNote partialClass="place-items-center" />

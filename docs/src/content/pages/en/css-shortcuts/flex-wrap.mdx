@@ -1,0 +1,76 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Flex wrap
+description: 'The flex wrap class sets the flex-wrap property. It controls how flex items wrap onto multiple lines if there isn’t enough space for them.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'flex-wrap', style: 'flex-wrap: wrap;' },
+  { class: 'flex-wrap-reverse', style: 'flex-wrap: wrap-reverse;' },
+  { class: 'flex-nowrap', style: 'flex-wrap: nowrap;' },
+];
+
+# Flex wrap
+
+The flex wrap class sets the `flex-wrap` property. It controls how flex items wrap onto multiple lines if there isn't enough space for them.
+
+<Notice
+  role="info"
+  title="Influenced by flex-direction"
+  html={`In flexbox, the <code>flex-direction</code> property sets the main and cross axis. The effects of <code>flex-wrap</code> change based on the container's direction.`}
+/>
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Wrap<br />`flex-wrap`
+
+These items wrap onto multiple lines or columns when they don't fit in a single row or column. Wrapping occurs in the default direction based on the cross axis.
+
+In **row layouts**, it wraps from start to end vertically.<br/>
+In **column layouts**, it wraps from start to end horizontally.
+
+<CodePreview demoClass="gap-300 example-styled-items example-flex-wrap">
+  <div class="d-flex flex-wrap">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+### Reverse wrap<br />`flex-wrap-reverse`
+
+These items wrap onto multiple lines or columns when they don't fit in a single row or column. Wrapping occurs in the reverse direction along the cross axis.
+
+In **row layouts**, it wraps from end to start vertically.<br/>
+In **column layouts**, it wraps from end to start horizontally.
+
+<CodePreview demoClass="gap-300 example-styled-items example-flex-wrap">
+  <div class="d-flex flex-wrap-reverse">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+### No wrap<br />`flex-nowrap`
+
+These items are forced onto one line without wrapping.
+
+<CodePreview demoClass="gap-300 example-styled-items example-flex-wrap">
+  <div class="d-flex flex-nowrap">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</CodePreview>
+
+<ResponsiveNote partialClass="flex-wrap" />

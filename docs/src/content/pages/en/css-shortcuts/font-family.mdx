@@ -1,0 +1,65 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Font family
+description: 'The font family class sets the font-family property. It controls the typeface of a text element.'
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'font-family-heading',
+    style: 'font-family: var(--gcds-font-families-heading);',
+  },
+  {
+    class: 'font-family-body',
+    style: 'font-family: var(--gcds-font-families-body);',
+  },
+  {
+    class: 'font-family-monospace',
+    style: 'font-family: var(--gcds-font-families-monospace);',
+  },
+];
+
+# Font family
+
+The font family class sets the `font-family` property. It controls the typeface of a text element.
+
+<Notice
+  title="Use with caution"
+  html={`In most cases you do not need to use this class. Body text and heading elements are <gcds-link href="/en/styles/typography">styled to match GCDS by default</gcds-link>. Use semantic HTML tags , like <code>h1</code>, <code>h2</code> whenever possible.`}
+/>
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Heading<br />`font-family-heading`
+
+<CodePreview demoClass="mt-0 mb-0">
+  <h4 class="font-family-heading">
+    This element uses the heading font family.
+  </h4>
+</CodePreview>
+
+### Body<br />`font-family-body`
+
+<CodePreview>
+  <p class="font-family-body"> This element uses the body font family. </p>
+</CodePreview>
+
+### Monospace<br />`font-family-monospace`
+
+<CodePreview>
+  <code class="font-family-monospace">
+    This element uses the monospace font family.
+  </code>
+</CodePreview>
+
+<ResponsiveNote partialClass="font-family-body" />

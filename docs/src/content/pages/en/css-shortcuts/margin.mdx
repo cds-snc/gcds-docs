@@ -1,0 +1,117 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Margin
+description: 'The margin class sets the margin property. It controls the space outside the border of an element.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  LogicalPropertiesNote,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'm-<value>',
+    style: 'margin: var(--gcds-spacing-<value>);',
+    legacy: 'margin',
+  },
+  {
+    class: 'mt-<value>',
+    style: 'margin-block-start: var(--gcds-spacing-<value>);',
+    legacy: 'margin-top',
+  },
+  {
+    class: 'mb-<value>',
+    style: 'margin-block-end: var(--gcds-spacing-<value>);',
+    legacy: 'margin-bottom',
+  },
+  {
+    class: 'ms-<value>',
+    style: 'margin-inline-start: var(--gcds-spacing-<value>);',
+    legacy: 'margin-left',
+  },
+  {
+    class: 'me-<value>',
+    style: 'margin-inline-end: var(--gcds-spacing-<value>);',
+    legacy: 'margin-right',
+  },
+  {
+    class: 'mx-<value>',
+    style: 'margin-inline: var(--gcds-spacing-<value>);',
+    legacy: 'margin-left + margin-right',
+  },
+  {
+    class: 'my-<value>',
+    style: 'margin-block: var(--gcds-spacing-<value>);',
+    legacy: 'margin-top + margin-bottom',
+  },
+];
+
+export const tableDescription = `The <code>value</code> can be either one of our <a href="/en/styles/spacing">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>) or <code>auto</code>.`;
+
+# Margin
+
+The margin class sets the `margin` property. It controls the space outside the border of an element.
+
+<LogicalPropertiesNote />
+
+<ShortcutsTable shortcuts={shortcuts} description={tableDescription} />
+
+## Examples
+
+### All sides<br />`m-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150">
+  <p class="m-0">This element has no margin on all sides.</p>
+</CodePreview>
+
+### Top side<br />`mt-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150">
+  <p class="mt-auto">
+    This element lets the browser automatically calculate the margin on the top
+    side.
+  </p>
+</CodePreview>
+
+### Bottom side<br />`mb-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="mb-900">
+    This element has a margin of --gcds-spacing-900 on the bottom side.
+  </p>
+</CodePreview>
+
+### Left side<br />`ms-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="m-900 ms-0">This element has no margin on the left side.</p>
+</CodePreview>
+
+### Right side<br />`me-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="m-900 me-0">This element has no margin on the right side.</p>
+</CodePreview>
+
+### Horizontal sides<br />`mx-<value>`
+
+<CodePreview demoClass="bg-primary text-light p-150 example-margin">
+  <p class="container-md mx-auto">
+    This element is horizontally centred by letting the browser automatically
+    calculate the margin.
+  </p>
+</CodePreview>
+
+### Vertical sides<br />`my-<value>`
+
+<CodePreview demoClass="container-full bg-primary text-light p-150 example-margin">
+  <p class="my-900">
+    This element has a margin of --gcds-spacing-900 on the top and bottom sides.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="m-300" />

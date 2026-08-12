@@ -102,9 +102,8 @@ Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le
 
 **Dernières versions** :
 
-- Nouveau : Paquets stables v1.0.0 pour les <gcds-link href="{{ links.github }}" external>composants</gcds-link> et les <gcds-link href="{{ links.githubTokens }}" external>unités de style</gcds-link>
-- Mise à jour : Échelle de couleurs élargie avec de nouvelles <gcds-link href="{{ links.colour }}">unités de style de base</gcds-link>
-- Nouveau : <gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque Figma</gcds-link> distincte pour les unités de style
+- **Composants :** Nouveau <gcds-link href="{{ links.table }}">composant tableau</gcds-link> et nouveau format de date ISO pour le <gcds-link href="{{ links.dateInput }}">champ de date</gcds-link>
+- **Documentation :** Nouveaux exemples de code pour les attributs et emplacements de tous les composants, et nouveau guide d'utilisation sur la <gcds-link href="{{ links.formValidation }}">validation des composants de formulaire</gcds-link>
 
 </section>
 

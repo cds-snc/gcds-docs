@@ -1,0 +1,20 @@
+---
+interface Props {
+  /** Notice title, shown in the notice heading. */
+  title: string;
+  /** gcds-notice role: "warning" (default), "info", "danger", "success". */
+  role?: string;
+  /**
+   * Body HTML. Passed as a string and rendered with `set:html` so page-level
+   * Prettier can't reflow the inline markup (links, <code>) into noisy `{' '}`
+   * whitespace expressions.
+   */
+  html: string;
+}
+
+const { title, role = "warning", html } = Astro.props as Props;
+---
+
+<gcds-notice notice-role={role} notice-title-tag="h2" notice-title={title}>
+  <gcds-text set:html={html} />
+</gcds-notice>

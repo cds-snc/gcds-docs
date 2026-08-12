@@ -1,0 +1,92 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Line height
+description: 'The line height class sets the line-height property. It controls the vertical spacing between lines of text.'
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  Notice,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'line-h1', style: 'line-height: var(--gcds-line-heights-h1);' },
+  { class: 'line-h2', style: 'line-height: var(--gcds-line-heights-h2);' },
+  { class: 'line-h3', style: 'line-height: var(--gcds-line-heights-h3);' },
+  { class: 'line-h4', style: 'line-height: var(--gcds-line-heights-h4);' },
+  { class: 'line-h5', style: 'line-height: var(--gcds-line-heights-h5);' },
+  { class: 'line-h6', style: 'line-height: var(--gcds-line-heights-h6);' },
+  { class: 'line-text', style: 'line-height: var(--gcds-line-heights-text);' },
+  {
+    class: 'line-text-small',
+    style: 'line-height: var(--gcds-line-heights-text-small);',
+  },
+];
+
+# Line height
+
+The line height class sets the `line-height` property. It controls the vertical spacing between lines of text.
+
+<Notice
+  title="Use with caution"
+  html={`In most cases you do not need to use this class. Body text and heading elements are <gcds-link href="/en/styles/typography">styled to match GCDS by default</gcds-link>. Use semantic HTML tags , like <code>h1</code>, <code>h2</code> whenever possible.`}
+/>
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### H1<br />`line-h1`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-h1">This element uses line height intended for H1 headings.</p>
+</CodePreview>
+
+### H2<br />`line-h2`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-h2">This element uses line height intended for H2 headings.</p>
+</CodePreview>
+
+### H3<br />`line-h3`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-h3">This element uses line height intended for H3 headings.</p>
+</CodePreview>
+
+### H4<br />`line-h4`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-h4">This element uses line height intended for H4 headings.</p>
+</CodePreview>
+
+### H5<br />`line-h5`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-h5">This element uses line height intended for H5 headings.</p>
+</CodePreview>
+
+### H6<br />`line-h6`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-h6">This element uses line height intended for H6 headings.</p>
+</CodePreview>
+
+### Text<br />`line-text`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-text">This element uses line height intended for body text.</p>
+</CodePreview>
+
+### Small text<br />`line-text-small`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+  <p class="line-text-small">
+    This element uses line height intended for smaller body text.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="line-text" />

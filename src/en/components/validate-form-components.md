@@ -195,10 +195,10 @@ By using a combination of customizable properties and events, you can implement 
       return {
         validate: value => {
          return {
-          valid: value === '@cdssnc/gcds-components',
+          valid: value === '@gcds-core/components',
           reason: {
-            en: `The entered value must be '@gcds-core/components.`,
-            fr: `La valeur saisie doit être « @gcds-core/components »`,
+            en: `The entered value must be '@gcds-core/components'.`,
+            fr: `La valeur saisie doit être « @gcds-core/components ».`,
           },
          };
         },

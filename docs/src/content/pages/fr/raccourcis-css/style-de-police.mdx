@@ -1,0 +1,38 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Style de police
+description: "La classe style de police définit la propriété font-style. Elle ajoute ou supprime le style italique du texte."
+dateModified: "2026-02-12T12:40:07-05:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote, Notice } from '~components';
+
+export const shortcuts = [
+  { class: "font-normal", style: "font-style: normal;" },
+  { class: "font-italic", style: "font-style: italic;" },
+];
+
+# Style de police
+
+La classe style de police définit la propriété `font-style`. Elle ajoute ou supprime le style italique du texte.
+
+<Notice title="Utiliser avec prudence" html={`<gcds-link href="/fr/styles/typographie#italiques">Consulter les directives typographiques de Système de design GC</gcds-link> pour choisir le style de police pour votre contexte.`} />
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Normal<br />`font-normal`
+
+<CodePreview>
+<p class="font-normal"> Cet élément affiche du texte sans style italique. Ce style est utilisé dans la plupart des cas. </p>
+</CodePreview>
+
+### Italique<br />`font-italic`
+
+<CodePreview>
+<p class="font-italic"> Cet élément affiche du texte avec un style italique. Il est utilisé judicieusement pour de courtes lignes de texte afin de limiter la charge cognitive. </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="font-italic" />

@@ -1,0 +1,117 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Padding
+description: 'The padding sets the padding property. It controls the space inside an element between its content and border.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  LogicalPropertiesNote,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  {
+    class: 'p-<value>',
+    style: 'padding: var(--gcds-spacing-<value>);',
+    legacy: 'padding',
+  },
+  {
+    class: 'pt-<value>',
+    style: 'padding-block-start: var(--gcds-spacing-<value>);',
+    legacy: 'padding-top',
+  },
+  {
+    class: 'pb-<value>',
+    style: 'padding-block-end: var(--gcds-spacing-<value>);',
+    legacy: 'padding-bottom',
+  },
+  {
+    class: 'ps-<value>',
+    style: 'padding-inline-start: var(--gcds-spacing-<value>);',
+    legacy: 'padding-left',
+  },
+  {
+    class: 'pe-<value>',
+    style: 'padding-inline-end: var(--gcds-spacing-<value>);',
+    legacy: 'padding-right',
+  },
+  {
+    class: 'px-<value>',
+    style: 'padding-inline: var(--gcds-spacing-<value>);',
+    legacy: 'padding-left + padding-right',
+  },
+  {
+    class: 'py-<value>',
+    style: 'padding-block: var(--gcds-spacing-<value>);',
+    legacy: 'padding-top + padding-bottom',
+  },
+];
+
+export const tableDescription = `The <code>value</code> can be either one of our <a href="/en/styles/spacing">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>).`;
+
+# Padding
+
+The padding sets the `padding` property. It controls the space inside an element between its content and border.
+
+<LogicalPropertiesNote />
+
+<ShortcutsTable shortcuts={shortcuts} description={tableDescription} />
+
+## Examples
+
+### All sides<br />`p-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="p-0">This element has no padding on all sides.</p>
+</CodePreview>
+
+### Top side<br />`pt-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="pt-300">
+    This element has a padding of --gcds-spacing-300 on the top side.
+  </p>
+</CodePreview>
+
+### Bottom side<br />`pb-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="pb-300">
+    This element has a padding of --gcds-spacing-300 on the bottom side.
+  </p>
+</CodePreview>
+
+### Left side<br />`ps-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="p-300 ps-0">This element has no padding on the left side.</p>
+</CodePreview>
+
+### Right side<br />`pe-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="p-300 pe-0">This element has no padding on the right side.</p>
+</CodePreview>
+
+### Horizontal sides<br />`px-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="px-600">
+    This element has a padding of --gcds-spacing-600 on the left and right
+    sides.
+  </p>
+</CodePreview>
+
+### Vertical sides<br />`py-<value>`
+
+<CodePreview demoClass="d-inline-block bg-primary text-light">
+  <p class="py-500">
+    This element has a padding of --gcds-spacing-500 on the top and bottom
+    sides.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="p-300" />

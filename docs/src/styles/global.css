@@ -1,5 +1,25 @@
 /* --- Global styles --- */
-code {
+pre.astro-code {
+  padding: var(--gcds-spacing-300);
+  font-size: 80%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+pre.shortcut-snippet {
+  padding: var(--gcds-spacing-300);
+  font-size: 80%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #e1e4e8;
+  background: #24292e;
+}
+
+pre.shortcut-snippet code {
+  color: inherit;
+}
+
+:not(pre) > code {
   font-size: 80%;
   line-height: var(--gcds-line-heights-text-small);
   padding: var(--gcds-spacing-25);
@@ -7,7 +27,6 @@ code {
   border-radius: var(--gcds-border-radius-sm);
 }
 
-/* I would normally move this code somewhere else, but leaving it here for this demo project */
 .bg-full-width {
   position: relative;
   width: calc(100% + var(--gcds-spacing-225));
@@ -20,7 +39,7 @@ code {
     top: 0;
     width: 100vw;
     height: 100%;
-    content: "";
+    content: '';
     background-color: inherit;
   }
 

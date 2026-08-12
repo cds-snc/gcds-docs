@@ -1,0 +1,107 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Unités de style typographiques
+description: Les unités de style typographiques comprennent le style, la disposition et l'apparence des lettres, chiffres et symboles.
+dateModified: "2025-12-03T09:46:06-05:00"
+---
+
+import { HelpUs, TokenTable } from '~components';
+import { links } from '~i18n/links';
+
+export const valueHeaders = {
+  'font-preview': 'Aperçu',
+  'token-name': "Nom de l'unité de style",
+  'font-value': 'Valeur',
+};
+
+export const previews = {
+  'font-h1': 'Titre 1',
+  'font-h2': 'Titre 2',
+  'font-h3': 'Titre 3',
+  'font-h4': 'Titre 4',
+  'font-h5': 'Titre 5',
+  'font-h6': 'Titre 6',
+  'font-text': 'Texte',
+  'font-textSmall': 'Petit texte',
+  'fontFamilies-heading': 'Titre',
+  'fontFamilies-body': 'Texte',
+  'fontFamilies-monospace': 'Espacement fixe',
+  'fontFamilies-icons': 'icons',
+  'fontWeights-light': 'Maigre',
+  'fontWeights-regular': 'Régulier',
+  'fontWeights-medium': 'Moyen',
+  'fontWeights-semibold': 'Semi-gras',
+  'fontWeights-bold': 'Gras',
+};
+
+# Unités de style typographiques
+
+Les unités de style typographiques comprennent le style, la disposition et l'apparence des lettres, chiffres et symboles.
+
+## Typographie et accessibilité
+
+Les composants de Système de design GC <gcds-link external href={links.fr.wcagTextSpacing} target="_blank">sont conformes au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)</gcds-link> (site Web anglais) en matière d'espacement du texte et au niveau AAA en matière de présentation visuelle.
+
+## Rythme vertical et tailles d'espacement en rem
+
+L'espacement de la typographie dans Système de design GC est basé sur le rythme vertical et calculé en fonction d'une taille de base.
+
+Le rythme vertical est un alignement du texte selon des lignes horizontales espacées de manière égale pour former des motifs récurrents. Un espacement vertical uniforme aide à l'interprétation, la lecture et la compréhension du contenu. Les espacements sont configurés au moyen d'unités rem. Toute valeur typographique et d'espacement s'exprime en fonction d'une taille de base de 1.25 rem (20 px).
+
+## Unités de style typographiques globales
+
+### Titres
+
+Les balises de titre pour les titres et sous-titres donnent la structure à une page et servent à disposer le contenu. Elles aident également à la navigation, surtout pour les gens qui ont recours aux technologies d'assistance.
+
+- Tout titre et sous-titre doit être inséré à l'aide d'une balise (`<h1>` - `<h6>`).
+- Commencez le contenu principal avec un titre H1. N'utilisez qu'un seul titre H1 par page.
+- Organisez les niveaux de titre par ordre numérique. H1 est suivi de H2, qui est suivi de H3 et ainsi de suite.
+- Évitez de sauter des niveaux de titre hiérarchiques.
+- Assurez-vous que la taille de police et la hauteur de ligne correspondent (taille de police H1 avec la hauteur de ligne H1, etc.).
+- Employez des titres pour les appels à l'action pour accentuer du contenu.
+- Assurez-vous que les titres sont uniques et qu'ils indiquent clairement la nature du contenu qui suit.
+
+<TokenTable token="font" subTokens="h1 h2 h3 h4 h5 h6" type="typography" headers={valueHeaders} previews={previews} />
+
+Remarque : La propriété de la police représente à la fois l'épaisseur, la taille/la hauteur de ligne et la famille de police.
+
+### Texte
+
+- Pour la taille de police, conservez la longueur d'une ligne à moins de 65 caractères pour assurer une lecture aisée et accessible.
+- Insérez la valeur css `65ch (--gcds-text-character-limit)` ou moins pour régler la largeur maximale de vos paragraphes.
+
+<TokenTable token="font" subTokens="text textSmall" type="typography" headers={valueHeaders} previews={previews} />
+
+### Familles de police
+
+Les titres font appel à la police «&nbsp;Lato&nbsp;». Les paragraphes et autres éléments textuels se servent de la police «&nbsp;Noto Sans&nbsp;».
+
+La famille de police comprend des valeurs de rechange. Les valeurs de rechange sont seulement utilisées pour une famille de police lorsqu'une police n'est pas disponible.
+
+- N'utilisez les unités de style titre que pour les titres. Tout autre contenu peut utiliser la police Texte.
+- Utilisez la famille de police Texte pour la plupart de votre contenu.
+- Lorsque vous citez des éléments de code, vous pouvez insérer vos exemples de code avec la famille de police Espacement fixe.
+
+<TokenTable token="fontFamilies" type="fontFamilies" headers={valueHeaders} previews={previews} />
+
+### Épaisseurs de police
+
+- Limitez le nombre de modifications de l'épaisseur de police dans votre conception afin de ne pas nuire au contraste. N'utilisez que deux ou trois épaisseurs de police en assurant un maximum de contraste.
+- Employez différentes épaisseurs de police pour accentuer des mots dans un tableau, en début de paragraphe ou dans de longs blocs de texte lorsque les autres options de titre et de style ne sont pas appropriées.
+- Veillez à accentuer des éléments de façon accessible, car plusieurs technologies d'assistance ne tiennent pas compte de l'épaisseur de la police.
+- Plutôt que de modifier l'épaisseur de la police, envisagez d'utiliser des puces ou des alinéas pour découper le texte.
+
+<TokenTable token="fontWeights" type="fontWeights" headers={valueHeaders} previews={previews} />
+
+### Caractères gras
+
+- Conservez le réglage des caractères gras par défaut pour les titres.
+- Une surutilisation de texte en caractères gras peut rendre difficile le traitement cognitif pour certains lecteurs.
+
+### Italiques
+
+- Mettez toute référence à un projet de loi canadien en caractères italiques, par example, _Loi canadienne sur l'accessibilité_.
+- N'utilisez les caractères en italiques que pour de courts passages. Un gros volume de texte en caractères italiques peut rendre difficile le traitement cognitif pour certains lecteurs.
+
+<HelpUs />

@@ -1,0 +1,43 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Pointer events
+description: 'The pointer events class sets the pointer-events property. It controls if an element responds to a mouse event, like clicking or hovering.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'pointer-events-auto', style: 'pointer-events: auto;' },
+  { class: 'pointer-events-none', style: 'pointer-events: none;' },
+];
+
+# Pointer events
+
+The pointer events class sets the `pointer-events` property. It controls if an element responds to a mouse event, like clicking or hovering.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Auto<br />`pointer-events-auto`
+
+<CodePreview>
+  <a href="#" class="pointer-events-auto">
+    This element responds to mouse events.
+  </a>
+</CodePreview>
+
+### None<br />`pointer-events-none`
+
+<CodePreview>
+  <a href="#" class="pointer-events-none">
+    This element does not respond to mouse events.
+  </a>
+</CodePreview>
+
+<ResponsiveNote partialClass="pointer-events-auto" />

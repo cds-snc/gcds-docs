@@ -1,0 +1,144 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Colour tokens
+description: Colour tokens store the colour values for styling components.
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import { HelpUs, TokenTable } from '~components';
+import { links } from '~i18n/links';
+
+export const headers = {
+  'color-preview': 'Preview',
+  'token-name': 'Token name',
+  'contrast': 'Contrast ratio',
+  'value': 'Hex',
+  'use-case': 'Purpose',
+};
+
+export const useCases = {
+  'text-light':
+    'Main light text colour. Use on a background shade of 700 or darker (like --gcds-bg-dark).',
+  'text-primary':
+    'Main text colour. Use on a background shade of 50 or lighter (like --gcds-bg-white).',
+  'text-secondary':
+    'Contrast text colour (alternative to primary). Use on a background shade of 50 or lighter (like --gcds-bg-white).',
+  'link-default': 'Default link colour for links on a white background.',
+  'link-hover': 'Hover link colour for links on a white background.',
+  'link-light':
+    'Main light link colour for links on 700 shade or darker background (like --gcds-color-blue-700).',
+  'link-visited': 'Visited link colour for links on a white background.',
+  'bg-dark':
+    'Main dark background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).',
+  'bg-light':
+    'Light background colour (alternative to white). Use with a text shade of 700 or darker (like --gcds-text-primary).',
+  'bg-primary':
+    'Highlight background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).',
+  'bg-white':
+    'Main background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).',
+  'border-default':
+    'Default border colour for borders and icons on a white background.',
+  'danger-background':
+    'Danger background colour for background emphasis on a destructive action or critical feedback.',
+  'danger-border':
+    'Danger border colour for borders on white backgrounds emphasizing a destructive action or critical feedback.',
+  'danger-text':
+    'Danger text colour for white backgrounds emphasizing a destructive action or critical feedback.',
+  'disabled-background':
+    'Disabled background colour. Use sparingly for a disabled interactive element.',
+  'disabled-text':
+    'Disabled text colour. Use sparingly for a disabled interactive element.',
+  'focus-background':
+    'Focus background colour, exclusively for focus on an interactive element.',
+  'focus-border':
+    'Focus border colour, exclusively for focus on an interactive element.',
+  'focus-text':
+    'Focus text colour, exclusively for focus on an interactive element.',
+  'focus-textForm':
+    'Focus text-form colour, exclusively for focus on a form interactive element. Avoid using for non-form elements.',
+};
+
+# Colour tokens
+
+Colour tokens define colour for components and global styles.
+
+## Colour tokens and accessibility
+
+GC Design System components meet level AA of the <gcds-link external href={links.en.wcag} target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> colour contrast standards for text and interactive elements.
+
+When you use global colour tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href={links.en.webaim} target="_blank">WebAIM Contrast Checker</gcds-link>.
+
+## Select colour tokens purposefully
+
+Select global colour tokens based on their purpose and its match to your needs.
+
+Replace hard-coded values in your code with GC Design System colour tokens, like `var(--gcds-text-primary)` instead of #333333.
+
+## Global colour tokens
+
+Use global colour tokens to:
+
+- Design layouts, text colours, and global (or site-wide) styles.
+- Communicate the meaning associated with that token. Global tokens are semantic.
+- Create new component tokens.
+
+Use global state tokens:
+
+- Apply standard styling for states to your own components.
+
+### Text
+
+<TokenTable token="text" type="color" headers={headers} useCases={useCases} />
+
+### Link
+
+<TokenTable token="link" type="color" headers={headers} useCases={useCases} />
+
+### Background
+
+<TokenTable token="bg" type="color" headers={headers} useCases={useCases} />
+
+### Border
+
+<TokenTable token="border" type="color" headers={headers} useCases={useCases} />
+
+### Danger
+
+<TokenTable token="danger" type="color" headers={headers} useCases={useCases} />
+
+### Disabled
+
+<TokenTable
+  token="disabled"
+  type="color"
+  headers={headers}
+  useCases={useCases}
+/>
+
+### Focus
+
+<TokenTable token="focus" type="color" headers={headers} useCases={useCases} />
+
+## Base colour tokens
+
+Only use base tokens when you've already checked for global tokens and you need something else for building your own components, tokens, or even images.
+
+Use base colour design tokens to:
+
+- Fill a gap when no global tokens are available.
+- Design a custom visual, drawing from the full colour palette.
+- Support your own components.
+- Provide a basis to build (and potentially contribute back) your own tokens.
+
+<div class="table-base-colors">
+  <TokenTable
+    token="color.black color.blue color.blue-muted color.blue-vivid color.grayscale color.green color.purple color.red color.white color.yellow"
+    type="color"
+    headers={headers}
+    useCases={useCases}
+  />
+</div>
+
+Note: Code elements take American spelling for "colour" and "grey".
+
+<HelpUs />

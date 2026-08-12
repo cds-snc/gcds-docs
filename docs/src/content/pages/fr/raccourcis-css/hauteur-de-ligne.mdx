@@ -1,0 +1,80 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Hauteur de ligne
+description: "La classe hauteur de ligne définit la propriété line-height. Elle détermine l'espacement vertical entre les lignes de texte."
+dateModified: "2026-02-12T12:40:07-05:00"
+---
+
+
+import { CodePreview, ShortcutsTable, ResponsiveNote, Notice } from '~components';
+
+export const shortcuts = [
+  { class: "line-h1", style: "line-height: var(--gcds-line-heights-h1);" },
+  { class: "line-h2", style: "line-height: var(--gcds-line-heights-h2);" },
+  { class: "line-h3", style: "line-height: var(--gcds-line-heights-h3);" },
+  { class: "line-h4", style: "line-height: var(--gcds-line-heights-h4);" },
+  { class: "line-h5", style: "line-height: var(--gcds-line-heights-h5);" },
+  { class: "line-h6", style: "line-height: var(--gcds-line-heights-h6);" },
+  { class: "line-text", style: "line-height: var(--gcds-line-heights-text);" },
+  { class: "line-text-small", style: "line-height: var(--gcds-line-heights-text-small);" },
+];
+
+# Hauteur de ligne
+
+La classe hauteur de ligne définit la propriété `line-height`. Elle détermine l'espacement vertical entre les lignes de texte.
+
+<Notice title="Utiliser avec prudence" html={`Dans la plupart des cas, il n’est pas nécessaire d'utiliser cette classe. Par défaut, le style du corps du texte et des éléments de titre correspondent <gcds-link href="/fr/styles/typographie">à ceux de Système de design GC</gcds-link>. Utilisez des balises HTML sémantiques, comme <code>h1</code> et <code>h2</code> lorsque possible..`} />
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### H1<br />`line-h1`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-h1"> Cet élément utilise une hauteur de ligne destinée aux titres H1. </p>
+</CodePreview>
+
+### H2<br />`line-h2`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-h2"> Cet élément utilise une hauteur de ligne destinée aux titres H2. </p>
+</CodePreview>
+
+### H3<br />`line-h3`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-h3"> Cet élément utilise une hauteur de ligne destinée aux titres H3. </p>
+</CodePreview>
+
+### H4<br />`line-h4`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-h4"> Cet élément utilise une hauteur de ligne destinée aux titres H4. </p>
+</CodePreview>
+
+### H5<br />`line-h5`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-h5"> Cet élément utilise une hauteur de ligne destinée aux titres H5. </p>
+</CodePreview>
+
+### H6<br />`line-h6`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-h6"> Cet élément utilise une hauteur de ligne destinée aux titres H6. </p>
+</CodePreview>
+
+### Texte<br />`line-text`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-text"> Cet élément utilise une hauteur de ligne destinée au corps de texte. </p>
+</CodePreview>
+
+### Petit texte<br />`line-text-small`
+
+<CodePreview demoClass="container-xs b-sm b-default p-350">
+<p class="line-text-small"> Cet élément utilise une hauteur de ligne destinée à un corps de texte plus petit. </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="line-text" />

@@ -10,4 +10,13 @@ export { default as Heading } from "./Heading.astro";
 export { default as HelpUs } from "./HelpUs/HelpUs.astro";
 export { default as Tabs } from "./Tabs.astro";
 export { default as Text } from "./Text.astro";
+export { default as TokenTable } from "./TokenTable.astro";
 export { default as VersionSwitcher } from "./VersionSwitcher.astro";
+
+// CSS Shortcuts components (src/components/shortcuts)
+export { default as Notice } from "./shortcuts/Notice.astro";
+export { default as ShortcutsTable } from "./shortcuts/Table.astro";
+export { default as BrowseShortcuts } from "./shortcuts/Browse.astro";
+export { default as LogicalPropertiesNote } from "./shortcuts/LogicalPropertiesNote.astro";
+export { default as ResponsiveNote } from "./shortcuts/ResponsiveNote.astro";
+export { default as StateNote } from "./shortcuts/StateNote.astro";

@@ -1,0 +1,208 @@
+{
+  "key": "CSS_SHORTCUTS",
+  "items": [
+    {
+      "type": "link",
+      "label": {"en": "CSS Shortcuts overview", "fr": "Aperçu des raccourcis CSS"},
+      "slug": {"en": "", "fr": ""},
+      "pageType": "overview"
+    },
+    {
+      "type": "group",
+      "label": {"en": "Defaults", "fr": "Par défaut"},
+      "items": [
+        {
+          "type": "link",
+          "label": {"en": "Reset styles", "fr": "Réinitialisation des styles"},
+          "slug": {"en": "reset-styles", "fr": "reinitialisation-des-styles"}
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Conditional styling", "fr": "Styles conditionnels"},
+      "items": [
+        {
+          "type": "link",
+          "label": {"en": "Responsive layout", "fr": "Mise en page réactive"},
+          "slug": {"en": "responsive-layout", "fr": "mise-en-page-reactive"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "State", "fr": "État"},
+          "slug": {"en": "state", "fr": "etat"}
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Layout", "fr": "Mise en page"},
+      "items": [
+        {
+          "type": "link",
+          "label": {"en": "Box sizing", "fr": "Dimensionnement de la boîte"},
+          "slug": {"en": "box-sizing", "fr": "dimensionnement-de-la-boite"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Container sizing", "fr": "Dimensionnement du conteneur"},
+          "slug": {"en": "container-sizing", "fr": "dimensionnement-du-conteneur"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Display", "fr": "Affichage"},
+          "slug": {"en": "display", "fr": "affichage"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Overflow", "fr": "Débordement"},
+          "slug": {"en": "overflow", "fr": "debordement"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Position", "fr": "Position"},
+          "slug": {"en": "position", "fr": "position"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Visibility", "fr": "Visibilité"},
+          "slug": {"en": "visibility", "fr": "visibilite"}
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Typography", "fr": "Typographie"},
+      "items": [
+        { "type": "link", "label": {"en": "Font", "fr": "Police"}, "slug": {"en": "font", "fr": "police"} },
+        { "type": "link", "label": {"en": "Font family", "fr": "Famille de police"}, "slug": {"en": "font-family", "fr": "famille-de-police"} },
+        { "type": "link", "label": {"en": "Font size", "fr": "Taille de police"}, "slug": {"en": "font-size", "fr": "taille-de-police"} },
+        { "type": "link", "label": {"en": "Font style", "fr": "Style de police"}, "slug": {"en": "font-style", "fr": "style-de-police"} },
+        { "type": "link", "label": {"en": "Font weight", "fr": "Épaisseur de police"}, "slug": {"en": "font-weight", "fr": "epaisseur-de-police"} },
+        { "type": "link", "label": {"en": "Line height", "fr": "Hauteur de ligne"}, "slug": {"en": "line-height", "fr": "hauteur-de-ligne"} },
+        { "type": "link", "label": {"en": "Link colour", "fr": "Couleur de lien"}, "slug": {"en": "link-colour", "fr": "couleur-de-lien"} },
+        { "type": "link", "label": {"en": "Link size", "fr": "Taille de lien"}, "slug": {"en": "link-size", "fr": "taille-de-lien"} },
+        { "type": "link", "label": {"en": "Link text decoration", "fr": "Décoration de texte de lien"}, "slug": {"en": "link-text-decoration", "fr": "decoration-de-texte-de-lien"} },
+        { "type": "link", "label": {"en": "List style", "fr": "Style de liste"}, "slug": {"en": "list-style", "fr": "style-de-liste"} },
+        { "type": "link", "label": {"en": "Text align", "fr": "Alignement de texte"}, "slug": {"en": "text-align", "fr": "alignement-de-texte"} },
+        { "type": "link", "label": {"en": "Text colour", "fr": "Couleur de texte"}, "slug": {"en": "text-colour", "fr": "couleur-de-texte"} },
+        { "type": "link", "label": {"en": "Text overflow", "fr": "Débordement de texte"}, "slug": {"en": "text-overflow", "fr": "debordement-de-texte"} },
+        { "type": "link", "label": {"en": "Text transform", "fr": "Transformation de texte"}, "slug": {"en": "text-transform", "fr": "transformation-de-texte"} },
+        { "type": "link", "label": {"en": "Word break", "fr": "Saut de mot"}, "slug": {"en": "word-break", "fr": "saut-de-mot"} }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Spacing", "fr": "Espacement"},
+      "items": [
+        {
+          "type": "link",
+          "label": {"en": "Margin", "fr": "Marge"},
+          "slug": {"en": "margin", "fr": "marge"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Padding", "fr": "Marge intérieure"},
+          "slug": {"en": "padding", "fr": "marge-interieure"}
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Flexbox and grid", "fr": "Boîte d’élément flexible et grille"},
+      "items": [
+        { "type": "link", "label": {"en": "Align content", "fr": "Alignement de contenu"}, "slug": {"en": "align-content", "fr": "alignement-de-contenu"} },
+        { "type": "link", "label": {"en": "Align items", "fr": "Alignement des éléments"}, "slug": {"en": "align-items", "fr": "alignement-des-elements"} },
+        { "type": "link", "label": {"en": "Align self", "fr": "Alignement individuel"}, "slug": {"en": "align-self", "fr": "alignement-individuel"} },
+        { "type": "link", "label": {"en": "Flex", "fr": "Élément flexible"}, "slug": {"en": "flex", "fr": "element-flexible"} },
+        { "type": "link", "label": {"en": "Flex direction", "fr": "Direction de l’élément flexible"}, "slug": {"en": "flex-direction", "fr": "direction-de-lelement-flexible"} },
+        { "type": "link", "label": {"en": "Flex grow", "fr": "Élargissement de l’élément flexible"}, "slug": {"en": "flex-grow", "fr": "elargissement-de-lelement-flexible"} },
+        { "type": "link", "label": {"en": "Flex shrink", "fr": "Rétrécissement de l’élément flexible"}, "slug": {"en": "flex-shrink", "fr": "retrecissement-de-lelement-flexible"} },
+        { "type": "link", "label": {"en": "Flex wrap", "fr": "Habillage de l’élément flexible"}, "slug": {"en": "flex-wrap", "fr": "habillage-de-lelement-flexible"} },
+        { "type": "link", "label": {"en": "Gap", "fr": "Dégagement"}, "slug": {"en": "gap", "fr": "degagement"} },
+        { "type": "link", "label": {"en": "Grid columns", "fr": "Colonnes de grille"}, "slug": {"en": "grid-columns", "fr": "colonnes-de-grille"} },
+        { "type": "link", "label": {"en": "Grid rows", "fr": "Lignes de grille"}, "slug": {"en": "grid-rows", "fr": "lignes-de-grille"} },
+        { "type": "link", "label": {"en": "Justify content", "fr": "Justification de contenu"}, "slug": {"en": "justify-content", "fr": "justification-de-contenu"} },
+        { "type": "link", "label": {"en": "Justify items", "fr": "Justification des éléments"}, "slug": {"en": "justify-items", "fr": "justification-des-elements"} },
+        { "type": "link", "label": {"en": "Justify self", "fr": "Justification individuelle"}, "slug": {"en": "justify-self", "fr": "justification-individuelle"} },
+        { "type": "link", "label": {"en": "Order", "fr": "Ordre"}, "slug": {"en": "order", "fr": "ordre"} },
+        { "type": "link", "label": {"en": "Place content", "fr": "Agencement de contenu"}, "slug": {"en": "place-content", "fr": "agencement-de-contenu"} },
+        { "type": "link", "label": {"en": "Place items", "fr": "Agencement des éléments"}, "slug": {"en": "place-items", "fr": "agencement-des-elements"} },
+        { "type": "link", "label": {"en": "Place self", "fr": "Agencement individuel"}, "slug": {"en": "place-self", "fr": "agencement-individuel"} }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Background and border", "fr": "Arrière-plan et bordure"},
+      "items": [
+        {
+          "type": "link",
+          "label": {"en": "Background colour", "fr": "Couleur de l'arrière-plan"},
+          "slug": {"en": "background-colour", "fr": "couleur-de-larriere-plan"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Border colour", "fr": "Couleur de la bordure"},
+          "slug": {"en": "border-colour", "fr": "couleur-de-la-bordure"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Border radius", "fr": "Rayon de la bordure"},
+          "slug": {"en": "border-radius", "fr": "rayon-de-la-bordure"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Border style", "fr": "Style de la bordure"},
+          "slug": {"en": "border-style", "fr": "style-de-la-bordure"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Border width", "fr": "Largeur de la bordure"},
+          "slug": {"en": "border-width", "fr": "largeur-de-la-bordure"}
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Icon and image", "fr": "Icône et image"},
+      "items": [
+        {
+          "type": "link",
+          "label": {"en": "Icon names", "fr": "Noms des icônes"},
+          "slug": {"en": "icon-names", "fr": "noms-des-icones"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Icon size", "fr": "Taille de l'icône"},
+          "slug": {"en": "icon-size", "fr": "taille-de-licone"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Image", "fr": "Image"},
+          "slug": {"en": "image", "fr": "image"}
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {"en": "Interactive", "fr": "Interactif"},
+      "items": [
+        {
+          "type": "link",
+          "label": {"en": "Cursor", "fr": "Curseur"},
+          "slug": {"en": "cursor", "fr": "curseur"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Pointer events", "fr": "Événements de pointeur"},
+          "slug": {"en": "pointer-events", "fr": "evenements-de-pointeur"}
+        },
+        {
+          "type": "link",
+          "label": {"en": "Transition", "fr": "Transition"},
+          "slug": {"en": "transition", "fr": "transition"}
+        }
+      ]
+    }
+  ]
+}

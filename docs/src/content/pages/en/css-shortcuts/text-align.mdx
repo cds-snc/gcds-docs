@@ -1,0 +1,56 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Text align
+description: 'The text align class sets the text-align property. It controls the horizontal alignment of text within its container.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import { CodePreview, ShortcutsTable, ResponsiveNote } from '~components';
+
+export const shortcuts = [
+  { class: 'text-center', style: 'text-align: center;' },
+  { class: 'text-justify', style: 'text-align: justify;' },
+  { class: 'text-left', style: 'text-align: left;' },
+  { class: 'text-right', style: 'text-align: right;' },
+];
+
+# Text align
+
+The text align class sets the `text-align` property. It controls the horizontal alignment of text within its container.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Centre<br />`text-center`
+
+<CodePreview demoClass="container-full b-sm b-default p-150">
+  <p class="text-center"> This text is centred within its container. </p>
+</CodePreview>
+
+### Justify<br />`text-justify`
+
+<CodePreview demoClass="container-xs b-sm b-default p-150">
+  <p class="text-justify">
+    This text is stretched to align evenly along the right and left edges of its
+    container.
+  </p>
+</CodePreview>
+
+### Left<br />`text-left`
+
+<CodePreview demoClass="container-full b-sm b-default p-150">
+  <p class="text-left">
+    This text is aligned to the left edge of its container.
+  </p>
+</CodePreview>
+
+### Right<br />`text-right`
+
+<CodePreview demoClass="container-full b-sm b-default p-150">
+  <p class="text-right">
+    This text is aligned to the right edge of its container.
+  </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="text-center" />

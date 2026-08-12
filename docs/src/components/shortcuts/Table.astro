@@ -1,0 +1,110 @@
+---
+import { resolveLocaleFromPathname } from "../../utils/i18n";
+
+interface Shortcut {
+  class: string;
+  style: string;
+  legacy?: string;
+  minWidth?: string;
+}
+
+interface Props {
+  shortcuts: Shortcut[];
+  heading?: string;
+  description?: string;
+}
+
+const { shortcuts, heading, description } = Astro.props as Props;
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const labels =
+  locale === "fr"
+    ? {
+        class: "Raccourci de classe CSS",
+        heading: "Aperçu",
+        legacy: "Propriété héritée",
+        minWidth: "Largeur minimale",
+        style: "Style appliqué",
+      }
+    : {
+        class: "CSS Shortcut class",
+        heading: "Overview",
+        legacy: "Legacy property",
+        minWidth: "Minimum width",
+        style: "Applied style",
+      };
+
+const hasLegacy = shortcuts.some((s) => s.legacy);
+const hasMinWidth = shortcuts.some((s) => s.minWidth);
+---
+
+<gcds-heading tag="h2">{heading ?? labels.heading}</gcds-heading>
+{description && <gcds-text set:html={description} />}
+
+<div class="mb-300 table-overflow shortcut-table">
+  <table>
+    <thead>
+      <tr>
+        <th>{labels.class}</th>
+        <th>{labels.style}</th>
+        {hasLegacy && <th>{labels.legacy}</th>}
+        {hasMinWidth && <th>{labels.minWidth}</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {shortcuts.map((shortcut) => (
+        <tr>
+          <td><pre><code>{shortcut.class}</code></pre></td>
+          <td><pre><code>{shortcut.style}</code></pre></td>
+          {hasLegacy && <td>{shortcut.legacy && <pre><code>{shortcut.legacy}</code></pre>}</td>}
+          {hasMinWidth && <td>{shortcut.minWidth && <pre><code>{shortcut.minWidth}</code></pre>}</td>}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style is:global>
+  .shortcut-table table {
+    text-align: left;
+    width: var(--gcds-container-full);
+  }
+
+  .shortcut-table thead tr {
+    border-block-end: var(--gcds-border-width-md) solid var(--gcds-border-default);
+  }
+
+  .shortcut-table tbody tr {
+    border-block-end: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+  }
+
+  .shortcut-table td,
+  .shortcut-table th {
+    padding: var(--gcds-spacing-225) var(--gcds-spacing-175);
+    vertical-align: top;
+  }
+
+  .shortcut-table td:first-child,
+  .shortcut-table th:first-child {
+    padding-inline-start: 0;
+  }
+
+  .shortcut-table th {
+    font-weight: var(--gcds-font-weights-bold);
+    padding-block-start: 0;
+  }
+
+  .shortcut-table pre {
+    margin: 0;
+  }
+
+  .shortcut-table code {
+    display: block;
+    width: fit-content;
+    padding: var(--gcds-spacing-25);
+    font-size: 80%;
+    line-height: var(--gcds-line-heights-text-small);
+    white-space: pre-wrap;
+    background-color: var(--gcds-color-grayscale-50);
+    border-radius: var(--gcds-border-radius-sm);
+  }
+</style>

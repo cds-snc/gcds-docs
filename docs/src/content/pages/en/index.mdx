@@ -1,0 +1,140 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Home
+description: An official, production-ready design system for the Government of Canada. Build modern, accessible, human government services people can use.
+dateModified: '2026-07-30T20:08:39-04:00'
+---
+
+import { links } from '~i18n/links';
+import componentsImg from '~assets/img/common/home/components.jpg';
+import templatesImg from '~assets/img/common/home/templates.jpg';
+import shortcutsImg from '~assets/img/en/home/shortcuts.jpg';
+import stylesImg from '~assets/img/common/home/styles.jpg';
+
+# GC Design System
+
+An official, production-ready design system for the Government of Canada. Build modern, accessible, human government services people can use.
+
+<gcds-button type="link" href={links.en.startToUse}>Start to use</gcds-button>
+<gcds-button type="link" href={links.en.registerDemo} button-role="secondary">Attend a demo</gcds-button>
+
+<section class="bt-sm mt-500">
+
+## Choose GC Design System
+
+GC Design System helps public servants deliver Government of Canada websites and products. Build faster without compromising brand identity, accessibility, or bilingualism. Find production-ready code, design assets, and documentation in one place.
+
+### Learn more
+
+Learn <gcds-link href={links.en.about}>about us</gcds-link>, the <gcds-link href={links.en.gcdsInUse}>teams using GC Design System</gcds-link>, our regular <gcds-link href={links.en.accessibility}>accessibility testing</gcds-link>, and how you can improve accessibility in your products and websites.
+
+### Get involved
+
+We're continuously scaling our product to better meet your needs and offer you more options.
+
+<gcds-button type="link" href={links.en.getInvolved} button-role="secondary">Get involved</gcds-button>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## A set of tools for common problems
+
+Apply or combine these tools to address common service scenarios. Design and build trusted, unified experiences faster.
+
+<gcds-grid columns="1fr" columns-tablet="1.5fr 2.5fr" columns-desktop="1fr 3fr" gap="150" gap-tablet="300">
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={componentsImg.src}
+  alt="Three separate shapes, a pink rectangle beside a green and a yellow square, form the outline of a larger square."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.en.components}>Components</gcds-link>
+  </gcds-heading>
+
+Meet common service interaction needs with the code, design, and guidance for user interface components.
+
+</div>
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={templatesImg.src}
+  alt="A vertical rectangle with pink that fades to blue."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.en.pageTemplates}>Page templates</gcds-link>
+  </gcds-heading>
+
+Start your project with pre-built page layouts that provide a consistent, recognizable Canada.ca experience.
+
+</div>
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={shortcutsImg.src}
+  alt="A badge in the top left with the word new. Three slightly overlapping, horizontal dots in darkening shades of blue."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.en.shortcuts}>CSS Shortcuts <gcds-sr-only>(New)</gcds-sr-only></gcds-link>
+  </gcds-heading>
+
+Apply pre-defined styles and layouts by adding our custom CSS utility classes to your HTML.
+
+</div>
+
+<img
+  class="align-self-center d-none md:d-block"
+  src={stylesImg.src}
+  alt="A cluster of four dots in purple, blue, green, and yellow."
+/>
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href={links.en.styles}>Styles</gcds-link>
+  </gcds-heading>
+
+Explore coded brand and design decisions that shape a consistent visual experience.
+
+</div>
+
+</gcds-grid>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## What's new
+
+Browse the latest code additions and features in the <gcds-link href={links.en.releaseNotes} external>GitHub changelog</gcds-link>.
+
+**Recent releases**:
+
+- **Components:** New <gcds-link href={links.en.table}>table component</gcds-link> and new ISO date format for <gcds-link href={links.en.dateInput}>date input</gcds-link>
+- **Documentation:** New code examples for attributes and slots for all components, and new <gcds-link href={links.en.formValidation}>form validation guidance</gcds-link>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## What's up next
+
+Explore our <gcds-link href={links.en.roadmap}>roadmap</gcds-link> to follow our progress and check out what we're working on next.
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## Connect with us
+
+Reach out to us if you have questions, want to <gcds-link href={links.en.getInvolved}>get involved</gcds-link>, or want to join our mailing list.
+
+<gcds-button type="link" href={links.en.contact} button-role="secondary">Contact us</gcds-button>
+
+</section>

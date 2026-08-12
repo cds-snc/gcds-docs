@@ -1,0 +1,43 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Événements de pointeur
+description: 'La classe événements de pointeur définit la propriété pointer-events. Elle détermine si un élément réagit à un événement de souris, comme un clic ou un survol.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'pointer-events-auto', style: 'pointer-events: auto;' },
+  { class: 'pointer-events-none', style: 'pointer-events: none;' },
+];
+
+# Événements de pointeur
+
+La classe événements de pointeur définit la propriété `pointer-events`. Elle détermine si un élément réagit à un événement de souris, comme un clic ou un survol.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Automatique<br />`pointer-events-auto`
+
+<CodePreview>
+  <a href="#" class="pointer-events-auto">
+    Cet élément réagit aux événements de la souris.
+  </a>
+</CodePreview>
+
+### Aucun<br />`pointer-events-none`
+
+<CodePreview>
+  <a href="#" class="pointer-events-none">
+    Cet élément ne répond pas aux événements de la souris.
+  </a>
+</CodePreview>
+
+<ResponsiveNote partialClass="pointer-events-auto" />

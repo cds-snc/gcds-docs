@@ -1,0 +1,55 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Style de la bordure
+description: 'La classe style de bordure définit la propriété border-style. Elle détermine le style de ligne pour tous les côtés de la bordure d’un élément.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'b-solid', style: 'border-style: solid;' },
+  { class: 'b-dashed', style: 'border-style: dashed;' },
+  { class: 'b-dotted', style: 'border-style: dotted;' },
+  { class: 'b-none', style: 'border-style: none;' },
+];
+
+# Style de la bordure
+
+La classe style de bordure définit la propriété `border-style`. Elle détermine le style de ligne pour tous les côtés de la bordure d’un élément.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Exemples
+
+### Solide<br />`b-solid`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-solid"> Cet élément a un style de bordure solide. </p>
+</CodePreview>
+
+### Trait<br />`b-dashed`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-dashed"> Cet élément a un style de bordure à tirets. </p>
+</CodePreview>
+
+### Pointillé<br />`b-dotted`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-dotted"> Cet élément a un style de bordure pointillé. </p>
+</CodePreview>
+
+### Aucun<br />`b-none`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-none"> Cet élément n’a pas de bordure. </p>
+</CodePreview>
+
+<ResponsiveNote partialClass="b-solid" />
+<StateNote partialClass="b-solid" />

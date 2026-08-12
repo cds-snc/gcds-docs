@@ -1,0 +1,55 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Border style
+description: 'The border style class sets the border-style property. It controls the line style for all sides of an element’s border.'
+dateModified: '2025-10-01T13:41:49-07:00'
+---
+
+import {
+  CodePreview,
+  ShortcutsTable,
+  ResponsiveNote,
+  StateNote,
+} from '~components';
+
+export const shortcuts = [
+  { class: 'b-solid', style: 'border-style: solid;' },
+  { class: 'b-dashed', style: 'border-style: dashed;' },
+  { class: 'b-dotted', style: 'border-style: dotted;' },
+  { class: 'b-none', style: 'border-style: none;' },
+];
+
+# Border style
+
+The border style class sets the `border-style` property. It controls the line style for all sides of an element's border.
+
+<ShortcutsTable shortcuts={shortcuts} />
+
+## Examples
+
+### Solid<br />`b-solid`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-solid"> This element has a solid border style.</p>
+</CodePreview>
+
+### Dashed<br />`b-dashed`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-dashed"> This element has a dashed border style.</p>
+</CodePreview>
+
+### Dotted<br />`b-dotted`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-dotted"> This element has a dotted border style.</p>
+</CodePreview>
+
+### None<br />`b-none`
+
+<CodePreview demoClass="p-150">
+  <p class="b-md b-none"> This element has no border.</p>
+</CodePreview>
+
+<ResponsiveNote partialClass="b-solid" />
+<StateNote partialClass="b-solid" />

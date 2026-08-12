@@ -1,0 +1,42 @@
+---
+import { resolveLocaleFromPathname } from "../../utils/i18n";
+
+interface Props {
+  partialClass: string;
+}
+
+const { partialClass } = Astro.props as Props;
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+
+const t =
+  locale === "fr"
+    ? {
+        heading: "Style conditionnel",
+        subheading: "Appliquer ces styles à des tailles d’écran précises",
+        intro:
+          "Utilisez un préfixe de mise en page réactive pour appliquer cette classe uniquement à une taille d’écran précise. Voici les points d’arrêt possibles :",
+        link: 'En savoir plus sur le <gcds-link href="/fr/raccourcis-css/mise-en-page-reactive">préfixe de mise en page réactive</gcds-link>.',
+      }
+    : {
+        heading: "Conditional styling",
+        subheading: "Apply this style to specific screen sizes",
+        intro:
+          "Use a responsive layout prefix to apply this class only to a specified screen size. The available breakpoints are:",
+        link: 'Learn more about the <gcds-link href="/en/css-shortcuts/responsive-layout">responsive layout prefix</gcds-link>.',
+      };
+
+const snippet = `<div class="xs:${partialClass} ...">\n  ...\n</div>`;
+---
+
+<gcds-heading tag="h2">{t.heading}</gcds-heading>
+<gcds-heading tag="h3">{t.subheading}</gcds-heading>
+<gcds-text>{t.intro}</gcds-text>
+<ul class="list-disc mb-300">
+  <li><code>xs</code>: <code>&gt; 480px</code></li>
+  <li><code>sm</code>: <code>&gt; 640px</code></li>
+  <li><code>md</code>: <code>&gt; 768px</code></li>
+  <li><code>lg</code>: <code>&gt; 1024px</code></li>
+  <li><code>xl</code>: <code>&gt; 1280px</code></li>
+</ul>
+<pre class="shortcut-snippet mb-300"><code>{snippet}</code></pre>
+<gcds-text set:html={t.link} />
