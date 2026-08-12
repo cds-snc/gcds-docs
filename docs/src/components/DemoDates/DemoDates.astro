@@ -1,0 +1,92 @@
+---
+import { resolveLocaleFromPathname } from '../../utils/i18n';
+import { demoDates } from './dates.js';
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+
+const langStrings = {
+  en: {
+    enDemo: 'English demo',
+    frDemo: 'French demo',
+    timezone: 'Eastern time',
+    nodates: 'No upcoming dates.',
+  },
+  fr: {
+    enDemo: 'Démo en anglais',
+    frDemo: 'Démo en français',
+    timezone: "heure de l'Est",
+    nodates: 'Aucune date à venir.',
+  },
+};
+
+let validDates: string[] = [];
+
+demoDates.map(date => {
+  if (new Date() < new Date(date.date)) {
+    validDates.push(date.date);
+  }
+});
+
+const formatDateTime = (date: string | number | Date, locale: Intl.LocalesArgument, options: Intl.DateTimeFormatOptions | undefined) => {
+    if (date instanceof Date) {
+      return date.toLocaleString(locale, options);
+    } else {
+      // Fallback if date could be converted to a Date object
+      return new Date(date).toLocaleString(locale, options);
+    }
+  };
+---
+
+{validDates.length > 0 ? (
+  <ul class="mb-300">
+    {demoDates
+      .filter(date => validDates.includes(date.date))
+      .map(date => {
+        const dateOptions: Intl.DateTimeFormatOptions = {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          timeZone: 'UTC',
+        };
+
+        const timeOptionsEN: Intl.DateTimeFormatOptions = {
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true,
+        };
+
+        const timeOptionsFR: Intl.DateTimeFormatOptions = {
+          hour: 'numeric',
+          hour12: false,
+        };
+
+        const startDateTime = new Date(`${date.date}T${date.starttime}`);
+        const endDateTime = new Date(`${date.date}T${date.endtime}`);
+
+        const datelink = (
+          <gcds-link external href={date.link}>
+            {date.lang === 'en' ? langStrings[locale].enDemo : langStrings[locale].frDemo}
+          </gcds-link>
+        );
+
+        const time =
+          locale === 'en'
+            ? `${formatDateTime(startDateTime, locale, dateOptions)}, ${formatDateTime(startDateTime, locale, timeOptionsEN)} – ${formatDateTime(endDateTime, locale, timeOptionsEN)} ${langStrings[locale].timezone}`
+            : `${formatDateTime(startDateTime, locale, dateOptions)}, de ${formatDateTime(startDateTime, locale, timeOptionsFR)} à ${formatDateTime(endDateTime, locale, timeOptionsFR)} ${langStrings[locale].timezone}`;
+
+        const name =
+          date.nameEn && date.nameFr
+            ? ` - ${locale === 'en' ? date.nameEn : date.nameFr} `
+            : '';
+
+        return (
+          <li>
+            {datelink}
+            {name}– <time>{time}</time>
+          </li>
+        );
+      })}
+  </ul>
+) : (
+  <p>{langStrings[locale].nodates}</p>
+)}
