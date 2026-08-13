@@ -39,6 +39,7 @@ export type ManifestItem = {
   type?: string;
   label?: LocalizedValue;
   slug?: LocalizedValue;
+  absoluteSlug?: LocalizedValue;
   pageType?: string;
   items?: ManifestItem[];
 };

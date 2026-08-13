@@ -116,7 +116,9 @@ class SideNavBuilder {
   /** Turn a manifest item into a nav link. */
   private toLink(routeKey: string | undefined, item: ManifestItem): NavLink {
     return {
-      href: this.buildHref(routeKey, this.localizedValue(item.slug)),
+      href: item.absoluteSlug
+          ? this.buildHref(this.localizedValue(item.slug)) // allow absolute paths
+          : this.buildHref(routeKey, this.localizedValue(item.slug)),
       text: this.localizedValue(item.label),
       pageType: item.pageType,
     };
