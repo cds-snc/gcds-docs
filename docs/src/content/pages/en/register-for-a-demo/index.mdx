@@ -1,0 +1,28 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Register for a demo
+description: Looking to learn more about GC Design System before trying it out? Attend an upcoming demo.
+---
+
+import { GiveFeedback, HelpUs, DemoDates } from '~components';
+import { links } from '~i18n/links';
+
+# Register for a demo
+
+Looking to learn more about GC Design System before trying it out? Attend an upcoming demo.
+
+Can't find a time that works for you? <gcds-link href={links.en.contact}>Contact us</gcds-link>.
+
+## What to expect
+
+- Explore GC Design System components, templates, and design tokens.
+- Learn how you can use GC Design System to prototype and develop web experiences.
+- Get answers to your questions directly from the GC Design System team.
+
+## Available demos
+
+<DemoDates />
+
+<GiveFeedback />
+
+<HelpUs />
