@@ -74,23 +74,26 @@
       "groupKey": "contact",
       "routeKey": "contact",
       "label": {"en": "Contact", "fr": "Contact"},
+      "slug": {"en": "contact", "fr": "contactez"},
       "items": [
         {
           "pageKey": "contact",
           "routeKey": "contact",
-          "label": {"en": "Contact us", "fr": "Contactez-nous"},
+          "label": {"en": "Contact us", "fr": "Nous contacter"},
           "slug": {"en": "", "fr": ""}
         },
         {
           "pageKey": "get-involved",
           "routeKey": "get-involved",
-          "label": {"en": "Get Involved", "fr": "Impliquez-vous"},
-          "slug": {"en": "get-involved", "fr": "impliquer"}
+          "label": {"en": "Get Involved", "fr": "S'impliquer"},
+          "absoluteSlug": true,
+          "slug": {"en": "get-involved", "fr": "simpliquer"}
         },
         {
           "pageKey": "register-for-a-demo",
           "routeKey": "register-for-a-demo",
           "label": {"en": "Find a demo", "fr": "Trouvez une démo"},
+          "absoluteSlug": true,
           "slug": {"en": "register-for-a-demo", "fr": "inscrivez-vous-a-une-demonstration"}
         }
       ]
