@@ -1,4 +1,5 @@
 ---
+const { removeBorder } = Astro.props;
 import { Heading, Text } from '../../components';
 import { defaultLocale } from '../../i18n/config';
 import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
@@ -8,11 +9,11 @@ const locale = resolveLocaleFromPathname(Astro.url.pathname);
 const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
 ---
 
-<section>
+<section data-pagefind-ignore class=`my-600 ${removeBorder ? '' : 'bt-sm b-dark'}`>
   <Heading tag="h2">{localizedContent.heading}</Heading>
 
   {localizedContent.text.map((paragraph: string) => (
-    <Text>{paragraph}</Text>
+    <Text set:html={paragraph}></Text>
   ))}
 
   <gcds-button button-role="secondary" type="link" href={localizedContent.btnFeedbackHref}>
