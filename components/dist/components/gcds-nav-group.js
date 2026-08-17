@@ -1,1 +1,1 @@
-import{G as o,d as s}from"./p-1bbzO_8K.js";const p=o,r=s;export{p as GcdsNavGroup,r as defineCustomElement}
+import{G as o,d as s}from"./p-CdqBtnf4.js";const t=o,p=s;export{t as GcdsNavGroup,p as defineCustomElement}

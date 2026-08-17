@@ -94,6 +94,10 @@ export declare class GcdsFileUploader {
      */
     inheritedAttributes: Object;
     /**
+     * Message announced to assistive technology when a file is removed.
+     */
+    removedFileMessage: string;
+    /**
      * Language of rendered component
      */
     lang: string;

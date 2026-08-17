@@ -7,7 +7,7 @@ import { Host, h } from "@stencil/core";
 export class GcdsHint {
     render() {
         const { hintId } = this;
-        return (h(Host, { key: '61a3e7529f1f8cdab787a3be7f6b1d38b06cf29d', id: `hint-${hintId}` }, h("gcds-text", { key: '32304bb4004c7357f63ea4c04b39be5fa1b491a8', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '2313fb6ca5b5fde4572e522c86d249508eecf900' }))));
+        return (h(Host, { key: '25a3d5821435af859e29c04642bfce0909de92ff', id: `hint-${hintId}` }, h("gcds-text", { key: 'a285c7fbad21a028d9ad043d3f30189b57da7595', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '99d6f85ae16ce1522a41bf1ca671e454384200ec' }))));
     }
     static get is() { return "gcds-hint"; }
     static get encapsulation() { return "shadow"; }

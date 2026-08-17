@@ -143,7 +143,11 @@ const getSortValue = (sort) => {
 };
 const renderFilterSortModal = element => {
     const { filter, filterValue, lang } = element;
-    return (h("div", { class: "gcds-table__filters" }, h("gcds-button", { size: "small", "button-role": "primary", onClick: () => element.filterSortModal.showModal() }, h("div", null, element.filter && element.sortEnabled() ? (h("gcds-icon", { name: "tune", size: "h5", "margin-right": "50" })) : element.filter ? (h("gcds-icon", { name: "filter", size: "h5", "margin-right": "50" })) : (h("gcds-icon", { name: "sort", size: "h5", "margin-right": "50" })), element.filter && element.sortEnabled()
+    let justOpened = false;
+    return (h("div", { class: "gcds-table__filters" }, h("gcds-button", { size: "small", "button-role": "primary", onClick: () => {
+            justOpened = true;
+            element.filterSortModal.showModal();
+        } }, h("div", null, element.filter && element.sortEnabled() ? (h("gcds-icon", { name: "tune", size: "h5", "margin-right": "50" })) : element.filter ? (h("gcds-icon", { name: "filter", size: "h5", "margin-right": "50" })) : (h("gcds-icon", { name: "sort", size: "h5", "margin-right": "50" })), element.filter && element.sortEnabled()
         ? I18N[lang].filterAndSort
         : element.filter
             ? I18N[lang].filter
@@ -158,6 +162,10 @@ const renderFilterSortModal = element => {
         } }, I18N[lang].modalClose)), h("form", { class: "gcds-table__modal-body", onKeyUp: ev => {
             var _a, _b, _c, _d, _e;
             if (ev.key === 'Enter') {
+                if (justOpened) {
+                    justOpened = false;
+                    return;
+                }
                 if (((_b = (_a = document.activeElement) === null || _a === void 0 ? void 0 : _a.shadowRoot) === null || _b === void 0 ? void 0 : _b.activeElement) === element.filterInput ||
                     ((_d = (_c = document.activeElement) === null || _c === void 0 ? void 0 : _c.shadowRoot) === null || _d === void 0 ? void 0 : _d.activeElement) === element.sortRadios) {
                     ev.preventDefault();
@@ -188,7 +196,7 @@ const renderFilterSortModal = element => {
             updateTableOptions(element);
             element.filterSortModal.close();
             (_a = element.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
-        } }, h("div", { class: "gcds-table__modal-content" }, element.filter && (h("gcds-input", { class: "gcds-table__modal-filter", type: "search", label: I18N[lang].filter, name: "filter", inputId: "gcds-table-filter", autoFocus: true, value: filterValue, ref: el => (element.filterInput = el) })), element.sortEnabled() && renderSortRadios(element)), h("div", { class: "gcds-table__modal-footer" }, h("gcds-button", { "button-role": "secondary", onClick: () => {
+        } }, h("div", { class: "gcds-table__modal-content" }, element.filter && (h("gcds-input", { class: "gcds-table__modal-filter", type: "search", label: I18N[lang].filterInputLabel, name: "filter", inputId: "gcds-table-filter", autoFocus: true, value: filterValue, ref: el => (element.filterInput = el) })), element.sortEnabled() && renderSortRadios(element)), h("div", { class: "gcds-table__modal-footer" }, h("gcds-button", { "button-role": "secondary", onClick: () => {
             if (element.filter) {
                 element.filterInput.value = element.initialFilter;
             }

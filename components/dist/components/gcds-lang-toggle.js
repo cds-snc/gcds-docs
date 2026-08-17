@@ -1,1 +1,1 @@
-import{G as o,d as s}from"./p-yMxvCb6O.js";const p=o,r=s;export{p as GcdsLangToggle,r as defineCustomElement}
+import{G as o,d as s}from"./p-DNfa06OW.js";const a=o,p=s;export{a as GcdsLangToggle,p as defineCustomElement}

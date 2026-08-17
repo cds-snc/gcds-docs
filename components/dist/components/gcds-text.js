@@ -1,1 +1,1 @@
-import{G as o,d as r}from"./p-Dr7JJzle.js";const s=o,p=r;export{s as GcdsText,p as defineCustomElement}
+import{G as o,d as s}from"./p-B2aQfiPo.js";const a=o,p=s;export{a as GcdsText,p as defineCustomElement}

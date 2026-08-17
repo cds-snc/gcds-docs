@@ -413,9 +413,9 @@ export class GcdsTable {
         }), renderSortPills(this.sorting, this.table, this.lang, (columnId) => {
             this.sorting = this.sorting.filter(s => s.id !== columnId);
             updateTableOptions(this);
-        })), h("div", { class: "gcds-table__row-management" }, this.pagination && (h("div", { class: "gcds-table__page-size" }, h("gcds-select", { label: I18N[this.lang].rowsPerPage, name: "page-size", selectId: "gcds-table-page-size", value: this.paginationSize.toString(), onChange: e => this.handlePageSizeSelect(e) }, this.paginationSizeOptions.map(opt => (h("option", { key: opt, value: opt }, opt === 0 ? I18N[this.lang].all : opt)))))), h("span", { class: "gcds-table__page-info", role: "status", "aria-live": "polite" }, renderTableStatus(this.el, this.table, this.paginationState, this.lang))), h("table", { class: "gcds-table__table", tabindex: "-1", "aria-labelledby": this.el.querySelector('[slot="caption"]')
+        })), h("div", { class: "gcds-table__row-management" }, this.pagination && (h("div", { class: "gcds-table__page-size" }, h("gcds-select", { label: I18N[this.lang].rowsPerPage, name: "page-size", selectId: "gcds-table-page-size", value: this.paginationSize.toString(), onChange: e => this.handlePageSizeSelect(e) }, this.paginationSizeOptions.map(opt => (h("option", { key: opt, value: opt }, opt === 0 ? I18N[this.lang].all : opt)))))), h("span", { class: "gcds-table__page-info", id: "status", role: "status", "aria-live": "polite" }, renderTableStatus(this.el, this.table, this.paginationState, this.lang))), h("table", { class: "gcds-table__table", tabindex: "-1", "aria-labelledby": this.el.querySelector('[slot="caption"]')
                 ? 'gcds-table__caption'
-                : undefined, ref: el => {
+                : undefined, "aria-describedby": "status", ref: el => {
                 if (el)
                     this.shadowElement = el;
             } }, h("thead", null, headerGroups.map(hg => (h("tr", { key: hg.id }, hg.headers.map(header => {
