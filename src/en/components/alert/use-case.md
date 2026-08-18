@@ -8,8 +8,8 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: message, inline message.
   description: The alert is an event-driven message that communicates contextual feedback without interrupting the current task.
-  thumbnail: /images/common/components/preview-alert.svg
-  alt: The alert component shows a light blue box with a dark blue border on the left side. Next to the border is an "i" in a circle representing an info icon and below two dark blue boxes representing text.
+  thumbnail: /images/en/components/preview/preview-alert.svg
+  alt: A light yellow box with a triangle icon containing an exclamation mark, a short grey band representing a title, a longer grey band representing text, and a Dismiss button.
   state: published
 translationKey: 'alert'
 tags: ['alertEN', 'usage']

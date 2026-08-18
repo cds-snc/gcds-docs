@@ -8,8 +8,8 @@ eleventyNavigation:
   parent: componentsFR
   otherNames: message, message ciblé.
   description: L’alerte est un message déclenché par un événement qui communique une rétroaction contextuelle sans interrompre la tâche en cours.
-  thumbnail: /images/common/components/preview-alert.svg
-  alt: Le composant Alerte affiche une boîte bleu clair avec une bordure bleue foncée sur le côté gauche. À côté de la bordure se trouve un « i » dans un cercle qui représente une icône d'information. Sous la bordure se trouvent deux boîtes bleu foncé affichant du texte.
+  thumbnail: /images/fr/components/preview/preview-alert.svg
+  alt: Un encadré jaune pâle avec une icône triangulaire contenant un point d’exclamation, une courte bande grise représentant un titre, une bande grise plus longue représentant du texte et un bouton « Fermer ».
   state: published
 translationKey: 'alert'
 tags: ['alertFR', 'usage']
