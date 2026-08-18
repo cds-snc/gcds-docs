@@ -4,6 +4,20 @@
   {% set tabs = collections.all | tabs(tags[0]) %}
 {% endif %}
 
+{# Every tab of a component shares one `title`, so "Card" was the whole <title> on the
+   Use case, Design and Code pages alike. Name the tab as well, so each page is
+   identifiable on its own. `tags[1]` is the tab key, the same one the nav below keys
+   off, and the label comes from `documentation[locale]`, so this is the exact string
+   shown on the tab and it is translated already. Pages whose tab key has no label,
+   such as the preview, fall back to the original title. #}
+{% block page_title %}
+  {%- if documentation[locale][tags[1]] -%}
+    {{ title }} - {{ documentation[locale][tags[1]] }} - {{ base[locale].gcds }}
+  {%- else -%}
+    {{ title }} - {{ base[locale].gcds }}
+  {%- endif -%}
+{% endblock %}
+
 {% block content %}
   {% if tabs %}
     {{ tabs.header.templateContent | safe }}
