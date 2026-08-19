@@ -1,0 +1,72 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Install GC Design System
+description: Select the framework you use to get instructions on how to install GC Design System components into your project.
+---
+
+import bannerAngular from '~assets/img/common/start-to-use/banner-angular.svg';
+import bannerHtml from '~assets/img/common/start-to-use/banner-html.svg';
+import bannerReact from '~assets/img/common/start-to-use/banner-react.svg';
+import bannerVue from '~assets/img/common/start-to-use/banner-vue.svg';
+import { links } from '~i18n/links';
+
+# Install GC Design System
+
+## Select your framework
+
+Select the framework you use to get instructions on how to install GC Design System components into your project.
+
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+  <gcds-card
+    card-title="React"
+    href={links.en.startToUseReact}
+    img-src={bannerReact.src}
+    img-alt=""
+    role="listitem"
+  >
+    View installation instructions for React or React-based projects.
+    
+    This includes Next.js, Gatsby, and Remix.
+  </gcds-card>
+  <gcds-card
+    card-title="Angular"
+    href={links.en.startToUseAngular}
+    img-src={bannerAngular.src}
+    img-alt=""
+    role="listitem"
+  >
+    View installation instructions for Angular or Angular-based projects.
+  </gcds-card>
+  <gcds-card
+    card-title="Vue"
+    href={links.en.startToUseVue}
+    img-src={bannerVue.src}
+    img-alt=""
+    role="listitem"
+  >
+    View installation instructions for Vue or Vue-based projects.
+
+    This includes Nuxt, VuePress, and Quasar. 
+  </gcds-card>
+</gcds-grid>
+
+
+### Not using any of those?
+
+If you're not using any of the above, choose the "Other" option below.
+
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+  <gcds-card
+    card-title="Other"
+    href={links.en.startToUseHtml}
+    img-src={bannerHtml.src}
+    img-alt=""
+    role="listitem"
+  >
+    View installation instructions for all other projects.
+    
+    This includes static sites, CMS platforms, Node.js, Java, Svelte, .NET.
+  </gcds-card>
+</gcds-grid>
+
+If you need help, <gcds-link href={links.en.contact}>reach out to us</gcds-link> and we\'ll help you get started.

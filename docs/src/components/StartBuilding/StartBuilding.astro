@@ -1,0 +1,24 @@
+---
+const { step } = Astro.props;
+import { Heading, Text } from '../../components';
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { messages } from './messages.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
+---
+
+<div>
+  <Heading tag="h3">{step ? `${step}. ` : ''} {localizedContent.heading}</Heading>
+  <Text set:html={localizedContent.text}></Text>
+
+  <Heading tag="h4">{localizedContent.subheadingTemplate}</Heading>
+  <Text set:html={localizedContent.textTemplates}></Text>
+
+  <Heading tag="h4">{localizedContent.subheadingComponents}</Heading>
+    <Text set:html={localizedContent.textComponents}></Text>
+
+  <Heading tag="h4">{localizedContent.subheadingCode}</Heading>
+  <Text set:html={localizedContent.textCode}></Text>
+</div>

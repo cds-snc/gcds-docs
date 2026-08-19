@@ -1,0 +1,17 @@
+---
+const { step } = Astro.props;
+import { Code } from 'astro:components';
+import { Heading, Text } from '../../components';
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { messages } from './messages.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
+---
+
+<div class="mb-300">
+  <Heading tag="h3">{step ? `${step}. ` : ''} {localizedContent.heading}</Heading>
+  {localizedContent.paragraphs.map(p => <Text set:html={p}></Text>)}
+  <Code code="npm install @gcds-core/css-shortcuts" lang="bash"></Code>
+</div>
