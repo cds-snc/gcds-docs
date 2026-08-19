@@ -74,7 +74,7 @@ Utilisez `alert-role` pour définir le style de l’alerte. Choisissez l’une d
 
 #### `container`
 
-Utilisez `container` pour définir la largeur du conteneur du contenu de l’alerte
+Utilisez `container` pour définir la largeur du conteneur du contenu de l’alerte.
 
 {% examplesPreview "250" %}
 <gcds-alert heading="Vous avez déjà une demande en cours" container="sm">
