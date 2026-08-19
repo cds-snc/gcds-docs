@@ -1,15 +1,11 @@
 ---
-title: Get involved
-translationKey: getinvolved
-layout: 'layouts/base.njk'
-eleventyNavigation:
-  key: getinvolvedEN
-  title: Get involved
-  locale: en
-  order: 3
-  hideMain: true
-templateEngineOverride: njk,md
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Get involved
+description: A design system is never complete. We're committed to building with the people who use our products.
 ---
+
+import { HelpUs } from '~components';
+import { links } from '~i18n/links';
 
 # Get involved
 
@@ -22,12 +18,12 @@ A growing community of government users helps shape GC Design System through the
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Subscribe to mailing list"
-    href="{{ links.contactMailingList }}"
+    href={ links.en.contactMailingList }
     description="Subscribe to our mailing list to get GC Design System updates, release communications, and special events."
   ></gcds-card>
   <gcds-card
     card-title="Attend a demo"
-    href="{{ links.registerDemo }}"
+    href={ links.en.registerDemo }
     description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A."
   ></gcds-card>
 </gcds-grid>
@@ -48,7 +44,7 @@ A growing community of government users helps shape GC Design System through the
 
 You can contribute to upcoming GC Design System work.
 
-We’re actively seeking contributions for the following items:
+We're actively seeking contributions for the following items:
 
 ---
 
@@ -69,9 +65,9 @@ We’re actively seeking contributions for the following items:
 - **Starter apps:** Reference implementations that show how to use GCDS in real environments and reduce setup time.
 - **Patterns:** Common interaction patterns and layouts that help teams build consistent, usable services faster.
 
-We’re also interested in user interactions that have a common application across GC services.
+We're also interested in user interactions that have a common application across GC services.
 
-Submit your contributions to our next priorities directly in GitHub, with an <gcds-link href="{{ links.githubGetStarted }}" external>account</gcds-link>.
+Submit your contributions to our next priorities directly in GitHub, with an <gcds-link href={ links.en.githubGetStarted } external>account</gcds-link>.
 
 Provide any of the following for each component or pattern:
 
@@ -79,8 +75,8 @@ Provide any of the following for each component or pattern:
 - **Research findings**: your discovery, use cases, or usability testing
 - **Code**: prototype or production code, or product implementations.
 
-<gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribute in Github</gcds-button>
-<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
+<gcds-button button-role="secondary" type="link" href={ links.en.githubCompsPriority } external>Contribute in Github</gcds-button>
+<gcds-button button-role="secondary" type="link" href={ links.en.contact } external>Contact us</gcds-button>
 
 <hr class="mt-600" />
 
@@ -90,15 +86,15 @@ We are always seeking to improve GC Design System and continually evaluating our
 
 Feature requests can include suggestions for new components or added functionality to existing components, templates, frameworks, and CSS Shortcuts.
 
-Submit your feature request directly in GitHub, with an <gcds-link href="{{ links.githubGetStarted }}" external>account</gcds-link>.
+Submit your feature request directly in GitHub, with an <gcds-link href={ links.en.githubGetStarted } external>account</gcds-link>.
 
-<gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribute in Github</gcds-button>
-<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
+<gcds-button button-role="secondary" type="link" href={ links.en.githubCompsPriority } external>Contribute in Github</gcds-button>
+<gcds-button button-role="secondary" type="link" href={ links.en.contact } external>Contact us</gcds-button>
 
 <hr class="mt-600" />
 
 ## What else is coming soon
 
-More on our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>.
+More on our <gcds-link href={ links.en.roadmap }>roadmap</gcds-link>.
 
-{% include "partials/helpus.njk" %}
+<HelpUs />

@@ -26,15 +26,40 @@ Voici sur quoi nous nous concentrerons chaque trimestre.
 
 ### 1er trimestre : avril 2026 à juin 2026
 <ol class="list-disc ps-400 mb-300">
-  <li>Recherche, conception et développement d’un composant tableau</li>
-  <li>Ajout d’exemples codés et de conseils à chaque page de composant</li>
-  <li>Nouvelles directives détaillées pour l’ajout d’une fonction de validation personnalisée aux composants de formulaire offerts dans Système de design GC</li>
-  <li>Développement d’un plugiciel/d’une extension Système de design GC pour l’affichage du code qui permettra des vérifications d’accessibilité en libre-service sur les composants</li>
-  <li>Ajout d’un bouton d’ouverture de session au composant en-tête</li>
+  <li> <strong>[ 🟢 Terminé]</strong> Recherche, conception et développement d’un composant tableau</li>
+  <li> <strong>[ 🟢 Terminé]</strong> Ajout d’exemples codés et de conseils à chaque page de composant</li>
+  <li> <strong>[ 🟢 Terminé]</strong> Nouvelles directives détaillées pour l’ajout d’une fonction de validation personnalisée aux composants de formulaire offerts dans Système de design GC</li>
+  <li> <strong>[ 🟡 En cours]</strong> Développement d’un plugiciel/d’une extension Système de design GC pour l’affichage du code qui permettra des vérifications d’accessibilité en libre-service sur les composants</li>
+  <li> <strong>[ 🟡 En cours]</strong> Ajout d’un bouton d’ouverture de session au composant en-tête</li>
 </ol>
 
-### Trimestres à venir
-Les prochaines priorités n’ont pas encore été définies; cette page sera mise à jour d’ici la fin du T1 (juin 2026).
+### 2e trimestre : Juillet à septembre 2026
+<ol class="list-disc ps-400 mb-300">
+  <li> <strong>[ 🟡 En cours]</strong> Publication du composant alerte </li>
+  <li> <strong>[ 🟡 En cours]</strong> Recherche, conception et développement d’un composant pastille/étiquette </li>
+  <li> <strong>[ 🟢 Terminé]</strong> Ajout d’une application de démarrage React </li>
+  <li> <strong>[ 🟡 En cours]</strong> Ajout d’une application de démarrage HTML </li>
+  <li> <strong>[ 🟡 En cours]</strong> Ajout d’un outil d’interface de ligne de commande (CLI) qui permet de générer rapidement des nouvelles applications à partir des applications de démarrage de Système de design GC </li>
+  <li> <strong>[ 🟢 Terminé]</strong> Recherche sur l’accessibilité et l’utilisabilité du composant tableau </li>
+  <li> <strong>[ 🟡 En cours]</strong> Priorité aux contributions de la communauté et aux demandes de fonctionnalités </li>
+</ol>
+
+### 3e trimestre : Octobre à décembre 2026
+<ol class="list-disc ps-400 mb-300">
+  <li> Recherche, conception et développement d’un composant de fenêtre modale (à partir d’une contribution de la communauté) </li>
+  <li> Ajout d’un modèle d’application de démarrage HTML </li>
+  <li> Ajout d’une application de démarrage Angular (à partir des contributions de la communauté) </li>
+  <li> Recherche et développement d’une meilleure intégration aux outils d’analyse Web </li>
+  <li> Recherche sur l’accessibilité et l’utilisabilité </li>
+  <li> Publication d’un espace pour les extensions et les plugiciels pour Système de design GC : composants, modèles et cadriciels de la communauté </li>
+  <li> Prise en charge du rendu côté serveur </li>
+</ol>
+
+### 4e trimestre : Janvier à mars 2027
+<ol class="list-disc ps-400 mb-300">
+  <li> Prise en charge du mode sombre </li>
+  <li> Recherche sur l’accessibilité et l’utilisabilité </li>
+</ol>
 
 ## Réalisations en 2025-2026
 

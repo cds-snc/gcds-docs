@@ -1,0 +1,34 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Contacter Système de design GC
+description: Get in contact with the design system team.
+---
+
+import { ContactForm } from '~components';
+import { links } from '~i18n/links';
+
+# Contacter Système de design GC
+
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Formulaire de soutien sur GitHub">
+  <gcds-text>Avec un <gcds-link external href={ links.fr.githubGetStarted }>compte</gcds-link>, utilisez notre <gcds-link external href={ links.fr.githubCompsIssues }>Formulaire de soutien GitHub</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.</gcds-text>
+</gcds-notice>
+
+## Participez à une démo ou à un évènement
+
+Vous souhaitez en savoir plus sur Système de design GC avant de vous lancer?
+
+Les démos présentent le prototypage et le développement d'expériences Web à l'aide du système de design et sont suivies d'une séance de questions-réponses.
+
+Nous aurons bientôt d'autres évènements à proposer à notre communauté grandissante.
+
+<gcds-button type="link" button-role="secondary" href={ links.fr.registerDemo }>Trouver une démo à venir</gcds-button>
+
+<hr class="my-600" />
+
+## Contactez l'équipe du système de design
+
+Ce formulaire est destiné aux personnes qui bâtissent les sites Web et services numériques gouvernementaux. Vous pouvez nous faire part de vos commentaires, poser une question ou recevoir des communications de la part de l'équipe Système de design GC.
+
+Pour obtenir de l'aide avec un service gouvernemental, aller à la page <gcds-link href="https://www.canada.ca/fr/contact.html" external>Coordonnées du Gouvernement du Canada</gcds-link>.
+
+<ContactForm />

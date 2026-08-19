@@ -1,4 +1,4 @@
-module.exports = [
+export const demoDates = [
   {
     date: '2025-01-21',
     starttime: '13:00',

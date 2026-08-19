@@ -198,6 +198,18 @@ export const routes = {
       "place-self": { en: "place-self", fr: "agencement-individuel" },
     },
   },
+  contact: {
+    en: "contact",
+    fr: "contactez",
+  },
+  "get-involved": {
+    en: "get-involved",
+    fr: "simpliquer",
+  },
+  "register-for-a-demo": {
+    en: "register-for-a-demo",
+    fr: "inscrivez-vous-a-une-demonstration",
+  }
 };
 
 export const supportedLocales = ["en", "fr"] as const;
