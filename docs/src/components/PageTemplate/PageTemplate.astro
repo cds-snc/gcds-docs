@@ -1,0 +1,29 @@
+---
+interface Props {
+  template: 'basic' | 'basicOTP';
+  mode: 'code' | 'preview';
+}
+const { template = "basic", mode = "code" } = Astro.props;
+import { Code } from 'astro:components';
+
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { basic } from './basic.js';
+import { basicOTP } from './basicOTP.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+// const localizedContent = getLocalizedRecord(basic, locale, defaultLocale);
+
+const localizedContent = {
+  basic: getLocalizedRecord(basic, locale, defaultLocale),
+  basicOTP: getLocalizedRecord(basicOTP, locale, defaultLocale)
+};
+---
+
+{mode === 'code' ? (
+  <div class="page-template-highlight">
+    <Code code={localizedContent[template]} lang="html" />
+  </div>
+) : (
+  <Fragment set:html={localizedContent[template]} />
+)}

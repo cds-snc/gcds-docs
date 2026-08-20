@@ -4,7 +4,7 @@ pageTitle: Code du modèle de page de base avec la section Sur cette page
 description: Copiez ce code pour utiliser le modèle de page de base avec la section sur cette page.
 ---
 
-import { HelpUs } from '~components';
+import { HelpUs, PageTemplate } from '~components';
 import { links } from '~i18n/links';
 
 # Code du modèle de page de base avec la section Sur cette page
@@ -15,10 +15,6 @@ import { links } from '~i18n/links';
 
 Copiez ce code pour utiliser le modèle de page de base avec la section sur cette page.
 
-<div class="page-template-highlight">
-
-{/* {% include 'partials/templates/en/code-basic-page-template.njk' %} */}
-
-</div>
+<PageTemplate mode='code' template='basicOTP' />
 
 <HelpUs />
