@@ -75,7 +75,6 @@ export const links = {
     heading: "/fr/composants/titre",
     screenreaderOnly: "/fr/composants/masquage-accessible",
     text: "/fr/composants/texte",
-    
     startToUse: "/fr/demarrer",
     startToUseDesignSection: "/fr/demarrer#conception",
     startToUseDevelopSection: "/fr/demarrer#developpement",
