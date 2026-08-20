@@ -39,6 +39,26 @@ export const routes = {
       },
     },
   },
+  "page-templates": {
+    en: "page-templates",
+    fr: "modeles-de-page",
+    children: {
+      basic: {
+        en: "basic",
+        fr: "basic",
+        children: {
+          code: {
+            en: "code",
+            fr: "code"
+          },
+          preview: {
+            en: "preview",
+            fr: "apercu"
+          }
+        }
+      },
+    },
+  },
   "css-shortcuts": {
     en: "css-shortcuts",
     fr: "raccourcis-css",
