@@ -30,6 +30,7 @@
       "groupKey": "page-templates",
       "routeKey": "page-templates",
       "label": {"en": "Page templates", "fr": "Modèles de page"},
+      "slug": {"en": "page-templates", "fr": "modeles-de-page"},
       "navOnly": false,
       "items": [
         {
@@ -37,6 +38,13 @@
           "routeKey": "page-templates",
           "label": {"en": "Page templates overview", "fr": "Aperçu des modèles de page"},
           "slug": {"en": "", "fr": ""},
+          "files": {"en": "index", "fr": "index"}
+        },
+        {
+          "pageKey": "basic",
+          "routeKey": "basic",
+          "label": {"en": "Basic page templates", "fr": "Modèle de page de base"},
+          "slug": {"en": "basic", "fr": "basic"},
           "files": {"en": "index", "fr": "index"}
         }
       ]

@@ -1,0 +1,39 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Page templates
+description: Page templates are pre-built pages that combine GC Design System components for common presentations.
+---
+
+import { HelpUs, DocLinks } from '~components';
+import { links } from '~i18n/links';
+
+# Page templates
+
+Page templates are pre-built pages that combine GC Design System components for common presentations. They're fully responsive for multi-device use. Their page structures support a predictable, recognizable, and accessible user experience.
+
+## Start your project with pre-built pages
+
+Page templates can be a starting point for you to use GC Design System to prototype or code. Already familiar? They'll help you create pages faster and then add components to meet user needs.
+
+Unless specified, use them for Canada.ca pages as well as other GC websites.
+
+## Browse templates
+
+We're sharing page templates as we build them.
+
+<DocLinks figma={links.en.figmaCommunityFile} github={links.en.githubPageTemplates} />
+
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
+  <gcds-card
+    card-title="Basic page"
+    href={links.en.pageTemplatesBasic}
+    img-alt=""
+    role="listitem"
+  >
+    Starting point for any web page.
+
+    Offers a basic, accessible page structure and hierarchy and includes the elements required for most GC pages
+  </gcds-card>
+</gcds-grid>
+
+<HelpUs />
