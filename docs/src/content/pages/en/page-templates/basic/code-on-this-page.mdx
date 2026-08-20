@@ -4,7 +4,7 @@ pageTitle: Basic page code with on this page section
 description: Copy this code to use the basic page template with on this page section.
 ---
 
-import { HelpUs } from '~components';
+import { HelpUs, PageTemplate } from '~components';
 import { links } from '~i18n/links';
 
 # Basic page code with on this page section
@@ -15,10 +15,6 @@ import { links } from '~i18n/links';
 
 Copy this code to use the basic page template with on this page section.
 
-<div class="page-template-highlight">
-
-{/* {% include 'partials/templates/en/code-basic-page-template.njk' %} */}
-
-</div>
+<PageTemplate mode='code' template='basicOTP' />
 
 <HelpUs />

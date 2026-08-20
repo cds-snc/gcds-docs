@@ -6,7 +6,7 @@
     "predev": "node scripts/validate-routes.mjs && node scripts/copy-gcds-assets.mjs",
     "dev": "astro dev",
     "build": "astro build",
-    "prebuild": "node scripts/validate-routes.mjs && node scripts/copy-gcds-assets.mjs",
+    "prebuild": "node scripts/validate-routes.mjs && node scripts/copy-gcds-assets.mjs && node scripts/templates.cjs",
     "preview": "astro preview",
     "astro": "astro",
     "test:i18n": "tsx --test src/utils/i18n.test.ts"
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@gcds-core/components": "^1.5.0",
+    "node-fetch": "^3.3.2",
     "prettier": "^3.8.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
