@@ -1,0 +1,20 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Code du modèle de page de base avec la section Sur cette page
+description: Copiez ce code pour utiliser le modèle de page de base avec la section sur cette page.
+---
+
+import { HelpUs, PageTemplate } from '~components';
+import { links } from '~i18n/links';
+
+# Code du modèle de page de base avec la section Sur cette page
+
+<gcds-notice notice-title="Raccourcis CSS inclus" notice-title-tag="h2" notice-role="info" class="mb-300">
+  Ce modèle inclut notre feuille de style personnalisée des Raccourcis CSS dans la balise head. Bien que recommandée, cette feuille de style n'est pas obligatoire. Apprenez-en plus sur les avantages d'utiliser <gcds-link href={links.en.shortcuts}>les Raccourcis CSS</gcds-link>.
+</gcds-notice>
+
+Copiez ce code pour utiliser le modèle de page de base avec la section sur cette page.
+
+<PageTemplate mode='code' template='basicOTP' />
+
+<HelpUs />

@@ -1,0 +1,39 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Modèles de page
+description: Les modèles de page sont des pages préconstruites qui agencent des composants de Système de design GC pour créer des mises en page courantes.
+---
+
+import { HelpUs, DocLinks } from '~components';
+import { links } from '~i18n/links';
+
+# Modèles de page
+
+Les modèles de page sont des pages préconstruites qui agencent des composants de Système de design GC pour créer des mises en page courantes. Ces pages sont entièrement réactives et peuvent donc être utilisées sur tout appareil. La structure des pages favorise une expérience utilisateur prévisible, reconnaissable et accessible.
+
+## Amorcer un projet avec des pages préconstruites
+
+Les modèles de page peuvent servir de point de départ pour prototyper ou coder en utilisant Système de design GC. Vous connaissez déjà? Ces modèles vous aideront à créer des pages plus rapidement, puis à ajouter des composants de façon à répondre aux besoins utilisateurs.
+
+Sauf indication contraire, utilisez-les pour les pages de Canada.ca et pour les autres sites Web du GC.
+
+## Parcourir les modèles
+
+Nous mettons les modèles de page à votre disposition au fur et à mesure que nous les créons.
+
+<DocLinks figma={links.fr.figmaCommunityFile} github={links.fr.githubPageTemplates} />
+
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
+  <gcds-card
+    card-title="Page de base"
+    href={links.en.pageTemplatesBasic}
+    img-alt=""
+    role="listitem"
+  >
+    Point de départ de toute page Web.
+    
+    Offre une structure et une hiérarchie basiques et accessibles, et comprend les éléments obligatoires pour la plupart des pages du GC.
+  </gcds-card>
+</gcds-grid>
+
+<HelpUs />
