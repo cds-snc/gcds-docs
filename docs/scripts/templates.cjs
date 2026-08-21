@@ -54,12 +54,16 @@ async function getPackageVersions() {
   return Object.fromEntries(entries);
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function applyPackageVersions(html, versions) {
   let result = html;
   for (const [key, pkgName] of Object.entries(NPM_PACKAGES)) {
     const version = versions[key];
     const placeholder = new RegExp(
-      `${pkgName.replace(/[/]/g, '\\/')}@<version-number>`,
+      `${escapeRegExp(pkgName)}@<version-number>`,
       'g',
     );
     result = result.replace(placeholder, `${pkgName}@${version}`);
