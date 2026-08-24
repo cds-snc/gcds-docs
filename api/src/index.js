@@ -26,8 +26,6 @@ process.on('SIGTERM', async () => {
 app.post('/submission', async (req, res) => {
   let origin = req.get('origin');
 
-  return;
-
   const body = req.body ? req.body : {};
   const forwardedHost = req.get('x-forwarded-host');
   const forwardedProto = req.get('x-forwarded-proto');
