@@ -48,6 +48,10 @@ Les composants de Système de design du GC sont conçus pour s'adapter à la tai
 - Ajoutez une [barre de navigation supérieure]({{ links.topNav }}) en passant un élément enfant à l'aide de l'attribut `slot="menu"`. Cela placera l'élément dans l'en-tête, sous les emplacements du bouton de bascule de langue, de la signature et de la barre de recherche.
 - Vous avez le choix d'ajouter une bannière en faisant passer un élément enfant avec l'attribut `slot="banner"`. Cela placera l'élément en haut de l'en-tête sous l'élément `skip-to-nav`.
 
+### Configurez des contrôles de compte
+- Ajoutez un bouton de compte en passant un élément `gcds-button` avec l’attribut `slot=”account”`. Cela placera l’élément bouton, affichant le style du bouton de connexion contextuelle Canada.ca, aligné sur le chemin de navigation. 
+- Configurez le libellé du bouton de compte afin de refléter l’action liée au compte, comme « Se connecter » ou « Se déconnecter ».
+
 <!-- ----- Examples ----- -->
 
 {% examplesContent "fr", "examples" %}
