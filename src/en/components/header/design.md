@@ -59,7 +59,7 @@ Here's what's required for the header on GC sites.
   <gcds-text>Opt to include:</gcds-text>
   <ul class="list-disc">
     <li>An approved program or institution specific search form instead of the global search form.</li>
-    <li>Sign in button.</li>
+    <li>Account button.</li>
     <li>Top navigation.</li>
   </ul>
 </gcds-details>
@@ -71,5 +71,7 @@ Here's what's required for the header on GC sites.
 
 ### Include optional elements in your header
 
-- Consider using the [top navigation]({{ links.topNav }}) for services and websites that need a dedicated primary navigation.
-- Use the top navigation on Canada.ca pages when the service or product is self-contained and targets an internal audience, **like GC Design System**.
+- Consider using the [top navigation]({{ links.topNav }}) for:
+    - services and websites that need a dedicated primary navigation.
+    - services or products that are self-contained and targets an internal audience, like GC Design System.
+- Consider using the account button for account-related actions, like “Sign in” or “Sign out”.
