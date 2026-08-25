@@ -48,7 +48,7 @@ GC Design System components are designed to adapt to the size of the screen or f
 - Add a [top navigation]({{ links.topNav }}) by passing a child element with the `slot="menu"` attribute. This will place the element in the header below the language toggle, signature, and search slots.
 - Opt to add a banner by passing a child element with the `slot="banner"` attribute. This will place the element across the top of the header under the `skip-to-nav` element.
 
-### Set up a top navigation
+### Set up account controls
 
 - Add an account button by passing a `gcds-button` with the `slot=”account”` attribute. This will place the button element, styled as the Canada.ca contextual sign in button, across from the breadcrumbs.
 - Configure the button label to reflect the account-related action, like “Sign in” or “Sign out”.
