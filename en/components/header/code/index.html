@@ -2830,6 +2830,10 @@ Header component preview
 <ul class="list-disc mb-300"><li>Add a <a href="/en/components/top-navigation">top navigation</a> by passing a child element with the <code>slot=&quot;menu&quot;</code> attribute. This will place the element in the header below the language toggle, signature, and search slots.</li>
 <li>Opt to add a banner by passing a child element with the <code>slot=&quot;banner&quot;</code> attribute. This will place the element across the top of the header under the <code>skip-to-nav</code> element.</li>
 </ul>
+<h3 id="set-up-account-controls">Set up account controls</h3>
+<ul class="list-disc mb-300"><li>Add an account button by passing a <code>gcds-button</code> with the <code>slot=”account”</code> attribute. This will place the button element, styled as the Canada.ca contextual sign in button, across from the breadcrumbs.</li>
+<li>Configure the button label to reflect the account-related action, like “Sign in” or “Sign out”.</li>
+</ul>
 <!-- ----- Examples ----- -->
 <p><div>
 <gcds-heading id="section-examples" tag="h2">
@@ -3330,7 +3334,7 @@ Slots
 
 
           <gcds-date-modified class="mb-300">
-            2026-08-24
+            2026-08-27
           </gcds-date-modified>
         </main>
       </gcds-grid>
