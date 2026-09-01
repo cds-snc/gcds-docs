@@ -15,7 +15,7 @@ export const messages = {
         title: 'NSERC main website',
         href: 'https://nserc-crsng.canada.ca/en',
         badge: 'Built with Drupal',
-        img: nserc,
+        img: nserc.src,
         alt: 'Scientists working near wind turbines and solar panels.',
         description:
           'Uses GC Design System to deliver a consistent experience across a large departmental website.',
@@ -24,7 +24,7 @@ export const messages = {
         title: 'CanadaLogin',
         href: 'https://sign-in.canada.ca/',
         badge: 'Built with HTML',
-        img: canadaLogin,
+        img: canadaLogin.src,
         alt: 'People using a phone and laptop while sitting on a park bench.',
         description:
           'Uses GC Design System to provide a consistent and trusted login experience across services.',
@@ -33,7 +33,7 @@ export const messages = {
         title: 'Let’s talk\ntransportation',
         href: 'https://consultations.tc.canada.ca/en',
         badge: 'Built with Drupal',
-        img: transport,
+        img: transport.src,
         alt: 'Airplane, train, trucks, and cars traveling near an airport control tower.',
         description:
           'Uses GC Design System to support accessible public consultations.',
@@ -42,7 +42,7 @@ export const messages = {
         title: 'Report cybercrime and fraud',
         href: 'https://reportcyberandfraud.canada.ca/',
         badge: 'Built with HTML',
-        img: cyberEn,
+        img: cyberEn.src,
         alt: 'People monitoring cybersecurity data on large screens in a control room.',
         description:
           'Uses GC Design System form components to enable accessible online reporting.',
@@ -82,7 +82,7 @@ export const messages = {
         title: 'Site Web principal du CRSNG',
         href: 'https://nserc-crsng.canada.ca/fr',
         badge: 'Avec Drupal',
-        img: nserc,
+        img: nserc.src,
         alt: 'Scientifiques travaillant près d’éoliennes et de panneaux solaires.',
         description:
           'Utilise Système de design GC pour offrir une expérience uniforme sur un grand site Web ministériel.',
@@ -91,7 +91,7 @@ export const messages = {
         title: 'ConnexionCanada',
         href: 'https://connexion.canada.ca/fr/',
         badge: 'Avec HTML',
-        img: canadaLogin,
+        img: canadaLogin.src,
         alt: 'Personnes utilisant un téléphone et un ordinateur portable assises sur un banc dans un parc.',
         description:
           'Utilise Système de design GC pour offrir une expérience de connexion cohérente et fiable d’un service à l’autre.',
@@ -100,7 +100,7 @@ export const messages = {
         title: 'Parlons transport',
         href: 'https://consultations.tc.canada.ca/fr',
         badge: 'Avec Drupal',
-        img: transport,
+        img: transport.src,
         alt: 'Avion, train, camions et voitures circulant près d’une tour de contrôle d’aéroport.',
         description:
           'Utilise Système de design GC pour offrir une expérience de consultation publique accessible en ligne.',
@@ -109,7 +109,7 @@ export const messages = {
         title: 'Signaler la cybercriminalité et la fraude',
         href: 'https://reportcyberandfraud.canada.ca/',
         badge: 'Avec HTML',
-        img: cyberFr,
+        img: cyberFr.src,
         alt: 'Personnes surveillant des données de cybersécurité sur de grands écrans dans une salle de contrôle.',
         description:
           'Utilise les composants de formulaire de Système de design GC pour permettre un signalement en ligne accessible.',
