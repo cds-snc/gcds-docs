@@ -1,0 +1,80 @@
+---
+interface Props {
+  display: 'stats' | 'services' | 'quote';
+}
+
+const { display } = Astro.props;
+
+import { defaultLocale } from '../../i18n/config';
+import {
+  getLocalizedRecord,
+  resolveLocaleFromPathname,
+} from '../../utils/i18n';
+import { messages } from './messages.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale,);
+---
+
+{
+  display === 'stats' ? (
+    <gcds-grid
+      class="mb-600"
+      tag="ul"
+      columns="1fr"
+      columns-tablet="1fr 1fr"
+      columns-desktop="1fr 1fr"
+    >
+      {localizedContent.stats.map(stat => (
+        <li class="testimonial-box">
+          <p class="font-size-h1 mb-0">
+            <strong>{stat.value}</strong>
+          </p>
+          <p class="mb-0">{stat.label}</p>
+        </li>
+      ))}
+    </gcds-grid>
+  ) : display === 'services' ? (
+    <gcds-grid
+      tag="ul"
+      columns="1fr"
+      columns-tablet="1fr 1fr"
+      columns-desktop="1fr 1fr"
+    >
+      {localizedContent.services.map(service => (
+        <gcds-card
+          card-title-tag="h3"
+          card-title={service.title}
+          href={service.href}
+          badge={service.badge}
+          img-src={service.img}
+          img-alt={service.alt}
+          description={service.description}
+          target="_blank"
+          role="listitem"
+        />
+      ))}
+    </gcds-grid>
+  ) : (
+    <ul>
+      {localizedContent.quotes.map(quote => (
+        <li class="mb-500 testimonial-box">
+          <blockquote>
+            <p class="mb-0"><strong>“{quote.quote}”</strong></p>
+          </blockquote>
+          <p class="mb-0"><cite>{quote.author}</cite></p>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+.testimonial-box {
+  border-radius: 1rem;
+  background: var(--gcds-color-blue-50);
+  list-style: none;
+  padding-block: var(--gcds-spacing-300);
+  padding-inline: var(--gcds-spacing-250);
+}
+</style>

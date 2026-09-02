@@ -229,6 +229,36 @@ export const routes = {
   "register-for-a-demo": {
     en: "register-for-a-demo",
     fr: "inscrivez-vous-a-une-demonstration",
+  },
+  accessibility: {
+    en: "accessibility",
+    fr: "accessibilite",
+    children: {
+      "accessibility-testing": {
+        en: "accessibility-testing",
+        fr: "tests-daccessibilite"
+      }
+    }
+  },
+  roadmap: {
+    en: "roadmap",
+    fr: "feuille-de-route"
+  },
+  "service-level-agreement": {
+    en: "service-level-agreement",
+    fr: "entente-sur-les-niveaux-de-service",
+  },
+  "privacy-notice": {
+    en: "privacy-notice",
+    fr: "avis-de-confidentialite"
+  },
+  "terms-of-use": {
+    en: "terms-of-use",
+    fr: "conditions-dutilisation"
+  },
+  "gcds-in-use": {
+    en: "gcds-in-use",
+    fr: "sdgc-en-usage"
   }
 };
 
