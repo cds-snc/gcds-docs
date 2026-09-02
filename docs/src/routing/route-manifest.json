@@ -43,7 +43,7 @@
         {
           "pageKey": "basic",
           "routeKey": "basic",
-          "label": {"en": "Basic page templates", "fr": "Modèle de page de base"},
+          "label": {"en": "Basic page", "fr": "Page de base"},
           "slug": {"en": "basic", "fr": "basic"},
           "files": {"en": "index", "fr": "index"}
         }
