@@ -12,7 +12,7 @@
     "test:i18n": "tsx --test src/utils/i18n.test.ts"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/mdx": "^8.0.0",
     "@astrojs/react": "^5.0.3",
     "@cdssnc/sanitize-pii": "^2.2.0",
     "@gcds-core/components-react": "^1.5.0",
@@ -20,7 +20,7 @@
     "@gcds-core/tokens": "^1.6.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
-    "astro": "^6.1.8",
+    "astro": "^7.2.10",
     "chalk": "^5.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
