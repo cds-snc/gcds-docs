@@ -14,6 +14,7 @@ export { default as Header } from "./Header.astro";
 export { default as Heading } from "./Heading.astro";
 export { default as HelpUs } from "./HelpUs/HelpUs.astro";
 export { default as NeedHelp } from "./NeedHelp/NeedHelp.astro";
+export { default as PageTemplate } from "./PageTemplate/PageTemplate.astro";
 export { default as StartBuilding } from "./StartBuilding/StartBuilding.astro";
 export { default as Tabs } from "./Tabs.astro";
 export { default as Text } from "./Text.astro";

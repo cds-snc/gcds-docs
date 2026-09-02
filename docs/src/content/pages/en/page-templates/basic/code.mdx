@@ -1,0 +1,20 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Basic page code
+description: Copy this code to use the basic page template.
+---
+
+import { HelpUs, PageTemplate } from '~components';
+import { links } from '~i18n/links';
+
+# Basic page code
+
+<gcds-notice notice-title="CSS Shortcuts included" notice-title-tag="h2" notice-role="info" class="mb-300">
+  This template includes our custom CSS Shortcuts stylesheet in the head. While recommended, this stylesheet is optional. Learn more about the benefits of using <gcds-link href={links.en.shortcuts}>CSS Shortcuts</gcds-link>.
+</gcds-notice>
+
+Copy this code to use the basic page template.
+
+<PageTemplate mode='code' template='basic' />
+
+<HelpUs />

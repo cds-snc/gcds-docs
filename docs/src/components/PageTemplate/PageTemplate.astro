@@ -1,0 +1,74 @@
+---
+interface Props {
+  template: 'basic' | 'basicOTP';
+  mode: 'code' | 'preview';
+}
+const { template = "basic", mode = "code" } = Astro.props;
+import { Code } from 'astro:components';
+
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { basic } from './basic.js';
+import { basicOTP } from './basicOTP.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+
+const localizedContent = {
+  basic: getLocalizedRecord(basic, locale, defaultLocale),
+  basicOTP: getLocalizedRecord(basicOTP, locale, defaultLocale)
+};
+---
+
+{mode === 'code' ? (
+  <div class="page-template-highlight">
+    <Code code={localizedContent[template]} lang="html" />
+  </div>
+) : (
+  <Fragment set:html={localizedContent[template]} />
+)}
+
+{mode === 'code' && (
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const templateHighlight = document.querySelectorAll('.page-template-highlight');
+      const url = window.location.href;
+      let lang: 'en' | 'fr' = 'en';
+
+      if (url.includes('/fr/')) {
+        lang = 'fr';
+      }
+
+      const buttonText = {
+        en: {
+          copy: 'Copy',
+          copyTemplate: 'Copy template',
+          copied: 'Copied',
+        },
+        fr: {
+          copy: 'Copier',
+          copyTemplate: 'Copier le modèle',
+          copied: 'Copié',
+        },
+      };
+
+      templateHighlight.forEach(template => {
+        const button = document.createElement('gcds-button');
+        button.setAttribute('button-role', 'secondary');
+        button.classList = 'mb-300';
+
+        button.innerText = buttonText[lang].copyTemplate;
+
+        button.addEventListener('click', () => {
+          const codeText = template.querySelector('code')?.textContent ?? '';
+          navigator.clipboard.writeText(codeText);
+          button.innerText = buttonText[lang].copied;
+        });
+        button.addEventListener('blur', () => {
+          button.innerText = buttonText[lang].copyTemplate;
+        });
+
+        templateHighlight ? template.prepend(button) : template.append(button);
+      });
+    });
+  </script>
+)}
