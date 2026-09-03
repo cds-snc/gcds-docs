@@ -10,7 +10,7 @@ eleventyNavigation:
   hideMain: true
 ---
 
-# GC Design System: Service level agreement (1.0)
+# GC Design System: Service level agreement (1.1)
 
 GC Design System is a service that is owned and operated by the Canadian Digital Service (CDS) at <gcds-link href="https://www.canada.ca/en/employment-social-development.html" external>Employment and Social Development Canada (ESDC)</gcds-link>. This service enables Canadian federal departments and agencies to build and design trusted, predictable and accessible web and application experiences.
 
@@ -67,7 +67,11 @@ This uptime guarantee excludes any downtime experienced by Amazon or other infra
 
 ## Support
 
-CDS provides reactive support services to monitor, track, and remedy issues identified through internal monitoring or via client reporting.
+### Service contacts
+
+Clients should direct all support requests or bug reports to either of the following: 
+- <gcds-link href="https://design-system.canada.ca/en/contact" external>Contact us</gcds-link> page on the GC Design System website.
+- <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>New issues</gcds-link> on the CDS Github repo. 
 
 ### Service availability
 
@@ -77,17 +81,33 @@ CDS provides reactive support services to monitor, track, and remedy issues iden
 | Service is affected (performance issues, intermittent errors) | 1 business day                         | 1 per business day  |
 | Service has recovered and is functioning                      | 2 business days                        | N/A                 |
 
-### Service contacts and response time
+### Service contacts
 
-Client should direct all support requests to <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>New Issues</gcds-link> on our Github or via our [Contact Us]({{ links.contact }}) page. CDS will respond within one (1) business day of receiving a request, Monday to Friday from 9am to 5pm (Eastern Time). Service tickets are logged in Freshdesk. They will be closed after 10 days, if there is no response from the client.
+Clients should direct all support requests or bug reports to either of the following: 
+- <gcds-link href="https://design-system.canada.ca/en/contact" external>Contact us</gcds-link> page on the GC Design System website.
+- <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>New issues</gcds-link> on the CDS Github repo. 
+
+### Response times for contact form on website 
+
+CDS will provide an initial response within one (1) business day of receiving a support request via the Contact us page, Monday to Friday from 9am to 5pm (Eastern Time). Service tickets are logged in Freshdesk. They will be closed after 10 business days, if there is no response from the client.
 
 | Description                                                   | Initial response | Resolution\*                                                         |
 | ------------------------------------------------------------- | ---------------- | -------------------------------------------------------------------- |
-| New ticket created                                            | 1 business day   | 5 business days                                                      |
+| New ticket submitted via Contact Us                           | 1 business day   | 5 business days                                                      |
 | Ticket with “Waiting on Client” status                        | Not applicable   | 10 business days and will be closed if no further action is required |
 | Service is affected (performance issues, intermittent errors) | 1 business day   | 5 business days                                                      |
 
-\* Resolution is defined as responding to client queries related to the interface or technical aspects of the product, such as feature requests or addressing problems related to the npm, cdn, Figma or the website.
+\* Resolution means that the GC Design System team has taken the appropriate action, as follows, to address the inquiry and no further action is required on their part.
+
+- Action completed: The team took an action to address the inquiry, such as a change to code, design, content, documentation, configuration, or another deliverable.
+- Guidance provided: The client received the information, advice, resources, recommended approach, or future direction needed to address their inquiry.
+- Decision provided: The team made and communicated a decision about the inquiry, including the rationale where appropriate. Could include deciding not to make the requested change or explaining why something is outside the product's scope.
+- Referred or redirected: The client was directed to the appropriate team, service, process, or resource, either within or external to GC Design System.
+
+### Response times vary for the GitHub issues form 
+
+SLA response and resolution targets do not apply to bug reports, feature requests and contributions sent via the New issues form. The GC Design System team reviews and prioritizes these submissions during designated sprints. As a result, response times may vary. 
+The GC Design System team will typically provide updates in the discussion thread of the relevant GitHub issue.
 
 ### Planned maintenance period
 

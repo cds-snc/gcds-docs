@@ -10,7 +10,7 @@ eleventyNavigation:
   hideMain: true
 ---
 
-# Système de design GC : Entente sur les niveaux de service
+# Système de design GC : Entente sur les niveaux de service (1.1)
 
 Le Service numérique canadien (SNC), d’<gcds-link href="https://www.canada.ca/fr/emploi-developpement-social.html" external>Emploi et Développement social Canada</gcds-link>, possède et exploite le service Système de design GC. Ce service permet aux ministères du gouvernement fédéral canadien de concevoir et de créer des expériences fiables, prévisibles et accessibles, sur le Web ou sous forme d’application.
 
@@ -77,17 +77,29 @@ Le SNC offrira des services de soutien réactifs afin de surveiller les problèm
 | Service affecté (problèmes de performance, erreurs intermittentes) | Un jour ouvrable                                    | Une par jour (ouvrable)             |
 | Service rétabli et fonctionnel                                     | Deux jours ouvrables                                | S. O.                               |
 
-### Contacts relatifs au service et temps de réponse
+### Personnes-ressources pour le soutien
 
-La clientèle doit diriger toutes ses demandes de soutien vers la partie de notre référentiel GitHub consacrée aux <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>nouveaux problèmes</gcds-link> ou nous [contacter]({{ links.contact }}) par le biais de notre site Web. Le SNC répondra aux demandes dans un délai d’un (1) jour ouvrable suivant la réception de ces dernières, et ce, du lundi au vendredi, de 9 h à 17 h (heure de l’Est). Les tickets de service sont consignés dans Freshdesk. Ils seront clôturés au bout de 10 jours si aucune réponse n’est reçue de la part de l’entité cliente.
+La clientèle doit acheminer toute demande de soutien ou tout rapport de bogue à l’une des personnes suivantes :
+
+- Page <gcds-link href="https://design-system.canada.ca/fr/contactez" external>Nous contacter</gcds-link> sur le site Web de Système de design GC.
+- <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>New issue</gcds-link> (nouveau problème) dans le référentiel GitHub du SNC.
+
+### Délais de réponse pour le formulaire de contact du site Web
+
+Le SNC répondra aux demandes dans un délai d’un (1) jour ouvrable suivant la réception d’une demande de soutien soumise à l’aide de la page Nous contacter, et ce, du lundi au vendredi, de 9 h à 17 h (heure de l’Est). Les tickets de service sont consignés dans Freshdesk. Ils seront fermés au bout de dix (10) jours si aucune réponse n’est reçue de la part de la clientèle.
 
 | Description                                                        | Première intervention | Résolution\*                                                                    |
 | ------------------------------------------------------------------ | --------------------- | ------------------------------------------------------------------------------- |
-| Création d’un nouveau ticket                                       | Un jour ouvrable      | Cinq jours ouvrables                                                            |
+| Nouveau ticket soumis à l’aide de la page Nous contacter           | Un jour ouvrable      | Cinq jours ouvrables                                                            |
 | Ticket portant le statut « En attente d’action de la clientèle »   | Non applicable        | Dix jours ouvrables, puis clôture si aucune action supplémentaire n’est requise |
 | Service affecté (problèmes de performance, erreurs intermittentes) | Un jour ouvrable      | Cinq jours ouvrables                                                            |
 
-\* La résolution se définit comme la réponse aux requêtes de la clientèle concernant l’interface ou les aspects techniques du produit, les demandes de fonctionnalités ou le traitement des problèmes liés à npm, au rdc, à Figma ou au site Web.
+\* Une résolution signifie que l’équipe de Système de design GC a pris les mesures appropriées, parmi les options suivantes, pour répondre à la demande et qu’aucune autre mesure n’est requise de sa part.
+
+- Mesure prise : L’équipe a pris des mesures pour répondre à la demande, comme un changement au code, à la conception, au contenu, à la documentation, à la configuration, ou un autre livrable.
+- Conseils fournis : Le client a reçu l’information, les conseils, les ressources, l’approche recommandée ou l’orientation future nécessaire pour répondre à sa demande.
+- Décision fournie : L’équipe a pris une décision au sujet de la demande et a communiqué sa décision à la clientèle, avec justification, le cas échéant. Cela peut inclure la décision de ne pas apporter le changement demandé ou d’expliquer pourquoi quelque chose ne fait pas partie de la portée du produit.
+
 
 ### Période de maintenance planifiée
 
