@@ -17,6 +17,7 @@ export { default as NeedHelp } from "./NeedHelp/NeedHelp.astro";
 export { default as PageTemplate } from "./PageTemplate/PageTemplate.astro";
 export { default as StartBuilding } from "./StartBuilding/StartBuilding.astro";
 export { default as Tabs } from "./Tabs.astro";
+export { default as Testimonials } from "./Testimonials/Testimonials.astro"
 export { default as Text } from "./Text.astro";
 export { default as TokenTable } from "./TokenTable.astro";
 export { default as VersionSwitcher } from "./VersionSwitcher.astro";

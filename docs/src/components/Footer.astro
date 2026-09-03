@@ -1,9 +1,86 @@
 ---
+import { resolveLocaleFromPathname } from '../utils/i18n';
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+
+import { links } from '~i18n/links';
+
+const i18n = {
+  en: {
+    contextual: {
+      heading: 'GC Design System',
+      list: 'Contact us',
+      listurl: links.en.contact,
+      a11y: 'Accessibility statement',
+      a11yurl: links.en.accessibility,
+      sla: 'Service level agreement',
+      slaurl: links.en.sla,
+      issue: 'Report an issue',
+      issueurl: links.en.githubCompsIssues,
+      about: 'About us',
+      abouturl: links.en.about,
+    },
+    sub: {
+      social: 'Social media',
+      socialurl: 'https://www.canada.ca/en/social.html',
+      mobile: 'Mobile applications',
+      mobileurl: 'https://www.canada.ca/en/mobile.html',
+      about: 'About Canada.ca',
+      abouturl: 'https://www.canada.ca/en/government/about-canada-ca.html',
+      terms: 'Terms of use',
+      termsurl: links.en.termsOfUse,
+      privacy: 'Privacy',
+      privacyurl: links.en.privacy,
+    },
+  },
+  fr: {
+    contextual: {
+      heading: 'Système de design GC',
+      list: 'Contactez-nous',
+      listurl: links.fr.contact,
+      a11y: "Déclaration d'accessibilité",
+      a11yurl: links.fr.accessibility,
+      sla: 'Accord sur les niveaux de service',
+      slaurl: links.fr.sla,
+      issue: 'Signaler un problème',
+      issueurl: 'https://github.com/cds-snc/gcds-components/issues/new/choose',
+      about: 'À propos',
+      abouturl: links.fr.about,
+    },
+    sub: {
+      social: 'Médias sociaux',
+      socialurl: 'https://www.canada.ca/fr/sociaux.html',
+      mobile: 'Applications mobiles',
+      mobileurl: 'https://www.canada.ca/fr/mobile.html',
+      about: 'À propos de Canada.ca',
+      abouturl: 'https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html',
+      terms: "Conditions d'utilisation",
+      termsurl: links.fr.termsOfUse,
+      privacy: 'Confidentialité',
+      privacyurl: links.fr.privacy,
+    },
+  },
+};
+
+const subLinks = { 
+  [i18n[locale].sub.social]: i18n[locale].sub.socialurl,
+  [i18n[locale].sub.mobile]: i18n[locale].sub.mobileurl,
+  [i18n[locale].sub.about]: i18n[locale].sub.abouturl,
+  [i18n[locale].sub.terms]: i18n[locale].sub.termsurl,
+  [i18n[locale].sub.privacy]: i18n[locale].sub.privacyurl,
+}
+
+const contextualLinks = {
+  [i18n[locale].contextual.about]: i18n[locale].contextual.abouturl,
+  [i18n[locale].contextual.a11y]: i18n[locale].contextual.a11yurl,
+  [i18n[locale].contextual.sla]: i18n[locale].contextual.slaurl,
+}
 ---
 
 <gcds-footer
   display="full"
-  contextual-heading="Contextual navigation"
-  contextual-links='{ "About us": "#", "Accessibility statement": "#", "Service level agreement": "#" }'
+  lang={locale}
+  contextual-heading={i18n[locale].contextual.heading}
+  contextual-links={JSON.stringify(contextualLinks)}
+  sub-links={JSON.stringify(subLinks)}
 >
 </gcds-footer>
