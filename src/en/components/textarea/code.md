@@ -31,6 +31,11 @@ Always use the following required attributes with `gcds-textarea`:
 
 {% include "partials/hint.njk" %}
 
+### Add character limits
+
+- Use the `max-length` attribute to enable character limits. This automatically adds “Characters remaining:” text below the textarea field.
+- Use the `hide-limit` attribute to visually hide the text.
+
 {% include "partials/hide-the-label.njk" %}
 
 {% include "partials/error-message.njk", component: "textarea" %}

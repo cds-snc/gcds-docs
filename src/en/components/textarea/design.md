@@ -10,8 +10,9 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>The <strong>textarea label</strong> states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).</li>
-  <li>The <strong>hint text</strong> communicates specific requirements for each textarea to support task success.</li>
+  <li>The <strong>hint text</strong> (optional) communicates specific requirements for each textarea to support task success.</li>
   <li>The <strong>field</strong> is the container a person interacts with to provide their response.</li>
+  <li>The <strong>character count</strong> (optional) indicates the character limit that can be entered in the textarea.</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-textarea-anatomy.svg" alt="Textarea anatomy showing the Textarea label, Hint text/ example message and dark blue outline white box for text input."/>
@@ -44,6 +45,11 @@ date: 'git Last Modified'
 
 - Add hint text to help a person filling in a textarea to provide a complete value.
 - Write hint text to be instructional, brief, and specific.
+
+### Set expectations for text length with a character count
+
+- Add character count to limit how many characters can be entered into the textarea.
+- The character count shows remaining characters as they are entered, setting expectations and helping people respond with the right level of detail.
 
 ### Write error messages for required textareas
 
