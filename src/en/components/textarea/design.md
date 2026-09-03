@@ -46,7 +46,7 @@ date: 'git Last Modified'
 - Add hint text to help a person filling in a textarea to provide a complete value.
 - Write hint text to be instructional, brief, and specific.
 
-### Add character count to set expectations for text length
+### Set expectations for text length with a character count
 
 - Add character count to limit how many characters can be entered into the textarea.
 - The character count shows remaining characters as they are entered, setting expectations and helping people respond with the right level of detail.
