@@ -7,9 +7,10 @@ interface Props {
   code?: string;
   demo?: string;
   demoClass?: string;
+  stack?: boolean;
 }
 
-const { code, demo, demoClass } = Astro.props as Props;
+const { code, demo, demoClass, stack } = Astro.props as Props;
 
 // Add preview classes into the first tag of the demo markup only.
 function withDemoClass(html: string, css?: string): string {
@@ -101,8 +102,21 @@ const demoHtml = demoSource !== undefined ? withDemoClass(demoSource, demoClass)
 ---
 
 <div class="preview-container">
-  <div class="demo-container">
+  <div class={`demo-container${stack ? ' stack' : ''}`}>
     <Fragment set:html={demoHtml} />
   </div>
   {codeSource !== undefined && <Code code={codeSource} lang="html" />}
 </div>
+
+<style>
+  .demo-container.stack {
+    display: grid;
+    gap: var(--gcds-spacing-300);
+    justify-items: start;
+  }
+  .demo-container.stack :global(form) {
+    display: grid;
+    gap: var(--gcds-spacing-300);
+    justify-items: start;
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+// Each tab page (index.mdx = Use case, design.mdx, code.mdx) sets this as its
+// `layout:` and passes the shared meta via frontmatter. TabNav derives the
+// active tab from the URL, so tabs don't need to declare it.
+import BaseLayout from './BaseLayout.astro';
+import { ComponentPreview, DocLinks, HelpUs, TabNav, VersionSwitcher } from '../components';
+import { getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
+
+const { frontmatter } = Astro.props;
+const {
+  pageTitle,
+  componentName,
+  tagName,
+  alsoCalled,
+  description,
+  figma,
+  github,
+  version,
+  previewLabel,
+  dateModified,
+} = frontmatter ?? {};
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+// Includes locale-specific punctuation (FR puts a space before the colon).
+const alsoCalledLabel = locale === 'fr' ? 'Autres noms :' : 'Also called:';
+
+// Each component provides a `preview.mdx` for the component preview.
+const previewModules = import.meta.glob('../content/versioned/components/**/preview.{astro,mdx}', {
+  eager: true,
+});
+const pathParts = getPathParts(Astro.url.pathname);
+const componentSlug = pathParts
+  .slice(2)
+  .filter((part) => !/^\d+\.\d+\.\d+$/.test(part) && part !== 'design' && part !== 'code')[0];
+const previewKey = `../content/versioned/components/${version}/${locale}/${componentSlug}/preview.mdx`;
+const Preview = (previewModules[previewKey] as { default?: any } | undefined)?.default;
+const basePreviewLabel =
+  previewLabel ??
+  (locale === 'fr'
+    ? `Aperçu du composant ${componentName}`
+    : `${componentName} component preview`);
+
+// Reproduce the 11ty slug algorithm for the H1 id so ids match the current
+// site (accent-fold, strip non-word chars, spaces -> hyphens). The <br> between
+// the name and the tag name contributes a literal "br", as it did in 11ty.
+const slugify = (value) =>
+  value
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+const headingId = slugify(`${componentName} br${tagName ?? ''}`);
+const escapedTag = (tagName ?? '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+---
+
+<BaseLayout pageTitle={pageTitle} dateModified={dateModified}>
+  <h1 id={headingId} set:html={`${componentName}${tagName ? `<br /><code>${escapedTag}</code>` : ''}`} />
+
+  {
+    alsoCalled && (
+      <gcds-text>
+        <em>{alsoCalledLabel} {alsoCalled}.</em>
+      </gcds-text>
+    )
+  }
+
+  {description && <gcds-text>{description}</gcds-text>}
+
+  {version && <VersionSwitcher package="component" value={version} />}
+
+  {(figma || github) && <DocLinks figma={figma} github={github} />}
+
+  {
+    Preview && (
+      <ComponentPreview headingTag="h2" label={basePreviewLabel} class="my-600" demoClass="px-225 py-300">
+        <Preview />
+      </ComponentPreview>
+    )
+  }
+
+  <TabNav />
+
+  <slot />
+
+  <HelpUs />
+</BaseLayout>

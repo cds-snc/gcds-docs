@@ -4,6 +4,8 @@ export { default as AnatomyList } from "./AnatomyList.astro";
 export { default as CdnVersionScript } from "./CdnVersionScript.astro";
 export { default as CodePreview } from "./CodePreview.astro";
 export { default as CodePreviewReact } from "./CodePreviewReact.jsx";
+export { default as ComponentPreview } from "./ComponentPreview.astro";
+export { default as TabNav } from "./TabNav.astro";
 export { default as ContactForm } from "./ContactForm/ContactForm.astro";
 export { default as DemoDates } from "./DemoDates/DemoDates.astro";
 export { default as DocLinks } from "./DocLinks.astro";

@@ -1,0 +1,203 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Button - Code
+componentName: Button
+tagName: '<gcds-button>'
+alsoCalled: call to action, CTA
+description: The button is an interactive object that emphasizes an action.
+figma: 'https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=817-4607&p=f&t=sUfuiFgkFiAWYq3z-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button'
+version: 1.6.0
+dateModified: '2026-07-08T09:04:06-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for buttons](#coding-and-accessibility-for-buttons)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for buttons
+
+### Check for visual accessibility
+
+Check the button border's visibility against the surface where you're placing it.
+
+### Select the right size
+
+Use the small button attribute for actions when space is limited.
+
+Note: The height of small buttons is WCAG AA compliant, but not AAA compliant.
+
+### Use disabled button sparingly
+
+- Use the disabled button sparingly when something needs to be done before an action can be initiated.
+- Where possible, use other interventions like an error message to block incomplete form submissions.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `button-id`
+
+Use `button-id` to set the `id` for a button.
+
+<CodePreview>
+  <gcds-button id="submit-ei-application">Submit</gcds-button>
+</CodePreview>
+
+#### `button-role`
+
+Use `button-role` to set the main style for a button. Choose from:
+
+- `primary` (default)
+- `secondary`
+- `danger`
+- `start`
+
+<CodePreview stack>
+  <gcds-button button-role="start">Start</gcds-button>
+  <gcds-button>Submit</gcds-button>
+  <gcds-button button-role="secondary">Cancel</gcds-button>
+  <gcds-button button-role="danger">Delete</gcds-button>
+</CodePreview>
+
+#### `disabled`
+
+Set `disabled` to `true` to make the button non-interactive. By default, `disabled` is set to `false`.
+
+<CodePreview>
+  <gcds-button button-role="danger" disabled>Delete</gcds-button>
+</CodePreview>
+
+#### `name`
+
+Use `name` to specify the name of the button when submitting form data. This attribute helps identify which button triggered a form submission, especially when multiple buttons exist in a form.
+
+<CodePreview stack>
+  <form action="..." method="post">
+    <gcds-button button-role="secondary" name="save-draft" type="submit">Save draft</gcds-button>
+    <gcds-button button-role="secondary" name="submit-application" type="submit">Submit application</gcds-button>
+  </form>
+</CodePreview>
+
+#### `size`
+
+Use `size` to set the button size. Choose from:
+
+- `regular` (default)
+- `small`
+
+<CodePreview stack>
+  <gcds-button>Default size</gcds-button>
+  <gcds-button size="small">Small size</gcds-button>
+</CodePreview>
+
+#### `type`
+
+Use `type` to define the button's function. Choose from:
+
+- `button` (default)
+- `link`
+- `reset`
+- `submit`
+
+<CodePreview stack>
+  <gcds-button>Button</gcds-button>
+  <gcds-button type="link">Link</gcds-button>
+  <gcds-button type="reset">Reset</gcds-button>
+  <gcds-button type="submit">Submit</gcds-button>
+</CodePreview>
+
+#### `value`
+
+Use `value` to define the data sent to the server when the button submits a form. The button only sends this `value` if it has a `name` attribute and if it triggered the submission. If multiple submit buttons exist, only the clicked button sends its value.
+
+<CodePreview stack>
+  <form action="..." method="post">
+    <gcds-button button-role="secondary" type="submit" name="applicationAction" value="save">Save draft</gcds-button>
+    <gcds-button button-role="secondary" type="submit" name="applicationAction" value="submit">Submit application</gcds-button>
+  </form>
+</CodePreview>
+
+#### `download`
+
+Use `download` to make the button download the file referenced by the `href` attribute, rather than navigate to it.
+
+**This attribute is only supported when the button `type` is set to `link`**.
+
+<CodePreview>
+  <gcds-button type="link" href="/files/application-receipt.pdf" download>Download receipt</gcds-button>
+</CodePreview>
+
+#### `href`
+
+Use `href` to define the destination of the link.
+
+**This attribute is only supported when the button `type` is set to `link`**.
+
+<CodePreview>
+  <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html">View benefits information</gcds-button>
+</CodePreview>
+
+#### `rel`
+
+Use `rel` to specify the relationship between the current document and the linked document. Use it for security and privacy purposes, especially when links open in a new tab or window.
+
+**This attribute is only supported when the button `type` is set to `link`**.
+
+<CodePreview>
+  <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">View benefits information</gcds-button>
+</CodePreview>
+
+#### `target`
+
+Use `target` to specify where the linked resource opens: in the same browsing context, or in a new tab or window.
+
+**This attribute is only supported when the button `type` is set to `link`**.
+
+<CodePreview>
+  <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">View benefits information</gcds-button>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+Use the `default` slot to add the button or link label text.
+
+<CodePreview>
+  <gcds-button>Submit</gcds-button>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-button properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-button--events-properties&lang=en"
+  width="1200"
+  height="1800"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
