@@ -1687,6 +1687,15 @@
     </gcds-nav-link>
   
     <gcds-nav-link
+      href="/gcds-docs/fr/composants/alerte/"
+      current
+    >
+      Alerte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
       href="/gcds-docs/fr/composants/avis/"
       
     >
@@ -2719,8 +2728,9 @@
         <main id="mc" class="general-layout" >
           
   
-    <h1 id="alert-brgcdsalert">Alert <br><code>&lt;gcds-alert&gt;</code></h1>
-<p>Ce composant est en cours de développement.</p>
+    <h1 id="alerte-brgcdsalert">Alerte <br><code>&lt;gcds-alert&gt;</code></h1>
+<p><em>Autres noms : message, message ciblé</em></p>
+<p>L’alerte est un message déclenché par un événement qui communique une rétroaction contextuelle sans interrompre la tâche en cours.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-alert">GitHub</gcds-link>
@@ -2731,7 +2741,21 @@ Figma
 </gcds-link>
 </li>
 </ul></p>
-<br/>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Aperçu du composant de alerte
+</h2>
+<div>
+<iframe
+            title="Aperçu du composant de alerte"
+            src="/fr/composants/alerte/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
 
     <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
@@ -2770,7 +2794,41 @@ Figma
     </nav>
   
 
-  <h2 id="design">Design</h2>
+  <h2 id="structure-de-lalerte">Structure de l’alerte</h2>
+<ol class="anatomy-list">
+  <li>L’<strong>icône</strong> (facultative) indique le rôle de l’alerte.</li>
+  <li>Le <strong>titre</strong> communique brièvement le message principal de l’alerte. </li>
+  <li>Le <strong>message</strong> fournit des précisions et, s’il y a lieu, les prochaines étapes.</li>
+  <li>Le <strong>bouton de fermeture</strong> (facultatif) permet de fermer l’alerte.</li>
+</ol>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-alert-anatomy.svg" alt="La structure de l’alerte comporte 4 éléments : une icône, un titre, un message et un bouton de fermeture." />
+<h2 id="design-et-accessibilite-des-alertes">Design et accessibilité des alertes</h2>
+<h3 id="choisissez-lalerte-appropriee">Choisissez l’alerte appropriée</h3>
+<ul class="list-disc mb-300"><li>Référez-vous aux cas d’utilisation pour savoir quand utiliser chacun des rôles de l’alerte.</li>
+<li>Utilisez les alertes d’avertissement et de danger seulement lorsque le message est important et urgent. Elles utilisent <code>role=&quot;alert&quot;</code>. Un lecteur d’écran interrompt alors sa lecture pour annoncer immédiatement l’alerte, ce qui peut être intrusif.</li>
+<li>Utilisez les alertes d’information et de succès lorsque le message est utile, mais pas urgent. Elles utilisent <code>role=&quot;status&quot;</code>. Un lecteur d’écran annonce alors l’alerte dès qu’il en a l’occasion, sans interrompre sa lecture en cours.</li>
+</ul>
+<h3 id="placez-lalerte-a-lendroit-approprie">Placez l’alerte à l’endroit approprié</h3>
+<ul class="list-disc mb-300"><li>Lorsqu’une alerte est déclenchée par une personne, intégrez-la dans le corps de la page, près de l’endroit où l’action a eu lieu. Par exemple, placez-la immédiatement après un bouton susceptible de déclencher de nouveaux renseignements importants.</li>
+<li>Lorsqu’une alerte est déclenchée au rechargement de la page ou par un événement serveur, et que vous ne savez pas où se trouve la personne sur la page, placez l’alerte au haut de la page.</li>
+<li>Évitez d’utiliser une alerte dans un composant de formulaire, comme un champ de saisie ou une case à cocher.</li>
+</ul>
+<h3 id="redigez-des-titres-et-des-messages-concis-et-clairs">Rédigez des titres et des messages concis et clairs</h3>
+<ul class="list-disc mb-300"><li>Placez l’information la plus importante dans le titre afin que la nature de l’alerte soit immédiatement claire.</li>
+<li>Limitez le message à deux phrases ou moins.</li>
+<li>Rédigez un message qui complète le titre. Évitez de répéter ou de reformuler le titre.</li>
+<li>Décrivez les répercussions pour la personne et indiquez une prochaine étape claire, lorsqu’il y en a une.</li>
+<li>Ajoutez un lien ou un autre moyen de résoudre le problème lorsque c’est pertinent.</li>
+</ul>
+<h3 id="envisagez-dajouter-un-bouton-de-fermeture">Envisagez d’ajouter un bouton de fermeture</h3>
+<ul class="list-disc mb-300"><li>Ajoutez un bouton de fermeture lorsque les personnes peuvent poursuivre leur tâche sans donner suite à l’alerte. Cela convient souvent aux alertes « information » et « succès ».</li>
+<li>Laissez de côté le bouton de fermeture lorsque les personnes doivent d’abord résoudre un problème avant de pouvoir poursuivre leur tâche. Cela convient souvent aux alertes « danger ».</li>
+<li>Envisagez de laisser de côté le bouton de fermeture si le message contient déjà un autre bouton, afin de simplifier la présentation.</li>
+</ul>
+<h3 id="evitez-les-alertes-inutiles">Évitez les alertes inutiles</h3>
+<ul class="list-disc mb-300"><li>Utilisez une alerte uniquement lorsque l’information est suffisamment importante pour nécessiter une attention particulière. Évitez de répéter des informations déjà présentes dans la page.</li>
+<li>Évitez d’afficher plus d’une alerte à la fois. Si plusieurs alertes portent sur le même sujet, regroupez-les. Sinon, affichez uniquement l’alerte la plus prioritaire.</li>
+</ul>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">

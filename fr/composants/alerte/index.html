@@ -1687,6 +1687,15 @@
     </gcds-nav-link>
   
     <gcds-nav-link
+      href="/gcds-docs/fr/composants/alerte/"
+      current
+    >
+      Alerte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
       href="/gcds-docs/fr/composants/avis/"
       
     >
@@ -2716,11 +2725,12 @@
     <gcds-nav-link href="/fr/inscrivez-vous-a-une-demonstration" >Trouver une démo</gcds-nav-link>
   </gcds-nav-group>
 </gcds-side-nav>
-        <main id="mc" class="general-layout" >
+        <main id="mc" class="general-layout" data-pagefind-body>
           
   
-    <h1 id="alert-brgcdsalert">Alert <br><code>&lt;gcds-alert&gt;</code></h1>
-<p>Ce composant est en cours de développement.</p>
+    <h1 id="alerte-brgcdsalert">Alerte <br><code>&lt;gcds-alert&gt;</code></h1>
+<p><em>Autres noms : message, message ciblé</em></p>
+<p>L’alerte est un message déclenché par un événement qui communique une rétroaction contextuelle sans interrompre la tâche en cours.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-alert">GitHub</gcds-link>
@@ -2731,7 +2741,21 @@ Figma
 </gcds-link>
 </li>
 </ul></p>
-<br/>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Aperçu du composant de alerte
+</h2>
+<div>
+<iframe
+            title="Aperçu du composant de alerte"
+            src="/fr/composants/alerte/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
 
     <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
@@ -2770,7 +2794,60 @@ Figma
     </nav>
   
 
-  <h2 id="usage">Usage</h2>
+  <p>Jetez un coup d’œil à ce que font les alertes pour vérifier si elles permettent de résoudre votre problème. Choisissez ensuite le rôle d’alerte le mieux adapté à votre cas d’utilisation.</p>
+<h2 id="problemes-resolus-par-les-alertes">Problèmes résolus par les alertes</h2>
+<p>Utilisez une alerte pour :</p>
+<ul class="list-disc mb-300"><li>Communiquer des renseignements qui apparaissent dynamiquement à la suite d’un événement, par exemple :<ul class="list-disc mb-300"><li>une action initiée par une personne, comme soumettre une demande ou enregistrer sa progression.</li>
+<li>un événement système, comme un rapport prêt à être téléchargé ou un mot de passe sur le point d’expirer.</li>
+</ul>
+</li>
+<li>Communiquer des renseignements importants ou qui doivent être communiqués rapidement.</li>
+<li>Afficher des messages sans interrompre la tâche en cours.</li>
+</ul>
+<p>Évitez d’utiliser une alerte pour les messages qui font déjà partie du contenu de la page dès son chargement. Utilisez plutôt un <gcds-link href="/fr/composants/avis">avis</gcds-link>.</p>
+<hr class="mt-600"/>
+<h2 id="composants-connexes">Composants connexes</h2>
+<p>Bannière pour des messages à l’échelle d’un site ou d’un produit.</p>
+<p><gcds-link href="/fr/composants/message-derreur">Message d’erreur</gcds-link> ou <gcds-link href="/fr/composants/resume-de-erreurs">résumé des erreurs</gcds-link> pour les erreurs dans des champs de formulaire.</p>
+<p><gcds-link href="/fr/composants/avis">Avis</gcds-link> pour les messages importants faisant partie du contenu de la page.</p>
+<p>Boîte de dialogue d’alerte pour les messages qui interrompent la tâche en cours.</p>
+<hr class="mt-600"/>
+<h2 id="roles-de-lalerte">Rôles de l’alerte</h2>
+<p>Le rôle de l’alerte modifie l’apparence de l’alerte afin d’indiquer visuellement sa nature. Choisissez le rôle le mieux adapté à votre cas d’utilisation.</p>
+<h3 id="information">Information</h3>
+<p>Utilisez le rôle « information » pour :</p>
+<ul class="list-disc mb-300"><li>Informer les personnes de l’état actuel de leur tâche, de leur accès ou de leur admissibilité.</li>
+<li>Fournir des mises à jour sur l’état d’une tâche ou d’un processus en arrière-plan.</li>
+<li>Communiquer des renseignements contextuels qui aident les personnes à comprendre pourquoi une action n’est pas disponible ou n’est plus nécessaire.</li>
+<li>Informer les personnes de renseignements non critiques qui sont pertinents pour leur tâche ou leur situation actuelle.</li>
+</ul>
+<gcds-alert heading="Vous avez déjà une demande en cours" alert-role="info">
+  <p>Vous ne pouvez avoir qu’une seule demande en cours à la fois. Terminez ou retirez votre demande en cours avant d’en commencer une autre.</p>
+</gcds-alert>
+<h3 id="succes">Succès</h3>
+<p>Utilisez le rôle « succès » pour :</p>
+<ul class="list-disc mb-300"><li>Confirmer qu’une action a été réalisée avec succès.</li>
+<li>Informer les personnes qu’un processus ou une tâche qu’elles ont demandé est terminé avec succès.</li>
+</ul>
+<gcds-alert heading="Vos modifications ont été enregistrées" alert-role="success">
+  <p>Vous pouvez modifier vos préférences en tout temps dans les <a href="#">Paramètres</a>.</p>
+</gcds-alert>
+<h3 id="avertissement">Avertissement</h3>
+<p>Utilisez le rôle « avertissement » pour :</p>
+<ul class="list-disc mb-300"><li>Informer les personnes de conditions pouvant avoir une incidence sur leur tâche en cours.</li>
+<li>Expliquer les conséquences possibles de la poursuite d’une action.</li>
+</ul>
+<gcds-alert heading="Votre mot de passe expire dans 7 jours" alert-role="warning">
+  <p>Changez votre mot de passe pour conserver l’accès à votre compte.</p>
+</gcds-alert>
+<h3 id="danger">Danger</h3>
+<p>Utilisez le rôle « danger » pour :</p>
+<ul class="list-disc mb-300"><li>Communiquer qu’une action n’a pas pu être réalisée avec succès.</li>
+<li>Expliquer un problème qui empêche une personne de terminer sa tâche en cours.</li>
+</ul>
+<gcds-alert heading="Nous n’avons pas pu vérifier votre identité" alert-role="danger">
+  <p>Vérifiez vos renseignements et réessayez.</p>
+</gcds-alert>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">

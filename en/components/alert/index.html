@@ -1687,6 +1687,15 @@
     </gcds-nav-link>
   
     <gcds-nav-link
+      href="/gcds-docs/en/components/alert/"
+      current
+    >
+      Alert
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
       href="/gcds-docs/en/components/breadcrumbs/"
       
     >
@@ -2716,11 +2725,12 @@
     <gcds-nav-link href="/en/register-for-a-demo" >Find a demo</gcds-nav-link>
   </gcds-nav-group>
 </gcds-side-nav>
-        <main id="mc" class="general-layout" >
+        <main id="mc" class="general-layout" data-pagefind-body>
           
   
     <h1 id="alert-brgcdsalert">Alert <br><code>&lt;gcds-alert&gt;</code></h1>
-<p>This component is coming soon.</p>
+<p><em>Also called: message, inline message.</em></p>
+<p>The alert is an event-driven message that communicates contextual feedback without interrupting the current task.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-alert">GitHub</gcds-link>
@@ -2731,7 +2741,21 @@ Figma
 </gcds-link>
 </li>
 </ul></p>
-<br/>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Alert component preview
+</h2>
+<div>
+<iframe
+            title="Alert component preview"
+            src="/en/components/alert/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
 
     <nav class="tabs mb-300" aria-label="Guidance tabs">
       <ul>
@@ -2770,7 +2794,60 @@ Figma
     </nav>
   
 
-  <h2 id="usage">Usage</h2>
+  <p>Take a look at what alerts do to see if they fit the problem you’re solving for. Then select the best subtype, called the alert role, for the use case you need to meet.</p>
+<h2 id="problems-alerts-solve">Problems alerts solve</h2>
+<p>Use an alert to:</p>
+<ul class="list-disc mb-300"><li>Communicate information that appears dynamically in response to an event, such as:<ul class="list-disc mb-300"><li>a person’s action, like submitting an application or saving progress.</li>
+<li>a system event, like a report being ready to download or a password about to expire.</li>
+</ul>
+</li>
+<li>Communicate important or time-sensitive information when users should be made aware of it promptly.</li>
+<li>Display messages without interrupting the current task.</li>
+</ul>
+<p>Avoid using an alert for messages that are part of the page content and are already there when the page loads. Use a <gcds-link href="/en/components/notice">notice</gcds-link> instead.</p>
+<hr class="mt-600"/>
+<h2 id="related-components">Related components</h2>
+<p>Banner for site or product-level messages.</p>
+<p><gcds-link href="/en/components/error-message">Error messages</gcds-link> or <gcds-link href="/en/components/error-summary">error summary</gcds-link> for errors in form fields.</p>
+<p><gcds-link href="/en/components/notice">Notice</gcds-link> for prominent messages that are part of the page content.</p>
+<p>Alert dialogue for messages that interrupt a user task.</p>
+<hr class="mt-600"/>
+<h2 id="alert-roles">Alert roles</h2>
+<p>The alert role changes the styling of the alert to visually signal its purpose. Pick the role relevant to your use case.</p>
+<h3 id="information">Information</h3>
+<p>Use the information role to:</p>
+<ul class="list-disc mb-300"><li>Inform people about the current state of their task, access, or eligibility.</li>
+<li>Provide status updates about a task or background process.</li>
+<li>Communicate contextual information that helps people understand why an action is unavailable or no longer needed.</li>
+<li>Inform people about non-critical information that’s relevant to their current task or situation.</li>
+</ul>
+<gcds-alert heading="You already have an application in progress" alert-role="info">
+  <p>You can only have one application in progress at a time. Finish or withdraw your current application before satrting another one.</p>
+</gcds-alert>
+<h3 id="success">Success</h3>
+<p>Use the success role to:</p>
+<ul class="list-disc mb-300"><li>Confirm that a person’s action was completed successfully.</li>
+<li>Notify people when a requested process or task has finished successfully.</li>
+</ul>
+<gcds-alert heading="Your changes have been saved" alert-role="success">
+  <p>You can always review your preferences in <a href="#">Settings</a>.</p>
+</gcds-alert>
+<h3 id="warning">Warning</h3>
+<p>Use the warning role to:</p>
+<ul class="list-disc mb-300"><li>Inform people about conditions that may affect their current task.</li>
+<li>Explain the potential consequences of continuing with an action.</li>
+</ul>
+<gcds-alert heading="Your password expires in 7 days" alert-role="warning">
+  <p>Change your password to keep access to your account.</p>
+</gcds-alert>
+<h3 id="danger">Danger</h3>
+<p>Use the danger role to:</p>
+<ul class="list-disc mb-300"><li>Communicate when an action could not be completed successfully.</li>
+<li>Explain a problem that’s preventing a person from completing their current task.</li>
+</ul>
+<gcds-alert heading="We could not verify your identity" alert-role="danger">
+  <p>Check your information and try again.</p>
+</gcds-alert>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
