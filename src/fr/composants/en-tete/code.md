@@ -112,6 +112,16 @@ Lorsqu'il est défini à `false`, la signature s'affiche sans lien.
 {% examplesContent "fr", "slot" %}
 {% endexamplesContent %}
 
+#### `account`
+
+L'emplacement `account` sert à ajouter un bouton de compte afin de refléter l’action liée au compte sous l'en-tête. Utilisez-le avec `gcds-button` pour inclure l’élément bouton, affichant le style du bouton de connexion contextuelle Canada.ca, pour des des actions comme « Se connecter » ou « Se déconnecter ». 
+
+{% examplesPreview "210" %}
+<gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  <gcds-button type="link" href="#" slot="account">Se connecter</gcds-button>
+</gcds-header>
+{% endexamplesPreview %}
+
 #### `banner`
 
 L'emplacement `banner` sert à ajouter une bannière en haut de l'en-tête. Utilisez-le pour afficher des alertes à l'échelle du site ou des messages promotionnels.
