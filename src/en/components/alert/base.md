@@ -8,9 +8,12 @@ tags: ['alertEN', 'header']
 
 # Alert <br>`<gcds-alert>`
 
-This component is coming soon.
+_Also called: message, inline message._
+
+The alert is an event-driven message that communicates contextual feedback without interrupting the current task.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% baseComponentPreview "Alert component preview" page.filePathStem %}
+{% endbaseComponentPreview %}
