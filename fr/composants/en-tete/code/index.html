@@ -3019,6 +3019,43 @@ Emplacements (slots)
 </gcds-heading>
 <gcds-text>L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.</gcds-text>
 </div></p>
+<h4 id="account"><code>account</code></h4>
+<p>L’emplacement <code>account</code> sert à ajouter un bouton sous l’en-tête afin de refléter une action liée au compte. Utilisez-le avec <code>gcds-button</code> pour inclure un élément bouton, affichant le style du bouton de connexion contextuel Canada.ca, pour des actions comme « Se connecter » ou « Se déconnecter ».</p>
+<p><div class="b-md shortcut-preview">
+<iframe
+            class="preview-iframe"
+            title="Component preview"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            frameborder="0"
+            width="100%"
+            height="210"
+            srcdoc="
+        <!DOCTYPE html>
+        <html lang=&quot;en&quot; dir=&quot;ltr&quot;>
+          <head>
+            <meta charset=&quot;utf-8&quot;>
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/gcds-css-shortcuts.min.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot;>
+            <link rel=&quot;stylesheet&quot; href=&quot;/components/dist/gcds/gcds.css&quot;>
+            <script type=&quot;module&quot; src=&quot;/components/dist/gcds/gcds.esm.js&quot;></script>
+          </head>
+          <body class=&quot; shortcut-preview examples-preview&quot;>
+            <div class=&quot;preview-demo p-300 d-grid gap-300&quot;>
+              <gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;><gcds-button type=&quot;link&quot; href=&quot;#&quot; slot=&quot;account&quot;>Se connecter</gcds-button></gcds-header>
+            </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
+          </body>
+        </html>
+      ">
+</iframe>
+<pre class=""><code class="language-html font-size-text-small">&lt;gcds-header lang-href=&quot;en-url-here&quot; skip-to-href=&quot;#id-main-content-here&quot;&gt;
+&lt;gcds-button type=&quot;link&quot; href=&quot;#&quot; slot=&quot;account&quot;&gt;Se connecter&lt;/gcds-button&gt;
+&lt;/gcds-header&gt;</code></pre>
+</div></p>
 <h4 id="banner"><code>banner</code></h4>
 <p>L'emplacement <code>banner</code> sert à ajouter une bannière en haut de l'en-tête. Utilisez-le pour afficher des alertes à l'échelle du site ou des messages promotionnels.</p>
 <p><div class="b-md shortcut-preview">
