@@ -53,7 +53,7 @@ These attributes allow you to customize or extend the component's behaviour and 
 
 Use `button-id` to set the `id` for a button.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button id="submit-ei-application">Submit</gcds-button>
 </CodePreview>
 
@@ -66,7 +66,7 @@ Use `button-role` to set the main style for a button. Choose from:
 - `danger`
 - `start`
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <gcds-button button-role="start">Start</gcds-button>
   <gcds-button>Submit</gcds-button>
   <gcds-button button-role="secondary">Cancel</gcds-button>
@@ -77,7 +77,7 @@ Use `button-role` to set the main style for a button. Choose from:
 
 Set `disabled` to `true` to make the button non-interactive. By default, `disabled` is set to `false`.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button button-role="danger" disabled>Delete</gcds-button>
 </CodePreview>
 
@@ -85,7 +85,7 @@ Set `disabled` to `true` to make the button non-interactive. By default, `disabl
 
 Use `name` to specify the name of the button when submitting form data. This attribute helps identify which button triggered a form submission, especially when multiple buttons exist in a form.
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <form action="..." method="post">
     <gcds-button button-role="secondary" name="save-draft" type="submit">Save draft</gcds-button>
     <gcds-button button-role="secondary" name="submit-application" type="submit">Submit application</gcds-button>
@@ -99,7 +99,7 @@ Use `size` to set the button size. Choose from:
 - `regular` (default)
 - `small`
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <gcds-button>Default size</gcds-button>
   <gcds-button size="small">Small size</gcds-button>
 </CodePreview>
@@ -113,7 +113,7 @@ Use `type` to define the button's function. Choose from:
 - `reset`
 - `submit`
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <gcds-button>Button</gcds-button>
   <gcds-button type="link">Link</gcds-button>
   <gcds-button type="reset">Reset</gcds-button>
@@ -124,7 +124,7 @@ Use `type` to define the button's function. Choose from:
 
 Use `value` to define the data sent to the server when the button submits a form. The button only sends this `value` if it has a `name` attribute and if it triggered the submission. If multiple submit buttons exist, only the clicked button sends its value.
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <form action="..." method="post">
     <gcds-button button-role="secondary" type="submit" name="applicationAction" value="save">Save draft</gcds-button>
     <gcds-button button-role="secondary" type="submit" name="applicationAction" value="submit">Submit application</gcds-button>
@@ -137,7 +137,7 @@ Use `download` to make the button download the file referenced by the `href` att
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="/files/application-receipt.pdf" download>Download receipt</gcds-button>
 </CodePreview>
 
@@ -147,7 +147,7 @@ Use `href` to define the destination of the link.
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html">View benefits information</gcds-button>
 </CodePreview>
 
@@ -157,7 +157,7 @@ Use `rel` to specify the relationship between the current document and the linke
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">View benefits information</gcds-button>
 </CodePreview>
 
@@ -167,7 +167,7 @@ Use `target` to specify where the linked resource opens: in the same browsing co
 
 **This attribute is only supported when the button `type` is set to `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">View benefits information</gcds-button>
 </CodePreview>
 
@@ -179,7 +179,7 @@ The default slot allows you to inject custom content into the component's primar
 
 Use the `default` slot to add the button or link label text.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button>Submit</gcds-button>
 </CodePreview>
 

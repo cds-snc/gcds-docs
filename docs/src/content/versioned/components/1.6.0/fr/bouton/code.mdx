@@ -54,7 +54,7 @@ Ces attributs vous permettent de personnaliser ou d’enrichir le comportement e
 
 Utilisez `button-id` pour préciser le `id` du bouton.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button id="submit-ei-application">Soumettre</gcds-button>
 </CodePreview>
 
@@ -67,7 +67,7 @@ Utilisez `button-role` pour définir le style principal d'un bouton. Choisissez 
 - `danger`
 - `start`
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <gcds-button button-role="start">Début</gcds-button>
   <gcds-button>Soumettre</gcds-button>
   <gcds-button button-role="secondary">Annuler</gcds-button>
@@ -78,7 +78,7 @@ Utilisez `button-role` pour définir le style principal d'un bouton. Choisissez 
 
 Définissez `disabled` à `true` pour rendre le bouton non interactif. Par défaut, `disabled` est défini à `false`.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button button-role="danger" disabled>Supprimer</gcds-button>
 </CodePreview>
 
@@ -86,7 +86,7 @@ Définissez `disabled` à `true` pour rendre le bouton non interactif. Par défa
 
 Utilisez `name` pour préciser le nom du bouton lors de l'envoi des données du formulaire. Cet attribut permet d'identifier quel bouton a déclenché l'envoi, notamment lorsque plusieurs boutons sont présents dans un formulaire.
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <form action="..." method="post">
     <gcds-button button-role="secondary" name="save-draft" type="submit">Enregistrer le brouillon</gcds-button>
     <gcds-button button-role="secondary" name="submit-application" type="submit">Soumettre le formulaire</gcds-button>
@@ -100,7 +100,7 @@ Utilisez `size` pour définir la taille du bouton. Choisissez parmi :
 - `regular` (par défaut)
 - `small`
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <gcds-button>Taille par défaut</gcds-button>
   <gcds-button size="small">Taille petite</gcds-button>
 </CodePreview>
@@ -114,7 +114,7 @@ Utilisez `type` pour définir la fonction du bouton. Choisissez parmi :
 - `reset`
 - `submit`
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <gcds-button>Bouton</gcds-button>
   <gcds-button type="link">Lien</gcds-button>
   <gcds-button type="reset">Réinitialiser</gcds-button>
@@ -125,7 +125,7 @@ Utilisez `type` pour définir la fonction du bouton. Choisissez parmi :
 
 Utilisez `value` pour définir les données envoyées au serveur lorsque le bouton sert à soumettre un formulaire. Le bouton ne transmet cette valeur que s'il a un attribut `name` et que c'est lui qui a déclenché la soumission. Si plusieurs boutons `submit` sont présents, seul le bouton sélectionné envoie sa valeur.
 
-<CodePreview stack>
+<CodePreview stack iframe>
   <form action="..." method="post">
     <gcds-button button-role="secondary" type="submit" name="applicationAction" value="save">Enregistrer le brouillon</gcds-button>
     <gcds-button button-role="secondary" type="submit" name="applicationAction" value="submit">Soumettre le formulaire</gcds-button>
@@ -138,7 +138,7 @@ Utilisez `download` pour faire en sorte que le bouton télécharge le fichier r�
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="/files/application-receipt.pdf" download>Télécharger le reçu</gcds-button>
 </CodePreview>
 
@@ -148,7 +148,7 @@ Utilisez `href` pour définir la destination du lien.
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html">Voir les prestations</gcds-button>
 </CodePreview>
 
@@ -158,7 +158,7 @@ Utilisez `rel` pour définir la relation entre le document actuel et le document
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">Voir les prestations</gcds-button>
 </CodePreview>
 
@@ -168,7 +168,7 @@ Utilisez `target` pour définir où s'ouvre le lien : dans le même contexte de
 
 **Cet attribut fonctionne uniquement lorsque le `type` du bouton est défini à `link`**.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button type="link" href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer">Voir les prestations</gcds-button>
 </CodePreview>
 
@@ -180,7 +180,7 @@ L’emplacement par défaut vous permet d’injecter du contenu personnalisé da
 
 Utilisez l'emplacement par défaut pour ajouter le texte du bouton ou du lien.
 
-<CodePreview>
+<CodePreview iframe>
   <gcds-button>Soumettre</gcds-button>
 </CodePreview>
 

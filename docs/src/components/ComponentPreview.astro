@@ -1,9 +1,12 @@
 ---
+import PreviewFrame from './PreviewFrame.astro';
+
 interface Props {
   label?: string;
   headingTag?: 'h2' | 'p';
   class?: string;
   demoClass?: string;
+  iframe?: boolean;
 }
 
 const {
@@ -11,6 +14,7 @@ const {
   headingTag = 'p',
   class: wrapperClass,
   demoClass,
+  iframe,
 } = Astro.props as Props;
 
 const Label = headingTag;
@@ -37,9 +41,15 @@ const demoHtml = Astro.slots.has('default')
 
 <div class={`component-preview b-sm b-default${wrapperClass ? ` ${wrapperClass}` : ''}`}>
   {label && <Label class={labelClass}>{label}</Label>}
-  <div class={demoClass}>
-    <Fragment set:html={demoHtml} />
-  </div>
+  {
+    iframe ? (
+      <PreviewFrame html={demoHtml} title={label} />
+    ) : (
+      <div class={demoClass}>
+        <Fragment set:html={demoHtml} />
+      </div>
+    )
+  }
 </div>
 
 <style>

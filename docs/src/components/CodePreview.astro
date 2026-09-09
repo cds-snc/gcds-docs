@@ -1,6 +1,7 @@
 ---
 import { Code } from 'astro:components';
 import prettier from 'prettier';
+import PreviewFrame from './PreviewFrame.astro';
 import './CodePreview.css';
 
 interface Props {
@@ -8,9 +9,10 @@ interface Props {
   demo?: string;
   demoClass?: string;
   stack?: boolean;
+  iframe?: boolean;
 }
 
-const { code, demo, demoClass, stack } = Astro.props as Props;
+const { code, demo, demoClass, stack, iframe } = Astro.props as Props;
 
 // Add preview classes into the first tag of the demo markup only.
 function withDemoClass(html: string, css?: string): string {
@@ -102,9 +104,15 @@ const demoHtml = demoSource !== undefined ? withDemoClass(demoSource, demoClass)
 ---
 
 <div class="preview-container">
-  <div class={`demo-container${stack ? ' stack' : ''}`}>
-    <Fragment set:html={demoHtml} />
-  </div>
+  {
+    iframe ? (
+      <PreviewFrame html={demoHtml} stack={stack} />
+    ) : (
+      <div class={`demo-container${stack ? ' stack' : ''}`}>
+        <Fragment set:html={demoHtml} />
+      </div>
+    )
+  }
   {codeSource !== undefined && <Code code={codeSource} lang="html" />}
 </div>
 
