@@ -132,7 +132,7 @@ It’s important to test with people with disabilities to make sure your digital
 
 <gcds-details details-title="Paid services">
 
-- <gcds-link external href="https://makeitfable.com/">Fable</gcds-link>
+- Usability testing with people who use assistive technology.
 
 </gcds-details>
 
