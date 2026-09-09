@@ -113,6 +113,16 @@ When it's set to `false`, a non-clickable signature is displayed.
 {% examplesContent "en", "slot" %}
 {% endexamplesContent %}
 
+#### `account`
+
+The `account` slot is for adding an account-related button below the header. Use this slot with a `gcds-button` to include a button element for actions like "Sign in" and "Sign out".
+
+{% examplesPreview "210" %}
+<gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+  <gcds-button type="link" href="#" slot="account">Sign in</gcds-button>
+</gcds-header>
+{% endexamplesPreview %}
+
 #### `banner`
 
 The `banner` slot is for adding a banner across the top of the header. Use this slot to display site-wide alerts or promotional messages.
