@@ -1,6 +1,6 @@
 ---
 import { defaultLocale, routes, supportedLocales, type Locale } from '../i18n/config';
-import { buildLocalizedRoutePath } from '../utils/i18n';
+import { buildLocalizedRoutePath, getPathParts } from '../utils/i18n';
 
 interface Props {
   currentLocale: Locale;
@@ -9,7 +9,17 @@ interface Props {
 
 const { currentLocale, routeKey } = Astro.props as Props;
 const otherLocale = supportedLocales.find((locale) => locale !== currentLocale) ?? defaultLocale;
-const href = buildLocalizedRoutePath(routeKey, otherLocale, routes);
+
+// Keep the design/code tab when toggling language (slugs are the same in both locales).
+const parts = getPathParts(Astro.url.pathname);
+const lastSegment = parts[parts.length - 1];
+const onComponentSection = parts[1] === routes.components[currentLocale];
+const tabSuffix =
+  onComponentSection && (lastSegment === 'design' || lastSegment === 'code')
+    ? `/${lastSegment}`
+    : '';
+
+const href = buildLocalizedRoutePath(routeKey, otherLocale, routes) + tabSuffix;
 ---
 
 <gcds-header
@@ -19,4 +29,3 @@ const href = buildLocalizedRoutePath(routeKey, otherLocale, routes);
 >
   <gcds-search slot="search"></gcds-search>
 </gcds-header>
-
