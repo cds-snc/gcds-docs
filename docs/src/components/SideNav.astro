@@ -11,12 +11,25 @@ const navConfig = buildSideNavConfig(Astro.url.pathname);
 // Highlight the active link and open the group that contains it.
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const normalize = (href: string) => href.replace(/\/+$/, '') || '/';
-const isCurrent = (href: string) => normalize(href) === currentPath;
 
 type NavGroupLike = {
   links: Array<{ href: string }>;
   subGroups?: Array<{ links: Array<{ href: string }> }>;
 };
+
+// Include sub-tab pages as active links
+const allHrefs = [
+  ...navConfig.links.map((link) => link.href),
+  ...navConfig.groups.flatMap((group) => [
+    ...group.links.map((link) => link.href),
+    ...(group.subGroups?.flatMap((sub) => sub.links.map((link) => link.href)) ?? []),
+  ]),
+];
+const bestMatch = allHrefs
+  .map(normalize)
+  .filter((base) => base === currentPath || currentPath.startsWith(`${base}/`))
+  .sort((a, b) => b.length - a.length)[0];
+const isCurrent = (href: string) => bestMatch !== undefined && normalize(href) === bestMatch;
 
 // A group is active if it (or any of its sub-groups) contains the current page.
 const groupIsActive = (group: NavGroupLike) => {

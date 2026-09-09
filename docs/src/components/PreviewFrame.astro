@@ -1,0 +1,71 @@
+---
+// Renders the demo in a srcdoc <iframe> so it's its own document. Keeps landmark
+// components (gcds-header, gcds-footer…) from duplicating the page's landmarks
+// and failing a11y checks.
+import { resolveLocaleFromPathname } from '../utils/i18n';
+
+interface Props {
+  html?: string;
+  title?: string;
+  stack?: boolean;
+}
+
+const { html = '', title = 'Component preview', stack } = Astro.props as Props;
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const wrapperClass = `preview-demo p-300${stack ? ' preview-stack' : ''}`;
+
+// Self-contained doc that loads the same gcds assets as the site.
+const srcdoc = `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/gcds/gcds-css-shortcuts.min.css"><link rel="stylesheet" href="/assets/gcds/gcds.css"><script type="module" src="/assets/gcds/gcds.esm.js"></script><style>body{margin:0}.preview-stack{display:grid;gap:var(--gcds-spacing-300);justify-items:start}.preview-stack form{display:grid;gap:var(--gcds-spacing-300);justify-items:start}</style></head><body><div class="${wrapperClass}">${html}</div></body></html>`;
+---
+
+<iframe
+  class="preview-frame"
+  title={title}
+  loading="lazy"
+  sandbox="allow-scripts allow-same-origin allow-forms"
+  srcdoc={srcdoc}></iframe>
+
+<style>
+  .preview-frame {
+    display: block;
+    width: 100%;
+    border: 0;
+    height: 120px;
+  }
+</style>
+
+<script>
+  // Size each iframe to its content.
+  const sizeFrame = (frame: HTMLIFrameElement) => {
+    try {
+      const doc = frame.contentDocument;
+      if (!doc?.body) return;
+      // Measure the wrapper, not scrollHeight (which is floored by the iframe's
+      // height), so short previews fit snugly.
+      const content = (doc.body.firstElementChild as HTMLElement) ?? doc.body;
+      frame.style.height = `${Math.ceil(content.getBoundingClientRect().height)}px`;
+    } catch {
+      /* cross-origin or not ready */
+    }
+  };
+
+  const setup = (frame: HTMLIFrameElement) => {
+    const onReady = () => {
+      sizeFrame(frame);
+      try {
+        new ResizeObserver(() => sizeFrame(frame)).observe(
+          frame.contentDocument!.body,
+        );
+      } catch {
+        /* ignore */
+      }
+      [150, 400, 1000].forEach((t) => setTimeout(() => sizeFrame(frame), t));
+    };
+    frame.addEventListener('load', onReady);
+    if (frame.contentDocument?.readyState === 'complete') onReady();
+  };
+
+  document
+    .querySelectorAll<HTMLIFrameElement>('iframe.preview-frame')
+    .forEach(setup);
+</script>

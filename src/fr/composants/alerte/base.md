@@ -6,11 +6,14 @@ permalink: false
 tags: ['alertFR', 'header']
 ---
 
-# Alert <br>`<gcds-alert>`
+# Alerte <br>`<gcds-alert>`
 
-Ce composant est en cours de développement.
+_Autres noms : message, message ciblé_
+
+L’alerte est un message déclenché par un événement qui communique une rétroaction contextuelle sans interrompre la tâche en cours.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% baseComponentPreview "Aperçu du composant de alerte" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -1,0 +1,143 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: "Bouton - Cas d'utilisation"
+componentName: Bouton
+tagName: '<gcds-button>'
+alsoCalled: appel à l’action
+description: Un bouton est un objet interactif qui met l’accent sur une action.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=8-2054&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button'
+version: 1.6.0
+previewLabel: Aperçu du composant de bouton
+dateModified: '2026-07-08T09:04:06-07:00'
+---
+
+import { ComponentPreview } from '~components';
+import { links } from '~i18n/links';
+
+Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent de résoudre votre problème. Sélectionnez ensuite le meilleur sous-type, appelé «&nbsp;rôle du bouton&nbsp;», pour le cas d'utilisation dont vous avez besoin.
+
+## Problèmes résolus par les boutons
+
+Utilisez un bouton pour lancer une action, comme :
+
+- Démarrer une tâche ou un flux de travail.
+- Soumettre, enregistrer ou supprimer des données de formulaire.
+- Faire un choix ou donner son consentement.
+- Se connecter à un compte.
+- Avancer ou reculer dans une séquence.
+
+<hr />
+
+## Composants connexes
+
+<a href={links.fr.link}>Liens</a> lorsque vous souhaitez naviguer vers une nouvelle page, un site web, un fichier ou une section de la page actuelle.
+
+<a href={links.fr.details}>Détails</a> lorsque vous souhaitez masquer ou afficher une section de contenu.
+
+<hr class="mt-600" />
+
+## Choisissez un type de bouton
+
+Le type de bouton change le HTML pour effectuer une tâche précise. Choisissez le type selon la fonction dont vous avez besoin.
+
+### Type «&nbsp;Bouton&nbsp;»
+
+Utilisez le type «&nbsp;Bouton&nbsp;» lorsque vous vous attendez à ce qu'une personne :
+
+- Supprime, copie ou télécharge des renseignements.
+- Choisisse entre deux options.
+- Donne son consentement ou son accord.
+
+### Type «&nbsp;Soumission&nbsp;»
+
+Utilisez le type «&nbsp;Soumission&nbsp;» lorsque vous vous attendez à ce qu'une personne :
+
+- Envoie un formulaire ou une requête.
+- Enregistre des renseignements.
+- Se connecte ou se déconnecte d'un compte.
+
+### Type «&nbsp;Réinitialisation&nbsp;»
+
+Utilisez le type «&nbsp;Réinitialisation&nbsp;» lorsque vous vous attendez à ce qu'une personne :
+
+- Supprime les données saisies dans un formulaire.
+
+Conseil : Utilisez le type «&nbsp;Réinitialisation&nbsp;» avec parcimonie, puisqu'il s'agit d'une action destructive.
+
+### Type «&nbsp;Lien&nbsp;»
+
+Utilisez le type «&nbsp;Lien&nbsp;» lorsque vous vous attendez à ce qu'une personne :
+
+- Se dirige vers une autre page.
+- Se dirige vers un site externe. Une icône de lien externe apparaît à la fin du lien.
+
+Remarque : Utilisez le <a href={links.fr.link}>composant lien</a> pour intégrer un lien dans le texte d'un paragraphe ou d'une barre de navigation.
+
+## Choisissez le rôle du bouton
+
+Le rôle d'un bouton modifie son apparence pour indiquer visuellement l'action qu'il déclenche. Choisissez le rôle qui correspond le mieux à cette action.
+
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Aperçu du bouton principal" class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="primary">Soumettre</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Bouton principal</h3>
+    <ul class="list-disc mb-300">
+      <li>Actions cruciales au sein d'un processus ou en tant que bouton par défaut.</li>
+      <li>À utiliser une seule fois par page.</li>
+    </ul>
+    <p>Remarque : Si une page comporte plusieurs appels à l'action principaux, il est difficile pour une personne de savoir quoi faire ensuite.</p>
+  </div>
+</gcds-grid>
+
+<br />
+
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Aperçu du Bouton de démarrage" class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="start">Bouton de démarrage</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Bouton de démarrage</h3>
+    <p>Anciennement le «&nbsp;bouton de super-tâche&nbsp;».</p>
+    <ul class="list-disc mb-300">
+      <li>Pour le début d'une tâche ou d'un flux de travail.</li>
+      <li>Plus grand que les autres boutons, donc à utiliser seul et non à côté d'autres boutons.</li>
+      <li>À utiliser une seule fois sur une page.</li>
+    </ul>
+    <p>Conseil : Utilisez soit un bouton principal, soit un bouton de démarrage sur une même page, mais pas les deux.</p>
+  </div>
+</gcds-grid>
+
+<br />
+
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Aperçu du bouton secondaire" class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="secondary">Annuler</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Bouton secondaire</h3>
+    <ul class="list-disc mb-300">
+      <li>Pour les actions secondaires.</li>
+      <li>Pour mettre en évidence une action commune et importante, mais non l'action la plus importante.</li>
+      <li>Peut être utilisé plus d'une fois sur une page s'il y a plusieurs options secondaires.</li>
+    </ul>
+  </div>
+</gcds-grid>
+
+<br />
+
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label={"Aperçu du bouton « Danger »"} class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="danger">Supprimer</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Bouton «&nbsp;Danger&nbsp;»</h3>
+    <ul class="list-disc mb-300">
+      <li>Pour les actions importantes comme supprimer, effacer ou retirer des renseignements.</li>
+      <li>Pour les changements qui peuvent être difficiles à annuler.</li>
+    </ul>
+    <p>Conseil : Pour les actions permanentes, demandez une seconde confirmation afin qu'une personne accepte explicitement l'action avant qu'elle ne soit effectuée.</p>
+  </div>
+</gcds-grid>
