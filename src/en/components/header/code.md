@@ -115,7 +115,7 @@ When it's set to `false`, a non-clickable signature is displayed.
 
 #### `account`
 
-The `account` slot is for adding an account-related button below the header. Use this slot with a `gcds-button` to include a button element for actions like "Sign in" and "Sign out".
+The `account` slot is for adding an account-related button below the header. Use this slot with a `gcds-button` to include a button element, styled as the Canada.ca contextual sign in button, for actions like "Sign in" and "Sign out".
 
 {% examplesPreview "210" %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
