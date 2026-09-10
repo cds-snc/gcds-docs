@@ -11,6 +11,10 @@ export const routes = {
     en: "components",
     fr: "composants",
     children: {
+      breadcrumbs: {
+        en: "breadcrumbs",
+        fr: "chemin-de-navigation",
+      },
       button: {
         en: "button",
         fr: "bouton",
