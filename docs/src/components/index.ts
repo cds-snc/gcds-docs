@@ -23,6 +23,7 @@ export { default as Tabs } from "./Tabs.astro";
 export { default as Testimonials } from "./Testimonials/Testimonials.astro"
 export { default as Text } from "./Text.astro";
 export { default as TokenTable } from "./TokenTable.astro";
+export { default as ValidationErrorMessage } from "./ValidationErrorMessage.astro";
 export { default as VersionSwitcher } from "./VersionSwitcher.astro";
 
 // CSS Shortcuts components (src/components/shortcuts)

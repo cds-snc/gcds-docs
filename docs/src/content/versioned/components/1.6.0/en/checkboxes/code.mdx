@@ -1,0 +1,241 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Checkboxes - Code
+componentName: Checkboxes
+tagName: '<gcds-checkboxes>'
+alsoCalled: checklist, check list
+description: Checkboxes provide a set of options for multiple responses.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-checkboxes'
+version: 1.6.0
+dateModified: '2026-06-10T11:22:28-07:00'
+---
+
+import { CodePreview, ValidationErrorMessage } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for checkboxes](#coding-and-accessibility-for-checkboxes)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for checkboxes
+
+### Apply required attributes
+
+Always use the following required attributes with `gcds-checkboxes`:
+
+- `name`
+- `options`
+
+### Use the `options` attribute
+
+- The `options` attribute uses an array of objects to render each checkbox.
+- Within each object in the `options` array, always use the object's required properties:
+  - `id`
+  - `label`
+- The rest of the properties are optional.
+
+Example:
+
+```javascript
+{
+  'id'!: '',
+  'label'!: '',
+  'value'?: '',
+  'checked'?: '',
+  'hint'?: '',
+}
+```
+
+### Set attributes based on number of checkboxes
+
+#### Single checkbox
+
+- Add a single object in the `options` attribute to render a single checkbox.
+- <gcds-link href={links.en.fieldset}>Fieldset</gcds-link> is removed from a single checkbox.
+
+#### Group of checkboxes
+
+- Add more than one object in the `options` attribute to render multiple checkboxes.
+- Use the `legend` attribute to render the <gcds-link href={links.en.fieldset}>fieldset</gcds-link>.
+
+### Use the `value` attribute
+
+- The `value` attribute provides a quick reference to the values checked inside the `gcds-checkboxes` component.
+- `value` is formatted as an array of strings.
+
+Example:
+
+```js
+[“checkboxOneValue”, checkboxTwoValue”]
+```
+
+### Add hint text
+
+Use the `hint` attribute to add hint text.
+
+### Hide the legend or labels
+
+- Visually hide the legend or label, while maintaining it for assistive technologies.
+  - Set the `hide-legend` attribute to true to visually hide the legend for checkbox groups.
+  - Set the `hide-label` attribute to true to visually hide the label for a single checkbox.
+- Avoid adding hint text if the legend and/or labels are hidden.
+
+{/* {% include "partials/error-message.njk", component: 'checkboxes' %} */}
+<ValidationErrorMessage component="checkboxes" />
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `legend`
+
+The `legend` attribute defines the legend for a group of checkboxes.
+
+<CodePreview>
+  <gcds-checkboxes legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `name`
+
+The `name` attribute identifies the checkboxes component within a form. It is used to reference the component after a form is submitted.
+
+<CodePreview iframe>
+  <gcds-checkboxes legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `options`
+
+The `options` attribute defines the checkboxes to render by taking an array of objects, one per checkbox.
+
+<CodePreview>
+  <gcds-checkboxes legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `autofocus`
+
+The `autofocus` attribute controls whether the first checkbox will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the checkbox is focused on render.
+
+<CodePreview>
+  <gcds-checkboxes autofocus legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `disabled`
+
+The `disabled` attribute controls whether the checkboxes are disabled or not. By default, it is set to `false`.
+
+<CodePreview>
+  <gcds-checkboxes disabled legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `error-message`
+
+The `error-message` attribute defines the error message to display for invalid checkboxes.
+
+<CodePreview>
+  <gcds-checkboxes error-message="Error message" legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `form`
+
+The `form` attribute specifies the ID of the form that the checkboxes belong to.
+
+<CodePreview>
+  <gcds-checkboxes form="form-id" legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `hide-label`
+
+The `hide-label` attribute controls whether the label is hidden or not.
+
+<CodePreview>
+  <gcds-checkboxes hide-label name="checkbox" options='[{ "label": "Label for checkbox 1", "id": "checkbox1", "value": "checkbox1"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `hide-legend`
+
+The `hide-legend` attribute controls whether the legend is hidden or not.
+
+<CodePreview>
+  <gcds-checkboxes hide-legend legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `hint`
+
+The `hint` attribute defines the hint text displayed under the label or legend.
+
+<CodePreview>
+  <gcds-checkboxes hint="Hint / Example message." legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `required`
+
+The `required` attribute controls whether the checkbox fieldset is required or not. When set to `true`, it adds “required” after the label or legend, and activates the required validator.
+
+<CodePreview>
+<gcds-checkboxes required legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+</gcds-checkboxes>
+</CodePreview>
+
+#### `validate-on`
+
+The `validate-on` attribute defines the validation event for the checkboxes.
+
+<CodePreview>
+  <gcds-checkboxes validate-on="other" required legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+#### `value`
+
+The `value` attribute contains an array of the values of all currently checked checkboxes. It updates as selections change.
+
+<CodePreview>
+  <gcds-checkboxes value='["check2"]' legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+  </gcds-checkboxes>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-checkboxes properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkboxes--events-properties&lang=en"
+  width="1200"
+  height="1950"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
