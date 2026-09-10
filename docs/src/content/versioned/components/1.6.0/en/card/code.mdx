@@ -1,0 +1,185 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Card - Code
+componentName: Card
+tagName: '<gcds-card>'
+alsoCalled: tile, content card
+description: A card is a navigational container with structured content on a single topic.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=5757-12701&mode=design&t=qwNFRgCKhnoUtRXO-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-card'
+version: 1.6.0
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for cards](#coding-and-accessibility-for-cards)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for cards
+
+### Write a scannable card title
+
+Use the `card-title` attribute to add a short and descriptive title to the card.
+
+### Select the correct heading level
+
+Set the `card-title-tag` to define the <a href="/en/components/heading/design/#order-heading-levels-hierarchically">correct heading level</a> for the card title. While the font size remains the same regardless of the tag, setting the correct heading level maintains proper hierarchy and accessibility for assistive technologies.
+
+### Add a `description` to provide more information
+
+To provide more information on the card's topic, add a description to the card:
+
+- Use the `description` attribute to provide a concise text description.
+- For a description with more complex formatting, like bold or italics text, use the card's default `slot`. **Avoid adding any interactive elements into the slot, as they ‌can cause accessibility issues. The card itself is already interactive and will take the person to the correct location.**
+
+### Use a `badge` to show the status or category of a card
+
+- Use the `badge` attribute to add a status or a category to the top left corner of the card.
+- Common examples of statuses include: "New", "Updated", "Coming soon" and "Featured".
+- Common examples of categories include: "videos", "articles", "reports".
+- The badges are customizable but are limited to 20 characters maximum.
+
+### Group multiple cards for visual consistency
+
+Organize cards within a <a href={links.en.grid}>grid component</a>:
+
+- For desktop screens, use either 2 or 3 cards per row.
+- For mobile screens, use 1 card per row.
+- Try to include the same properties for each card within a section on a page. For example, if one card has an image, then all cards get an image.
+
+### Use valid properties
+
+Component properties have built-in validation. Required properties or properties prone to misuse will be validated. If there are any validation errors, the component will be non-functional and won't render. Review the browser's console for details and adjust the properties accordingly to ensure proper functionality.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `card-title`
+
+The `card-title` attribute defines the title that appears on the card.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#"></gcds-card>
+</CodePreview>
+
+#### `href`
+
+The `href` attribute specifies the URL of the page the link goes to.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#"></gcds-card>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `badge`
+
+The `badge` attribute defines the badge text that appears in the top left corner of the card. The badge has a 20 character limit.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" badge="Tag" href="#"></gcds-card>
+</CodePreview>
+
+#### `card-title-tag`
+
+The `card-title-tag` attribute sets the HTML heading element for the title. This attribute does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies. The available options are:
+
+- `h3`
+- `h4`
+- `h5`
+- `h6`
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" card-title-tag="h3" href="#"></gcds-card>
+</CodePreview>
+
+#### `description`
+
+The `description` attribute defines the body of text that appears on the card.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#" description="Description or supporting text relating to the headline."></gcds-card>
+</CodePreview>
+
+#### `img-alt`
+
+The `img-alt` attribute defines the alt text for the image provided. If no img-alt is specified, the image will be decorative.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#" img-alt="The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections." img-src="/images/common/components/preview-card.svg"></gcds-card>
+</CodePreview>
+
+#### `img-src`
+
+The `img-src` attribute specifies the URL or file path of the image to display.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#" img-alt="The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections." img-src="/images/common/components/preview-card.svg"></gcds-card>
+</CodePreview>
+
+#### `rel`
+
+The `rel` attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#" rel="noopener noreferrer"></gcds-card>
+</CodePreview>
+
+#### `target`
+
+The target attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#" target="_blank"></gcds-card>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for adding description content to the card. It will overwrite the description attribute if it's used.
+
+<CodePreview iframe>
+  <gcds-card card-title="Card title link" href="#">
+    Description or supporting text relating to the headline.
+  </gcds-card>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-card properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-card--events-properties&lang=en"
+  width="1200"
+  height="1900"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
