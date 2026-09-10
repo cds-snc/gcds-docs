@@ -19,6 +19,10 @@ export const routes = {
         en: "button",
         fr: "bouton",
       },
+      container: {
+        en: "container",
+        fr: "conteneur",
+      },
     },
   },
   "start-to-use": {
