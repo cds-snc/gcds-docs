@@ -1,0 +1,88 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Date de modification - Code
+componentName: Date de modification
+tagName: '<gcds-date-modified>'
+alsoCalled: Dernière mise à jour, version
+description: La date de modification est un indicateur de la dernière mise à jour apportée à une page Web ou à une application.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-6634&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+previewLabel: Aperçu du composant de date de modification
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité de date de modification](#codage-et-accessibilite-de-date-de-modification)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité de date de modification
+
+### Veillez à l’uniformité du formatage
+
+- Utilisez le format de la date AAAA-MM-JJ sur toutes vos pages Web.
+- Si vous utilisez `type: version`, veillez à utiliser un format de numéro de version uniforme pour tous vos produits.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.
+
+#### `type`
+
+L'attribut `type` contrôle l'affichage des informations de date de modification. Par défaut, il est défini à `date`, ce qui affiche la date de dernière modification du contenu.
+
+<CodePreview iframe>
+  <gcds-date-modified>2023-01-26</gcds-date-modified>
+</CodePreview>
+
+Lorsqu'il est défini à `version`, le composant affiche un numéro de version à la place.
+
+<CodePreview iframe>
+  <gcds-date-modified type="version">v1.0.0</gcds-date-modified>
+</CodePreview>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter le texte de la date de modification ou de la version.
+
+<CodePreview iframe>
+  <gcds-date-modified>2023-01-26</gcds-date-modified>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-date-modified."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-modified--events-properties&lang=fr"
+  width="1200"
+  height="1100"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
