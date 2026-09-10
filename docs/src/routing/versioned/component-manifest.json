@@ -12,6 +12,13 @@
     {
       "type": "link",
       "versioned": true,
+      "label": {"en": "Alert", "fr": "Alerte"},
+      "slug": {"en": "alert", "fr": "alerte"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
       "label": {"en": "Breadcrumbs", "fr": "Chemin de navigation"},
       "slug": {"en": "breadcrumbs", "fr": "chemin-de-navigation"},
       "containsSubPages": true
