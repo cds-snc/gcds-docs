@@ -81,8 +81,8 @@ Le SNC offrira des services de soutien réactifs afin de surveiller les problèm
 
 La clientèle doit acheminer toute demande de soutien ou tout rapport de bogue à l’une des personnes suivantes :
 
-- Page <gcds-link href="https://design-system.canada.ca/fr/contactez" external>Nous contacter</gcds-link> sur le site Web de Système de design GC.
-- <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>New issue</gcds-link> (nouveau problème) dans le référentiel GitHub du SNC.
+- Page <gcds-link href="{{links.contact}}" external>Nous contacter</gcds-link> sur le site Web de Système de design GC.
+- <gcds-link href="{{links.githubCompsIssues}}" external>New issue</gcds-link> (nouveau problème) dans le référentiel GitHub du SNC.
 
 ### Délais de réponse pour le formulaire de contact du site Web
 
