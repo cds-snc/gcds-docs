@@ -15,7 +15,7 @@ const locale = resolveLocaleFromPathname(Astro.url.pathname);
 const wrapperClass = `preview-demo p-300${stack ? ' preview-stack' : ''}`;
 
 // Self-contained doc that loads the same gcds assets as the site.
-const srcdoc = `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/gcds/gcds-css-shortcuts.min.css"><link rel="stylesheet" href="/assets/gcds/gcds.css"><script type="module" src="/assets/gcds/gcds.esm.js"></script><style>body{margin:0}.preview-stack{display:grid;gap:var(--gcds-spacing-300);justify-items:start}.preview-stack form{display:grid;gap:var(--gcds-spacing-300);justify-items:start}</style></head><body><div class="${wrapperClass}">${html}</div></body></html>`;
+const srcdoc = `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/gcds/gcds-css-shortcuts.min.css"><link rel="stylesheet" href="/assets/gcds/gcds.css"><script type="module" src="/assets/gcds/gcds.esm.js"></script><style>body{margin:0}.preview-demo p{margin:0}.preview-stack{display:grid;gap:var(--gcds-spacing-300);justify-items:start}.preview-stack form{display:grid;gap:var(--gcds-spacing-300);justify-items:start}</style></head><body><div class="${wrapperClass}">${html}</div></body></html>`;
 ---
 
 <iframe

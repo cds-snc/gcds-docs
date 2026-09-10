@@ -1,0 +1,239 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Container - Code
+componentName: Container
+tagName: '<gcds-container>'
+alsoCalled: wrapper, box
+description: A container is a basic box layout with a set width for its contents.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=6660-15761&mode=design&t=yAHkop3p7GgECtHy-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-container'
+version: 1.6.0
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for containers](#coding-and-accessibility-for-containers)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for containers
+
+### Limit width of content
+
+- Keep text line length below 65 characters for a comfortable, accessible reading length.
+- Limit column width to stop large screens from displaying lines of text that are overly long and difficult to read.
+- Avoid exceeding the maximum width of 71.25rem (1140px) wide.
+
+### Add a container size
+
+The `size` property sets the size of the container. It comes in 6 sizes:
+
+| Size   | REM      | Pixels (Px) |
+| ------ | -------- | ----------- |
+| `full` | 100%     | 100%        |
+| `xl`   | 71.25rem | 1140px      |
+| `lg`   | 62rem    | 992px       |
+| `md`   | 48rem    | 768px       |
+| `sm`   | 30rem    | 480px       |
+| `xs`   | 20rem    | 320px       |
+
+<br />
+
+By default, the container size will be set to `full` which means it will take up the entire width of the parent container.
+
+### Align content with the page layout
+
+Use `layout="page"` to visually align page content with the <a href={links.en.header}>header</a> and <a href={links.en.footer}>footer</a>.
+
+When `layout` is set to `page`, the container:
+
+- Uses a maximum width of 71.25rem (1140px).
+- Is centred automatically within the viewport.
+- Switches to 90% width on smaller screens.
+- Matches the layout behaviour of the header and footer components.
+
+Using `layout="page"` ensures content maintains a consistent width, alignment, and reading experience across breakpoints. When `layout` is set to `page`, there is no need to define a container `size` or set `alignment`, as the page layout automatically controls width and alignment.
+
+### Position the container
+
+Use the `alignment` attribute to control how a container is positioned within its parent. It supports three options:
+
+- `start` - position the container horizontally to the start of the available space.
+- `center` - centres the container horizontally.
+- `end` - position the container horizontally to the end of the available space.
+
+**Note:** When the `layout` attribute is set to `page`, the `alignment` attribute is ignored, the page layout automatically manages width and centring.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `alignment`
+
+The `alignment` attribute sets how the container is positioned within its parent. This property is ignored when `layout` is set to `page`, as the `page` `layout` has higher priority. The available options are:
+
+- `center`
+- `end`
+- `start`
+
+<CodePreview
+  iframe
+  code={`<gcds-container alignment="center" size="sm" border padding="300">
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container alignment="center" size="sm" border padding="300">
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+#### `border`
+
+The `border` attribute controls whether the container has a border or not.
+
+<CodePreview
+  iframe
+  code={`<gcds-container border padding="300">
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container border padding="300">
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+#### `layout`
+
+The `layout` attribute sets how the container aligns with the page layout. The available options are:
+
+- `full`
+- `page`
+
+<CodePreview
+  iframe
+  code={`<gcds-container layout="full" border padding="300">
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container layout="full" border padding="300">
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+#### `margin`
+
+The `margin` attribute sets the container margin. Left and right margins are not applied if the container's alignment attribute is defined, since alignment has higher priority.
+
+<CodePreview
+  iframe
+  code={`<gcds-container margin="800" size="xs" border padding="300">
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container margin="800" size="xs" border padding="300">
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+#### `padding`
+
+The `padding` attribute sets the container's padding, which is the inner spacing between the container's border and its content.
+
+<CodePreview
+  iframe
+  code={`<gcds-container padding="600" border>
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container padding="600" border>
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+#### `size`
+
+The `size` attribute sets the width of the container. The available options are:
+
+- `full` (default)
+- `xl`
+- `lg`
+- `md`
+- `sm`
+- `xs`
+
+<CodePreview
+  iframe
+  code={`<gcds-container size="sm" border padding="300">
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container size="sm" border padding="300">
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+#### `tag`
+
+The `tag` attribute sets the HTML element used to render the container. By default, it is set to `div`.
+
+<CodePreview
+  iframe
+  code={`<gcds-container tag="section" border padding="300">
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container tag="section" border padding="300">
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for adding content inside the container.
+
+<CodePreview
+  iframe
+  code={`<gcds-container border padding="300">
+  <p>Container</p>
+</gcds-container>`}
+>
+  <gcds-container border padding="300">
+    <p>Container</p>
+  </gcds-container>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-container properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-container--events-properties&lang=en"
+  width="1200"
+  height="1500"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
