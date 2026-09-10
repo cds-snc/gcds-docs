@@ -10,8 +10,9 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>L'<strong>étiquette</strong> indique les renseignements que l'utilisateur doit saisir dans le champ.</li>
-  <li>Le <strong>texte explicatif</strong> précise les exigences spécifiques pour chaque zone de texte afin de favoriser la réussite de la tâche.</li>
+  <li>Le <strong>texte explicatif</strong> (facultatif) précise les exigences spécifiques pour chaque zone de texte afin de favoriser la réussite de la tâche.</li>
   <li>Le <strong>champ</strong> est le conteneur avec lequel l'utilisateur·rice interagit pour fournir sa réponse.</li>
+  <li>L’indicateur du <strong>nombre de caractères</strong> (facultatif) indique la limite de caractères pouvant être saisis dans la zone de texte.</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-textarea-anatomy.svg" alt="L'anatomie de la zone de texte identifiant l'étiquette, le message d'aide et le champ qui forme le composant" />
@@ -38,11 +39,15 @@ date: 'git Last Modified'
 - Dans les formulaires, évitez d’utiliser du texte fictif pour remplacer une étiquette ou pour transmettre des instructions ou des renseignements à retenir, car cela peut créer des problèmes d’accessibilité.
 - En dehors des formulaires, utilisez du texte fictif uniquement pour renforcer un objectif déjà clair selon le contexte visible (par exemple, dans les interfaces de recherche ou de conversation).
 
-
 ### Favorisez la réussite de la tâche en ajoutant du texte explicatif
 
 - Ajoutez du texte explicatif pour aider l'utilisateur·rice à fournir une valeur valide dans la zone de texte.
 - Rédigez un texte explicatif qui est instructif, court et précis.
+
+### Ajoutez un indicateur du nombre de caractères pour guider les attentes quant à la longueur du texte
+
+- Ajoutez un indicateur du nombre de caractères pour limiter le nombre de caractères pouvant être saisis dans la zone de texte.
+- L’indicateur du nombre de caractères indique le nombre de caractères restants au fur et à mesure de la saisie, ce qui permet de définir les attentes et d’aider les personnes à fournir le niveau de détail approprié.
 
 ### Écrivez des messages d'erreur pour les zones de texte obligatoires
 

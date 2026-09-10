@@ -19,6 +19,10 @@ export const routes = {
         en: "button",
         fr: "bouton",
       },
+      card: {
+        en: "card",
+        fr: "carte",
+      },
       container: {
         en: "container",
         fr: "conteneur",
