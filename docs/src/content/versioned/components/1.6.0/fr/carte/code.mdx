@@ -1,0 +1,186 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Carte - Code
+componentName: Carte
+tagName: '<gcds-card>'
+alsoCalled: tuile, carte de contenu
+description: Une carte est un conteneur présentant des renseignements structurés sur un sujet et permettant d'accéder au contenu associé.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-3396&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-card'
+version: 1.6.0
+previewLabel: Aperçu du composant de carte
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## Sur cette page
+
+- [Codage et accessibilité des cartes](#codage-et-accessibilite-des-cartes)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des cartes
+
+### Écrivez un titre facile à parcourir
+
+Utilisez l'attribut `card-title` pour ajouter un titre court et descriptif à la carte.
+
+### Sélectionnez le bon niveau de titre
+
+Utilisez `card-title-tag` pour définir <a href="/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique">le bon niveau</a> de titre pour la carte. La définition du niveau adapté pour le titre n'a pas d'incidence sur la taille de la police, mais elle permet de maintenir la bonne hiérarchie et l'accessibilité pour les technologies d'assistance.
+
+### Ajoutez une `description` pour fournir plus d'informations
+
+Ajoutez une description pour fournir plus d'informations sur le sujet de la carte:
+
+- Utilisez l'attribut `description` pour fournir une description textuelle concise.
+- Pour une description avec une mise en forme plus complexe, comme du texte en gras ou en italique, utilisez l'élément `slot` par défaut de la carte. **Évitez d'ajouter des éléments interactifs dans cet emplacement (slot), car ils peuvent entraîner des problèmes d'accessibilité. La carte elle-même est déjà interactive et dirigera la personne au bon endroit.**
+
+### Utilisez un `badge` pour afficher l'état ou la catégorie d'une carte
+
+- Utilisez l'attribut `badge` pour ajouter un état ou une catégorie dans le coin supérieur gauche de la carte.
+- Voici des exemples courants d'états : Nouveau, Mis à jour, Bientôt disponible, En vedette.
+- Voici des exemples courants de catégories : Vidéos, Articles, Rapports.
+- Les badges sont personnalisables mais sont limités à 20 caractères maximum.
+
+### Regroupez les cartes pour assurer une cohérence visuelle
+
+Organisez les cartes à l'aide du <a href={links.fr.grid}>composant de la grille</a>.
+
+- Pour les écrans d'ordinateurs, utilisez 2 ou 3 cartes par rangée.
+- Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.
+- Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.
+
+### Utilisez des propriétés valides
+
+Les propriétés du composant ont une validation intégrée. Les propriétés requises ou susceptibles d'être mal utilisées feront l'objet d'une validation. S'il y a des erreurs de validation, le composant ne fonctionnera pas et ne s'affichera pas. Consultez la console du navigateur pour plus de détails et ajustez les propriétés en conséquence pour que le rendu fonctionne correctement.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `card-title`
+
+L'attribut `card-title` définit le titre affiché sur la carte.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#"></gcds-card>
+</CodePreview>
+
+#### `href`
+
+L'attribut `href` précise l'URL de la page vers laquelle pointe le lien.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#"></gcds-card>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.
+
+#### `badge`
+
+L'attribut `badge` définit le texte du badge qui apparaît dans le coin supérieur gauche de la carte. Le badge est limité à 20 caractères.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" badge="Balise" href="#"></gcds-card>
+</CodePreview>
+
+#### `card-title-tag`
+
+L'attribut `card-title-tag` définit l'élément de titre HTML pour le titre de la carte. Cette propriété ne modifie pas la taille de la police. Utilisez-la pour assigner un niveau de titre approprié et maintenir la hiérarchie des titres et l'accessibilité. Les options sont :
+
+- `h3`
+- `h4`
+- `h5`
+- `h6`
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" card-title-tag="h3" href="#"></gcds-card>
+</CodePreview>
+
+#### `description`
+
+L'attribut `description` définit le texte qui apparaît sur la carte.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#" description="Description destinée à accompagner le titre."></gcds-card>
+</CodePreview>
+
+#### `img-alt`
+
+L'attribut `img-alt` définit le texte alternatif de l'image fournie. S'il n'est pas défini, l'image est considérée comme décorative.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#" img-alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées." img-src="/images/common/components/preview-card.svg"></gcds-card>
+</CodePreview>
+
+#### `img-src`
+
+L'attribut `img-src` définit l'URL ou le chemin d'accès de l'image à afficher.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#" img-alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées." img-src="/images/common/components/preview-card.svg"></gcds-card>
+</CodePreview>
+
+#### `rel`
+
+L'attribut `rel` définit la relation entre le document actuel et le document lié. Il est souvent utilisé pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#" rel="noopener noreferrer"></gcds-card>
+</CodePreview>
+
+#### `target`
+
+L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le lien dans le même contexte de navigation ou dans un nouvel onglet ou une nouvelle fenêtre.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#" target="_blank"></gcds-card>
+</CodePreview>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter du contenu descriptif à la carte. Il remplace l'attribut description s'il est utilisé.
+
+<CodePreview iframe>
+  <gcds-card card-title="Titre de la carte" href="#">
+    Description destinée à accompagner le titre.
+  </gcds-card>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-card."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-card--events-properties&lang=fr"
+  width="1200"
+  height="1900"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
