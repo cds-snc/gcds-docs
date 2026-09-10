@@ -1,0 +1,140 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Alerte - Code
+componentName: Alerte
+tagName: '<gcds-alert>'
+alsoCalled: message, message ciblé
+description: L'alerte est un message déclenché par un événement qui communique une rétroaction contextuelle sans interrompre la tâche en cours.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=887%3A2278&t=ciEmm7GYyGAY73zZ-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-alert'
+version: 1.6.0
+dateModified: '2026-09-09T09:04:06-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des alertes](#codage-et-accessibilite-des-alertes)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des alertes
+
+### Définissez le rôle de l’alerte
+
+Utilisez l’attribut `alert-role` pour définir le rôle de l’alerte comme information, succès, avertissement ou danger. Ce choix détermine l’apparence visuelle de l’alerte et communique aux personnes le degré d’importance ou d’urgence du message.
+
+### Définissez le titre de l’alerte
+
+Utilisez l’attribut `heading` pour créer un titre clair et informatif. Assurez-vous que le titre exprime clairement l’objectif du message.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `heading`
+
+Utilisez `heading` pour définir le titre de l’alerte.
+
+<CodePreview iframe>
+  <gcds-alert heading="Vous avez déjà une demande en cours">
+  </gcds-alert>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `alert-role`
+
+Utilisez `alert-role` pour définir le style de l’alerte. Choisissez l’une des valeurs suivantes :
+
+- `info`
+- `success`
+- `warning`
+- `danger`
+
+<CodePreview iframe>
+  <gcds-alert heading="Vos modifications ont été enregistrées" alert-role="success">
+  </gcds-alert>
+</CodePreview>
+
+#### `container`
+
+Utilisez `container` pour définir la largeur du conteneur pour le contenu de l’alerte.
+
+<CodePreview iframe>
+  <gcds-alert heading="Vous avez déjà une demande en cours" container="sm">
+  </gcds-alert>
+</CodePreview>
+
+#### `hide-close-btn`
+
+Définissez `hide-close-btn` à `true` pour masquer le bouton de fermeture. Par défaut, sa valeur est `false`, ce qui affiche le bouton de fermeture.
+
+<CodePreview iframe>
+  <gcds-alert heading="Vous avez déjà une demande en cours" hide-close-btn>
+  </gcds-alert>
+</CodePreview>
+
+#### `hide-role-icon`
+
+Définissez `hide-role-icon` à `true` pour masquer l’icône associée au rôle de l’alerte. Par défaut, sa valeur est `false`, ce qui affiche l’icône.
+
+<CodePreview iframe>
+  <gcds-alert heading="Vous avez déjà une demande en cours" hide-role-icon>
+  </gcds-alert>
+</CodePreview>
+
+#### `is-fixed`
+
+Définissez `is-fixed` à `true` pour fixer l’alerte en haut de la page. Par défaut, sa valeur est `false`.
+
+<CodePreview iframe>
+  <gcds-alert heading="Vous avez déjà une demande en cours" is-fixed>
+  </gcds-alert>
+</CodePreview>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+### `default`
+
+Utilisez l’emplacement par défaut pour ajouter tout type de contenu au message de l’alerte, comme du texte, des liens ou des boutons.
+
+<CodePreview iframe>
+  <gcds-alert heading="Vous avez déjà une demande en cours">
+    <p>Message.</p>
+  </gcds-alert>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque:** Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-alert."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-alert--events-properties&lang=fr"
+  width="1200"
+  height="1500"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

@@ -1,0 +1,52 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Cases à cocher - Cas d'utilisation
+componentName: Cases à cocher
+tagName: '<gcds-checkboxes>'
+alsoCalled: liste de contrôle, liste de vérification
+description: Les cases à cocher offrent un ensemble d'options pour les réponses multiples.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-checkboxes'
+version: 1.6.0
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import { links } from '~i18n/links';
+import anatomy from './assets/gcds-checkboxes-anatomy.svg';
+
+## Checkboxes anatomy
+
+<AnatomyList>
+  <li>La <strong>légende pour les cases à cocher</strong> agit comme un titre pour identifier les cases à cocher groupées. Le texte de la légende est aligné à gauche avec la première lettre en majuscule. (Ne s'applique que lorsqu'il y a plusieurs options parmi lesquelles choisir.)</li>
+  <li>Le <strong>texte explicatif pour les cases à cocher</strong> donne des exigences spécifiques pour remplir les cases à cocher avec succès. (Ne s'applique que lorsqu'il y a plusieurs options parmi lesquelles choisir.)</li>
+  <li>La <strong>case à cocher</strong> permet aux gens de choisir ou de désactiver une option.</li>
+  <li>La <strong>cochée</strong> est un repère visuel qui indique qu'une option est sélectionnée.</li>
+  <li>L'<strong>étiquette de l'option</strong> nomme ou décrit l'option.</li>
+  <li>Le <strong>texte explicatif de l'option</strong> donne plus de renseignements sur l'option correspondante.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Structure des cases à cocher montrant les étiquettes « légende » en haut et « texte explicatif » en dessous. Plus bas, il y a deux cases à cocher avec leurs libellés à côté et un texte explicatif. Une des cases est cochée."
+/>
+
+### Offrir des choix clairs
+
+- Limitez le nombre d'options à 7.
+- Limitez le texte de chaque option à quelques mots ou à une phrase courte. Incluez du texte explicatif s'il faut du contexte additionnel.
+- Ordonnez les options de manière logique. Par exemple, par ordre alphabétique ou du plus au moins commun.
+
+### Fournir des instructions claires
+
+- Ne supposez pas qu'une personne saura comment utiliser une case à cocher.
+- Utilisez le texte explicatif pour indiquer que plusieurs sélections sont possibles. Par exemple, «&nbsp;cochez toutes les cases qui s'appliquent&nbsp;».
+- Évitez de présélectionner une case à cocher. Cela augmente les risques que les utilisateur·rice·s sautent une question ou soumettent une mauvaise réponse.
+
+### Masquer la légende ou les étiquettes seulement lorsque le but est clair
+
+- Masquez visuellement la légende ou les étiquettes uniquement lorsque le but des cases à cocher est clairement communiqué par le contexte, rendant l’étiquette visuellement redondante, comme dans les cas suivants&nbsp;:
+  - tableaux ou autres mises en page où l’espace est limité;
+  - paramètres et configurations.
+- Fournissez toujours une légende et des étiquettes pour soutenir les technologies d’assistance.
+- N’ajoutez pas de texte explicatif si vous masquez la légende, puisque celui-ci manque alors de contexte et peut distraire ou prêter à confusion.
