@@ -215,6 +215,13 @@
     {
       "type": "link",
       "versioned": true,
+      "label": {"en": "Table", "fr": "Tableau"},
+      "slug": {"en": "table", "fr": "tableau"},
+      "containsSubPages": true
+    },
+    {
+      "type": "link",
+      "versioned": true,
       "label": {"en": "Text", "fr": "Texte"},
       "slug": {"en": "text", "fr": "texte"},
       "containsSubPages": true
