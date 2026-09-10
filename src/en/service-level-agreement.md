@@ -69,10 +69,6 @@ This uptime guarantee excludes any downtime experienced by Amazon or other infra
 
 ### Service contacts
 
-Clients should direct all support requests or bug reports to either of the following: 
-- <gcds-link href="{{links.contact}}" external>Contact us</gcds-link> page on the GC Design System website.
-- <gcds-link href="{{links.githubCompsIssues}}" external>New issues</gcds-link> on the CDS Github repo. 
-
 ### Service availability
 
 | Issue                                                         | Initial response                       | Ongoing updates     |
