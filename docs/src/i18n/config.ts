@@ -11,6 +11,10 @@ export const routes = {
     en: "components",
     fr: "composants",
     children: {
+      alert: {
+        en: "alert",
+        fr: "alerte",
+      },
       breadcrumbs: {
         en: "breadcrumbs",
         fr: "chemin-de-navigation",
@@ -23,10 +27,131 @@ export const routes = {
         en: "card",
         fr: "carte",
       },
+      checkboxes: {
+        en: "checkboxes",
+        fr: "cases-a-cocher",
+      },
       container: {
         en: "container",
         fr: "conteneur",
       },
+      "date-input": {
+        en: "date-input",
+        fr: "champ-de-date",
+      },
+      "date-modified": {
+        en: "date-modified",
+        fr: "date-de-modification",
+      },
+      "details": {
+        en: "details",
+        fr: "details",
+      },
+      "error-message": {
+        en: "error-message",
+        fr: "message-derreur",
+      },
+      "error-summary": {
+        en: "error-summary",
+        fr: "resume-des-erreurs",
+      },
+      fieldset: {
+        en: "fieldset",
+        fr: "jeu-de-champs",
+      },
+      "file-uploader": {
+        en: "file-uploader",
+        fr: "televerseur-de-fichiers",
+      },
+      footer: {
+        en: "footer",
+        fr: "pied-de-page",
+      },
+      grid: {
+        en: "grid",
+        fr: "grille",
+      },
+      header: {
+        en: "header",
+        fr: "en-tete",
+      },
+      heading: {
+        en: "heading",
+        fr: "titre",
+      },
+      icon: {
+        en: "icon",
+        fr: "icone",
+      },
+      input: {
+        en: "input",
+        fr: "champ-de-saisie",
+      },
+      "language-toggle": {
+        en: "language-toggle",
+        fr: "bascule-de-langue",
+      },
+      link: {
+        en: "link",
+        fr: "lien",
+      },
+      notice: {
+        en: "notice",
+        fr: "avis",
+      },
+      pagination: {
+        en: "pagination",
+        fr: "pagination",
+      },
+      radios: {
+        en: "radios",
+        fr: "boutons-radio",
+      },
+      "screenreader-only": {
+        en: "screenreader-only",
+        fr: "masquage-accessible",
+      },
+      search: {
+        en: "search",
+        fr: "recherche",
+      },
+      select: {
+        en: "select",
+        fr: "selection",
+      },
+      "side-navigation": {
+        en: "side-navigation",
+        fr: "barre-de-navigation-laterale",
+      },
+      signature: {
+        en: "signature",
+        fr: "signature",
+      },
+      stepper: {
+        en: "stepper",
+        fr: "indicateur-detape",
+      },
+      table: {
+        en: "table",
+        fr: "tableau",
+      },
+      text: {
+        en: "text",
+        fr: "texte",
+      },
+      textarea: {
+        en: "textarea",
+        fr: "zone-de-texte",
+      },
+      "theme-and-topic-menu": {
+        en: "theme-and-topic-menu",
+        fr: "menu-thematique",
+      },
+      "top-navigation": {
+        en: "top-navigation",
+        fr: "barre-de-navigation-superieure",
+      },
+
     },
   },
   "start-to-use": {
