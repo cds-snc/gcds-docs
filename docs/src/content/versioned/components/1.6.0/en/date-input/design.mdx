@@ -1,0 +1,47 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Date input - Design
+componentName: Date input
+tagName: '<gcds-date-input>'
+alsoCalled: dates, dateinput, date, memorable date
+description: A date input is a space to enter a known date.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-input'
+version: 1.6.0
+dateModified: '2026-05-25T08:30:09-07:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import { links } from '~i18n/links';
+import anatomy from './assets/gcds-date-input-anatomy.svg';
+
+## Date input anatomy
+
+<AnatomyList>
+  <li>The <strong>fieldset legend</strong> states the information a person should enter in the date input field. Text is left-aligned and in sentence case (only the initial letter is capitalized). For the date input component, the fieldset is typically labelled as "date" or with the specific date type sought. The hint text shows the format of the date.</li>
+  <li>The <strong>month label</strong> identifies the month field.</li>
+  <li>The <strong>month input</strong> field can be a dropdown of written months to select from, or an input to enter 1-2 digits.</li>
+  <li>The <strong>day label</strong> identifies the day input.</li>
+  <li>The <strong>day input</strong> field can be 1 or 2 digits.</li>
+  <li>The <strong>year label</strong> identifies the year input field.</li>
+  <li>The <strong>year input</strong> field is limited to 4 digits.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="A date input anatomy represented by 6 elements: the fieldset legend, the month label, the month select field, the day label, the day input field, the year label, and the year input field."
+/>
+
+## Design and accessibility for date inputs
+
+### Select a format that assists with data entry
+
+Use a format that matches the format of the information you're asking for. For example, if you are asking for a birth date from a health card, use the Y/M/D format.
+
+### Support task success with hint text
+
+Use the hint text in the fieldset legend to help a person understand the format they can use to enter the date. For example, showing a single digit number without a leading zero, like September 7, rather than September 07 shows that a leading zero is not needed.
+
+### Write specific error messages
+
+Write error messages for each field of the date input. Error messages must provide information on what is missing or on incorrect formatting. For example, if the year was input using 2 digits, state that the year should be 4 digits.

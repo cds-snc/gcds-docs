@@ -1,0 +1,30 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Select - Use case
+componentName: Select
+tagName: '<gcds-select>'
+alsoCalled: dropdown, select menu
+description: A select provides a large list of options for single selection.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-select'
+version: 1.6.0
+dateModified: '2025-06-24T10:09:45-08:00'
+---
+
+import { links } from '~i18n/links';
+
+## Problems select solves
+
+Use select within a form to:
+
+- Specify more than 7 possible answers in a predefined scrollable list.
+- Limit the number of possible answers to a question.
+- Give a person the ability to answer without writing, by selecting one item from a list.
+
+<hr/>
+
+## Related components
+
+<a href={links.en.checkboxes}>Checkboxes</a> when you are expecting the user to select 1 or more options from a list of items.
+
+<a href={links.en.radios}>Radios</a> when you can give someone a small set of options for a known single selection with less than 7 options.

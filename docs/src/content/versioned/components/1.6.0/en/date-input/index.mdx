@@ -1,0 +1,54 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Date input - Use case
+componentName: Date input
+tagName: '<gcds-date-input>'
+alsoCalled: dates, dateinput, date, memorable date
+description: A date input is a space to enter a known date.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-input'
+version: 1.6.0
+dateModified: '2026-05-25T08:30:09-07:00'
+---
+
+import { links } from '~i18n/links';
+
+## Problems date inputs solves
+
+Take a look at what date inputs do to see if they fit the problem you're solving for. Then select the best date input type for the use case you need to meet.
+
+Use a date input to gather a date from a person when you're expecting them to write:
+- A date they already know, like their date of birth.
+- A date they can easily find, like a health card expiry date.
+- A specific date, like the date they moved to a new home.
+- A date that doesn’t include the specific day of the week.
+- Avoid using a date input for the selection of an unknown date. Use a date picker instead.
+
+<hr/>
+
+## Related components
+
+  <a href={links.en.input}>Input</a> when you want someone to input only a year or only a day of the month.
+
+  <a href={links.en.select}>Select</a> when you want someone to input only a month.
+
+  Date picker when you want someone to choose a not-yet-known date, like for appointment scheduling.
+
+<hr class="mt-600"/>
+
+## Component formats
+
+### Month, day, year (English only)
+- A specific date the person will know or can easily find.
+- Used in English for written dates.
+
+### Day, month, year (French only)
+- A specific date the person will know or can easily find.
+- Used in French for written dates.
+
+### Year, month, day
+- A specific date the person will know or can easily find.
+- Used internationally for numeric dates.
+
+### Month, year 
+- For an approximate date.

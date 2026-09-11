@@ -1,15 +1,15 @@
 ---
 const { component } = Astro.props;
-import { Heading, Text } from '~components'
+import { Heading } from '~components'
 import { defaultLocale } from '~i18n/config';
-import { getLocalizedRecord, resolveLocaleFromPathname } from '../utils/i18n';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
 
 import { links } from '~i18n/links';
 
 const i18n = {
   en: {
     heading: 'Add validation and error messages',
-    use: `Use the \`required\` attribute to activate the <gcds-link href="${links.en.formValidation}#builtin-validation-and-error-messages">built-in error messages and validation</gcds-link> for ${component}.`,
+    use: `Use the <code>required</code> attribute to activate the <gcds-link href="${links.en.formValidation}#builtin-validation-and-error-messages">built-in error messages and validation</gcds-link> for ${component}.`,
     fields:
       'Fields with specific input requirements will validate if the entry is invalid, even if it is not required.',
     optional:
@@ -17,7 +17,7 @@ const i18n = {
   },
   fr: {
     heading: "Ajouter la validation et les messages d'erreur",
-    use: `Utilisez l\'attribut \`required\` pour activer <gcds-link href="${links.fr.formValidation}#builtin-validation-and-error-messages">la validation et les messages d\'erreur intégrés</gcds-link> pour ${component}.`,
+    use: `Utilisez l\'attribut <code>required</code> pour activer <gcds-link href="${links.fr.formValidation}#builtin-validation-and-error-messages">la validation et les messages d\'erreur intégrés</gcds-link> pour ${component}.`,
     fields:
       "Les champs comportant des exigences de saisie spécifiques feront l'objet d'une validation, même s'ils ne sont pas obligatoires.",
     optional:
