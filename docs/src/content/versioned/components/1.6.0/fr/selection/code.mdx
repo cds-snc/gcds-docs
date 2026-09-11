@@ -1,0 +1,263 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Sélection - Code
+componentName: Sélection
+tagName: '<gcds-select>'
+alsoCalled: menu déroulant, menu de sélection
+description: Une sélection présente une longue liste d’options parmi lesquelles un seul choix est fait.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-select'
+version: 1.6.0
+previewLabel: Aperçu du composant de sélection
+dateModified: '2026-02-12T08:30:09-07:00'
+---
+
+import { links } from '~i18n/links';
+import { CodePreview, ValidationErrorMessage, ValidProps, Hint, HideTheLabel } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité de la sélection](#codage-et-accessibilite-de-la-selection)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité de la sélection
+
+### Appliquez les attributs essentiels
+
+Utilisez toujours les attributs essentiels suivants avec `gcds-select` :
+
+- `name`
+- `label`
+- `select-id`
+
+### Définir la valeur par défaut
+
+Utilisez l'attribut `default-value` pour configurer la première option dans la liste de sélection. Cela empêche la présélection d'une option.
+
+<Hint />
+
+<HideTheLabel />
+
+<ValidationErrorMessage component="la sélection" />
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `label`
+
+L'attribut `label` définit le libellé du composant de sélection.
+
+<CodePreview iframe>
+  <gcds-select select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `name`
+
+L'attribut `name` identifie le composant dans le formulaire. Il permet de récupérer la valeur sélectionnée après la soumission.
+
+<CodePreview iframe>
+  <gcds-select select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `select-id`
+
+L'attribut `select-id` définit l'identifiant unique du composant de sélection.
+
+<CodePreview iframe>
+  <gcds-select select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `autocomplete`
+
+L'attribut `autocomplete` contrôle si le navigateur peut suggérer des valeurs précédemment saisies pour le composant de sélection.
+
+<CodePreview iframe>
+  <gcds-select autocomplete="on" select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `autofocus`
+
+L'attribut `autofocus` contrôle si le composant de sélection est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le composant de sélection est ciblé à l'affichage.
+
+<CodePreview iframe>
+  <gcds-select autofocus select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `default-value`
+
+L'attribut `default-value` définit une valeur facultative affichée avant que l'utilisateur sélectionne une option.
+
+<CodePreview iframe>
+  <gcds-select select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `disabled`
+
+L'attribut `disabled` contrôle si le composant de sélection est désactivé ou non. Par défaut, il est défini à `false`.
+
+<CodePreview iframe>
+  <gcds-select disabled select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `error-message`
+
+L'attribut `error-message` définit le message d'erreur à afficher pour une sélection invalide.
+
+<CodePreview iframe>
+  <gcds-select error-message="Message d'erreur" select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `form`
+
+L'attribut `form` définit l'identifiant du formulaire auquel appartient le composant de sélection.
+
+<CodePreview iframe>
+  <gcds-select form="form-id" select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `hide-label`
+
+L'attribut `hide-label` contrôle si le libellé est masqué ou non.
+
+<CodePreview iframe>
+  <gcds-select hide-label select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `hint`
+
+L'attribut `hint` définit le texte explicatif affiché sous le libellé.
+
+<CodePreview iframe>
+  <gcds-select hint="Texte explicatif / Exemple de message." select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `required`
+
+L'attribut `required` contrôle si la sélection est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après le libellé, et active le validateur de champ obligatoire.
+
+<CodePreview iframe>
+  <gcds-select required select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `validate-on`
+
+L'attribut `validate-on` définit l'événement de validation pour le composant de sélection.
+
+<CodePreview iframe>
+  <gcds-select validate-on="other" required select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+#### `value`
+
+L'attribut `value` contient la valeur de l'option actuellement sélectionnée. Il se met à jour à chaque changement de sélection.
+
+<CodePreview iframe>
+  <gcds-select value="2" select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </gcds-select>
+</CodePreview>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter des options et des groupes d'options.
+
+<CodePreview iframe>
+  <gcds-select select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+</gcds-select>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque:** Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-select."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-select--events-properties&lang=fr"
+  width="1200"
+  height="2200"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
