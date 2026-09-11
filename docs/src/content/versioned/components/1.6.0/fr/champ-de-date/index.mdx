@@ -1,0 +1,55 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Champ de date - Cas d'utilisation
+componentName: Champ de date
+tagName: '<gcds-date-input>'
+alsoCalled: date, zone de date, date connue
+description: Le champ de date est un espace permettant de saisir une date connue.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-input'
+version: 1.6.0
+previewLabel: Aperçu du composant de champ de date
+dateModified: '2026-05-25T08:30:09-07:00'
+---
+
+import { links } from '~i18n/links';
+
+## Problèmes résolus par les champs de date
+
+Examinez ce que font les champs de date pour déterminer s’ils permettent de résoudre votre problème. Sélectionnez ensuite le type de champ de date le plus approprié à votre cas de figure.
+
+Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une personne :
+- Une date qu’elle connaît déjà, comme sa date de naissance.
+- Une date qu’elle peut facilement trouver, comme une date d’expiration de carte d’assurance maladie.
+- Une date précise, comme la date à laquelle elle a déménagé dans une nouvelle maison.
+- Une date qui n’inclut pas le jour précis de la semaine.
+- Évitez d’utiliser un champ de date si la date n’est pas connue de la personne. Utilisez alors un sélecteur de date.
+
+<hr/>
+
+## Composants connexes
+
+<a href={links.fr.input}>Champs de saisie</a> : lorsque vous voulez que la personne saisisse seulement une année ou un jour du mois.
+
+<a href={links.fr.select}>Sélection</a> : lorsque vous voulez que la personne saisisse seulement un mois.
+
+Sélecteur de date : lorsque vous voulez que la personne choisisse une date qui n’est pas encore connue, par exemple pour planifier un rendez-vous.
+
+<hr class="mt-600" />
+
+## Formats du composant
+
+### Mois, Jour, Année (anglais seulement)
+- Une date précise que la personne connaît ou peut facilement trouver.
+- Utilisé en anglais pour les dates écrites au long.
+
+### Jour, Mois, Année (français seulement)
+- Une date précise que la personne connaît ou peut facilement trouver.
+- Utilisé en français pour les dates écrites au long.
+
+### Année, Mois, Jour
+- Une date précise que la personne connaît ou peut facilement trouver.
+- Utilisé sur le plan international pour les dates au format numérique.
+
+### Mois, Année
+- Une date approximative.
