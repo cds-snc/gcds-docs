@@ -1,0 +1,321 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Champ de saisie - Code
+componentName: Champ de saisie
+tagName: '<gcds-input>'
+alsoCalled: saisie de texte, zone d'entrée
+description: Un champ de saisie est un espace permettant de saisir une courte réponse à une question ou à une directive.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-input'
+version: 1.6.0
+previewLabel: Aperçu du composant de champ de saisie
+dateModified: '2026-06-10T08:30:09-07:00'
+---
+
+import { links } from '~i18n/links';
+import { CodePreview, ValidationErrorMessage, ValidProps, Hint, HideTheLabel } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des champs de saisie](#codage-et-accessibilite-des-champs-de-saisie)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des champs de saisie
+
+### Appliquez les attributs essentiels
+
+Utilisez toujours les attributs essentiels suivants avec `gcds-input` :
+
+- `name`
+- `label`
+- `input-id`
+
+### Adapter la taille du champ à la réponse
+
+- Pour les réponses d’une longueur précise, définissez l’attribut `size`.
+  - Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.
+  - Taille "50" = 50 caractères.
+- Pour les réponses sans longueur précise, ajustez le champ pour qu’il prenne environ 90 % de la taille du conteneur.
+  - Utilisez un maximum de 75 caractères pour les réponses sans longueur fixe.
+- Utilisez le composant <gcds-link href={links.fr.textarea}>zone de texte</gcds-link> pour les réponses nécessitant plus de 75 caractères.
+
+### Afficher un clavier numérique sur mobile
+
+- Utilisez `inputmode=”numeric”` avec `type=”text”` pour les nombres non incrémentiels, comme les numéros de compte, les numéros de carte de crédit ou les codes d’authentification. 
+- Le clavier numérique s’ouvrira sur les appareils mobiles.
+- Cela ne change pas la façon dont la valeur est validée.
+
+<Hint />
+
+<HideTheLabel />
+
+<ValidationErrorMessage component="le champ de saisie" />
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+#### `input-id`
+
+L'attribut `input-id` définit l'identifiant unique du champ de saisie.
+
+<CodePreview iframe>
+  <gcds-input input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `label`
+
+L'attribut `label` définit l'étiquette du champ de saisie.
+
+<CodePreview iframe>
+  <gcds-input input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `name`
+
+L'attribut `name` identifie le champ de saisie dans le formulaire. Il permet de récupérer la valeur saisie après la soumission.
+
+<CodePreview iframe>
+  <gcds-input input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `autocomplete`
+
+L'attribut `autocomplete` contrôle si le navigateur peut suggérer des valeurs précédemment saisies pour le champ.
+
+<CodePreview iframe>
+  <gcds-input autocomplete="given-name" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `autofocus`
+
+L'attribut `autofocus` contrôle si le champ de saisie est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le champ est ciblé à l'affichage.
+
+<CodePreview iframe>
+  <gcds-input autofocus input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `disabled`
+
+L'attribut `disabled` contrôle si le champ de saisie est désactivé ou non. Par défaut, il est défini à `false`.
+
+<CodePreview iframe>
+  <gcds-input disabled input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `error-message`
+
+L'attribut `error-message` définit le message d'erreur à afficher pour un champ invalide.
+
+<CodePreview iframe>
+  <gcds-input error-message="Message d'erreur" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `form`
+
+L'attribut `form` définit l'identifiant du formulaire auquel appartient le champ de saisie.
+
+<CodePreview iframe>
+  <gcds-input form="form-id" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `hide-label`
+
+L'attribut `hide-label` contrôle si l'étiquette est masquée ou non.
+
+<CodePreview iframe>
+  <gcds-input hide-label input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `hint`
+
+L'attribut `hint` définit le texte explicatif affiché sous l'étiquette.
+
+<CodePreview iframe>
+  <gcds-input hint="Texte explicatif / Exemple de message." input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `inputmode`
+
+L'attribut `inputmode` définit l'apparence du clavier virtuel sur les appareils mobiles. Les options sont :
+
+- `decimal`
+- `email`
+- `none`
+- `numeric`
+- `search`
+- `tel`
+- `text`
+- `url`
+
+<CodePreview iframe>
+  <gcds-input inputmode="numeric" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `max`
+
+L'attribut `max` définit la valeur maximale acceptée par le champ. Il s'applique uniquement au type de saisie numérique.
+
+<CodePreview iframe>
+  <gcds-input max="100" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `maxlength`
+
+L'attribut `maxlength` définit le nombre maximum de caractères acceptés par le champ de saisie.
+
+<CodePreview iframe>
+  <gcds-input maxlength="10" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `min`
+
+L'attribut `min` définit la valeur minimale acceptée par le champ de saisie. Il s'applique uniquement au type de saisie numérique.
+
+<CodePreview iframe>
+  <gcds-input min="22" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `minlength`
+
+L'attribut `minlength` définit le nombre minimum de caractères acceptés par le champ de saisie.
+
+<CodePreview iframe>
+  <gcds-input minlength="5" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `pattern`
+
+L'attribut `pattern` définit l'expression régulière à laquelle la valeur du champ doit correspondre.
+
+<CodePreview iframe>
+  <gcds-input pattern="[A-Z]+" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `readonly`
+
+L'attribut `readonly` contrôle si le champ peut être modifié ou non. Lorsqu'il est défini à `true`, le champ est en lecture seule.
+
+<CodePreview iframe>
+  <gcds-input readonly value="Readonly" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `required`
+
+L'attribut `required` contrôle si le champ de saisie est obligatoire ou non. Lorsqu'il est défini à true, il ajoute « obligatoire » après l'étiquette et active le validateur de champ obligatoire.
+
+<CodePreview iframe>
+  <gcds-input required input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `size`
+
+L'attribut `size` définit la taille du champ de saisie pour indiquer visuellement la longueur de texte attendue.
+
+<CodePreview iframe>
+  <gcds-input size="6" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `step`
+
+L'attribut `step` définit la granularité à laquelle la valeur doit se conformer. Utilisez-le avec le type de saisie numérique.
+
+<CodePreview iframe>
+  <gcds-input step="10" type="number" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `suggestions`
+
+L'attribut `suggestions` définit un tableau (array) d'options de suggestions.
+
+<CodePreview iframe>
+  <gcds-input suggestions='[{ "label": "Suggestion A"}, { "label": "Suggestion B"}, { "label": "Suggestion C"}]' input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `type`
+
+L'attribut `type` définit le type de saisie. Les options sont :
+
+- `email`
+- `number`
+- `password`
+- `search`
+- `tel`
+- `text`
+- `url`
+
+<CodePreview iframe>
+  <gcds-input type="email" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `validate-on`
+
+L'attribut `validate-on` définit l'événement de validation pour le champ de saisie.
+
+<CodePreview iframe>
+  <gcds-input validate-on="other" required input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+#### `value`
+
+L'attribut `value` définit la valeur initiale affichée dans le champ de saisie. Il reflète la valeur actuelle au fil des modifications de l'utilisateur.
+
+<CodePreview iframe>
+  <gcds-input value="Texte" input-id="input-example" label="Étiquette de champ" name="input-example">
+  </gcds-input>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque:** Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-input."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-input--events-properties&lang=fr"
+  width="1200"
+  height="2075"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
