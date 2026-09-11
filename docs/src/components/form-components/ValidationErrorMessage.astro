@@ -1,0 +1,38 @@
+---
+const { component } = Astro.props;
+import { Heading } from '~components'
+import { defaultLocale } from '~i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+
+import { links } from '~i18n/links';
+
+const i18n = {
+  en: {
+    heading: 'Add validation and error messages',
+    use: `Use the <code>required</code> attribute to activate the <gcds-link href="${links.en.formValidation}#builtin-validation-and-error-messages">built-in error messages and validation</gcds-link> for ${component}.`,
+    fields:
+      'Fields with specific input requirements will validate if the entry is invalid, even if it is not required.',
+    optional:
+      `For optional fields that need validation, like email address formats, add <gcds-link href="${links.en.formValidation}#customize-validation-and-error-messages">custom validation with a custom error message</gcds-link>.`,
+  },
+  fr: {
+    heading: "Ajouter la validation et les messages d'erreur",
+    use: `Utilisez l\'attribut <code>required</code> pour activer <gcds-link href="${links.fr.formValidation}#builtin-validation-and-error-messages">la validation et les messages d\'erreur intégrés</gcds-link> pour ${component}.`,
+    fields:
+      "Les champs comportant des exigences de saisie spécifiques feront l'objet d'une validation, même s'ils ne sont pas obligatoires.",
+    optional:
+      `Pour les champs facultatifs qui doivent être validés, par exemple pour vérifier le format d\'une adresse courriel, ajoutez <gcds-link href="${links.fr.formValidation}#customize-validation-and-error-messages">une validation et des messages d\'erreur personnalisés</gcds-link>.`,
+  },
+};
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(i18n, locale, defaultLocale);
+---
+
+<Heading tag="h3">{localizedContent.heading}</Heading>
+
+<ul class="list-disc">
+  <li set:html={localizedContent.use}></li>
+  <li set:html={localizedContent.fields}></li>
+  <li set:html={localizedContent.optional}></li>
+</ul>
