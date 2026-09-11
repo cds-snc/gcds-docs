@@ -1,0 +1,198 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Téléverseur de fichiers - Code
+componentName: Téléverseur de fichiers
+tagName: '<gcds-file-uploader>'
+alsoCalled: fichiers téléversés, saisie de fichier, zone de dépôt
+description: Un téléverseur de fichier est un espace où il est possible de sélectionner et d'ajouter des documents à l'appui.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-file-uploader'
+version: 1.6.0
+previewLabel: Aperçu du composant de téléverseur de fichiers
+dateModified: '2026-06-10T08:30:09-07:00'
+---
+
+import { CodePreview, ValidationErrorMessage, ValidProps, Hint, HideTheLabel } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité du téléverseur de fichiers](#codage-et-accessibilite-du-televerseur-de-fichiers)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité du téléverseur de fichiers
+
+### Appliquez les attributs essentiels
+
+Utilisez toujours les attributs essentiels suivants avec `gcds-file-uploader` :
+
+- `name`
+- `label`
+- `uploader-id`
+
+### Autoriser le traitement de plusieurs fichiers
+
+Utilisez l’attribut `multiple` pour permettre la sélection de plus d’un fichier.
+
+### Définir les types de fichiers
+
+Utilisez l’attribut `accept` pour définir les types de fichier que le téléverseur de fichiers peut accepter.
+
+<Hint />
+
+<HideTheLabel />
+
+<ValidationErrorMessage component="le téléverseur de fichiers" />
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `label`
+
+L'attribut `label` définit le libellé du téléverseur de fichiers.
+
+<CodePreview iframe>
+  <gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `name`
+
+L'attribut `name` identifie le composant dans le formulaire. Il permet de récupérer les fichiers téléversés après la soumission.
+
+<CodePreview iframe>
+  <gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `uploader-id`
+
+L'attribut `uploader-id` définit l'identifiant unique du téléverseur de fichiers.
+
+<CodePreview iframe>
+  <gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `accept`
+
+L'attribut `accept` définit les types de fichiers acceptés par le téléverseur.
+
+<CodePreview iframe>
+  <gcds-file-uploader accept="image/*" uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `autofocus`
+
+L'attribut `autofocus` contrôle si le téléverseur de fichiers est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le téléverseur est ciblé à l'affichage.
+
+<CodePreview iframe>
+  <gcds-file-uploader autofocus uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `disabled`
+
+L'attribut `disabled` contrôle si le téléverseur de fichiers est désactivé ou non. Par défaut, il est défini à `false`.
+
+<CodePreview iframe>
+  <gcds-file-uploader disabled uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `error-message`
+
+L'attribut `error-message` définit le message d'erreur à afficher pour un fichier invalide.
+
+<CodePreview iframe>
+  <gcds-file-uploader error-message="Message d'erreur" uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `form`
+
+L'attribut `form` définit l'identifiant du formulaire auquel appartient le téléverseur de fichiers.
+
+<CodePreview iframe>
+  <gcds-file-uploader form="form-id" uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `hide-label`
+
+L'attribut `hide-label` contrôle si le libellé est masqué ou non.
+
+<CodePreview iframe>
+  <gcds-file-uploader hide-label uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `hint`
+
+L'attribut `hint` définit le texte explicatif affiché sous le libellé.
+
+<CodePreview iframe>
+  <gcds-file-uploader hint="Texte explicatif / Exemple de message." uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `multiple`
+
+L'attribut `multiple` contrôle si l'utilisateur peut sélectionner plusieurs fichiers.
+
+<CodePreview iframe>
+  <gcds-file-uploader multiple uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `required`
+
+L'attribut `required` contrôle si le téléverseur de fichiers est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après le libellé et active le validateur de champ obligatoire.
+
+<CodePreview iframe>
+  <gcds-file-uploader required uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+#### `validate-on`
+
+L'attribut `validate-on` définit l'événement de validation pour le téléverseur de fichiers.
+
+<CodePreview iframe>
+  <gcds-file-uploader validate-on="other" required uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+  </gcds-file-uploader>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque:** Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-file-uploader."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties&lang=fr"
+  width="1200"
+  height="1850"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
