@@ -1,0 +1,65 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Date de modification - Cas d'utilisation
+componentName: Date de modification
+tagName: '<gcds-date-modified>'
+alsoCalled: Dernière mise à jour, version
+description: La date de modification est un indicateur de la dernière mise à jour apportée à une page Web ou à une application.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-6634&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+previewLabel: Aperçu du composant de date de modification
+dateModified: '2025-07-11T12:59:40-04:00'
+---
+
+import { ComponentPreview } from '~components';
+import { links } from '~i18n/links';
+
+La date de modification est un composant requis pour les sites Web du gouvernement du Canada. Elle est sujette à des exigences spécifiques pour les pages Canada.ca.
+
+## Problèmes résolus par la date de modification
+
+Utilisez la date de modification pour :
+
+- Indiquer la date de la dernière modification apportée à une page Web;
+- Identifier la version actuelle d'une application.
+
+<hr />
+
+## Composants connexes
+
+<a href={links.fr.footer}>Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
+
+<hr class="mt-600" />
+
+## Types de composants
+
+<div class="remove-empty-p">
+<gcds-grid class="mb-300" columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Aperçu du le type date" demoClass="px-225 py-300">
+    <gcds-date-modified>2023-08-22</gcds-date-modified>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Type «&nbsp;Date&nbsp;»</h3>
+    <p>Utilisez le type «&nbsp;date&nbsp;» pour :</p>
+    <ul class="list-disc mb-300">
+      <li>Indiquer la date de la dernière modification apportée à une page ou à un site Web.</li>
+    </ul>
+  </div>
+</gcds-grid>
+
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Aperçu du le type version" demoClass="px-225 py-300">
+    <gcds-date-modified type="version">1.0.0</gcds-date-modified>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Type «&nbsp;Version&nbsp;»</h3>
+    <p>Utilisez le type «&nbsp;version&nbsp;» pour :</p>
+    <ul class="list-disc mb-300">
+      <li>Identifier la version actuelle d'une application.</li>
+    </ul>
+  </div>
+</gcds-grid>
+</div>
