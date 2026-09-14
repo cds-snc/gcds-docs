@@ -1,0 +1,53 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Conteneur - Design
+componentName: Conteneur
+tagName: '<gcds-container>'
+alsoCalled: boîte, encadré
+description: Un conteneur est une mise en page simple en forme de boîte avec une largeur de contenu fixe.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2006&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-container'
+version: 1.6.0
+previewLabel: Aperçu du composant conteneur
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import anatomy from './assets/gcds-container-anatomy.svg';
+
+## Structure d'un conteneur
+
+<AnatomyList>
+  <li>Le <strong>conteneur</strong> regroupe du contenu dans un espace limité pouvant contenir du texte, des images et d'autres composants. La largeur peut être ajustée, notamment pour limiter la longueur d'une ligne de texte.</li>
+  <li>La <strong>bordure optionnelle</strong> entoure le conteneur en indiquant la largeur.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Le composant conteneur avec des numéros indiquant les différentes parties de la structure du conteneur."
+/>
+
+## Design et accessibilité des conteneurs
+
+### Limiter la largeur du contenu
+
+- Veillez à ce que vos lignes de texte ne dépassent pas 65 caractères pour obtenir une longueur de lecture acceptable.
+- Limitez la largeur du conteneur pour éviter que les grands écrans n'affichent des lignes de texte trop longues et difficiles à lire.
+- Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).
+
+### Ajouter une taille de conteneur
+
+La propriété `size` définit la taille d'un conteneur. Six tailles sont disponibles :
+
+| Taille | REM      | Pixels (px) |
+| ------ | -------- | ----------- |
+| `full` | 100%     | 100%        |
+| `xl`   | 71.25rem | 1140px      |
+| `lg`   | 62rem    | 992px       |
+| `md`   | 48rem    | 768px       |
+| `sm`   | 30rem    | 480px       |
+| `xs`   | 20rem    | 320px       |
+
+<br />
+
+La taille du conteneur par défaut est `full`, ce qui signifie que le conteneur occupera la largeur totale du conteneur parent.
