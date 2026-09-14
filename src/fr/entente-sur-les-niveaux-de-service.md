@@ -100,6 +100,9 @@ Le SNC répondra aux demandes dans un délai d’un (1) jour ouvrable suivant la
 - Conseils fournis : Le client a reçu l’information, les conseils, les ressources, l’approche recommandée ou l’orientation future nécessaire pour répondre à sa demande.
 - Décision fournie : L’équipe a pris une décision au sujet de la demande et a communiqué sa décision à la clientèle, avec justification, le cas échéant. Cela peut inclure la décision de ne pas apporter le changement demandé ou d’expliquer pourquoi quelque chose ne fait pas partie de la portée du produit.
 
+### Les délais de réponse varient pour le formulaire de problèmes GitHub
+Les délais de réponse et de résolution prévues dans les ententes de niveau de service ne s’appliquent pas aux rapports de bogues, aux demandes de fonctionnalités et aux contributions envoyées au moyen du formulaire New Issue (nouveau problème). L’équipe de Système de design GC examine ces soumissions et les classe par ordre de priorité lors de certains cycles (sprints) désignés. Par conséquent, les délais de réponse peuvent varier.
+L’équipe de Système de design GC fournira généralement des mises à jour dans le fil de discussion du problème GitHub pertinent.
 
 ### Période de maintenance planifiée
 
