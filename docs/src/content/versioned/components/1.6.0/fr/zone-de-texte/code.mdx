@@ -1,0 +1,239 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Zone de texte - Code
+componentName: Zone de texte
+tagName: '<gcds-textarea>'
+alsoCalled: saisie de texte, zone d'entrée
+description: Une zone de texte est un espace permettant de saisir une réponse détaillée à une question ou à une directive.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-textarea'
+version: 1.6.0
+previewLabel: Aperçu du composant de zone de texte
+dateModified: '2026-09-09T08:30:09-07:00'
+---
+
+import { links } from '~i18n/links';
+import { CodePreview, ValidationErrorMessage, ValidProps, Hint, HideTheLabel } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des zones de texte](#codage-et-accessibilite-des-zones-de-texte)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des zones de texte
+
+### Appliquez les attributs essentiels
+
+Utilisez toujours les attributs essentiels suivants avec `gcds-textarea` :
+
+- `name`
+- `label`
+- `textarea-id`
+
+### Adapter la taille du champ à la réponse
+
+- Utilisez l’attribut `rows` pour définir la hauteur d’une zone de texte de façon à ce qu’elle corresponde à la quantité de texte attendue.
+- Utilisez <gcds-link href={links.fr.input}>le composant champ de saisie</gcds-link> pour les réponses qui nécessitent moins de 75 caractères.
+- Évitez de définir une largeur inférieure à 50 %.
+- Utilisez une hauteur maximale de 7 lignes pour les réponses sans longueur fixe.
+
+<Hint />
+
+### Ajoutez des limites de caractères
+
+- Utilisez l’attribut `max-length` pour activer les limites de caractères. Cela ajoute automatiquement le texte « Caractères restants : » sous la zone de texte.
+- Utilisez l’attribut `hide-limit` pour masquer visuellement le texte.
+
+<HideTheLabel />
+
+<ValidationErrorMessage component="la zone de texte" />
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `label`
+
+L'attribut `label` définit l'étiquette de la zone de texte.
+
+<CodePreview iframe>
+  <gcds-textarea textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `name`
+
+L'attribut `name` identifie la zone de texte dans le formulaire. Il permet de récupérer la valeur saisie après la soumission.
+
+<CodePreview iframe>
+<gcds-textarea textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+</gcds-textarea>
+</CodePreview>
+
+#### `textarea-id`
+
+L'attribut `textarea-id` définit l'identifiant unique de la zone de texte.
+
+<CodePreview iframe>
+  <gcds-textarea textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `autofocus`
+
+L'attribut `autofocus` contrôle si la zone de texte est ciblée automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, la zone de texte est ciblée à l'affichage.
+
+<CodePreview iframe>
+  <gcds-textarea autofocus textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `cols`
+
+L'attribut `cols` définit la largeur visible de la zone de texte en nombre de caractères moyens. La largeur minimale est de 50 % de son conteneur.
+
+<CodePreview iframe>
+  <gcds-textarea cols="8" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `disabled`
+
+L'attribut `disabled` contrôle si la zone de texte est désactivée ou non. Par défaut, il est défini à `false`.
+
+<CodePreview iframe>
+<gcds-textarea disabled textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+</gcds-textarea>
+</CodePreview>
+
+#### `error-message`
+
+L'attribut `error-message` définit le message d'erreur à afficher pour une zone de texte invalide.
+
+<CodePreview iframe>
+  <gcds-textarea error-message="Message d'erreur" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `form`
+
+L'attribut `form` définit l'identifiant du formulaire auquel appartient la zone de texte.
+
+<CodePreview iframe>
+  <gcds-textarea form="form-id" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `hide-label`
+
+L'attribut `hide-label` contrôle si l'étiquette est masquée ou non.
+
+<CodePreview iframe>
+  <gcds-textarea hide-label textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `hide-limit`
+
+L'attribut `hide-limit` contrôle si le compteur de limite de caractères est affiché ou non. Lorsqu'il est défini à `true`, le compteur n'est pas affiché. Par défaut, il est défini à `false`.
+
+<CodePreview iframe>
+  <gcds-textarea hide-limit maxlength="20" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `hint`
+
+L'attribut `hint` définit le texte explicatif affiché sous l'étiquette.
+
+<CodePreview iframe>
+  <gcds-textarea hint="Texte explicatif / Exemple de message." textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `maxlength`
+
+L'attribut `maxlength` définit le nombre maximum de caractères acceptés par la zone de texte.
+
+<CodePreview iframe>
+  <gcds-textarea maxlength="10" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `minlength`
+
+L'attribut `minlength` définit le nombre minimum de caractères acceptés par la zone de texte.
+
+<CodePreview iframe>
+  <gcds-textarea minlength="5" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `required`
+
+L'attribut `required` contrôle si la zone de texte est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après l'étiquette, et active le validateur de champ obligatoire.
+
+<CodePreview iframe>
+  <gcds-textarea required textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `rows`
+
+L'attribut `rows` définit le nombre de lignes visibles dans la zone de texte, ce qui détermine sa hauteur.
+
+<CodePreview iframe>
+  <gcds-textarea rows="3" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `validate-on`
+
+L'attribut `validate-on` définit l'événement de validation pour la zone de texte.
+
+<CodePreview iframe>
+  <gcds-textarea validate-on="other" required textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+#### `value`
+
+L'attribut `value` définit le contenu initial de la zone de texte. Il se met à jour pour refléter la valeur saisie par l'utilisateur.
+
+<CodePreview iframe>
+  <gcds-textarea value="Contenu de la zone de texte." textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+  </gcds-textarea>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque:** Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-textarea."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-textarea--events-properties&lang=fr"
+  width="1200"
+  height="2050"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

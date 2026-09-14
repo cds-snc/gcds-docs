@@ -1,0 +1,31 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Sélection - Cas d'utilisation
+componentName: Sélection
+tagName: '<gcds-select>'
+alsoCalled: menu déroulant, menu de sélection
+description: Une sélection présente une longue liste d’options parmi lesquelles un seul choix est fait.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-select'
+version: 1.6.0
+previewLabel: Aperçu du composant de sélection
+dateModified: '2025-06-04T08:30:09-07:00'
+---
+
+import { links } from '~i18n/links';
+
+## Problèmes résolus par la sélection
+
+Utilisez la sélection dans un formulaire afin de :
+
+- Préciser plus de 7 réponses possibles dans une liste déroulante prédéfinie.
+- Limiter le nombre de réponses admises pour une question.
+- Permettre à une personne de répondre à une question sans devoir rédiger une réponse, en sélectionnant un élément à partir d'une liste.
+
+<hr/>
+
+## Composants connexes
+
+<a href={links.fr.checkboxes}>Cases à cocher</a> : lorsque vous prévoyez que l'utilisateur·rice sélectionne une ou plusieurs options parmi une liste d'éléments.
+
+<a href={links.fr.radios}>Boutons radio</a> : pour proposer à une personne un petit ensemble d’options (moins de 7 options) permettant la sélection d’une seule réponse qu’elle connaît déjà.
