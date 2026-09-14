@@ -67,7 +67,7 @@ This uptime guarantee excludes any downtime experienced by Amazon or other infra
 
 ## Support
 
-### Service contacts
+CDS provides reactive support services to monitor, track, and remedy issues identified through internal monitoring or via client reporting.
 
 ### Service availability
 
