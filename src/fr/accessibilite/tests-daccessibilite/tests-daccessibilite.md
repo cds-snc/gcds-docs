@@ -144,7 +144,7 @@ Il est important d'effectuer des tests auprès de personnes handicapées pour s'
 
 <gcds-details details-title="Services payants">
 
-- <gcds-link external href="https://makeitfable.com/"><span lang="en">Fable</span></gcds-link>
+- Tests d'utilisabilité auprès de personnes utilisant des technologies d'assistance.
 
 </gcds-details>
 

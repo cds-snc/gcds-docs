@@ -27,6 +27,17 @@ pre.shortcut-snippet code {
   border-radius: var(--gcds-border-radius-sm);
 }
 
+ul li {
+  font: var(--gcds-font-text);
+  max-width: var(--gcds-text-character-limit);
+}
+
+@media only screen and (width < 48em) {
+  ul li {
+    font: var(--gcds-font-text-mobile);
+  }
+}
+
 .bg-full-width {
   position: relative;
   width: calc(100% + var(--gcds-spacing-225));

@@ -13,7 +13,10 @@ export function getPathParts(pathname: string): string[] {
  */
 export function resolveLocaleFromPathname(pathname: string): Locale {
   const requested = getPathParts(pathname)[0];
-  return supportedLocales.includes(requested as Locale) ? (requested as Locale) : defaultLocale;
+
+  return supportedLocales.includes(requested as Locale)
+    ? (requested as Locale)
+    : defaultLocale;
 }
 
 /**
@@ -25,6 +28,7 @@ export function getLocaleFromPathname<T extends string>(
   fallbackLocale: T = defaultLocale as unknown as T,
 ): T {
   const requested = getPathParts(pathname)[0] as T | undefined;
+
   return requested && locales.includes(requested) ? requested : fallbackLocale;
 }
 
@@ -36,7 +40,7 @@ export function getLocalizedRecord<T, L extends string>(
   locale: string,
   fallbackLocale: L,
 ): T {
-  return (locale in record ? record[locale as L] : record[fallbackLocale]);
+  return locale in record ? record[locale as L] : record[fallbackLocale];
 }
 
 /**
@@ -44,7 +48,7 @@ export function getLocalizedRecord<T, L extends string>(
  * semver-like segment (e.g. "1.0.0") anywhere in the path parts.
  */
 export function isVersionedPath(pathname: string): boolean {
-  return getPathParts(pathname).some((part) => /^\d+\.\d+\.\d+$/.test(part));
+  return getPathParts(pathname).some(part => /^\d+\.\d+\.\d+$/.test(part));
 }
 
 /**
@@ -52,62 +56,63 @@ export function isVersionedPath(pathname: string): boolean {
  * versioned or not.
  */
 export function getContentRoot(pathname: string): string {
-  return isVersionedPath(pathname) ? 'src/content/versioned' : 'src/content/pages';
+  return isVersionedPath(pathname)
+    ? 'src/content/versioned'
+    : 'src/content/pages';
 }
 
 /**
- * Build a locale-prefixed route path for a given route key.
- *
- * NOTE: only handles the localized non-versioned URL shape and doesn't know
- * about versioned routes. See the TODO on findRouteKeyFromPath — the header
- * language toggle is a known-incomplete implementation.
+ * Translate a path to the other locale, one segment at a time via the `routes`
+ * tree (any depth). Versions and unknown segments (e.g. design/code) pass
+ * through unchanged (same slug in both locales).
  */
-export function buildLocalizedRoutePath(
-  routeKey: string,
-  locale: string,
+export function buildLocalizedPath(
+  pathname: string,
+  currentLocale: string,
+  otherLocale: string,
   routes: any,
 ): string {
-  for (const parentKey in routes) {
-    if (parentKey === routeKey) {
-      return `/${locale}/${routes[parentKey][locale]}`;
+  const segments = getPathParts(pathname).slice(1);
+  const out: string[] = [];
+  let pool: any = routes;
+
+  for (const segment of segments) {
+    if (/^\d+\.\d+\.\d+$/.test(segment)) {
+      out.push(segment);
+      continue;
     }
 
-    if (routes[parentKey].children && routes[parentKey].children[routeKey]) {
-      return `/${locale}/${routes[parentKey][locale]}/${routes[parentKey].children[routeKey][locale]}`;
+    let matched: any;
+    for (const key in pool ?? {}) {
+      if (pool[key]?.[currentLocale] === segment) {
+        matched = pool[key];
+        break;
+      }
+    }
+
+    if (matched) {
+      out.push(matched[otherLocale]);
+      pool = matched.children;
+    } else {
+      out.push(segment);
+      pool = undefined;
     }
   }
 
-  return `/${locale}/`;
+  return `/${otherLocale}${out.length ? `/${out.join('/')}` : ''}`;
 }
 
 /**
- * Given a locale and URL parts (e.g., ['en', 'components', 'button']), look up
- * the corresponding route key from the i18n routes config.
- *
- * TODO(i18n language toggle): this and buildLocalizedRoutePath are an
- * incomplete early implementation. The header language switcher renders wrong
- * URLs on several pages because of three separate gaps:
- *   1. The `routes` config (i18n/config.ts) only covers home/about/components/
- *      button, so pages like start-to-use / demarrer fall through to "home"
- *      (e.g. /en/start-to-use toggles to /fr/ instead of /fr/demarrer).
- *   2. Versioned paths break child matching: for /en/components/1.1.0/button,
- *      parts[2] is the version "1.1.0" (not the child slug), so this returns
- *      the parent key "components" instead of "button".
- *   3. Even when the child resolves, buildLocalizedRoutePath emits the
- *      localized non-versioned shape (/fr/composants/bouton), which is not the
- *      versioned route shape (/fr/components/bouton — routeKey is not localized).
- * A correct fix derives the other-locale URL from the actual route data
- * (manifests + content) for both versioned and non-versioned pages. Deferred
- * until the routing model settles and FR content is migrated (targets 404 until
- * then).
+ * Look up the route key for a path (e.g. ['en','components','button'] -> button).
+ * Used by BaseLayout for the side nav's current section.
  */
 export function findRouteKeyFromPath(
   locale: string,
   parts: string[],
-  routes: any
+  routes: any,
 ) {
-  const firstSlug = parts[1] || "";
-  const secondSlug = parts[2] || "";
+  const firstSlug = parts[1] || '';
+  const secondSlug = parts[2] || '';
 
   for (const key in routes) {
     if (routes[key][locale] === firstSlug) {
@@ -126,5 +131,5 @@ export function findRouteKeyFromPath(
   }
 
   // Fallback to home if no match found
-  return "home";
+  return 'home';
 }

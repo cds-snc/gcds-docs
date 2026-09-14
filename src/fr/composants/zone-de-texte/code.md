@@ -31,6 +31,11 @@ Utilisez toujours les attributs essentiels suivants avec `gcds-textarea` :
 
 {% include "partials/hint.njk" %}
 
+### Ajoutez des limites de caractères
+
+- Utilisez l’attribut `max-length` pour activer les limites de caractères. Cela ajoute automatiquement le texte « Caractères restants : » sous la zone de texte.
+- Utilisez l’attribut `hide-limit` pour masquer visuellement le texte.
+
 {% include "partials/hide-the-label.njk" %}
 
 {% include "partials/error-message.njk", "la zone de texte" %}

@@ -4,6 +4,7 @@ import Ol from '../../components/markdown/ol.astro';
 import Ul from '../../components/markdown/ul.astro';
 import type { ContentPageModule } from '../../types/content';
 import versionConfig from '../../routing/versioned/version-config.json';
+import { routes } from '../../i18n/config';
 
 const CONTENT_PAGES_PATH = '../../content/pages';
 const VERSIONED_CONTENT_PATH = '../../content/versioned';
@@ -31,6 +32,19 @@ const versionedSections = Array.isArray(versionConfig?.sections) ? versionConfig
 const contentDirToRouteKey = new Map(versionedSections.map((section) => [section.contentDir, section.routeKey]));
 const routeKeyToSection = new Map(versionedSections.map((section) => [section.routeKey, section]));
 
+// URL section segments are localized via i18n `routes` (e.g. components ->
+// composants in FR), but versionConfig is keyed by routeKey. Translate a
+// localized section segment back to its routeKey so FR versioned URLs resolve.
+const localizedSectionToRouteKey = (slug: string, locale: string): string => {
+  for (const key of Object.keys(routes)) {
+    const entry = (routes as Record<string, Record<string, string>>)[key];
+    if (entry && entry[locale] === slug && routeKeyToSection.has(key)) {
+      return key;
+    }
+  }
+  return slug;
+};
+
 const getLatestVersion = (routeKey: string) => {
   const section = routeKeyToSection.get(routeKey);
   if (!section || !Array.isArray(section.versions)) {
@@ -55,7 +69,7 @@ const buildContentCandidateKeys = (basePath: string) => [
 
 const buildVersionedCandidateKeys = (locale: string, slugPath: string) => {
   const parts = slugPath.split('/').filter(Boolean);
-  const routeKey = parts[0];
+  const routeKey = localizedSectionToRouteKey(parts[0], locale);
   const section = routeKeyToSection.get(routeKey);
   if (!section) {
     return [];
@@ -164,19 +178,27 @@ export function getStaticPaths() {
     }
 
     const fileWithoutExt = segments.slice(3).join('/').replace(/\.(astro|mdx)$/, '');
-    // Only generate canonical versioned URLs from index files for now.
-    // This keeps unversioned + explicit version roots working while deeper
-    // subpages can be enabled once migrated.
-    if (!/\/index$/.test(fileWithoutExt)) {
+    // Emit a route for every versioned page file: the `index` file becomes the
+    // section/item root (e.g. .../button), and sibling tab files become their
+    // own sub-routes (e.g. .../button/design, .../button/code). This backs the
+    // per-tab component pages (Use case / Design / Code) as real URLs.
+    // `preview` files are embedded into the page header by ComponentTabLayout,
+    // not routed, so skip them here.
+    if (/(^|\/)preview$/.test(fileWithoutExt)) {
       continue;
     }
     const pageSlugParts = toSlugPartsFromFileBaseLocal(fileWithoutExt);
 
-    pushPath(locale, [routeKey, version, ...pageSlugParts]);
+    // Localize the section segment for the URL (components -> composants in FR).
+    // The component slug itself is already localized by the content folder name.
+    const sectionSlug =
+      (routes as Record<string, Record<string, string>>)[routeKey]?.[locale] ?? routeKey;
+
+    pushPath(locale, [sectionSlug, version, ...pageSlugParts]);
 
     const latestVersion = getLatestVersionLocal(routeKey);
     if (version === latestVersion) {
-      pushPath(locale, [routeKey, ...pageSlugParts]);
+      pushPath(locale, [sectionSlug, ...pageSlugParts]);
     }
   }
 

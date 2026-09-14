@@ -1,0 +1,130 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Button - Use case
+componentName: Button
+tagName: '<gcds-button>'
+alsoCalled: call to action, CTA
+description: The button is an interactive object that emphasizes an action.
+figma: 'https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=817-4607&p=f&t=sUfuiFgkFiAWYq3z-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button'
+version: 1.6.0
+dateModified: '2026-07-08T09:04:06-07:00'
+---
+
+import { ComponentPreview } from '~components';
+import { links } from '~i18n/links';
+
+Take a look at what buttons do to see if they fit the problem you're solving for. Then select the best subtype, called the button role, for the use case you need to meet.
+
+## Problems buttons solve
+
+Use a button to initiate an action, like:
+
+- Start a task or flow.
+- Submit, save, or delete form data.
+- Make a choice or give consent.
+- Sign in to an account.
+- Move forward or back in a sequence.
+
+<hr />
+
+## Related components
+
+<a href={links.en.link}>Links</a> to navigate to a new page, website, file, or section on the current page.
+
+<a href={links.en.details}>Details</a> to hide or show a section of content.
+
+<hr class="mt-600" />
+
+## Choose a button type
+
+The button type changes the HTML to do a specific task. Pick the type based on the function you need.
+
+### Button type
+
+Use the button type when you're expecting a person to:
+
+- Delete, copy, or download information.
+- Make a binary choice.
+- Give consent or agreement.
+
+### Submit type
+
+Use the submit type when you're expecting a person to:
+
+- Send a form or a request.
+- Save information.
+- Sign in or sign out of an account.
+
+### Reset type
+
+Use the reset type when you're expecting a person to:
+
+- Clear data entered on a form.
+
+Tip: Use the reset type sparingly as it's a destructive action.
+
+### Link type
+
+Use the link type when you're expecting a person to:
+
+- Navigate to other pages.
+- Navigate to external sites. An external icon appears at the end of external links.
+
+Note: Use the <a href={links.en.link}>link component</a> when you need to embed a link in paragraph text or navigation bars.
+
+## Choose a button role
+
+The button role changes the styling of a button to visually signal its action. Pick the role that best fits the action.
+
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Primary button preview" class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="primary">Submit</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3>Primary button</h3>
+    <ul class="list-disc mb-300">
+      <li>Critical actions in a flow or as the default button.</li>
+      <li>Only use a single time.</li>
+    </ul>
+    <p>Note: More than one main call to action on the same page makes it harder for a person to know what to do next.</p>
+  </div>
+
+  <ComponentPreview label="Start button preview" class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="start">Start</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3>Start button</h3>
+    <p>Formerly called supertask button.</p>
+    <ul class="list-disc mb-300">
+      <li>The start of a task or flow.</li>
+      <li>Bigger than other buttons, so use by itself and not beside other buttons.</li>
+      <li>Only use once on a page.</li>
+    </ul>
+    <p>Tip: Use either primary button or start button on a page, not both.</p>
+  </div>
+
+  <ComponentPreview label="Secondary button preview" class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="secondary">Cancel</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3>Secondary button uses</h3>
+    <ul class="list-disc mb-300">
+      <li>Supporting actions.</li>
+      <li>To highlight a common action but not the most important one.</li>
+      <li>Can use more than once on a page if there are multiple secondary options.</li>
+    </ul>
+  </div>
+
+  <ComponentPreview label="Danger button preview" class="mt-500" demoClass="px-225 py-300">
+    <gcds-button button-role="danger">Delete</gcds-button>
+  </ComponentPreview>
+  <div>
+    <h3>Danger button uses</h3>
+    <ul class="list-disc mb-300">
+      <li>Serious actions like removing, clearing, or deleting information.</li>
+      <li>Changes that may be difficult to reverse.</li>
+    </ul>
+    <p>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</p>
+  </div>
+</gcds-grid>

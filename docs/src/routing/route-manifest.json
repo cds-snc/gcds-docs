@@ -54,6 +54,7 @@
       "versioned": true,
       "groupKey": "components",
       "routeKey": "components",
+      "slug": {"en": "components", "fr": "composants"},
       "label": {"en": "Components", "fr": "Composants"},
       "manifestKey": "components",
       "pinOverviewItem": true,

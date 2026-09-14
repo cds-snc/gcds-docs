@@ -1,0 +1,59 @@
+---
+import PreviewFrame from './PreviewFrame.astro';
+
+interface Props {
+  label?: string;
+  headingTag?: 'h2' | 'p';
+  class?: string;
+  demoClass?: string;
+  iframe?: boolean;
+}
+
+const {
+  label,
+  headingTag = 'p',
+  class: wrapperClass,
+  demoClass,
+  iframe,
+} = Astro.props as Props;
+
+const Label = headingTag;
+const labelClass =
+  headingTag === 'h2'
+    ? 'container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light'
+    : 'container-full font-semibold px-225 py-150 bb-sm b-default bg-light';
+
+// Strip the global markdown wrapping of loose text inside <gcds-text> so slotted
+// demo markup renders identically to CodePreview.
+const stripGcdsText = (html: string): string => {
+  let prev: string;
+  do {
+    prev = html;
+    html = html.replace(/<gcds-text\b[^>]*>([\s\S]*?)<\/gcds-text>/g, '$1');
+  } while (html !== prev);
+  return html;
+};
+
+const demoHtml = Astro.slots.has('default')
+  ? stripGcdsText((await Astro.slots.render('default')).trim())
+  : '';
+---
+
+<div class={`component-preview b-sm b-default${wrapperClass ? ` ${wrapperClass}` : ''}`}>
+  {label && <Label class={labelClass}>{label}</Label>}
+  {
+    iframe ? (
+      <PreviewFrame html={demoHtml} title={label} />
+    ) : (
+      <div class={demoClass}>
+        <Fragment set:html={demoHtml} />
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .component-preview :global(p) {
+    margin-block-end: var(--gcds-spacing-0);
+  }
+</style>
