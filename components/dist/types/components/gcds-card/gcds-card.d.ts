@@ -2,7 +2,13 @@ import { EventEmitter } from '../../stencil-public-runtime';
 /**
  * A card is a box containing structured, actionable content on a single topic.
  *
- * @slot default - Slot for the card description. Will overwrite the description prop if used.
+ * @slot title - Slot for the card title. Accepts rich text, so markup such as
+ * `<abbr>`, `<em>` or an icon can be used where the card-title prop cannot. Falls back to
+ * the card-title prop, which is mirrored into the light DOM so the title text stays
+ * readable by DOM-text extraction tools.
+ * @slot default - Slot for the card description. Accepts rich text and overwrites the
+ * description prop if used. The description prop is mirrored into this slot for the same
+ * DOM-text reason when nothing is slotted.
  */
 export declare class GcdsCard {
     el: HTMLElement;
@@ -73,7 +79,19 @@ export declare class GcdsCard {
     gcdsClick: EventEmitter<string>;
     updateLang(): void;
     private validateRequiredProps;
+    /**
+     * Whether the consumer supplied their own title or description through a slot.
+     * Captured once, before any mirror node is added, so that the mirrors this
+     * component writes into the light DOM can never be mistaken for author content.
+     */
+    private hasSlottedTitle;
+    private hasSlottedDescription;
+    private hasSlottedContent;
     componentWillLoad(): Promise<void>;
+    componentWillUpdate(): void;
+    private get shouldMirrorText();
+    private syncTextMirrors;
+    private upsertTextMirror;
     private get renderDescription();
     render(): any;
 }

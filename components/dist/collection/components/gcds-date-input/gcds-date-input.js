@@ -425,7 +425,7 @@ export class GcdsDateInput {
         }
     }
     render() {
-        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, form, } = this;
+        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, autocomplete, form, } = this;
         const requiredAttr = {};
         if (required) {
             requiredAttr['aria-required'] = 'true';
@@ -440,10 +440,20 @@ export class GcdsDateInput {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         // Array of months 01 - 12
-        const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = this.format !== 'iso' ? (h("gcds-select", Object.assign({ label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option]))))) : (h("gcds-input", Object.assign({ name: "month", label: i18n[lang].month, inputId: "month", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.monthValue, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) })));
-        const year = (h("gcds-input", Object.assign({ key: 'd2cb93276494328fa676b3caa524df0d171bab8c', name: "year", label: i18n[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
-        const day = (h("gcds-input", Object.assign({ key: 'c49e3271490ee991238806a466391ddd36dc5e69', name: "day", label: i18n[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        const options = this.format !== 'iso' ? Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`) : null;
+        let autocompleteToUse = autocomplete;
+        if ((autocomplete != null && autocomplete !== 'off' && autocomplete !== 'on' && autocomplete !== 'bday' && autocomplete !== 'cc-exp') // don't allow unspecified values
+            || (autocomplete === 'cc-exp' && format !== 'compact')) // don't allow cc-exp if format is not compact
+         {
+            console.error('Invalid autocomplete set for date');
+            autocompleteToUse = undefined;
+        }
+        const autocompleteDay = autocompleteToUse && autocompleteToUse !== 'off' && autocompleteToUse !== 'on' ? `${autocompleteToUse}-day` : autocompleteToUse;
+        const autocompleteMonth = autocompleteToUse && autocompleteToUse !== 'off' && autocompleteToUse !== 'on' ? `${autocompleteToUse}-month` : autocompleteToUse;
+        const autocompleteYear = autocompleteToUse && autocompleteToUse !== 'off' && autocompleteToUse !== 'on' ? `${autocompleteToUse}-year` : autocompleteToUse;
+        const month = this.format !== 'iso' ? (h("gcds-select", Object.assign({ label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, autocomplete: autocompleteMonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option]))))) : (h("gcds-input", Object.assign({ name: "month", label: i18n[lang].month, inputId: "month", type: "text", inputmode: "numeric", size: 2, autocomplete: autocompleteMonth, disabled: disabled, value: this.monthValue, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) })));
+        const year = (h("gcds-input", Object.assign({ key: 'e8c05411482aaceab43909e179d064addc3268a7', name: "year", label: i18n[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, autocomplete: autocompleteYear, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (h("gcds-input", Object.assign({ key: '17a1dc86d0cf872cb84f6dfc06f2508c97cce418', name: "day", label: i18n[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, autocomplete: autocompleteDay, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
         let formatArray;
         if (format === 'iso') {
             formatArray = [year, month, day];
@@ -454,7 +464,7 @@ export class GcdsDateInput {
         else if (format === 'full') {
             formatArray = lang === 'en' ? [month, day, year] : [day, month, year];
         }
-        return (h(Host, { key: 'bf42aef4ccdef2292ef655e6ef22119c2ad16164', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '14c3367ba75e75d448d85d526909e5e38fa35e62', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), h("legend", { key: 'dc842742fe3e58aac7b9742129f28344c4750d05', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
+        return (h(Host, { key: 'fa925cb177d5ba456734bbdb5af88a08145787c1', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: 'a380f755da06479c8e6f3a397d315c98f32306c4', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), h("legend", { key: '12d384321e27160d86d545affdf86ee98c6637a8', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
     }
     static get is() { return "gcds-date-input"; }
     static get encapsulation() { return "shadow"; }
@@ -625,6 +635,25 @@ export class GcdsDateInput {
                 "reflect": false,
                 "attribute": "disabled",
                 "defaultValue": "false"
+            },
+            "autocomplete": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "'cc-exp' | 'bday' | 'off' | 'on'",
+                    "resolved": "\"bday\" | \"cc-exp\" | \"off\" | \"on\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "String to have autocomplete enabled."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "attribute": "autocomplete"
             },
             "autofocus": {
                 "type": "boolean",

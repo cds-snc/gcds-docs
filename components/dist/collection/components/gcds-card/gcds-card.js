@@ -4,7 +4,13 @@ import i18n from "./i18n/i18n";
 /**
  * A card is a box containing structured, actionable content on a single topic.
  *
- * @slot default - Slot for the card description. Will overwrite the description prop if used.
+ * @slot title - Slot for the card title. Accepts rich text, so markup such as
+ * `<abbr>`, `<em>` or an icon can be used where the card-title prop cannot. Falls back to
+ * the card-title prop, which is mirrored into the light DOM so the title text stays
+ * readable by DOM-text extraction tools.
+ * @slot default - Slot for the card description. Accepts rich text and overwrites the
+ * description prop if used. The description prop is mirrored into this slot for the same
+ * DOM-text reason when nothing is slotted.
  */
 export class GcdsCard {
     constructor() {
@@ -13,9 +19,16 @@ export class GcdsCard {
          * Contains a list of properties that have an error associated with them
          */
         this.errors = [];
+        /**
+         * Whether the consumer supplied their own title or description through a slot.
+         * Captured once, before any mirror node is added, so that the mirrors this
+         * component writes into the light DOM can never be mistaken for author content.
+         */
+        this.hasSlottedTitle = false;
+        this.hasSlottedDescription = false;
     }
     validateCardTitle() {
-        if (!this.cardTitle || this.cardTitle.trim() == '') {
+        if ((!this.cardTitle || this.cardTitle.trim() == '') && !this.el.querySelector('[slot="title"]')) {
             this.errors.push('cardTitle');
         }
         else if (this.errors.includes('cardTitle')) {
@@ -61,22 +74,105 @@ export class GcdsCard {
         }
         return true;
     }
+    /*
+     * Author content assigned to one slot, ignoring this component's own mirrors.
+     *
+     * Checking `innerHTML` is not sufficient once `title` is a public slot: a card
+     * that slots only a title would read as having a slotted description too, and
+     * the description prop would be silently dropped.
+     */
+    hasSlottedContent(slotName) {
+        return Array.from(this.el.childNodes).some(node => {
+            var _a;
+            // Numeric node types — Stencil's mock-doc does not expose the Node constants.
+            if (node.nodeType === 3) {
+                return !slotName && !!((_a = node.textContent) === null || _a === void 0 ? void 0 : _a.trim());
+            }
+            if (node.nodeType !== 1) {
+                return false;
+            }
+            const child = node;
+            if (child.hasAttribute('data-gcds-text-mirror')) {
+                return false;
+            }
+            const assigned = child.getAttribute('slot');
+            return slotName ? assigned === slotName : !assigned;
+        });
+    }
     async componentWillLoad() {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
         this.validateBadge();
+        // Must be read before syncTextMirrors() adds anything to the light DOM.
+        this.hasSlottedTitle = this.hasSlottedContent('title');
+        this.hasSlottedDescription = this.hasSlottedContent();
         const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-card', this.errors, ['badge']);
         }
+        this.syncTextMirrors();
+    }
+    componentWillUpdate() {
+        this.syncTextMirrors();
+    }
+    /*
+     * A card that fails validation renders nothing, so it must not leave mirror
+     * text behind in the light DOM for textContent to pick up.
+     */
+    get shouldMirrorText() {
+        return !this.errors.includes('href') && !this.errors.includes('cardTitle');
+    }
+    /*
+     * Mirror attribute-provided text into the light DOM.
+     *
+     * card-title and description are rendered through named slots, so without a
+     * light DOM node to fill them the text only ever exists inside the shadow root.
+     * textContent does not pierce a shadow root, which makes the card invisible to
+     * DOM-text extraction — including the browser-native read-aloud features on
+     * Android and iOS, which stop at the first unreadable card. The ARIA tree is
+     * unaffected either way, so screen readers behave the same before and after.
+     */
+    syncTextMirrors() {
+        const active = this.shouldMirrorText;
+        // Only mirror a prop when the consumer has not slotted their own content,
+        // otherwise the card would render the author's markup and the prop text.
+        this.upsertTextMirror('title', active && !this.hasSlottedTitle ? this.cardTitle : undefined);
+        this.upsertTextMirror(undefined, active && !this.hasSlottedDescription ? this.description : undefined);
+    }
+    upsertTextMirror(slot, value) {
+        const doc = this.el.ownerDocument;
+        if (!doc) {
+            return;
+        }
+        // Direct children only, and without :scope — Stencil's mock-doc selector
+        // engine does not support that pseudo-class.
+        const existing = Array.from(this.el.children).find(child => (slot ? child.getAttribute('slot') === slot : !child.getAttribute('slot')) &&
+            child.hasAttribute('data-gcds-text-mirror'));
+        if (!value) {
+            existing === null || existing === void 0 ? void 0 : existing.remove();
+            return;
+        }
+        if (existing) {
+            if (existing.textContent !== value) {
+                existing.textContent = value;
+            }
+            return;
+        }
+        const mirror = doc.createElement('span');
+        if (slot) {
+            mirror.setAttribute('slot', slot);
+        }
+        mirror.setAttribute('data-gcds-text-mirror', '');
+        mirror.textContent = value;
+        this.el.appendChild(mirror);
     }
     get renderDescription() {
-        if (this.el.innerHTML.trim() != '') {
+        if (this.hasSlottedDescription) {
             return (h("div", { class: "gcds-card__description" }, h("slot", null)));
         }
         else if (this.description) {
-            return (h("div", { class: "gcds-card__description" }, h("gcds-text", { "margin-bottom": "0" }, this.description)));
+            return (h("div", { class: "gcds-card__description" }, h("gcds-text", { "margin-bottom": "0" }, h("slot", null, this.description))));
         }
         else {
             return null;
@@ -90,7 +186,7 @@ export class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '902ab3fc2b4d1a491d2f2909de5e37a423eb23f2' }, h("div", { key: '031a4590ddc8a53a23ed4fe0038d5d24fc97ed17', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '4e88651121d4bbfcd79352402d8557ad72997bad', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '1a588e4fda30fc3831bc01946619ccb4a8b75fc9' }, h("gcds-sr-only", { key: 'e59a94f22d1ca8b191e09518c00c2ffe5923eab2', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: '5cafcc07dde740da62f2aedb007bb11942728256', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
+            return (h(Host, { key: 'f3c393ab31a6e837066e86752a550b421d1a832f' }, h("div", { key: 'af6b6bcf27020ca76234d0952ab590c3cb757aa6', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '0579c1b43388a52db59023fe0185283917d4a42e', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '50e83131805a091372d307eb09025978c4d18ac8' }, h("gcds-sr-only", { key: 'f768a327fece65782141499d981ec587710a3346', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: '03937e6671769a5a25cb7181dd2acbafa6d1e2ff', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, h("slot", { name: "title" }, cardTitle)))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), h("slot", { name: "title" }, cardTitle))), renderDescription)));
         }
     }
     static get is() { return "gcds-card"; }

@@ -13,6 +13,7 @@ import { EventEmitter } from '../../stencil-public-runtime';
  */
 export declare class GcdsHeader {
     el: HTMLElement;
+    private mql;
     /**
      * Props
      */
@@ -47,8 +48,15 @@ export declare class GcdsHeader {
      * Language of rendered component
      */
     lang: string;
+    /**
+     * Current size state based on widnow size
+     */
+    navSize: 'desktop' | 'mobile';
     updateLang(): void;
     componentWillLoad(): Promise<void>;
+    disconnectedCallback(): void;
+    private updateOrder;
+    private get isBrowser();
     private get renderSkipToNav();
     private get renderToggle();
     private get renderSignature();

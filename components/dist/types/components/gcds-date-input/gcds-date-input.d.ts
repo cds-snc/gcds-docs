@@ -50,6 +50,10 @@ export declare class GcdsDateInput {
      */
     disabled?: boolean;
     /**
+     * String to have autocomplete enabled.
+     */
+    autocomplete?: 'cc-exp' | 'bday' | 'off' | 'on';
+    /**
      * If true, the date-input will be focused on component render
      */
     autofocus: boolean;

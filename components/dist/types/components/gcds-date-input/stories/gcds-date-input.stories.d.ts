@@ -20,5 +20,8 @@ export declare const FullMin: any;
 export declare const CompactMin: any;
 export declare const FullMax: any;
 export declare const CompactMax: any;
+export declare const AutoCompleteOff: any;
+export declare const AutoCompleteOn: any;
+export declare const AutoCompleteBday: any;
 export declare const Props: any;
 export declare const Playground: any;

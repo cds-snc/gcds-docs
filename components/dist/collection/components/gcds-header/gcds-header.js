@@ -1,4 +1,4 @@
-import { Host, h, } from "@stencil/core";
+import { Host, h, Fragment, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 /**
@@ -19,6 +19,21 @@ export class GcdsHeader {
          * GcdsSignature - GCDS signature links to Canada.ca
          */
         this.signatureHasLink = true;
+        /**
+         * Current size state based on widnow size
+         */
+        this.navSize = 'mobile';
+        this.updateOrder = () => {
+            var _a;
+            if (!this.isBrowser)
+                return;
+            if ((_a = this.mql) === null || _a === void 0 ? void 0 : _a.matches) {
+                this.navSize = 'mobile';
+            }
+            else {
+                this.navSize = 'desktop';
+            }
+        };
     }
     /*
      * Observe lang attribute change
@@ -35,6 +50,19 @@ export class GcdsHeader {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
+        if (this.isBrowser) {
+            this.mql = window.matchMedia('(max-width: 480px)');
+            this.mql.addEventListener('change', this.updateOrder);
+            this.updateOrder();
+        }
+    }
+    disconnectedCallback() {
+        if (this.mql) {
+            this.mql.removeEventListener('change', this.updateOrder);
+        }
+    }
+    get isBrowser() {
+        return typeof window !== 'undefined' && typeof window.matchMedia === 'function';
     }
     get renderSkipToNav() {
         if (this.el.querySelector('[slot="skip-to-nav"]')) {
@@ -91,7 +119,7 @@ export class GcdsHeader {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, hasAccount, hasThemeTopicMenu, } = this;
-        return (h(Host, { key: 'c442ca1eb4d8dee9f7ddbaee406941df8fde17cc', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: 'bc5b263e2d37b65f31871b16425df942546f9e39', class: "gcds-header__brand" }, h("div", { key: '0429be368ec1ac6c58d705b32c7b22ec940dc82c', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hasThemeTopicMenu ? (h("div", { class: "gcds-header__container--menu" }, h("slot", { name: "menu" }), hasAccount ? h("slot", { name: "account" }) : null)) : h("slot", { name: "menu" }), hasBreadcrumb || (!hasBreadcrumb && !hasThemeTopicMenu && hasAccount) ? (h("div", { class: "gcds-header__container--breadcrumbs" }, hasBreadcrumb ? h("slot", { name: "breadcrumb" }) : null, hasAccount && !hasThemeTopicMenu ? h("slot", { name: "account" }) : null)) : null));
+        return (h(Host, { key: 'dda03cca98057c4b68e1c14787c1e9a50a2c7383', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: '44346897dc183526bcb5c0142d8369b640918794', class: "gcds-header__brand" }, h("div", { key: '279e022059667ba6f776f9adf3aec3469383bbbd', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hasThemeTopicMenu ? (h("div", { class: "gcds-header__container--menu" }, h("slot", { name: "menu" }), hasAccount ? h("slot", { name: "account" }) : null)) : h("slot", { name: "menu" }), hasBreadcrumb || (!hasBreadcrumb && !hasThemeTopicMenu && hasAccount) ? (h("div", { class: "gcds-header__container--breadcrumbs" }, this.navSize === 'mobile' ? (h(Fragment, null, hasAccount && !hasThemeTopicMenu ? h("slot", { name: "account" }) : null, hasBreadcrumb ? h("slot", { name: "breadcrumb" }) : null)) : (h(Fragment, null, hasBreadcrumb ? h("slot", { name: "breadcrumb" }) : null, hasAccount && !hasThemeTopicMenu ? h("slot", { name: "account" }) : null)))) : null));
     }
     static get is() { return "gcds-header"; }
     static get encapsulation() { return "shadow"; }
@@ -169,7 +197,8 @@ export class GcdsHeader {
     }
     static get states() {
         return {
-            "lang": {}
+            "lang": {},
+            "navSize": {}
         };
     }
     static get events() {

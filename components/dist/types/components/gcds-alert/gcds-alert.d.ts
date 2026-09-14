@@ -48,7 +48,10 @@ export declare class GcdsAlert {
      * Events
      */
     gcdsDismiss: EventEmitter<void>;
+    private getLiveRegion;
+    private announce;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
+    componentDidLoad(): void;
     render(): any;
 }

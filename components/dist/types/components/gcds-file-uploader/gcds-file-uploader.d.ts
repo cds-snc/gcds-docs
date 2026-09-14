@@ -7,6 +7,7 @@ export declare class GcdsFileUploader {
     el: HTMLElement;
     internals: ElementInternals;
     private shadowElement?;
+    private uploadedFiles;
     private inputTitle;
     _validator: Validator<unknown>;
     /**

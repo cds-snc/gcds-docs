@@ -5,6 +5,7 @@ declare const _default: {
 export default _default;
 export declare const Default: any;
 export declare const SkipTo: any;
+export declare const Account: any;
 export declare const Banner: any;
 export declare const Toggle: any;
 export declare const Menu: any;

@@ -40,6 +40,43 @@ export class GcdsAlert {
         this.isOpen = true;
     }
     /*
+     * Add or get live region for success/info alerts
+     */
+    getLiveRegion() {
+        let liveRegion = document.querySelector('.gcds-alert-announcement');
+        if (!liveRegion) {
+            liveRegion = document.createElement('div');
+            liveRegion.setAttribute('role', 'status');
+            liveRegion.setAttribute('aria-live', 'polite');
+            liveRegion.setAttribute('aria-atomic', 'true');
+            liveRegion.classList.add('gcds-alert-announcement');
+            Object.assign(liveRegion.style, {
+                position: 'absolute',
+                width: '1px',
+                height: '1px',
+                overflow: 'hidden',
+                clip: 'rect(0 0 0 0)',
+                whiteSpace: 'nowrap',
+            });
+            document.body.appendChild(liveRegion);
+        }
+        return liveRegion;
+    }
+    /*
+     * Add heading/message to live region to announce success/info alerts
+     */
+    announce(message) {
+        const region = this.getLiveRegion();
+        region.textContent = '';
+        window.setTimeout(() => {
+            region.textContent = message;
+        }, 350);
+        // clean up live region
+        window.setTimeout(() => {
+            region.textContent = '';
+        }, 5000);
+    }
+    /*
      * Observe lang attribute change
      */
     updateLang() {
@@ -55,11 +92,17 @@ export class GcdsAlert {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
+    componentDidLoad() {
+        if (window && (this.alertRole === 'info' || this.alertRole === 'success')) {
+            const message = `${this.heading}. ${this.el.textContent.trim()}`;
+            this.announce(message);
+        }
+    }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (h(Host, { key: '196150e847d3cea200cdb167c2cd2fee5cb2cea5' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: alertRole === 'info' || alertRole === 'success'
+        return (h(Host, { key: '28c68640cfa9a7c35800d3f755b1202afc3d78b0' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: alertRole === 'info' || alertRole === 'success'
                 ? 'status'
-                : 'alert', "aria-label": alertRole === 'danger'
+                : 'alert', "aria-atomic": "true", "aria-label": alertRole === 'danger'
                 ? i18n[lang].label.danger
                 : alertRole === 'info'
                     ? i18n[lang].label.info
