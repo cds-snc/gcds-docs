@@ -1,0 +1,102 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Error summary - Code
+componentName: Error summary
+tagName: '<gcds-error-summary>'
+alsoCalled: error list
+description: An error summary is a list of user errors in a form.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-summary'
+version: 1.6.0
+dateModified: '2026-09-15T09:04:06-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for error summaries](#coding-and-accessibility-for-error-summaries)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for error summaries
+
+### Use the error summary with GC Design System components
+
+All GC Design System components come with default error handling for required form components. For error summaries this means any required component will prompt an inline error message `onBlur` by default. That error message will be listed in the error summary on form submit.
+
+The GC Design System error summary uses the `listen` attribute to collect errors. The error summary will list errors from GC Design System components `onSubmit`. Errors are listed in the same order as they appear on the page.
+
+- Enable any controls the person will need to access to recover from any of the errors.
+- Consider replacing any generic default <gcds-link href={links.en.errorMessage}>error message</gcds-link> with text that defines the specific problem and how a person can fix it.
+
+### Opt to use the error summary with your own component instances
+
+If you’re using some of your own form components:
+
+- Add errors for those instances by passing the `error-links` attribute for any component or element you’re using that has an error message. Then the error messages will appear.
+- Match the error summary item content to each of your error messages.
+- Order errors in the error summary in the same order that they appear on the form.
+
+### Opt to change the error heading
+
+Opt to make your error heading more specific by using the `heading` attributes.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `error-links`
+
+The `error-links` attribute defines the list of errors to display in the error summary. Format: `{ link-href: link-label }`.
+
+<CodePreview iframe>
+  <gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
+  </gcds-error-summary>
+</CodePreview>
+
+#### `heading`
+
+The `heading` attribute defines the error summary heading.
+
+<CodePreview iframe>
+  <gcds-error-summary heading="Heading" error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
+  </gcds-error-summary>
+</CodePreview>
+
+#### `listen`
+
+The `listen` attribute controls whether the error summary should listen for the `gcdsError` event to generate a list of errors or not. By default, it is set to `true`.
+
+<CodePreview iframe>
+  <gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }' listen>
+  </gcds-error-summary>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-error-summary properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-summary--events-properties&lang=en"
+  width="1200"
+  height="1600"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
