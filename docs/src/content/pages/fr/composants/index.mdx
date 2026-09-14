@@ -1,0 +1,38 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Composants
+description: Les composants du Système de design GC sont des blocs de construction d'interface utilisateur répondant à différents objectifs. Chaque composant s'accompagne de code réutilisable, de conseils relatifs aux meilleures pratiques et d'astuces en matière d'accessibilité.
+dateModified: '2025-07-30T12:54:43-07:00'
+---
+
+import { ComponentCards, DocLinks, HelpUs } from '~components';
+import { links } from '~i18n/links';
+
+# Composants
+
+Les composants du Système de design GC sont des blocs de construction d'interface utilisateur répondant à différents objectifs. Chaque composant s'accompagne de code réutilisable, de conseils relatifs aux meilleures pratiques et d'astuces en matière d'accessibilité.
+
+<DocLinks
+  github="https://github.com/cds-snc/gcds-components"
+  figma="https://www.figma.com/community/file/1369337721343886324"
+/>
+
+## Parcourir les composants
+
+Nous proposons de nouveaux composants au fur et à mesure que nous les construisons.
+
+<ComponentCards locale="fr" />
+
+## Il manque quelque chose?
+
+<gcds-text>Nous travaillons peut-être <gcds-link href="/fr/simpliquer/#contribuez-a-nos-prochaines-priorites">à développer</gcds-link> le composant que vous recherchez.</gcds-text>
+
+<gcds-text>Sinon, vous pouvez utiliser nos Raccourcis CSS pour combler les lacunes. Ceux-ci permettent d’appliquer les styles de Système de design GC à votre code personnalisé.</gcds-text>
+
+<gcds-button type="link" href={links.fr.shortcuts} button-role="secondary">Parcourir les Raccourcis CSS</gcds-button>
+
+## Balises de composants
+
+Les composants « Requis sur Canada.ca » vous aident à respecter les normes du gouvernement fédéral canadien en matière d'identité, quel que soit votre produit.
+
+<HelpUs />
