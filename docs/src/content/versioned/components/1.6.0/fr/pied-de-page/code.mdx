@@ -1,0 +1,158 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Pied de page - Code
+componentName: Pied de page
+tagName: '<gcds-footer>'
+alsoCalled: pied de page du site
+description: Le pied de page porte l'image de marque réactive du gouvernement du Canada.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2996&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-footer'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+previewLabel: Aperçu du composant de pied de page
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité de pied de page](#codage-et-accessibilite-de-pied-de-page)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité de pied de page
+
+### Choisir un mode d'affichage à l'aide de la propriété d'affichage
+
+Utilisez la propriété `display` pour choisir l'un des deux modes d'affichage : `compact` ou `full`.
+
+Choisissez l'affichage compact pour inclure :
+
+1. La bande de liens du pied de page et le mot-symbole du gouvernement du Canada.
+
+<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-compact.svg" alt="" />
+
+Choisissez l'affichage complet si vous devez inclure :
+
+1. La bande principale avec une grande sélection de liens institutionnels du gouvernement du Canada;
+2. La bande de liens du pied de page et le mot-symbole du gouvernement du Canada.
+
+<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full.svg" alt="" />
+
+Choisissez d’inclure la bande contextuelle pour ajouter jusqu’à trois liens de pied de page pour votre site.
+
+<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="" />
+
+### Configurer la bande de liens de pied de page du GC
+
+- Assurez toujours l’intégrité du mot-symbole du gouvernement du Canada. Ne modifiez jamais le mot-symbole de quelque façon que ce soit.
+- Conservez le mot-symbole Canada, ainsi que les liens Confidentialité et Avis. Les autres liens ne sont requis que sur les pages standard. Ils peuvent être supprimés autrement.
+
+### Ajouter des éléments facultatifs
+
+- Ajoutez du contenu à la bande contextuelle en utilisant les attributs `contextual-heading` et `contextual-links`.
+- Utilisez l'attribut `contextual-heading` pour attribuer un texte d'en-tête et l'étiquette du repère de navigation de la bande contextuelle.
+- Utilisez l'attribut `contextual-links` pour définir un maximum de trois liens dans la bande contextuelle. Ajoutez des liens de soutien pour votre produit ou service, comme les coordonnées d'une personne-ressource de programme.
+- Dans la bande contextuelle, réglez l'élément `contextual-links` en passant un objet ou un objet dans une chaîne selon le format suivant :
+
+```js
+{
+“Étiquette du 1er lien”: “href”
+“Étiquette du 2e lien”: “href”
+“Étiquette du 3e lien”: “href”
+}
+```
+
+Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passant un objet ou un objet dans une chaîne selon le format suivant.
+
+```js
+{
+“Étiquette du 1er lien”: “href”
+“Étiquette du 2e lien”: “href”
+“Étiquette du 3e lien”: “href”
+}
+```
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.
+
+#### `contextual-heading`
+
+L'attribut `contextual-heading` définit le texte du titre de la section de navigation contextuelle dans le pied de page. Ce titre sert aussi à identifier le repère de navigation du pied de page, ce qui améliore la structure et l'accessibilité.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada." />`}
+  code={`<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
+</gcds-footer>`}
+/>
+
+#### `contextual-links`
+
+L'attribut `contextual-links` définit l'ensemble des liens affichés dans la section de navigation contextuelle du pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada." />`}
+  code={`<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
+</gcds-footer>`}
+/>
+
+#### `display`
+
+L'attribut `display` contrôle les sections du pied de page qui sont affichées. Par défaut, il est défini à `compact`, ce qui affiche uniquement la section de sous-pied de page.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/fr/components/example/example-footer-compact.svg" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca standard, avec les liens Médias sociaux, Applications mobiles, À propos de Canada.ca, Avis, Confidentialité, ainsi que le mot-symbole Canada." />`}
+  code={`<gcds-footer></gcds-footer>`}
+/>
+
+Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page sont toutes deux affichées.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/fr/components/example/example-footer-full.svg" alt="Composant du pied de page montrant la bande principale au-dessus de la bande de liens du GC et du mot-symbole Canada." />`}
+  code={`<gcds-footer display="full"></gcds-footer>`}
+/>
+
+#### `sub-links`
+
+L'attribut `sub-links` définit l'ensemble des liens affichés dans la section de sous-pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/fr/components/example/example-footer-compact-sub-links.svg" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca non standard, avec les liens Avis et Confidentialité, ainsi que le mot-symbole Canada." />`}
+  code={`<gcds-footer sub-links='{ "Avis": "#", "Confidentialité": "#" }'>
+</gcds-footer>`}
+/>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-footer."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-footer--events-properties&lang=fr&externalLinks=true"
+  width="1200"
+  height="2150"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

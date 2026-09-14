@@ -1,0 +1,157 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Footer - Code
+componentName: Footer
+tagName: '<gcds-footer>'
+alsoCalled: site footer
+description: The footer is the responsive Government of Canada branded footer landmark.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=1802-4983&mode=design&t=qlhQWm8dGLGWTIi1-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-footer'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for footers](#coding-and-accessibility-for-footers)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for footers
+
+### Choose a display mode using the display property
+
+Use the `display` property to choose one of the two display modes: `compact` or `full`.
+
+Choose the **compact display** to include:
+
+1. The footer links band and the Government of Canada wordmark.
+
+<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-compact.svg" alt="" />
+
+Include the **full display** if you need to include:
+
+1. The main band with a large selection of Government of Canada corporate links.
+2. The footer links band and the Government of Canada wordmark.
+
+<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full.svg" alt="" />
+
+Opt to include the contextual band to add up three specific links for your site.
+
+<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="" />
+
+### Set up the GC footer links band
+
+- Always maintain the integrity of the Government of Canada wordmark. Do not modify the wordmark in any way.
+- Keep the Canada wordmark, privacy link, and terms and conditions link. The other links are only required on standard pages, otherwise you can remove.
+
+### Add optional elements
+
+- Add content to the contextual band by using both the `contextual-heading` and `contextual-links` attributes.
+- Use the `contextual-heading` attribute to assign heading text and the navigational landmark label of the contextual band.
+- Use the `contextual-links` attribute to set a maximum of three links in the contextual band. Add support links for your product or service, such as contact details for a program.
+- For the contextual band, set the `contextual-links`, by passing an object or an object in a string in the following format:
+
+```js
+{
+“1st link label”: “href”
+“2nd link label”: “href”
+“3rd link label”: “href”
+}
+```
+
+- For the footer links band, set the `sub-links`, by passing an object or an object in a string in the following format:
+
+```js
+{
+“1st link label”: “href”
+“2nd link label”: “href”
+“3rd link label”: “href”
+}
+```
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `contextual-heading`
+
+The `contextual-heading` attribute defines the heading text for the contextual navigation section in the footer. This heading is also used to label the footer’s navigation landmark, supporting clearer structure and accessibility.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark." />`}
+  code={`<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
+</gcds-footer>`}
+/>
+
+#### `contextual-links`
+
+The `contextual-links` attribute defines the set of links displayed in the footer’s contextual navigation section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: `{ link-label: link-href }`.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark." />`}
+  code={`<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
+</gcds-footer>`}
+/>
+
+#### `display`
+
+The `display` attribute controls which sections of the footer are rendered. By default, it is set to `compact`, displaying only the sub-footer section.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/en/components/example/example-footer-compact.svg" alt="Footer component showing the GC footer links band for a standard Canada.ca page, with Social media, Mobile applications, About Canada.ca, Terms and conditions, Privacy, as well as the Canada wordmark." />`}
+  code={`<gcds-footer></gcds-footer>`}
+/>
+
+When it is set to `full`, both the main footer and sub-footer sections are displayed.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/en/components/example/example-footer-full.svg" alt="Footer component showing the main band above the GC footer links band and the Canada wordmark." />`}
+  code={`<gcds-footer display="full"></gcds-footer>`}
+/>
+
+#### `sub-links`
+
+The `sub-links` attribute defines the set of links displayed in the sub-footer section. It accepts an object where each key represents the link label and each value represents the corresponding URL. Format: `{ link-label: link-href }`.
+
+<CodePreview
+  iframe
+  demo={`<img src="/images/en/components/example/example-footer-compact-sub-links.svg" alt="Footer component showing the GC footer links band for a non-standard Canada.ca page, with Terms and conditions, Privacy, and the Canada wordmark." />`}
+  code={`<gcds-footer sub-links='{ "Terms and conditions": "#", "Privacy": "#" }'>
+</gcds-footer>`}
+/>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-footer properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-footer--events-properties&lang=en&externalLinks=true"
+  width="1200"
+  height="2150"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
