@@ -1,0 +1,87 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Date modified - Code
+componentName: Date modified
+tagName: '<gcds-date-modified>'
+alsoCalled: Last updated, version date
+description: Date modified is an indicator of the last update to a webpage or application.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=3471-9955&mode=design&t=jWaKo2Kq95VjrCgT-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for date modified](#coding-and-accessibility-for-date-modified)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for date modified
+
+### Keep the format consistent
+
+- Use the YYYY-MM-DD date format across all web pages.
+- If using the `type: version`, consider using a standard version number format across all products.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `type`
+
+The `type` attribute controls how the date-modified information is presented. By default, it is set to `date`, which displays the last modified date of the content.
+
+<CodePreview iframe>
+  <gcds-date-modified>2023-01-26</gcds-date-modified>
+</CodePreview>
+
+When set to `version`, the component displays a version number instead.
+
+<CodePreview iframe>
+  <gcds-date-modified type="version">v1.0.0</gcds-date-modified>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for adding the date modified or version text.
+
+<CodePreview iframe>
+  <gcds-date-modified>2023-01-26</gcds-date-modified>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-date-modified properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-modified--events-properties&lang=en"
+  width="1200"
+  height="1100"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
