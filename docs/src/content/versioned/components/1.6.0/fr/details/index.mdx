@@ -1,0 +1,36 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Détails - Cas d'utilisation
+componentName: Détails
+tagName: '<gcds-details>'
+alsoCalled: accordéon, développer/réduire
+description: Le composant Détails est un bouton interactif permettant à une personne d’afficher ou de masquer du contenu.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=8-4626&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-details'
+version: 1.6.0
+previewLabel: Aperçu du composant de détails
+dateModified: '2025-05-06T15:47:33-04:00'
+---
+
+import { links } from '~i18n/links';
+
+Explorez les problèmes réglés par le composant Détails et découvrez s'ils peuvent être utilisés pour résoudre votre problème particulier.
+
+## Problèmes résolus par le composant Détails
+
+Utilisez le composant Détails pour offrir un aperçu du contenu plus détaillé que vous avez dissimulé et qu'il est possible d'afficher. Utilisez ce composant pour :
+
+- réduire la taille de la page et le temps qu'il faut pour faire défiler le contenu lorsque ce dernier est volumineux et qu'il n'est pas nécessaire de le lire dans son ensemble. Prenons l'exemple d'un modèle de collecte d'adresse : l'adresse de livraison peut être dissimulée à l'aide du composant Détails si elle est identique à l'adresse postale ou à l'adresse de facturation.
+- offrir un résumé d'un contenu qui est secondaire vis-à-vis de la tâche principale et qui pourrait être accablant pour certaines personnes;
+- permettre de lire rapidement une page comportant de nombreux sous-titres. Prenons l'exemple d'une série de questions et de réponses : vous pouvez présenter les questions comme les titres d'un composant Détails et permettre ainsi à la personne d'afficher n'importe quelle section pour lire le contenu de la réponse;
+- donner au lectorat la possibilité de contrôler le contenu pour les sujets pouvant bouleverser certaines personnes. Celles-ci peuvent accéder au contenu une fois qu'elles se sentent prêtes et le dissimuler une fois qu'elles l'ont vu.
+
+<hr />
+
+## Composants connexes
+
+Onglets : lorsque vous souhaitez remplacer tout le contenu d'une section ou d'une page.
+
+<a href={links.fr.link}>Liens</a> : pour permettre de naviguer à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle et de lancer un téléchargement de fichiers.
+
+<a href={links.fr.button}>Boutons</a> : pour modifier des données, changer d'état ou lancer une action spécifique.
