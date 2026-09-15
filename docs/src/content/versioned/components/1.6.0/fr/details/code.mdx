@@ -1,0 +1,112 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Détails - Code
+componentName: Détails
+tagName: '<gcds-details>'
+alsoCalled: accordéon, développer/réduire
+description: Le composant Détails est un bouton interactif permettant à une personne d’afficher ou de masquer du contenu.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=8-4626&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-details'
+version: 1.6.0
+previewLabel: Aperçu du composant de détails
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité pour le composant détails](#codage-et-accessibilite-pour-le-composant-details)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité pour le composant détails
+
+### Présentez le composant Détails pour en faciliter la compréhension
+
+Le composant Détails peut ajouter à la charge cognitive d'une personne si :
+
+1. Il interrompt le flux de lecture ou de défilement;
+2. Le contenu dont la personne a besoin est difficile à chercher et à trouver;
+3. La personne ne connaît pas la fonction développer/réduire.
+
+Pour aider une personne à accéder au contenu du composant Détails :
+
+- Utilisez l'attribut `open` pour définir si le contenu du composant Détails est affiché par défaut ou non;
+- Faites en sorte que les titres utilisés dans le composant Détails indiquent clairement la nature du contenu. Évitez les titres non descriptifs tels que «&nbsp;En savoir plus&nbsp;». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme «&nbsp;Montant de couverture maximal pour vos prestations de physiothérapie&nbsp;».
+- Choisissez des titres distinctifs pour que les gens comprennent la différence. Les titres identiques ou similaires peuvent prêter à confusion.
+- Évitez de placer un composant Détails dans un autre, là où personne ne penserait à chercher ce contenu. 0 Faites en sorte que le contenu du composant Détails puisse faire l'objet d'une recherche.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `details-title`
+
+L'attribut `details-title` définit le libellé qui résume le contenu du composant détails.
+
+<CodePreview
+  iframe
+  code={`<gcds-details details-title="Apprenez-en plus sur ce sujet">
+  <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
+</gcds-details>`}
+/>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.
+
+#### `open`
+
+L'attribut `open` contrôle si le composant est ouvert par défaut ou non.
+
+<CodePreview
+  iframe
+  code={`<gcds-details details-title="Apprenez-en plus sur ce sujet" open>
+  <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
+</gcds-details>`}
+/>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter du contenu à l'intérieur du composant.
+
+<CodePreview
+  iframe
+  code={`<gcds-details details-title="Apprenez-en plus sur ce sujet">
+  <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
+</gcds-details>`}
+/>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-details."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-details--events-properties&lang=fr"
+  width="1200"
+  height="1050"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
