@@ -22,10 +22,40 @@
   .example-styled-items
   p:not(.visibility-hidden):not(.visibility-sr-only) {
   max-width: 100%;
-  padding-inline: var(--gcds-spacing-250);
-  padding-block: var(--gcds-spacing-250);
   background-color: var(--gcds-bg-primary);
   color: var(--gcds-text-light);
+}
+
+/* Skip block padding on items with their own pt- or pb- classes */
+.demo-container
+  .example-styled-items
+  p:not(.visibility-hidden):not(.visibility-sr-only):not([class^='pt']),
+.demo-container
+  .example-styled-items
+  p:not(.visibility-hidden):not(.visibility-sr-only):not([class^='pb']) {
+  padding-inline: var(--gcds-spacing-250);
+}
+
+.demo-container
+  .example-styled-items
+  p:not(.visibility-hidden):not(.visibility-sr-only):not([class^='pt']) {
+  padding-block-start: var(--gcds-spacing-250);
+}
+
+.demo-container
+  .example-styled-items
+  p:not(.visibility-hidden):not(.visibility-sr-only):not([class^='pb']) {
+  padding-block-end: var(--gcds-spacing-250);
+}
+
+/* Add light blue background to Grid demos. */
+.demo-container gcds-grid {
+  background-color: var(--gcds-color-blue-100);
+}
+
+.demo-container .examples-grid-container gcds-grid,
+.demo-container gcds-grid.examples-grid-container {
+  max-width: var(--gcds-container-size-sm);
 }
 
 .demo-container .example-items-with-margin p {
