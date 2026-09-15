@@ -1,0 +1,227 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Header - Code
+componentName: Header
+tagName: '<gcds-header>'
+alsoCalled: global header, brand header
+description: The header is the responsive Government of Canada branded header landmark.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+dateModified: '2026-09-09T15:47:33-04:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for headers](#coding-and-accessibility-for-headers)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for headers
+
+GC Design System components are designed to adapt to the size of the screen or frame where they’re being viewed. As an exception, the text size in the header and footer is fixed.
+
+### Preserve the signature element in the header for GC sites
+
+- Maintain the <gcds-link href={links.en.signature}>signature</gcds-link> for all GC sites.
+- Use the `signature-variant` attribute to set the Government of Canada signature to either `colour` or `white`. For white backgrounds, keep the `colour` default setting for the signature.
+- Always preserve the integrity of the Government of Canada signature. Avoid modifying it in any way, stretching, or changing the colours or text.
+- On Canada.ca pages, set the `signature-has-link` attribute to `true` to set the Government of Canada signature link to Canada.ca.
+
+### Include the language toggle on all GC sites
+
+- Include the <gcds-link href={links.en.langToggle}>language toggle</gcds-link> by setting the `lang-href` attribute. Setting the `lang-href` also sets the href of the language toggle.
+- Use the `lang` attribute to set the site language and the toggle will offer the other Official Language.
+
+### Set up the skip-to-content to improve accessibility
+
+- Set up a skip-to-content <gcds-link href={links.en.link}>link</gcds-link> as a shortcut for people using an assistive technology and improve keyboard navigation.
+- Set the href of the `skip-to-content` link in the header’s top navigation using the `skip-to-href` attribute.
+- Use the `skip-to-nav` slot to replace the default top navigation with the `skip-to-content` link.
+- Pass a child element with the `slot="skip-to-nav"` attribute to place the element first in the header.
+
+### Include the breadcrumbs and search on Canada.ca sites
+
+- On Canada.ca pages, keep the default setting of `hide-canada-link` to `false`.
+- Add the <gcds-link href={links.en.breadcrumbs}>breadcrumbs</gcds-link> component by passing a child element with the `slot="breadcrumb"` attribute. This will place the breadcrumbs in the header below the language toggle, signature and search slot.
+- Add a new breadcrumbs link to the breadcrumbs component by using the `gcds-breadcrumbs-item` component. The link can be added through the `href` property.
+- Include a <gcds-link href={links.en.search}>search</gcds-link> form by adding by adding `<gcds-search slot="search"></gcds-search>` or passing a child element with the `slot="search"` attribute. This will place the element under the language toggle and beside the signature in the header.
+- Set the search to a local or global search form. By default, the component is set to search Canada.ca.
+
+### Set up a top navigation
+
+- Add a <gcds-link href={links.en.topNav}>top navigation</gcds-link> by passing a child element with the `slot="menu"` attribute. This will place the element in the header below the language toggle, signature, and search slots.
+- Opt to add a banner by passing a child element with the `slot="banner"` attribute. This will place the element across the top of the header under the `skip-to-nav` element.
+
+### Set up account controls
+
+- Add an account button by passing a `gcds-button` with the `slot=”account”` attribute. This will place the button element, styled as the Canada.ca contextual sign in button, across from the breadcrumbs.
+- Configure the button label to reflect the account-related action, like “Sign in” or “Sign out”.
+  
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `lang-href`
+
+The `lang-href` attribute specifies the URL of the same page in another language, typically English or French. Use this attribute to provide a link that allows users to switch between available language versions.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+  </gcds-header>
+</CodePreview>
+
+#### `skip-to-href`
+
+The `skip-to-href` attribute specifies the URL or anchor for the "Skip to content" link. This link allows users, especially those using assistive technologies, to quickly navigate to the main content of the page, improving accessibility.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+  </gcds-header>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `signature-has-link`
+
+The `signature-has-link` attribute determines whether the header signature links to Canada.ca. By default, it's set to `true`, which means the signature is clickable.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+  </gcds-header>
+</CodePreview>
+
+When it's set to `false`, a non-clickable signature is displayed.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here" signature-has-link="false">
+  </gcds-header>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `account`
+
+The `account` slot is for adding an account-related button below the header. Use this slot with a `gcds-button` to include a button element, styled as the Canada.ca contextual sign in button, for actions like "Sign in" and "Sign out".
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <gcds-button type="link" href="#" slot="account">Sign in</gcds-button>
+  </gcds-header>
+</CodePreview>
+
+#### `banner`
+
+The `banner` slot is for adding a banner across the top of the header. Use this slot to display site-wide alerts or promotional messages.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <div slot="banner">Banner slot</div>
+  </gcds-header>
+</CodePreview>
+
+#### `breadcrumb`
+
+The `breadcrumb` slot is for adding <gcds-link href={links.en.breadcrumbs}>breadcrumbs</gcds-link> below the header. Use this slot to show the user’s current page location and navigation path.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <gcds-breadcrumbs slot="breadcrumb">
+      <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+      <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+    </gcds-breadcrumbs>
+  </gcds-header>
+</CodePreview>
+
+#### `menu`
+
+The `menu` slot is for adding a navigation menu below the divider line. For instance, you can use the <gcds-link href={links.en.topNav}>top-nav</gcds-link> component within this slot to provide the site’s primary navigation links.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <gcds-top-nav label="Top navigation" alignment="right" slot="menu">
+      <gcds-nav-link href="#home" slot="home">GC Notify</gcds-nav-link>
+      <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+      <gcds-nav-link href="#">Contact us</gcds-nav-link>
+    </gcds-top-nav>
+  </gcds-header>
+</CodePreview>
+
+#### `search`
+
+The `search` slot is for adding a <gcds-link href={links.en.search}>search field</gcds-link> to the header. Use this slot to allow users to search site content directly from the header.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <gcds-search slot="search"></gcds-search>
+  </gcds-header>
+</CodePreview>
+
+#### `signature`
+
+The `signature` slot is for replacing the default <gcds-link href={links.en.signature}>Government of Canada signature</gcds-link>. Use this slot to display a custom signature or logo if needed.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <gcds-signature slot="signature"></gcds-signature>
+  </gcds-header>
+</CodePreview>
+
+#### `skip-to-nav`
+
+The `skip-to-nav` slot is for adding a "skip to content" link at the top of the header. By default, the header includes a “skip to main content” link to improve accessibility for users of assistive technologies. The target for this default link can be set using the [`skip-to-href`](/en/components/header/examples#skiptohref) prop. Use this slot to add additional skip links or a custom “skip to content” link.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <gcds-link href="#main-content" slot="skip-to-nav">Skip to main content</gcds-link>
+  </gcds-header>
+</CodePreview>
+
+#### `toggle`
+
+The `toggle` slot is for adding a custom <gcds-link href={links.en.langToggle}>language toggle</gcds-link> in the header. By default, the header includes a language toggle that includes English and French. The target for this default language toggle can be set using the [`lang-href`](/en/components/header/examples#langhref) prop. Use this slot to add additional available languages.
+
+<CodePreview iframe>
+  <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
+    <gcds-lang-toggle href="url-here" slot="toggle">
+    </gcds-lang-toggle>
+  </gcds-header>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-header properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-header--events-properties&lang=en"
+  width="1200"
+  height="1600"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

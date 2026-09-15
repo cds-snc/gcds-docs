@@ -2,6 +2,7 @@ export { default as AddCssShortcuts } from "./AddCssShortcuts/AddCssShortcuts.as
 export { default as AnatomyImage } from "./AnatomyImage.astro";
 export { default as AnatomyList } from "./AnatomyList.astro";
 export { default as CdnVersionScript } from "./CdnVersionScript.astro";
+export { default as CheckList } from "./CheckList.astro";
 export { default as CodePreview } from "./CodePreview.astro";
 export { default as CodePreviewReact } from "./CodePreviewReact.jsx";
 export { default as ComponentCards } from "./ComponentCards.astro";
@@ -27,9 +28,9 @@ export { default as TokenTable } from "./TokenTable.astro";
 export { default as VersionSwitcher } from "./VersionSwitcher.astro";
 
 // CSS Shortcuts components (src/components/shortcuts)
-export { default as Notice } from "./shortcuts/Notice.astro";
-export { default as ShortcutsTable } from "./shortcuts/Table.astro";
-export { default as BrowseShortcuts } from "./shortcuts/Browse.astro";
-export { default as LogicalPropertiesNote } from "./shortcuts/LogicalPropertiesNote.astro";
-export { default as ResponsiveNote } from "./shortcuts/ResponsiveNote.astro";
-export { default as StateNote } from "./shortcuts/StateNote.astro";
+export { default as Notice } from './shortcuts/Notice.astro';
+export { default as ShortcutsTable } from './shortcuts/Table.astro';
+export { default as BrowseShortcuts } from './shortcuts/Browse.astro';
+export { default as LogicalPropertiesNote } from './shortcuts/LogicalPropertiesNote.astro';
+export { default as ResponsiveNote } from './shortcuts/ResponsiveNote.astro';
+export { default as StateNote } from './shortcuts/StateNote.astro';
