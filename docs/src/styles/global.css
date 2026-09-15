@@ -67,3 +67,14 @@ ul li {
   background-color: var(--gcds-color-blue-100);
   color: var(--gcds-color-blue-800);
 }
+
+/* Reset the page layout's grid custom properties so content grids inside <main>
+   compute from their own attributes instead of inheriting .general-layout's. */
+main {
+  --gcds-grid-columns: initial;
+  --gcds-grid-columns-tablet: initial;
+  --gcds-grid-columns-desktop: initial;
+  --gcds-grid-gap: initial;
+  --gcds-grid-gap-tablet: initial;
+  --gcds-grid-gap-desktop: initial;
+}
