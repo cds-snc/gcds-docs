@@ -1,0 +1,38 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Components
+description: GC Design System components are user interface building blocks that address different user objectives. Each comes with reusable code, best practice advice, and accessibility tips.
+dateModified: '2025-07-30T12:54:43-07:00'
+---
+
+import { ComponentCards, DocLinks, HelpUs } from '~components';
+import { links } from '~i18n/links';
+
+# Components
+
+GC Design System components are user interface building blocks that address different user objectives. Each comes with reusable code, best practice advice, and accessibility tips.
+
+<DocLinks
+  github="https://github.com/cds-snc/gcds-components"
+  figma="https://www.figma.com/community/file/1128687821123298228"
+/>
+
+## Browse components
+
+We're sharing components as we build them.
+
+<ComponentCards locale="en" />
+
+## Something missing?
+
+<gcds-text>We may be <gcds-link href="/en/get-involved/#contribute-to-our-next-priorities">working on building</gcds-link> the component you’re looking for.</gcds-text>
+
+<gcds-text>If not, you can use our CSS Shortcuts to fill in the gaps. It applies GC Design System styles to custom code.</gcds-text>
+
+<gcds-button type="link" href={links.en.shortcuts} button-role="secondary">View CSS Shortcuts</gcds-button>
+
+## Component tags
+
+Canada.ca required components help you meet federal identity standards for the Government of Canada in any product.
+
+<HelpUs />
