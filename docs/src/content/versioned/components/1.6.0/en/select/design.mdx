@@ -1,0 +1,57 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Select - Use case
+componentName: Select
+tagName: '<gcds-select>'
+alsoCalled: dropdown, select menu
+description: A select provides a large list of options for single selection.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-select'
+version: 1.6.0
+dateModified: '2026-02-12T10:09:45-08:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import { links } from '~i18n/links';
+import anatomy from './assets/gcds-select-anatomy.svg';
+
+## Select anatomy
+
+<AnatomyList>
+  <li>The <strong>label</strong> states the choice the select represents.</li>
+  <li>The <strong>hint text</strong> communicates additional context or requirements about the question and expected response.</li>
+  <li>The <strong>default value</strong> can be used as a placeholder for the select.</li>
+  <li>The <strong>icon</strong> is used as a visual aid to indicate that the field can be expanded.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="The select component with numbers pointing to individual parts of the select anatomy."
+/>
+
+## Design and accessibility for select
+
+### Make select options clear
+
+- Limit text for each option to a few words or a short phrase.
+- Generally, order options alphabetically. In some cases, it can be helpful for you to order them from most to least common.
+- When possible, include an option like "None" or "None of the above".
+
+### Help a person understand how to use selects
+
+- Avoid assuming a person will know how to use a select.
+- Use hint text to include a cue for users unfamiliar with selects so they know they can only make a single selection. For example, "Select the response that best applies".
+- Avoid pre-selecting a select option. This makes it more likely that users will miss a question and submit a wrong answer.
+- When possible, include an option like "None" or "None of the above". Once selected, the option cannot be de-selected, or reversed, except by choosing another option within the group. When this happens, the respondent is forced to choose an incorrect response or abandon the task.
+
+### Use other questions to reduce select option size
+
+- Try asking the users other questions before using the select in order to reduce the amount of options.
+- If the list of items is smaller (6-7 items or less), consider using <gcds-link href={links.en.radio}>radio buttons</gcds-link> instead.
+
+### Hide the label only when the purpose is clear
+- Visually hide the label only when the purpose of the select is clearly communicated by surrounding context, making the label visually redundant, such as in:
+  - tables or other space-constrained layouts
+  - settings and configurations
+- Always provide a label to support assistive technologies.
+- Omit hint text if you hide the label, as it can lack context and be distracting or confusing.

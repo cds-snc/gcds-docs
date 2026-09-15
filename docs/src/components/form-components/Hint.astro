@@ -1,0 +1,33 @@
+---
+import { Heading } from '~components'
+import { defaultLocale } from '~i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+
+const i18n = {
+  en: {
+    heading: 'Add hint text',
+    listitems: [
+      'Use the <code>hint</code> attribute to add hint text.',
+      'Avoid adding hint text in the field where it will disappear once the field is selected or a response starts to be entered.',
+    ],
+  },
+  fr: {
+    heading: 'Ajouter du texte explicatif',
+    listitems: [
+      "Utilisez l'attribut <code>hint</code> pour ajouter du texte explicatif.",
+      "Évitez d’ajouter, directement dans un champ, du texte explicatif qui disparaît lorsque le champ est sélectionné ou lorsqu'on y saisit une réponse.",
+    ],
+  },
+};
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(i18n, locale, defaultLocale);
+---
+
+<Heading tag="h3">{localizedContent.heading}</Heading>
+
+<ul class="list-disc">
+  {localizedContent.listitems.map((item: string) => (
+    <li set:html={item}></li>
+  ))}
+</ul>

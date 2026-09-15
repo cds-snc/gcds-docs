@@ -3,7 +3,6 @@
 export const links = {
   en: {
     home: '/en/',
-
     components: "/en/components",
     alert: "/en/components/alert",
     breadcrumbs: "/en/components/breadcrumbs",
@@ -132,7 +131,6 @@ export const links = {
   },
   fr: {
     home: '/fr/',
-
     components: "/fr/composants",
     alert: "/fr/composants/alerte",
     breadcrumbs: "/fr/composants/chemin-de-navigation",

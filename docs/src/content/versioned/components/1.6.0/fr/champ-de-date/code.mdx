@@ -1,0 +1,208 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Champ de date - Code
+componentName: Champ de date
+tagName: '<gcds-date-input>'
+alsoCalled: date, zone de date, date connue
+description: Le champ de date est un espace permettant de saisir une date connue.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-input'
+version: 1.6.0
+previewLabel: Aperçu du composant de champ de date
+dateModified: '2026-06-10T11:22:28-07:00'
+---
+
+import { CodePreview, ValidationErrorMessage, ValidProps, Hint } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des champs de date](#codage-et-accessibilite-des-champs-de-date)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des champs de date
+
+### Appliquez les attributs essentiels
+
+Utilisez toujours les attributs obligatoires suivants avec `gcds-date-input` :
+
+- `name`
+- `legend`
+- `format`
+
+### Choisir un format
+
+Utilisez `full`,  `compact` ou `iso`  comme attribut de format du champ de date.
+
+- La valeur `full` générera des champs de formulaire pour l’année, le mois et le jour.
+  - Dans ce format, le mois est un mot.
+  - En anglais, l’ordre est mois, jour, année.
+  - En français, l’ordre est jour, mois, année.
+  - Le format du rendu sera `AAAA-MM-JJ`.
+- La valeur `compact` générera des champs de formulaire pour l’année et le mois.
+  - Dans ce format, le mois est un mot.
+  - En anglais et en français, l’ordre est mois, année.
+  - Le format du rendu sera `AAAA-MM`.
+- La valeur `iso` générera des champs de formulaire pour l’année, le mois et le jour, dans cet ordre.
+  - Dans ce format, toutes les valeurs sont numériques, conformément aux normes ISO.
+  - Le format du rendu sera `AAAA-MM-JJ`.
+
+<ValidProps />
+
+<Hint />
+
+<ValidationErrorMessage component="le champ de date" />
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `format`
+
+L'attribut `format` définit le format d'affichage de la date.
+
+<CodePreview iframe>
+  <gcds-date-input format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `legend`
+
+L'attribut `legend` définit la légende du champ de date.
+
+<CodePreview iframe>
+  <gcds-date-input format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `name`
+
+L'attribut `name` identifie le composant dans le formulaire. Il permet de référencer le composant après l'envoi du formulaire.
+
+<CodePreview iframe>
+  <gcds-date-input format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `autofocus`
+
+L'attribut `autofocus` contrôle si le champ de date est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le champ est ciblé à l'affichage.
+
+<CodePreview iframe>
+  <gcds-date-input autofocus format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `disabled`
+
+L'attribut `disabled` contrôle si le champ de date est désactivé ou non. Par défaut, il est défini à `false`.
+
+<CodePreview iframe>
+  <gcds-date-input disabled format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `error-message`
+
+L'attribut `error-message` définit le message d'erreur à afficher pour un champ de date invalide.
+
+<CodePreview iframe>
+  <gcds-date-input error-message="Message d'erreur" format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `form`
+
+L'attribut `form` définit l'identifiant du formulaire auquel appartient le champ de date.
+
+<CodePreview iframe>
+  <gcds-date-input form="form-id" format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `hint`
+
+L'attribut `hint` définit le texte explicatif affiché sous la légende.
+
+<CodePreview iframe>
+  <gcds-date-input hint="Le jour peut être composé de 1 ou 2 chiffres. L’année doit inclure 4 chiffres." format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `max`
+
+L'attribut `max` définit la date maximale acceptée par le champ. Format : `YYYY-MM-DD` ou `YYYY-MM`.
+
+<CodePreview iframe>
+  <gcds-date-input max="2000-01-01" hint="La date doit être avant le 2000-01-01" format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `min`
+
+L'attribut `min` définit la date minimale acceptée par le champ. Format : `YYYY-MM-DD` ou `YYYY-MM`.
+
+<CodePreview iframe>
+  <gcds-date-input min="2000-01-01" hint="La date doit être après le 2000-01-01" format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `required`
+
+L'attribut `required` contrôle si le champ de date est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après la légende et active le validateur de champ obligatoire.
+
+<CodePreview iframe>
+  <gcds-date-input required format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `validate-on`
+
+L'attribut `validate-on` définit l'événement de validation pour le champ de date.
+
+<CodePreview iframe>
+  <gcds-date-input validate-on="other" required format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+#### `value`
+
+L'attribut `value` définit la date initiale affichée dans le composant. Il fournit également une référence à la date saisie. Format : `YYYY-MM-DD` ou `YYYY-MM`.
+
+<CodePreview iframe>
+  <gcds-date-input value="2026-02-22" format="full" legend="Légende" name="example-default">
+  </gcds-date-input>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque:** Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-date-input."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-input--events-properties&lang=fr"
+  width="1200"
+  height="1650"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

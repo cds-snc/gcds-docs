@@ -1,0 +1,153 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Fieldset - Code
+componentName: Fieldset
+tagName: '<gcds-fieldset>'
+alsoCalled: form group
+description: A fieldset is a group of multiple form components or elements.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-fieldset'
+version: 1.6.0
+dateModified: '2026-06-10T09:04:06-07:00'
+---
+
+import { links } from '~i18n/links';
+import { CodePreview, Hint } from '~components';
+
+## On this page
+
+- [Coding and accessibility for fieldsets](#coding-and-accessibility-for-fieldsets)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for fieldsets
+
+### Choose the heading level
+
+- Use the `legend-size` attribute to visually place the legend among the headings on the page.
+- Set the attribute value to `h2` | `h3` | `h4` | `h5` | `h6` to render the legend.
+
+<Hint />
+
+### Add form components
+
+- Add form components to the fieldset grouping:
+  - <gcds-link href={links.en.checkboxes}>gcds-checkboxes</gcds-link>
+  - <gcds-link href={links.en.dateInput}>gcds-date-input</gcds-link>
+  - <gcds-link href={links.en.fileUploader}>gcds-file-uploader</gcds-link>
+  - <gcds-link href={links.en.input}>gcds-input</gcds-link>
+  - <gcds-link href={links.en.radios}>gcds-radios</gcds-link>
+  - <gcds-link href={links.en.select}>gcds-select</gcds-link>
+  - <gcds-link href={links.en.textarea}>gcds-textarea</gcds-link>
+- Follow the respective guidance for each component within fieldset.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `legend`
+
+The `legend` attribute defines the legend for the fieldset.
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Legend" legend-size="h3">
+    <gcds-input input-id="form-input" label="Input label">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Select label">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+#### `legend-size`
+
+The `legend-size` attribute sets the appropriate font size for the fieldset legend. The available options are:
+
+- `h2`
+- `h3`
+- `h4`
+- `h5`
+- `h6`
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Legend" legend-size="h3">
+    <gcds-input input-id="form-input" label="Input label">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Select label">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `hint`
+
+The `hint` attribute defines the hint text displayed under the legend.
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Legend" legend-size="h3" hint="Hint / Example message.">
+    <gcds-input input-id="form-input" label="Input label">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Select label">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for placing form elements inside the fieldset.
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Legend" legend-size="h3" hint="Hint / Example message.">
+    <gcds-input input-id="form-input" label="Input label">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Select label">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-fieldset properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-fieldset--events-properties&lang=en"
+  width="1200"
+  height="2300"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

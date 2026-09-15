@@ -1,0 +1,154 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Jeu de champs - Code
+componentName: Jeu de champs
+tagName: '<gcds-fieldset>'
+alsoCalled: groupe de champs de formulaire
+description: Le jeu de champs est un groupe de plusieurs composants ou éléments dans un formulaire.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-fieldset'
+version: 1.6.0
+previewLabel: Aperçu du composant de jeu de champs
+dateModified: '2026-06-10T08:30:09-07:00'
+---
+
+import { links } from '~i18n/links';
+import { CodePreview, Hint } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des jeux de champs](#codage-et-accessibilite-des-jeux-de-champs)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des jeux de champs
+
+### Choisir le niveau de titre
+
+- Utilisez l’attribut `legend-size` pour placer visuellement la légende parmi les titres de la page.
+- Définissez la valeur de l’attribut à `h2` | `h3` | `h4` | `h5` | `h6` pour générer la légende.
+
+<Hint />
+
+### Ajouter des composants de formulaire
+
+- Ajoutez des composants de formulaire au jeu champs :
+  - <gcds-link href={links.fr.checkboxes}>gcds-checkboxes</gcds-link>
+  - <gcds-link href={links.fr.dateInput}>gcds-date-input</gcds-link>
+  - <gcds-link href={links.fr.fileUploader}>gcds-file-uploader</gcds-link>
+  - <gcds-link href={links.fr.input}>gcds-input</gcds-link>
+  - <gcds-link href={links.fr.radios}>gcds-radios</gcds-link>
+  - <gcds-link href={links.fr.select}>gcds-select</gcds-link>
+  - <gcds-link href={links.fr.textarea}>gcds-textarea</gcds-link>
+- Suivez les instructions respectives pour chaque composant du jeu de champs.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `legend`
+
+L'attribut `legend` définit la légende du jeu de champs.
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Légende" legend-size="h3">
+    <gcds-input input-id="form-input" label="Étiquette de champ">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Étiquette de sélection">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+#### `legend-size`
+
+L'attribut `legend-size` définit la taille de police appropriée pour la légende du jeu de champs. Les options sont :
+
+- `h2`
+- `h3`
+- `h4`
+- `h5`
+- `h6`
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Légende" legend-size="h3">
+    <gcds-input input-id="form-input" label="Étiquette de champ">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Étiquette de sélection">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `hint`
+
+L'attribut `hint` définit le texte explicatif affiché sous la légende.
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Légende" legend-size="h3" hint="Texte explicatif/Exemple de message.">
+    <gcds-input input-id="form-input" label="Étiquette de champ">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Étiquette de sélection">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+L'emplacement par défaut sert à placer des éléments de formulaire à l'intérieur du jeu de champs.
+
+<CodePreview iframe>
+  <gcds-fieldset legend="Légende" legend-size="h3" hint="Texte explicatif/Exemple de message.">
+    <gcds-input input-id="form-input" label="Étiquette de champ">
+    </gcds-input>
+    <gcds-select select-id="form-select" label="Étiquette de sélection">
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </gcds-select>
+  </gcds-fieldset>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Aperçu des propriétés et des événements de gcds-fieldset."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-fieldset--events-properties&lang=fr"
+  width="1200"
+  height="2300"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

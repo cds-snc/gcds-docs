@@ -1,0 +1,201 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Boutons radio - Code
+componentName: Boutons radio
+tagName: '<gcds-radios>'
+alsoCalled: case d’option, groupe radio
+description: Les boutons radio permettent de proposer plusieurs options de réponse pour un choix unique.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-radios'
+version: 1.6.0
+previewLabel: Aperçu du composant de boutons radio
+dateModified: '2026-06-10T15:51:40-04:00'
+---
+
+import { CodePreview, ValidationErrorMessage } from '~components';
+import { links } from '~i18n/links';
+
+## Codage et accessibilité des boutons radio
+
+### Appliquer les attributs essentiels
+
+Utilisez toujours les attributs essentiels suivants avec `gcds-radios` :
+
+- `name`
+- `legend`
+- `options`
+
+### Utiliser l'attribut `options`
+
+- L’attribut `options` utilise un tableau d’objets pour générer chaque bouton radio.
+- À l’intérieur de chaque attribut `options` de chaque bouton radio, utilisez toujours les propriétés essentielles à cet objet :
+  - `id`  
+  - `label`
+- Les autres propriétés sont facultatives.
+
+Exemple :
+
+```javascript
+{
+  'id'!: '',
+  'label'!: '',
+  'value'!: '',
+  'checked'?: '',
+  'hint'?: '',
+}
+```
+
+### Utiliser l'attribut `value`
+
+L’attribut `value` fournit une référence rapide à la valeur sélectionnée à l’intérieur du composant `gcds-radios`.
+
+### Ajouter du texte explicatif
+
+Utilisez l’attribut `hint` pour ajouter du texte explicatif.
+
+<ValidationErrorMessage components="les boutons radio" />
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `legend`
+
+L'attribut `legend` définit la légende du groupe de boutons radio.
+
+<CodePreview iframe>
+  <gcds-radios legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `name`
+
+L'attribut `name` identifie le composant dans le formulaire. Il permet de récupérer la valeur sélectionnée après la soumission.
+
+<CodePreview iframe>
+  <gcds-radios legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `options`
+
+L'attribut `options` définit les boutons radio à afficher en prenant un tableau (array) d'objets, un par bouton radio.
+
+<CodePreview iframe>
+  <gcds-radios legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `autofocus`
+
+L'attribut `autofocus` contrôle si le premier bouton radio est ciblé automatiquement au chargement de la page. Par défaut, il est défini à `false`. Lorsqu'il est défini à `true`, le bouton radio est ciblé à l'affichage.
+
+<CodePreview iframe>
+  <gcds-radios autofocus legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `disabled`
+
+L'attribut `disabled` contrôle si les boutons radio sont désactivés ou non. Par défaut, il est défini à `false`.
+
+<CodePreview iframe>
+  <gcds-radios disabled legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `error-message`
+
+L'attribut `error-message` définit le message d'erreur à afficher pour les boutons radio invalides.
+
+<CodePreview iframe>
+  <gcds-radios error-message="Message d'erreur" legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `form`
+
+L'attribut `form` définit l'identifiant du formulaire auquel appartiennent les boutons radio.
+
+<CodePreview iframe>
+  <gcds-radios form="form-id" legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `hide-legend`
+
+L'attribut `hide-legend` contrôle si la légende est masquée ou non.
+
+<CodePreview iframe>
+  <gcds-radios hide-legend legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `hint`
+
+L'attribut `hint` définit le texte explicatif affiché sous la légende.
+
+<CodePreview iframe>
+<gcds-radios hint="Texte explicatif/Exemple de message." legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+</gcds-radios>
+</CodePreview>
+
+#### `required`
+
+L'attribut `required` contrôle si le jeu de boutons radio est obligatoire ou non. Lorsqu'il est défini à `true`, il ajoute « obligatoire » après la légende, et active le validateur de champ obligatoire.
+
+<CodePreview iframe>
+  <gcds-radios required legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `validate-on`
+
+L'attribut `validate-on` définit l'événement de validation pour les boutons radio.
+
+<CodePreview iframe>
+  <gcds-radios validate-on="other" required legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+#### `value`
+
+L'attribut `value` contient la valeur du bouton radio actuellement sélectionné. Il se met à jour à chaque changement de sélection.
+
+<CodePreview iframe>
+  <gcds-radios value="radio1" legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+  </gcds-radios>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque:** Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-radios."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-radios--events-properties&lang=fr"
+  width="1200"
+  height="1770"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"
+></iframe>

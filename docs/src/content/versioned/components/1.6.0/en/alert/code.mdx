@@ -1,0 +1,138 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Alert - Design
+componentName: Alert
+tagName: '<gcds-alert>'
+alsoCalled: message, inline message
+description: The alert is an interactive object that communicates important information to the user.
+figma: 'https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=817-4607&p=f&t=sUfuiFgkFiAWYq3z-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-alert'
+version: 1.6.0
+dateModified: '2026-09-09T08:28:14-04:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for alerts](#coding-and-accessibility-for-alerts)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for alerts
+
+### Define the alert role
+
+Use the `alert-role` attribute to categorize the alert as info, warning, danger or success. This choice determines the visual styling of the alert and communicates the urgency or importance of the message to people.
+
+### Specify the alert title
+
+Use the `heading` attribute to create a clear and informative title for the alert. Make sure the title conveys the message’s purpose.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+#### `heading`
+
+Use `heading` to define the title of the alert.
+
+<CodePreview iframe>
+  <gcds-alert heading="You already have an application in progress">
+  </gcds-alert>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `alert-role`
+
+Use `alert-role` to set the style of the alert. Choose from:
+
+- `info`
+- `success`
+- `warning`
+- `danger`
+
+<CodePreview iframe>
+  <gcds-alert heading="Your changes have been saved" alert-role="success">
+  </gcds-alert>
+</CodePreview>
+
+#### `container`
+
+Use `container` to define the container width for the alert content.
+
+<CodePreview iframe>
+  <gcds-alert heading="You already have an application in progress" container="sm">
+  </gcds-alert>
+</CodePreview>
+
+#### `hide-close-btn`
+
+Set `hide-close-btn` to `true` to hide the dismiss button. By default, it’s set to `false`, which displays the dismiss button.
+
+<CodePreview iframe>
+  <gcds-alert heading="You already have an application in progress" hide-close-btn>
+  </gcds-alert>
+</CodePreview>
+
+#### `hide-role-icon`
+
+Set `hide-role-icon` to `true` to hide the alert’s role icon. By default, it’s set to `false`, which displays the icon.
+
+<CodePreview iframe>
+  <gcds-alert heading="You already have an application in progress" hide-role-icon>
+  </gcds-alert>
+</CodePreview>
+
+#### `is-fixed`
+
+Set `is-fixed` to `true` to fix the alert’s position at the top. By default, it’s set to `false`.
+
+<CodePreview iframe>
+  <gcds-alert heading="You already have an application in progress" is-fixed>
+  </gcds-alert>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+### `default`
+
+Use the `default` slot to add any type of content to the alert’s message. You can add things like text, links, or buttons.
+
+<CodePreview iframe>
+  <gcds-alert heading="You already have an application in progress">
+    <p>Message.</p>
+  </gcds-alert>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-alert properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-alert--events-properties&lang=en"
+  width="1200"
+  height="1500"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

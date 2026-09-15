@@ -1,0 +1,33 @@
+---
+import { Heading } from '~components'
+import { defaultLocale } from '~i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+
+const i18n = {
+  en: {
+    heading: 'Hide the label',
+    listitems: [
+      'Set the <code>hide-label</code> attribute to true to visually hide the label while maintaining it for assistive technologies.',
+      'Avoid adding hint text when the label is hidden.',
+    ],
+  },
+  fr: {
+    heading: "Masquer l'étiquette",
+    listitems: [
+      "Réglez l'attribut <code>hide-label</code> à true (vrai) pour masquer visuellement l'étiquette tout en la conservant pour les technologies d'assistance.",
+      "Évitez d'ajouter un texte explicatif lorsque l'étiquette est masquée.",
+    ],
+  },
+};
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(i18n, locale, defaultLocale);
+---
+
+<Heading tag="h3">{localizedContent.heading}</Heading>
+
+<ul class="list-disc">
+  {localizedContent.listitems.map((item: string) => (
+    <li set:html={item}></li>
+  ))}
+</ul>

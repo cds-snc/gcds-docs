@@ -1,0 +1,54 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Checkboxes - Design
+componentName: Checkboxes
+tagName: '<gcds-checkboxes>'
+alsoCalled: checklist, check list
+description: Checkboxes provide a set of options for multiple responses.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-checkboxes'
+version: 1.6.0
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import { links } from '~i18n/links';
+import anatomy from './assets/gcds-checkboxes-anatomy.svg';
+
+## Checkboxes anatomy
+
+<AnatomyList>
+  <li>The <strong>legend for checkboxes</strong> acts as a heading to identify the grouped checkboxes. Legend text is left aligned and in sentence case where only the initial letter is capitalized. (Only applies when there are multiple options to choose from.)</li>
+  <li>The <strong>hint text for checkboxes</strong> gives specific requirements for filling out the checkboxes successfully. (Only applies when there are multiple options to choose from.)</li>
+  <li>The <strong>checkbox</strong> lets people choose or clear an option.</li>
+  <li>The <strong>checkmark</strong> is a visual cue that indicates an option is selected.</li>
+  <li>The <strong>option label</strong> names or describes the option.</li>
+  <li>The <strong>option hint text</strong> gives additional information about the option.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Checkboxes anatomy showing the labels “legend” at the top followed by “hint text” underneath. Under that are two checkboxes with labels and hint text beside them. One of the checkboxes has a checkmark."
+/>
+
+## Design and accessibility for checkboxes
+
+### Make selections clear
+
+- Limit the number of options to 7.  
+- Limit text for each option to a few words or a short phrase. Include hint text if more context is needed.  
+- Order options in a logical way. This could mean alphabetically or from most to least common.
+
+### Make instructions clear
+
+- Avoid assuming a person will know how to use a checkbox.  
+- Use the hint text to specify they can make multiple selections. For example, "Select all that apply".  
+- Avoid pre-selecting a checkbox. This makes it more likely that users will miss a question and submit the wrong answer.
+
+### Hide the legend or labels only when the purpose is clear
+
+- Visually hide the legend or labels only when the purpose of the checkboxes is clearly communicated by surrounding context, making the label visually redundant, such as in:
+  - tables or other space-constrained layouts
+  - settings and configurations
+- Always provide a legend and labels to support assistive technologies.
+- Omit hint text if you hide the legend, as it can lack context and be distracting or confusing.

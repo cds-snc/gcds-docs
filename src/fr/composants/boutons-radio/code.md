@@ -189,7 +189,7 @@ L'attribut `value` contient la valeur du bouton radio actuellement sélectionné
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-radios--events-properties&lang=fr"
   width="1200"
   height="1770"
-  style="display: block; margin: 0 auto;"
+  style="display: block; margin: 0 auto; max-width: 100%;"
   frameBorder="0"
   allow="clipboard-write"
 ></iframe>

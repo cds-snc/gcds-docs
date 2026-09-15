@@ -28,9 +28,15 @@ export { default as TokenTable } from "./TokenTable.astro";
 export { default as VersionSwitcher } from "./VersionSwitcher.astro";
 
 // CSS Shortcuts components (src/components/shortcuts)
-export { default as Notice } from './shortcuts/Notice.astro';
-export { default as ShortcutsTable } from './shortcuts/Table.astro';
-export { default as BrowseShortcuts } from './shortcuts/Browse.astro';
-export { default as LogicalPropertiesNote } from './shortcuts/LogicalPropertiesNote.astro';
-export { default as ResponsiveNote } from './shortcuts/ResponsiveNote.astro';
-export { default as StateNote } from './shortcuts/StateNote.astro';
+export { default as Notice } from "./shortcuts/Notice.astro";
+export { default as ShortcutsTable } from "./shortcuts/Table.astro";
+export { default as BrowseShortcuts } from "./shortcuts/Browse.astro";
+export { default as LogicalPropertiesNote } from "./shortcuts/LogicalPropertiesNote.astro";
+export { default as ResponsiveNote } from "./shortcuts/ResponsiveNote.astro";
+export { default as StateNote } from "./shortcuts/StateNote.astro";
+
+// Repeated form guidance (src/components/form-components)
+export { default as HideTheLabel } from "./form-components/HideTheLabel.astro"
+export { default as Hint } from "./form-components/Hint.astro"
+export { default as ValidationErrorMessage } from "./form-components/ValidationErrorMessage.astro";
+export { default as ValidProps } from "./form-components/ValidProps.astro";
