@@ -1,0 +1,103 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Message d'erreur - Code
+componentName: Message d'erreur
+tagName: '<gcds-error-message>'
+alsoCalled: erreur ou indicateur d’erreur
+description: Un message d’erreur est une description d’un problème représentant un obstacle à l’objectif de l’utilisateur·rice.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-message'
+version: 1.6.0
+previewLabel: Aperçu du composant de message d'erreur
+dateModified: '2026-05-20T09:04:06-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des messages d'erreur](#codage-et-accessibilite-des-messages-derreur)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des messages d'erreur
+
+### Rédigez des messages d'erreur pour faciliter l'accomplissement des tâches.
+
+- Assurez-vous que l'on puisse accéder immédiatement aux contrôles du formulaire associés au libellé auquel le message d'erreur est attaché.
+- Rédigez un message d'erreur spécifique pour éviter qu'il s'affiche à nouveau alors que l'utilisateur·rice pensait l'avoir corrigé.
+- Ne proposez pas d'étapes supplémentaires. Précisez ce qu'il faut faire pour corriger l'erreur pour que l'on puisse prendre des mesures et soumettre de nouveau — voire revalider — les modifications sans devoir suivre des étapes supplémentaires.
+- Fournissez une ou deux solutions pour corriger l'erreur, plutôt qu'une démarche en plusieurs étapes.
+
+Remarque : Tous les composants du système de conception GC sont déjà livrés avec une gestion des erreurs par défaut pour les composants de formulaire requis.
+
+### Rédigez un message d'erreur classique
+
+Fournissez une orientation simple et rapide qui se situe dans le contexte et interrompt le déroulement de l'action le moins possible par :
+
+- Un repérage clair de l'erreur;
+- Une définition de l'erreur qui ne signale pas les actions de l'utilisateur·rice comme la source du problème;
+- Un appel à l'action spécifique et exploitable.
+
+La personne qui reçoit un message d'erreur doit :
+
+- Trouver l'erreur et être en mesure d'y avoir accès;
+- Savoir quoi faire pour la corriger;
+- Être en mesure de réaliser des modifications;
+- Soumettre à nouveau les modifications ou les valider sans avoir à remplir à nouveau le formulaire complet.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `message-id`
+
+L'attribut `message-id` définit l'identifiant unique du message d'erreur.
+
+<CodePreview iframe>
+  <gcds-error-message message-id="message-default">
+    Message d'erreur.
+  </gcds-error-message>
+</CodePreview>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter le texte du message d'erreur.
+
+<CodePreview iframe>
+  <gcds-error-message message-id="message-default">
+    Message d'erreur.
+  </gcds-error-message>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Aperçu des propriétés et des événements de gcds-error-message."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-message--events-properties&lang=fr"
+  width="1200"
+  height="1000"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

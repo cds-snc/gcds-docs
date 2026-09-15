@@ -1,0 +1,102 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Error message - Code
+componentName: Error message
+tagName: '<gcds-error-message>'
+alsoCalled: error, inline error
+description: An error message is a description of a problem blocking a user goal.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-message'
+version: 1.6.0
+dateModified: '2026-05-20T09:04:06-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for error messages](#coding-and-accessibility-for-error-messages)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for error messages
+
+### Use error messages to support accessible task success
+
+- Make sure a person can immediately access the form controls associated with the label the error message is attached to.
+- Make your error message specific to avoid a user getting the same error message again after they thought they fixed the error.
+- Avoid introducing additional steps. Let a person know exactly what to do to fix the error so they can take action and resubmit or revalidate without having to do extra work.
+- Provide one or two solutions for fixing the error, not a multi-step process.
+
+Note: All GC Design System components already come with default error handling for required form components.
+
+### Follow a predictable format for error messages
+
+Provide simple, fast guidance that's in context and interrupts the flow of action as minimally as possible:
+
+- Clearly identifies and points to the error.
+- Defines the error without making the user's actions the source of the problem.
+- Includes a call to action that's specific and actionable.
+
+A person who receives an error message needs to:
+
+- Find the error and be able to access it.
+- Know what to do to fix it.
+- Be able to make the changes.
+- Resubmit or revalidate without having to fill out the whole form again.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `message-id`
+
+The `message-id` attribute specifies the unique identifier for the error message.
+
+<CodePreview iframe>
+  <gcds-error-message message-id="message-default">
+    Error message.
+  </gcds-error-message>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for adding the error message text.
+
+<CodePreview iframe>
+  <gcds-error-message message-id="message-default">
+    Error message.
+  </gcds-error-message>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-error-message properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-message--events-properties&lang=en"
+  width="1200"
+  height="1000"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
