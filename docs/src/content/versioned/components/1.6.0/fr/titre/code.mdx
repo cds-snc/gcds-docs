@@ -1,0 +1,157 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Titre - Code
+componentName: Titre
+tagName: '<gcds-heading>'
+alsoCalled: titre de la section, sous-titre
+description: Un titre établit les niveaux d’une structure hiérarchique pour organiser le contenu d’une page.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-heading'
+version: 1.6.0
+previewLabel: Aperçu du composant de titre
+dateModified: '2026-09-14T12:59:40-04:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité du composant titre](#codage-et-accessibilite-du-composant-titre)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité du composant titre
+
+### Classez les niveaux de titre de manière hiérarchique
+
+Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux supérieurs ont un texte d'affichage plus grand que les niveaux inférieurs.
+
+- Définissez des niveaux de titre corrects et cohérents pour aligner les titres codés et visuels sur une page. Des titres cohérents favorisent une expérience équitable pour les personnes qui utilisent des technologies d'assistance.
+- Classez les titres de manière séquentielle, du plus bas au plus élevé (H1 à H6).
+- Évitez de sauter des niveaux de titre. Restructurez plutôt le contenu de manière à ce que les titres soient utilisés de manière séquentielle, du plus grand (H1) au plus petit (H6).
+- N'utilisez un titre H1 qu'une seule fois sur une page. D'autres types de titres peuvent être utilisés plusieurs fois.
+- Utilisez les titres H2 pour décrire les sections individuelles. Chaque section doit avoir un titre H2.
+- Utilisez les titres H3 à H6 dans les sections. Les sections peuvent contenir plusieurs titres H3-H6, à condition qu'ils soient placés dans l'ordre hiérarchique.
+
+### Maintenez des limites de caractères accessibles
+
+- Conservez la valeur `character-limit` par défaut pour chaque ligne de titre en réglant l'attribut à `true` pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent une longueur de ligne équilibrée et cohérente entre les tailles de police des titres.
+- Limitez les limites de caractères aux longueurs suivantes pour maintenir un équilibre visuel entre les titres d'une page :
+  - 31 caractères pour H1.
+  - 35 caractères pour H2.
+  - 40 caractères pour H3.
+  - 45 caractères pour H4.
+  - 50 caractères pour H5.
+  - 57 caractères pour H6.
+
+### Utilisez un espacement cohérent
+
+- Conservez l'espacement par défaut pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent des espaces visuels et des séparations entre les différentes sections.
+- Conservez les valeurs d'espacement suivantes pour maintenir un équilibre visuel entre les titres d'une page :
+  - Par défaut `margin-bottom`: `300` pour tous les niveaux
+  - Par défaut `margin-top`: `0` pour H1 et `600` pour H2 à H6
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `tag`
+
+L'attribut `tag` définit l'élément de titre HTML approprié pour le niveau sélectionné.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2">
+    Titre
+  </gcds-heading>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `character-limit`
+
+L'attribut `character-limit` définit la longueur de ligne maximale en nombre de caractères pour chaque niveau de titre, assurant une longueur de lecture confortable et accessible.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" character-limit="false">
+    Titre
+  </gcds-heading>
+</CodePreview>
+
+#### `heading-role`
+
+L'attribut `heading-role` définit le style principal du titre. Les options sont :
+
+- `primary` (par défaut)
+- `secondary`
+- `light`
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" heading-role="secondary">
+    Titre
+  </gcds-heading>
+</CodePreview>
+
+#### `margin-bottom`
+
+L'attribut `margin-bottom` définit la marge sous le titre. La valeur par défaut est `300`.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" margin-bottom="600">
+    Titre
+  </gcds-heading>
+</CodePreview>
+
+#### `margin-top`
+
+L'attribut `margin-top` définit la marge au-dessus du titre. La valeur par défaut est `0` pour `h1`, et `600` pour `h2` à `h6`.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" margin-top="200">
+    Titre
+  </gcds-heading>
+</CodePreview>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter du texte au titre.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2">
+    Heading
+  </gcds-heading>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-heading."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-heading--events-properties&lang=fr"
+  width="1200"
+  height="1300"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
