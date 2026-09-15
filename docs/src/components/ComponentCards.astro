@@ -1,0 +1,35 @@
+---
+import { en, fr } from '../data/componentCards';
+
+interface Props {
+  locale?: 'en' | 'fr';
+}
+
+const { locale = 'en' } = Astro.props as Props;
+const cards = locale === 'fr' ? fr : en;
+---
+
+<div class="my-600">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
+    {
+      cards.map((c) => (
+        <gcds-card
+          card-title={c.title}
+          href={c.href}
+          card-title-tag="h3"
+          badge={c.badge}
+          img-src={c.thumb.src}
+          img-alt={c.alt}
+          role="listitem"
+        >
+          <gcds-text>{c.desc}</gcds-text>
+          {c.other && (
+            <gcds-text text-role="secondary" size="small" margin-bottom="0">
+              <em>{c.other}</em>
+            </gcds-text>
+          )}
+        </gcds-card>
+      ))
+    }
+  </gcds-grid>
+</div>
