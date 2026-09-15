@@ -15,6 +15,10 @@ dateModified: '2026-05-20T08:02:46-07:00'
 ---
 
 import { CodePreview } from '~components';
+import exampleCompact from './assets/example-footer-compact.svg';
+import exampleFull from './assets/example-footer-full.svg';
+import exampleContextual from './assets/example-footer-full-with-contextual-links.svg';
+import exampleCompactSubLinks from './assets/example-footer-compact-sub-links.svg';
 
 ## Sur cette page
 
@@ -32,18 +36,18 @@ Choisissez l'affichage compact pour inclure :
 
 1. La bande de liens du pied de page et le mot-symbole du gouvernement du Canada.
 
-<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-compact.svg" alt="" />
+<img class="b-sm b-default mb-300 p-300" src={exampleCompact.src} alt="" />
 
 Choisissez l'affichage complet si vous devez inclure :
 
 1. La bande principale avec une grande sélection de liens institutionnels du gouvernement du Canada;
 2. La bande de liens du pied de page et le mot-symbole du gouvernement du Canada.
 
-<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full.svg" alt="" />
+<img class="b-sm b-default mb-300 p-300" src={exampleFull.src} alt="" />
 
 Choisissez d’inclure la bande contextuelle pour ajouter jusqu’à trois liens de pied de page pour votre site.
 
-<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="" />
+<img class="b-sm b-default mb-300 p-300" src={exampleContextual.src} alt="" />
 
 ### Configurer la bande de liens de pied de page du GC
 
@@ -93,7 +97,7 @@ L'attribut `contextual-heading` définit le texte du titre de la section de navi
 
 <CodePreview
   iframe
-  demo={`<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada." />`}
+  demo={`<img src="${exampleContextual.src}" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada." />`}
   code={`<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
 </gcds-footer>`}
 />
@@ -104,7 +108,7 @@ L'attribut `contextual-links` définit l'ensemble des liens affichés dans la se
 
 <CodePreview
   iframe
-  demo={`<img src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada." />`}
+  demo={`<img src="${exampleContextual.src}" alt="Composant du pied de page montrant la bande contextuelle, la bande principale, la bande de liens du GC et le mot-symbole Canada." />`}
   code={`<gcds-footer contextual-heading="Service numérique canadien (SNC)" contextual-links='{ "Pourquoi utiliser Notification GC": "#", "Fonctionnalités": "#", "Activité sur Notification GC": "#" }'>
 </gcds-footer>`}
 />
@@ -115,7 +119,7 @@ L'attribut `display` contrôle les sections du pied de page qui sont affichées.
 
 <CodePreview
   iframe
-  demo={`<img src="/images/fr/components/example/example-footer-compact.svg" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca standard, avec les liens Médias sociaux, Applications mobiles, À propos de Canada.ca, Avis, Confidentialité, ainsi que le mot-symbole Canada." />`}
+  demo={`<img src="${exampleCompact.src}" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca standard, avec les liens Médias sociaux, Applications mobiles, À propos de Canada.ca, Avis, Confidentialité, ainsi que le mot-symbole Canada." />`}
   code={`<gcds-footer></gcds-footer>`}
 />
 
@@ -123,7 +127,7 @@ Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page
 
 <CodePreview
   iframe
-  demo={`<img src="/images/fr/components/example/example-footer-full.svg" alt="Composant du pied de page montrant la bande principale au-dessus de la bande de liens du GC et du mot-symbole Canada." />`}
+  demo={`<img src="${exampleFull.src}" alt="Composant du pied de page montrant la bande principale au-dessus de la bande de liens du GC et du mot-symbole Canada." />`}
   code={`<gcds-footer display="full"></gcds-footer>`}
 />
 
@@ -133,7 +137,7 @@ L'attribut `sub-links` définit l'ensemble des liens affichés dans la section d
 
 <CodePreview
   iframe
-  demo={`<img src="/images/fr/components/example/example-footer-compact-sub-links.svg" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca non standard, avec les liens Avis et Confidentialité, ainsi que le mot-symbole Canada." />`}
+  demo={`<img src="${exampleCompactSubLinks.src}" alt="Composant du pied de page montrant la bande de liens du GC pour une page Canada.ca non standard, avec les liens Avis et Confidentialité, ainsi que le mot-symbole Canada." />`}
   code={`<gcds-footer sub-links='{ "Avis": "#", "Confidentialité": "#" }'>
 </gcds-footer>`}
 />

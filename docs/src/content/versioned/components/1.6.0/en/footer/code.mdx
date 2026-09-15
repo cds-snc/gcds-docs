@@ -14,6 +14,10 @@ dateModified: '2026-05-20T08:02:46-07:00'
 ---
 
 import { CodePreview } from '~components';
+import exampleCompact from './assets/example-footer-compact.svg';
+import exampleFull from './assets/example-footer-full.svg';
+import exampleContextual from './assets/example-footer-full-with-contextual-links.svg';
+import exampleCompactSubLinks from './assets/example-footer-compact-sub-links.svg';
 
 ## On this page
 
@@ -31,18 +35,18 @@ Choose the **compact display** to include:
 
 1. The footer links band and the Government of Canada wordmark.
 
-<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-compact.svg" alt="" />
+<img class="b-sm b-default mb-300 p-300" src={exampleCompact.src} alt="" />
 
 Include the **full display** if you need to include:
 
 1. The main band with a large selection of Government of Canada corporate links.
 2. The footer links band and the Government of Canada wordmark.
 
-<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full.svg" alt="" />
+<img class="b-sm b-default mb-300 p-300" src={exampleFull.src} alt="" />
 
 Opt to include the contextual band to add up three specific links for your site.
 
-<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="" />
+<img class="b-sm b-default mb-300 p-300" src={exampleContextual.src} alt="" />
 
 ### Set up the GC footer links band
 
@@ -92,7 +96,7 @@ The `contextual-heading` attribute defines the heading text for the contextual n
 
 <CodePreview
   iframe
-  demo={`<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark." />`}
+  demo={`<img src="${exampleContextual.src}" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark." />`}
   code={`<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
 </gcds-footer>`}
 />
@@ -103,7 +107,7 @@ The `contextual-links` attribute defines the set of links displayed in the foote
 
 <CodePreview
   iframe
-  demo={`<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark." />`}
+  demo={`<img src="${exampleContextual.src}" alt="Footer component showing the contextual band, main band, GC footer links band, and Canada wordmark." />`}
   code={`<gcds-footer contextual-heading="Canadian Digital Service" contextual-links='{ "Why GC Notify": "#", "Features": "#", "Activity on GC Notify": "#" }'>
 </gcds-footer>`}
 />
@@ -114,7 +118,7 @@ The `display` attribute controls which sections of the footer are rendered. By d
 
 <CodePreview
   iframe
-  demo={`<img src="/images/en/components/example/example-footer-compact.svg" alt="Footer component showing the GC footer links band for a standard Canada.ca page, with Social media, Mobile applications, About Canada.ca, Terms and conditions, Privacy, as well as the Canada wordmark." />`}
+  demo={`<img src="${exampleCompact.src}" alt="Footer component showing the GC footer links band for a standard Canada.ca page, with Social media, Mobile applications, About Canada.ca, Terms and conditions, Privacy, as well as the Canada wordmark." />`}
   code={`<gcds-footer></gcds-footer>`}
 />
 
@@ -122,7 +126,7 @@ When it is set to `full`, both the main footer and sub-footer sections are displ
 
 <CodePreview
   iframe
-  demo={`<img src="/images/en/components/example/example-footer-full.svg" alt="Footer component showing the main band above the GC footer links band and the Canada wordmark." />`}
+  demo={`<img src="${exampleFull.src}" alt="Footer component showing the main band above the GC footer links band and the Canada wordmark." />`}
   code={`<gcds-footer display="full"></gcds-footer>`}
 />
 
@@ -132,7 +136,7 @@ The `sub-links` attribute defines the set of links displayed in the sub-footer s
 
 <CodePreview
   iframe
-  demo={`<img src="/images/en/components/example/example-footer-compact-sub-links.svg" alt="Footer component showing the GC footer links band for a non-standard Canada.ca page, with Terms and conditions, Privacy, and the Canada wordmark." />`}
+  demo={`<img src="${exampleCompactSubLinks.src}" alt="Footer component showing the GC footer links band for a non-standard Canada.ca page, with Terms and conditions, Privacy, and the Canada wordmark." />`}
   code={`<gcds-footer sub-links='{ "Terms and conditions": "#", "Privacy": "#" }'>
 </gcds-footer>`}
 />
