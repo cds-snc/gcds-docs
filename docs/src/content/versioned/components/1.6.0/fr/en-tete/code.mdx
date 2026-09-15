@@ -1,0 +1,227 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: En-tête - Code
+componentName: En-tête
+tagName: '<gcds-header>'
+alsoCalled: en-tête général, en-tête de marque
+description: L'en-tête porte l'image de marque réactive du gouvernement du Canada.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+previewLabel: Aperçu du composant de l'en-tête
+dateModified: '2026-09-09T12:59:40-04:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## Sur cette page
+
+- [Codage et accessibilité de en-tête](#codage-et-accessibilite-de-entete)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité de en-tête
+
+Les composants de Système de design du GC sont conçus pour s'adapter à la taille de l'écran ou du cadre où ils sont visualisés. À titre d'exception, la taille du texte dans l'en-tête et le pied de page est fixe.
+
+### Préserver l'élément signature dans l'en-tête pour les sites Web du GC
+
+- Conservez la <gcds-link href={links.fr.signature}>signature</gcds-link> pour tous les sites du GC.
+- Utilisez l'attribut `signature-variant` pour paramétrer la signature du gouvernement du Canada à `colour` ou `white`. Pour les arrière-plans blancs, conservez le paramètre `colour` par défaut pour la signature.
+- Assurez toujours l'intégrité de la signature du gouvernement du Canada. Évitez de la modifier de quelque manière que ce soit, de l'étirer ou d'en modifier les couleurs ou le texte.
+- Sur les pages Canada.ca, paramétrez l'attribut `signature-has-link` à `true` pour définir le lien de la signature à Canada.ca.
+
+### Inclure la bascule de langue sur tous les sites du GC
+
+- Ajoutez la <gcds-link href={links.fr.langToggle}>bascule de langue</gcds-link> en définissant l'attribut `lang-href`. L'attribut `lang-href` définit également l'élément «&nbsp;href&nbsp;» de la bascule de langue.
+- Utilisez l'attribut `lang` pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.
+
+### Configurer un lien «&nbsp;passer au contenu&nbsp;» (`skip-to-content`) pour améliorer l'accessibilité
+
+- Configurez un <gcds-link href={links.fr.link}>lien</gcds-link> `skip-to-content` comme raccourci pour les personnes utilisant une technologie d'assistance et améliorer la navigation au clavier.
+- Définissez l'élément «&nbsp;href&nbsp;» du lien `skip-to-content` dans la navigation supérieure de l'en-tête à l'aide de l'attribut `skip-to-href`.
+- Utilisez l'emplacement `skip-to-nav` pour remplacer la navigation supérieure par défaut par le lien `skip-to-content`.
+- Passez un élément enfant avec l'attribut `slot="skip-to-nav"` pour placer l'élément en première position dans l'en-tête.
+
+### Inclure le chemin d'accès et la recherche sur les sites Canada.ca
+
+- Sur les pages de Canada.ca, conservez le paramètre par défaut de `hide-canada-link` à `false`.
+- Ajoutez le composant <gcds-link href={links.fr.breadcrumbs}>chemin de navigation</gcds-link> en passant un élément enfant avec l'attribut `slot="breadcrumb"`. Cela placera le chemin de navigation dans l'en-tête sous les emplacements de la bascule de langue, la signature et la recherche.
+- Ajoutez un nouveau lien au chemin de navigation en utilisant le composant `gcds-breadcrumbs-item`. Le lien peut être ajouté à l'aide de la propriété `href`.
+- Ajoutez l'élément <gcds-link href={links.fr.search}>recherche</gcds-link> en ajoutant `<gcds-search slot="search"></gcds-search>` ou en passant un élément enfant avec l'attribut `slot="search"`. Cela placera l'élément sous la bascule de langue et à côté de la signature dans l'en-tête.
+- Paramétrez la recherche de sorte à effectuer une recherche locale ou globale. Par défaut, le composant est configuré pour la recherche dans Canada.ca.
+
+### Configurer une barre de navigation supérieure
+
+- Ajoutez une <gcds-link href={links.fr.topNav}>barre de navigation supérieure</gcds-link> en passant un élément enfant à l'aide de l'attribut `slot="menu"`. Cela placera l'élément dans l'en-tête, sous les emplacements du bouton de bascule de langue, de la signature et de la barre de recherche.
+- Vous avez le choix d'ajouter une bannière en faisant passer un élément enfant avec l'attribut `slot="banner"`. Cela placera l'élément en haut de l'en-tête sous l'élément `skip-to-nav`.
+
+### Configurez des contrôles de compte
+- Ajoutez un bouton de compte en passant un élément `gcds-button` avec l’attribut `slot=”account”`. Cela placera l’élément bouton, affichant le style du bouton de connexion contextuelle Canada.ca, aligné sur le chemin de navigation. 
+- Configurez le libellé du bouton de compte afin de refléter l’action liée au compte, comme « Se connecter » ou « Se déconnecter ».
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `lang-href`
+
+L'attribut `lang-href` définit l'URL de la même page dans une autre langue, généralement l'anglais ou le français. Utilisez cet attribut pour fournir un lien permettant aux utilisateurs de basculer entre les versions linguistiques disponibles.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  </gcds-header>
+</CodePreview>
+
+#### `skip-to-href`
+
+L'attribut `skip-to-href` spécifie l'URL ou l'ancre du lien « Passer au contenu ». Ce lien permet aux utilisateurs, notamment ceux qui utilisent des technologies d'assistance, d'accéder rapidement au contenu principal de la page, améliorant ainsi l'accessibilité.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  </gcds-header>
+</CodePreview>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `signature-has-link`
+
+L'attribut `signature-has-link` contrôle si la signature de l'en-tête est cliquable et pointe vers Canada.ca. Par défaut, il est défini à `true`, ce qui rend la signature cliquable.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+  </gcds-header>
+</CodePreview>
+
+Lorsqu'il est défini à `false`, la signature s'affiche sans lien.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here" signature-has-link="false">
+  </gcds-header>
+</CodePreview>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `account`
+
+L’emplacement `account` sert à ajouter un bouton sous l’en-tête afin de refléter une action liée au compte. Utilisez-le avec `gcds-button` pour inclure un élément bouton, affichant le style du bouton de connexion contextuel Canada.ca, pour des actions comme « Se connecter » ou « Se déconnecter ».
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <gcds-button type="link" href="#" slot="account">Se connecter</gcds-button>
+  </gcds-header>
+</CodePreview>
+
+#### `banner`
+
+L'emplacement `banner` sert à ajouter une bannière en haut de l'en-tête. Utilisez-le pour afficher des alertes à l'échelle du site ou des messages promotionnels.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <div slot="banner">Banner slot</div>
+  </gcds-header>
+</CodePreview>
+
+#### `breadcrumb`
+
+L'emplacement `breadcrumbs` sert à ajouter un <gcds-link href={links.fr.breadcrumbs}>chemin de navigation</gcds-link> sous l'en-tête. Utilisez-le pour indiquer où se trouve l'utilisateur dans le site et comment il y est arrivé.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <gcds-breadcrumbs slot="breadcrumb">
+      <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
+      <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
+    </gcds-breadcrumbs>
+  </gcds-header>
+</CodePreview>
+
+#### `menu`
+
+L'emplacement `menu` sert à ajouter un menu de navigation sous la ligne de séparation. Par exemple, vous pouvez y placer le composant <gcds-link href={links.fr.topNav}>top-nav</gcds-link> pour fournir les liens de navigation principaux du site.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <gcds-top-nav label="Top navigation" alignment="right" slot="menu">
+      <gcds-nav-link href="#home" slot="home">Notification GC</gcds-nav-link>
+      <gcds-nav-link href="#">Pourquoi Notification GC</gcds-nav-link>
+      <gcds-nav-link href="#">Nous joindre</gcds-nav-link>
+    </gcds-top-nav>
+  </gcds-header>
+</CodePreview>
+
+#### `search`
+
+L'emplacement `search` sert à ajouter un <gcds-link href={links.fr.search}>champ de recherche</gcds-link> à l'en-tête. Utilisez-le pour permettre aux utilisateurs de chercher du contenu directement depuis l'en-tête.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <gcds-search slot="search"></gcds-search>
+  </gcds-header>
+</CodePreview>
+
+#### `signature`
+
+L'emplacement `signature` sert à remplacer la <gcds-link href={links.fr.signature}>signature par défaut du gouvernement du Canada</gcds-link>. Utilisez-le pour afficher une signature ou un logo personnalisé.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <gcds-signature slot="signature"></gcds-signature>
+  </gcds-header>
+</CodePreview>
+
+#### `skip-to-nav`
+
+L'emplacement `skip-to-nav` sert à ajouter un lien « Passer au contenu » en haut de l'en-tête. Par défaut, l'en-tête inclut déjà un lien « Passer au contenu principal » dont la cible peut être définie à l'aide de la propriété [`skip-to-href`](/fr/composants/en-tete/code#skiptohref). Utilisez cet emplacement pour ajouter des liens de saut supplémentaires ou un lien « Passer au contenu » personnalisé.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <gcds-link href="#main-content" slot="skip-to-nav">Passer au contentu principal</gcds-link>
+  </gcds-header>
+</CodePreview>
+
+#### `toggle`
+
+L'emplacement `toggle` sert à ajouter un bouton de <gcds-link href={links.fr.langToggle}>basculement de langue</gcds-link> personnalisé dans l'en-tête. Par défaut, l'en-tête inclut déjà un bouton pour basculer entre l'anglais et le français, dont la cible peut être définie avec la propriété [`lang-href`](/fr/composants/en-tete/code#langhref). Utilisez cet emplacement pour prendre en charge des langues supplémentaires.
+
+<CodePreview iframe>
+  <gcds-header lang-href="en-url-here" skip-to-href="#id-main-content-here">
+    <gcds-lang-toggle href="url-here" slot="toggle">
+    </gcds-lang-toggle>
+  </gcds-header>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-header."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-header--events-properties&lang=fr"
+  width="1200"
+  height="1600"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

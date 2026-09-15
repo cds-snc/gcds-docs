@@ -1,0 +1,156 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Heading - Code
+componentName: Heading
+tagName: '<gcds-heading>'
+alsoCalled: title, section heading, subheading
+description: A heading is a title that establishes levels of hierarchy to organize page content into a structure.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-heading'
+version: 1.6.0
+dateModified: '2026-09-14T15:47:33-04:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for headings](#coding-and-accessibility-for-headings)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for headings
+
+### Order heading levels hierarchically
+
+Heading levels follow a sequential, hierarchical order: higher levels have larger display text than lower ones.
+
+- Set correct and consistent heading levels to align the coded and visual headings on a page. Consistent headings support an equitable experience for people who use assistive technologies.
+- Order headings sequentially from lowest to highest (H1–H6).
+- Avoid skipping heading levels. Instead, restructure content so headings are used sequentially, from largest (H1) to smallest (H6).
+- Only use an H1 heading once on a page. Other heading types can be used multiple times.
+- Use H2 headings to describe individual sections. Each section should have one H2 heading.
+- Opt to use H3–H6 headings within sections. Sections can contain multiple H3–H6 headings, as long as they are placed in hierarchical order.
+
+### Maintain accessible character limits
+
+- Maintain the default `character-limit` for each heading line by keeping the attribute set to `true` for a comfortable and accessible reading length. These defaults create a balanced, consistent line length across heading font sizes.
+- Keep character limits to the following lengths to maintain a visual balance across headings on a page:
+  - 31 characters for H1.
+  - 35 characters for H2.
+  - 40 characters for H3.
+  - 45 characters for H4.
+  - 50 characters for H5.
+  - 57 characters for H6.
+
+### Use consistent spacing
+
+- Maintain default spacing for a comfortable and accessible reading experience. These defaults create visual breaks and separation between different sections.
+- Keep spacing values to the following to maintain a visual balance across headings on a page:
+  - Default `margin-bottom`: `300` for all
+  - Default `margin-top`: `0` for H1 and `600` for H2–6
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `tag`
+
+The `tag` attribute sets the appropriate HTML heading element for the selected level.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2">
+    Heading
+  </gcds-heading>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `character-limit`
+
+The `character-limit` attribute defines the line length to a maximum number of characters per line for each heading level, ensuring a comfortable, accessible reading length.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" character-limit="false">
+    Heading
+  </gcds-heading>
+</CodePreview>
+
+#### `heading-role`
+
+The `heading-role` attribute sets the main style of the heading. The available options are:
+
+- `primary` (default)
+- `secondary`
+- `light`
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" heading-role="secondary">
+    Heading
+  </gcds-heading>
+</CodePreview>
+
+#### `margin-bottom`
+
+The `margin-bottom` attribute sets a margin below the heading. The default `margin-bottom` is `300`.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" margin-bottom="600">
+    Heading
+  </gcds-heading>
+</CodePreview>
+
+#### `margin-top`
+
+The `margin-top` attribute sets a margin above the heading. The default `margin-top` for `h1` is set to `0`, while for `h2` to `h6` headings, it's `600`.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2" margin-top="200">
+    Heading
+  </gcds-heading>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for adding text to the heading.
+
+<CodePreview iframe>
+  <gcds-heading tag="h2">
+    Heading
+  </gcds-heading>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-heading properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-heading--events-properties&lang=en"
+  width="1200"
+  height="1300"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

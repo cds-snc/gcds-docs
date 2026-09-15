@@ -1,0 +1,112 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Details - Code
+componentName: Details
+tagName: '<gcds-details>'
+alsoCalled: accordion, collapse
+description: Details is an interactive switch for a person to expand or collapse content.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=1097-2733&mode=design&t=qwNFRgCKhnoUtRXO-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-details'
+version: 1.6.0
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for details](#coding-and-accessibility-for-details)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for details
+
+### Present the details component to support understanding
+
+The details component can add to a person's cognitive load when it:
+
+1. Interrupts the flow of reading or scrolling.
+2. The content they need is difficult to find and search.
+3. They are unfamiliar with the expand and collapse function.
+
+To help a reader's experience accessing details content:
+
+- Use the `open` attribute to define if the details content is open by default or not.
+- Make details titles clearly state what the content's about. Avoid non-descriptive titles such as "Read more". Instead, opt for a specific and descriptive summary, like "Maximum coverage amount for your physio benefit".
+- Make titles distinct so people know the difference. Identical or similar titles can be confused.
+- Avoid placing one details component inside another, where no one would know to look for that content.
+- Make details content searchable.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `details-title`
+
+The `details-title` attribute defines the label that summarizes the details content.
+
+<CodePreview
+  iframe
+  code={`<gcds-details details-title="Learn more about this topic">
+  <gcds-text margin-bottom="0">Additional information.</gcds-text>
+</gcds-details>`}
+/>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `open`
+
+The `open` attribute controls whether the details component is open by default or not.
+
+<CodePreview
+  iframe
+  code={`<gcds-details details-title="Learn more about this topic" open>
+  <gcds-text margin-bottom="0">Additional information.</gcds-text>
+</gcds-details>`}
+/>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for adding content inside the details component.
+
+<CodePreview
+  iframe
+  code={`<gcds-details details-title="Learn more about this topic">
+  <gcds-text margin-bottom="0">Additional information.</gcds-text>
+</gcds-details>`}
+/>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-details properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-details--events-properties&lang=en"
+  width="1200"
+  height="1050"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

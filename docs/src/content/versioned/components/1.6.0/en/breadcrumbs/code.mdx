@@ -1,0 +1,133 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Breadcrumbs - Code
+componentName: Breadcrumbs
+tagName: '<gcds-breadcrumbs>'
+alsoCalled: breadcrumb trail
+description: Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=2353-7841&mode=design&t=TM0vYuC6hpDwd6Un-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-breadcrumbs'
+version: 1.6.0
+requiredCanada: true
+dateModified: '2026-07-13T07:50:35-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for breadcrumbs](#coding-and-accessibility-for-breadcrumbs)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for breadcrumbs
+
+### Start with the Canada.ca link and the homepage link
+
+- Maintain the Canada.ca link as the default first breadcrumbs link for most websites and pages.
+- Opt to replace the Canada.ca link with the homepage link on transactional pages and stand alone websites or products. To remove the Canada.ca link at the head of the breadcrumbs, set the `hide-canada-link` attribute to `true`.
+
+Tip: For a process that does not have a traditional landing page, link to the starting page of the process.
+
+### Place breadcrumbs before the `<main>` element
+
+Place breadcrumbs at the top of a page, before the `<main>` element. This way a skip-to-content link can work to let a person skip all navigation links, including breadcrumbs.
+
+### Use breadcrumb items for breadcrumbs links
+
+Add a new breadcrumbs link to the breadcrumbs component by using the `<gcds-breadcrumbs-item>` component. Add it through the `href` property.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### Breadcrumbs item `href`
+
+Use `href` to define the destination URL for a `gcds-breadcrumbs-item`. This attribute is required for the breadcrumb item to function as a link.
+
+<CodePreview iframe>
+  <gcds-breadcrumbs>
+    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+  </gcds-breadcrumbs>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `hide-canada-link`
+
+Use `hide-canada-link` to show or hide the default canada.ca link in the breadcrumbs. By default, it's set to `false`, which means the canada.ca link appears as the first breadcrumb item.
+
+<CodePreview iframe>
+  <gcds-breadcrumbs>
+    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+  </gcds-breadcrumbs>
+</CodePreview>
+
+When set to `true`, the default canada.ca link is hidden, and only the breadcrumb items provided are displayed.
+
+<CodePreview
+  iframe
+  code={`<gcds-breadcrumbs hide-canada-link>
+    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>`}
+>
+  <gcds-breadcrumbs hide-canada-link>
+    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+  </gcds-breadcrumbs>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+Use the `default` slot to add `gcds-breadcrumbs-item` subcomponents. Use the `default` slot of the breadcrumbs item to add the item's text.
+
+<CodePreview
+  iframe
+  code={`<gcds-breadcrumbs hide-canada-link>
+  <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+</gcds-breadcrumbs>`}
+>
+  <gcds-breadcrumbs hide-canada-link>
+    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+  </gcds-breadcrumbs>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-breadcrumbs properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&id=components-breadcrumbs--events-properties&lang=en&externalLinks=true"
+  width="1200"
+  height="1150"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
