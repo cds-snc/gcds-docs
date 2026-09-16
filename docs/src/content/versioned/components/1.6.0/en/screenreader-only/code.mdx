@@ -1,0 +1,92 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Screenreader-only - Code
+componentName: Screenreader-only
+tagName: '<gcds-sr-only>'
+alsoCalled: visually hidden, assistive text
+description: The screenreader-only component is text information only accessible with assistive technologies.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-sr-only'
+version: 1.6.0
+dateModified: '2026-05-20T12:02:56-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for screenreader-only](#coding-and-accessibility-for-screenreaderonly)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for screenreader-only
+
+### Write helpful screenreader-only content
+
+- Flag contextual information exclusively communicated through visual styling that's absent from ‌semantic HTML.
+- Keep screenreader-only content clear and very brief. Adding too much text unnecessarily increases the cognitive load.
+- Provide additional text content for assistive technologies only when the interface design relies on visual information to communicate.
+- Avoid including additional information that's unavailable in the interface.
+- Avoid duplicating any information included in descriptive text (alt-text). If the descriptive text already provides the context, the screenreader-only component may not be needed.
+
+### Provide an equitable experience in both Official Languages
+
+- Use the screenreader-only content to make sure the text will be read in the language associated with the component's language tag.
+- Avoid using an `aria-label` attribute to set another language because some assistive technologies will default to page's source language.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `tag`
+
+The `tag` attribute sets the appropriate HTML element for the content. By default, it is set to `p`.
+
+<CodePreview iframe>
+  <gcds-sr-only tag="h2">
+    Text only seen by assistive technologies.
+  </gcds-sr-only>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for placing the hidden accessible content.
+
+<CodePreview iframe>
+  <gcds-sr-only>
+    Text only seen by assistive technologies.
+  </gcds-sr-only>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-sr-only properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-screen-reader-only--events-properties&lang=en"
+  width="1200"
+  height="750"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
