@@ -1,0 +1,203 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Icône - Code
+componentName: Icône
+tagName: '<gcds-icon>'
+alsoCalled: symbole, glyphe
+description: Une icône est un symbole qui représente visuellement une action ou une idée.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-icon'
+version: 1.6.0
+previewLabel: Aperçu du composant icône
+dateModified: '2026-06-01T15:47:33-04:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des icônes](#codage-et-accessibilite-des-icones)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des icônes
+
+### Sélectionner une icône pertinente
+
+Obtenez l’icône de votre choix en remplaçant l’attribut `name` par le nom de l’icône correspondant.
+
+**Remarque** : Conformément à la pratique courante, on utilise l'anglais pour tous les éléments de code.
+
+<gcds-grid class="bg-light px-300 md:px-500 py-500 md:py-800 b-radius-lg" columns-desktop="repeat(4, 1fr)" columns-tablet="repeat(3, 1fr)" columns="1fr 1fr" tag="ul" gap="300" gap-tablet="450">
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="arrow-up" label="Flèche point vers le haut."></gcds-icon>
+    <p class="mb-0"><code>arrow-up</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="arrow-down" label="Flèche point vers le bas."></gcds-icon>
+    <p class="mb-0"><code>arrow-down</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="arrow-up-down" label="Une flèche pointant vers le haut à côté d’une flèche pointant vers le bas."></gcds-icon>
+    <p class="mb-0"><code>arrow-up-down</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="info-circle" size="h2" label="Un cercle rempli avec la lettre « i » au centre."></gcds-icon>
+    <p class="mb-0"><code>info-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="warning-triangle" size="h2" label="Un triangle rempli avec la lettre « i » au centre."></gcds-icon>
+    <p class="mb-0"><code>warning-triangle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="exclamation-circle" size="h2" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
+    <p class="mb-0"><code>exclamation-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="checkmark-circle" size="h2" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
+    <p class="mb-0"><code>checkmark-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-left" size="h2" label="Un chevron pointant vers la gauche."></gcds-icon>
+    <p class="mb-0"><code>chevron-left</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-right" size="h2" label="Un chevron pointant vers la droite."></gcds-icon>
+    <p class="mb-0"><code>chevron-right</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-up" size="h2" label="Un chevron pointant vers le haut."></gcds-icon>
+    <p class="mb-0"><code>chevron-up</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-down" size="h2" label="Un chevron pointant vers le bas."></gcds-icon>
+    <p class="mb-0"><code>chevron-down</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="close" size="h2" label="Un « x »."></gcds-icon>
+    <p class="mb-0"><code>close</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="download" size="h2" label="Une flèche pointant vers le bas en direction d’une ligne horizontale."></gcds-icon>
+    <p class="mb-0"><code>download</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="filter" label="Un entonnoir."></gcds-icon>
+    <p class="mb-0"><code>filter</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="email" size="h2" label="Une enveloppe."></gcds-icon>
+    <p class="mb-0"><code>email</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="external" size="h2" label="Une flèche pointant vers l’extérieur du coin supérieur droit d’un carré."></gcds-icon>
+    <p class="mb-0"><code>external</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="phone" size="h2" label="Un téléphone."></gcds-icon>
+    <p class="mb-0"><code>phone</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="search" size="h2" label="Une loupe."></gcds-icon>
+    <p class="mb-0"><code>search</code></p>
+  </li>
+    <li class="list-none text-center">
+    <gcds-icon size="h2" name="sort" label="Quatre lignes horizontales de différentes longueurs."></gcds-icon>
+    <p class="mb-0"><code>sort</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon size="h2" name="tune" label="Trois curseurs de réglage horizontaux."></gcds-icon>
+    <p class="mb-0"><code>tune</code></p>
+  </li>
+</gcds-grid>
+
+### Choisir l’échelle de l’icône
+
+- Modifiez la taille d’une icône en définissant l’attribut `size` à une taille de police spécifique, comme `text-small` | `text` |  `h1` | `h2` | `h3` | `h4` | `h5` | `h6`.
+- Faites correspondre la taille de l’icône au texte d’accompagnement en définissant l’attribut `size` à `inherit`.
+- Fixez une hauteur/largeur minimale de 24 x 24 pixels pour une icône interactive sans texte. Si vous pouvez augmenter la taille, 44 x 44 pixels dépasse les normes d’accessibilité, mais est plus accessible.
+
+### Ajuster le positionnement
+
+Ajoutez une marge à la gauche ou à la droite d’une icône en définissant l’attribut `margin-left` ou `margin-right` à l’aide d’une valeur d’espacement comme `0` | `25` | `50` | `75` | `100` | `125` | `150` | `175`| `200` | `225`| `250` | `300` | `350`| `400` | `450` | `500` | `550` | `600` | `650` | `700` | `750` | `800` | `850` | `900` | `950` | `1000` | `1050` | `1100` | `1150` | `1200` | `1250`.
+
+### Définir le texte du libellé
+
+- Utilisez la propriété "label" pour une icône sans texte d’accompagnement.
+- Vous n’avez pas besoin d’utiliser la propriété "label" si une icône est décorative.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `name`
+
+L'attribut `name` définit le nom de l'icône.
+
+<CodePreview iframe>
+  <gcds-icon name="close"></gcds-icon>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+#### `label`
+
+L'attribut `label` définit la description de l'icône pour les icônes non décoratives.
+
+<CodePreview iframe>
+  <gcds-icon label="Le fait de cliquer sur cette icône fermera l'élément." name="close">
+  </gcds-icon>
+</CodePreview>
+
+#### `margin-left`
+
+L'attribut `margin-left` définit la marge à gauche de l'icône.
+
+<CodePreview iframe>
+  <gcds-icon name="close" margin-left="50"></gcds-icon>
+</CodePreview>
+
+#### `margin-right`
+
+L'attribut `margin-right` définit la marge à droite de l'icône.
+
+<CodePreview iframe>
+  <gcds-icon name="close" margin-right="50"></gcds-icon>
+</CodePreview>
+
+#### `size`
+
+L'attribut `size` définit la taille de l'icône.
+
+<CodePreview iframe>
+  <gcds-icon name="close" size="h3"></gcds-icon>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-icon."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-icon--events-properties&lang=fr"
+  width="1200"
+  height="950"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
