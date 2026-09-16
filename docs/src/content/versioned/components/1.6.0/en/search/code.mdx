@@ -1,0 +1,130 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Search - Use case
+componentName: Search
+tagName: '<gcds-search>'
+alsoCalled: search bar, site search box, search field
+description: Search is a space for entering keywords to find relevant information.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-search'
+version: 1.6.0
+requiredCanada: true
+dateModified: '2026-05-20T12:02:56-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for search](#coding-and-accessibility-for-search)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for search
+
+### Place the search in the header
+
+- Place the search component in the <gcds-link href={links.en.header}>header</gcds-link> below the language toggle and in line with the <gcds-link href={links.en.signature}>Government of Canada signature</gcds-link>.
+- Ensure the header is responsive so that the search appears below both the signature and the language toggle on mobile devices.
+
+### Set up search for content on Canada.ca
+
+- Use the search component to perform a global search on Canada.ca. By default, the component is set to search Canada.ca.
+- Opt to set the search to an institution or program specific area.
+
+### Opt to replace the search endpoint for applications or transactional sites
+
+- Opt to replace the search endpoint for an application or a transactional site when leaving the site would interrupt a person’s task or flow.
+- Use the component’s default HTTP request method, `GET`, or opt to use `POST` by setting the `method` attribute.
+- Set the `action` attribute to an endpoint of your choice and set the placeholder attribute, so the text of the search prompt reflects the scope of search. The set placeholder text will also populate the label text.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `action`
+
+The `action` attribute controls where the form will send the form data.
+
+<CodePreview iframe>
+  <gcds-search action="search.html"></gcds-search>
+</CodePreview>
+
+#### `method`
+
+The `method` attribute controls how the form will send the form data. The available options are:
+
+- `get`
+- `post`
+
+<CodePreview iframe>
+  <gcds-search method="post"></gcds-search>
+</CodePreview>
+
+#### `name`
+
+The `name` attribute specifies the name of the search input when submitting the form data.
+
+<CodePreview iframe>
+  <gcds-search name="search"></gcds-search>
+</CodePreview>
+
+#### `placeholder`
+
+The `placeholder` attribute specifies the placeholder and label for the input. The input will format the label and placeholder like "Search [`placeholder`]".
+
+<CodePreview iframe>
+  <gcds-search placeholder="GC Design System"></gcds-search>
+</CodePreview>
+
+#### `search-id`
+
+The `search-id` attribute specifies the id for the input.
+
+<CodePreview iframe>
+  <gcds-search search-id="searchform"></gcds-search>
+</CodePreview>
+
+#### `suggested`
+
+The `suggested` attribute specifies a list of predefined search times. The list will appear as a dropdown list on the input when it is focused.
+
+<CodePreview iframe>
+  <gcds-search suggested="['red', 'green', 'blue']"></gcds-search>
+</CodePreview>
+
+#### `value`
+
+The `value` attribute specifies the `value` of the input. Setting the value will prepopulate the search input.
+
+<CodePreview iframe>
+  <gcds-search value="Design system"></gcds-search>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-search properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-search--events-properties&lang=en"
+  width="1200"
+  height="1150"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

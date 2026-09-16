@@ -1,0 +1,131 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Recherche - Code
+componentName: Recherche
+tagName: '<gcds-search>'
+alsoCalled: barre de recherche, boîte de recherche sur le site, champ de recherche
+description: Le composant recherche est un espace où entrer des mots-clés pour chercher des renseignements pertinents.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-search'
+version: 1.6.0
+requiredCanada: true
+previewLabel: Aperçu du composant de recherche
+dateModified: '2026-05-20T12:02:56-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## Sur cette page
+
+- [Codage et accessibilité de recherche](#codage-et-accessibilite-de-recherche)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité de recherche
+
+### Placez le composant recherche dans l’en-tête
+
+- Placez le composant recherche dans l'<gcds-link href={links.fr.header}>en-tête</gcds-link> sous la bascule de langue et alignez-le sur la <gcds-link href={links.fr.signature}>signature du gouvernement du Canada</gcds-link>.
+- Assurez-vous que l'en-tête est réactif afin que le composant recherche apparaisse sous la signature et la bascule de langue sur les appareils mobiles.
+
+### Configurer le composant recherche pour chercher du contenu sur Canada.ca
+
+- Utilisez le composant recherche pour effectuer une recherche globale sur Canada.ca. Par défaut, le composant est configuré pour effectuer une recherche sur Canada.ca.
+- Optez de limiter la recherche à un domaine spécifique à un organisme ou un programme.
+
+### Optez pour la modification du point de terminaison de la recherche pour les applications ou sites transactionnels
+
+- Optez pour la modification du point de terminaison de la recherche pour une application ou un site transactionnel lorsque le fait de quitter le site interromprait la tâche ou le flux de travail d'une personne.
+- Utilisez la méthode de requête HTTP par défaut `GET` du composant, ou bien utilisez `POST` au besoin en définissant l'attribut `method`.
+- Définissez l'attribut `action` sur un point de terminaison de votre choix et définissez l'attribut placeholder (message-guide) pour refléter l'étendue de la recherche. Le message-guide du champ de recherche remplira également le texte de l'étiquette.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et la présentation du composant.
+
+#### `action`
+
+L'attribut `action` définit l'endroit où le formulaire envoit ses données.
+
+<CodePreview iframe>
+  <gcds-search action="search.html"></gcds-search>
+</CodePreview>
+
+#### `method`
+
+L'attribut `method` définit comment le formulaire enverra les données du formulaire. Les options disponibles sont :
+
+- `get`
+- `post`
+
+<CodePreview iframe>
+  <gcds-search method="post"></gcds-search>
+</CodePreview>
+
+#### `name`
+
+L'attribut `name` définit le nom du champ de recherche lors de l'envoi des données du formulaire.
+
+<CodePreview iframe>
+  <gcds-search name="search"></gcds-search>
+</CodePreview>
+
+#### `placeholder`
+
+L'attribut `placeholder` définit le texte indicatif et le libellé du champ. Le deux prennent automatiquement la forme « Search [`placeholder`] ».
+
+<CodePreview iframe>
+  <gcds-search placeholder="Système de design GC"></gcds-search>
+</CodePreview>
+
+#### `search-id`
+
+L'attribut `search-id` définit le id du champ.
+
+<CodePreview iframe>
+  <gcds-search search-id="searchform"></gcds-search>
+</CodePreview>
+
+#### `suggested`
+
+La propriété `suggested` définit une liste de termes de recherche prédéfinis. La liste s'affichera sous forme de liste déroulante sur le champ lorsqu'il est mis en évidence.
+
+<CodePreview iframe>
+  <gcds-search suggested="['rouge', 'vert', 'bleu']"></gcds-search>
+</CodePreview>
+
+#### `value`
+
+L'attribut `value` définit la valeur du champ de recherche. Définir cette valeur préremplira le champ au chargement.
+
+<CodePreview iframe>
+  <gcds-search value="Système de design"></gcds-search>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-search."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-search--events-properties&lang=fr"
+  width="1200"
+  height="1150"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
