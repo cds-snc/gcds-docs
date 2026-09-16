@@ -1,0 +1,69 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Language toggle - Code
+componentName: Language toggle
+tagName: '<gcds-lang-toggle>'
+alsoCalled: language switch, language selector
+description: The language toggle is a link to the same content in the other Official Language.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=1780-5094&mode=design&t=2my46MmKTAF9hApN-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-lang-toggle'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for language toggle](#coding-and-accessibility-for-language-toggle)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for language toggle
+
+- Place the language toggle in the top right of the header landmark for predictability and findability.
+- Use the `href-attribute` to set the url of the page in the other Official Language.
+- Set the `lang` attribute with `en` to indicate the language toggle in French and `fr` will indicate the language toggle in English.
+
+Note: If using the header component, the language toggle can be assigned using the `lang-href` attribute.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `href`
+
+The `href` attribute specifies the URL of the same page in another language, typically English or French. Use this attribute to provide a link that allows users to switch between available language versions.
+
+<CodePreview iframe>
+  <gcds-lang-toggle href="#"></gcds-lang-toggle>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-lang-toggle properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties&lang=en"
+  width="1200"
+  height="850"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

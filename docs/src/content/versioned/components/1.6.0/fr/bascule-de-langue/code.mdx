@@ -1,0 +1,70 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Bascule de langue - Code
+componentName: Bascule de langue
+tagName: '<gcds-lang-toggle>'
+alsoCalled: commutateur de langue, sélecteur de langue
+description: La bascule de langue est un lien menant vers le même contenu dans l'autre langue officielle.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-10341&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-lang-toggle'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+previewLabel: Aperçu du de bascule de langue
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité de bascule de langue](#codage-et-accessibilite-de-bascule-de-langue)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité de bascule de langue
+
+- Placez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.
+- Utilisez `href-attribute` pour définir l’URL de la page dans l’autre langue officielle.
+- Paramétrez l’attribut `lang` de façon à ce que la bascule de langue indique `en` sur la page en langue française et `fr` sur la page en langue anglaise.
+
+Remarque : Si vous utilisez le composant En-tête, la bascule de langue peut être définie à l’aide de l’attribut `lang-href`.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `href`
+
+L'attribut `href` définit l'URL de la même page dans une autre langue, généralement l'anglais ou le français. Utilisez-le pour fournir un lien permettant aux utilisateurs de basculer entre les versions linguistiques disponibles.
+
+<CodePreview iframe>
+  <gcds-lang-toggle href="#"></gcds-lang-toggle>
+</CodePreview>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-lang-toggle."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties&lang=fr"
+  width="1200"
+  height="850"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
