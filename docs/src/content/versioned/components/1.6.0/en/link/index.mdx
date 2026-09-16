@@ -1,0 +1,54 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Link - Use case
+componentName: Link
+tagName: '<gcds-link>'
+alsoCalled: anchor, hyperlink, call to action
+description: A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-link'
+version: 1.6.0
+dateModified: '2026-02-12T10:09:45-08:00'
+---
+
+import { links } from '~i18n/links';
+
+A link is a navigational element that takes a person to a website or opens a source, like a pdf.
+
+## Problems component solves
+
+Use links to:
+
+- Allow a person to move fluidly between different pages or sections of a website or application.
+- Direct people to external websites, clearly indicating when the link leads outside the current site.
+- Let a person skip to a section heading using anchor links in a table of contents or page summary. They can then directly access specific sections or content without scrolling.
+- Connect to email addresses or phone numbers, so a person can initiate communication directly by selecting the link.
+- Start downloads for files, providing users with direct access to documents, media, or other downloadable content.
+- Skip past navigational elements to get to main content.
+
+<hr/>
+
+## Related components
+
+<a href={links.en.button}>Buttons</a> to emphasize an action.
+
+<a href={links.en.details}>Details</a> to provide a way to hide or show a section of content.
+
+<hr class="mt-600"/>
+
+## Choose a link role
+
+A role sets the main style of the link.
+
+### Default role
+
+Use the `default` `role` for:
+
+- Most links.
+- Links that are placed on a light background.
+
+### Light role
+
+Use the `light` `role` for:
+
+Links that need to appear on a dark background. Make sure the contrast ratio between the light link and dark background meets (WCAG) Web Content Accessibility Guidelines standards.
