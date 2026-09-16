@@ -1,0 +1,47 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Pagination - Use case
+componentName: Pagination
+tagName: '<gcds-pagination>'
+alsoCalled: page index, page navigation
+description: Pagination is a division of content into multiple linked pages.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-pagination'
+version: 1.6.0
+dateModified: '2026-06-12T12:02:56-07:00'
+---
+
+import { links } from '~i18n/links';
+
+Review common uses for pagination to see if they match the problem you’re solving for.
+
+## Pagination use cases
+
+Use pagination for very lengthy content on a single page that might be difficult to navigate, to reduce cognitive load, and to:
+
+- Display search results when there’s a long list of returns, reducing the time it takes to load and amount of scrolling.
+- Allow users to move through indexed content using next, previous, and page links.
+- Split into sections any long documents, like reports, that have chapters or other natural divisions.
+- Highlight the reader’s position in a sequence of content.
+
+<hr/>
+
+## Related components
+
+<a href={links.en.stepper}>Stepper</a> to track progress in a multi-step process.
+
+Links in the <a href={links.en.button}>button</a> component to navigate between non-sequential pages or to external sites.
+
+<hr/>
+
+## Choose a pagination display
+
+### Simple
+
+Use simple pagination when the number of pages is small (2 to 5 pages).
+
+### List
+
+Use list-styled pagination when:
+- The number of pages is large.
+- The “Previous” and “Next” links would make navigation cumbersome.
