@@ -1,0 +1,119 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Stepper - Code
+componentName: Stepper
+tagName: '<gcds-stepper>'
+alsoCalled: progress indicator, steps
+description: A stepper is a progress tracker for a multi-step process.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=970-2581&mode=design&t=qwNFRgCKhnoUtRXO-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-stepper'
+version: 1.6.0
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for steppers](#coding-and-accessibility-for-steppers)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for steppers
+
+### Use each step for a goal
+
+Use the `current-step` attribute to indicate the step that the person is on and the `total-steps` attribute to indicate the overall number of steps.
+
+### Placing the stepper on the page
+
+Use the `tag` attribute to assign the appropriate heading tag to the stepper. The stepper is able to render as either a `h1`, `h2` or `h3`.
+
+### Use valid properties
+
+Component properties have built-in validation. Required properties or properties prone to misuse will be validated. If there are any validation errors, the component will be non-functional and won't render. Review the browser's console for details and adjust the properties accordingly to ensure proper functionality.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `current-step`
+
+The `current-step` attribute defines the current step.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4">
+  Section title
+</gcds-stepper>`}
+/>
+
+#### `total-steps`
+
+The `total-steps` attribute defines the total number of steps.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4">
+  Section title
+</gcds-stepper>`}
+/>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `tag`
+
+The `tag` attribute sets the HTML heading element for the stepper. By default, it is set to `h2`.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4" tag="h3">
+  Section title
+</gcds-stepper>`}
+/>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for placing the heading text.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4">
+  Section title
+</gcds-stepper>`}
+/>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-stepper properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-stepper--events-properties&lang=en"
+  width="1200"
+  height="950"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>

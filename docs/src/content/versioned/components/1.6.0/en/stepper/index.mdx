@@ -1,0 +1,29 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Stepper - Use case
+componentName: Stepper
+tagName: '<gcds-stepper>'
+alsoCalled: progress indicator, steps
+description: A stepper is a progress tracker for a multi-step process.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=970-2581&mode=design&t=qwNFRgCKhnoUtRXO-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-stepper'
+version: 1.6.0
+dateModified: '2025-05-06T15:47:33-04:00'
+---
+
+import { links } from '~i18n/links';
+
+Take a look at what problems steppers solve to see if they fit the problem you're solving for.
+
+## Problems steppers solve
+
+Use a stepper for a logical sequence split over more than one page to:
+
+- Show a person which step they're on in a process, like in a multi-step form.
+- Make the structure of a path clear by showing the total number of steps.
+
+<hr />
+
+## Related components
+
+<a href={links.en.pagination}>Pagination</a> when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.
