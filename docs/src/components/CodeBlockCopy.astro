@@ -54,6 +54,11 @@
     margin-block-end: var(--gcds-spacing-300);
   }
 
+  /* Drop margin-bottom on code inside a CodePreview. */
+  .preview-container .code-block-wrapper {
+    margin-block-end: 0;
+  }
+
   .code-block-wrapper pre.astro-code {
     margin: 0;
     padding: 0;
