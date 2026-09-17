@@ -1,0 +1,188 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Link - Code
+componentName: Link
+tagName: '<gcds-link>'
+alsoCalled: anchor, hyperlink, call to action
+description: A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-link'
+version: 1.6.0
+dateModified: '2026-05-20T10:09:45-08:00'
+---
+
+import { links } from '~i18n/links';
+import { CodePreview } from '~components';
+
+## On this page
+
+- [Coding and accessibility for links](#coding-and-accessibility-for-links)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for links
+
+### Provide information for download files
+
+- Provide information in the link text about the file type and size of files for download: `<gcds-link href="application.pdf" download>Application 2023 (PDF, 1.5 MB)</gcds-link>`.
+- Avoid placing the download link within paragraph text.
+
+Note: Only files with URLs of the same origin as the website will be downloaded to the user’s device.
+
+### Add a skip-to-content link
+
+- A skip-to-content link lets a person skip a cluster of navigation links and jump to the main content.
+- To avoid covering up content, configure the link to push down content so it’s not floating, For desktop, place skip-to-content link at top left of the page so it doesn’t interrupt the flow.
+
+### Avoid external links when possible
+
+- Add an external link by setting the `external` attribute to `true`.
+- Avoid adding external links:
+  <ul class="list-circle">
+    <li>In the middle of a person's progress, like when a person's filling out a form.</li>
+    <li>If changing pages would make them lose unsaved progress.</li>
+    <li>When starting a process would stop if the person follows a link, like when they're watching a video or completing a main task.</li>
+    <li>**When they're invasive and disruptive to the flow of the page.**</li>
+    <li>When it could be a surprise to a person to find themselves somewhere else unexpectedly.</li>
+  </ul>
+- Make it obvious where a link will lead, so a person can decide if they should leave the current page.
+- Communicate clearly when links have special conditions. For example, when they’re only available inside a closed network because of a firewall.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `href`
+
+The `href` attribute specifies the URL of the page the link goes to.
+
+<CodePreview iframe>
+  <gcds-link href="#">Navigation link</gcds-link>
+</CodePreview>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `display`
+
+The `display` attribute sets the display behaviour of the link. The available options are:
+
+- `inline` (default)
+- `block`
+
+<CodePreview iframe>
+  <gcds-link display="block" href="#">Navigation link</gcds-link>
+</CodePreview>
+
+#### `download`
+
+The `download` attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink.
+
+<CodePreview iframe>
+  <gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
+    Download document (PDF, 1.5 MB)
+  </gcds-link>
+</CodePreview>
+
+#### `external`
+
+The `external` attribute controls whether the link is external or not. When set to `true`, an external icon is added after the link.
+
+<CodePreview iframe>
+  <gcds-link external href="#">Navigation link</gcds-link>
+</CodePreview>
+
+#### `link-role`
+
+The `link-role` sets the main style of the link. The available options are:
+
+- `default` (default)
+- `light`
+
+<CodePreview iframe>
+
+<div class="bg-dark p-300">
+    <gcds-link link-role="light" href="#">Navigation link</gcds-link>
+</div>
+</CodePreview>
+
+#### `rel`
+
+The `rel` attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.
+
+<CodePreview iframe>
+  <gcds-link rel="license" href="#license">Navigation link</gcds-link>
+</CodePreview>
+
+#### `size`
+
+The `size` attribute sets the link size. The available options are:
+
+- `inherit` (default)
+- `regular`
+- `small`
+
+<CodePreview iframe>
+  <gcds-link size="small" href="#">Navigation link</gcds-link>
+</CodePreview>
+
+#### `target`
+
+The `target` attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.
+
+<CodePreview iframe>
+  <gcds-link target="_blank" href="#">Navigation link</gcds-link>
+</CodePreview>
+
+#### `type`
+
+The `type` attribute specifies the media type of the linked document.
+
+<CodePreview iframe>
+  <gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
+    Download document (PDF, 1.5 MB)
+  </gcds-link>
+</CodePreview>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for placing the link text.
+
+<CodePreview iframe>
+  <gcds-link href="#">Navigation link</gcds-link>
+</CodePreview>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-link properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-link--events-properties&lang=en"
+  width="1200"
+  height="1600"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
