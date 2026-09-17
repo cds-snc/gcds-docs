@@ -85,12 +85,14 @@ Chaque objet de colonne accepte les propriétés suivantes :
 
 Utilisez `data` pour transmettre le contenu du tableau. Passez un tableau (_array_) d’objets où chaque objet représente une ligne et chaque clé correspond à un `field` de colonne.
 
-<CodePreview iframe demoClass='columns-data-preview'>
-  <gcds-table
-    columns={JSON.stringify(tableData.fr.columns)}
-    data={JSON.stringify(tableData.data.splice(0, 5))}
-  ></gcds-table>
-</CodePreview>
+<CodePreview
+  iframe
+  demoClass='columns-data-preview'
+  code={`<gcds-table
+    columns='${JSON.stringify(tableData.fr.columns)}'
+    data='${JSON.stringify(tableData.data.splice(0, 5))}'
+  ></gcds-table>`}
+/>
 
 #### `filter`
 

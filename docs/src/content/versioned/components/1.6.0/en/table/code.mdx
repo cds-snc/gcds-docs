@@ -85,12 +85,14 @@ Each column object takes the following properties:
 
 Use `data` to pass the content of the table. Pass an array of objects where each object represents one row, and each key matches a column `field`.
 
-<CodePreview iframe demoClass='columns-data-preview'>
-  <gcds-table
-    columns={JSON.stringify(tableData.en.columns)}
-    data={JSON.stringify(tableData.data.splice(0, 5))}
-  ></gcds-table>
-</CodePreview>
+<CodePreview
+  iframe
+  demoClass='columns-data-preview'
+  code={`<gcds-table
+    columns='${JSON.stringify(tableData.en.columns)}'
+    data='${JSON.stringify(tableData.data.splice(0, 5))}'
+  ></gcds-table>`}
+/>
 
 #### `filter`
 
