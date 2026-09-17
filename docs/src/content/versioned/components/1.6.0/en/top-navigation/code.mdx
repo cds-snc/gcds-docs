@@ -1,0 +1,248 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Top navigation - Code
+componentName: Top navigation
+tagName: '<gcds-top-nav>'
+alsoCalled: site menu, navigation, navbar
+description: A top navigation is a horizontal list of page links.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=4738-10759&mode=design&t=PaKRkbpFLPNx99bv-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-top-nav'
+version: 1.6.0
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for top navigation](#coding-and-accessibility-for-top-navigation)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for top navigation
+
+### Add the top navigation to each page
+
+- Implement the top navigation in the website layout so that it's present on every page.
+- Opt to add a nav group with a second level of navigation by placing the `<gcds-nav-link>` in a `<gcds-nav-group>`.
+
+### Use the top navigation with other components
+
+- If using <gcds-link href={links.en.breadcrumbs}>breadcrumbs</gcds-link>, align the content hierarchy in both set of links, so both components reflect a similar path through the site.
+- If you're using the <gcds-link href={links.en.header}>header</gcds-link> component, add the top navigation directly to the header by passing a child element with the `slot="menu"` attribute into the header. This will place the top nav in the header after the language toggle, signature, and search slots.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<h3 id="section-essential">Essential attributes</h3>
+
+These attributes are needed for the component to function correctly.
+
+#### `label`
+
+The `label` attribute defines the label for the navigation landmark.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+</gcds-top-nav>`}
+/>
+
+#### `menu-label` (`gcds-nav-group`)
+
+The `menu-label` attribute of the `gcds-nav-group` subcomponent defines the label for the nav group menu.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+  <gcds-nav-group menu-label="Features submenu" open-trigger="Features">
+    <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
+    <gcds-nav-link href="#">Schedule messages</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>`}
+/>
+
+#### `open-trigger` (`gcds-nav-group`)
+
+The `open-trigger` attribute of the `gcds-nav-group` subcomponent defines the label for the collapsed button trigger.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+  <gcds-nav-group menu-label="Features submenu" open-trigger="Features">
+    <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
+    <gcds-nav-link href="#">Schedule messages</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>`}
+/>
+
+#### `href` (`gcds-nav-link`)
+
+The `href` attribute of the `gcds-nav-link` subcomponent specifies the URL of the page the link goes to.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+</gcds-top-nav>`}
+/>
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `alignment`
+
+The `alignment` attribute defines the alignment of the top navigation. The available options are:
+
+- `start` (default)
+- `end`
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav alignment="end" label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+</gcds-top-nav>`}
+/>
+
+#### `close-trigger` (`gcds-nav-group`)
+
+The `close-trigger` attribute of the `gcds-nav-group` subcomponent defines the label for the expanded button trigger.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+  <gcds-nav-group menu-label="Features submenu" open-trigger="Features" close-trigger="Close Features">
+    <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
+    <gcds-nav-link href="#">Schedule messages</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>`}
+/>
+
+#### `open` (`gcds-nav-group`)
+
+The `open` attribute of the `gcds-nav-group` subcomponent controls whether the nav group is expanded or not. By default, it is set to `false`.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+  <gcds-nav-group menu-label="Features submenu" open-trigger="Features" open>
+    <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
+    <gcds-nav-link href="#">Schedule messages</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>`}
+/>
+
+#### `current` (`gcds-nav-link`)
+
+The `current` attribute of the `gcds-nav-link` subcomponent indicates whether the page is current or not.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link current href="#">Contact us</gcds-nav-link>
+</gcds-top-nav>`}
+/>
+
+<h3 id="section-slot">Slots</h3>
+
+The default slot allows you to inject custom content into the component's primary content area, and named slots, into specific areas.
+
+#### `default`
+
+The `default` slot is for adding navigation groups and navigation links.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+  <gcds-nav-group menu-label="Features submenu" open-trigger="Features">
+    <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
+    <gcds-nav-link href="#">Schedule messages</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>`}
+/>
+
+#### `home`
+
+The `home` slot is for adding the home link or site title.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-link href="#" slot="home">GC Notify</gcds-nav-link>
+</gcds-top-nav>`}
+/>
+
+#### `default` (`gcds-nav-group`)
+
+The `default` slot of the `gcds-nav-group` subcomponent is for adding the list of navigation links.
+
+<CodePreview
+  iframe
+  code={`<gcds-top-nav label="Top navigation component preview">
+  <gcds-nav-group menu-label="Features submenu" open-trigger="Features">
+    <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
+    <gcds-nav-link href="#">Schedule messages</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>`}
+/>
+
+#### `default` (`gcds-nav-link`)
+
+The `default` slot of the `gcds-nav-link` subcomponent is for adding the navigation link content.
+
+<CodePreview
+  iframe
+  code={`<gcds-nav-link href="#">GC Notify</gcds-nav-link>`}
+/>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-top-nav properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-top-navigation--events-properties&lang=en"
+  width="1200"
+  height="1850"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
