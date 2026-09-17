@@ -151,6 +151,10 @@ export const routes = {
         en: "top-navigation",
         fr: "barre-de-navigation-superieure",
       },
+      "validate form components": {
+        en: "validate-form-components",
+        fr: "valider-les-composants-de-formulaire",
+      },
 
     },
   },

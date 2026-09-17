@@ -13,6 +13,7 @@ export { default as ContactForm } from "./ContactForm/ContactForm.astro";
 export { default as DemoDates } from "./DemoDates/DemoDates.astro";
 export { default as DocLinks } from "./DocLinks.astro";
 export { default as DateModified } from "./DateModified.astro";
+export { default as ErrorMessageTable } from "./ErrorMessageTable/ErrorMessageTable.astro";
 export { default as Footer } from "./Footer.astro";
 export { default as GiveFeedback } from "./GiveFeedback/GiveFeedback.astro";
 export { default as Header } from "./Header.astro";
@@ -22,7 +23,8 @@ export { default as NeedHelp } from "./NeedHelp/NeedHelp.astro";
 export { default as PageTemplate } from "./PageTemplate/PageTemplate.astro";
 export { default as StartBuilding } from "./StartBuilding/StartBuilding.astro";
 export { default as Tabs } from "./Tabs.astro";
-export { default as Testimonials } from "./Testimonials/Testimonials.astro"
+export { default as TablePreviewScript } from "./TablePreviewScript.astro";
+export { default as Testimonials } from "./Testimonials/Testimonials.astro";
 export { default as Text } from "./Text.astro";
 export { default as TokenTable } from "./TokenTable.astro";
 export { default as VersionSwitcher } from "./VersionSwitcher.astro";
