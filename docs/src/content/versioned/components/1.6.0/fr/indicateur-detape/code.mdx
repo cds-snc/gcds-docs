@@ -1,0 +1,120 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Indicateur d'étape - Code
+componentName: Indicateur d'étape
+tagName: '<gcds-stepper>'
+alsoCalled: indicateur de progrès, étapes
+description: L'indicateur d'étape est un marqueur de progression pour un processus à plusieurs étapes.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2656&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-stepper'
+version: 1.6.0
+previewLabel: Aperçu du composant indicateur d'étape
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité des indicateurs d'étape](#codage-et-accessibilite-des-indicateurs-detape)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité des indicateurs d'étape
+
+### Utilisez chaque étape pour un objectif
+
+Utilisez l'attribut `current-step` pour indiquer l'étape à laquelle la personne se trouve. Utilisez l'attribut `total-steps` pour indiquer le nombre total d'étapes.
+
+### Placez l'indicateur d'étape dans la page
+
+Utilisez l'attribut `tag` pour attribuer la balise de titre appropriée à l'indicateur d'étape. L'indicateur d'étape peut s'afficher sous la forme d'un `h1`, `h2` ou `h3`.
+
+### Utilisez des propriétés valides
+
+Les propriétés du composant ont une validation intégrée. Les propriétés requises ou susceptibles d'être mal utilisées feront l'objet d'une validation. S'il y a des erreurs de validation, le composant ne fonctionnera pas et ne s'affichera pas. Consultez la console du navigateur pour plus de détails et ajustez les propriétés en conséquence pour que le rendu fonctionne correctement.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-essential">Attributs essentiels</h3>
+
+Ces attributs sont requis pour que le composant fonctionne correctement.
+
+#### `current-step`
+
+L'attribut `current-step` définit l'étape actuelle.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4">
+  Titre de la section
+</gcds-stepper>`}
+/>
+
+#### `total-steps`
+
+L'attribut `total-steps` définit le nombre total d'étapes.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4">
+  Titre de la section
+</gcds-stepper>`}
+/>
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.
+
+#### `tag`
+
+L'attribut `tag` définit l'élément de titre HTML pour l'indicateur d'étape. Par défaut, il est défini à `h2`.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4" tag="h3">
+  Titre de la section
+</gcds-stepper>`}
+/>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à placer le texte du titre.
+
+<CodePreview
+  iframe
+  code={`<gcds-stepper current-step="1" total-steps="4">
+  Titre de la section
+</gcds-stepper>`}
+/>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-stepper."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-stepper--events-properties&lang=fr"
+  width="1200"
+  height="950"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
