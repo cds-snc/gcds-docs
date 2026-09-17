@@ -40,8 +40,14 @@ Links in the <a href={links.en.button}>button</a> component to navigate between 
 
 Use simple pagination when the number of pages is small (2 to 5 pages).
 
+<gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
+</gcds-pagination>
+
 ### List
 
 Use list-styled pagination when:
 - The number of pages is large.
 - The “Previous” and “Next” links would make navigation cumbersome.
+
+<gcds-pagination label="List pagination example" display="list" total-pages="15" current-page="9">
+</gcds-pagination>

@@ -41,8 +41,14 @@ Liens dans le composant <a href={links.fr.button}>Bouton</a> pour naviguer entre
 
 Utilisez la pagination simple lorsque le nombre de pages est faible (de 2 à 5 pages).
 
+<gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
+</gcds-pagination>
+
 ### Liste
 
 Utilisez la pagination sous forme de liste lorsque&nbsp;:
 - le nombre de pages est élevé;
 - les liens «&nbsp;Précédent&nbsp;» et «&nbsp;Suivant&nbsp;» rendraient la navigation lourde ou difficile.
+
+<gcds-pagination label="pagination sous forme de liste" display="list" total-pages="15" current-page="9" lang="fr">
+</gcds-pagination>
