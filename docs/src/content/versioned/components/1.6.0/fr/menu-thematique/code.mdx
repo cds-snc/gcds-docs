@@ -1,0 +1,71 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Menu thématique - Code
+componentName: Menu thématique
+tagName: '<gcds-topic-menu>'
+alsoCalled: navigation globale, navigation par thème
+description: Le menu thématique est un mécanisme de navigation vers les tâches les plus importantes des sites Web du gouvernement du Canada.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2818&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-topic-menu'
+version: 1.6.0
+previewLabel: Aperçu du composant de menu thématique
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## Sur cette page
+
+- [Codage et accessibilité du menu thématique](#codage-et-accessibilite-du-menu-thematique)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité du menu thématique
+
+### Utilisation du menu thématique avec d'autres composants
+
+Ajoutez directement le menu thématique à l'<gcds-link href={links.fr.header}>en-tête</gcds-link> en passant un élément secondaire avec l'attribut `slot="menu"` dans l'en-tête. Cela placera le menu thématique dans l'en-tête, à la suite de la bascule de la langue, la signature et la barre de recherche.
+
+Remarque : Si vous souhaitez ajouter un menu de thèmes et sujets à la page d'accueil de Canada.ca, utilisez l'attribut `home` pour utiliser le style approprié.
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.
+
+#### `home`
+
+L'attribut `home` définit le style de la page d'accueil.
+
+<CodePreview
+  iframe
+  code={`<gcds-topic-menu home>
+</gcds-topic-menu>`}
+/>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-topic-menu."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-theme-and-topic-menu--events-properties&lang=fr&externalLinks=true"
+  width="1200"
+  height="1850"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
