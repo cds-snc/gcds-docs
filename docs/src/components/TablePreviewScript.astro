@@ -1,0 +1,74 @@
+---
+import { tableData as data } from "src/data/tablePreview";
+---
+
+<script define:vars={data}>
+  // Add column and data to gcds-table examples
+  document.addEventListener('DOMContentLoaded', function () {
+    const locale = document.documentElement.lang;
+    const columns = [
+      {
+        field: 'submission_id',
+        header: 'ID',
+        rowHeader: true,
+      },
+      {
+        field: 'submitter_name',
+        header: locale === 'fr' ? 'Nom' : 'Name',
+      },
+      {
+        field: 'date_submitted',
+        header: locale === 'fr' ? 'Date de soumission' : 'Date Submitted',
+      },
+      {
+        field: 'assigned_reviewer',
+        header: locale === 'fr' ? 'Examinateur' : 'Reviewer',
+      },
+    ];
+
+    if (
+      window.location.pathname.includes('/components/table/code') ||
+      window.location.pathname.includes('/composants/tableau/code')
+    ) {
+      const componentPreviews = document.querySelectorAll(
+        'iframe.preview-frame',
+      );
+
+      componentPreviews.forEach(iframe => {
+        console.log('blue')
+        iframe.addEventListener('load', () => {
+          const iframeDoc =
+            iframe.contentDocument || iframe.contentWindow.document;
+
+          const interval = setInterval(() => {
+            const table = iframeDoc.querySelector('gcds-table');
+
+            // Wait until table exists
+            if (!table) {
+              return;
+            }
+
+            clearInterval(interval);
+
+            let tableData = data;
+
+            // Use only the first 10 rows for filter and sort previews
+            if (
+              table.classList.contains('filter-preview') ||
+              table.classList.contains('sort-preview') ||
+              table.classList.contains('caption-preview') ||
+              table.classList.contains('filter-value-preview')
+            ) {
+              tableData = tableData.slice(0, 10);
+            }
+
+            if (!table.classList.contains('columns-data-preview')) {
+              table.columns = columns;
+              table.data = tableData;
+            }
+          }, 100);
+        });
+      });
+    }
+  });
+</script>
