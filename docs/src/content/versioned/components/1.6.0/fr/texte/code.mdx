@@ -1,0 +1,176 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Texte - Code
+componentName: Texte
+tagName: '<gcds-text>'
+alsoCalled: bloc de texte, version, légende, corps du texte, paragraphe
+description: Le composant texte est un paragraphe stylisé et formaté qui affiche du contenu écrit de manière accessible.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-3353&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-text'
+version: 1.6.0
+previewLabel: Aperçu du composant de texte
+dateModified: '2026-06-18T13:30:38-04:00'
+---
+
+import { CodePreview } from '~components';
+
+## Sur cette page
+
+- [Codage et accessibilité du composant texte](#codage-et-accessibilite-du-composant-texte)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
+
+## Codage et accessibilité du composant texte
+
+### Veillez à maintenir des limites de caractères accessibles
+
+- Maintenez la longueur de ligne maximale par défaut de 65 caractères pour chaque ligne de texte pour assurer une lecture aisée et accessible.
+- Choisissez de raccourcir la longueur de ligne en définissant l'attribut `character-limit` à `false`.
+
+### Définissez la taille du texte
+
+- Définissez l'attribut de texte `size` à `body` ou `small`.
+- Utilisez la valeur par défaut `body` `size` pour produire un élément `p` avec la taille de police et le contraste de couleur recommandés.
+- Choisissez d'afficher un texte plus petit en définissant l'attribut `size` à `small` pour produire un élément `small` à l'intérieur d'un élément `p`.
+
+### Utilisez des styles de texte avec prudence
+
+- Ne soulignez que les liens.
+- Limitez l'utilisation du texte en caractères gras.
+- Évitez d'utiliser du texte en gras comme titre. Le titre est le composant accessible permettant d'identifier les sections de contenu.
+- Pour le texte en caractères gras, utilisez la balise `strong` dans le composant `gcds-text` pour mettre en évidence les termes et souligner les points clés.
+- Utilisez uniquement les caractères en italique dans les cas suivants :
+  <ul class="list-circle">
+    <li>Références juridiques, comme la <em>Loi canadienne sur l'accessibilité</em>.</li>
+    <li>Mots dans d'autres langues, y compris le latin.</li>
+    <li>Titres de publications, d'œuvres d'art et de matériel mathématique et scientifique.</li>
+  </ul>
+- Utilisez la balise `em` dans le composant `gcds-text` pour mettre l'accent sur des mots ou des phrases spécifiques.
+- Utilisez l'élément HTML `code` dans le composant `gcds-text` pour entourer le contenu représentant du code. L'élément `code` utilise la typographie à espacement fixe (_monospace_).
+
+<h2 id="section-examples">Exemples</h2>
+
+Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<h3 id="section-optional">Attributs facultatifs</h3>
+
+Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.
+
+#### `character-limit`
+
+L'attribut `character-limit` définit la longueur de ligne maximale en nombre de caractères pour garantir une longueur de lecture confortable et accessible.
+
+<CodePreview
+  iframe
+  code={`<gcds-text character-limit="false">
+  Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
+</gcds-text>`}
+/>
+
+#### `display`
+
+L'attribut `display` définit le comportement d'affichage du texte. Les options sont :
+
+- `block` (par défaut)
+- `flex`
+- `inline`
+- `inline-block`
+- `inline-flex`
+- `none`
+
+<CodePreview
+  iframe
+  code={`<gcds-text display="flex">
+  Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
+</gcds-text>`}
+/>
+
+#### `margin-bottom`
+
+L'attribut `margin-bottom` définit la marge sous le texte. La valeur par défaut est `300`.
+
+<CodePreview
+  iframe
+  code={`<gcds-text margin-bottom="600">
+  Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
+</gcds-text>`}
+/>
+
+#### `margin-top`
+
+L'attribut `margin-top` définit la marge au-dessus du texte. La valeur par défaut est `0`.
+
+<CodePreview
+  iframe
+  code={`<gcds-text margin-top="600">
+  Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
+</gcds-text>`}
+/>
+
+#### `size`
+
+L'attribut `size` définit la taille du texte. Les options sont :
+
+- `body` (par défaut)
+- `small`
+
+<CodePreview
+  iframe
+  code={`<gcds-text size="small">
+  Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
+</gcds-text>`}
+/>
+
+#### `text-role`
+
+L'attribut `text-role` définit le style principal du texte. Les options sont :
+
+- `primary` (par défaut)
+- `secondary`
+- `light`
+
+<CodePreview
+  iframe
+  code={`<gcds-text text-role="secondary">
+  Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
+</gcds-text>`}
+/>
+
+<h3 id="section-slot">Emplacements (slots)</h3>
+
+L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.
+
+#### `default`
+
+L'emplacement par défaut sert à placer le contenu de l'élément texte.
+
+<CodePreview
+  iframe
+  code={`<gcds-text>
+  Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.
+</gcds-text>`}
+/>
+
+### Générateur de code
+
+Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
+
+1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
+2. Obtenez le code et intégrez-le dans votre environnement.
+3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
+
+**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-text."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties&lang=fr"
+  width="1200"
+  height="1650"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
