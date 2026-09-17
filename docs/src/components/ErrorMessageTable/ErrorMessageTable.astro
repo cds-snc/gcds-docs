@@ -1,0 +1,97 @@
+---
+import { resolveLocaleFromPathname } from '../../utils/i18n';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+
+import { errortable } from './data';
+
+
+const localeData = errortable[locale];
+const { detailsTitle, thead, components, validationErrors, reason: reasons } = localeData;
+const { componentValidationErrors } = errortable;
+
+interface Row {
+  componentLabel: string | null;
+  rowspan: number | null;
+  reasonText: string;
+  message: string;
+}
+
+function isObject(val: unknown): val is Record<string, string> {
+  return typeof val === 'object' && val !== null;
+}
+
+const componentRows: Record<string, Row[]> = {};
+
+for (const componentKey of Object.keys(components)) {
+  const componentLabel = components[componentKey as keyof typeof components];
+  const errorKeys: string[] = componentValidationErrors[componentKey] ?? [];
+
+  // countRows: an object-valued message (e.g. dateInput, typeMismatch)
+  // contributes one row per variant; everything else contributes one row.
+  const rowCount = errorKeys.reduce((count, key) => {
+    const msg = validationErrors[key];
+    return count + (isObject(msg) ? Object.keys(msg).length : 1);
+  }, 0);
+
+  const rows: Row[] = [];
+  let firstRow = true;
+
+  for (const key of errorKeys) {
+    const msg = validationErrors[key];
+    const reason = reasons[key as keyof typeof reasons];
+
+    if (isObject(msg)) {
+      for (const variant of Object.keys(msg)) {
+        const text = msg[variant];
+        const reasonText = isObject(reason) ? (reason as Record<string, string>)[variant] : reason;
+
+        rows.push({
+          componentLabel: firstRow ? componentLabel : null,
+          rowspan: firstRow ? rowCount : null,
+          reasonText,
+          message: text,
+        });
+        firstRow = false;
+      }
+    } else {
+      rows.push({
+        componentLabel: firstRow ? componentLabel : null,
+        rowspan: firstRow ? rowCount : null,
+        reasonText: reason as string,
+        message: msg,
+      });
+      firstRow = false;
+    }
+  }
+
+  componentRows[componentKey] = rows;
+}
+---
+
+<gcds-details details-title={detailsTitle}>
+  <div class="table-overflow">
+    <table class="error-message-table">
+      <thead>
+        <tr>
+          {thead.map((value) => <th>{value}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {Object.keys(components).map((componentKey) => (
+          <Fragment>
+            {componentRows[componentKey].map((row) => (
+              <tr>
+                {row.componentLabel !== null && (
+                  <td rowspan={row.rowspan ?? undefined} set:html={row.componentLabel} />
+                )}
+                <td set:html={row.reasonText} />
+                <td set:html={row.message} />
+              </tr>
+            ))}
+          </Fragment>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</gcds-details>
