@@ -98,43 +98,43 @@ Use `data` to pass the content of the table. Pass an array of objects where each
 
 Set `filter` to `true` to display a filter input, so people can narrow down results by keyword.
 
-<CodePreview iframe demoClass='filter-preview'>
-  <gcds-table filter></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='filter-preview'
+  code={`<gcds-table filter></gcds-table>`}
+/>
 
 #### `filter-value`
 
 Use `filter-value` to set a default keyword in the filter input, so some rows are already filtered when the table loads. By default, there’s no set value.
 
-<CodePreview iframe demoClass='filter-value-preview'>
-  <gcds-table filter filter-value="Dav"></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='filter-value-preview'
+  code={`<gcds-table filter filter-value="Dav"></gcds-table>`}
+/>
 
 #### `pagination`
 
 Set `pagination` to `true` to split the table into pages when there are many rows. By default, `pagination` is set to `false`.
 
-<CodePreview iframe demoClass='pagination-preview'>
-  <gcds-table pagination></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-preview'
+  code={`<gcds-table pagination></gcds-table>`}
+/>
 
 #### `pagination-current-page`
 
 Use `pagination-current-page` to set which page is displayed when the table first loads. By default, it’s set to `1`, which shows the first page.
 
-<CodePreview iframe demoClass='pagination-current-page-preview'>
-  <gcds-table pagination pagination-current-page="2"
-  ></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-current-page-preview'
+  code={`<gcds-table pagination pagination-current-page="2"
+  ></gcds-table>`}
+/>
 
 #### `pagination-size`
 
 Use `pagination-size` to set how many rows are displayed per page. The default is `10`.
 
-<CodePreview iframe demoClass='pagination-size-preview'>
-  <gcds-table pagination pagination-size="10"
-  ></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-size-preview'
+  code={`<gcds-table pagination pagination-size="10"
+  ></gcds-table>`}
+/>
 
 #### `pagination-size-options`
 
@@ -142,9 +142,9 @@ Use `pagination-size-options` to define the page size choices available to peopl
 
 **Note**: Including `0` in the options adds an “All” choice that displays all rows at once. Use with caution on large datasets, as it may affect performance.
 
-<CodePreview iframe demoClass='pagination-size-options-preview'>
-  <gcds-table pagination pagination-size-options="[10, 15, 20, 25, 0]"></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-size-options-preview'
+  code={`<gcds-table pagination pagination-size-options="[10, 15, 20, 25, 0]"></gcds-table>`}
+/>
 
 #### `sort`
 
@@ -152,9 +152,9 @@ Set `sort` to `true` to allow users to sort the table by clicking on column head
 
 **Note**: The `sort` property in each column object has the final say. If a column sets `sort` to `false`, that column will not be sortable even if the table-level `sort` is set to `true`.
 
-<CodePreview iframe demoClass='sort-preview'>
-  <gcds-table sort></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='sort-preview'
+  code={`<gcds-table sort></gcds-table>`}
+/>
 
 <h3 id="section-slot">Slots</h3>
 
@@ -164,14 +164,14 @@ The default slot allows you to inject custom content into the component's primar
 
 Use the `caption` slot to give an accessible name to the table, so that assistive technologies can identify it and announce it.
 
-<CodePreview iframe demoClass='caption-preview'>
-  <gcds-table>
+<CodePreview iframe demoClass='caption-preview'
+  code={`<gcds-table>
     <div slot="caption">
       <h5>Table caption</h5>
       <p>Detailed caption for the table</p>
     </div>
-  </gcds-table>
-</CodePreview>
+  </gcds-table>`}
+/>
 
 #### Framework-specific slots for custom content
 

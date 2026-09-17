@@ -98,43 +98,43 @@ Utilisez `data` pour transmettre le contenu du tableau. Passez un tableau (_arra
 
 Définissez `filter` à `true` pour afficher un champ de filtre qui permet aux personnes d’affiner les résultats par mot-clé.
 
-<CodePreview iframe demoClass='filter-preview'>
-  <gcds-table filter></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='filter-preview'
+  code={`<gcds-table filter></gcds-table>`}
+/>
 
 #### `filter-value`
 
 Utilisez `filter-value` pour définir un mot-clé par défaut dans le champ de filtre, afin que certaines lignes soient déjà filtrées au chargement du tableau. Par défaut, aucune valeur n’est définie.
 
-<CodePreview iframe demoClass="filter-value-preview">
-<gcds-table filter filter-value="Dav"></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass="filter-value-preview"
+  code={`<gcds-table filter filter-value="Dav"></gcds-table>`}
+/>
 
 #### `pagination`
 
 Définissez `pagination` à `true` pour diviser le tableau en pages lorsqu’il contient de nombreuses lignes. Par défaut, pagination est défini à `false`.
 
-<CodePreview iframe demoClass='pagination-preview'>
-  <gcds-table pagination></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-preview'
+  code={`<gcds-table pagination></gcds-table>`}
+/>
 
 #### `pagination-current-page`
 
 Utilisez `pagination-current-page` pour définir la page affichée au chargement du tableau. Par défaut, la valeur est définie à `1`, ce qui affiche la première page.
 
-<CodePreview iframe demoClass='pagination-current-page-preview'>
-  <gcds-table pagination pagination-current-page="2"
-  ></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-current-page-preview'
+  code={`<gcds-table pagination pagination-current-page="2"
+  ></gcds-table>`}
+/>
 
 #### `pagination-size`
 
 Utilisez `pagination-size` pour définir le nombre de lignes affichées par page. Par défaut, la valeur est `10`.
 
-<CodePreview iframe demoClass='pagination-size-preview'>
-  <gcds-table pagination pagination-size="10"
-  ></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-size-preview'
+  code={`<gcds-table pagination pagination-size="10"
+  ></gcds-table>`}
+/>
 
 #### `pagination-size-options`
 
@@ -142,9 +142,9 @@ Utilisez `pagination-size-options` pour définir les choix du nombre de lignes a
 
 **Remarque** : Inclure `0` dans les options ajoute une option « Tout » qui affiche toutes les lignes à la fois. Utilisez cette option avec prudence pour les grands ensembles de données, car elle peut affecter la performance.
 
-<CodePreview iframe demoClass='pagination-size-options-preview'>
-  <gcds-table pagination pagination-size-options="[10, 15, 20, 25, 0]"></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='pagination-size-options-preview'
+  code={`<gcds-table pagination pagination-size-options="[10, 15, 20, 25, 0]"></gcds-table>`}
+/>
 
 #### `sort`
 
@@ -152,9 +152,9 @@ Définissez `sort` à `true` pour permettre aux personnes de trier le tableau en
 
 **Remarque** : La propriété `sort` définie dans chaque objet de colonne a priorité. Si une colonne définit `sort` à `false`, cette colonne ne pourra pas être triée, même si la propriété `sort` du tableau est définie à `true`.
 
-<CodePreview iframe demoClass='sort-preview'>
-  <gcds-table sort></gcds-table>
-</CodePreview>
+<CodePreview iframe demoClass='sort-preview'
+  code={`<gcds-table sort></gcds-table>`}
+/>
 
 <h3 id="section-slot">Emplacements (slots)</h3>
 
@@ -164,14 +164,14 @@ L’emplacement par défaut vous permet d’injecter du contenu personnalisé da
 
 Utilisez l’emplacement `caption` pour donner un nom accessible au tableau, afin que les technologies d’assistance puissent l’identifier et l’annoncer.
 
-<CodePreview iframe demoClass='caption-preview'>
-  <gcds-table>
+<CodePreview iframe demoClass='caption-preview'
+  code={`<gcds-table>
     <div slot="caption">
       <h5>Titre du tableau</h5>
       <p>Titre détaillée du tableau</p>
     </div>
-  </gcds-table>
-</CodePreview>
+  </gcds-table>`}
+/>
 
 #### Syntaxe du contenu personnalisé selon le cadre d’applications
 

@@ -14,7 +14,7 @@ dateModified: '2026-06-16T12:02:56-07:00'
 import { AnatomyImage, AnatomyList } from '~components';
 import anatomy from './assets/gcds-table-anatomy.svg';
 
-## Card anatomy
+## Table anatomy
 
 <AnatomyList>
   <li>The <strong>caption</strong> labels the table’s purpose and gives context for the data presented.</li>
@@ -38,18 +38,22 @@ import anatomy from './assets/gcds-table-anatomy.svg';
 - Include at least one column header or row header so relationships between values are explicit.
 - Order rows and columns in a way that fits how the information should be understood (for example, by chronology, by importance or by association).
 - Avoid complex or nested tables whenever possible, as they are challenging for people using assistive technologies.
-  - Avoid merging or splitting cells.
-  - Avoid using more than one level of column or row header.
-  - Split complex tables into multiple simpler tables to make them easier to read.
+  <ul class="list-circle">
+    <li>Avoid merging or splitting cells.</li>
+    <li>Avoid using more than one level of column or row header.</li>
+    <li>Split complex tables into multiple simpler tables to make them easier to read.</li>
+  </ul>
 - Add a caption to provide an accessible name to the table. Write unique captions for each table on the page so people using assistive technologies can distinguish them.
 
 ### Format content to support scanning
 
 - Use descriptive, concise table headers in a consistent format, such as noun phrases.
 - Use consistent alignment so values can be compared quickly.
-  - Left-align text and non-quantitative numbers like dates, postal codes and phone numbers. 
-  - Right-align numbers like quantities and measurements so their decimal points line up. Use the same number of decimals for all numbers.
-  - Align column headers with their column content.
+  <ul class="list-circle">
+    <li>Left-align text and non-quantitative numbers like dates, postal codes and phone numbers.</li>
+    <li>Right-align numbers like quantities and measurements so their decimal points line up. Use the same number of decimals for all numbers.</li>
+    <li>Align column headers with their column content.</li>
+  </ul>
 - Place units in column headers instead of repeating them in each cell.
 - Avoid long text in cells to help scanning across rows and columns.
 - Avoid leaving cells blank as some assistive technologies may not communicate that a value is missing. Add context-specific text such as “Not applicable” or “No value”.
@@ -57,11 +61,17 @@ import anatomy from './assets/gcds-table-anatomy.svg';
 ### Support finding and exploring data
 
 - Use filtering to help people narrow down results to a relevant subset when:
-  - The dataset is large enough that scanning all rows is difficult.
-  - People are likely to have a specific value or target in mind.
+  <ul class="list-circle">
+    <li>The dataset is large enough that scanning all rows is difficult.</li>
+    <li>People are likely to have a specific value or target in mind.</li>
+  </ul>
 - Use sorting to help people reorganize data and find what matters most to them when:
-  - The order of rows affects how people interpret the data, such as by priority, recency, or magnitude.
-  - People may want to look for patterns across the dataset.
+  <ul class="list-circle">
+    <li>The order of rows affects how people interpret the data, such as by priority, recency, or magnitude.</li>
+    <li>People may want to look for patterns across the dataset.</li>
+  </ul>
 - Use pagination to help people navigate large datasets when:
-  - The number of rows would make the page too long to scroll comfortably.
-  - People are exploring items and do not need to see everything at once, or would benefit from faster-loading pages.
+  <ul class="list-circle">
+    <li>The number of rows would make the page too long to scroll comfortably.</li>
+    <li>People are exploring items and do not need to see everything at once, or would benefit from faster-loading pages.</li>
+  </ul>
