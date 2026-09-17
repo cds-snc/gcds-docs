@@ -95,3 +95,23 @@ for (const componentKey of Object.keys(components)) {
     </table>
   </div>
 </gcds-details>
+
+<style>
+  table.error-message-table {
+  th:nth-child(1) {
+    width: 30%;
+  }
+  th:nth-child(2) {
+    width: 30%;
+  }
+
+  th:nth-child(3) {
+    width: 40%;
+  }
+  tbody {
+    tr:has(> td:nth-of-type(2)):not(:has(> td:nth-of-type(3))) > td:first-child {
+      padding: var(--gcds-spacing-225) var(--gcds-spacing-175);
+    }
+  }
+}
+</style>
