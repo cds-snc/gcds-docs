@@ -1,0 +1,70 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Theme and topic menu - Code
+componentName: Theme and topic menu
+tagName: '<gcds-topic-menu>'
+alsoCalled: global navigation, theme-based navigation
+description: The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=7696-5049&mode=design&t=2my46MmKTAF9hApN-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-topic-menu'
+version: 1.6.0
+dateModified: '2026-05-20T08:02:46-07:00'
+---
+
+import { CodePreview } from '~components';
+import { links } from '~i18n/links';
+
+## On this page
+
+- [Coding and accessibility for theme and topic menu](#coding-and-accessibility-for-theme-and-topic-menu)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
+
+## Coding and accessibility for theme and topic menu
+
+### Use the theme and topic menu with other components
+
+Add the theme and topic menu directly to the <gcds-link href={links.en.header}>header</gcds-link> component by passing a child element with the `slot="menu"` attribute in the header. This will place the theme and topic menu in the header after the language toggle, signature, and search slots.
+
+**Note**: If applying the theme and topic menu to the front page of Canada.ca, use the `home` attribute to render with the correct styling.
+
+<h2 id="section-examples">Examples</h2>
+
+Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.
+
+### In this section
+
+- [Optional attributes](#section-optional)
+
+<h3 id="section-optional">Optional attributes</h3>
+
+These attributes allow you to customize or extend the component's behaviour and presentation.
+
+#### `home`
+
+The `home` attribute sets the homepage styling.
+
+<CodePreview
+  iframe
+  code={`<gcds-topic-menu home>
+</gcds-topic-menu>`}
+/>
+
+### Code builder
+
+Generate an instance of the component you need by selecting its code properties.
+
+1. Explore by choosing different code values to generate the instance you want.
+2. Get the code and pull it into your environment.
+3. Add any copy you need to the component (like text for a label).
+
+**Note:** The code builder uses English for all code elements, which follows standard practice.
+
+<iframe
+  title="Overview of gcds-topic-menu properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-theme-and-topic-menu--events-properties&lang=en&externalLinks=true"
+  width="1200"
+  height="1850"
+  style="display: block; margin: 0 auto; max-width: 100%;"
+  frameborder="0"
+  allow="clipboard-write"></iframe>
