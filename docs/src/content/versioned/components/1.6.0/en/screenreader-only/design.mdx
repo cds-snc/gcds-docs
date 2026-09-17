@@ -1,0 +1,22 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Screenreader-only - Design
+componentName: Screenreader-only
+tagName: '<gcds-sr-only>'
+alsoCalled: visually hidden, assistive text
+description: The screenreader-only component is text information only accessible with assistive technologies.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-sr-only'
+version: 1.6.0
+dateModified: '2024-04-22T12:02:56-07:00'
+---
+
+## Design and accessibility for the screenreader-only component
+
+### Write helpful screenreader-only content
+
+- Flag contextual information exclusively communicated through visual styling that’s absent from ‌semantic HTML.
+- Keep screenreader-only content clear and very brief. Adding too much text unnecessarily increases the cognitive load.
+- Provide additional text content specifically for assistive technologies only when the interface design relies on visual information to communicate.
+- Avoid including additional information that’s unavailable in the interface.
+- Avoid duplicating any information included in descriptive text (alt-text). If the descriptive text already provides the context, the screenreader-only component may not be needed.
