@@ -60,28 +60,28 @@ Ces attributs vous permettent de personnaliser ou d'enrichir le comportement et 
 
 L'attribut `error-links` définit la liste des erreurs à afficher dans le résumé des erreurs. Format : `{ link-href: link-label }`.
 
-<CodePreview iframe>
-  <gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
-  </gcds-error-summary>
-</CodePreview>
+<CodePreview iframe
+  code={`<gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
+  </gcds-error-summary>`}
+/>
 
 #### `heading`
 
 L'attribut `heading` définit le titre du résumé des erreurs.
 
-<CodePreview iframe>
-  <gcds-error-summary heading="Titre" error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
-  </gcds-error-summary>
-</CodePreview>
+<CodePreview iframe
+  code={`<gcds-error-summary heading="Titre" error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }'>
+  </gcds-error-summary>`}
+/>
 
 #### `listen`
 
 L'attribut `listen` contrôle si le résumé des erreurs écoute l'événement `gcdsError` pour générer la liste des erreurs. Par défaut, il est défini à `true`.
 
-<CodePreview iframe>
-  <gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }' listen>
-  </gcds-error-summary>
-</CodePreview>
+<CodePreview iframe
+  code={`<gcds-error-summary error-links='{ "#error-href-1": "Élément du résumé des erreurs.", "#error-href-2": "Élément du résumé des erreurs.", "#error-href-3": "Élément du résumé des erreurs." }' listen>
+  </gcds-error-summary>`}
+/>
 
 ### Générateur de code
 

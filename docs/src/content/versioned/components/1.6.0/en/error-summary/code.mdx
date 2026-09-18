@@ -59,28 +59,28 @@ These attributes allow you to customize or extend the component's behaviour and 
 
 The `error-links` attribute defines the list of errors to display in the error summary. Format: `{ link-href: link-label }`.
 
-<CodePreview iframe>
-  <gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
-  </gcds-error-summary>
-</CodePreview>
+<CodePreview iframe
+  code={`<gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
+  </gcds-error-summary>`}
+/>
 
 #### `heading`
 
 The `heading` attribute defines the error summary heading.
 
-<CodePreview iframe>
-  <gcds-error-summary heading="Heading" error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
-  </gcds-error-summary>
-</CodePreview>
+<CodePreview iframe
+  code={`<gcds-error-summary heading="Heading" error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }'>
+  </gcds-error-summary>`}
+/>
 
 #### `listen`
 
 The `listen` attribute controls whether the error summary should listen for the `gcdsError` event to generate a list of errors or not. By default, it is set to `true`.
 
-<CodePreview iframe>
-  <gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }' listen>
-  </gcds-error-summary>
-</CodePreview>
+<CodePreview iframe
+  code={`<gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }' listen>
+  </gcds-error-summary>`}
+/>
 
 ### Code builder
 
