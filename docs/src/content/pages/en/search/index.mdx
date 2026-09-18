@@ -1,0 +1,15 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Search results
+hideSearch: true
+---
+
+import { SearchInput, SearchResults } from "~components"
+
+# Search results
+
+<SearchInput />
+
+<gcds-text size="small">Don’t include personal information (telephone, email, SIN, financial, medical, or work details).</gcds-text>
+
+<SearchResults />

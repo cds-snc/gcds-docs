@@ -42,3 +42,7 @@ export { default as HideTheLabel } from "./form-components/HideTheLabel.astro"
 export { default as Hint } from "./form-components/Hint.astro"
 export { default as ValidationErrorMessage } from "./form-components/ValidationErrorMessage.astro";
 export { default as ValidProps } from "./form-components/ValidProps.astro";
+
+// Search components
+export { default as SearchInput } from "./search/SearchInput.astro";
+export { default as SearchResults } from "./search/SearchResults.astro";
