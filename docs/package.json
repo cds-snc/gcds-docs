@@ -14,6 +14,7 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/react": "^5.0.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@cdssnc/sanitize-pii": "^2.2.0",
     "@gcds-core/components-react": "^1.6.0",
     "@gcds-core/css-shortcuts": "^1.2.0",
