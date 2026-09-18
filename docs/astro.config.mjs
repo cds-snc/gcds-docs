@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import rehypeGcdsSlug from "./src/utils/rehype-gcds-slug.mjs";
 import { fileURLToPath } from "node:url";
 import pagefind from 'astro-pagefind';
+import sitemap from '@astrojs/sitemap';
 
 // Astro uses remark (for .md syntax) and rehype (for HTML output) instead of
 // markdown-it. The equivalent of Eleventy's markdownLibrary config lives here.
@@ -36,6 +37,7 @@ export default defineConfig({
   //   locales: ["en", "fr"],
   //   defaultLocale: "en",
   // },
+  site: process.env.DOMAIN || 'http://localhost:4321',
   markdown: {
     // Configure shared markdown behaviour (applies to both .md and .mdx).
     // Keep heading ids only. We tested rehype-autolink-headings and it changed
@@ -60,6 +62,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     react(),
+    sitemap(),
     pagefind({
       indexConfig: {
         rootSelector: 'main',
