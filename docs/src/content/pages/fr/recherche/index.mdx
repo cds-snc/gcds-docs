@@ -1,0 +1,15 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Résultats de la recherche
+hideSearch: true
+---
+
+import { SearchInput, SearchResults } from "~components"
+
+# Résultats de la recherche
+
+<SearchInput />
+
+<gcds-text size="small">N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels).</gcds-text>
+
+<SearchResults />

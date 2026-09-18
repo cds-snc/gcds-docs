@@ -5,14 +5,17 @@ import { buildLocalizedPath } from '../utils/i18n';
 interface Props {
   currentLocale: Locale;
   routeKey: string;
+  hideSearch?: boolean;
 }
 
-const { currentLocale } = Astro.props as Props;
+const { currentLocale, hideSearch } = Astro.props as Props;
 const otherLocale = supportedLocales.find((locale) => locale !== currentLocale) ?? defaultLocale;
 
 // Translate the current path segment-by-segment so the toggle lands on the
 // equivalent page in the other locale, at any depth (tabs, dev framework pages).
 const href = buildLocalizedPath(Astro.url.pathname, currentLocale, otherLocale, routes);
+
+import { SearchInput } from '~components';
 ---
 
 <gcds-header
@@ -20,5 +23,5 @@ const href = buildLocalizedPath(Astro.url.pathname, currentLocale, otherLocale, 
   lang-href={href}
   skip-to-href="#main-content"
 >
-  <gcds-search slot="search"></gcds-search>
+  {!hideSearch && <SearchInput isSlotted={true} />}
 </gcds-header>
