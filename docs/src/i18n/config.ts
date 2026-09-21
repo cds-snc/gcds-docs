@@ -401,6 +401,10 @@ export const routes = {
     en: "gcds-in-use",
     fr: "sdgc-en-usage"
   },
+  search: {
+    en: "search",
+    fr: "recherche",
+  },
   unsubscribe: {
     en: "unsubscribe",
     fr: "se-desabonner"

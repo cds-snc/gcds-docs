@@ -1,0 +1,58 @@
+---
+interface Props {
+  isSlotted?: boolean;
+}
+
+const { isSlotted } = Astro.props as Props;
+
+const i18n = {
+  en: {
+    action: '/en/search',
+    placeholder: 'GC Design System',
+    shortPlaceholder: 'GCDS',
+  },
+  fr: {
+    action: '/fr/recherche',
+    placeholder: 'Système de design GC',
+    shortPlaceholder: 'SDGC',
+  },
+}
+
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(i18n, locale, defaultLocale);
+---
+
+<gcds-search
+  id="searchbar"
+  search-id="search"
+  slot={isSlotted ? "search" : undefined}
+  placeholder={localizedContent.placeholder}
+  action={localizedContent.action}
+  data-placeholder-long={localizedContent.placeholder}
+  data-placeholder-short={localizedContent.shortPlaceholder}
+  class={!isSlotted ? "mb-300" : undefined}
+>
+</gcds-search>
+
+<script>
+  const searchComponent = document.getElementById('searchbar');
+
+  if (searchComponent) {
+    const mq = window.matchMedia('(max-width: 399px)');
+
+    function updatePlaceholder(e: MediaQueryList | MediaQueryListEvent) {
+      searchComponent?.setAttribute(
+        'placeholder',
+        e.matches
+          ? searchComponent.dataset.placeholderShort ?? ''
+          : searchComponent.dataset.placeholderLong ?? '',
+      );
+    }
+
+    updatePlaceholder(mq);
+    mq.addEventListener('change', updatePlaceholder);
+  }
+</script>

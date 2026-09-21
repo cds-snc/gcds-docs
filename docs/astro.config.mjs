@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import rehypeGcdsSlug from "./src/utils/rehype-gcds-slug.mjs";
 import { fileURLToPath } from "node:url";
+import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
 
 // Astro uses remark (for .md syntax) and rehype (for HTML output) instead of
@@ -74,6 +75,12 @@ export default defineConfig({
 
         return !excludedPages.some((path) => page.includes(path));
       },
-    })
+    }),
+    pagefind({
+      indexConfig: {
+        rootSelector: 'main',
+        excludeSelectors: ['gcds-side-nav', 'gcds-to-nav', 'gcds-breadcrumbs', '.github-link', '.figma-link', 'h1 > code', '.component-preview'],
+      },
+    }),
   ],
 });
