@@ -404,6 +404,10 @@ export const routes = {
   search: {
     en: "search",
     fr: "recherche",
+  },
+  unsubscribe: {
+    en: "unsubscribe",
+    fr: "se-desabonner"
   }
 };
 

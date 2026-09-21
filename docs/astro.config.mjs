@@ -62,7 +62,20 @@ export default defineConfig({
   integrations: [
     mdx(),
     react(),
-    sitemap(),
+    sitemap({
+      filter: (page) => {
+        const excludedPages = [
+          'subscribe/success',
+          'subscribe/error',
+          'se-desabonner/erreur',
+          'se-desabonner/succes',
+          '/thanks',
+          '/merci'
+        ];;
+
+        return !excludedPages.some((path) => page.includes(path));
+      },
+    }),
     pagefind({
       indexConfig: {
         rootSelector: 'main',
