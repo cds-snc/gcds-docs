@@ -78,3 +78,8 @@ main {
   --gcds-grid-gap-tablet: initial;
   --gcds-grid-gap-desktop: initial;
 }
+
+/* Overide astro's code styling for accessible comment colours */
+.astro-code span[style="color:#6A737D"] {
+  color: #E1E4E8 !important;
+}
