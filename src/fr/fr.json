@@ -168,8 +168,8 @@
 
     "accessToInformationAct": "https://laws-lois.justice.gc.ca/fra/lois/a-1/page-1.html",
     "airtable": "https://www.airtable.com/",
-    "airtablePrivacy": "https://www.airtable.com/company/privacy/fr",
-    "airtableTermsOfService": "https://www.airtable.com/company/tos/fr",
+    "airtablePrivacy": "https://www.airtable.com/company/privacy",
+    "airtableTermsOfService": "https://www.airtable.com/company/tos",
     "canadaStandardsTypography": "https://conception.canada.ca/styles/typographie.html",
     "cds": "https://numerique.canada.ca/",
     "cdsPrivacy": "https://numerique.canada.ca/confidentialite/",

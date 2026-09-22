@@ -9,7 +9,11 @@
     "prebuild": "node scripts/validate-routes.mjs && node scripts/copy-gcds-assets.mjs && node scripts/templates.cjs",
     "preview": "astro preview",
     "astro": "astro",
-    "test:i18n": "tsx --test src/utils/i18n.test.ts"
+    "test:i18n": "tsx --test src/utils/i18n.test.ts",
+    "cy:open": "cypress open",
+    "cy:run": "npx cypress run",
+    "cy:build": "npm run build && astro preview",
+    "test": "start-server-and-test cy:build http://localhost:4321/sitemap-index.xml cy:run"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
@@ -32,8 +36,12 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@gcds-core/components": "^1.6.0",
+    "cypress": "^13.17.0",
+    "cypress-axe": "^1.5.0",
+    "cypress-html-validate": "^7.0.0",
     "node-fetch": "^3.3.2",
     "prettier": "^3.8.3",
+    "start-server-and-test": "^2.0.10",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }

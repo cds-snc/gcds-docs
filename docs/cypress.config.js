@@ -1,0 +1,29 @@
+import { defineConfig } from 'cypress';
+
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      on('task', {
+        log(message) {
+          console.log(message);
+
+          return null;
+        },
+        table(message) {
+          console.table(message);
+
+          return null;
+        },
+      });
+    },
+    baseUrl: 'http://localhost:4321',
+    viewportWidth: 1280,
+    viewportHeight: 850,
+    screenshotOnRunFailure: false,
+    video: false,
+    retries: {
+      runMode: 3,
+      openMode: 0,
+    },
+  },
+});
