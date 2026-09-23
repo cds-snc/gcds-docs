@@ -10,27 +10,25 @@ import SplashLayout from '../layouts/SplashLayout.astro';
             <div class="splash-content">
                 <gcds-signature></gcds-signature>
 
-                <gcds-heading tag="h1" margin-top="200">GC Design System</gcds-heading>
-                <gcds-text margin-bottom="200">
-                    Access the documentation in English or French.<br />
-                    Accédez à la documentation en anglais ou en français.
-                </gcds-text>
+                <gcds-heading tag="h1" class="visibility-sr-only">
+                   <span lang="en">GC Design System</span> | <span lang="fr">Système de design GC</span>
+                </gcds-heading>
 
-                <div class="d-flex justify-content-center align-items-center gap-300">
-                    <gcds-button button-role="secondary" type="link" href="/en">
+                <div class="splash-buttons d-flex justify-content-center align-items-center gap-300 mt-400">
+                    <gcds-button button-role="primary" type="link" href="/en">
                         English
                     </gcds-button>
-                    <gcds-button button-role="secondary" type="link" href="/fr">
+                    <gcds-button button-role="primary" type="link" href="/fr" lang="fr">
                         Français
                     </gcds-button>
                 </div>
             </div>
 
-            <div class="splash-footer-row mt-600">
+            <div class="splash-footer-row">
                 <div class="splash-footer-links">
-                    {/* TODO: /en/terms-of-use and /fr/conditions-dutilisation are not migrated yet — these links 404 until those pages are created. */}
-                    <a href="/en/terms-of-use" class="splash-footer-link">Terms of use</a>
-                    <a href="/fr/conditions-dutilisation" class="splash-footer-link" lang="fr">Conditions d’utilisation</a>
+                    <gcds-link href="/en/terms-of-use" size="small" class="splash-footer-link">Terms of use</gcds-link>
+                    <span class="splash-footer-sep" aria-hidden="true">•</span>
+                    <gcds-link href="/fr/conditions-dutilisation" size="small" lang="fr" class="splash-footer-link">Conditions d’utilisation</gcds-link>
                 </div>
 
                 <gcds-signature type="wordmark">

@@ -14,6 +14,16 @@ const { pageTitle } = Astro.props as Props;
 <html lang="en">
     <head>
         <BaseHead pageTitle={pageTitle} />
+        {/* Get random photo from Canada.ca */}
+        <script is:inline>
+            (function () {
+                var n = Math.floor(Math.random() * 12) + 1;
+                document.documentElement.style.setProperty(
+                    '--splash-bg',
+                    'url("https://www.canada.ca/content/dam/canada/splash/sp-bg-' + n + '.jpg")'
+                );
+            })();
+        </script>
     </head>
     <body class="splash-body">
         <slot />
