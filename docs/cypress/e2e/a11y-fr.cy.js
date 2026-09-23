@@ -1,56 +1,30 @@
 /// <reference types="cypress" />
 
-import { links } from '../../src/i18n/links';
+import versionConfig from '../../src/routing/versioned/version-config.json';
 
-const pagesFr = [];
-
-// Create index of French pages
-Object.keys(links.fr).forEach(key => {
-  const url = links.fr[key];
-  if (
-    !url.includes('developpement-en-cours') &&
-    !url.includes('https') &&
-    !url.includes('mailto') &&
-    !url.includes('demo')
-  ) {
-    let regex = /composants\/[a-z]/;
-    const pageName = key.replace(/([A-Z])/g, ' $1');
-    if (regex.test(url) && !url.includes('valider')) {
-      pagesFr.push({
-        name: `${pageName} - use case`,
-        url,
-      });
-      pagesFr.push({
-        name: `${pageName} - design`,
-        url: `${url}/design/`,
-      });
-      pagesFr.push({
-        name: `${pageName} - code`,
-        url: `${url}/code/`,
-      });
-    } else {
-      pagesFr.push({
-        name: `${pageName}`,
-        url,
-      });
-    }
-  }
-});
+const componentVersions = versionConfig.sections[0].versions;
 
 describe(`A11Y test French documentation site`, () => {
-  after;
-  for (const page of pagesFr) {
-    it(`${page.name}: ${page.url}`, () => {
-      cy.visit(page.url, { timeout: 30000 });
-      
+  let urls = Cypress.env('frSitemapUrls');
+
+  // only include latest versions in a11y test
+  componentVersions.forEach(version => {
+    urls = urls.filter((url) => !url.includes(`/composants/${version}`));
+  });
+
+  urls.forEach((url) => {
+    it(url.replace(Cypress.config('baseUrl'), ''), () => {
+      cy.visit(url, { timeout: 30000 });
+
       cy.waitForHydration();
       
       cy.injectAxe();
       cy.checkA11y(null, null, cy.terminalLog);
       // skip theme and topic menu since links are pulled from external source
-      if (!page.url.includes('theme-and-topic-menu')) {
+      if (!url.includes('theme-and-topic-menu')) {
         cy.scanDeadLinks();
       }
+      
     });
-  }
+  });
 });
