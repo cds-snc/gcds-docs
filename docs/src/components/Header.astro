@@ -16,6 +16,7 @@ const otherLocale = supportedLocales.find((locale) => locale !== currentLocale) 
 const href = buildLocalizedPath(Astro.url.pathname, currentLocale, otherLocale, routes);
 
 import { SearchInput } from '~components';
+import Breadcrumbs from './Breadcrumbs.astro';
 ---
 
 <gcds-header
@@ -24,4 +25,5 @@ import { SearchInput } from '~components';
   skip-to-href="#main-content"
 >
   {!hideSearch && <SearchInput isSlotted={true} />}
+  <Breadcrumbs pathname={Astro.url.pathname} />
 </gcds-header>

@@ -66,7 +66,9 @@ const lastModified = await resolveDateModified(Astro.url.pathname, {
     height: 100%;
   }
 
+  /* The breadcrumb bar now supplies the gap below the header (matching prod,
+     whose main has no top padding), so no extra top padding on main. */
   #main-content.has-padding {
-    padding-block-start: var(--gcds-spacing-600);
+    padding-block-start: var(--gcds-spacing-0);
   }
 </style>
