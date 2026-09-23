@@ -1,0 +1,18 @@
+---
+import { getBreadcrumbs } from '../utils/breadcrumbs';
+import { resolveLocaleFromPathname } from '../utils/i18n';
+
+interface Props {
+  pathname?: string;
+}
+
+const pathname = (Astro.props as Props).pathname ?? Astro.url.pathname;
+const locale = resolveLocaleFromPathname(pathname);
+const items = getBreadcrumbs(pathname);
+---
+
+<gcds-breadcrumbs lang={locale} slot="breadcrumb">
+  {items.map((item) => (
+    <gcds-breadcrumbs-item href={item.href}>{item.text}</gcds-breadcrumbs-item>
+  ))}
+</gcds-breadcrumbs>
