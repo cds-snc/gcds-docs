@@ -16,7 +16,7 @@
     "test": "start-server-and-test cy:build http://localhost:4321/sitemap-index.xml cy:run"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/mdx": "^8.0.2",
     "@astrojs/react": "^5.0.3",
     "@astrojs/sitemap": "^3.7.4",
     "@cdssnc/sanitize-pii": "^2.2.0",
@@ -25,7 +25,7 @@
     "@gcds-core/tokens": "^1.6.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
-    "astro": "^6.1.8",
+    "astro": "^7.3.4",
     "astro-pagefind": "^2.0.1",
     "chalk": "^5.6.2",
     "react": "^19.1.0",
