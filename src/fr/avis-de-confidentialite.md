@@ -65,7 +65,7 @@ Vous pouvez trouver de plus amples informations sur le type de renseignements qu
 
 Nous traitons vos renseignements conformément à la partie 4 de la <gcds-link href="{{ links.esdcAct }}" target="_blank">Loi sur le ministère de l'Emploi et du Développement social</gcds-link>, à la <gcds-link href="{{ links.accessToInformationAct }}" target="_blank">Loi sur l'accès à l'information</gcds-link>, et à la <gcds-link href="{{ links.privacyAct }}" target="_blank">Loi sur la protection des renseignements personnels</gcds-link>. Nous nous conformons également aux exigences de la <gcds-link href="{{ links.directivePrivacyPractices }}" target="_blank">Directive sur les pratiques relatives à la protection de la vie privée</gcds-link>.
 
-En cas de préoccupation liée à la sécurité de ce site Web ou de tout autre produit du Service numérique canadien, veuillez consulter notre <gcds-link href="{{ links.cdsSecurityNotice }}" target="_blank">Avis de sécurité</gcds-link>.
+<!-- En cas de préoccupation liée à la sécurité de ce site Web ou de tout autre produit du Service numérique canadien, veuillez consulter notre <gcds-link href="{{ links.cdsSecurityNotice }}" target="_blank">Avis de sécurité</gcds-link>. -->
 
 ## Votre droit à la vie privée
 

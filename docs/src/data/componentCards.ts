@@ -617,7 +617,7 @@ export const fr: ComponentCard[] = [
   },
   {
     title: 'Résumé des erreurs',
-    href: '/fr/composants/resume-de-erreurs/',
+    href: '/fr/composants/resume-des-erreurs/',
     badge: '',
     thumb: previewErrorSummary,
     alt: 'Un encadré à la bordure rouge renferme une épaisse ligne grise qui représente un titre et qui surmonte trois épaisses lignes rouges plus courtes représentant des liens.',
