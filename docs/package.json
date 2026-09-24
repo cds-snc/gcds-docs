@@ -25,7 +25,7 @@
     "@gcds-core/tokens": "^1.6.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
-    "astro": "^6.1.8",
+    "astro": "^7.0.0",
     "astro-pagefind": "^2.0.1",
     "chalk": "^5.6.2",
     "react": "^19.1.0",
