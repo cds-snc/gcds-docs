@@ -53,7 +53,9 @@ export default defineConfig({
     resolve: {
       alias: {
         "~assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
+        "~content": fileURLToPath(new URL("./src/content", import.meta.url)),
         "~components": fileURLToPath(new URL("./src/components", import.meta.url)),
+        "~data": fileURLToPath(new URL("./src/data", import.meta.url)),
         "~i18n": fileURLToPath(new URL("./src/i18n", import.meta.url)),
         "~layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
       },
