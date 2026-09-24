@@ -65,7 +65,7 @@ You can find more information about the type of information we hold about you an
 
 We handle your information under Part 4 of the <gcds-link href="{{ links.esdcAct }}" target="_blank">Department of Employment and Social Development Act</gcds-link>, <gcds-link href="{{ links.accessToInformationAct }}" target="_blank">Access to Information Act</gcds-link>, and <gcds-link href="{{ links.privacyAct }}" target="_blank">Privacy Act</gcds-link>. We also follow the <gcds-link href="{{ links.directivePrivacyPractices }}" target="_blank">Directive on Privacy Practices</gcds-link>.
 
-If you have security concerns about this website or other Canadian Digital Service products, please see our <gcds-link href="{{ links.cdsSecurityNotice }}" target="_blank">Security Notice</gcds-link>.
+<!-- If you have security concerns about this website or other Canadian Digital Service products, please see our <gcds-link href="{{ links.cdsSecurityNotice }}" target="_blank">Security Notice</gcds-link>. -->
 
 ## You have privacy rights
 

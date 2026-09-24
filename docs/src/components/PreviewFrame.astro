@@ -61,10 +61,13 @@ const srcdoc = `<!doctype html>
     try {
       const doc = frame.contentDocument;
       if (!doc?.body) return;
-      // Measure the wrapper, not scrollHeight (which is floored by the iframe's
-      // height), so short previews fit snugly.
+
       const content = (doc.body.firstElementChild as HTMLElement) ?? doc.body;
-      frame.style.height = `${Math.ceil(content.getBoundingClientRect().height)}px`;
+      const height = Math.ceil(content.getBoundingClientRect().height);
+
+      if (frame.offsetHeight !== height) {
+        frame.style.height = `${height + 10}px`;
+      }
     } catch {
       /* cross-origin or not ready */
     }
@@ -73,17 +76,31 @@ const srcdoc = `<!doctype html>
   const setup = (frame: HTMLIFrameElement) => {
     const onReady = () => {
       sizeFrame(frame);
+
       try {
-        new ResizeObserver(() => sizeFrame(frame)).observe(
-          frame.contentDocument!.body,
-        );
+        const body = frame.contentDocument!.body;
+
+        const observer = new ResizeObserver(() => {
+          requestAnimationFrame(() => {
+            sizeFrame(frame);
+          });
+        });
+
+        observer.observe(body);
       } catch {
         /* ignore */
       }
-      [150, 400, 1000].forEach((t) => setTimeout(() => sizeFrame(frame), t));
+
+      [150, 400, 1000].forEach((t) => {
+        setTimeout(() => sizeFrame(frame), t);
+      });
     };
+
     frame.addEventListener('load', onReady);
-    if (frame.contentDocument?.readyState === 'complete') onReady();
+
+    if (frame.contentDocument?.readyState === 'complete') {
+      onReady();
+    }
   };
 
   document

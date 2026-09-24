@@ -1,85 +1,120 @@
 .splash-body {
-    min-height: 100vh;
-    margin: var(--gcds-spacing-0);
-    font-family: var(--gcds-font-families-body), sans-serif;
-    background: var(--gcds-color-blue-muted);
+  min-height: 100vh;
+  margin: var(--gcds-spacing-0);
+  font-family: var(--gcds-font-families-body), sans-serif;
+  background: var(--gcds-color-blue-muted);
 }
 
 .splash-page {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gcds-spacing-300);
+  overflow: hidden;
 }
 
 .splash-background {
-    position: absolute;
-    inset: 0;
-    background:
-            linear-gradient(180deg, rgba(20, 27, 34, 0.18) 0%, rgba(20, 27, 34, 0.48) 100%),
-            url("https://www.canada.ca/content/dam/canada/splash/sp-bg-1.jpg") center center / cover no-repeat;
+  position: absolute;
+  inset: 0;
+  /* Load random photo from Canada.ca
+    The url() fallback keeps a background when JS is disabled. */
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(20, 27, 34, 0.18) 0%,
+      rgba(20, 27, 34, 0.48) 100%
+    ),
+    var(
+      --splash-bg,
+      url('https://www.canada.ca/content/dam/canada/splash/sp-bg-1.jpg')
+    );
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .splash-panel {
-    position: relative;
-    width: min(100%, 62rem);
-    background: var(--gcds-bg-white);
-    box-shadow: 0 var(--gcds-spacing-100) 2rem rgba(0, 0, 0, 0.25);
-    border-radius: var(--gcds-border-radius-sm);
-    overflow: hidden;
+  position: relative;
+  width: min(100%, 34rem);
+  background: var(--gcds-bg-light);
+  box-shadow: 0 var(--gcds-spacing-100) var(--gcds-spacing-400)
+    rgba(0, 0, 0, 0.25);
 }
 
 .splash-content,
 .splash-footer-row {
-    padding-inline: clamp(1.25rem, 3vw, 2.5rem);
+  padding-inline: var(--gcds-spacing-400);
 }
 
 .splash-content {
-    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding-block: var(--gcds-spacing-400);
+}
+
+/* Match Canada.ca splash signature sizes */
+.splash-content gcds-signature {
+  display: block;
+  max-width: 100%;
+  --gcds-signature-signature-width: 17.6875rem;
+  --gcds-signature-signature-height: 1.625rem;
+  --gcds-signature-signature-width-desktop: 17.6875rem;
+  --gcds-signature-signature-height-desktop: 1.625rem;
+}
+
+.splash-footer-row gcds-signature {
+  --gcds-signature-wordmark-width: 7.9375rem;
+  --gcds-signature-wordmark-height: 1.875rem;
+  --gcds-signature-wordmark-width-desktop: 7.9375rem;
+  --gcds-signature-wordmark-height-desktop: 1.875rem;
 }
 
 .splash-footer-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--gcds-spacing-200);
-    border-top: 0.25rem solid var(--gcds-color-blue-muted);
-    padding-top: var(--gcds-spacing-200);
-    padding-bottom: var(--gcds-spacing-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gcds-spacing-200);
+  background: var(--gcds-color-grayscale-100);
+  padding-block: var(--gcds-spacing-300);
 }
 
 .splash-footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--gcds-spacing-100);
-    font-size: var(--gcds-font-text-small);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--gcds-spacing-100);
+  font-size: 1rem;
 }
 
 .splash-footer-link {
-    color: var(--gcds-color-blue-muted);
-    text-decoration: underline;
+  white-space: nowrap;
+}
+
+.splash-footer-sep {
+  color: var(--gcds-color-blue-muted);
 }
 
 @media (max-width: 48rem) {
-    .splash-page {
-        padding: 0;
-    }
+  .splash-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    .splash-panel {
-        min-height: 100vh;
-        border-radius: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+  .splash-buttons gcds-button::part(button) {
+    width: 100%;
+  }
 
-    .splash-footer-row {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: left;
-    }
+  .splash-footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .splash-footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .splash-footer-sep {
+    display: none;
+  }
 }

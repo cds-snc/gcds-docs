@@ -227,6 +227,14 @@ export const routes = {
           preview: {
             en: "preview",
             fr: "apercu"
+          },
+          "code-on-this-page": {
+            en: "code-on-this-page",
+            fr: "code-sur-cette-page"
+          },
+          "preview-on-this-page": {
+            en: "preview-on-this-page",
+            fr: "apercu-sur-cette-page"
           }
         }
       },
