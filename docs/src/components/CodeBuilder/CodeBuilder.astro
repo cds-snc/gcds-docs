@@ -5,6 +5,8 @@ import { defaultLocale } from '../../i18n/config';
 import { getLocalizedRecord, resolveLocaleFromPathname, getPathParts } from '../../utils/i18n';
 import { messages } from './messages.js';
 
+const hasDefaultSlot = Astro.slots.has('default');
+
 const locale = resolveLocaleFromPathname(Astro.url.pathname);
 const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
 
@@ -58,7 +60,7 @@ const data = dataFiles[`../../data/codebuilder/${component}.js`];
     landmark-display={landmarkDisplay}
     gcds-path="/assets/gcds/"
   >
-    <Preview />
+    {hasDefaultSlot ? <slot /> : <Preview />}
   </gcds-ext-code-display>
 </section>
 
