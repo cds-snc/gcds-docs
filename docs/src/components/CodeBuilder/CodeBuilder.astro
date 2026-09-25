@@ -1,5 +1,5 @@
 ---
-const { version, tagName } = Astro.props;
+const { version, tagName, landmarkDisplay = false } = Astro.props;
 import { Heading, Text } from '../../components';
 import { defaultLocale } from '../../i18n/config';
 import { getLocalizedRecord, resolveLocaleFromPathname, getPathParts } from '../../utils/i18n';
@@ -45,14 +45,18 @@ const data = dataFiles[`../../data/codebuilder/${component}.js`];
 
   <Text>{localizedContent.paragraph}</Text>
 
-  {localizedContent.list.map((paragraph: string) => (
-    <Text set:html={paragraph}></Text>
-  ))}
+  <ul class="list-disc mb-300">
+    {localizedContent.list.map((paragraph: string) => (
+      <li set:html={paragraph}></li>
+    ))}
+  </ul>
 
   <Text set:html={localizedContent.note}></Text>
   <gcds-ext-code-display
     id="codeBuilder"
     accessibility
+    landmark-display={landmarkDisplay}
+    gcds-path="/assets/gcds/"
   >
     <Preview />
   </gcds-ext-code-display>
@@ -62,6 +66,10 @@ const data = dataFiles[`../../data/codebuilder/${component}.js`];
   const codeBuilder = document.getElementById('codeBuilder');
 
   codeBuilder.attrs = data.attributes;
-  codeBuilder.slots = data.slots;
-  codeBuilder.events = data.events;
+  if (data.slots.length > 0) {
+    codeBuilder.slots = data.slots;
+  }
+  if (data.events.length > 0) {
+    codeBuilder.events = data.events;
+  }
 </script>

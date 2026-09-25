@@ -13,7 +13,7 @@ requiredGc: true
 dateModified: '2026-09-09T15:47:33-04:00'
 ---
 
-import { CodePreview } from '~components';
+import { CodePreview, CodeBuilder } from '~components';
 import { links } from '~i18n/links';
 
 ## On this page
@@ -207,21 +207,4 @@ The `toggle` slot is for adding a custom <gcds-link href={links.en.langToggle}>l
   </gcds-header>
 </CodePreview>
 
-### Code builder
-
-Generate an instance of the component you need by selecting its code properties.
-
-1. Explore by choosing different code values to generate the instance you want.
-2. Get the code and pull it into your environment.
-3. Add any copy you need to the component (like text for a label).
-
-**Note:** The code builder uses English for all code elements, which follows standard practice.
-
-<iframe
-  title="Overview of gcds-header properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-header--events-properties&lang=en"
-  width="1200"
-  height="1600"
-  style="display: block; margin: 0 auto; max-width: 100%;"
-  frameborder="0"
-  allow="clipboard-write"></iframe>
+<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName} landmarkDisplay />
