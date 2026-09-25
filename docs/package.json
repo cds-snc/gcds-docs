@@ -23,6 +23,7 @@
     "@gcds-core/components-react": "^1.6.0",
     "@gcds-core/css-shortcuts": "^1.2.0",
     "@gcds-core/tokens": "^1.6.0",
+    "@gcds-extensions/code-display": "^1.0.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "astro": "^6.1.8",

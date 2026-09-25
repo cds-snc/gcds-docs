@@ -1,0 +1,77 @@
+---
+const { version, tagName, landmarkDisplay = false } = Astro.props;
+import { Heading, Text } from '../../components';
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname, getPathParts } from '../../utils/i18n';
+import { messages } from './messages.js';
+
+const hasDefaultSlot = Astro.slots.has('default');
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
+
+// Each component provides a `preview.mdx` for the component preview.
+const previewModules = import.meta.glob('../../content/versioned/components/**/preview.{astro,mdx}', {
+  eager: true,
+});
+const pathParts = getPathParts(Astro.url.pathname);
+const componentSlug = pathParts
+  .slice(2)
+  .filter((part) => !/^\d+\.\d+\.\d+$/.test(part) && part !== 'design' && part !== 'code')[0];
+const previewKey = `../../content/versioned/components/${version}/${locale}/${componentSlug}/preview.mdx`;
+const Preview = (previewModules[previewKey] as { default?: any } | undefined)?.default;
+
+// Load component data
+type CodeBuilderData = {
+  attributes: unknown;
+  slots: unknown;
+  events: unknown;
+};
+
+const toGcdsCamelCase = (value: string) =>
+  value
+    .replace(/[<>]/g, '')
+    .replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+
+const component = toGcdsCamelCase(tagName)
+
+const dataFiles = import.meta.glob('../../data/codebuilder/*.js', {
+  eager: true,
+}) as Record<string, Record<string, CodeBuilderData>>;
+
+const data = dataFiles[`../../data/codebuilder/${component}.js`];
+---
+
+<section class="my-600">
+  <Heading tag="h3">{localizedContent.heading}</Heading>
+
+  <Text>{localizedContent.paragraph}</Text>
+
+  <ul class="list-disc mb-300">
+    {localizedContent.list.map((paragraph: string) => (
+      <li set:html={paragraph}></li>
+    ))}
+  </ul>
+
+  <Text set:html={localizedContent.note}></Text>
+  <gcds-ext-code-display
+    id="codeBuilder"
+    accessibility
+    landmark-display={landmarkDisplay}
+    gcds-path="/assets/gcds/"
+  >
+    {hasDefaultSlot ? <slot /> : <Preview />}
+  </gcds-ext-code-display>
+</section>
+
+<script define:vars={{ data: data[component] }}>
+  const codeBuilder = document.getElementById('codeBuilder');
+
+  codeBuilder.attrs = data.attributes;
+  if (data.slots.length > 0) {
+    codeBuilder.slots = data.slots;
+  }
+  if (data.events.length > 0) {
+    codeBuilder.events = data.events;
+  }
+</script>

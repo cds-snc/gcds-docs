@@ -27,6 +27,15 @@ const cssShortcutsSourceFile = path.join(
     "gcds-css-shortcuts.min.css",
 );
 
+const codeDisplaySourceDir = path.join(
+    rootDir,
+    "node_modules",
+    "@gcds-extensions",
+    "code-display",
+    "dist",
+    "gcds-ext-code-display",
+);
+
 const targetDir = path.join(rootDir, "public", "assets", "gcds");
 
 await mkdir(targetDir, { recursive: true });
@@ -34,6 +43,7 @@ await mkdir(targetDir, { recursive: true });
 try {
     await access(componentsSourceDir);
     await access(cssShortcutsSourceFile);
+    await access(codeDisplaySourceDir);
 } catch {
     throw new Error(
         `Missing required GCDS source assets: ${componentsSourceDir} or ${cssShortcutsSourceFile}`,
@@ -45,5 +55,6 @@ await cp(
     cssShortcutsSourceFile,
     path.join(targetDir, "gcds-css-shortcuts.min.css"),
 );
+await cp(codeDisplaySourceDir, targetDir, { recursive: true });
 
 console.log(`Synced GCDS assets to ${targetDir}`);
