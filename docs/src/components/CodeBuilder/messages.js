@@ -1,7 +1,7 @@
-import { links } from "~i18n/links";
 export const messages = {
   en: {
     heading: "Code builder",
+    headingId: "code-builder",
     paragraph: "Generate an instance of the component you need by selecting its code properties.",
     list: [
       "Explore by choosing different code values to generate the instance you want.",
@@ -12,6 +12,7 @@ export const messages = {
   },
   fr: {
     heading: "Générateur de code",
+    headingId: "generateur-de-code",
     paragraph: "Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.",
     list: [
       "Choisissez des valeurs de code pour obtenir l'élément que vous voulez.",
