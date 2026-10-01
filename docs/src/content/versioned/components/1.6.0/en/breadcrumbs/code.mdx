@@ -12,7 +12,7 @@ requiredCanada: true
 dateModified: '2026-07-13T07:50:35-07:00'
 ---
 
-import { CodePreview } from '~components';
+import { CodePreview, CodeBuilder } from '~components';
 
 ## On this page
 
@@ -113,21 +113,4 @@ Use the `default` slot to add `gcds-breadcrumbs-item` subcomponents. Use the `de
   </gcds-breadcrumbs>
 </CodePreview>
 
-### Code builder
-
-Generate an instance of the component you need by selecting its code properties.
-
-1. Explore by choosing different code values to generate the instance you want.
-2. Get the code and pull it into your environment.
-3. Add any copy you need to the component (like text for a label).
-
-**Note:** The code builder uses English for all code elements, which follows standard practice.
-
-<iframe
-  title="Overview of gcds-breadcrumbs properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&id=components-breadcrumbs--events-properties&lang=en&externalLinks=true"
-  width="1200"
-  height="1150"
-  style="display: block; margin: 0 auto; max-width: 100%;"
-  frameborder="0"
-  allow="clipboard-write"></iframe>
+<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName} />

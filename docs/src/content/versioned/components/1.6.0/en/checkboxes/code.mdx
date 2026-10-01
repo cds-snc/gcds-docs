@@ -11,7 +11,7 @@ version: 1.6.0
 dateModified: '2026-06-10T11:22:28-07:00'
 ---
 
-import { CodePreview, ValidationErrorMessage } from '~components';
+import { CodePreview, ValidationErrorMessage, CodeBuilder } from '~components';
 import { links } from '~i18n/links';
 
 ## On this page
@@ -314,22 +314,4 @@ The `value` attribute contains an array of the values of all currently checked c
   </gcds-checkboxes>`}
 />
 
-### Code builder
-
-Generate an instance of the component you need by selecting its code properties.
-
-1. Explore by choosing different code values to generate the instance you want.
-2. Get the code and pull it into your environment.
-3. Add any copy you need to the component (like text for a label).
-
-**Note:** The code builder uses English for all code elements, which follows standard practice.
-
-<iframe
-  title="Overview of gcds-checkboxes properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkboxes--events-properties&lang=en"
-  width="1200"
-  height="1950"
-  style="display: block; margin: 0 auto; max-width: 100%;"
-  frameborder="0"
-  allow="clipboard-write"
-></iframe>
+<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName} />

@@ -12,7 +12,7 @@ previewLabel: Aperçu du composant de bouton
 dateModified: '2026-07-08T09:04:06-07:00'
 ---
 
-import { CodePreview } from '~components';
+import { CodePreview, CodeBuilder } from '~components';
 
 ## Sur cette page
 
@@ -184,21 +184,6 @@ Utilisez l'emplacement par défaut pour ajouter le texte du bouton ou du lien.
   <gcds-button>Soumettre</gcds-button>
 </CodePreview>
 
-### Générateur de code
-
-Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
-
-1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
-2. Obtenez le code et intégrez-le dans votre environnement.
-3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
-
-**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
-
-<iframe
-  title="Aperçu des propriétés et des événements de gcds-button."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-button--events-properties&lang=fr"
-  width="1200"
-  height="1800"
-  style="display: block; margin: 0 auto; max-width: 100%;"
-  frameborder="0"
-  allow="clipboard-write"></iframe>
+<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName}>
+  <gcds-button class="me-300" button-role="start">Début</gcds-button>
+</CodeBuilder>

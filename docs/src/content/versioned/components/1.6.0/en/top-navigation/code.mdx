@@ -11,7 +11,7 @@ version: 1.6.0
 dateModified: '2026-05-20T08:02:46-07:00'
 ---
 
-import { CodePreview } from '~components';
+import { CodePreview, CodeBuilder } from '~components';
 import { links } from '~i18n/links';
 
 ## On this page
@@ -228,21 +228,4 @@ The `default` slot of the `gcds-nav-link` subcomponent is for adding the navigat
   code={`<gcds-nav-link href="#">GC Notify</gcds-nav-link>`}
 />
 
-### Code builder
-
-Generate an instance of the component you need by selecting its code properties.
-
-1. Explore by choosing different code values to generate the instance you want.
-2. Get the code and pull it into your environment.
-3. Add any copy you need to the component (like text for a label).
-
-**Note:** The code builder uses English for all code elements, which follows standard practice.
-
-<iframe
-  title="Overview of gcds-top-nav properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-top-navigation--events-properties&lang=en"
-  width="1200"
-  height="1850"
-  style="display: block; margin: 0 auto; max-width: 100%;"
-  frameborder="0"
-  allow="clipboard-write"></iframe>
+<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName} landmarkDisplay />

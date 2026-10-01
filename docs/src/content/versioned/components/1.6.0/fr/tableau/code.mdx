@@ -12,7 +12,7 @@ previewLabel: Aperçu du composant de le tableau
 dateModified: '2026-06-01T12:02:56-07:00'
 ---
 
-import { CodePreview, TablePreviewScript } from '~components';
+import { CodePreview, TablePreviewScript, CodeBuilder } from '~components';
 import { links } from '~i18n/links';
 import { tableData } from 'src/data/tablePreview';
 
@@ -364,23 +364,6 @@ Chaque cadre d’applications gère le contenu personnalisé différemment. HTML
 
 </gcds-details>
 
-### Générateur de code
-
-Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.
-
-1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
-2. Obtenez le code et intégrez-le dans votre environnement.
-3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
-
-**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.
-
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-table."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-table--events-properties&lang=fr"
-  width="1200"
-  height="3500"
-  style="display: block; margin: 0 auto; max-width: 100%;"
-  frameborder="0"
-  allow="clipboard-write"></iframe>
+<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName} />
 
 <TablePreviewScript />
