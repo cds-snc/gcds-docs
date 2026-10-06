@@ -6,6 +6,34 @@ interface Props {
 const { pageTitle } = Astro.props as Props;
 ---
 
+{/*
+  Domain/language routing. Amplify custom rules can't match on the Host header, so this
+  runs in the browser, before anything else loads.
+    design-system.*   + /       -> /en/
+    systeme-design.*  + /       -> /fr/
+    design-system.*   + /fr/... -> same path on systeme-design.*
+    systeme-design.*  + /en/... -> same path on design-system.*
+  Hosts with neither name (amplifyapp.com, localhost, 127.0.0.1) are left alone.
+  Swapping the name inside the host keeps prefixes and ports, so it also works on
+  astro-staging.*, *.test and *.localhost.
+*/}
+<script is:inline>
+  (function () {
+    const h = location.hostname;
+    const p = location.pathname;
+    const onFr = h.indexOf('systeme-design') !== -1;
+    const onEn = !onFr && h.indexOf('design-system') !== -1;
+    if (!onEn && !onFr) return;
+
+    if (p === '/') { location.replace(onFr ? '/fr/' : '/en/'); return; }
+
+    let host = null;
+    if (onEn && /^\/fr(\/|$)/.test(p)) host = location.host.replace('design-system', 'systeme-design');
+    else if (onFr && /^\/en(\/|$)/.test(p)) host = location.host.replace('systeme-design', 'design-system');
+    if (host) location.replace(location.protocol + '//' + host + p + location.search + location.hash);
+  })();
+</script>
+
 <meta charset="utf-8" />
 <link rel="icon" href="/favicon.ico" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
