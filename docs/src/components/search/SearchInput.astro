@@ -23,9 +23,13 @@ import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n'
 
 const locale = resolveLocaleFromPathname(Astro.url.pathname);
 const localizedContent = getLocalizedRecord(i18n, locale, defaultLocale);
+
+const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
+
+const Tag = hasVersion ? 'gcds-search-latest' : 'gcds-search';
 ---
 
-<gcds-search
+<Tag
   id="searchbar"
   search-id="search"
   slot={isSlotted ? "search" : undefined}
@@ -35,7 +39,7 @@ const localizedContent = getLocalizedRecord(i18n, locale, defaultLocale);
   data-placeholder-short={localizedContent.shortPlaceholder}
   class={!isSlotted ? "mb-300" : undefined}
 >
-</gcds-search>
+</Tag>
 
 <script>
   const searchComponent = document.getElementById('searchbar');

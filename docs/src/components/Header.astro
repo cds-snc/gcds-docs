@@ -15,15 +15,19 @@ const otherLocale = supportedLocales.find((locale) => locale !== currentLocale) 
 // equivalent page in the other locale, at any depth (tabs, dev framework pages).
 const href = buildLocalizedPath(Astro.url.pathname, currentLocale, otherLocale, routes);
 
+const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
+
+const Tag = hasVersion ? 'gcds-header-latest' : 'gcds-header';
+
 import { SearchInput } from '~components';
 import Breadcrumbs from './Breadcrumbs.astro';
 ---
 
-<gcds-header
+<Tag
   lang={currentLocale}
   lang-href={href}
   skip-to-href="#main-content"
 >
   {!hideSearch && <SearchInput isSlotted={true} />}
   <Breadcrumbs pathname={Astro.url.pathname} />
-</gcds-header>
+</Tag>

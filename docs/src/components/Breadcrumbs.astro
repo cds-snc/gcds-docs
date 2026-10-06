@@ -9,10 +9,15 @@ interface Props {
 const pathname = (Astro.props as Props).pathname ?? Astro.url.pathname;
 const locale = resolveLocaleFromPathname(pathname);
 const items = getBreadcrumbs(pathname);
+
+const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
+
+const Tag = hasVersion ? 'gcds-breadcrumbs-latest' : 'gcds-breadcrumbs';
+const TagItem = hasVersion ? 'gcds-breadcrumbs-item-latest' : 'gcds-breadcrumbs-item';
 ---
 
-<gcds-breadcrumbs lang={locale} slot="breadcrumb">
+<Tag lang={locale} slot="breadcrumb">
   {items.map((item) => (
-    <gcds-breadcrumbs-item href={item.href}>{item.text}</gcds-breadcrumbs-item>
+    <TagItem href={item.href}>{item.text}</TagItem>
   ))}
-</gcds-breadcrumbs>
+</Tag>

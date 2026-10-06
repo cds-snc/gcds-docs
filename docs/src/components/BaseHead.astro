@@ -3,7 +3,12 @@ interface Props {
   pageTitle: string;
 }
 
+import { getPathParts } from 'src/utils/i18n';
+
 const { pageTitle } = Astro.props as Props;
+
+const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
+const version = hasVersion ? getPathParts(Astro.url.pathname)[2] : '';
 ---
 
 <meta charset="utf-8" />
@@ -14,14 +19,48 @@ const { pageTitle } = Astro.props as Props;
 <meta name="og:title" content={`${pageTitle} | GC Design System`} />
 
 <!-- GC Design System CSS Shortcuts -->
-<link rel="stylesheet" href="/assets/gcds/gcds-css-shortcuts.min.css" />
+<link rel="stylesheet" href="/assets/shortcuts/gcds-css-shortcuts.min.css" />
 
-<!-- GC Design System -->
-<link rel="stylesheet" href="/assets/gcds/gcds.css" />
-<script type="module" src="/assets/gcds/gcds.esm.js"></script>
+{hasVersion ? 
+  <script is:inline type="module">
+    import { setTagTransformer } from '/assets/components/dist/index.js';
+    import { defineCustomElements } from '/assets/components/loader/index.js';
+
+    const transformTag = (tagName) => {
+      if (!tagName.startsWith('gcds-') || tagName.endsWith('-latest')) {
+        return tagName;
+      }
+
+      return `${tagName}-latest`;
+    };
+
+    setTagTransformer(transformTag);
+
+    await defineCustomElements(window, {
+      transformTagName: transformTag,
+    });
+  </script>
+
+  <!-- GC Design System -->
+  <link rel="stylesheet" href="/assets/components/dist/gcds/gcds.css" />
+  <!-- <script type="module" src="/assets/components/dist/gcds/gcds.esm.js"></script> -->
+
+  <link
+    rel="stylesheet"
+    href={`/assets/components/${version}/gcds.css`}
+  />
+  <script
+    type="module"
+    src={`/assets/components/${version}/gcds.esm.js`}
+  ></script>
+:
+  <!-- GC Design System -->
+  <link rel="stylesheet" href="/assets/components/dist/gcds/gcds.css" />
+  <script type="module" src="/assets/components/dist/gcds/gcds.esm.js"></script>
+}
 
 <!-- GC Design System Extension - Code display -->
-<script type="module" src="/assets/gcds/gcds-ext-code-display.esm.js"></script>
+<script type="module" src="/assets/code-display/gcds-ext-code-display.esm.js"></script>
 
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
