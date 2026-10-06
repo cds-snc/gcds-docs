@@ -1,0 +1,33 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Résumé des erreurs - Cas d'utilisation
+componentName: Résumé des erreurs
+tagName: '<gcds-error-summary>'
+alsoCalled: liste d'erreurs
+description: Un résumé des erreurs consiste en une liste des erreurs rencontrées par les utilisateur·rice·s dans un formulaire.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-summary'
+version: 1.6.0
+previewLabel: Aperçu du composant de résumé des erreurs
+dateModified: '2026-09-15T09:04:06-07:00'
+---
+
+import { ComponentPreview } from '~components';
+import { links } from '~i18n/links';
+
+Examinez les situations dans lesquelles on utilise les résumés des erreurs pour voir si elles correspondent au problème que vous cherchez à résoudre.
+
+Les composants de Système de design GC sont livrés avec une gestion des erreurs par défaut. Lorsqu'une personne tente de soumettre un formulaire, toute erreur issue d'un composant requis affichera un résumé des erreurs.
+
+## Problèmes résolus par les résumés des erreurs
+
+Utilisez le résumé des erreurs pour interrompre l'envoi d'un formulaire lorsqu'on constate le besoin de :
+
+- Rendre les erreurs évidentes pour que l'on sache les reconnaître et y remédier;
+- Dresser une liste <gcds-link href={links.fr.errorMessage}>des messages d'erreur</gcds-link> lorsqu'une personne doit ajouter des renseignements ou apporter des modifications à deux ou plusieurs éléments avant de pouvoir soumettre un formulaire.
+
+<hr/>
+
+## Composants connexes
+
+<a href={links.fr.errorMessage}>Message d'erreur</a> lorsque vous cherchez à décrire un problème représentant un obstacle à une action menée par l'utilisateur·rice, lié à un seul composant.

@@ -1,0 +1,55 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Card - Design
+componentName: Card
+tagName: '<gcds-card>'
+alsoCalled: tile, content card
+description: A card is a navigational container with structured content on a single topic.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=5757-12701&mode=design&t=qwNFRgCKhnoUtRXO-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-card'
+version: 1.6.0
+dateModified: '2024-12-11T12:32:58-08:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import { links } from '~i18n/links';
+import anatomy from './assets/gcds-card-anatomy.svg';
+import example from './assets/example-cards-in-grid.svg';
+
+## Card anatomy
+
+<AnatomyList>
+  <li>The <strong>container</strong> holds all of a card's elements.</li>
+  <li>The <strong>badge</strong> (optional) is a visual indicator to inform users of the card's status or category. Badge text should be no more than 20 characters.</li>
+  <li>The <strong>image</strong> (optional) is a 1:1, 16:9, or 4:3 ratio visual.</li>
+  <li>The <strong>headline</strong> is a short attention-grabbing title about the card's content.</li>
+  <li>The <strong>description</strong> (optional) has text that supports the card title. It may include a few lines of summary on the card's topic or a list of details about the same subject, like a list of event details.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="A card anatomy represented by 5 elements: the container, the badge, the image, the headline, and the description."
+/>
+
+## Design and accessibility for cards
+
+### Write a scannable card title
+
+- Use a meaningful title to inform users of what they'll find on the card.
+- Choose a brief description or call-to-action statement for the title.
+
+### Choose what information to add to the card
+
+- Consider adding an image related to the title to make individual cards more identifiable.
+- Consider adding a description to provide more information about the card's topic.
+- Consider adding a badge to inform users of the status or the category of the card's content. Common examples of statuses include: "New", "Updated", "Coming soon" and "Featured". Common examples of categories include: "videos", "articles", "reports". The badges are customizable but are limited to 20 characters maximum.
+
+### Group cards for visual consistency
+
+Organize cards within a <a href={links.en.grid}>grid component</a>:
+
+- For desktop screens, use either 2 or 3 cards per row.
+- For mobile screens, use 1 card per row.
+- Try to include the same properties for each card within a section on a page. For example, if one card has an image, then all cards get an image.
+
+<img src={example.src} alt="Cards grouped in two rows. The first row contains 3 cards (4 grid columns per card). The second row contains two cards (6 grid columns per card)." />

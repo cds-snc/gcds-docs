@@ -38,6 +38,7 @@
     "@astrojs/check": "^0.9.8",
     "@gcds-core/components": "file:../../gcds-components/packages/web",
     "@gcds-core/components-1-0-0": "npm:@gcds-core/components@^1.0.0",
+    "@gcds-core/components-1-2-0": "npm:@gcds-core/components@^1.2.0",
     "@gcds-core/components-1-6-0": "npm:@gcds-core/components@^1.6.0",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.5.0",

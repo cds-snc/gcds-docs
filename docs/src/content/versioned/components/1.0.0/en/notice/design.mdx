@@ -1,0 +1,59 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Notice - Design
+componentName: Notice
+tagName: '<gcds-notice>'
+alsoCalled: contextual alert
+description: The notice is a short, prominent message that’s part of the page content.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-notice'
+version: 1.6.0
+dateModified: '2026-02-12T12:02:56-07:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import anatomy from './assets/gcds-notice-anatomy.svg';
+
+## Notice anatomy
+
+<AnatomyList>
+  <li><strong>Guide line</strong> indicates visually the notice’s start and end.</li>
+  <li><strong>Icon</strong> indicates the notice role.</li>
+  <li><strong>Title</strong> specifies the notice topic.</li>
+  <li><strong>Message</strong> provides the notice details. </li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="A notice anatomy containing the guide line and the icon on the left of the title in bold and the message."
+/>
+
+## Design and accessibility
+
+### Choose the appropriate notice role
+
+Refer to the use case tab for guidelines on when to use each notice role.
+
+### Write concise and descriptive headings and messages
+
+- Write a meaningful heading that’s short and simple to highlight the goal of the notice.
+- In the heading, use words like “warning” and “success” that match the meaning conveyed by the icon and colour of the notice role you selected.
+- Craft the message (below the heading) to be brief and impactful, ideally within three sentences.
+- Save the details for the main content area of a page. The notice is meant to attract attention and create an information trail for anyone who needs to know more.
+
+### Use links to guide people to additional details if necessary
+
+- Use links to connect to additional details for a person who wants to read more.
+- Opt to create a dedicated page for more detailed content and use a short message in a notice to draw interested people to that page.
+- Avoid long notices. They can be distracting and frustrating.
+
+### Use notices sparingly to avoid visual fatigue
+
+- Limit the number of notices on a page. People become less receptive to notices and warning messages the more often they encounter them.
+- Make sure to remove notices once they’ve served their purpose.
+
+### Place notices where you’d place a paragraph
+
+- Add a notice where you’d add an important paragraph (or section) on the page.
+- Consider placing the notice at the top of the page or content section to avoid it being overlooked.
+- Avoid using a notice within a form component, like an input or a checkbox.

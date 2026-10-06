@@ -1,0 +1,32 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: "Barre de navigation latérale - Cas d'utilisation"
+componentName: Barre de navigation latérale
+tagName: '<gcds-side-nav>'
+alsoCalled: menu latéral, navigation à gauche, navigation verticale
+description: La barre de navigation latérale est une liste de liens de navigation située du côté gauche de l'écran.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-1347&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-side-nav'
+version: 1.6.0
+previewLabel: Aperçu du composant barre de navigation latérale
+dateModified: '2025-05-06T15:47:33-04:00'
+---
+
+import { links } from '~i18n/links';
+
+Examinez les cas d'utilisation de la barre de navigation latérale pour déterminer si elle répond à vos besoins.
+
+## Problèmes résolus par la barre de navigation latérale
+
+L'utilisation d’une barre de navigation latérale dans un produit est optionnelle. Voici quelques cas d’utilisation possibles :
+
+- Rendre visible la navigation de deuxième et troisième niveaux dans les architectures d’information qui ont de 1 à 3 niveaux de navigation.
+- Présenter une navigation cohérente pour les pages ayant un grand nombre d’éléments de premier niveau, comme la documentation technique avec de larges ensembles de catégories.
+- Permettre la navigation entre diverses catégories ou sections afin qu’une personne puisse parcourir et comparer des objets similaires dans un ensemble.
+- Fournir un accès facile à la navigation globale entre structures de navigation profondes.
+
+<hr />
+
+## Composants connexes
+
+<a href={links.fr.topNav}>Barre de navigation supérieure</a> pour une navigation facile dans des hiérarchies simples.

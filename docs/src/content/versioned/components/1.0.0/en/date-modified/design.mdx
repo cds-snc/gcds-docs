@@ -1,0 +1,58 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Date modified - Design
+componentName: Date modified
+tagName: '<gcds-date-modified>'
+alsoCalled: Last updated, version date
+description: Date modified is an indicator of the last update to a webpage or application.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=3471-9955&mode=design&t=jWaKo2Kq95VjrCgT-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+dateModified: '2025-07-17T12:06:31-07:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import anatomy from './assets/gcds-date-modified-anatomy.svg';
+
+## Date modified anatomy
+
+<AnatomyList>
+  <li>The <strong>label</strong> describes the type specified in the value. The label reads either: "Date modified" or "Version" depending on the component type.</li>
+  <li>The <strong>value</strong> is either a numerical date formatted as YYYY-MM-DD or a version number.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Date modified with 2023-01-30. Each individual element of the component has a number pointing to it."
+/>
+
+## Design and accessibility for date modified
+
+### Check date modified requirements
+
+The date modified is required on Canada.ca pages and GC sites.
+
+<gcds-details details-title="What's required on Canada.ca and GC sites" class="mb-300">
+  <gcds-text>Always include the date modified and maintain default settings.</gcds-text>
+  <ul class="list-disc">
+    <li>Place the date modified component on the left, between the main content of the page and the footer.</li>
+    <li>Use the same placement of the date modified component across all web pages to make it findable.</li>
+    <li>If your page includes the page feedback tool, place the date modified component below it.</li>
+  </ul>
+</gcds-details>
+
+<gcds-details details-title="What's optional to include on Canada.ca pages" class="mb-300">
+  <gcds-text margin-bottom="0">For applications, use a version number in place of a date.</gcds-text>
+</gcds-details>
+
+### Keep the format consistent
+
+- Use the YYYY-MM-DD date format across all web pages.
+- If using the version type, apply a standard version number format across all products.
+
+### When to update the date modified
+
+- Only update the date modified when you make a significant content change.
+- Avoid updating for minor corrections, like typos, or small changes to the code.
