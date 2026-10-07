@@ -1,0 +1,54 @@
+name: Bump documentation version
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to add the documentation version to"
+        required: true
+        type: string
+      version:
+        description: "New documentation version (e.g. 1.7.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  bump-version:
+    name: Bump documentation version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.branch }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Bump documentation version
+        run: node scripts/bump-docs-version.js "${{ inputs.version }}"
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add docs/src/routing/versioned/version-config.json
+          git add "docs/content/versioned/components/${{ inputs.version }}"
+
+          git diff --cached --quiet && {
+            echo "No changes to commit."
+            exit 0
+          }
+
+          git commit -m "docs: add version ${{ inputs.version }}"
+
+      - name: Push changes
+        run: git push origin "HEAD:${{ inputs.branch }}"
