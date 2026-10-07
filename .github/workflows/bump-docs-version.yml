@@ -33,7 +33,7 @@ jobs:
           node-version: 22
 
       - name: Bump documentation version
-        run: node scripts/bump-docs-version.js "${{ inputs.version }}"
+        run: node docs/scripts/bump-docs-version.js "${{ inputs.version }}"
 
       - name: Commit changes
         run: |
