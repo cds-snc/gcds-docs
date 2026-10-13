@@ -1,0 +1,43 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Button - Design
+componentName: Button
+tagName: '<gcds-button>'
+alsoCalled: call to action, CTA
+description: The button is an interactive object that emphasizes an action.
+figma: 'https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=817-4607&p=f&t=sUfuiFgkFiAWYq3z-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button'
+version: 1.6.0
+dateModified: '2025-03-25T08:28:14-04:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import anatomy from './assets/gcds-button-anatomy.svg';
+
+## Button anatomy
+
+<AnatomyList>
+  <li>The <strong>container</strong> gives the button its visual prominence.</li>
+  <li>The <strong>label</strong> states the action that'll happen when someone interacts with the button. Text is in sentence case, where only the first letter is capitalized.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Button anatomy: A label reads “Button label” surrounded by a blue container."
+/>
+
+## Design and accessibility for buttons
+
+### Make the button findable
+
+- Limit the number of buttons on a page. Reserve buttons for the most important actions.
+- Place buttons in a regular and predictable way.
+- Avoid making a person needlessly scroll, tab, or type by providing the path to the next action early.
+- Check the button border's visibility against the surface where you're placing it.
+
+### Write short, specific, and descriptive button labels
+
+- Make the button's action obvious with a short, specific label that has a verb, or a verb and a noun, like “Submit” or “Get estimate”.
+- Use sentence case.
+- Use unique and specific accompanying text to prevent repetition for screen readers.
+- Use literal phrases. Avoid expressions that may be unfamiliar to non-fluent speakers.

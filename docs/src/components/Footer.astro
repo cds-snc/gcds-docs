@@ -74,13 +74,17 @@ const contextualLinks = {
   [i18n[locale].contextual.a11y]: i18n[locale].contextual.a11yurl,
   [i18n[locale].contextual.sla]: i18n[locale].contextual.slaurl,
 }
+
+const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
+
+const Tag = hasVersion ? 'gcds-footer-latest' : 'gcds-footer';
 ---
 
-<gcds-footer
+<Tag
   display="full"
   lang={locale}
   contextual-heading={i18n[locale].contextual.heading}
   contextual-links={JSON.stringify(contextualLinks)}
   sub-links={JSON.stringify(subLinks)}
 >
-</gcds-footer>
+</Tag>

@@ -1,0 +1,64 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Date modified - Use case
+componentName: Date modified
+tagName: '<gcds-date-modified>'
+alsoCalled: Last updated, version date
+description: Date modified is an indicator of the last update to a webpage or application.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=3471-9955&mode=design&t=jWaKo2Kq95VjrCgT-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified'
+version: 1.6.0
+requiredCanada: true
+requiredGc: true
+dateModified: '2025-05-06T15:47:33-04:00'
+---
+
+import { ComponentPreview } from '~components';
+import { links } from '~i18n/links';
+
+Date modified is a required component for Government of Canada websites and has specific requirements for Canada.ca pages.
+
+## Problems date modified solves
+
+Use date modified to:
+
+- Log the date that a web page was last changed.
+- Identify an application's current version.
+
+<hr />
+
+## Related components
+
+<a href={links.en.footer}>Footer</a> for placing the Government of Canada branded footer landmark.
+
+<hr class="mt-600" />
+
+## Component types
+
+<div class="remove-empty-p">
+<gcds-grid class="mb-300" columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Date type preview" demoClass="px-225 py-300">
+    <gcds-date-modified>2023-08-22</gcds-date-modified>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Date type</h3>
+    <p>Use the date type to:</p>
+    <ul class="list-disc mb-300">
+      <li>Identify the date a web page or website was last changed.</li>
+    </ul>
+  </div>
+</gcds-grid>
+
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  <ComponentPreview label="Version type preview" demoClass="px-225 py-300">
+    <gcds-date-modified type="version">1.0.0</gcds-date-modified>
+  </ComponentPreview>
+  <div>
+    <h3 class="mt-0">Version type</h3>
+    <p>Use the Version type to:</p>
+    <ul class="list-disc mb-300">
+      <li>Identify the current version of an application.</li>
+    </ul>
+  </div>
+</gcds-grid>
+</div>

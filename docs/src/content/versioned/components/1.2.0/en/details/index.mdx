@@ -1,0 +1,35 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Details - Use case
+componentName: Details
+tagName: '<gcds-details>'
+alsoCalled: accordion, collapse
+description: Details is an interactive switch for a person to expand or collapse content.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=1097-2733&mode=design&t=qwNFRgCKhnoUtRXO-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-details'
+version: 1.6.0
+dateModified: '2025-05-06T15:47:33-04:00'
+---
+
+import { links } from '~i18n/links';
+
+Take a look at what problems the details component solves to see if they fit the problem you're solving for.
+
+## Problems details solve
+
+Use the details component to give a person a summary of more detailed content you've hidden that they can choose to reveal. Use this component to:
+
+- Reduce page size and scrolling when the content is lengthy and not essential to read in full. For example in an address collection pattern, the shipping address may be hidden using a details when it's the same as the mailing or billing address.
+- Give a summary of content that is secondary to the main task and may be overwhelming to some readers.
+- Make a page with many subheadings scanable. For example, in a series of questions and answers, you can list the questions as details titles and a person can expand any section to read the answer content.
+- Give readers the option to control content for subjects that may cause distress to some readers. They can access certain content when they are ready and hide content once they've reviewed it.
+
+<hr />
+
+## Related components
+
+Tabs when you want to replace the entire content of a section or a page.
+
+<a href={links.en.link}>Links</a> to provide navigation to a new page, website, or section on the current page or files for download.
+
+<a href={links.en.button}>Buttons</a> when a person modifies data, changes a state, or initiates a specific action.

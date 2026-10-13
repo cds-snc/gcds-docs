@@ -1,0 +1,44 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Bouton - Design
+componentName: Bouton
+tagName: '<gcds-button>'
+alsoCalled: appel à l’action
+description: Un bouton est un objet interactif qui met l’accent sur une action.
+figma: 'https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=8-2054&mode=design&t=1DaL24vHpjRRfHHm-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button'
+version: 1.6.0
+previewLabel: Aperçu du composant de bouton
+dateModified: '2026-07-08T09:04:06-07:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import anatomy from './assets/gcds-button-anatomy.svg';
+
+## Structure du bouton
+
+<AnatomyList>
+  <li>Le <strong>conteneur</strong> donne au bouton son poids visuel.</li>
+  <li>Le <strong>libellé</strong> indique l’action qui se produira en interagissant avec le bouton. Le texte est en minuscules, seule la lettre initiale est en majuscule.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Structure du bouton - Un libellé indique « libellé de bouton » à l'intérieur d'un conteneur bleu."
+/>
+
+## Design et accessibilité des boutons
+
+### Assurez-vous que le bouton est repérable
+
+- Limitez le nombre de boutons par page. N’employez des boutons que pour les actions les plus importantes.
+- Placez-les de manière régulière et prévisible.
+- Évitez de faire défiler, tabuler ou taper inutilement les gens en indiquant le plus tôt possible le parcours vers la prochaine action.
+- Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.
+
+### Écrivez un libellé de bouton court, précis et descriptif
+
+- Rendez l’action du bouton évidente avec un libellé court et précis. Commencez par un verbe seul ou suivi d'un nom, par exemple «&nbsp;Soumettre&nbsp;» ou «&nbsp;Obtenir une estimation&nbsp;».
+- Utilisez la majuscule initiale.
+- Rédigez un texte d’accompagnement unique et précis afin d'éviter la répétition pour les lecteurs d’écran.
+- Utilisez des formulations littérales. Évitez les expressions que des locuteurs et locutrices non francophones pourraient mal comprendre.

@@ -1,0 +1,35 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Error message - Use case
+componentName: Error message
+tagName: '<gcds-error-message>'
+alsoCalled: error, inline error
+description: An error message is a description of a problem blocking a user goal.
+figma: 'https://www.figma.com/community/file/1128687821123298228'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-message'
+version: 1.6.0
+dateModified: '2025-05-06T09:04:06-07:00'
+---
+
+import { ComponentPreview } from '~components';
+import { links } from '~i18n/links';
+
+Take a look at what problems error messages solve to see if they fit the problem you’re solving for.
+
+## Problems error messages solve
+
+All GC Design System components come with default error handling for required form components.
+
+Use an error message for your own component instances when you need to interrupt a flow because of a problem where:
+
+- A person needs to fix something before they can either continue an action or move on to the next task.
+- A form component is required.
+- You need to specify an incorrect response type or format and let a person know exactly what to do to fix the problem and move on.
+
+<hr/>
+
+## Related components
+
+<a href={links.en.errorSummary}>Error summary</a> for listing all problems to address for response submission.
+
+Alert for communicating an important or time-sensitive change.

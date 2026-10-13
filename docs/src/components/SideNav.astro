@@ -40,33 +40,39 @@ const groupIsActive = (group: NavGroupLike) => {
     return base === currentPath || currentPath.startsWith(`${base}/`);
   });
 };
+
+const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
+
+const TagNav = hasVersion ? 'gcds-side-nav-latest' : 'gcds-side-nav';
+const TagGroup = hasVersion ? 'gcds-nav-group-latest' : 'gcds-nav-group';
+const TagLink = hasVersion ? 'gcds-nav-link-latest' : 'gcds-nav-link';
 ---
 
-<gcds-side-nav label={navConfig.sideNavLabel} class="lg:position-sticky box-border overflow-x-visible align-self-start px-75">
+<TagNav label={navConfig.sideNavLabel} class="lg:position-sticky box-border overflow-x-visible align-self-start px-75">
   {navConfig.homeSlot && (
     // Home slot is intentionally never marked current (no active highlight).
-    <gcds-nav-link slot="home" href={navConfig.homeSlot.href}>{navConfig.homeSlot.text}</gcds-nav-link>
+    <TagLink slot="home" href={navConfig.homeSlot.href}>{navConfig.homeSlot.text}</TagLink>
   )}
 
   {navConfig.links.map((link) => (
-    <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
+    <TagLink href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</TagLink>
   ))}
 
   {navConfig.groups.map((group) => (
-    <gcds-nav-group open-trigger={group.trigger} menu-label={group.menuLabel} open={groupIsActive(group) || undefined}>
+    <TagGroup open-trigger={group.trigger} menu-label={group.menuLabel} open={groupIsActive(group) || undefined}>
       {group.links.map((link) => (
-        <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
+        <TagLink href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</TagLink>
       ))}
       {group.subGroups?.map((sub) => (
-        <gcds-nav-group open-trigger={sub.trigger} menu-label={sub.menuLabel} open={groupIsActive(sub) || undefined}>
+        <TagGroup open-trigger={sub.trigger} menu-label={sub.menuLabel} open={groupIsActive(sub) || undefined}>
           {sub.links.map((link) => (
-            <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
+            <TagLink href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</TagLink>
           ))}
-        </gcds-nav-group>
+        </TagGroup>
       ))}
-    </gcds-nav-group>
+    </TagGroup>
   ))}
-</gcds-side-nav>
+</TagNav>
 
 <style>
   gcds-side-nav {
