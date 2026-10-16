@@ -16,7 +16,7 @@ const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
     <Text set:html={paragraph}></Text>
   ))}
 
-  <gcds-button button-role="secondary" type="link" href={localizedContent.btnFeedbackHref}>
+  <gcds-button button-role="secondary" type="link" href={localizedContent.btnFeedbackHref} class="mb-100">
     {localizedContent.btnFeedback}
   </gcds-button>
   <gcds-button

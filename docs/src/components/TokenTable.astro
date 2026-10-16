@@ -186,6 +186,12 @@ const rows = token.split(" ").flatMap((concatToken) => {
     border-radius: var(--gcds-spacing-600);
   }
 
+  @media (max-width: 48rem) {
+    table .color-preview {
+      margin-block-start: var(--gcds-spacing-100);
+    }
+  }
+
   table .spacing-preview {
     background-color: var(--gcds-color-blue-500);
   }
