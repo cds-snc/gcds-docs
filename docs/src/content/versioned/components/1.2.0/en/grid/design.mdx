@@ -1,0 +1,55 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Grid - Design
+componentName: Grid
+tagName: '<gcds-grid>'
+alsoCalled: layout, columns, columns layout, grid container
+description: A grid is a responsive, flexible column layout to position elements on a page.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=13172-65&mode=design&t=qwNFRgCKhnoUtRXO-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid'
+version: 1.6.0
+dateModified: '2025-01-22T16:16:49-05:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import anatomy from './assets/gcds-grid-anatomy.svg';
+
+## Grid anatomy
+
+<AnatomyList>
+  <li>The <strong>container</strong> holds all elements within the grid and spans their combined width. The container is  responsive and can be centred.</li>
+  <li>The <strong>column</strong>, also called grid item, sets a boundary around its contents to contain it within the width set for that column.</li>
+  <li>The <strong>gap</strong>, sometimes called the gutter, defines the width of the space between the columns.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Image showing the grid anatomy with four separate rectangles representing the columns of a grid"
+/>
+
+## Design and accessibility for grids
+
+### Adjust layouts to optimize the experience on different screen sizes
+
+- Optimize each grid component for the different screen sizes a person will use — or switch between — when they visit your site or use your product.
+- Adapt for mobile, tablet, and large screens by defining each viewport layout for that grid component.
+  <ul class="list-circle">
+    <li>Smaller screens, like mobile devices, typically display a single column layout.</li>
+    <li>Medium-sized screens, like tablets, a single or 2-column layout.</li>
+    <li>Larger screens, like desktop, a 3- or 4- column layout.</li>
+  </ul>
+
+Tip: Keep grid layouts simple by designing for mobile, tablet, and desktop experiences that work with any screen size.
+
+### Limit width of content
+
+- Keep text line length below 75 characters for a comfortable, accessible reading length.
+- Limit column width to stop large screens from displaying lines of text that are overly long and difficult to read.
+- Avoid exceeding the maximum width of 71.25rem (1140px) wide.
+
+### Communicate meaning by adjusting spacing
+
+Choose spacing to support ease of reading and help users better understand the messages you're communicating.
+
+- Use smaller spacing tokens to group related concepts together.
+- Use larger spacing tokens to separate elements into logical groups.

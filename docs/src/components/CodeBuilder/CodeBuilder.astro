@@ -40,6 +40,8 @@ const dataFiles = import.meta.glob('../../data/codebuilder/*.js', {
 }) as Record<string, Record<string, CodeBuilderData>>;
 
 const data = dataFiles[`../../data/codebuilder/${component}.js`];
+
+const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
 ---
 
 <section class="my-600">
@@ -58,7 +60,7 @@ const data = dataFiles[`../../data/codebuilder/${component}.js`];
     id="codeBuilder"
     accessibility
     landmark-display={landmarkDisplay}
-    gcds-path="/assets/gcds/"
+    gcds-path={hasVersion ? `/assets/components/${version}/` : `/assets/components/dist/gcds/`}
   >
     {hasDefaultSlot ? <slot /> : <Preview />}
   </gcds-ext-code-display>

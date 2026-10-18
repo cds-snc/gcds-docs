@@ -1,0 +1,36 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Message d'erreur - Cas d'utilisation
+componentName: Message d'erreur
+tagName: '<gcds-error-message>'
+alsoCalled: erreur ou indicateur d’erreur
+description: Un message d’erreur est une description d’un problème représentant un obstacle à l’objectif de l’utilisateur·rice.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-message'
+version: 1.6.0
+previewLabel: Aperçu du composant de message d'erreur
+dateModified: '2025-05-06T09:04:06-07:00'
+---
+
+import { ComponentPreview } from '~components';
+import { links } from '~i18n/links';
+
+Examinez les situations dans lesquelles on utilise les messages d'erreur pour voir si elles correspondent au problème que vous cherchez à résoudre.
+
+## Situations dans lesquelles on utilise les messages d'erreur
+
+Tous les composants de Système de design GC sont livrés avec une gestion des erreurs par défaut pour les composants de formulaire requis.
+
+Utilisez un message d'erreur pour vos propres composants lorsque l'une des situations suivantes se présente :
+
+- La personne doit corriger quelque chose avant de pouvoir poursuivre une action ou passer à la tâche suivante;
+- Un composant de formulaire est requis;
+- Vous devez spécifier un type ou un format de réponse incorrect et préciser à une personne ce qu'il faut faire pour résoudre le problème et passer à la tâche suivante.
+
+<hr/>
+
+## Composants connexes
+
+<a href={links.fr.errorSummary}>Résumé des erreurs</a> pour répertorier tous les problèmes à résoudre pour la soumission de la réponse.
+
+Alerte : pour communiquer un changement important ou urgent.

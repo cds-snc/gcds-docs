@@ -1,0 +1,34 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Theme and topic menu - Design
+componentName: Theme and topic menu
+tagName: '<gcds-topic-menu>'
+alsoCalled: global navigation, theme-based navigation
+description: The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
+figma: 'https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=7696-5049&mode=design&t=2my46MmKTAF9hApN-0'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-topic-menu'
+version: 1.6.0
+dateModified: '2024-12-11T12:32:58-08:00'
+---
+
+import { AnatomyImage, AnatomyList } from '~components';
+import anatomy from './assets/gcds-topic-menu-anatomy.svg';
+
+## Theme and topic menu anatomy
+
+<AnatomyList>
+  <li>The <strong>menu button</strong> toggles the Theme and topic menu open or closed.</li>
+  <li>The <strong>theme and topic list</strong> includes the pre-set main themes for Canada.ca.</li>
+  <li>The <strong>flyout</strong> is a list of relevant links to each topic that appears on hover. All links will load and update automatically.</li>
+  <li><strong>Most requested links</strong> is a list of the most frequent actions taken in each theme. All links will load and update automatically.</li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="The theme and topic menu with numbers pointing to individual parts of the component’s anatomy."
+/>
+
+## Accessibility and design for the theme and topic menu
+
+- Style the menu button label as capital letters, but write the label in sentence case (Menu), so screen readers don't read each letter individually.
+- Place the theme and topic menu in the header underneath the divider line.

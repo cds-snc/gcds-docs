@@ -1,0 +1,23 @@
+---
+layout: '~layouts/ComponentTabLayout.astro'
+pageTitle: Masquage accessible - Design
+componentName: Masquage accessible
+tagName: '<gcds-sr-only>'
+alsoCalled: masquage visuel, lecteur d'écran uniquement
+description: Le masquage accessible est une façon de rendre l'information textuelle uniquement accessible à des technologies d’assistance.
+figma: 'https://www.figma.com/community/file/1369337721343886324'
+github: 'https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-sr-only'
+version: 1.6.0
+previewLabel: Aperçu du composant de masquage accessible
+dateModified: '2024-04-22T12:02:56-07:00'
+---
+
+## Conception et accessibilité du masquage accessible
+
+### Écrivez du texte utile pour le masquage accessible
+
+- Signalez les informations contextuelles qui sont exclusivement communiquées par des styles visuels absents du HTML sémantique.
+- Écrivez du texte clair et très concis pour les technologies d'assistance. En écrire trop alourdit inutilement la charge cognitive.
+- Fournissez du texte supplémentaire à l'intention des technologies d'assistance seulement si l'interface dépend des visuels pour transmettre des informations.
+- Évitez d'ajouter des informations qui sont absentes de l'interface.
+- Évitez de répéter les informations déjà communiquées par les textes de remplacement. Si le texte de remplacement évoque le contexte, le composant masquage accessible est possiblement superflu.
