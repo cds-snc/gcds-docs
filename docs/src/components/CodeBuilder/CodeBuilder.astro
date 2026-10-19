@@ -35,11 +35,11 @@ const toGcdsCamelCase = (value: string) =>
 
 const component = toGcdsCamelCase(tagName)
 
-const dataFiles = import.meta.glob('../../data/codebuilder/*.js', {
+const dataFiles = import.meta.glob(`../../data/codebuilder/**/*.js`, {
   eager: true,
 }) as Record<string, Record<string, CodeBuilderData>>;
 
-const data = dataFiles[`../../data/codebuilder/${component}.js`];
+const data = dataFiles[`../../data/codebuilder/${version}/${component}.js`];
 ---
 
 <section class="my-600">
