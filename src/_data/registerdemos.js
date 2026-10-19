@@ -168,5 +168,19 @@ module.exports = [
     endtime: '15:00',
     lang: 'fr',
     link: 'https://events.teams.microsoft.com/event/08e1910e-3dea-4fd1-ad57-b42676f1d56a@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-12-08',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'en',
+    link: 'https://events.teams.microsoft.com/event/ce61b006-3a58-4e27-8553-08beb083b718@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-12-17',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'fr',
+    link: 'https://events.teams.microsoft.com/event/302b521a-3921-4bcb-bf5a-d29831883b0c@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
   }
 ];
