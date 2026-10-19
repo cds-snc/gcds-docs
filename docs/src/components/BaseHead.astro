@@ -13,24 +13,38 @@ const { pageTitle } = Astro.props as Props;
     systeme-design.*  + /       -> /fr/
     design-system.*   + /fr/... -> same path on systeme-design.*
     systeme-design.*  + /en/... -> same path on design-system.*
-  Hosts with neither name (amplifyapp.com, localhost, 127.0.0.1) are left alone.
-  Swapping the name inside the host keeps prefixes and ports, so it also works on
-  astro-staging.*, *.test and *.localhost.
+  A host matches only when one of its dot-separated labels is EXACTLY a site name, and
+  only the rightmost such label is swapped. That keeps any prefix intact, so it works on
+  astro-staging.*, *.test and *.localhost, and it can't be fooled by a prefix that merely
+  contains a site name. Hosts matching neither name (amplifyapp.com, localhost, 127.0.0.1)
+  are left alone, which is what makes the bilingual splash page reviewable on the default
+  Amplify domain.
 */}
 <script is:inline>
   (function () {
-    const h = location.hostname;
+    const EN = 'design-system';
+    const FR = 'systeme-design';
+
+    const labels = location.hostname.split('.');
+    let i = -1;
+    for (let n = labels.length - 1; n >= 0; n--) {
+      if (labels[n] === EN || labels[n] === FR) { i = n; break; }
+    }
+    if (i === -1) return;
+
+    const onFr = labels[i] === FR;
     const p = location.pathname;
-    const onFr = h.indexOf('systeme-design') !== -1;
-    const onEn = !onFr && h.indexOf('design-system') !== -1;
-    if (!onEn && !onFr) return;
 
     if (p === '/') { location.replace(onFr ? '/fr/' : '/en/'); return; }
 
-    let host = null;
-    if (onEn && /^\/fr(\/|$)/.test(p)) host = location.host.replace('design-system', 'systeme-design');
-    else if (onFr && /^\/en(\/|$)/.test(p)) host = location.host.replace('systeme-design', 'design-system');
-    if (host) location.replace(location.protocol + '//' + host + p + location.search + location.hash);
+    if (onFr && /^\/en(\/|$)/.test(p)) labels[i] = EN;
+    else if (!onFr && /^\/fr(\/|$)/.test(p)) labels[i] = FR;
+    else return;
+
+    const port = location.port ? ':' + location.port : '';
+    location.replace(
+      location.protocol + '//' + labels.join('.') + port + p + location.search + location.hash
+    );
   })();
 </script>
 
