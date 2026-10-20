@@ -1,0 +1,126 @@
+---
+/*
+  Bilingual 404, following the Canada.ca recommended error-page template:
+  https://design.canada.ca/recommended-templates/404-error-page.html
+
+  One page serves both domains. The Amplify app has a single `/<*>` -> /404 rule
+  that can't vary by host (custom_rule matches country codes, never Host), so a
+  bilingual page is the only correct answer here -- and it matches the template's
+  bilingual variant: signature-only header, wordmark-only footer, two columns at
+  desktop, stacked below it.
+
+  A single visually-hidden h1 carries both languages so screen readers get one
+  page title; each language block is an h2, which is what sighted users read as
+  the heading.
+
+  Astro builds this file to dist/404.html at the artifact root.
+*/
+import BaseHead from '../components/BaseHead.astro';
+
+import '../styles/global.css';
+import '../styles/pages/error.css';
+
+const en = {
+  id: 'english',
+  lang: 'en',
+  heading: 'Page not found',
+  label: '404 error',
+  body:
+    'The page you’re looking for may have been moved or deleted. Check that the ' +
+    'web address (URL) is spelled correctly. Do not include special characters ' +
+    'or spaces in the URL.',
+  lead: 'You may be looking for:',
+  jump: { href: '#french', text: 'Aller à la version française', lang: 'fr' },
+  search: { id: 'search-en', action: '/en/search', placeholder: 'GC Design System' },
+  links: [
+    { href: '/en/', text: 'GC Design System home page' },
+    { href: '/en/components/', text: 'Components' },
+    { href: '/en/start-to-use/', text: 'Start to use the GC Design System' },
+    { href: '/en/contact/', text: 'Contact the GC Design System team' },
+    { href: 'https://www.canada.ca/en.html', text: 'Canada.ca home page' },
+  ],
+};
+
+const fr = {
+  id: 'french',
+  lang: 'fr',
+  heading: 'Page non trouvée',
+  label: 'Erreur 404',
+  body:
+    'La page que vous souhaitez consulter a peut-être été déplacée ou supprimée. ' +
+    'Assurez-vous que l’adresse Web (URL) est exacte. N’incluez pas de caractères ' +
+    'spéciaux ni d’espaces dans l’URL.',
+  lead: 'Vous cherchez peut-être l’une des pages suivantes :',
+  jump: { href: '#english', text: 'Go to the English version', lang: 'en' },
+  search: { id: 'search-fr', action: '/fr/recherche', placeholder: 'Système de design GC' },
+  links: [
+    { href: '/fr/', text: 'Page d’accueil du Système de design GC' },
+    { href: '/fr/composants/', text: 'Composants' },
+    { href: '/fr/demarrer/', text: 'Commencer à utiliser le Système de design GC' },
+    { href: '/fr/contactez/', text: 'Contacter l’équipe du Système de design GC' },
+    { href: 'https://www.canada.ca/fr.html', text: 'Page d’accueil de Canada.ca' },
+  ],
+};
+
+const sections = [en, fr];
+---
+
+<html lang="en">
+  <head>
+    <BaseHead pageTitle="Page not found | Page non trouvée" />
+    {/* An error page must never be indexed, and BaseHead emits no robots meta. */}
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <body class="m-0 d-flex flex-col error-body">
+    <header class="pt-400 pb-0">
+      <gcds-container layout="page" tag="div">
+        <gcds-signature type="signature" variant="colour" has-link></gcds-signature>
+      </gcds-container>
+    </header>
+
+    <main id="main-content" class="py-400">
+      <gcds-container layout="page" tag="div">
+        <gcds-heading tag="h1" class="visibility-sr-only">
+          Page not found (404) <span lang="fr">/ Page non trouvée (404)</span>
+        </gcds-heading>
+
+        <gcds-grid columns="1fr" columns-desktop="1fr 1fr" gap="450" gap-desktop="600" tag="div">
+          {sections.map((s) => (
+            <section id={s.id} lang={s.lang}>
+              <a class="d-inline-block mb-300 lg:d-none" href={s.jump.href} lang={s.jump.lang}>{s.jump.text}</a>
+
+              <gcds-heading tag="h2" margin-top="0">{s.heading}</gcds-heading>
+              <gcds-error-message>
+                {s.label}
+              </gcds-error-message>
+
+              <gcds-text>{s.body}</gcds-text>
+              <gcds-text>{s.lead}</gcds-text>
+
+              <ul class="list-disc mb-400">
+                {s.links.map((link) => (
+                  <li class="mb-150"><gcds-link href={link.href}>{link.text}</gcds-link></li>
+                ))}
+              </ul>
+
+              <gcds-search
+                search-id={s.search.id}
+                action={s.search.action}
+                placeholder={s.search.placeholder}
+              ></gcds-search>
+            </section>
+          ))}
+        </gcds-grid>
+      </gcds-container>
+    </main>
+
+    <footer class="mt-auto pt-400 pb-600">
+      <gcds-container layout="page" tag="div">
+        <div class="d-flex justify-content-end">
+          <gcds-signature type="wordmark" variant="colour"></gcds-signature>
+        </div>
+      </gcds-container>
+    </footer>
+  </body>
+</html>

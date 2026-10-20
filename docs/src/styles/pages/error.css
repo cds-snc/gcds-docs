@@ -1,0 +1,12 @@
+/* Bilingual error page (404). The page deliberately drops the site header,
+   side navigation and full footer: the Canada.ca bilingual error-page template
+   allows only the GC signature at the top and the Canada wordmark at the
+   bottom, so a visitor who landed here by mistake is not offered navigation
+   for a section they may not be in.
+
+   Layout and spacing come from GCDS CSS-shortcut classes in 404.astro; only
+   the full-viewport height, which has no shortcut class, lives here. */
+
+.error-body {
+  min-height: 100vh;
+}
