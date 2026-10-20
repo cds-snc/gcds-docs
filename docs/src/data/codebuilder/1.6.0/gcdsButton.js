@@ -83,23 +83,35 @@ export const gcdsButton = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the button/link label."
+      "description": {
+        "en": "The default slot is for adding the button or link label text.",
+        "fr": "L'emplacement par défaut sert à ajouter le texte du libellé du bouton ou du lien."
+      }
     }
   ],
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the button loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the button loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le bouton cesse d'être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsClick",
-      "description": "Emitted when the button has been clicked. Contains the value or href in the event detail.",
+      "description": {
+        "en": "The gcdsClick event is emitted when the button has been clicked. It contains the value or href in the event detail.",
+        "fr": "L’événement gcdsClick est émis lorsque l’on clique sur le bouton. Les détails de l’événement contiennent la valeur ou l’attribut href."
+      },
       "details": "string | void"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the button has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the button has focus.",
+        "fr": "L'événement gcdsFocus est émis lorsque le bouton est ciblé."
+      },
       "details": "void"
     }
   ]

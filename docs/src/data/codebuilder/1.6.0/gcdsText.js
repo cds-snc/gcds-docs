@@ -130,7 +130,10 @@ export const gcdsText = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the content of the text element."
+      "description": {
+        "en": "The default slot is for placing the content of the text element.",
+        "fr": "L'emplacement par défaut sert à placer le contenu de l'élément texte."
+      }
     }
   ],
   "events": []

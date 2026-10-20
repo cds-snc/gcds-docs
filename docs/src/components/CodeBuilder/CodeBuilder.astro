@@ -23,9 +23,10 @@ const Preview = (previewModules[previewKey] as { default?: any } | undefined)?.d
 
 // Load component data
 type CodeBuilderData = {
+[x: string]: any;
   attributes: unknown;
-  slots: unknown;
-  events: unknown;
+  slots: Array<{ name: string; description: Record<string, string> | string}>;
+  events: Array<{ name: string; description: Record<string, string> | string,  details: string}>;
 };
 
 const toGcdsCamelCase = (value: string) =>
@@ -39,7 +40,31 @@ const dataFiles = import.meta.glob(`../../data/codebuilder/**/*.js`, {
   eager: true,
 }) as Record<string, Record<string, CodeBuilderData>>;
 
-const data = dataFiles[`../../data/codebuilder/${version}/${component}.js`];
+let data = dataFiles[`../../data/codebuilder/${version}/${component}.js`];
+
+if (data[component].events.length > 0) {
+  data[component].events = data[component].events.map((event) => {
+    return {
+      ...event,
+      description:
+        typeof event.description === 'string'
+          ? event.description
+          : event.description[locale] || event.description[defaultLocale],
+    };
+  });
+}
+
+if (data[component].slots.length > 0) {
+  data[component].slots = data[component].slots.map((slot) => {
+    return {
+      ...slot,
+      description:
+        typeof slot.description === 'string'
+          ? slot.description
+          : slot.description[locale] || slot.description[defaultLocale],
+    };
+  });
+}
 ---
 
 <section class="my-600">

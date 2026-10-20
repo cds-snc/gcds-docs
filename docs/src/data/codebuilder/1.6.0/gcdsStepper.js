@@ -30,7 +30,10 @@ export const gcdsStepper = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the heading content."
+      "description": {
+        "en": "The default slot is for placing the heading text.",
+        "fr": "L'emplacement par défaut sert à placer le texte du titre."
+      }
     }
   ],
   "events": []

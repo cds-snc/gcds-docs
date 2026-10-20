@@ -37,7 +37,10 @@ export const gcdsNotice = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the main content of the notice."
+      "description": {
+        "en": "The default slot is for placing the message of the notice.",
+        "fr": "L'emplacement par défaut sert à placer le message de l'avis."
+      }
     }
   ],
   "events": []

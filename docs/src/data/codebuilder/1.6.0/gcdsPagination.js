@@ -60,17 +60,26 @@ export const gcdsPagination = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the link loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the link loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le lien cesse d'être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsClick",
-      "description": "Emitted when the link has been clicked. Contains the href in event detail when using simple display,\nor an object with page and href when using list display.",
+      "description": {
+        "en": "The gcdsClick event is emitted when the link has been clicked. It contains the href in the event detail when using simple display, or an object with page and href when using list display.",
+        "fr": "L’événement gcdsClick est émis lorsque l’on clique sur le lien. Les détails de l’événement contiennent l’attribut href pour une pagination simple, ou un objet contenant page et attribut href pour une pagination en liste."
+      },
       "details": "object | string"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the link has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the link has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le lien devient ciblé."
+      },
       "details": "void"
     }
   ]

@@ -13,7 +13,10 @@ export const gcdsErrorMessage = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the error message content."
+      "description": {
+        "en": "The default slot is for adding the error message text.",
+        "fr": "L'emplacement par défaut sert à ajouter le texte du message d'erreur."
+      }
     }
   ],
   "events": []

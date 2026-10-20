@@ -23,11 +23,17 @@ export const gcdsTopNav = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the navigation groups and navigation links."
+      "description": {
+        "en": "The default slot is for adding navigation groups and navigation links.",
+        "fr": "L'emplacement par défaut sert à ajouter des groupes de navigation et des liens de navigation."
+      }
     },
     {
       "name": "home",
-      "description": "Slot for the home link or site title."
+      "description": {
+        "en": "The home slot is for adding the home link or site title.",
+        "fr": "L'emplacement home sert à ajouter le lien de la page d'accueil ou le titre du site."
+      }
     }
   ],
   "events": []

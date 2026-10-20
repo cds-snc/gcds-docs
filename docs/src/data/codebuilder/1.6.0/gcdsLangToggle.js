@@ -14,17 +14,26 @@ export const gcdsLangToggle = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the link loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the link loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le lien cesse d’être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsClick",
-      "description": "Emitted when the link has been clicked. Contains the href in the event detail.",
+      "description": {
+        "en": "The gcdsClick event is emitted when the link has been clicked. It contains the href in the event detail.",
+        "fr": "L’événement gcdsClick est émis lorsque l’on clique sur le lien. Les détails de l’événement contiennent l’attribut href."
+      },
       "details": "string"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the link has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the link has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le lien devient ciblé."
+      },
       "details": "void"
     }
   ]

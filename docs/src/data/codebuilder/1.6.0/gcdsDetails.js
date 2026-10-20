@@ -23,23 +23,35 @@ export const gcdsDetails = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the main content of the details panel."
+      "description": {
+        "en": "The default slot is for adding content inside the details component.",
+        "fr": "L'emplacement par défaut sert à ajouter du contenu à l'intérieur du composant."
+      }
     }
   ],
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the details loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when details loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le composant de détails cesse d’être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsClick",
-      "description": "Emitted when the details has been clicked.",
+      "description": {
+        "en": "The gcdsClick event is emitted when details has been clicked. It contains the value in the event detail.",
+        "fr": "L’événement gcdsClick est émis lorsque l’on clique sur le composant de détails. Les détails de l’événement contiennent la valeur."
+      },
       "details": "void"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the details has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when details has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le composant de détails devient ciblé."
+      },
       "details": "void"
     }
   ]

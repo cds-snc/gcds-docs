@@ -74,18 +74,24 @@ export const gcdsTable = {
   "slots": [
     {
       "name": "caption",
-      "description": "Slot to give an accessible name to the table, so that assistive technologies can identify it and announce it."
+      "description": {
+        "en": "The caption slot gives an accessible name to the table, so that assistive technologies can identify it and announce it.",
+        "fr": "L’emplacement caption donne un nom accessible au tableau afin que les technologies d’assistance puissent l’identifier et l’annoncer."
+      }
     },
     // Need to think of a different way to do this for this component
     // {
     //   "name": "cell:<field>",
-    //   "description": "Slot to assign HTML content to a table cell, where <field> corresponds to the `field` property of a column definition."
+    //   "description": {"en": "","fr": ""}
     // }
   ],
   "events": [
     {
       "name": "gcdsTableStateChange",
-      "description": "",
+      "description": {
+        "en": "",
+        "fr": ""
+      },
       "details": "GcdsTableStateChange"
     }
   ]

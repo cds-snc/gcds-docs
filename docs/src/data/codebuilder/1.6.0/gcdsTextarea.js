@@ -127,32 +127,50 @@ export const gcdsTextarea = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the textarea loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the textarea input loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque la zone de texte cesse d’être ciblée."
+      },
       "details": "void"
     },
     {
       "name": "gcdsChange",
-      "description": "Emitted when the textarea has changed.",
+      "description": {
+        "en": "The gcdsChange event is emitted when the textarea input value has changed. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsChange est émis lorsque la valeur de la zone de texte change. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsError",
-      "description": "Emitted when the textarea has a validation error.",
+      "description": {
+        "en": "The gcdsError event is emitted when the textarea has a validation error.",
+        "fr": "L’événement gcdsError est émis lorsque la zone de texte présente une erreur de validation."
+      },
       "details": "object"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the textarea has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the textarea has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque la zone de texte devient ciblée."
+      },
       "details": "void"
     },
     {
       "name": "gcdsInput",
-      "description": "Emitted when the textarea has received input.",
+      "description": {
+        "en": "The gcdsInput event is emitted when the textarea has received input. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsInput est émis lorsqu’une saisie modifie la valeur de la zone de texte. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsValid",
-      "description": "Emitted when the textarea has a validation error.",
+      "description": {
+        "en": "The gcdsValid event is emitted when the textarea passes all validation checks.",
+        "fr": "L’événement gcdsValid est émis lorsque la zone de texte réussit toutes les vérifications de validation."
+      },
       "details": "object"
     }
   ]
