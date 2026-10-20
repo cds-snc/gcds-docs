@@ -2,71 +2,11 @@
    side navigation and full footer: the Canada.ca bilingual error-page template
    allows only the GC signature at the top and the Canada wordmark at the
    bottom, so a visitor who landed here by mistake is not offered navigation
-   for a section they may not be in. */
+   for a section they may not be in.
+
+   Layout and spacing come from GCDS CSS-shortcut classes in 404.astro; only
+   the full-viewport height, which has no shortcut class, lives here. */
 
 .error-body {
   min-height: 100vh;
-  margin: var(--gcds-spacing-0);
-  display: flex;
-  flex-direction: column;
-  font-family: var(--gcds-font-families-body), sans-serif;
-  background: var(--gcds-color-white);
-}
-
-/* Header, content and footer all sit inside gcds-container layout="page", so
-   the signature's leading edge and the wordmark's trailing edge line up with
-   the text columns at every breakpoint. Only vertical spacing is set here --
-   the container owns the gutters. */
-.error-header {
-  padding-block: var(--gcds-spacing-400) var(--gcds-spacing-0);
-}
-
-.error-main {
-  padding-block: var(--gcds-spacing-400);
-}
-
-.error-footer {
-  margin-block-start: auto;
-  padding-block: var(--gcds-spacing-400) var(--gcds-spacing-600);
-}
-
-.error-footer-inner {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* The "404 error" label from the Canada.ca template: a tinted block with a
-   solid rule down the leading edge. Built from GCDS red tokens rather than
-   gcds-error-message, which is a form-field component and would be wrong here. */
-.error-label {
-  display: inline-block;
-  margin: var(--gcds-spacing-0) var(--gcds-spacing-0) var(--gcds-spacing-300);
-  padding: var(--gcds-spacing-75) var(--gcds-spacing-150);
-  border-inline-start: var(--gcds-spacing-50) solid var(--gcds-color-red-700);
-  background: var(--gcds-color-red-100);
-  color: var(--gcds-color-red-900);
-  font-size: var(--gcds-font-sizes-text-small, 0.875rem);
-  font-weight: 700;
-}
-
-.error-links {
-  margin: var(--gcds-spacing-0) var(--gcds-spacing-0) var(--gcds-spacing-400);
-  padding-inline-start: var(--gcds-spacing-400);
-}
-
-.error-links li {
-  margin-block-end: var(--gcds-spacing-150);
-}
-
-/* Jump between the two language blocks. Only useful while the blocks are
-   stacked; at desktop they sit side by side and both are already on screen. */
-.error-lang-link {
-  display: inline-block;
-  margin-block-end: var(--gcds-spacing-300);
-}
-
-@media only screen and (width > 64em) {
-  .error-lang-link {
-    display: none;
-  }
 }

@@ -21,6 +21,8 @@ import '../styles/global.css';
 import '../styles/pages/error.css';
 
 const en = {
+  id: 'english',
+  lang: 'en',
   heading: 'Page not found',
   label: '404 error',
   body:
@@ -29,7 +31,7 @@ const en = {
     'or spaces in the URL.',
   lead: 'You may be looking for:',
   jump: { href: '#french', text: 'Aller à la version française', lang: 'fr' },
-  search: { action: '/en/search', placeholder: 'GC Design System' },
+  search: { id: 'search-en', action: '/en/search', placeholder: 'GC Design System' },
   links: [
     { href: '/en/', text: 'GC Design System home page' },
     { href: '/en/components/', text: 'Components' },
@@ -40,6 +42,8 @@ const en = {
 };
 
 const fr = {
+  id: 'french',
+  lang: 'fr',
   heading: 'Page non trouvée',
   label: 'Erreur 404',
   body:
@@ -48,7 +52,7 @@ const fr = {
     'spéciaux ni d’espaces dans l’URL.',
   lead: 'Vous cherchez peut-être l’une des pages suivantes :',
   jump: { href: '#english', text: 'Go to the English version', lang: 'en' },
-  search: { action: '/fr/recherche', placeholder: 'Système de design GC' },
+  search: { id: 'search-fr', action: '/fr/recherche', placeholder: 'Système de design GC' },
   links: [
     { href: '/fr/', text: 'Page d’accueil du Système de design GC' },
     { href: '/fr/composants/', text: 'Composants' },
@@ -57,6 +61,8 @@ const fr = {
     { href: 'https://www.canada.ca/fr.html', text: 'Page d’accueil de Canada.ca' },
   ],
 };
+
+const sections = [en, fr];
 ---
 
 <html lang="en">
@@ -66,70 +72,52 @@ const fr = {
     <meta name="robots" content="noindex, nofollow" />
   </head>
 
-  <body class="error-body">
-    <header class="error-header">
+  <body class="m-0 d-flex flex-col error-body">
+    <header class="pt-400 pb-0">
       <gcds-container layout="page" tag="div">
         <gcds-signature type="signature" variant="colour" has-link></gcds-signature>
       </gcds-container>
     </header>
 
-    <main id="main-content" class="error-main">
+    <main id="main-content" class="py-400">
       <gcds-container layout="page" tag="div">
         <gcds-heading tag="h1" class="visibility-sr-only">
           Page not found (404) <span lang="fr">/ Page non trouvée (404)</span>
         </gcds-heading>
 
         <gcds-grid columns="1fr" columns-desktop="1fr 1fr" gap="450" gap-desktop="600" tag="div">
-          <section id="english">
-            <a class="error-lang-link" href={en.jump.href} lang={en.jump.lang}>{en.jump.text}</a>
+          {sections.map((s) => (
+            <section id={s.id} lang={s.lang}>
+              <a class="d-inline-block mb-300 lg:d-none" href={s.jump.href} lang={s.jump.lang}>{s.jump.text}</a>
 
-            <gcds-heading tag="h2" margin-top="0">{en.heading}</gcds-heading>
-            <p class="error-label">{en.label}</p>
+              <gcds-heading tag="h2" margin-top="0">{s.heading}</gcds-heading>
+              <gcds-error-message>
+                {s.label}
+              </gcds-error-message>
 
-            <gcds-text>{en.body}</gcds-text>
-            <gcds-text>{en.lead}</gcds-text>
+              <gcds-text>{s.body}</gcds-text>
+              <gcds-text>{s.lead}</gcds-text>
 
-            <ul class="error-links">
-              {en.links.map((link) => (
-                <li><gcds-link href={link.href}>{link.text}</gcds-link></li>
-              ))}
-            </ul>
+              <ul class="list-disc mb-400">
+                {s.links.map((link) => (
+                  <li class="mb-150"><gcds-link href={link.href}>{link.text}</gcds-link></li>
+                ))}
+              </ul>
 
-            <gcds-search
-              search-id="search-en"
-              action={en.search.action}
-              placeholder={en.search.placeholder}
-            ></gcds-search>
-          </section>
-
-          <section id="french" lang="fr">
-            <a class="error-lang-link" href={fr.jump.href} lang={fr.jump.lang}>{fr.jump.text}</a>
-
-            <gcds-heading tag="h2" margin-top="0">{fr.heading}</gcds-heading>
-            <p class="error-label">{fr.label}</p>
-
-            <gcds-text>{fr.body}</gcds-text>
-            <gcds-text>{fr.lead}</gcds-text>
-
-            <ul class="error-links">
-              {fr.links.map((link) => (
-                <li><gcds-link href={link.href}>{link.text}</gcds-link></li>
-              ))}
-            </ul>
-
-            <gcds-search
-              search-id="search-fr"
-              action={fr.search.action}
-              placeholder={fr.search.placeholder}
-            ></gcds-search>
-          </section>
+              <gcds-search
+                search-id={s.search.id}
+                action={s.search.action}
+                placeholder={s.search.placeholder}
+              ></gcds-search>
+            </section>
+          ))}
         </gcds-grid>
       </gcds-container>
     </main>
 
-    <footer class="error-footer">
+    <footer class="mt-auto pt-400 pb-600">
       <gcds-container layout="page" tag="div">
-        <div class="error-footer-inner">
+        <div class="d-flex justify-content-end">
           <gcds-signature type="wordmark" variant="colour"></gcds-signature>
         </div>
       </gcds-container>
