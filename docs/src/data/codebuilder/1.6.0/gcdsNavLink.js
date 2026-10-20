@@ -22,23 +22,35 @@ export const gcdsNavLink = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the navigation link content."
+      "description": {
+        "en": "",
+        "fr": ""
+      }
     }
   ],
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the link loses focus.",
+      "description": {
+        "en": "",
+        "fr": ""
+      },
       "details": "void"
     },
     {
       "name": "gcdsClick",
-      "description": "Emitted when the link has been clicked.",
+      "description": {
+        "en": "",
+        "fr": ""
+      },
       "details": "string"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the link has focus.",
+      "description": {
+        "en": "",
+        "fr": ""
+      },
       "details": "void"
     }
   ]

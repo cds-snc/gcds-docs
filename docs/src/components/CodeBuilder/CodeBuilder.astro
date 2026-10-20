@@ -41,27 +41,24 @@ const dataFiles = import.meta.glob(`../../data/codebuilder/**/*.js`, {
 }) as Record<string, Record<string, CodeBuilderData>>;
 
 let data = dataFiles[`../../data/codebuilder/${version}/${component}.js`];
+let localizedData: Partial<CodeBuilderData> = {};
+
+localizedData.attributes = data[component].attributes;
 
 if (data[component].events.length > 0) {
-  data[component].events = data[component].events.map((event) => {
+  localizedData.events = data[component].events.map((event) => {
     return {
       ...event,
-      description:
-        typeof event.description === 'string'
-          ? event.description
-          : event.description[locale] || event.description[defaultLocale],
+      description: typeof event.description === 'string' ? event.description : event.description[locale],
     };
   });
 }
 
 if (data[component].slots.length > 0) {
-  data[component].slots = data[component].slots.map((slot) => {
+  localizedData.slots = data[component].slots.map((slot) => {
     return {
       ...slot,
-      description:
-        typeof slot.description === 'string'
-          ? slot.description
-          : slot.description[locale] || slot.description[defaultLocale],
+      description: typeof slot.description === 'string' ? slot.description : slot.description[locale],
     };
   });
 }
@@ -89,8 +86,10 @@ if (data[component].slots.length > 0) {
   </gcds-ext-code-display>
 </section>
 
-<script define:vars={{ data: data[component] }}>
+<script define:vars={{ data: localizedData, locale }}>
   const codeBuilder = document.getElementById('codeBuilder');
+
+  console.log(locale, data)
 
   codeBuilder.attrs = data.attributes;
   if (data.slots.length > 0) {

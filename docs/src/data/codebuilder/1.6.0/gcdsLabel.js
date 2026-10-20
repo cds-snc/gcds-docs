@@ -35,7 +35,10 @@ export const gcdsLabel = {
   "slots": [
     {
       "name": "",
-      "description": "Slot for the label content."
+      "description": {
+        "en": "",
+        "fr": ""
+      }
     }
   ],
   "events": []
