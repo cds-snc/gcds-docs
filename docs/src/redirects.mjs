@@ -38,7 +38,7 @@ const PREVIEW_COMPONENTS = {
   'date-modified': 'date-de-modification',
   'details': 'details',
   'error-message': 'message-derreur',
-  'error-summary': 'avis',
+  'error-summary': 'resume-des-erreurs',
   'fieldset': 'jeu-de-champs',
   'file-uploader': 'televerseur-de-fichiers',
   'footer': 'pied-de-page',
