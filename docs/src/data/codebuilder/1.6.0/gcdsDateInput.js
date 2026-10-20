@@ -113,32 +113,50 @@ export const gcdsDateInput = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when a date-input loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the date input loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le champ de date cesse d’être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsChange",
-      "description": "Emitted when a date-input has changed. Contains the new value in the event detail.",
+      "description": {
+        "en": "The gcdsChange event is emitted when the date input has been changed. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsChange est émis lorsque la valeur du champ de date change. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsError",
-      "description": "Emitted when a date-input has a validation error.",
+      "description": {
+        "en": "The gcdsError event is emitted when the date input has a validation error.",
+        "fr": "L’événement gcdsError est émis lorsque le champ de date présente une erreur de validation."
+      },
       "details": "object"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when a date-input has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the date input has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le champ de date devient ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsInput",
-      "description": "Emitted when the date-input has received input. Contains the new value in the event detail.",
+      "description": {
+        "en": "The gcdsInput event is emitted when the date input has received input. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsInput est émis lorsqu’une saisie modifie la valeur du champ de date. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsValid",
-      "description": "Emitted when a date-input has validated.",
+      "description": {
+        "en": "The gcdsValid event is emitted when the date input passes all validation checks.",
+        "fr": "L’événement gcdsValid est émis lorsque le champ de date réussit toutes les vérifications de validation."
+      },
       "details": "object"
     }
   ]

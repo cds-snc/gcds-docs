@@ -67,13 +67,19 @@ export const gcdsAlert = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the main content of the alert."
+      "description": {
+        "en": "The default slot allows you to add any type of content to the alert’s message. You can add things like text, links, or buttons.",
+        "fr": "L’emplacement par défaut sert à ajouter tout type de contenu au message de l’alerte, comme du texte, des liens ou des boutons."
+      }
     }
   ],
   "events": [
     {
       "name": "gcdsDismiss",
-      "description": "Events",
+      "description": {
+        "en": "The gcdsDismiss event is emitted when the dismiss button is clicked.",
+        "fr": "L’événement gcdsDismiss est émis lorsque l’on clique sur le bouton Fermer."
+      },
       "details": "void"
     }
   ]

@@ -31,7 +31,10 @@ export const gcdsFieldset = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the form elements."
+      "description": {
+        "en": "The default slot is for placing form elements inside the fieldset.",
+        "fr": "L'emplacement par défaut sert à placer des éléments de formulaire à l'intérieur du jeu de champs."
+      }
     }
   ],
   "events": []

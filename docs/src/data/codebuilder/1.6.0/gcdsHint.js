@@ -12,7 +12,10 @@ export const gcdsHint = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the hint content."
+      "description": {
+        "en": "",
+        "fr": ""
+      }
     }
   ],
   "events": []

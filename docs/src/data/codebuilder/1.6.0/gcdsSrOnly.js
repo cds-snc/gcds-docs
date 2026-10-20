@@ -23,7 +23,10 @@ export const gcdsSrOnly = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the hidden accessible content."
+      "description": {
+        "en": "The default slot is for placing the hidden accessible content.",
+        "fr": "L'emplacement par défaut sert à placer le contenu accessible masqué visuellement."
+      }
     }
   ],
   "events": []

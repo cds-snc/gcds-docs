@@ -34,23 +34,35 @@ export const gcdsNavGroup = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the list of navigation links."
+      "description": {
+        "en": "",
+        "fr": ""
+      }
     }
   ],
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the button blurs.",
+      "description": {
+        "en": "",
+        "fr": ""
+      },
       "details": "void"
     },
     {
       "name": "gcdsClick",
-      "description": "Emitted when the button has been clicked.",
+      "description": {
+        "en": "",
+        "fr": ""
+      },
       "details": "void"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the button has been focus.",
+      "description": {
+        "en": "",
+        "fr": ""
+      },
       "details": "void"
     }
   ]

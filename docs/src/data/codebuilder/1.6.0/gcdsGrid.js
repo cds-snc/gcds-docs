@@ -228,7 +228,10 @@ export const gcdsGrid = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the main content of the grid."
+      "description": {
+        "en": "The default slot is for placing the grid items.",
+        "fr": "L'emplacement par défaut sert à placer les éléments de la grille."
+      }
     }
   ],
   "events": []

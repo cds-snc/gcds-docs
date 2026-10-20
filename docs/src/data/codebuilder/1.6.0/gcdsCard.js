@@ -60,27 +60,42 @@ export const gcdsCard = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the card description. Accepts rich text and overwrites the\ndescription prop if used. The description prop is mirrored into this slot for the same\nDOM-text reason when nothing is slotted."
+      "description": {
+        "en": "The default slot is for adding description content to the card. It will overwrite the description attribute if it’s used.",
+        "fr": "L'emplacement par défaut sert à ajouter du contenu descriptif à la carte. Il remplace l'attribut description s'il est utilisé."
+      }
     },
     {
       "name": "title",
-      "description": "Slot for the card title. Accepts rich text, so markup such as\n`<abbr>`, `<em>` or an icon can be used where the card-title prop cannot. Falls back to\nthe card-title prop, which is mirrored into the light DOM so the title text stays\nreadable by DOM-text extraction tools."
+      "description": {
+        "en": "The title slot is for the card title if it needs rich text styling or an icon. It falls back to the card-title attribute, which is mirrored into the light DOM so the title text stays readable by DOM-text extraction tools.",
+        "fr": "L’emplacement title permet d’ajouter un titre à la carte lorsque celui-ci nécessite une mise en forme enrichie ou une icône. Si l'emplacement n’est pas utilisé, l’attribut card-title est utilisé à sa place. Le texte du titre est reproduit dans le DOM léger (Light DOM) afin de rester accessible aux outils d’extraction de texte du DOM."
+      }
     }
   ],
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the card loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the card loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque la carte cesse d'être ciblée."
+      },
       "details": "void"
     },
     {
       "name": "gcdsClick",
-      "description": "Emitted when the card has been clicked. Contains the href in the event detail.",
+      "description": {
+        "en": "The gcdsClick event is emitted when the card has been clicked. It contains the href in the event detail.",
+        "fr": "L’événement gcdsClick est émis lorsque l’on clique sur la carte. Les détails de l’événement contiennent l’attribut href."
+      },
       "details": "string"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the card has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the card has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque la carte est ciblée."
+      },
       "details": "void"
     }
   ]

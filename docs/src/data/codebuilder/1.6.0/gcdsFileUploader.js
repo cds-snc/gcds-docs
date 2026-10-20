@@ -105,37 +105,58 @@ export const gcdsFileUploader = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the uploader loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the uploader loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le téléverseur cesse d’être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsChange",
-      "description": "Emitted when the user has made a file selection. Contains the new value in the event detail.",
+      "description": {
+        "en": "The gcdsChange event is emitted when a user selects or modifies one or more files. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsChange est émis lorsqu’une personne sélectionne ou modifie un ou plusieurs fichiers dans le sélecteur de fichiers. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string[]"
     },
     {
       "name": "gcdsError",
-      "description": "Emitted when the uploader has a validation error.",
+      "description": {
+        "en": "The gcdsError event is emitted when the uploader has a validation error.",
+        "fr": "L’événement gcdsError est émis lorsque le téléverseur présente une erreur de validation."
+      },
       "details": "object"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the uploader has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the uploader has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le téléverseur devient ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsInput",
-      "description": "Emitted when the user has uploaded a file. Contains the new value in the event detail.",
+      "description": {
+        "en": "The gcdsInput event is emitted when the user uploads a file. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsInput est émis lorsqu’une personne téléverse un fichier. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string[]"
     },
     {
       "name": "gcdsRemoveFile",
-      "description": "Remove file and update value.",
+      "description": {
+        "en": "The gcdsRemoveFile event is emitted when the user removes a file and the value is updated.",
+        "fr": "L’événement gcdsRemoveFile est émis lorsqu’une personne retire un fichier et que la valeur est mise à jour."
+      },
       "details": "any"
     },
     {
       "name": "gcdsValid",
-      "description": "Emitted when the uploader has a validation error.",
+      "description": {
+        "en": "The gcdsValid event is emitted when the uploader passes all validation checks.",
+        "fr": "L’événement gcdsValid est émis lorsque le téléverseur réussit toutes les vérifications de validation."
+      },
       "details": "object"
     }
   ]

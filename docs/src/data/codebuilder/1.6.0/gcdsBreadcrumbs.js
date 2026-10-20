@@ -15,7 +15,10 @@ export const gcdsBreadcrumbs = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the breadcrumb items."
+      "description": {
+        "en": "The default slot is for adding gcds-breadcrumbs-item subcomponents.",
+        "fr": "L'emplacement par défaut sert à ajouter des sous-composants gcds-breadcrumbs-item."
+      }
     }
   ],
   "events": []
