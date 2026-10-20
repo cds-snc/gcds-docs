@@ -5,6 +5,7 @@ import rehypeGcdsSlug from "./src/utils/rehype-gcds-slug.mjs";
 import { fileURLToPath } from "node:url";
 import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
+import { redirects } from './src/redirects.mjs';
 
 // Astro uses remark (for .md syntax) and rehype (for HTML output) instead of
 // markdown-it. The equivalent of Eleventy's markdownLibrary config lives here.
@@ -38,6 +39,9 @@ export default defineConfig({
   //   defaultLocale: "en",
   // },
   site: process.env.DOMAIN || 'http://localhost:4321',
+  // Legacy URLs from the Eleventy site. See src/redirects.mjs -- add a line
+  // there in the same PR whenever you rename or remove a page.
+  redirects,
   markdown: {
     // Configure shared markdown behaviour (applies to both .md and .mdx).
     // Keep heading ids only. We tested rehype-autolink-headings and it changed
