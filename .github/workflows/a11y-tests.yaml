@@ -11,6 +11,7 @@ on:
     types: [opened, reopened, synchronize]
     paths:
       - docs/**
+      - .github/workflows/a11y-tests.yaml
 
 jobs:
   a11y-test:
