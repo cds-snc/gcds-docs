@@ -38,7 +38,7 @@ Ce formulaire est destiné aux personnes qui bâtissent les sites Web et service
 
 Pour obtenir de l’aide avec un service gouvernemental, aller à la page <gcds-link href="https://www.canada.ca/fr/contact.html" external>Coordonnées du Gouvernement du Canada</gcds-link>.
 
-<form class="my-600 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission" novalidate>
+<form class="my-600 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="" novalidate>
   <gcds-error-summary></gcds-error-summary>
 
   <input type="hidden" name="form-name" value="contactFR" />
