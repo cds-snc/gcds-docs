@@ -26,9 +26,9 @@ jobs:
       matrix:
         test:
           - name: English site
-            spec: docs/cypress/e2e/a11y-en.cy.js
+            spec: cypress/e2e/a11y-en.cy.js
           - name: French site
-            spec: docs/cypress/e2e/a11y-fr.cy.js
+            spec: cypress/e2e/a11y-fr.cy.js
 
     steps:
       - name: Git Checkout
@@ -42,6 +42,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@f790eee7a50d9505912f50c2095510be7de06aa7 # v6.10.9
         with:
+          working-directory: ./docs
           build: npm run build
           start: npm run preview
           wait-on: http://localhost:4321/sitemap-index.xml
