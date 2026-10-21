@@ -27,10 +27,8 @@ jobs:
         test:
           - name: English site
             spec: docs/cypress/e2e/a11y-en.cy.js
-            url: 'http://localhost:4321/en'
           - name: French site
             spec: docs/cypress/e2e/a11y-fr.cy.js
-            url: 'http://localhost:4321/fr'
 
     steps:
       - name: Git Checkout
@@ -46,7 +44,7 @@ jobs:
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
-          wait-on: ${{ matrix.test.url }}
+          wait-on: http://localhost:4321/sitemap-index.xml
           # wait for 2 minutes for the server to respond
           wait-on-timeout: 240
           spec: ${{ matrix.test.spec }}
