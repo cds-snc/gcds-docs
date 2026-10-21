@@ -10,14 +10,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
-      - package.json
-      - package-lock.json
-      - .eleventy.js
-      - src/**
-      - utils/**
-      - .github/workflows/a11y-tests.yaml
-      - cypress/**
-      - scripts/templates.js
+      - docs/**
 
 jobs:
   a11y-test:
@@ -32,11 +25,11 @@ jobs:
       matrix:
         test:
           - name: English site
-            spec: cypress/e2e/a11y-en.cy.js
-            url: 'http://localhost:8080/en'
+            spec: docs/cypress/e2e/a11y-en.cy.js
+            url: 'http://localhost:4321/en'
           - name: French site
-            spec: cypress/e2e/a11y-fr.cy.js
-            url: 'http://localhost:8080/fr'
+            spec: docs/cypress/e2e/a11y-fr.cy.js
+            url: 'http://localhost:4321/fr'
 
     steps:
       - name: Git Checkout
