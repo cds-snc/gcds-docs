@@ -48,6 +48,53 @@ const { pageTitle } = Astro.props as Props;
   })();
 </script>
 
+{/* Google Analytics */}
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-5TBZBZVVK8');
+</script>
+
+{/* Click tracking, ported from eleventy */}
+<script>
+  document.addEventListener('click', function (e) {
+    // Find the closest clickable element (button, a, gcds-button, gcds-link)
+    const el = e.target.closest('button, a, gcds-button, gcds-link');
+    if (!el) return;
+
+    // Only track left-clicks or keyboard activations
+    if (e.button !== 0) return;
+
+    // Get label and url
+    const label = el.textContent ? el.textContent.trim() : '';
+    const rawUrl =
+      el.getAttribute('href') ||
+      el.getAttribute('data-href') ||
+      window.location.href;
+
+    let safeUrl = window.location.pathname;
+    try {
+      const parsed = new URL(rawUrl, window.location.origin);
+      // Only allow http(s) URLs and strip query/hash to avoid leaking PII
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+        safeUrl = parsed.pathname;
+      }
+    } catch (err) {
+      // If URL parsing fails, keep the fallback safeUrl (current pathname)
+    }
+
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag('event', 'click', {
+        event_category: 'gcds_click',
+        event_label: label,
+        event_url: safeUrl,
+      });
+    }
+  });
+</script>
+
 <meta charset="utf-8" />
 <link rel="icon" href="/favicon.ico" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />

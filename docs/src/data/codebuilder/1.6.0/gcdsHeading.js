@@ -119,7 +119,10 @@ export const gcdsHeading = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the heading content"
+      "description": {
+        "en": "The default slot is for adding text to the heading.",
+        "fr": "L'emplacement par défaut sert à ajouter du texte au titre."
+      }
     }
   ],
   "events": []

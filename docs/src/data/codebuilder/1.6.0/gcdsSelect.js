@@ -105,38 +105,59 @@ export const gcdsSelect = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for options and option groups."
+      "description": {
+        "en": "The default slot is for adding options and option groups.",
+        "fr": "L'emplacement par défaut sert à ajouter des options et des groupes d'options."
+      }
     }
   ],
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the select loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the select loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque la liste déroulante cesse d’être ciblée."
+      },
       "details": "void"
     },
     {
       "name": "gcdsChange",
-      "description": "Emitted when the select value has changed.",
+      "description": {
+        "en": "The gcdsChange event is emitted when the select value has changed. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsChange est émis lorsque la valeur du composant de sélection change. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsError",
-      "description": "Emitted when the select has a validation error.",
+      "description": {
+        "en": "The gcdsError event is emitted when the select has a validation error.",
+        "fr": "L’événement gcdsError est émis lorsque le composant de sélection présente une erreur de validation."
+      },
       "details": "object"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the select has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the select has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le composant de sélection devient ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsInput",
-      "description": "Emitted when the select has received input.",
+      "description": {
+        "en": "The gcdsInput event is emitted when the select has received input. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsInput est émis lorsqu’une saisie modifie la valeur du composant de sélection. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsValid",
-      "description": "Emitted when the select has a validation error.",
+      "description": {
+        "en": "The gcdsValid event is emitted when the select passes all validation checks.",
+        "fr": "L’événement gcdsValid est émis lorsque le composant de sélection réussit toutes les vérifications de validation."
+      },
       "details": "object"
     }
   ]

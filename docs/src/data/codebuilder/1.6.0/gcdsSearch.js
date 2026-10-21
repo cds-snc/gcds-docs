@@ -53,27 +53,42 @@ export const gcdsSearch = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the search input has lost focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the search input loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le champ de recherche cesse d’être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsChange",
-      "description": "Emitted when the search input value has changed.",
+      "description": {
+        "en": "The gcdsChange event is emitted when the search input value has changed. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsChange est émis lorsque la valeur du champ de recherche change. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the search input has gained focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the search input has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le champ de recherche devient ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsInput",
-      "description": "Emitted when the search element has received input.",
+      "description": {
+        "en": "The gcdsInput event is emitted when the search element has received input. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsInput est émis lorsqu’une saisie modifie la valeur du champ de recherche. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsSubmit",
-      "description": "Emitted when the search form has submitted.",
+      "description": {
+        "en": "The gcdsSubmit event is emitted when a search has been submitted.",
+        "fr": "L’événement gcdsSubmit est émis lorsqu’une recherche est lancée."
+      },
       "details": "string"
     }
   ]

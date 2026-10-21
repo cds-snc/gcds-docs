@@ -132,7 +132,10 @@ export const gcdsContainer = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the main content of the container."
+      "description": {
+        "en": "The default slot is for adding content inside the container.",
+        "fr": "L'emplacement par défaut sert à ajouter du contenu à l'intérieur du conteneur."
+      }
     }
   ],
   "events": []

@@ -94,32 +94,50 @@ export const gcdsRadios = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the radios has lost focus",
+      "description": {
+        "en": "The gcdsBlur event is emitted when radios loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le lien cesse d'être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsChange",
-      "description": "Emitted when a radios option is checked (but not when unchecked). Contains new value in event detail",
+      "description": {
+        "en": "The gcdsChange event is emitted when radios has been changed. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsChange est émis lorsque la sélection d’un bouton radio change. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsError",
-      "description": "Emitted when radios has a validation error",
+      "description": {
+        "en": "The gcdsError event is emitted when radios has a validation error.",
+        "fr": "L’événement gcdsError est émis lorsque les boutons radio présentent une erreur de validation."
+      },
       "details": "object"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when radios has received focus",
+      "description": {
+        "en": "The gcdsFocus event is emitted when radios has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le groupe de boutons radio devient ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsInput",
-      "description": "Emitted when radios has been changed as a direct result of a user action (a radio option has been selected). Contains new value in event detail",
+      "description": {
+        "en": "The gcdsInput event is emitted when a radio option has received input. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsInput est émis lorsqu’une saisie modifie la sélection d’un bouton radio. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsValid",
-      "description": "Emitted when radios has passed validation",
+      "description": {
+        "en": "The gcdsValid event is emitted when radios passes all validation checks.",
+        "fr": "L’événement gcdsValid est émis lorsque le groupe de boutons radio réussit toutes les vérifications de validation."
+      },
       "details": "void"
     }
   ]

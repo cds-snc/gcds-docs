@@ -187,37 +187,58 @@ export const gcdsInput = {
   "events": [
     {
       "name": "gcdsBlur",
-      "description": "Emitted when the input loses focus.",
+      "description": {
+        "en": "The gcdsBlur event is emitted when the input loses focus.",
+        "fr": "L’événement gcdsBlur est émis lorsque le champ de saisie cesse d’être ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsChange",
-      "description": "Emitted when the input has changed.",
+      "description": {
+        "en": "The gcdsChange event is emitted when the input has been changed. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsChange est émis lorsque la valeur du champ de saisie change. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsError",
-      "description": "Emitted when the input has a validation error.",
+      "description": {
+        "en": "The gcdsError event is emitted when the input has a validation error.",
+        "fr": "L’événement gcdsError est émis lorsque le champ de saisie présente une erreur de validation."
+      },
       "details": "object"
     },
     {
       "name": "gcdsFocus",
-      "description": "Emitted when the input has focus.",
+      "description": {
+        "en": "The gcdsFocus event is emitted when the input has focus.",
+        "fr": "L’événement gcdsFocus est émis lorsque le champ de saisie devient ciblé."
+      },
       "details": "void"
     },
     {
       "name": "gcdsInput",
-      "description": "Emitted when the element has received input.",
+      "description": {
+        "en": "The gcdsInput event is emitted the input has received input. It contains the new value in the event detail.",
+        "fr": "L’événement gcdsInput est émis lorsqu’une saisie modifie la valeur du champ de saisie. Les détails de l’événement contiennent la nouvelle valeur."
+      },
       "details": "string"
     },
     {
       "name": "gcdsSuggestionSelected",
-      "description": "Emitted when a suggestion is selected.",
+      "description": {
+        "en": "The gcdsSuggestionSelected event is emitted when an autocomplete suggestion is selected.",
+        "fr": "L’événement gcdsSuggestionSelected est émis lorsqu’une suggestion de saisie automatique est sélectionnée."
+      },
       "details": "string"
     },
     {
       "name": "gcdsValid",
-      "description": "Emitted when the input has a validation error.",
+      "description": {
+        "en": "The gcdsValid event is emitted when the input passes all validation checks.",
+        "fr": "L’événement gcdsValid est émis lorsque le champ de saisie réussit toutes les vérifications de validation."
+      },
       "details": "object"
     }
   ]

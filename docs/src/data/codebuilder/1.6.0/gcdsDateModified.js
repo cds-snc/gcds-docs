@@ -17,7 +17,10 @@ export const gcdsDateModified = {
   "slots": [
     {
       "name": "default",
-      "description": "Slot for the date/version number."
+      "description": {
+        "en": "The default slot is for adding the date modified or version text.",
+        "fr": "L'emplacement par défaut sert à ajouter le texte de la date de modification ou de la version."
+      }
     }
   ],
   "events": []
