@@ -42,8 +42,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@f790eee7a50d9505912f50c2095510be7de06aa7 # v6.10.9
         with:
-          build: npm run build:eleventy
-          start: npm run watch:eleventy
+          build: npm run build
+          start: npm run preview
           wait-on: http://localhost:4321/sitemap-index.xml
           # wait for 2 minutes for the server to respond
           wait-on-timeout: 240
