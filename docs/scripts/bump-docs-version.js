@@ -29,6 +29,11 @@ const componentsRoot = path.join(
   "src/content/versioned/components",
 );
 
+const codebuilderDataRoot = path.join(
+  docsRoot,
+  "src/data/codebuilder",
+);
+
 const versionConfig = JSON.parse(
   await readFile(versionConfigPath, "utf8"),
 );
@@ -56,6 +61,8 @@ if (versions.includes(version)) {
 
 const previousVersion = versions.at(-1);
 
+// Bump component documentation
+
 const sourceDir = path.join(componentsRoot, previousVersion);
 const destinationDir = path.join(componentsRoot, version);
 
@@ -77,12 +84,38 @@ try {
   // Destination doesn't exist, which is what we want.
 }
 
+// Bump codebuilder documentation
+
+const codebuilderSourceDir = path.join(codebuilderDataRoot, previousVersion);
+const codebuilderDestinationDir = path.join(codebuilderDataRoot, version);
+
+try {
+  await access(codebuilderSourceDir);
+} catch {
+  console.error(`Source version directory does not exist: ${codebuilderSourceDir}`);
+  process.exit(1);
+}
+
+try {
+  await access(codebuilderDestinationDir);
+
+  console.error(
+    `Destination version directory already exists: ${codebuilderDestinationDir}`,
+  );
+  process.exit(1);
+} catch {
+  // Destination doesn't exist, which is what we want.
+}
+
 console.log(`Bumping documentation from ${previousVersion} to ${version}...`);
 
 //
 // Copy the previous version.
 //
 await cp(sourceDir, destinationDir, {
+  recursive: true,
+});
+await cp(codebuilderSourceDir, codebuilderDestinationDir, {
   recursive: true,
 });
 

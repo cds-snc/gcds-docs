@@ -1,6 +1,13 @@
 ---
 import versionConfig from "../routing/versioned/version-config.json";
-import { getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
+import { defaultLocale } from '../i18n/config';
+import { getLocalizedRecord, getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
+
+// Label for the newest version in the dropdown.
+const i18n = {
+  en: { latest: 'latest' },
+  fr: { latest: 'dernière version' },
+};
 
 type PackageType = "component" | "css-shortcuts" | "tokens";
 
@@ -36,6 +43,7 @@ const selectedVersion = value ?? latestVersion;
 
 const pathSegments = getPathParts(Astro.url.pathname);
 const localeSegment = resolveLocaleFromPathname(Astro.url.pathname);
+const t = getLocalizedRecord(i18n, localeSegment, defaultLocale);
 const sectionSegment = pathSegments[1] ?? section?.routeKey ?? "components";
 const hasVersionInPath = /^\d+\.\d+\.\d+$/.test(pathSegments[2] ?? "");
 const pageSlug = hasVersionInPath
@@ -55,7 +63,7 @@ const pageSlug = hasVersionInPath
     >
       {versions.map((version) => (
         <option value={version} selected={version === selectedVersion}>
-          {version === latestVersion ? `${version} (latest)` : version}
+          {version === latestVersion ? `${version} (${t.latest})` : version}
         </option>
       ))}
     </gcds-select>
