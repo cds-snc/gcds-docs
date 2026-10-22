@@ -17,7 +17,7 @@ Unsubscribe from the GC Design System mailing list to stop receiving all English
 
 It may take up to 48 hours to take effect.
 
-<form class="my-600 unsubscribe-form" name="unsubscribeEN" method="post" action="/api/submission">
+<form class="my-600 unsubscribe-form" name="unsubscribeEN" method="post" action="">
   <input type="hidden" name="form-name" value="unsubscribeEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
   <input type="hidden" name="unsubscribe" value="true" />
