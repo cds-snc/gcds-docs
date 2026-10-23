@@ -75,6 +75,7 @@ jobs:
 
           git add docs/src/routing/versioned/version-config.json
           git add "docs/src/content/versioned/components/$VERSION"
+          git add "docs/src/data/codebuilder/$VERSION"
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
