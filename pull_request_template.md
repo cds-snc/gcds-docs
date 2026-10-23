@@ -18,13 +18,12 @@ _TODO: Link to related issue(s) that this PR addresses or fixes, e.g. "Closes #1
 
 _TODO: Replace the instructions below as needed. Describe any steps required to verify the changes work as expected._
 
-### Preview links
+### Preview link
 
-**English**
-- [English preview](https://pr-X.djtlis5vpn8jd.amplifyapp.com/)
+_Replace X with the PR number_
 
-**French**
-- [French preview](https://pr-X.d35vdwuoev573o.amplifyapp.com/)
+https://pr-X.d11shk5awi2jgg.amplifyapp.com/
+
 
 
 ## ✍️ Author checklist | Liste de vérification de l'auteur
