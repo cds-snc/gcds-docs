@@ -45,10 +45,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3.9.1
         with:
-          node-version: '22'
+          node-version-file: docs/.nvmrc
+          check-latest: true
 
       - name: Cypress run
-        uses: cypress-io/github-action@f790eee7a50d9505912f50c2095510be7de06aa7 # v6.10.9
+        uses: cypress-io/github-action@01e3b659a495b41649cdd0aa82e1d1624e26520b # v7.4.4
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
