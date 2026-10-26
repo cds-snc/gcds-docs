@@ -46,5 +46,10 @@
     "start-server-and-test": "^2.0.10",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "allowScripts": {
+    "cypress@13.17.0": true,
+    "fsevents@2.3.3": true,
+    "esbuild@0.28.2": true
   }
 }
