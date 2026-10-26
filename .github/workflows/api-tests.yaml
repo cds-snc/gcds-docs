@@ -20,7 +20,7 @@ jobs:
         working-directory: api/src
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [24.x]
     steps:
       - name: Checkout code
         uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
