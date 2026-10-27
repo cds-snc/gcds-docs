@@ -186,6 +186,10 @@ export const routes = {
             en: "vue",
             fr: "vue",
           },
+          cli: {
+            en: "cli",
+            fr: "cli",
+          },
         }
       },
     },
