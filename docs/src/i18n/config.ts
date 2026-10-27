@@ -191,8 +191,8 @@ export const routes = {
     },
   },
   styles: {
-    en: "styles",
-    fr: "styles",
+    en: "foundations",
+    fr: "fondamentaux",
     children: {
       "design-tokens": {
         en: "design-tokens",
