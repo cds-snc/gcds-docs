@@ -82,6 +82,12 @@ interface DateModifiedOptions {
   ogDate?: string;
   contentRoot?: string;
   locale?: string;
+  /**
+   * Other files the page renders from (e.g. a data file), relative to docs/.
+   * The displayed date bumps to the newest commit across the page and these.
+   * Set via `dateModifiedSources` frontmatter on the page.
+   */
+  dateModifiedSources?: string[];
 }
 
 /**
@@ -116,10 +122,18 @@ export async function resolveDateModified(
   const { count, latest } = getGitHistory(file);
 
   // Edited since it was created/migrated -> auto-bump to the real edit date.
-  if (count > 1 && latest) {
-    return latest;
-  }
-
   // Only the creation/migration commit (or untracked) -> keep the original date.
-  return options.ogDate ?? latest ?? (await getFsMtime(file)) ?? undefined;
+  const pageDate =
+    count > 1 && latest
+      ? latest
+      : options.ogDate ?? latest ?? (await getFsMtime(file)) ?? undefined;
+
+  // Bump to the newest edit of any file the page depends on.
+  const dependencyDates = await Promise.all(
+    (options.dateModifiedSources ?? []).map((dep) => getLastModified(path.resolve(process.cwd(), dep)))
+  );
+
+  return [pageDate, ...dependencyDates]
+    .filter((date): date is string => Boolean(date))
+    .sort((a, b) => Date.parse(b) - Date.parse(a))[0];
 }

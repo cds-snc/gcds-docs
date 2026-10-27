@@ -64,36 +64,46 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "~assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
-        "~content": fileURLToPath(new URL("./src/content", import.meta.url)),
-        "~components": fileURLToPath(new URL("./src/components", import.meta.url)),
-        "~data": fileURLToPath(new URL("./src/data", import.meta.url)),
-        "~i18n": fileURLToPath(new URL("./src/i18n", import.meta.url)),
-        "~layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
+        '~assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+        '~content': fileURLToPath(new URL('./src/content', import.meta.url)),
+        '~components': fileURLToPath(
+          new URL('./src/components', import.meta.url),
+        ),
+        '~data': fileURLToPath(new URL('./src/data', import.meta.url)),
+        '~i18n': fileURLToPath(new URL('./src/i18n', import.meta.url)),
+        '~layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
       },
     },
   },
   integrations: [
-    mdx(),
+    mdx({ gfm: true }),
     react(),
     sitemap({
-      filter: (page) => {
+      filter: page => {
         const excludedPages = [
           'subscribe/success',
           'subscribe/error',
           'se-desabonner/erreur',
           'se-desabonner/succes',
           '/thanks',
-          '/merci'
-        ];;
+          '/merci',
+        ];
 
-        return !excludedPages.some((path) => page.includes(path));
+        return !excludedPages.some(path => page.includes(path));
       },
     }),
     pagefind({
       indexConfig: {
         rootSelector: 'main',
-        excludeSelectors: ['gcds-side-nav', 'gcds-to-nav', 'gcds-breadcrumbs', '.github-link', '.figma-link', 'h1 > code', '.component-preview'],
+        excludeSelectors: [
+          'gcds-side-nav',
+          'gcds-to-nav',
+          'gcds-breadcrumbs',
+          '.github-link',
+          '.figma-link',
+          'h1 > code',
+          '.component-preview',
+        ],
       },
     }),
   ],
