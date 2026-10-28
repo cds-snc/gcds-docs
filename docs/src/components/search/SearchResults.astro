@@ -19,8 +19,10 @@
 
   async function loadPagefind() {
     if (!pagefind) {
-      const pagefindPath = '/pagefind/pagefind.js'; // not a literal in the import() call
-      pagefind = await import(pagefindPath);
+      // Pagefind is generated after the build, so the bundler must not try to
+      // resolve it. Vite 8 inlines constant strings, so build the URL at runtime.
+      const pagefindPath = new URL('/pagefind/pagefind.js', window.location.origin).href;
+      pagefind = await import(/* @vite-ignore */ pagefindPath);
       await pagefind.init();
       await pagefind.options({
         baseUrl: '/',
