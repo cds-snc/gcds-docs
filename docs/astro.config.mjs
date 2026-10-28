@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import { unified } from "@astrojs/markdown-remark";
 import react from "@astrojs/react";
 import rehypeGcdsSlug from "./src/utils/rehype-gcds-slug.mjs";
 import { fileURLToPath } from "node:url";
@@ -39,10 +40,17 @@ export default defineConfig({
   //   defaultLocale: "en",
   // },
   site: process.env.DOMAIN || 'http://localhost:4321',
+  // Astro 7 defaults to compressHTML: 'jsx', which drops whitespace between
+  // inline elements (e.g. adjacent <gcds-button>s lose their gap). Keep the
+  // Astro 6 behaviour so markup renders like the Eleventy site.
+  compressHTML: true,
   // Legacy URLs from the Eleventy site. See src/redirects.mjs -- add a line
   // there in the same PR whenever you rename or remove a page.
   redirects,
   markdown: {
+    // Astro 7 defaults to the Sätteri processor; keep the remark/rehype
+    // (unified) pipeline so rehypePlugins/remarkPlugins keep working.
+    processor: unified(),
     // Configure shared markdown behaviour (applies to both .md and .mdx).
     // Keep heading ids only. We tested rehype-autolink-headings and it changed
     // heading visuals/UX more than desired (rendered headings as links).
@@ -56,36 +64,46 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "~assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
-        "~content": fileURLToPath(new URL("./src/content", import.meta.url)),
-        "~components": fileURLToPath(new URL("./src/components", import.meta.url)),
-        "~data": fileURLToPath(new URL("./src/data", import.meta.url)),
-        "~i18n": fileURLToPath(new URL("./src/i18n", import.meta.url)),
-        "~layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
+        '~assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+        '~content': fileURLToPath(new URL('./src/content', import.meta.url)),
+        '~components': fileURLToPath(
+          new URL('./src/components', import.meta.url),
+        ),
+        '~data': fileURLToPath(new URL('./src/data', import.meta.url)),
+        '~i18n': fileURLToPath(new URL('./src/i18n', import.meta.url)),
+        '~layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
       },
     },
   },
   integrations: [
-    mdx(),
+    mdx({ gfm: true }),
     react(),
     sitemap({
-      filter: (page) => {
+      filter: page => {
         const excludedPages = [
           'subscribe/success',
           'subscribe/error',
           'se-desabonner/erreur',
           'se-desabonner/succes',
           '/thanks',
-          '/merci'
-        ];;
+          '/merci',
+        ];
 
-        return !excludedPages.some((path) => page.includes(path));
+        return !excludedPages.some(path => page.includes(path));
       },
     }),
     pagefind({
       indexConfig: {
         rootSelector: 'main',
-        excludeSelectors: ['gcds-side-nav', 'gcds-to-nav', 'gcds-breadcrumbs', '.github-link', '.figma-link', 'h1 > code', '.component-preview'],
+        excludeSelectors: [
+          'gcds-side-nav',
+          'gcds-to-nav',
+          'gcds-breadcrumbs',
+          '.github-link',
+          '.figma-link',
+          'h1 > code',
+          '.component-preview',
+        ],
       },
     }),
   ],

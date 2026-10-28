@@ -117,6 +117,18 @@ function build() {
   ];
   for (const sub of GET_STARTED) map[`/en/get-started${sub}`] = `/en/start-to-use${sub}`;
 
+  // PATH: /styles/ to /foundations/ (EN), /styles/ to /fondamentaux/ (FR)
+  // The "Styles" section was renamed to "Foundations" (EN) / "Fondamentaux"
+  // (FR). Only the section segment changed; the sub-page slugs are unchanged.
+  //
+  // These are all the sub-pages that existed under the old section, and they
+  // all exist under the new one.
+  const STYLES_EN = ['', '/design-tokens', '/colour', '/spacing', '/typography'];
+  for (const sub of STYLES_EN) map[`/en/styles${sub}`] = `/en/foundations${sub}`;
+
+  const STYLES_FR = ['', '/unites-de-style', '/couleur', '/espacement', '/typographie'];
+  for (const sub of STYLES_FR) map[`/fr/styles${sub}`] = `/fr/fondamentaux${sub}`;
+
   return map;
 }
 

@@ -166,4 +166,10 @@ L'emplacement par défaut sert à ajouter du contenu descriptif à la carte. Il 
   </gcds-card>
 </CodePreview>
 
-<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName} landmarkDisplay />
+<CodeBuilder version={frontmatter.version} tagName={frontmatter.tagName} />
+
+<style>{`
+  gcds-ext-code-display > gcds-card {
+    height: fit-content;
+  }
+`}</style>

@@ -17,7 +17,7 @@ Désabonnez-vous de la liste de diffusion de GC Design System pour ne plus recev
 
 Cela peut prendre jusqu'à 48 heures.
 
-<form class="my-600 unsubscribe-form" name="unsubscribeFR" method="post" action="/api/submission">
+<form class="my-600 unsubscribe-form" name="unsubscribeFR" method="post" action="">
   <input type="hidden" name="form-name" value="unsubscribeFR" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
   <input type="hidden" name="unsubscribe" value="true" />

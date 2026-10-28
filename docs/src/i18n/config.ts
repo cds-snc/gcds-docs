@@ -186,13 +186,17 @@ export const routes = {
             en: "vue",
             fr: "vue",
           },
+          cli: {
+            en: "cli",
+            fr: "cli",
+          },
         }
       },
     },
   },
   styles: {
-    en: "styles",
-    fr: "styles",
+    en: "foundations",
+    fr: "fondamentaux",
     children: {
       "design-tokens": {
         en: "design-tokens",
