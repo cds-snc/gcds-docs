@@ -4,7 +4,7 @@
     {
       "type": "link",
       "versioned": false,
-      "label": {"en": "Styles overview", "fr": "Aperçu des styles"},
+      "label": {"en": "Foundations overview", "fr": "Aperçu des fondamentaux"},
       "slug": {"en": "", "fr": ""},
       "pageType": "overview"
     },

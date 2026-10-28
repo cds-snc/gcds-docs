@@ -1,0 +1,23 @@
+# AWS Amplify build spec for the Astro framework hosted in docs/.
+# The site lives in docs/, so every command runs from there and the
+# build output is docs/dist. The Node version comes from docs/.nvmrc.
+# Note: this file overrides the build spec set in the Amplify console.
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm install "$(cat docs/.nvmrc)"
+        - nvm use "$(cat docs/.nvmrc)"
+        - node -v
+        - (cd docs && npm ci --cache .npm --prefer-offline)
+    build:
+      commands:
+        - (cd docs && npm run build)
+  artifacts:
+    baseDirectory: docs/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - docs/.npm/**/*

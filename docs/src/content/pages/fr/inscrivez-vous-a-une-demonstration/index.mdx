@@ -2,6 +2,9 @@
 layout: '~layouts/BaseLayout.astro'
 pageTitle: Inscrivez-vous à une démo
 description: Vous souhaitez en savoir plus sur le Système de design GC avant de l'essayer? Participez à l'une des prochaines démos.
+# Demo dates live in a shared data file; bump this page's date when it changes.
+dateModifiedSources:
+  - src/components/DemoDates/dates.js
 ---
 
 import { GiveFeedback, HelpUs, DemoDates } from '~components';

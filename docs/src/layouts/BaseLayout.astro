@@ -36,7 +36,9 @@ const lastModified = await resolveDateModified(Astro.url.pathname, {
   file: Astro.props.file,
   ogDate,
   contentRoot: getContentRoot(Astro.url.pathname),
-  locale: currentLocale
+  locale: currentLocale,
+  // Extra files whose edits should bump this page's date (see lastModified.ts).
+  dateModifiedSources: frontmatter?.dateModifiedSources
 });
 
 const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
