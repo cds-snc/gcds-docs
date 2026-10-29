@@ -27,7 +27,7 @@ describe(`A11Y test French documentation site`, () => {
         cy.terminalLog,
       );
       // skip theme and topic menu since links are pulled from external source
-      if (!url.includes('theme-and-topic-menu')) {
+      if (!url.includes('menu-thematique')) {
         cy.scanDeadLinks();
       }
       
