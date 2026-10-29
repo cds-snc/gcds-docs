@@ -1,0 +1,68 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Create a new project
+description: Use create-app, our command-line interface (CLI) tool, to set up your new project.
+---
+
+import cliFrameworks from '~assets/img/common/start-to-use/cli-frameworks.png';
+import { links } from '~i18n/links';
+
+# Create a new project
+
+Use `create-app`, our command-line interface (CLI) tool, to set up your new project.
+
+The tool is available as a package on Node Package Manager (NPM). It sets up your project using a pre-built GC Design System template, reducing the amount of manual setup. It also includes common development and automated testing tools, and examples to help you get started.
+
+## Before you start
+
+You'll need:
+
+- Familiarity with the command line
+- The latest version of Node.js
+
+## 1. Create your project
+
+Choose a name for your project. We'll use `my-project`.
+
+In your terminal, go to the directory where you want to create your project, then run:
+
+```bash
+npm create @gcds-core/app my-project
+```
+
+This creates a folder with the same name as your project.
+
+Follow the prompts in your terminal to choose your framework, install dependencies, and optionally initialize a Git repository.
+
+<img src={cliFrameworks.src} alt='Screen capture of a command line interface showing the question "Which framework would you like to use?", with options being React, Vue, and HTML.' />
+
+## 2. Run your project
+
+Follow the next steps shown in your terminal.
+
+For React and Vue:
+
+```bash
+cd my-project
+npm run dev
+```
+
+For HTML:
+
+```bash
+cd my-project
+# open en/index.html in your browser
+# or serve it locally:
+npx serve .
+```
+
+## 3. Start building
+
+Now that your project is set up, you can add the components and styles you need.
+
+- Browse <gcds-link href={links.en.components}>components</gcds-link> to add to your project.
+- Use <gcds-link href={links.en.shortcuts}>CSS Shortcuts</gcds-link> to style custom HTML.
+
+## Add GC Design System to a project
+
+If you already have a project or prefer to set one up yourself, follow the <gcds-link href={links.en.startToUseDevelop}>installation instructions for your framework</gcds-link> instead.
