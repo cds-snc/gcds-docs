@@ -1,0 +1,68 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Créer un nouveau projet
+description: Utilisez create-app, notre outil en ligne de commande (CLI), pour configurer votre nouveau projet.
+---
+
+import cliFrameworks from '~assets/img/common/start-to-use/cli-frameworks.png';
+import { links } from '~i18n/links';
+
+# Créer un nouveau projet
+
+Utilisez `create-app`, notre outil en ligne de commande (CLI), pour configurer votre nouveau projet.
+
+L’outil est disponible dans un paquet NPM. Il utilise un modèle de projet préconfiguré avec Système de design GC, ce qui réduit les étapes de configuration manuelle. Il comprend aussi l’outillage courant pour le développement et les tests automatisés, ainsi que des exemples pour vous aider à démarrer.
+
+## Avant de commencer
+
+Vous aurez besoin :
+
+- de connaître les bases de la ligne de commande,
+- de la version la plus récente de Node.js.
+
+## 1. Créez votre projet
+
+Choisissez un nom pour votre projet. Nous utiliserons `mon-projet`.
+
+Dans votre terminal, accédez au répertoire où vous voulez créer votre projet, puis exécutez :
+
+```bash
+npm create @gcds-core/app mon-projet
+```
+
+Un dossier portant le même nom que votre projet sera créé.
+
+Suivez les instructions dans votre terminal pour choisir votre cadre, installer les dépendances et, si vous le souhaitez, initialiser un dépôt Git.
+
+<img src={cliFrameworks.src} alt="Capture d'écran d'une interface de ligne de commande montrant la question « Quel cadre d'application voulez-vous utilisez? », les choix étant React, Vue ou HTML." />
+
+## 2. Exécutez votre projet
+
+Suivez les prochaines étapes indiquées dans votre terminal.
+
+Pour React et Vue :
+
+```bash
+cd mon-projet
+npm run dev
+```
+
+Pour HTML:
+
+```bash
+cd mon-projet
+# Ouvrir fr/index.html dans votre navigateur
+# Ou démarrer un serveur local:
+npx serve .
+```
+
+## 3. Commencez à développer
+
+Maintenant que votre projet est configuré, vous pouvez ajouter les composants et les styles dont vous avez besoin.
+
+- Parcourez les <gcds-link href={links.fr.components}>composants</gcds-link> à ajouter à votre projet.
+- Utilisez les <gcds-link href={links.fr.shortcuts}>raccourcis CSS</gcds-link> pour styliser du HTML personnalisé.
+
+## Ajoutez Système de design GC à un projet
+
+Si vous avez déjà un projet ou préférez le configurer vous-même, suivez plutôt les <gcds-link href={links.fr.startToUseDevelop}>instructions d’installation pour votre cadre</gcds-link>.
