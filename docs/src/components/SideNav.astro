@@ -54,15 +54,16 @@ const groupIsActive = (group: NavGroupLike) => {
 
   {navConfig.groups.map((group) => (
     <gcds-nav-group open-trigger={group.trigger} menu-label={group.menuLabel} open={groupIsActive(group) || undefined}>
-      {group.links.map((link) => (
-        <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
-      ))}
-      {group.subGroups?.map((sub) => (
-        <gcds-nav-group open-trigger={sub.trigger} menu-label={sub.menuLabel} open={groupIsActive(sub) || undefined}>
-          {sub.links.map((link) => (
-            <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
-          ))}
-        </gcds-nav-group>
+      {group.items?.map((entry) => (
+        entry.kind === 'group' ? (
+          <gcds-nav-group open-trigger={entry.group.trigger} menu-label={entry.group.menuLabel} open={groupIsActive(entry.group) || undefined}>
+            {entry.group.links.map((link) => (
+              <gcds-nav-link href={link.href} current={isCurrent(link.href) || undefined}>{link.text}</gcds-nav-link>
+            ))}
+          </gcds-nav-group>
+        ) : (
+          <gcds-nav-link href={entry.link.href} current={isCurrent(entry.link.href) || undefined}>{entry.link.text}</gcds-nav-link>
+        )
       ))}
     </gcds-nav-group>
   ))}

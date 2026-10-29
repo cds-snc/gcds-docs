@@ -1,0 +1,112 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Design tokens
+description: GC Design System tokens are the smallest building blocks of the design system.
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import { HelpUs } from '~components';
+import { links } from '~i18n/links';
+
+import anatomyComponent from '~assets/img/en/foundations/anatomy/anatomy-design-tokens-component.svg';
+import anatomyGlobal from '~assets/img/en/foundations/anatomy/anatomy-design-tokens-global.svg';
+import anatomyBase from '~assets/img/en/foundations/anatomy/anatomy-design-tokens-base.svg';
+import whatTokensAre from '~assets/img/en/foundations/what-design-tokens-are.svg';
+
+# About design tokens
+
+GC Design System tokens are the smallest building blocks of the design system.
+
+You’ll rarely have to use tokens, since they’re already built into GC Design System components.
+
+## On this page
+
+- [What design tokens are](#what-design-tokens-are)
+- [How tokens work](#how-tokens-work)
+- [Design tokens and CSS Shortcuts](#design-tokens-and-css-shortcuts)
+- [Types of design tokens](#types-of-design-tokens)
+- [Deciding if you need design tokens](#deciding-if-you-need-design-tokens)
+
+## What design tokens are
+
+Design tokens are small, reusable pieces of data that represent style decisions, such as colour, typography, and spacing.
+
+Tokens combine a name with a value. The names follow a structure that describes the decision each token represents. This provides a shared language for designers and developers. <gcds-link href={links.en.tokenNaming}>Learn how token names are structured</gcds-link>.
+
+In the following example, the decision is to use `#f2f2f2` as the light background colour.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={whatTokensAre.src}
+  alt="Diagram showing a design token with two parts: --gcds-bg-light, labelled as the token name, and #f2f2f2, labelled as its hexadecimal value."
+/>
+
+In GC Design System, tokens store visual styles and brand requirements for the Government of Canada.
+
+Design tokens are stored in our <gcds-link href={links.en.githubTokens} external>GitHub token repo</gcds-link> and our <gcds-link href={links.en.figmaTokens} external>Figma token library</gcds-link>.
+
+## How tokens work
+
+In code, our components reference token names instead of their underlying values. You can also reference tokens directly when creating your own styles.
+
+When we update a token’s value, its name stays the same. We make the change once, and it can quickly be passed on to components and styles using that token. You do not have to update the underlying value in your own code.
+
+Tokens are powerful. Using them keeps visual styles consistent across products and services and aligned with Government of Canada brand elements.
+
+## Design tokens and CSS Shortcuts
+
+Design tokens and <gcds-link href={links.en.shortcuts}>CSS Shortcuts</gcds-link> both relate to GC Design System styles, but they serve different purposes.
+
+Design tokens store reusable style decisions. CSS Shortcuts are predefined utility classes for applying common styles. Some CSS Shortcuts classes use design tokens for their values, and they’re automatically updated if a token value changes.
+
+For example, the `mb-500` class uses the `--gcds-spacing-500` design token for the bottom margin.
+
+## Types of design tokens
+
+Tokens are organized into 3 types: base, global, and component. These are separate from style categories like colour, spacing, and typography.
+
+### Base tokens
+
+Base tokens provide foundational values that other design tokens build on. Their purpose is to provide a limited set of values for other tokens to use.
+
+In GC Design System, base tokens exist only for colour. They store colour values organized in scales, which narrow down every possible colour into a fixed set of choices.
+
+<img
+  class="px-600 py-400 bg-light-purple"
+  src={anatomyBase.src}
+  alt="Diagram showing three base colour tokens, each with a name and a hexadecimal value. The tokens are --gcds-color-red-400 with value #e64d61, --gcds-color-red-500 with value #df2039, and --gcds-color-red-600 with value #b3192e. Arrows connect each value to a red square showing the corresponding colour."
+/>
+
+### Global tokens
+
+Global tokens store style values that can be used across GC Design System. They are not specific to any component. Their purpose is to make style decisions reusable at the system level.
+
+Some are semantic, which means their name describes what the style is for. Others use a scale to identify the value, like `--gcds-spacing-600`.
+
+Global tokens can reference other tokens or store a value directly.
+
+<img
+  class="px-600 py-400 bg-light-purple"
+  src={anatomyGlobal.src}
+  alt="Diagram showing two examples of global design tokens. In the first, --gcds-spacing-600 is labelled as the token name and 3rem as its value. In the second, --gcds-text-primary is labelled as the token name and --gcds-color-grayscale-800 as its token reference. An arrow connects the token reference to a dark grey square representing the resulting colour."
+/>
+
+### Component tokens
+
+Component tokens capture design decisions for a specific GC Design System component. Their purpose is to apply those decisions to specific parts and states of the component.
+
+They’re semantic, with names that describe the intent of the style. They reference global or base tokens for their values.
+
+<img
+  class="px-600 py-400 bg-light-purple"
+  src={anatomyComponent.src}
+  alt="Diagram showing how a colour value is passed through design tokens to style a danger button. Red squares and downward arrows connect the hexadecimal value #B3192E to the base token --gcds-color-red-600, the global token --gcds-danger-background, and the component token --gcds-button-danger-default-background. The final arrow points to a button with a red background, showing the resulting component style."
+/>
+
+## Deciding if you need design tokens
+
+You do not necessarily have to use design tokens directly. We can help you decide when to use them.
+
+<gcds-button button-role="secondary" type="link" href={links.en.usingTokens}>Learn when to use tokens</gcds-button>
+
+<HelpUs />

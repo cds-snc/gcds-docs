@@ -5,7 +5,7 @@ description: Colour tokens store the colour values for styling components.
 dateModified: '2026-02-12T12:40:07-05:00'
 ---
 
-import { HelpUs, TokenTable } from '~components';
+import { HelpUs, TokenTable, ColourPalette } from '~components';
 import { links } from '~i18n/links';
 
 export const headers = {
@@ -58,55 +58,126 @@ export const useCases = {
     'Focus text-form colour, exclusively for focus on a form interactive element. Avoid using for non-form elements.',
 };
 
-# Colour tokens
+# Colour
 
-Colour tokens define colour for components and global styles.
+We use colour to create hierarchy, communicate meaning, and support consistent experiences across components and products.
 
-## Colour tokens and accessibility
+## On this page
 
-GC Design System components meet level AA of the <gcds-link external href={links.en.wcag} target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> colour contrast standards for text and interactive elements.
+- [Colour palette](#colour-palette)
+- [Semantic colours](#semantic-colours)
+- [Using colours](#using-colours)
+- [Colour token reference](#colour-token-reference)
 
-When you use global colour tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href={links.en.webaim} target="_blank">WebAIM Contrast Checker</gcds-link>.
+## Colour palette
 
-## Select colour tokens purposefully
+The palette includes 6 colour scales, each progressing from lighter to darker shades. Together, they provide the range of colours used throughout GC Design System.
 
-Select global colour tokens based on their purpose and its match to your needs.
+<ColourPalette scales="grayscale red yellow green blue purple" />
 
-Replace hard-coded values in your code with GC Design System colour tokens, like `var(--gcds-text-primary)` instead of #333333.
+Each colour scale has a general role in the system. These roles guide how we use colour, but they do not define every use.
 
-## Global colour tokens
+<gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
+  <li class="list-none">
+    <strong>Grey</strong><br/>Structure, text, background, borders.
+  </li>
+  <li class="list-none">
+    <strong>Green</strong><br/>Success and positive confirmation.
+  </li>
+  <li class="list-none">
+    <strong>Red</strong><br/>Critical information, errors, destructive actions.
+  </li>
+  <li class="list-none">
+    <strong>Blue</strong><br/>Interaction and information.
+  </li>
+  <li class="list-none">
+    <strong>Yellow</strong><br/>Warnings and alerts.
+  </li>
+  <li class="list-none">
+    <strong>Purple</strong><br/>Specialty states and specific highlights.
+  </li>
+</gcds-grid>
 
-Use global colour tokens to:
+### Additional colours
 
-- Design layouts, text colours, and global (or site-wide) styles.
-- Communicate the meaning associated with that token. Global tokens are semantic.
-- Create new component tokens.
+In addition to the 6 scales, the palette includes 4 individual colours.
 
-Use global state tokens:
+<ColourPalette singles="white blue-vivid blue-muted black" />
 
-- Apply standard styling for states to your own components.
+Blue-vivid provides visual prominence for interactive elements. Blue-muted supports familiarity with Canada.ca and Government of Canada products.
 
-### Text
+All colours in the palette are defined as <gcds-link href={`${links.en.designTokens}#base-tokens`}>base tokens</gcds-link>. These tokens have no assigned meaning or purpose and are used to create semantic colour tokens.
+
+<gcds-link class="d-block mb-300" href="#base-colour-tokens">Browse base colour tokens</gcds-link>
+
+<hr />
+
+## Semantic colours
+
+Semantic colours give colour a specific meaning or purpose in the interface. They help form the brand identity for the Government of Canada.
+
+Semantic colours are represented by <gcds-link href={`${links.en.designTokens}#global-tokens`}>global tokens</gcds-link>. These tokens connect colours from the palette to specific uses, such as text, backgrounds, borders and interactive states. This lets us apply the same colour decisions consistently.
+
+<gcds-link class="d-block mb-300" href="#global-colour-tokens">Browse global colour tokens</gcds-link>
+
+<hr />
+
+## Using colours
+
+### Select colour tokens purposefully
+
+Choose global colour tokens based on their meaning and how well they match your needs. This helps maintaining the intended meaning of colours across interfaces.
+
+### Check colour contrast
+
+When combining GC Design System colours in your own styles, check that the combinations meet standards for accessible colour contrast using accessibility contrast tools, like <gcds-link external href={links.en.webaim} target="_blank">WebAIM Contrast Checker</gcds-link>.
+
+### Choose how to apply colour
+
+When you need to apply colour outside a component:
+
+- Use a CSS Shortcuts class when one is available for the style you need, such as <gcds-link href={links.en.textColourShortcut}>text colour</gcds-link>, <gcds-link href={links.en.linkColourShortcut}>link colour</gcds-link>, or <gcds-link href={links.en.backgroundColourShortcut}>background colour</gcds-link>.
+- Use a global colour token when CSS Shortcuts do not meet your needs.
+- Use a base token only when there’s no appropriate global colour token.
+
+### Apply colour
+
+Learn how to use CSS Shortcuts or design tokens to apply GC Design System decisions in your designs and code.
+
+<div class="d-flex flex-wrap gap-200 mb-600">
+  <gcds-button button-role="secondary" type="link" href={links.en.shortcuts}>Use CSS Shortcuts</gcds-button>
+  <gcds-button button-role="secondary" type="link" href={links.en.usingTokens}>Use design tokens</gcds-button>
+</div>
+
+<hr/>
+
+## Colour token reference
+
+### Global colour tokens
+
+Global colour tokens assign meaning or purpose to colours from the palette.
+
+#### Text
 
 <TokenTable token="text" type="color" headers={headers} useCases={useCases} />
 
-### Link
+#### Link
 
 <TokenTable token="link" type="color" headers={headers} useCases={useCases} />
 
-### Background
+#### Background
 
 <TokenTable token="bg" type="color" headers={headers} useCases={useCases} />
 
-### Border
+#### Border
 
 <TokenTable token="border" type="color" headers={headers} useCases={useCases} />
 
-### Danger
+#### Danger
 
 <TokenTable token="danger" type="color" headers={headers} useCases={useCases} />
 
-### Disabled
+#### Disabled
 
 <TokenTable
   token="disabled"
@@ -115,20 +186,15 @@ Use global state tokens:
   useCases={useCases}
 />
 
-### Focus
+#### Focus
 
 <TokenTable token="focus" type="color" headers={headers} useCases={useCases} />
 
-## Base colour tokens
+### Base colour tokens
 
-Only use base tokens when you've already checked for global tokens and you need something else for building your own components, tokens, or even images.
+Base colour tokens represent the individual colours in the palette, without assigning them a specific meaning or purpose.
 
-Use base colour design tokens to:
-
-- Fill a gap when no global tokens are available.
-- Design a custom visual, drawing from the full colour palette.
-- Support your own components.
-- Provide a basis to build (and potentially contribute back) your own tokens.
+Note: Code elements take American spelling for "colour" and "grey".
 
 <div class="table-base-colors">
   <TokenTable
@@ -138,7 +204,5 @@ Use base colour design tokens to:
     useCases={useCases}
   />
 </div>
-
-Note: Code elements take American spelling for "colour" and "grey".
 
 <HelpUs />
