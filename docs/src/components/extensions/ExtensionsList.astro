@@ -1,7 +1,10 @@
 ---
-import { resolveLocaleFromPathname } from '../../utils/i18n';
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { messages } from './messages.js';
 
 const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale) as any;
 
 const allExtensions = import.meta.glob(
   '../../content/pages/*/extensions/*.mdx',
@@ -19,8 +22,14 @@ const extensions = Object.entries(allExtensions)
     return matchesLocale && !isIndex;
   })
   .map(([path, frontmatter]) => ({
-    ...frontmatter,
-    slug: path.split('/').pop().replace('.mdx', ''),
+    ...(frontmatter as {
+      pageTitle: string;
+      briefDescription: string;
+      tags: string[];
+      maintainer: string;
+      extensionID: string;
+    }),
+    slug: path.split('/').pop()!.replace('.mdx', ''),
   }))
   .sort((a, b) => a.pageTitle.localeCompare(b.pageTitle));
 ---
@@ -34,8 +43,8 @@ const extensions = Object.entries(allExtensions)
         </gcds-link>
       </gcds-heading>
       <gcds-text margin-bottom="200" set:html={extension.briefDescription} />
-      <ul class="mb-200" aria-label="Tags">
-        {extension.tags.map((tag) => (
+      <ul class="mb-200" aria-label={localizedContent.list.tags}>
+        {extension.tags.map((tag: string) => (
           <li class="d-inline-block me-150">
             <span set:html={tag} />
           </li>
@@ -44,7 +53,7 @@ const extensions = Object.entries(allExtensions)
       <dl class="extension-meta">
         <div class="md:d-inline-block">
           <dt>
-            <gcds-sr-only>Maintainer:</gcds-sr-only>
+            <gcds-sr-only set:html={localizedContent.list.maintainer}></gcds-sr-only>
           </dt>
           <dd>
             <gcds-text text-role="secondary" size="small">
@@ -57,7 +66,7 @@ const extensions = Object.entries(allExtensions)
         </div>
         <div class="md:d-inline-block">
           <dt>
-            <gcds-sr-only>Version:</gcds-sr-only>
+            <gcds-sr-only set:html={localizedContent.list.version}></gcds-sr-only>
           </dt>
           <dd>
             <gcds-text text-role="secondary" size="small">
@@ -70,11 +79,11 @@ const extensions = Object.entries(allExtensions)
         </div>
         <div class="md:d-inline-block">
           <dt>
-            <gcds-sr-only>Last updated:</gcds-sr-only>
+            <gcds-sr-only set:html={localizedContent.list.lastPublished}></gcds-sr-only>
           </dt>
           <dd>
             <gcds-text text-role="secondary" size="small">
-              <span id={`${extension.extensionID}-last-updated`}>YYYY-MM-DD</span>
+              <span id={`${extension.extensionID}-last-published`}>YYYY-MM-DD</span>
             </gcds-text>
           </dd>
         </div>

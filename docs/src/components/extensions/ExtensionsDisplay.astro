@@ -1,23 +1,49 @@
 ---
-const { data, imgSrc } = Astro.props;
+interface Props {
+  data: {
+    contacts: { email: string; name: string }[],
+    description: string,
+    extensionID: string,
+    githubUrl: string,
+    imgAlt: string,
+    implementation: string,
+    installationUrl: string,
+    maintainer: string,
+    maintainerUrl: string,
+    pageTitle: string,
+    purpose: string,
+    status: string,
+    statusLabel: string,
+  },
+  imgSrc: string;
+}
+
+const { data, imgSrc } = Astro.props as Props;
 import { Heading, Text } from '../../components';
+
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { messages } from './messages.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale) as any;
 ---
 
 <Heading tag="h1">{data.pageTitle}</Heading>
 
 <gcds-notice
   notice-role="info"
-  notice-title="Notice"
+  notice-title={localizedContent.display.noticeTitle}
   notice-title-tag="h2"
   class="mb-400"
 >
-  <span>The extension and all guidance is maintained by {data.maintainer}.</span>
+  <span>{localizedContent.display.noticeDesc} {data.maintainer}.</span>
 </gcds-notice>
 
 <Text set:html={data.description} />
 
 <gcds-button type="link" href={data.installationUrl} class="mb-300">
-  Install guide <gcds-icon name="external" size="h5"></gcds-icon>
+  {localizedContent.display.install} <gcds-icon name="external" size="h5"></gcds-icon>
 </gcds-button>
 
 <img src={imgSrc} alt={data.imgAlt} class="b-radius-md" />
@@ -25,40 +51,40 @@ import { Heading, Text } from '../../components';
 <hr class="my-300"/>
 
 <Heading tag="h2">
-  Details
+  {localizedContent.display.details}
 </Heading>
 
 <gcds-grid columns-tablet="1fr 1fr" columns="1fr" tag="ul">
   <li class="list-none">
-    <div class="font-semibold" set:html={'Version'} />
+    <div class="font-semibold" set:html={localizedContent.display.version} />
     <div id={`${data.extensionID}-version`}>---</div>
   </li>
   <li class="list-none">
-    <div class="font-semibold" set:html={'Status'} />
+    <div class="font-semibold" set:html={localizedContent.display.status} />
     <div>{data.statusLabel}</div>
   </li>
   <li class="list-none">
-    <div class="font-semibold" set:html={'Last published'} />
-    <div id={`${data.extensionID}-last-updated`}>---</div>
+    <div class="font-semibold" set:html={localizedContent.display.lastPublished} />
+    <div id={`${data.extensionID}-last-published`}>---</div>
   </li>
   <li class="list-none">
-    <div class="font-semibold" set:html={'Repository'} />
+    <div class="font-semibold" set:html={localizedContent.display.repo} />
     <gcds-link href={data.githubUrl}>GitHub</gcds-link>
   </li>
   <li class="list-none">
-    <div class="font-semibold" set:html={'Extension purpose'} />
+    <div class="font-semibold" set:html={localizedContent.display.purpose} />
     <div>{data.purpose}</div>
   </li>
   <li class="list-none">
-    <div class="font-semibold" set:html={'Available implementation'} />
+    <div class="font-semibold" set:html={localizedContent.display.implementation} />
     <div>{data.implementation}</div>
   </li>
   <li class="list-none">
-    <div class="font-semibold" set:html={'Maintainer'} />
+    <div class="font-semibold" set:html={localizedContent.display.maintainer} />
     <gcds-link href={data.maintainerUrl}>{data.maintainer}</gcds-link>
   </li>
   <li class="list-none">
-    <div class="font-semibold" set:html={'Primary contacts'} />
+    <div class="font-semibold" set:html={localizedContent.display.contacts} />
 
     {data.contacts?.length === 1 ? (
       <gcds-link href={`mailto:${data.contacts[0].email}`}>
@@ -66,7 +92,7 @@ import { Heading, Text } from '../../components';
       </gcds-link>
     ) : data.contacts?.length > 1 ? (
       <ul>
-        {data.contacts.map((contact) => (
+        {data.contacts.map((contact: { email: any; name: unknown; }) => (
           <li>
             <gcds-link href={`mailto:${contact.email}`}>
               {contact.name}

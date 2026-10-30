@@ -1,0 +1,32 @@
+---
+layout: '~layouts/BaseLayout.astro'
+extensionID: gcds-ext-map
+pageTitle: Carte
+description: La carte est un outil interactif qui permet d’afficher et d’interroger plusieurs couches de données géographiques à différentes échelles.
+briefDescription: Un outil interactif qui permet d’afficher et d’interroger plusieurs couches de données géographiques à différentes échelles.
+status: active
+statusLabel: Maintenance active
+githubUrl: https://github.com
+purpose: Besoin spécialisé
+implementation: Component Web
+maintainer: Ressources naturelles Canada
+maintainerUrl: https://ressources-naturelles.canada.ca/
+contacts: 
+  - name: Peter Rushforth
+    email: test@test.ca
+  - name: Aliyan Haq
+    email: test@test.ca
+tags:
+  - mapml
+  - vector-tiles
+  - <abbr title="Système d'information géographique">SIG</abbr>
+  - données géospaciales
+  - couches
+installationUrl: https://www.nrcan.gc.ca/
+imgAlt: Interface de Ressources naturelles Canada affichant une carte interactive du Canada avec des commandes de navigation, d'agrandissement et de sélection des couches, sous le titre « Afficher et explorer des données géographiques ».
+---
+
+import { ExtensionsDisplay } from "~components"
+import map from '~assets/img/fr/extensions/map.png'
+
+<ExtensionsDisplay data={frontmatter} imgSrc={map.src} />
