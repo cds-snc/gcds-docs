@@ -10,14 +10,8 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
-      - package.json
-      - package-lock.json
-      - .eleventy.js
-      - src/**
-      - utils/**
+      - docs/**
       - .github/workflows/a11y-tests.yaml
-      - cypress/**
-      - scripts/templates.js
 
 jobs:
   a11y-test:
@@ -33,10 +27,8 @@ jobs:
         test:
           - name: English site
             spec: cypress/e2e/a11y-en.cy.js
-            url: 'http://localhost:8080/en'
           - name: French site
             spec: cypress/e2e/a11y-fr.cy.js
-            url: 'http://localhost:8080/fr'
 
     steps:
       - name: Git Checkout
@@ -51,9 +43,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@01e3b659a495b41649cdd0aa82e1d1624e26520b # v7.4.4
         with:
-          build: npm run build:eleventy
-          start: npm run watch:eleventy
-          wait-on: ${{ matrix.test.url }}
-          # wait for 2 minutes for the server to respond
+          working-directory: ./docs
+          build: npm run build
+          start: npm run preview
+          wait-on: "http://localhost:4321/sitemap-index.xml"
           wait-on-timeout: 240
           spec: ${{ matrix.test.spec }}
