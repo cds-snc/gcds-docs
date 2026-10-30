@@ -1,0 +1,32 @@
+---
+layout: '~layouts/BaseLayout.astro'
+extensionID: map
+pageTitle: Map
+description: The map is an interactive tool to display and query layered location information at varying scales.
+briefDescription: An interactive tool to display and query layered location information at varying scales.
+status: active
+statusLabel: Actively maintained
+githubUrl: https://github.com
+purpose: Specialized use case
+implementation: Web component
+maintainer: Natural Resources Canada
+maintainerUrl: https://www.nrcan.gc.ca/
+contacts: 
+  - name: Peter Rushforth
+    email: test@test.ca
+  - name: Aliyan Haq
+    email: test@test.ca
+tags:
+  - mapml
+  - vector-tiles
+  - <abbr title="Geographic Information System">GIS</abbr>
+  - geospatial data
+  - layer
+installationUrl: https://www.nrcan.gc.ca/
+imgAlt: Natural Resources Canada interface featuring an interactive map of Canada with navigation, zoom, and layer controls, under the heading "Display and interact with geographic data.
+---
+
+import { ExtensionsDisplay } from "~components"
+import map from '~assets/img/en/extensions/map.png'
+
+<ExtensionsDisplay data={frontmatter} imgSrc={map.src} />

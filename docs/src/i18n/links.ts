@@ -63,6 +63,9 @@ export const links = {
     formValidation: "/en/components/validate-form-components",
     about: "/en/about-us",
 
+    extensions: "/en/extensions",
+    extensionsMap: "/en/extensions/map",
+
     accessToInformationAct: "https://laws-lois.justice.gc.ca/eng/acts/a-1/page-1.html",
     airtable: "https://www.airtable.com/",
     airtablePrivacy: "https://www.airtable.com/company/privacy",
@@ -191,6 +194,9 @@ export const links = {
     shortcuts: "/fr/raccourcis-css",
     formValidation: "/fr/composants/valider-les-composants-de-formulaire",
     about: "/fr/a-propos",
+
+    extensions: "/fr/extensions",
+    extensionsMap: "/fr/extensions/carte",
 
     accessToInformationAct: "https://laws-lois.justice.gc.ca/fra/lois/a-1/page-1.html",
     airtable: "https://www.airtable.com/",

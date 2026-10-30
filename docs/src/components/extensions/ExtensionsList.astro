@@ -1,0 +1,84 @@
+---
+import { resolveLocaleFromPathname } from '../../utils/i18n';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+
+const allExtensions = import.meta.glob(
+  '../../content/pages/*/extensions/*.mdx',
+  {
+    eager: true,
+    import: 'frontmatter',
+  },
+);
+
+const extensions = Object.entries(allExtensions)
+  .filter(([path]) => {
+    const matchesLocale = path.includes(`/pages/${locale}/extensions/`);
+    const isIndex = path.endsWith('/index.mdx');
+
+    return matchesLocale && !isIndex;
+  })
+  .map(([path, frontmatter]) => ({
+    ...frontmatter,
+    slug: path.split('/').pop().replace('.mdx', ''),
+  }))
+  .sort((a, b) => a.pageTitle.localeCompare(b.pageTitle));
+---
+
+<ul>
+  {extensions.map((extension) => (
+    <li class="py-300">
+      <gcds-heading margin-bottom="200" margin-top="0" tag="h3">
+        <gcds-link href={`/${locale}/extensions/${extension.slug}`}>
+          {extension.pageTitle}
+        </gcds-link>
+      </gcds-heading>
+      <gcds-text margin-bottom="200" set:html={extension.briefDescription} />
+      <ul class="mb-200" aria-label="Tags">
+        {extension.tags.map((tag) => (
+          <li class="d-inline-block me-150">
+            <span set:html={tag} />
+          </li>
+        ))}
+      </ul>
+      <dl class="extension-meta">
+        <div class="md:d-inline-block">
+          <dt>
+            <gcds-sr-only>Maintainer:</gcds-sr-only>
+          </dt>
+          <dd>
+            <gcds-text text-role="secondary" size="small">
+              <strong>{extension.maintainer}</strong>
+            </gcds-text>
+          </dd>
+        </div>
+        <div aria-hidden="true" class="d-none md:d-inline-block mx-150">
+          &#8226;
+        </div>
+        <div class="md:d-inline-block">
+          <dt>
+            <gcds-sr-only>Version:</gcds-sr-only>
+          </dt>
+          <dd>
+            <gcds-text text-role="secondary" size="small">
+              <span id={`${extension.extensionID}-version`}>v1.0.0</span>
+            </gcds-text>
+          </dd>
+        </div>
+        <div aria-hidden="true" class="d-none md:d-inline-block mx-150">
+          &#8226;
+        </div>
+        <div class="md:d-inline-block">
+          <dt>
+            <gcds-sr-only>Last updated:</gcds-sr-only>
+          </dt>
+          <dd>
+            <gcds-text text-role="secondary" size="small">
+              <span id={`${extension.extensionID}-last-updated`}>YYYY-MM-DD</span>
+            </gcds-text>
+          </dd>
+        </div>
+      </dl>
+    </li>
+  ))}
+</ul>

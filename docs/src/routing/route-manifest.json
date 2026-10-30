@@ -80,6 +80,15 @@
     },
     {
       "type": "group",
+      "versioned": false,
+      "groupKey": "extensions",
+      "routeKey": "extensions",
+      "slug": {"en": "extensions", "fr": "extensions"},
+      "label": {"en": "Extensions", "fr": "Extensions"},
+      "manifestKey": "extensions"
+    },
+    {
+      "type": "group",
       "versioned": true,
       "groupKey": "contact",
       "routeKey": "contact",

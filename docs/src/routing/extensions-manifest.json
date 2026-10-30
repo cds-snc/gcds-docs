@@ -1,0 +1,19 @@
+{
+  "key": "EXTENSIONS",
+  "items": [
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Extensions overview", "fr": "Aperçu des extensions"},
+      "slug": {"en": "", "fr": ""},
+      "pageType": "overview"
+    },
+    {
+      "type": "link",
+      "versioned": false,
+      "label": {"en": "Map", "fr": "Carte"},
+      "slug": {"en": "map", "fr": "carte"},
+      "containsSubPages": false
+    }
+  ]
+}

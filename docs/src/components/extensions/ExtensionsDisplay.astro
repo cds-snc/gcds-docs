@@ -1,0 +1,79 @@
+---
+const { data, imgSrc } = Astro.props;
+import { Heading, Text } from '../../components';
+---
+
+<Heading tag="h1">{data.pageTitle}</Heading>
+
+<gcds-notice
+  notice-role="info"
+  notice-title="Notice"
+  notice-title-tag="h2"
+  class="mb-400"
+>
+  <span>The extension and all guidance is maintained by {data.maintainer}.</span>
+</gcds-notice>
+
+<Text set:html={data.description} />
+
+<gcds-button type="link" href={data.installationUrl} class="mb-300">
+  Install guide <gcds-icon name="external" size="h5"></gcds-icon>
+</gcds-button>
+
+<img src={imgSrc} alt={data.imgAlt} class="b-radius-md" />
+
+<hr class="my-300"/>
+
+<Heading tag="h2">
+  Details
+</Heading>
+
+<gcds-grid columns-tablet="1fr 1fr" columns="1fr" tag="ul">
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Version'} />
+    <div id={`${data.extensionID}-version`}>---</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Status'} />
+    <div>{data.statusLabel}</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Last published'} />
+    <div id={`${data.extensionID}-last-updated`}>---</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Repository'} />
+    <gcds-link href={data.githubUrl}>GitHub</gcds-link>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Extension purpose'} />
+    <div>{data.purpose}</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Available implementation'} />
+    <div>{data.implementation}</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Maintainer'} />
+    <gcds-link href={data.maintainerUrl}>{data.maintainer}</gcds-link>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={'Primary contacts'} />
+
+    {data.contacts?.length === 1 ? (
+      <gcds-link href={`mailto:${data.contacts[0].email}`}>
+        {data.contacts[0].name}
+      </gcds-link>
+    ) : data.contacts?.length > 1 ? (
+      <ul>
+        {data.contacts.map((contact) => (
+          <li>
+            <gcds-link href={`mailto:${contact.email}`}>
+              {contact.name}
+            </gcds-link>
+          </li>
+        ))}
+      </ul>
+    ) : null}
+  </li>
+</gcds-grid>

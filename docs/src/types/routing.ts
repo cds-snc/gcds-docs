@@ -44,7 +44,7 @@ export type ManifestItem = {
   items?: ManifestItem[];
 };
 
-export type ManifestKey = 'components' | 'cssShortcuts' | 'tokens';
+export type ManifestKey = 'components' | 'cssShortcuts' | 'tokens' | 'extensions';
 
 export type GroupRoute = {
   type: 'group';

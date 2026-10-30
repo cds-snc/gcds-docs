@@ -47,3 +47,7 @@ export { default as ValidProps } from "./form-components/ValidProps.astro";
 // Search components
 export { default as SearchInput } from "./search/SearchInput.astro";
 export { default as SearchResults } from "./search/SearchResults.astro";
+
+// Extensions components
+export { default as ExtensionsList } from "./extensions/ExtensionsList.astro";
+export { default as ExtensionsDisplay } from "./extensions/ExtensionsDisplay.astro";
