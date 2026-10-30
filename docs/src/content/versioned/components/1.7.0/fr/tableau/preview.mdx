@@ -1,0 +1,12 @@
+---
+---
+
+import { tableData } from "src/data/tablePreview"
+
+<gcds-table
+  sort="true"
+  pagination="true"
+  filter="true"
+  columns={JSON.stringify(tableData.fr.columns)}
+  data={JSON.stringify(tableData.data)}
+></gcds-table>

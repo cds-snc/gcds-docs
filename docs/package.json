@@ -21,7 +21,7 @@
     "@astrojs/react": "^7.1.1",
     "@astrojs/sitemap": "^3.7.4",
     "@cdssnc/sanitize-pii": "^2.2.0",
-    "@gcds-core/components-react": "^1.6.0",
+    "@gcds-core/components-react": "^1.7.0",
     "@gcds-core/css-shortcuts": "^1.2.0",
     "@gcds-core/tokens": "^1.6.0",
     "@gcds-extensions/code-display": "^1.0.3",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "@gcds-core/components": "^1.6.0",
+    "@gcds-core/components": "^1.7.0",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.5.0",
     "cypress-html-validate": "^7.0.0",
