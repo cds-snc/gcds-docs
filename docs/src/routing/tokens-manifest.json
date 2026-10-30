@@ -9,11 +9,29 @@
       "pageType": "overview"
     },
     {
-      "type": "link",
+      "type": "group",
       "versioned": false,
       "label": {"en": "Design tokens", "fr": "Unités de style"},
-      "slug": {"en": "design-tokens", "fr": "unites-de-style"},
-      "containsSubPages": false
+      "items": [
+        {
+          "type": "link",
+          "versioned": false,
+          "label": {"en": "About design tokens", "fr": "À propos des unités de style"},
+          "slug": {"en": "design-tokens", "fr": "unites-de-style"}
+        },
+        {
+          "type": "link",
+          "versioned": false,
+          "label": {"en": "Token naming", "fr": "Noms des unités de style"},
+          "slug": {"en": "design-tokens/token-naming", "fr": "unites-de-style/noms-des-unites-de-style"}
+        },
+        {
+          "type": "link",
+          "versioned": false,
+          "label": {"en": "Using tokens", "fr": "Utiliser les unités de style"},
+          "slug": {"en": "design-tokens/using-tokens", "fr": "unites-de-style/utiliser-les-unites-de-style"}
+        }
+      ]
     },
     {
       "type": "link",

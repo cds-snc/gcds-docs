@@ -2,11 +2,13 @@
 layout: '~layouts/BaseLayout.astro'
 pageTitle: Typography tokens
 description: Typography tokens include the style, arrangement, and appearance of letters, numbers, and symbols.
-dateModified: "2025-03-10T08:16:14-07:00"
+dateModified: '2025-03-10T08:16:14-07:00'
 ---
 
 import { HelpUs, TokenTable } from '~components';
 import { links } from '~i18n/links';
+
+import fontFamilies from '~assets/img/en/foundations/font-families.svg';
 
 export const valueHeaders = {
   'font-preview': 'Preview',
@@ -34,74 +36,130 @@ export const previews = {
   'fontWeights-bold': 'Bold',
 };
 
-# Typography tokens
+# Typography
 
-Typography tokens include the style, arrangement, and appearance of letters, numbers, and symbols.
+Typography is about the style, arrangement, and appearance of letters, numbers, and symbols.
 
-## Typography and accessibility
+## On this page
 
-GC Design System components meet <gcds-link external href={links.en.wcagTextSpacing} target="_blank">level AA of the Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> for text spacing and AAA for visual presentation.
+- [Typography system](#typography-system)
+- [Using typography](#using-typography)
+- [Typography token reference](#typography-token-reference)
 
-## Vertical rhythm and rem spacing sizes
+## Typography system
 
-GC Design System typography spacing is based on vertical rhythm and calculated with the help of a base size.
+GC Design System uses `Lato` for headings and `Noto Sans` for body text. These fonts are part of the visual identity of the Government of Canada. `Noto Sans Mono` is available for code examples. Different combinations of font size, weight, and line height create a consistent typographic hierarchy.
 
-Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patterns. Consistent vertical spacing helps make content easier to scan, read, and understand. Spacing sizes are configured with rem units. All spacing sizes are relative to a base size of 1.25rem (20px) and what we use to calculate all typography and spacing values.
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={fontFamilies.src}
+  alt="The three font families used in the GC Design System: Lato, Noto Sans, and Noto Sans Mono."
+/>
 
-## Global typography tokens
+GC Design System typography follows a consistent vertical rhythm, aligning text to evenly spaced horizontal lines in repeated patterns. Consistent vertical spacing helps make content easier to scan, read, and understand. Vertical spacing values are calculated from a base size of 1.25rem (20px).
 
-### Headings
+The typography system is represented by <gcds-link href={`${links.en.designTokens}#global-tokens`}>global tokens</gcds-link>.
 
-Heading tags for headings and subheadings give a page structure, organize content. They also support navigation, especially for people using assistive technology.
+<gcds-link class="d-block mb-600" href="#typography-token-reference">Browse typography tokens</gcds-link>
+
+<hr />
+
+## Using typography
+
+### Structure content with headings
 
 - All headings and subheadings need a heading tag (`<h1>` - `<h6>`).
-- Start main content with an H1. Use no more than one H1 for each page.
-- Order heading levels numerically. H3 follows H2, H2 follows H1, and so on.
+- Start main content with an `H1`. Use no more than one `H1` for each page.
+- Order heading levels numerically. `H3` follows `H2`, `H2` follows `H1`, and so on.
 - Avoid skipping hierarchical heading levels.
-- Match an H1 font size with an H1 line height, an H2 font size with an H2 line height, etc.
-- Use headings for calls to action and to create emphasis.
+- Match an `H1` font size with an `H1` line height, an `H2` font size with an `H2` line height, etc.
 - Make each heading distinctive and make it obvious what the content is about.
 
-<TokenTable token="font" subTokens="h1 h2 h3 h4 h5 h6" type="typography" headers={valueHeaders} previews={previews} />
+### Choose the font family based on content
 
-Note: The font property is a shorthand property for font-weight, font-size/line-height, font-family.
+- Only use the heading tokens for headings. Everything else can be set in text.
+- Use the body font family for most purposes.
+- Opt to use monospace when citing code to give specific code examples.
 
-### Text
+### Keep text readable
 
 - For font size, keep text line length below 65 characters for a comfortable, accessible reading length.
-- Use the css unit `65ch (--gcds-text-character-limit)` or lower to set the maximum width of your paragraphs.
+- Use the CSS unit `65ch (--gcds-text-character-limit)` or lower to set the maximum width of your paragraphs.
 
-<TokenTable token="font" subTokens="text textSmall" type="typography" headers={valueHeaders} previews={previews} />
+### Use font weights in a accessible way
+
+- Limit the quantity of font weights to two or three in the same space to avoid compromising contrast.
+- Use font weights to emphasize words within a table, at the start of a paragraph, or in long blocks of text when you've exhausted available headings and other style elements.
+- Be mindful in establishing emphasis in an accessible way, as many assistive technologies ignore font weights.
+
+### Limit bold text and italics
+
+- Use bold text sparingly, as it can create cognitive processing difficulties for sighted readers.
+- Use italics when referencing a Canadian law, as in _Accessible Canada Act_.
+- Limit your use of italics to short strings of text. Long passages in italics can create cognitive processing difficulties for sighted readers.
+
+### Choose how to apply typography
+
+- Use CSS Shortcuts when you need to adjust the typography or presentation of your own content. CSS Shortcuts are available for properties such as font family, font size, font style, font weight, line height, and text alignment.
+- If a CSS Shortcuts class does not cover your need, use a global typography token in your custom CSS.
+
+### Apply typography
+
+Learn how to use CSS Shortcuts or design tokens to apply GC Design System decisions in your designs and code.
+
+<div class="d-flex flex-wrap gap-200 mb-600">
+  <gcds-button button-role="secondary" type="link" href={links.en.shortcuts}>Use CSS Shortcuts</gcds-button>
+  <gcds-button button-role="secondary" type="link" href={links.en.usingTokens}>Use design tokens</gcds-button>
+</div>
+
+<hr />
+
+## Typography token reference
+
+### Heading font
+
+Heading font tokens define the typography for headings and subheadings. They combine font family, font weight, font size, and line height into a single typography definition.
+
+<TokenTable
+  token="font"
+  subTokens="h1 h2 h3 h4 h5 h6"
+  type="typography"
+  headers={valueHeaders}
+  previews={previews}
+/>
+
+### Text font
+
+Text font tokens define typography for body text and other non-heading content. They combine font family, font weight, font size, and line height into a single typography definition.
+
+<TokenTable
+  token="font"
+  subTokens="text textSmall"
+  type="typography"
+  headers={valueHeaders}
+  previews={previews}
+/>
 
 ### Font families
 
-Headings use the font "Lato". Paragraphs and other text use the font "Noto Sans".
+Font family tokens define the typefaces used in GC Design System. They contain fallback values when the font is not available.
 
-The font family contains fallback values. The fallback is a substitute value for font families only in case the font is not available.
-
-- Only use the heading tokens for headings. Everything else can be set in text.
-- Use text font family for most purposes.
-- Opt to use monospace when citing code to give specific code examples.
-
-<TokenTable token="fontFamilies" type="fontFamilies" headers={valueHeaders} previews={previews} />
+<TokenTable
+  token="fontFamilies"
+  type="fontFamilies"
+  headers={valueHeaders}
+  previews={previews}
+/>
 
 ### Font weights
 
-- Limit the quantity of font weights you use in the same space to avoid compromising contrast. Only use two or three weights with as much contrast as possible.
-- Use font weights to emphasize words within a table, at the start of a paragraph, or in long blocks of text when you've exhausted available headings and other style elements.
-- Be mindful in establishing emphasis in an accessible way, many assistive technologies ignore font weights.
-- Instead of font weights, consider using bullets or increasing white space to break up text.
+Font weight tokens define the thickness of text, from regular to bold, used in GC Design System.
 
-<TokenTable token="fontWeights" type="fontWeights" headers={valueHeaders} previews={previews} />
-
-### Bold text
-
-- Maintain the default bold setting for headings.
-- Overuse of bold text can create cognitive processing difficulties for sighted readers.
-
-### Italics
-
-- Use italics when referencing a Canadian law, as in _Accessible Canada Act_.
-- Limit your use of italics to short strings of text. Long passages in italics can create cognitive processing difficulties for sighted readers.
+<TokenTable
+  token="fontWeights"
+  type="fontWeights"
+  headers={valueHeaders}
+  previews={previews}
+/>
 
 <HelpUs />

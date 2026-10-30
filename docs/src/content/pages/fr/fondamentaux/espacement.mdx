@@ -2,11 +2,13 @@
 layout: '~layouts/BaseLayout.astro'
 pageTitle: Unités de style d'espacement
 description: Les unités de style d'espacement aident à disposer les éléments à l'écran et dans les composants.
-dateModified: "2025-02-10T08:16:31-05:00"
+dateModified: '2025-02-10T08:16:31-05:00'
 ---
 
 import { HelpUs, TokenTable } from '~components';
 import { links } from '~i18n/links';
+
+import usingSpacing from '~assets/img/fr/foundations/using-spacing.svg';
 
 export const headers = {
   'spacing-preview': 'Aperçu',
@@ -15,29 +17,64 @@ export const headers = {
   'value': 'Rem',
 };
 
-# Unités de style d'espacement
+# Espacement
 
-Les unités de style d'espacement aident à disposer les éléments à l'écran et dans les composants.
+L’espacement aide à positionner les éléments à l’écran et dans les composants.
 
-## Unités de style d'espacement et accessibilité
+## Sur cette page
 
-Les composants de Système de design GC sont conformes au niveau AAA des <gcds-link external href={links.fr.wcagTargetSize} target="_blank">Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)</gcds-link> (site Web anglais) en matière de cibles pour les pointeurs d'entrée et de présentation visuelle.
+- [Système d’espacement](#systeme-despacement)
+- [Utiliser l’espacement](#utiliser-lespacement)
+- [Référence des unités de style d’espacement](#reference-des-unites-de-style-despacement)
 
-L'espacement permet d'établir une hiérarchie visuelle dans le contenu et d'attirer l'attention vers certains éléments. Un contenu trop dense est plus difficile à lire et augmente la charge cognitive du lecteur.
+## Système d’espacement
 
-## Rythme vertical et tailles d'espacement en rem
+Système de design GC utilise un système d’espacement cohérent basé sur le rythme vertical et une taille de base.
 
-L'espacement dans Système de design GC est basé sur le rythme vertical et calculé en fonction d'une taille de base.
+Le rythme vertical consiste à aligner le texte sur des lignes horizontales espacées de manière égale, selon un motif répétitif. Cet espacement vertical régulier facilite le survol, la lecture et la compréhension du contenu.
 
-Le rythme vertical est un alignement du texte selon des lignes horizontales espacées de manière égale pour former des motifs récurrents. Un espacement vertical uniforme aide à l'interprétation, la lecture et la compréhension du contenu. Les espacements sont configurés au moyen d'unités rem. Toute valeur typographique et d'espacement s'exprime en fonction d'une taille de base de 1.25 rem (20 px).
+Les valeurs d’espacement sont définies en rem. Elles sont toutes calculées à partir d’une taille de base de `1,25 rem` (`20 px`).
 
-## Unités de style d'espacement globales
+Le système d’espacement est représenté par des <gcds-link href={`${links.fr.designTokens}#unites-de-style-globales`}>unités de style globales</gcds-link>.
 
-### Alignement et espacement
+<gcds-link class="d-block mb-600" href="#reference-des-unites-de-style-despacement">Parcourir les unités de style d’espacement</gcds-link>
 
-- Utilisez de plus petites unités de style d'espacement pour regrouper des éléments connexes.
-- Employez de plus grandes unités de style d'espacement pour former des groupes logiques d'éléments.
-- Lorsque possible, alignez les éléments à la fois sur les axes vertical et horizontal.
+<hr />
+
+## Utiliser l’espacement
+
+### Espacez selon les relations entre les éléments
+
+- Utilisez de petites valeurs d’espacement pour regrouper les éléments de contenu liés.
+- Utilisez de grandes valeurs d’espacement pour séparer les groupes d’éléments.
+- Dans la mesure du possible, alignez les objets à la verticale et à l’horizontale.
+
+<img
+  class="px-600 py-400 bg-light-purple"
+  src={usingSpacing.src}
+  alt="Schéma montrant un plus petit espacement (--gcds-spacing-300) entre un titre et son paragraphe, et un plus grand espacement (--gcds-spacing-600) entre un paragraphe et le titre de la section suivante."
+/>
+
+### Choisissez comment appliquer l’espacement
+
+Limitez-vous aux valeurs de l’échelle d’espacement de Système de design GC pour maintenir la cohérence.
+
+- Utilisez le <gcds-link href={links.fr.grid}>composant grille</gcds-link> pour organiser les éléments et contrôler l’espacement entre eux. Ses attributs `gap` acceptent des valeurs de `150` à `800`, qui correspondent aux unités de style d’espacement de Système de design GC.
+- Utilisez les raccourcis CSS pour appliquer des marges et des espacements intérieurs. Les raccourcis CSS utilisent les unités de style d’espacement de Système de design GC.
+- Si aucun raccourci CSS ne répond à vos besoins, utilisez une unité de style globale d’espacement dans vos propres styles CSS.
+
+### Appliquez l’espacement
+
+Découvrez comment utiliser les raccourcis CSS ou les unités de style pour appliquer les décisions de Système de design GC dans vos maquettes et votre code.
+
+<div class="d-flex flex-wrap gap-200 mb-600">
+  <gcds-button button-role="secondary" type="link" href={links.fr.shortcuts}>Utiliser les raccourcis CSS</gcds-button>
+  <gcds-button button-role="secondary" type="link" href={links.fr.usingTokens}>Utiliser les unités de style</gcds-button>
+</div>
+
+<hr />
+
+## Référence des unités de style d’espacement
 
 <TokenTable token="spacing" type="dimension" headers={headers} />
 

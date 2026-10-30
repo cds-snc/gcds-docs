@@ -5,7 +5,7 @@ description: Les unités de style de couleur comprennent les valeurs nécessaire
 dateModified: '2026-02-12T12:40:07-05:00'
 ---
 
-import { HelpUs, TokenTable } from '~components';
+import { HelpUs, TokenTable, ColourPalette } from '~components';
 import { links } from '~i18n/links';
 
 export const headers = {
@@ -61,55 +61,126 @@ export const useCases = {
     "Couleur du texte de formulaire ciblé, exclusivement pour les éléments interactifs ciblés dans un formulaire. Évitez d'utiliser cette unité de style pour des éléments autres que ceux d'un formulaire.",
 };
 
-# Unités de style de couleur
+# Couleur
 
-Les unités de style de couleur définissent les couleurs pour les composants et les styles globaux.
+Nous utilisons la couleur pour créer la hiérarchie, communiquer du sens et offrir des expériences cohérentes dans l’ensemble des composants et des produits.
 
-## Unités de style de couleur et accessibilité
+## Sur cette page
 
-Les composants de Système de design GC sont conformes <gcds-link external href={links.fr.wcag} target="_blank">au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)</gcds-link> (site anglais) en matière de contraste des couleurs des éléments texte et des éléments interactifs.
+- [Palette de couleurs](#palette-de-couleurs)
+- [Couleurs sémantiques](#couleurs-semantiques)
+- [Utiliser les couleurs](#utiliser-les-couleurs)
+- [Référence des unités de style de couleur](#reference-des-unites-de-style-de-couleur)
 
-Lorsque vous utilisez des unités de style de couleur globales, vérifiez si vos combinaisons de couleurs satisfont aux normes en matière d'accessibilité du contraste des couleurs à l'aide de l'outil <gcds-link external href={links.fr.webaim} target="_blank">Web Aim Contrast Checker</gcds-link> (site anglais).
+## Palette de couleurs
 
-## Soyez judicieux dans votre choix d'unités de style de couleur
+La palette comprend 6 échelles de couleurs, chacune allant des nuances les plus claires aux plus foncées. Ensemble, elles constituent la gamme de couleurs utilisée dans Système de design GC.
 
-Sélectionnez les unités de style globales en fonction de leur utilisation prévue et de vos besoins.
+<ColourPalette scales="grayscale red yellow green blue purple" />
 
-Remplacez les valeurs codées en dur dans votre code par les unités de style de couleur proposées par Système de design GC, comme `var(--gcds-text-primary)` plutôt que #333333.
+Chaque échelle de couleurs joue un rôle général dans le système. Ces rôles guident notre utilisation des couleurs, sans définir tous leurs usages possibles.
 
-## Unités de style de couleur globales
+<gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
+  <li class="list-none">
+    <strong>Gris</strong><br/>Structure, texte, arrière-plans, bordures.
+  </li>
+  <li class="list-none">
+    <strong>Vert</strong><br/>Succès et confirmation positive.
+  </li>
+  <li class="list-none">
+    <strong>Rouge</strong><br/>Informations critiques, erreurs, actions destructrices.
+  </li>
+  <li class="list-none">
+    <strong>Bleu</strong><br/>Interaction et information.
+  </li>
+  <li class="list-none">
+    <strong>Jaune</strong><br/>Avertissements et alertes.
+  </li>
+  <li class="list-none">
+    <strong>Violet</strong><br/>États particuliers et accents visuels.
+  </li>
+</gcds-grid>
 
-Utilisez les unités de style de couleur globales pour :
+### Couleurs supplémentaires
 
-- Concevoir des maquettes, des couleurs de texte et des styles globaux (ou de site).
-- Communiquer le sens associé à l'unité de style. Les unités de style globales suivent des règles sémantiques.
-- Créer de nouvelles unités de style pour vos composants.
+En plus des 6 échelles, la palette comprend 4 couleurs individuelles.
 
-Utilisez les unités de style d'état global pour :
+<ColourPalette singles="white blue-vivid blue-muted black" />
 
-- Appliquer un style uniforme aux états de vos composants.
+Le bleu vif (« blue-vivid ») sert à mettre en évidence les éléments interactifs. Le bleu atténué (« blue-muted ») rappelle l’identité visuelle de Canada.ca et des produits du gouvernement du Canada.
 
-### Texte
+Toutes les couleurs de la palette sont définies comme des <gcds-link href={`${links.fr.designTokens}#unites-de-style-de-base`}>unités de style de base</gcds-link>. Ces unités n’ont pas de signification ni de fonction particulière et servent à créer les unités de style de couleur sémantiques.
+
+<gcds-link class="d-block mb-300" href="#unites-de-style-de-base-pour-la-couleur">Parcourir les unités de base pour la couleur</gcds-link>
+
+<hr />
+
+## Couleurs sémantiques
+
+Les couleurs sémantiques donnent une signification ou une fonction précise aux couleurs dans une interface. Elles contribuent à l’identité visuelle du gouvernement du Canada.
+
+Les couleurs sémantiques sont représentées par des <gcds-link href={`${links.fr.designTokens}#unites-de-style-globales`}>unités de style globales</gcds-link>. Ces unités associent les couleurs de la palette à des usages précis, comme le texte, les arrière-plans, les bordures et les états interactifs. Elles permettent ainsi d’appliquer les mêmes décisions de couleur de façon cohérente.
+
+<gcds-link class="d-block mb-300" href="#unites-de-style-globales-pour-la-couleur">Parcourir les unités globales pour la couleur</gcds-link>
+
+<hr />
+
+## Utiliser les couleurs
+
+### Choisissez les unités de couleur selon leur fonction
+
+Choisissez les unités de style globales selon leur signification et leur adéquation à vos besoins. Vous contribuerez ainsi à préserver la signification des couleurs d’une interface à l’autre.
+
+### Vérifiez le contraste des couleurs
+
+Lorsque vous combinez les couleurs de Système de design GC dans vos propres styles, vérifiez que les combinaisons respectent les normes d’accessibilité en matière de contraste des couleurs, à l’aide d’outils de vérification du contraste comme <gcds-link external href={links.fr.webaim} target="_blank">Web Aim Contrast Checker</gcds-link>.
+
+### Choisissez comment appliquer les couleurs
+
+Lorsque vous devez appliquer une couleur en dehors d’un composant :
+
+- Utilisez une classe de raccourci CSS lorsqu’il en existe une pour le style dont vous avez besoin, comme <gcds-link href={links.fr.textColourShortcut}>la couleur du texte</gcds-link>, <gcds-link href={links.fr.linkColourShortcut}>la couleur des liens</gcds-link> ou <gcds-link href={links.fr.backgroundColourShortcut}>la couleur des arrière-plans</gcds-link>.
+- Utilisez une unité de style de couleur globale lorsqu’aucun raccourci CSS ne répond à vos besoins.
+- Utilisez une unité de style de base uniquement lorsqu’aucune unité de style de couleur globale ne convient.
+
+### Appliquez les couleurs
+
+Découvrez comment utiliser les raccourcis CSS ou les unités de style pour appliquer les décisions de Système de design GC dans vos maquettes et votre code.
+
+<div class="d-flex flex-wrap gap-200 mb-600">
+  <gcds-button button-role="secondary" type="link" href={links.fr.shortcuts}>Utiliser les raccourcis CSS</gcds-button>
+  <gcds-button button-role="secondary" type="link" href={links.fr.usingTokens}>Utiliser les unités de style</gcds-button>
+</div>
+
+<hr/>
+
+## Référence des unités de style de couleur
+
+### Unités de style globales pour la couleur
+
+Les unités de style globales attribuent une signification ou une fonction aux couleurs de la palette.
+
+#### Texte
 
 <TokenTable token="text" type="color" headers={headers} useCases={useCases} />
 
-### Lien
+#### Lien
 
 <TokenTable token="link" type="color" headers={headers} useCases={useCases} />
 
-### Arrière-plan
+#### Arrière-plan
 
 <TokenTable token="bg" type="color" headers={headers} useCases={useCases} />
 
-### Bordure
+#### Bordure
 
 <TokenTable token="border" type="color" headers={headers} useCases={useCases} />
 
-### État danger
+#### État danger
 
 <TokenTable token="danger" type="color" headers={headers} useCases={useCases} />
 
-### État désactivé
+#### État désactivé
 
 <TokenTable
   token="disabled"
@@ -118,20 +189,15 @@ Utilisez les unités de style d'état global pour :
   useCases={useCases}
 />
 
-### État ciblé
+#### État ciblé
 
 <TokenTable token="focus" type="color" headers={headers} useCases={useCases} />
 
-## Unités de style de couleur de base
+### Unités de style de base pour la couleur
 
-Utilisez les unités de style de base lorsqu'il vous faut quelque chose de précis pour construire vos propres composants, unités de style ou images, mais vérifiez d'abord s'il existe des unités de style globales.
+Les unités de style de base représentent les couleurs individuelles de la palette, sans leur attribuer de signification ou de fonction particulière.
 
-Utilisez les unités de style de couleur de base pour :
-
-- Combler les lacunes lorsqu'il n'existe aucune unité de style globale.
-- Concevoir un visuel personnalisé en faisant appel à la gamme de couleurs complète.
-- Prendre en charge vos propres composants.
-- Fournir une base pour construire (et potentiellement publier) vos propres unités de style.
+Remarque : Dans le code, les mots « colour » (couleur) et « grey » (gris) suivent l’orthographe américaine « color » et « gray ».
 
 <div class="table-base-colors">
   <TokenTable
@@ -141,7 +207,5 @@ Utilisez les unités de style de couleur de base pour :
     useCases={useCases}
   />
 </div>
-
-Remarque : Les éléments de code utilisent l'orthographe américaine pour «&nbsp;colour&nbsp;» et «&nbsp;grey&nbsp;».
 
 <HelpUs />

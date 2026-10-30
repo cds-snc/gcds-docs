@@ -4,6 +4,7 @@ export { default as AnatomyList } from "./AnatomyList.astro";
 export { default as CdnVersionScript } from "./CdnVersionScript.astro";
 export { default as CheckList } from "./CheckList.astro";
 export { default as CodePreview } from "./CodePreview.astro";
+export { default as ColourPalette } from "./ColourPalette.astro";
 export { default as CodePreviewReact } from "./CodePreviewReact.jsx";
 export { default as ComponentCards } from "./ComponentCards.astro";
 export { default as ComponentPreview } from "./ComponentPreview.astro";
