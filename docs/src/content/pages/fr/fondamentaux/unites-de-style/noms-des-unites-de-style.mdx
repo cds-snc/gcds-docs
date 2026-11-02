@@ -1,0 +1,70 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Noms des unités de style
+description: Comment Système de design GC structure les noms des unités de style pour que chaque nom décrive la décision de style qu'il représente.
+dateModified: '2026-10-28T12:00:00-04:00'
+---
+
+import { HelpUs } from '~components';
+import { links } from '~i18n/links';
+
+import namingBase from '~assets/img/fr/foundations/naming/naming-design-tokens-base.svg';
+import namingGlobal from '~assets/img/fr/foundations/naming/naming-design-tokens-global.svg';
+import namingComponent from '~assets/img/fr/foundations/naming/naming-design-tokens-component.svg';
+
+# Noms des unités de style
+
+Comprendre ce que veut dire le nom d’une unité de style vous aidera à choisir et à utiliser la bonne unité.
+
+## Structure des noms
+
+Les noms des unités de style suivent une structure qui décrit ce que chaque unité représente.
+
+Les noms ne comprennent pas toujours tous les segments; seulement ceux qui sont nécessaires pour décrire l’unité.
+
+### Structure des noms des unités de base
+
+- La **catégorie** décrit ce sur quoi porte le style.
+- La **teinte** précise la couleur.
+- L’**échelle** indique une valeur dans une série de nuances qui progresse par intervalles réguliers.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={namingBase.src}
+  alt="Schéma montrant la structure du nom de l’unité de style de couleur de base --gcds-color-grayscale-100. Des étiquettes et des lignes violettes identifient ses quatre parties : --gcds est le préfixe, color est la catégorie, grayscale est la teinte et 100 est l’échelle."
+/>
+
+### Structure des noms des unités globales
+
+- La **catégorie** décrit ce sur quoi porte le style. La catégorie « color » (couleur) est omise dans les noms des unités de style globales de couleur.
+- Le **rôle** précise le sous-type ou le niveau d’importance, comme « primary » (primaire) ou « secondary » (secondaire).
+- L’**état** précise l’état global d’une interaction ou de données, comme « danger », « disabled » (désactivé) ou « focus » (ciblé).
+- L’**échelle** indique une valeur dans une série de tailles ou d’épaisseurs qui progresse par intervalles réguliers.
+- La **propriété** précise ce qui est stylisé, comme le texte ou l’arrière-plan. Elle peut comprendre plusieurs mots, comme « border-width » (épaisseur de la bordure).
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={namingGlobal.src}
+  alt="Schéma montrant la structure du nom de trois unités de style globales. Des étiquettes et des lignes violettes identifient leurs différentes parties. Dans --gcds-spacing-100, --gcds est le préfixe, spacing est la catégorie et 100 est l’échelle. Dans --gcds-text-primary, --gcds est le préfixe, text est la propriété et primary est le rôle. Dans --gcds-focus-text, --gcds est le préfixe, focus est l’état et text est la propriété."
+/>
+
+### Structure des noms des unités de composant
+
+- Le **composant** indique le composant auquel le style s’applique.
+- Le **rôle** précise le sous-type ou le niveau d’importance, comme « primary » (primaire) ou « secondary » (secondaire).
+- L’**état** indique l’état d’une interaction ou des données, comme « default » (par défaut), « hover » (au survol) ou « focus » (ciblé).
+- La **propriété** précise ce qui est stylisé, comme le texte, l’arrière-plan ou la bordure. Elle peut comprendre plusieurs mots, comme « border-width » (épaisseur de la bordure).
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={namingComponent.src}
+  alt="Schéma montrant la structure du nom de deux unités de style de composant. Des étiquettes et des lignes violettes identifient leurs différentes parties. Dans --gcds-button-primary-default-background, --gcds est le préfixe, button est le composant, primary est le rôle, default est l’état et background est la propriété. Dans --gcds-button-start-padding, --gcds est le préfixe, button est le composant, start est le rôle et padding est la propriété.."
+/>
+
+## Utilisation des unités de style
+
+Les noms des unités de style peuvent vous aider à choisir celles qui répondent à vos besoins. Découvrez quand utiliser les unités de style et comment les appliquer dans le code et dans Figma.
+
+<gcds-button button-role="secondary" type="link" href={links.fr.usingTokens}>Découvrir quand utiliser les unités de style</gcds-button>
+
+<HelpUs />

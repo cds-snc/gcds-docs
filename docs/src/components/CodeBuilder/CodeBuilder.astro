@@ -65,7 +65,7 @@ if (data[component].slots.length > 0) {
 ---
 
 <section class="my-600">
-  <Heading id={localizedContent.headingId} tag="h3">{localizedContent.heading}</Heading>
+  <Heading id={localizedContent.headingId} tag="h2">{localizedContent.heading}</Heading>
 
   <Text>{localizedContent.paragraph}</Text>
 
@@ -90,10 +90,10 @@ if (data[component].slots.length > 0) {
   const codeBuilder = document.getElementById('codeBuilder');
 
   codeBuilder.attrs = data.attributes;
-  if (data.slots.length > 0) {
+  if (data.slots && data.slots.length > 0) {
     codeBuilder.slots = data.slots;
   }
-  if (data.events.length > 0) {
+  if (data.events && data.events.length > 0) {
     codeBuilder.events = data.events;
   }
 </script>

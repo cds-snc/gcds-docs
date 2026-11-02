@@ -68,6 +68,10 @@ ul li {
   color: var(--gcds-color-blue-800);
 }
 
+.bg-light-purple {
+  background-color: var(--gcds-color-purple-50);
+}
+
 /* Reset the page layout's grid custom properties so content grids inside <main>
    compute from their own attributes instead of inheriting .general-layout's. */
 main {
@@ -80,6 +84,6 @@ main {
 }
 
 /* Overide astro's code styling for accessible comment colours */
-.astro-code span[style="color:#6A737D"] {
-  color: #E1E4E8 !important;
+.astro-code span[style='color:#6A737D'] {
+  color: #e1e4e8 !important;
 }

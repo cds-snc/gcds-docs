@@ -1,0 +1,70 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Token naming
+description: How GC Design System structures design token names so each name describes the style decision it represents.
+dateModified: '2026-10-28T12:00:00-04:00'
+---
+
+import { HelpUs } from '~components';
+import { links } from '~i18n/links';
+
+import namingBase from '~assets/img/en/foundations/naming/naming-design-tokens-base.svg';
+import namingGlobal from '~assets/img/en/foundations/naming/naming-design-tokens-global.svg';
+import namingComponent from '~assets/img/en/foundations/naming/naming-design-tokens-component.svg';
+
+# Design token naming
+
+Understanding what a token’s name means will help you choose and apply the right one.
+
+## Naming convention
+
+Token names follow a structure that describes what each token represents.
+
+Token names do not always use every segment, only those needed to describe the token.
+
+### Base token naming
+
+- The **category** describes what the style is about.
+- The **hue** specifies the colour.
+- The **scale** identifies a value in a series of shades, with numbers increasing at regular intervals.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={namingBase.src}
+  alt="Diagram showing the structure of the base colour token name --gcds-color-grayscale-100. Purple labels and lines identify its four parts: --gcds as the prefix, color as the category, grayscale as the hue, and 100 as the scale."
+/>
+
+### Global token naming
+
+- The **category** describes what the style is about. The “color” category is omitted in global colour token names.
+- The **role** specifies the subtype or level of emphasis, like primary or secondary.
+- The **state** specifies the global interaction or data state, like danger, disabled, or focus.
+- The **scale** specifies a value within a set of proportionally increasing sizes or weights.
+- The **property** is what’s being styled, like text or background. It can use more than one word, like border-width.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={namingGlobal.src}
+  alt="Diagram showing the structure of three global design token names. Purple labels and lines identify their parts. In --gcds-spacing-100, --gcds is the prefix, spacing the category, and 100 the scale. In --gcds-text-primary, --gcds is the prefix, text the property, and primary the role. In --gcds-focus-text, --gcds is the prefix, focus the state, and text the property."
+/>
+
+### Component token naming
+
+- The **component** identifies the component the style applies to.
+- The **role** specifies the subtype or level of emphasis, like primary or secondary.
+- The **state** cites the interaction or data state, like default, hover, focus, etc.
+- The **property** is what’s being styled, like text, background, or border. It can use more than one word, like border-width.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={namingComponent.src}
+  alt="Diagram showing the structure of two component design token names. Purple labels and lines identify their parts. In --gcds-button-primary-default-background, --gcds is the prefix, button the component, primary the role, default the state, and background the property. In --gcds-button-start-padding, --gcds is the prefix, button the component, start the role, and padding the property."
+/>
+
+## Using design tokens
+
+Token names can help you choose the right token for your needs. Learn when to use tokens and how to apply them in code and Figma.
+
+<gcds-button button-role="secondary" type="link" href={links.en.usingTokens}>Learn when to use tokens</gcds-button>
+
+<HelpUs />

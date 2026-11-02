@@ -74,6 +74,15 @@ function navLinkText(config: SideNavConfig, url: string): string | undefined {
   return links.find(link => link.href === url)?.text;
 }
 
+// True when the URL is a link nested inside a sub-group (not a top-level group link).
+function isSubGroupChild(config: SideNavConfig, url: string): boolean {
+  return config.groups.some(group =>
+    (group.subGroups ?? []).some(sub =>
+      sub.links.some(link => link.href === url),
+    ),
+  );
+}
+
 /**
  * Breadcrumb trail after the "Canada.ca" link.
  */
@@ -116,6 +125,12 @@ export function getBreadcrumbs(pathname: string): Breadcrumb[] {
 
   for (const segment of segments.slice(0, -1)) {
     ancestorUrl += `/${segment}`;
+
+    // Skip a sub-group child ancestor so its nested pages breadcrumb straight to the top-level section.
+    if (!groupBases.has(ancestorUrl) && isSubGroupChild(config, ancestorUrl)) {
+      continue;
+    }
+
     const label =
       groupBases.get(ancestorUrl) ??
       navLinkText(config, ancestorUrl) ??
