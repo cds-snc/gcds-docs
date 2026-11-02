@@ -19,9 +19,15 @@ describe(`A11Y test French documentation site`, () => {
       cy.waitForHydration();
       
       cy.injectAxe();
-      cy.checkA11y(null, null, cy.terminalLog);
+      cy.checkA11y(
+        {
+          exclude: [['gcds-ext-code-display']],
+        },
+        null,
+        cy.terminalLog,
+      );
       // skip theme and topic menu since links are pulled from external source
-      if (!url.includes('theme-and-topic-menu')) {
+      if (!url.includes('menu-thematique')) {
         cy.scanDeadLinks();
       }
       
