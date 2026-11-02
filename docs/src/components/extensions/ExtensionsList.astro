@@ -1,6 +1,7 @@
 ---
 import { defaultLocale } from '../../i18n/config';
 import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { ExtensionsVersionScript } from '../../components';
 import { messages } from './messages.js';
 
 const locale = resolveLocaleFromPathname(Astro.url.pathname);
@@ -28,15 +29,16 @@ const extensions = Object.entries(allExtensions)
       tags: string[];
       maintainer: string;
       extensionID: string;
+      extensionSrc: string;
     }),
     slug: path.split('/').pop()!.replace('.mdx', ''),
   }))
   .sort((a, b) => a.pageTitle.localeCompare(b.pageTitle));
 ---
 
-<ul>
+<ul class="extensions-list">
   {extensions.map((extension) => (
-    <li class="py-300">
+    <li class="py-300 bt-sm" data-extension={JSON.stringify({ id: extension.extensionID, src: extension.extensionSrc })}>
       <gcds-heading margin-bottom="200" margin-top="0" tag="h3">
         <gcds-link href={`/${locale}/extensions/${extension.slug}`}>
           {extension.pageTitle}
@@ -91,3 +93,11 @@ const extensions = Object.entries(allExtensions)
     </li>
   ))}
 </ul>
+
+<ExtensionsVersionScript />
+
+<style>
+  .extensions-list > li {
+    border-color: var(--gcds-color-grayscale-150); 
+  }
+</style>

@@ -4,6 +4,7 @@ interface Props {
     contacts: { email: string; name: string }[],
     description: string,
     extensionID: string,
+    extensionSrc: string,
     githubUrl: string,
     imgAlt: string,
     implementation: string,
@@ -19,7 +20,7 @@ interface Props {
 }
 
 const { data, imgSrc } = Astro.props as Props;
-import { Heading, Text } from '../../components';
+import { Heading, Text, ExtensionsVersionScript } from '../../components';
 
 import { defaultLocale } from '../../i18n/config';
 import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
@@ -54,7 +55,7 @@ const localizedContent = getLocalizedRecord(messages, locale, defaultLocale) as 
   {localizedContent.display.details}
 </Heading>
 
-<gcds-grid columns-tablet="1fr 1fr" columns="1fr" tag="ul">
+<gcds-grid columns-tablet="1fr 1fr" columns="1fr" tag="ul" data-extension={JSON.stringify({ id: data.extensionID, src: data.extensionSrc })}>
   <li class="list-none">
     <div class="font-semibold" set:html={localizedContent.display.version} />
     <div id={`${data.extensionID}-version`}>---</div>
@@ -103,3 +104,5 @@ const localizedContent = getLocalizedRecord(messages, locale, defaultLocale) as 
     ) : null}
   </li>
 </gcds-grid>
+
+<ExtensionsVersionScript />

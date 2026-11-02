@@ -51,3 +51,4 @@ export { default as SearchResults } from "./search/SearchResults.astro";
 // Extensions components
 export { default as ExtensionsList } from "./extensions/ExtensionsList.astro";
 export { default as ExtensionsDisplay } from "./extensions/ExtensionsDisplay.astro";
+export { default as ExtensionsVersionScript } from "./extensions/ExtensionsVersionScript.astro";
