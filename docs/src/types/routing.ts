@@ -18,7 +18,19 @@ export type NavGroup = {
   links: NavLink[];
   /** Nested nav groups rendered after this group's links (e.g. CSS Shortcuts). */
   subGroups?: NavGroup[];
+  /**
+   * Links and sub-groups interleaved in manifest order, used for rendering so a
+   * sub-group can sit between direct links instead of always after them.
+   * `links` and `subGroups` are kept for active-state detection and the
+   * CSS Shortcuts "Browse" view.
+   */
+  items?: NavEntry[];
 };
+
+/** One rendered entry in a group: either a direct link or a nested sub-group. */
+export type NavEntry =
+  | { kind: 'link'; link: NavLink }
+  | { kind: 'group'; group: NavGroup };
 
 /** CSS Shortcuts overview "Browse": heading + its page links. */
 export type ShortcutsBrowseGroup = {

@@ -70,13 +70,22 @@ Cypress.Commands.add('scanDeadLinks', () => {
   });
 });
 
-Cypress.Commands.add('waitForHydration', () => {
-  cy.get('*').then(($elements) => {
-    const gcdsElements = $elements.filter((_, element) =>
+Cypress.Commands.add('waitForHydration', (timeout = 20000) => {
+  cy.get('body', { timeout }).should(($body) => {
+    const gcdsElements = Array.from(
+      $body[0].querySelectorAll('*'),
+    ).filter((element) =>
       element.tagName.toLowerCase().startsWith('gcds-'),
     );
 
-    cy.wrap(gcdsElements).should('have.class', 'hydrated');
+    const pendingElements = gcdsElements.filter(
+      (element) => !element.classList.contains('hydrated'),
+    );
+
+    expect(
+      pendingElements.map((element) => element.tagName.toLowerCase()),
+      'GCDS components still waiting for hydration',
+    ).to.deep.equal([]);
   });
 });
 

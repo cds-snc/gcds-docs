@@ -201,6 +201,16 @@ export const routes = {
       "design-tokens": {
         en: "design-tokens",
         fr: "unites-de-style",
+        children: {
+          "token-naming": {
+            en: "token-naming",
+            fr: "noms-des-unites-de-style",
+          },
+          "using-tokens": {
+            en: "using-tokens",
+            fr: "utiliser-les-unites-de-style",
+          },
+        },
       },
       colour: {
         en: "colour",

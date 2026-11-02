@@ -12,7 +12,21 @@ import { links } from '~i18n/links';
 
 Chaque produit numérique a besoin de styles personnalisés. Nous avons fait le travail pour vous.
 
-Les Raccourcis CSS sont un cadre utilitaire CSS conçu en conformité avec les styles de Système de design GC et les normes de Canada.ca. Ils fournissent des classes utilitaires CSS prédéfinies qui appliquent des éléments de conception de base, comme les couleurs, l'espacement et la typographie, à votre code HTML. Les classes s'alignent sur nos <a href={links.fr.designTokens}>unités de style de Système de design GC</a> pour assurer l'uniformité et la facilité d'utilisation.
+Les Raccourcis CSS sont un cadre utilitaire CSS conçu pour respecter les styles de Système de design GC et les normes de Canada.ca. Ils fournissent des classes utilitaires CSS prédéfinies qui permettent d’appliquer les éléments fondamentaux du design, comme les <gcds-link href={links.fr.colour}>couleurs</gcds-link>, l’<gcds-link href={links.fr.spacing}>espacement</gcds-link> et la <gcds-link href={links.fr.typography}>typographie</gcds-link>, à votre HTML.
+
+## Raccourcis CSS et unités de style
+
+Les <gcds-link href={links.fr.designTokens}>unités de style</gcds-link> et les raccourcis CSS sont tous deux liés aux styles de Système de design GC, mais ils remplissent des fonctions différentes.
+
+Les unités de style stockent des décisions de style réutilisables. Les raccourcis CSS sont des classes utilitaires prédéfinies qui permettent d’appliquer des styles courants. Certains raccourcis CSS utilisent des unités de style pour leurs valeurs, ce qui leur permet d’être mis à jour automatiquement si la valeur d’une unité change.
+
+Par exemple, le raccourci CSS `mb-500` utilise l’unité de style `--gcds-spacing-500` pour définir la marge inférieure.
+
+## Quand utiliser les raccourcis CSS
+
+Utilisez les raccourcis CSS lorsque vous devez appliquer des styles qui ne sont pas couverts par les composants de Système de design GC.
+
+Utilisez plutôt les <gcds-link href={links.fr.usingTokens}>unités de style</gcds-link> lorsqu’aucun raccourci CSS ne permet d’appliquer le style dont vous avez besoin.
 
 ## Comment utiliser les Raccourcis CSS
 
@@ -24,7 +38,7 @@ Les Raccourcis CSS sont un cadre utilitaire CSS conçu en conformité avec les s
 
 ### Cohérence des styles
 
-Les Raccourcis CSS vous permettent d'appliquer des <a href={links.fr.designTokens}>unités de style prédéfinies</a> directement à vos éléments HTML. Ces unités de style sont utilisées dans l'ensemble de Système de design GC, faisant en sorte que votre code personnalisé correspond à nos composants.
+Les raccourcis CSS utilisent les mêmes unités de style que nos composants. Vos styles personnalisés sont donc cohérents avec les autres ressources de Système de design GC.
 
 ### Développement plus rapide, moins de maintenance
 

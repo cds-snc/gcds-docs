@@ -12,11 +12,26 @@ import { links } from '~i18n/links';
 
 Every digital product needs some custom styling. We did the work for you.
 
-CSS Shortcuts is a CSS utility framework built to match GC Design System (GCDS) styles and Canada.ca standards. It provides predefined CSS utility classes that apply core design elements, like colours, spacing, and typography, to your HTML. The classes align with our <a href={links.en.designTokens}>GCDS design tokens</a> for consistency and ease of use.
+CSS Shortcuts is a CSS utility framework built to match GC Design System (GCDS) styles and Canada.ca standards. It provides predefined CSS utility classes that apply core design elements, like <gcds-link href={links.en.colour}>colours</gcds-link>, <gcds-link href={links.en.spacing}>spacing</gcds-link>, and <gcds-link href={links.en.typography}>typography</gcds-link>, to your HTML.
+
+## CSS Shortcuts and design tokens
+
+<gcds-link href={links.en.designTokens}>Design tokens</gcds-link> and CSS Shortcuts both relate to GC Design System styles, but they serve different purposes.
+
+Design tokens store reusable style decisions. CSS Shortcuts are predefined utility classes for applying common styles. Some CSS Shortcuts classes use design tokens for their values, and they’re automatically updated if a token value changes.
+
+For example, the `mb-500` class uses the `--gcds-spacing-500` design token for the bottom margin.
+
+## When to use CSS Shortcuts
+
+Use CSS Shortcuts when you need to apply styles that GC Design System components do not cover.
+
+<gcds-link href={links.en.usingTokens}>Use design tokens</gcds-link> instead when there’s no CSS Shortcuts class for the style you need.
 
 ## How to use CSS Shortcuts
 
-1. <a href={links.en.startToUseDevelop}>Select the framework you're working with</a> and follow the steps to add the CSS Shortcuts stylesheet. If you've already installed components, skip ahead to the CSS Shortcuts instructions.
+1. <a href={links.en.startToUseDevelop}>Select the framework you're working with</a> and follow the steps to add the CSS Shortcuts stylesheet. If you've already
+   installed components, skip ahead to the CSS Shortcuts instructions.
 2. Explore the different styling options in the menu.
 3. Add the classes to their corresponding HTML to adjust the styling to meet your needs.
 
@@ -24,7 +39,7 @@ CSS Shortcuts is a CSS utility framework built to match GC Design System (GCDS) 
 
 ### Match styles
 
-CSS Shortcuts lets you apply <a href={links.en.designTokens}>predefined design tokens</a> directly to your HTML elements. These design tokens are used throughout GCDS, so your custom code will match our components.
+CSS Shortcuts use the same design tokens as our components, so your custom styles match other GC Design System assets.
 
 ### Faster development, less maintenance
 

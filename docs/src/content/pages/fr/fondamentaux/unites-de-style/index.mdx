@@ -1,0 +1,112 @@
+---
+layout: '~layouts/BaseLayout.astro'
+pageTitle: Unités de style
+description: Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.
+dateModified: '2026-02-12T12:40:07-05:00'
+---
+
+import { HelpUs } from '~components';
+import { links } from '~i18n/links';
+
+import anatomyComponent from '~assets/img/fr/foundations/anatomy/anatomy-design-tokens-component.svg';
+import anatomyGlobal from '~assets/img/fr/foundations/anatomy/anatomy-design-tokens-global.svg';
+import anatomyBase from '~assets/img/fr/foundations/anatomy/anatomy-design-tokens-base.svg';
+import whatTokensAre from '~assets/img/en/foundations/what-design-tokens-are.svg';
+
+# À propos des unités de style
+
+Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.
+
+Vous aurez rarement besoin d’utiliser directement les unités de style, puisqu’elles sont déjà intégrées aux composants de Système de design GC.
+
+## Sur cette page
+
+- [Définition des unités de style](#definition-des-unites-de-style)
+- [Fonctionnement des unités de style](#fonctionnement-des-unites-de-style)
+- [Unités de style et raccourcis CSS](#unites-de-style-et-raccourcis-css)
+- [Types d’unités de style](#types-dunites-de-style)
+- [Déterminer si vous avez besoin des unités de style](#determiner-si-vous-avez-besoin-des-unites-de-style)
+
+## Définition des unités de style
+
+Les unités de style sont de petites données réutilisables qui représentent des décisions de style, par exemple en matière de couleur, de typographie et d’espacement.
+
+Chaque unité de style associe un nom à une valeur. Les noms suivent une structure qui décrit la décision représentée par chaque unité. Ils fournissent un langage commun aux concepteur·rices et développeur·euses. <gcds-link href={links.fr.tokenNaming}>En savoir plus sur la structure des noms d’unités de style</gcds-link>.
+
+Dans l’exemple suivant, la décision consiste à utiliser la couleur `#f2f2f2` pour les arrière-plans clairs.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={whatTokensAre.src}
+  alt="Schéma montrant une unité de style composée de deux parties : --gcds-bg-light, désigné comme le nom de l’unité de style, et #f2f2f2, désigné comme sa valeur hexadécimale."
+/>
+
+Dans Système de design GC, les unités de style servent à stocker les styles visuels et les exigences de l’image de marque du gouvernement du Canada.
+
+Les unités de style sont conservées dans notre <gcds-link href={links.fr.githubTokens} external>référentiel d’unités de style GitHub</gcds-link> et notre <gcds-link href={links.fr.figmaTokens} external>bibliothèque d’unités de style Figma</gcds-link>.
+
+## Fonctionnement des unités de style
+
+Dans le code, nos composants utilisent les unités de style en faisant référence à leur nom plutôt qu’à leur valeur. Vous pouvez aussi faire référence à ces unités dans vos propres styles, sans passer par les composants.
+
+Lorsque nous modifions la valeur d’une unité de style, son nom reste le même. Nous apportons la modification une seule fois, puis elle se répercute rapidement sur tous les composants et les styles qui utilisent cette unité. Vous n’avez donc pas besoin de mettre à jour les valeurs sous-jacentes dans votre propre code.
+
+Les unités de style sont des outils puissants. Elles permettent de maintenir la cohérence des styles visuels entre les produits et services, tout en respectant les éléments de l’image de marque du gouvernement du Canada.
+
+## Unités de style et raccourcis CSS
+
+Les unités de style et les <gcds-link href={links.fr.shortcuts}>raccourcis CSS</gcds-link> sont tous deux liés aux styles de Système de design GC, mais ils remplissent des fonctions différentes.
+
+Les unités de style stockent des décisions de style réutilisables. Les raccourcis CSS sont des classes utilitaires prédéfinies qui permettent d’appliquer des styles courants. Certains raccourcis CSS utilisent des unités de style pour leurs valeurs, ce qui leur permet d’être mis à jour automatiquement si la valeur d’une unité change.
+
+Par exemple, le raccourci CSS `mb-500` utilise l’unité de style `--gcds-spacing-500` pour définir la marge inférieure.
+
+## Types d’unités de style
+
+Les unités de style sont regroupées en trois types : de base, globales et de composant. Ces types sont distincts des catégories de styles comme la couleur, l’espacement et la typographie.
+
+## Unités de style de base
+
+Les unités de style de base fournissent des valeurs fondamentales sur lesquelles reposent les autres unités de style. Elles servent à définir un ensemble limité de valeurs que les autres unités peuvent utiliser.
+
+Dans Système de design GC, les unités de style de base existent uniquement pour la couleur. Elles permettent de réduire les choix de couleurs à un ensemble limité de valeurs, organisées en échelles.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={anatomyBase.src}
+  alt="Schéma montrant trois unités de style de base. L’unité --gcds-color-red-400 a pour valeur hexadécimale #e64d61, l’unité --gcds-color-red-500 a pour valeur #df2039 et l’unité --gcds-color-red-600 a pour valeur #b3192e. Chaque valeur est reliée par une flèche à un carré illustrant la couleur correspondante."
+/>
+
+## Unités de style globales
+
+Les unités de style globales stockent des valeurs qui peuvent être utilisées dans l’ensemble de Système de design GC. Elles ne sont pas propres à un composant. Elles permettent de rendre les décisions de style réutilisables à l’échelle du système.
+
+Certaines sont sémantiques, ce qui signifie que leur nom décrit l’utilisation prévue du style. D’autres utilisent une échelle pour identifier la valeur, comme `--gcds-spacing-600`.
+
+Les unités de style globales peuvent faire référence à d’autres unités de style ou contenir directement une valeur.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={anatomyGlobal.src}
+  alt="Schéma montrant deux exemples d’unités de style globales. Dans le premier, --gcds-spacing-600 est le nom de l’unité de style et 3rem est sa valeur. Dans le deuxième, --gcds-text-primary est le nom de l’unité de style et --gcds-color-grayscale-800 est la référence à une autre unité de style. Une flèche relie cette référence à un carré gris foncé représentant la couleur obtenue."
+/>
+
+## Unité de style de composant
+
+Les unités de style de composant représentent des décisions de design propres à un composant de Système de design GC. Elles servent à appliquer ces décisions à des parties et à des états précis du composant.
+
+Elles sont sémantiques : leur nom décrit l’intention du style. Elles font référence à des unités de style globales ou de base pour obtenir leurs valeurs.
+
+<img
+  class="mb-300 px-600 py-400 bg-light-purple"
+  src={anatomyComponent.src}
+  alt="Schéma montrant comment une valeur de couleur est transmise d’une unité de style à l’autre pour définir l’apparence d’un bouton de danger. Des carrés rouges et des flèches descendantes relient la valeur hexadécimale #B3192E à l’unité de style de base --gcds-color-red-600, puis à l’unité de style globale --gcds-danger-background et à l’unité de style de composant --gcds-button-danger-default-background. La dernière flèche pointe vers un bouton à fond rouge, illustrant le style obtenu."
+/>
+
+## Déterminer si vous avez besoin des unités de style
+
+Vous n’avez pas nécessairement besoin d’utiliser directement les unités de style. Nous pouvons vous aider à déterminer quand les utiliser.
+
+<gcds-button button-role="secondary" type="link" href={links.fr.usingTokens}>Découvrir quand utiliser les unités de style</gcds-button>
+
+<HelpUs />
