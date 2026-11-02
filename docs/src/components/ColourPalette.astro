@@ -1,0 +1,147 @@
+---
+import { tokens, colourNames } from "../utils/tokens";
+import { resolveLocaleFromPathname } from "../utils/i18n";
+
+interface Props {
+  scales?: string;
+  singles?: string;
+}
+
+const { scales, singles } = Astro.props as Props;
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const names = colourNames[locale] ?? colourNames.en;
+const colour = tokens.color as Record<string, any>;
+
+const camelKey = (key: string): string =>
+  key.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase());
+
+const displayLabel = (key: string): string => {
+  if (key === "grayscale") return locale === "fr" ? "Gris" : "Grey";
+  return names[camelKey(key)] ?? names[key] ?? key;
+};
+
+const singleLabels: Record<string, Record<string, string>> = {
+  en: {
+    white: "white",
+    "blue-vivid": "blue-vivid",
+    "blue-muted": "blue-muted",
+    black: "black",
+  },
+  fr: {
+    white: "blanc",
+    "blue-vivid": "bleu vif",
+    "blue-muted": "bleu atténué",
+    black: "noir",
+  },
+};
+const singleLabel = (key: string): string =>
+  singleLabels[locale]?.[key] ?? key;
+
+const cssVar = (scale: string, weight?: string): string =>
+  `--gcds-color-${scale}${weight ? `-${weight}` : ""}`;
+
+const scaleColumns = (scales ? scales.split(" ").filter(Boolean) : []).map(
+  (scale) => {
+    const group = colour[scale] ?? {};
+    return {
+      key: scale,
+      label: displayLabel(scale),
+      swatches: Object.keys(group)
+        .filter((weight) => typeof group[weight]?.value === "string")
+        .map((weight) => {
+          const value = group[weight].value as string;
+          return {
+            weight,
+            value,
+            css: cssVar(scale, weight),
+            aria: `${displayLabel(scale)} ${weight}`,
+          };
+        }),
+    };
+  },
+);
+
+const singleSwatches = (singles ? singles.split(" ").filter(Boolean) : []).map(
+  (key) => {
+    const value = colour[key]?.value as string;
+    return {
+      key,
+      label: singleLabel(key),
+      value,
+      css: cssVar(key),
+      aria: singleLabel(key),
+    };
+  },
+);
+---
+
+{scaleColumns.length > 0 && (
+  <div class="colour-scales d-grid gap-200 my-400">
+    {scaleColumns.map((column) => (
+      <div>
+        <p class="font-bold text-center mt-0 mb-100">{column.label}</p>
+        <ul class="d-flex flex-col gap-50 m-0 p-0 list-none" role="list">
+          {column.swatches.map((swatch) => (
+            <li>
+              <span
+                role="img"
+                aria-label={swatch.aria}
+                title={`${swatch.css} · ${swatch.value}`}
+                class="colour-swatch d-block box-border"
+                style={`background-color: ${swatch.value};`}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+)}
+
+{singleSwatches.length > 0 && (
+  <ul class="colour-singles d-grid gap-200 my-400 mx-0 p-0 list-none" role="list">
+    {singleSwatches.map((swatch) => (
+      <li>
+        <span class="d-block mb-100">{swatch.label}</span>
+        <span
+          role="img"
+          aria-label={swatch.aria}
+          title={`${swatch.css} · ${swatch.value}`}
+          class={`colour-swatch d-block box-border${swatch.key === "white" ? " colour-swatch--outlined" : ""}`}
+          style={`background-color: ${swatch.value};`}
+        />
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .colour-scales {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 48rem) {
+    .colour-scales {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .colour-singles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 48rem) {
+    .colour-singles {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .colour-swatch {
+    height: 1.625rem;
+  }
+
+  .colour-swatch--outlined {
+    border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+  }
+</style>

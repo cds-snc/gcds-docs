@@ -2,11 +2,13 @@
 layout: '~layouts/BaseLayout.astro'
 pageTitle: Spacing tokens
 description: Spacing tokens help position elements onscreen and in components.
-dateModified: "2024-03-04T08:01:59-05:00"
+dateModified: '2024-03-04T08:01:59-05:00'
 ---
 
 import { HelpUs, TokenTable } from '~components';
 import { links } from '~i18n/links';
+
+import usingSpacing from '~assets/img/en/foundations/using-spacing.svg';
 
 export const headers = {
   'spacing-preview': 'Preview',
@@ -15,29 +17,64 @@ export const headers = {
   'value': 'Rem',
 };
 
-# Spacing tokens
+# Spacing
 
-Spacing tokens help position elements onscreen and in components.
+Spacing helps position elements onscreen and in components.
 
-## Spacing tokens and accessibility
+## On this page
 
-GC Design System components meet level AAA of the <gcds-link external href={links.en.wcagTargetSize} target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> for both tap targets and visual presentation.
+- [Spacing system](#spacing-system)
+- [Using spacing](#using-spacing)
+- [Spacing token reference](#spacing-token-reference)
 
-Spacing establishes visual hierarchy for content and guides focus to certain elements. Information that's too densely packed is difficult to read and increases cognitive load.
+## Spacing system
 
-## Vertical rhythm and rem spacing sizes
+GC Design System uses a consistent spacing system based on vertical rhythm and a base size.
 
-GC Design System spacing is based on vertical rhythm and calculated with the help of a base size.
+Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patterns. Consistent vertical spacing helps make content easier to scan, read, and understand.
 
-Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patterns. Consistent vertical spacing helps make content easier to scan, read, and understand. Spacing sizes are configured with rem units. All spacing sizes are relative to a base size of 1.25rem (20px) and what we use to calculate all typography and spacing values.
+Spacing sizes are configured with rem units. All spacing sizes are relative to a base size of `1.25rem` (`20px`) and what we use to calculate all typography and spacing values.
 
-## Global spacing tokens
+The spacing system is represented by <gcds-link href={`${links.en.designTokens}#global-tokens`}>global tokens</gcds-link>.
 
-### Alignment and spacing
+<gcds-link class="d-block mb-600" href="#spacing-token-reference">Browse spacing tokens</gcds-link>
+
+<hr/>
+
+## Using spacing
+
+### Choose spacing based on relationships
 
 - Use smaller spacing tokens to group related concepts together.
 - Use larger spacing tokens to separate elements into logical groups.
 - Whenever possible, line objects up both vertically and horizontally.
+
+<img
+  class="px-600 py-400 bg-light-purple"
+  src={usingSpacing.src}
+  alt="Diagram showing a smaller spacing (--gcds-spacing-300) between a heading and its paragraph, and a larger spacing (--gcds-spacing-600) between a paragraph and a heading for the next section."
+/>
+
+### Choose how to apply spacing
+
+Use spacing values from the GC Design System scale to maintain consistency.
+
+- Use the <gcds-link href={links.en.grid}>grid component</gcds-link> to arrange elements and control the spacing between them. Its `gap` attributes accept values from `150` to `800`, corresponding to GC Design System spacing tokens.
+- Use CSS Shortcuts to apply margin and padding. CSS Shortcuts use GC Design System spacing tokens.
+- If a CSS Shortcuts class does not cover your need, use a global spacing token in your custom CSS.
+
+### Apply spacing
+
+Learn how to use CSS Shortcuts or design tokens to apply GC Design System decisions in your designs and code.
+
+<div class="d-flex flex-wrap gap-200 mb-600">
+  <gcds-button button-role="secondary" type="link" href={links.en.shortcuts}>Use CSS Shortcuts</gcds-button>
+  <gcds-button button-role="secondary" type="link" href={links.en.usingTokens}>Use design tokens</gcds-button>
+</div>
+
+<hr/>
+
+## Spacing token reference
 
 <TokenTable token="spacing" type="dimension" headers={headers} />
 

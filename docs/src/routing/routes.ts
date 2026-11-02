@@ -12,6 +12,7 @@ import type {
   LocalizedValue,
   ManifestItem,
   ManifestKey,
+  NavEntry,
   NavGroup,
   NavLink,
   PopulatedManifest,
@@ -73,7 +74,7 @@ class SideNavBuilder {
     const groups = sideNavRoutes
       .filter((route): route is GroupRoute => route.type === 'group')
       .map(groupRoute => {
-        const { links, subGroups } = this.getGroupContent(groupRoute, {
+        const { links, subGroups, items } = this.getGroupContent(groupRoute, {
           sortItems: groupRoute.sortItems,
           pinOverviewItem: groupRoute.pinOverviewItem,
         });
@@ -83,6 +84,7 @@ class SideNavBuilder {
           menuLabel: this.localizedValue(groupRoute.label),
           links,
           subGroups,
+          items,
         };
       })
       .filter(group => group.links.length > 0 || group.subGroups.length > 0);
@@ -131,23 +133,53 @@ class SideNavBuilder {
   private mapItems(
     routeKey: string | undefined,
     items: ManifestItem[],
-  ): { links: NavLink[]; subGroups: NavGroup[] } {
+  ): { links: NavLink[]; subGroups: NavGroup[]; entries: NavEntry[] } {
     const links: NavLink[] = [];
     const subGroups: NavGroup[] = [];
+    const entries: NavEntry[] = [];
 
     for (const item of items) {
       if (item.type === 'group' && Array.isArray(item.items)) {
-        subGroups.push({
+        const group: NavGroup = {
           trigger: this.localizedValue(item.label),
           menuLabel: this.localizedValue(item.label),
           links: item.items.map(child => this.toLink(routeKey, child)),
-        });
+        };
+        subGroups.push(group);
+        entries.push({ kind: 'group', group });
       } else {
-        links.push(this.toLink(routeKey, item));
+        const link = this.toLink(routeKey, item);
+        links.push(link);
+        entries.push({ kind: 'link', link });
       }
     }
 
-    return { links, subGroups };
+    return { links, subGroups, entries };
+  }
+
+  // Order entries for rendering: manifest order, or sorted links then sub-groups when sorting a-z.
+  private orderEntries(
+    entries: NavEntry[],
+    options: GroupLinkOptions,
+  ): NavEntry[] {
+    if ((options.sortItems ?? 'none') === 'none') {
+      return entries;
+    }
+
+    const linkEntries = entries.filter(
+      (entry): entry is Extract<NavEntry, { kind: 'link' }> =>
+        entry.kind === 'link',
+    );
+    const groupEntries = entries.filter(entry => entry.kind === 'group');
+    const sortedLinks = this.sortLinks(
+      linkEntries.map(entry => entry.link),
+      options,
+    );
+
+    return [
+      ...sortedLinks.map((link): NavEntry => ({ kind: 'link', link })),
+      ...groupEntries,
+    ];
   }
 
   /** Order a group's links, pinning the overview item when sorting a-z. */
@@ -175,7 +207,7 @@ class SideNavBuilder {
   private getGroupContent(
     groupRoute: GroupRoute,
     options: GroupLinkOptions = {},
-  ): { links: NavLink[]; subGroups: NavGroup[] } {
+  ): { links: NavLink[]; subGroups: NavGroup[]; items: NavEntry[] } {
     const items = Array.isArray(groupRoute.items)
       ? groupRoute.items
       : getPopulatedManifest(groupRoute.manifestKey)?.items;
@@ -185,12 +217,16 @@ class SideNavBuilder {
     const routePrefix =
       this.localizedValue(groupRoute.slug) || groupRoute.routeKey;
 
-    const { links, subGroups } = this.mapItems(
+    const { links, subGroups, entries } = this.mapItems(
       routePrefix,
       Array.isArray(items) ? items : [],
     );
 
-    return { links: this.sortLinks(links, options), subGroups };
+    return {
+      links: this.sortLinks(links, options),
+      subGroups,
+      items: this.orderEntries(entries, options),
+    };
   }
 }
 
