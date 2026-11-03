@@ -1,9 +1,11 @@
 ---
 interface Props {
   pageTitle: string;
+  currentLocale: string;
 }
 
-const { pageTitle } = Astro.props as Props;
+const { pageTitle, currentLocale } = Astro.props as Props;
+const isFrench = currentLocale.startsWith('fr');
 ---
 
 {/*
@@ -101,6 +103,13 @@ const { pageTitle } = Astro.props as Props;
 <meta name="generator" content={Astro.generator} />
 <title>{pageTitle} | GC Design System</title>
 <meta name="og:title" content={`${pageTitle} | GC Design System`} />
+
+<!-- Adobe Analytics metadata -->
+<meta name="dcterms.title" content={pageTitle} />
+<meta name="dcterms.language" content={isFrench ? 'fra' : 'eng'} />
+<meta name="dcterms.creator" content={isFrench ? 'TBD' : 'TBD'} /> <!-- verify with AA with an email -->
+<meta name="dcterms.accessRights" content="2" /> <!-- 1=secured/login-required, 2=public, 3=intranet/extranet -->
+<meta name="gcaaterms.sitename" content="ESDC-EDSC_GCDS-SDGC" /> <!-- verify with AA with an email -->
 
 <!-- GC Design System CSS Shortcuts -->
 <link rel="stylesheet" href="/assets/gcds/gcds-css-shortcuts.min.css" />

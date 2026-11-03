@@ -54,7 +54,7 @@ const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /
 <html lang={currentLocale}>
   <head>
     <script is:inline src={adobeAnalyticsUrl}></script>
-    <BaseHead pageTitle={pageTitle} />
+    <BaseHead pageTitle={pageTitle} currentLocale={currentLocale} />
   </head>
   <body>
     <Header currentLocale={currentLocale} routeKey={routeKey} hideSearch={hideSearch} />
@@ -69,6 +69,11 @@ const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /
       <Footer />
     </div>
     <CodeBlockCopy />
+    <script is:inline>
+      // Adobe Analytics page load event
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: 'pageLoad' });
+    </script>
     <script is:inline type="text/javascript">_satellite.pageBottom();</script>
   </body>
 </html>
