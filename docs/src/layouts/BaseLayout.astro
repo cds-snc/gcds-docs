@@ -73,8 +73,10 @@ const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /
       // Adobe Analytics page load event
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: 'pageLoad' });
+
+      // Adobe Analytics page bottom event
+      _satellite.pageBottom();
     </script>
-    <script is:inline type="text/javascript">_satellite.pageBottom();</script>
   </body>
 </html>
 
