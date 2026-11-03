@@ -1,11 +1,11 @@
 ---
 interface Props {
   pageTitle: string;
-  currentLocale: string;
+  currentLocale?: string;
 }
 
 const { pageTitle, currentLocale } = Astro.props as Props;
-const isFrench = currentLocale.startsWith('fr');
+const isFrench = currentLocale?.startsWith('fr') ?? false;
 ---
 
 {/*
