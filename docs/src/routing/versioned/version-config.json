@@ -4,7 +4,10 @@
       "routeKey": "components",
       "contentDir": "components",
       "manifest": "component-manifest.json",
-      "versions": ["1.6.0"],
+      "versions": [
+        "1.6.0",
+        "1.7.0"
+      ],
       "itemVersionRules": {}
     }
   ]
