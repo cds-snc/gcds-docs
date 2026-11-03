@@ -10,7 +10,7 @@ import SideNav from '../components/SideNav.astro';
 import CodeBlockCopy from '../components/CodeBlockCopy.astro';
 
 // AWS_BRANCH is set automatically by Amplify during builds
-const isProduction = process.env.AWS_BRANCH === 'main'; // or 'master', whatever your prod branch is
+const isProduction = process.env.AWS_BRANCH === 'main';
 
 // .astro pages pass these as direct props (<BaseLayout pageTitle=… />).
 // MDX pages set them via `layout:` frontmatter, which Astro delivers under
