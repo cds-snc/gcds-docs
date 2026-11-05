@@ -9,6 +9,9 @@ import BaseHead from '../components/BaseHead.astro';
 import SideNav from '../components/SideNav.astro';
 import CodeBlockCopy from '../components/CodeBlockCopy.astro';
 
+// AWS_BRANCH is set automatically by Amplify during builds
+const isProduction = process.env.AWS_BRANCH === 'main';
+
 // .astro pages pass these as direct props (<BaseLayout pageTitle=… />).
 // MDX pages set them via `layout:` frontmatter, which Astro delivers under
 // Astro.props.frontmatter — so fall back to that.
@@ -41,12 +44,17 @@ const lastModified = await resolveDateModified(Astro.url.pathname, {
   dateModifiedSources: frontmatter?.dateModifiedSources
 });
 
+// Adobe Analytics
+const adobeAnalyticsScript = isProduction ? "launch-f7c3e6060667.min.js" : "launch-913b1beddf7a-staging.min.js";
+const adobeAnalyticsUrl = `https://assets.adobedtm.com/be5dfd287373/0127575cd23a/${adobeAnalyticsScript}`;
+
 const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /\/composants\/\d+\.\d+\.\d+\//.test(Astro.url.pathname);
 ---
 
 <html lang={currentLocale}>
   <head>
-    <BaseHead pageTitle={pageTitle} />
+    <script is:inline src={adobeAnalyticsUrl}></script>
+    <BaseHead pageTitle={pageTitle} currentLocale={currentLocale} />
   </head>
   <body>
     <Header currentLocale={currentLocale} routeKey={routeKey} hideSearch={hideSearch} />
@@ -61,6 +69,14 @@ const hasVersion = /\/components\/\d+\.\d+\.\d+\//.test(Astro.url.pathname) || /
       <Footer />
     </div>
     <CodeBlockCopy />
+    <script is:inline>
+      // Adobe Analytics page load event
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: 'pageLoad' });
+
+      // Adobe Analytics page bottom event
+      _satellite.pageBottom();
+    </script>
   </body>
 </html>
 
