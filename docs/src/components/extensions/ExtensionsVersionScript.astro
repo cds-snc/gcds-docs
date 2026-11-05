@@ -1,0 +1,61 @@
+---
+---
+
+<script>
+  const extensions = Array.from(document.querySelectorAll('[data-extension]')).map((element) => {
+    const extensionData = element.getAttribute('data-extension');
+    if (extensionData) {
+      return JSON.parse(extensionData);
+    }
+    return null;
+  }).filter((extension) => extension !== null);
+
+  for (const extension of extensions) {
+    const versionElement = document.getElementById(`${extension.id}-version`);
+    const lastPublishedElement = document.getElementById(`${extension.id}-last-published`);
+    try {
+      const src = extension.src === 'npm' ?
+        `https://registry.npmjs.org/@gcds-extensions/${extension.id}`
+      : 
+        `https://api.github.com/repos/gcds-extensions/${extension.id}/releases/latest`;
+
+      const response = await fetch(src);
+
+      const data = await response.json();
+
+      if (data && extension.src === 'npm') {
+        const latestVersion = data['dist-tags'].latest;
+        const lastPublished = new Date(data.time[latestVersion]);
+        const formattedReleaseDate = `${lastPublished.getFullYear()}-${String(lastPublished.getMonth() + 1).padStart(2, '0')}-${String(lastPublished.getDate()).padStart(2, '0')}`;
+
+        if (versionElement) {
+          versionElement.textContent = latestVersion;
+        }
+        if (lastPublishedElement) {
+          lastPublishedElement.textContent = formattedReleaseDate;
+        }
+      } else if (data && extension.src === 'github') {
+        console.log('GitHub data:', data);
+        const latestVersion = data.tag_name;
+        const lastPublished = new Date(data.published_at);
+        const formattedReleaseDate = `${lastPublished.getFullYear()}-${String(lastPublished.getMonth() + 1).padStart(2, '0')}-${String(lastPublished.getDate()).padStart(2, '0')}`;
+
+        if (versionElement) {
+          versionElement.textContent = latestVersion;
+        }
+        if (lastPublishedElement) {
+          lastPublishedElement.textContent = formattedReleaseDate;
+        }
+      } else {
+        if (versionElement) {
+          versionElement.textContent = 'N/A';
+        }
+        if (lastPublishedElement) {
+          lastPublishedElement.textContent = 'N/A';
+        }
+      }
+    } catch (error) {
+      console.error(`Error fetching version for ${extension.id}:`, error); 
+    }
+  }
+</script>

@@ -2,6 +2,7 @@ import routeManifest from './route-manifest.json';
 import componentManifest from './versioned/component-manifest.json';
 import cssShortcutManifest from './css-shortcut-manifest.json';
 import tokensManifest from './tokens-manifest.json';
+import extensionsManifest from './extensions-manifest.json';
 
 import type {
   GroupLinkOptions,
@@ -26,6 +27,7 @@ const populatedManifests: Record<ManifestKey, PopulatedManifest> = {
   components: componentManifest,
   cssShortcuts: cssShortcutManifest,
   tokens: tokensManifest,
+  extensions: extensionsManifest,
 };
 
 const sideNavRoutes = (routeManifest.sideNavRoutes ?? []) as SideNavRoute[];

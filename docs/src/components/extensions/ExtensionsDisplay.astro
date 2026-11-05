@@ -1,0 +1,108 @@
+---
+interface Props {
+  data: {
+    contacts: { email: string; name: string }[],
+    description: string,
+    extensionID: string,
+    extensionSrc: string,
+    githubUrl: string,
+    imgAlt: string,
+    implementation: string,
+    installationUrl: string,
+    maintainer: string,
+    maintainerUrl: string,
+    pageTitle: string,
+    purpose: string,
+    status: string,
+    statusLabel: string,
+  },
+  imgSrc: string;
+}
+
+const { data, imgSrc } = Astro.props as Props;
+import { Heading, Text, ExtensionsVersionScript } from '../../components';
+
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { messages } from './messages.js';
+
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale) as any;
+---
+
+<Heading tag="h1">{data.pageTitle}</Heading>
+
+<gcds-notice
+  notice-role="info"
+  notice-title={localizedContent.display.noticeTitle}
+  notice-title-tag="h2"
+  class="mb-400"
+>
+  <span>{localizedContent.display.noticeDesc} {data.maintainer}.</span>
+</gcds-notice>
+
+<Text set:html={data.description} />
+
+<gcds-button type="link" href={data.installationUrl} class="mb-300">
+  {localizedContent.display.install} <gcds-icon name="external" size="h6"></gcds-icon>
+</gcds-button>
+
+<img src={imgSrc} alt={data.imgAlt} class="b-radius-md" />
+
+<hr class="my-300"/>
+
+<Heading tag="h2">
+  {localizedContent.display.details}
+</Heading>
+
+<gcds-grid columns-tablet="1fr 1fr" columns="1fr" tag="ul" data-extension={JSON.stringify({ id: data.extensionID, src: data.extensionSrc })}>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.version} />
+    <div id={`${data.extensionID}-version`}>---</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.status} />
+    <div>{data.statusLabel}</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.lastPublished} />
+    <div id={`${data.extensionID}-last-published`}>---</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.repo} />
+    <gcds-link href={data.githubUrl}>GitHub</gcds-link>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.purpose} />
+    <div>{data.purpose}</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.implementation} />
+    <div>{data.implementation}</div>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.maintainer} />
+    <gcds-link href={data.maintainerUrl}>{data.maintainer}</gcds-link>
+  </li>
+  <li class="list-none">
+    <div class="font-semibold" set:html={localizedContent.display.contacts} />
+
+    {data.contacts?.length === 1 ? (
+      <gcds-link href={`mailto:${data.contacts[0].email}`}>
+        {data.contacts[0].name}
+      </gcds-link>
+    ) : data.contacts?.length > 1 ? (
+      <ul>
+        {data.contacts.map((contact: { email: any; name: unknown; }) => (
+          <li>
+            <gcds-link href={`mailto:${contact.email}`}>
+              {contact.name}
+            </gcds-link>
+          </li>
+        ))}
+      </ul>
+    ) : null}
+  </li>
+</gcds-grid>
+
+<ExtensionsVersionScript />

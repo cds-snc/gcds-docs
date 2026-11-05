@@ -381,6 +381,16 @@ export const routes = {
       "place-self": { en: "place-self", fr: "agencement-individuel" },
     },
   },
+  extensions: {
+    en: "extensions",
+    fr: "extensions",
+    children: {
+      map: {
+        en: "map",
+        fr: "carte",
+      },
+    }
+  },
   contact: {
     en: "contact",
     fr: "contactez",
