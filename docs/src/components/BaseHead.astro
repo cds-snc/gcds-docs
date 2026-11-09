@@ -1,9 +1,11 @@
 ---
 interface Props {
   pageTitle: string;
+  currentLocale?: string;
 }
 
-const { pageTitle } = Astro.props as Props;
+const { pageTitle, currentLocale } = Astro.props as Props;
+const isFrench = currentLocale?.startsWith('fr') ?? false;
 ---
 
 {/*
@@ -93,6 +95,64 @@ const { pageTitle } = Astro.props as Props;
       });
     }
   });
+
+  // Adobe Analytics: outbound (event26) and download (event25) links.
+  // GCDS components render their <a> inside shadow DOM, which Adobe's own click
+  // rules can't see, and Adobe's click-based outbound rule needs jQuery (WET).
+  // Pushing "exit"/"download" to the Adobe data layer avoids both. Runs in the
+  // capture phase so it can mark the link exempt before Adobe's click rules run,
+  // which stops a second beacon for plain <a> links.
+  const AA_DOWNLOAD_EXT = /\.(csv|docx?|epub|json|pdf|pptx?|rtf|txt|xlsx?|xml|zip)$/i;
+  const AA_BLOCKED_PROTOCOLS = ['javascript:', 'mailto:', 'tel:', 'blob:', 'data:'];
+
+  function aaIsInternal(hostname: string): boolean {
+    const filters: string[] = (window as any)._satellite?.gcCustom?.internal_filters || [];
+    return hostname === window.location.hostname || filters.includes(hostname);
+  }
+
+  window.addEventListener(
+    'click',
+    function (e) {
+      if (e.button !== 0) return;
+
+      // composedPath() reaches into open shadow roots (gcds-link, gcds-button, …)
+      const a = e
+        .composedPath()
+        .find((n): n is HTMLAnchorElement => n instanceof HTMLAnchorElement && !!n.href);
+      if (!a || AA_BLOCKED_PROTOCOLS.includes(a.protocol)) return;
+
+      let url: URL;
+      try {
+        url = new URL(a.href);
+      } catch (err) {
+        return;
+      }
+
+      const isDownload = a.hasAttribute('download') || AA_DOWNLOAD_EXT.test(url.pathname);
+      if (!isDownload && aaIsInternal(url.hostname)) return;
+
+      // Link text: the anchor itself, or the GCDS host element when the text is slotted
+      const host = (a.getRootNode() as ShadowRoot).host as HTMLElement | undefined;
+      const label = (
+        a.textContent?.trim() ||
+        host?.textContent?.trim() ||
+        a.getAttribute('aria-label') ||
+        ''
+      ).replace(/\s+/g, ' ');
+
+      // Stop Adobe's own click rules from also tracking this link
+      a.setAttribute('data-gc-analytics-exempt', '');
+
+      const w = window as any;
+      w.adobeDataLayer = w.adobeDataLayer || [];
+      w.adobeDataLayer.push({
+        event: isDownload ? 'download' : 'exit',
+        // Strip query/hash, same as the GA handler, to avoid leaking PII
+        userEvent: { label, link: url.origin + url.pathname },
+      });
+    },
+    true
+  );
 </script>
 
 <meta charset="utf-8" />
@@ -101,6 +161,13 @@ const { pageTitle } = Astro.props as Props;
 <meta name="generator" content={Astro.generator} />
 <title>{pageTitle} | GC Design System</title>
 <meta name="og:title" content={`${pageTitle} | GC Design System`} />
+
+<!-- Adobe Analytics metadata -->
+<meta name="dcterms.title" content={pageTitle} />
+<meta name="dcterms.language" content={isFrench ? 'fra' : 'eng'} />
+<meta name="dcterms.creator" content={isFrench ? 'Service numérique canadien' : 'Canadian Digital Service' } /> <!-- verify with AA with an email -->
+<meta name="dcterms.accessRights" content="2" /> <!-- 1=secured/login-required, 2=public, 3=intranet/extranet -->
+<meta name="gcaaterms.sitename" content="ESDC-EDSC_GCDS-SDGC" /> <!-- verify with AA with an email -->
 
 <!-- GC Design System CSS Shortcuts -->
 <link rel="stylesheet" href="/assets/gcds/gcds-css-shortcuts.min.css" />
