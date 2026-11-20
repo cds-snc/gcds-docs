@@ -41,3 +41,13 @@ export const learnMoreOptions = {
     ],
   },
 };
+
+// Sites the forms live on. Used to validate where a submission came from and
+// where the user is redirected back to. Extra origins (staging, Amplify
+// previews) can be added at runtime with EXTRA_ALLOWED_ORIGINS in the SSM config.
+export const ALLOWED_ORIGINS = [DOMAIN_EN, DOMAIN_FR];
+
+// Email domains accepted on the contact form. Subdomains match too
+// (e.g. tbs-sct.gc.ca matches gc.ca).
+// Keep in sync with docs/src/components/ContactForm/validation.js.
+export const ALLOWED_EMAIL_DOMAINS = ['gc.ca', 'canada.ca', 'cds-snc.ca'];
