@@ -29,7 +29,9 @@ jobs:
         id: filter
         with:
           filters: |
-            api: 'api/**'
+            api:
+              - 'api/**'
+              - '.github/workflows/docker-build-push-production.yml'
 
   build-push:
     if: needs.changes.outputs.images != '[]'
@@ -55,6 +57,7 @@ jobs:
         working-directory: ./${{ matrix.image }}
         run: |
           docker build \
+          --provenance=false \
           --build-arg GIT_SHA=$GITHUB_SHA \
           -t $REGISTRY/${{ matrix.image }}:$GITHUB_SHA \
           -t $REGISTRY/${{ matrix.image }}:latest .
@@ -72,7 +75,8 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name ${{ env.FUNCTION_PREFIX }}-${{ matrix.image }} \
-            --image-uri $REGISTRY/${{ matrix.image }}:$GITHUB_SHA  > /dev/null 2>&1
+            --image-uri $REGISTRY/${{ matrix.image }}:$GITHUB_SHA \
+            --query LastUpdateStatus --output text
 
       - name: Docker generate SBOM
         uses: cds-snc/security-tools/.github/actions/generate-sbom@5a93d1deec72d4cb2737cb8418364fedba1c695c # v3.2.1
