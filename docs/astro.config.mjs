@@ -74,6 +74,14 @@ export default defineConfig({
         '~layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
       },
     },
+    server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          rewrite: path => path.replace(/^\/api/, ''),
+        },
+      },
+    },
   },
   integrations: [
     mdx({ gfm: true }),

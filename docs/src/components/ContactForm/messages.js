@@ -48,7 +48,15 @@ export const messages = {
         },
       ],
     },
+    emailHint: 'Use your Government of Canada email address.',
     submit: 'Submit',
+    errors: {
+      gcEmail: {
+        en: 'Enter a Government of Canada email address, like name@department.gc.ca.',
+        fr: 'Saisissez une adresse courriel du gouvernement du Canada, comme nom@ministere.gc.ca.',
+      },
+      general: 'Your message may not have been sent. Try again later.',
+    },
   },
   fr: {
     name: 'Nom complet',
@@ -99,6 +107,14 @@ export const messages = {
         },
       ],
     },
+    emailHint: 'Utilisez votre adresse courriel du gouvernement du Canada.',
     submit: 'Envoyer',
+    errors: {
+      gcEmail: {
+        en: 'Enter a Government of Canada email address, like name@department.gc.ca.',
+        fr: 'Saisissez une adresse courriel du gouvernement du Canada, comme nom@ministere.gc.ca.',
+      },
+      general: "Votre message n'a peut-être pas été envoyé. Réessayez plus tard.",
+    },
   },
 };

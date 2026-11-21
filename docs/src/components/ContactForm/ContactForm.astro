@@ -5,16 +5,37 @@ import { messages } from './messages.js';
 
 const locale = resolveLocaleFromPathname(Astro.url.pathname);
 const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
+
+// The API reads the language from the form name (contactEN / contactFR).
+const formName = locale === 'fr' ? 'contactFR' : 'contactEN';
+const successUrl = locale === 'fr' ? '/fr/contactez/merci' : '/en/contact/thanks';
 ---
 
-<form class="my-600 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission" novalidate>
+<form
+  class="my-600 contact-us-form"
+  name={formName}
+  method="post"
+  style="min-height: 32rem;"
+  action="/api/submission"
+  novalidate
+  data-lang={locale}
+  data-success-url={successUrl}
+  data-messages={JSON.stringify(localizedContent.errors)}
+>
   <gcds-error-summary></gcds-error-summary>
 
-  <input type="hidden" name="form-name" value="contactEN" />
+  <!-- Shown when sending fails (network, server, throttling). A separate summary
+       because setting error-links on the one above would stop it listing field
+       errors. Uses the default heading; the link moves focus to Submit. -->
+  <div class="contact-form-status" tabindex="-1" hidden>
+    <gcds-error-summary error-links={JSON.stringify({ '#contact-submit': localizedContent.errors.general })}></gcds-error-summary>
+  </div>
+
+  <input type="hidden" name="form-name" value={formName} />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 
   <gcds-input type="text" name="name" input-id="name" label={localizedContent.name} autocomplete="name" required></gcds-input>
-  <gcds-input type="email" name="email" input-id="email" label={localizedContent.email} autocomplete="email" required></gcds-input>
+  <gcds-input type="email" name="email" input-id="email" label={localizedContent.email} hint={localizedContent.emailHint} autocomplete="email" required></gcds-input>
   <gcds-textarea name="message" label={localizedContent.message} hint={localizedContent.messageHint} textarea-id="message"></gcds-textarea>
 
   <gcds-fieldset legend={localizedContent.communicationLegend} legend-size="h3" hint={localizedContent.communicationHint}>
@@ -30,22 +51,35 @@ const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
     <gcds-input type="text" name="bot-field" input-id="bot-field" label="bot"></gcds-input>
   </div>
 
-  <gcds-button button-role="primary" type="submit">{localizedContent.submit}</gcds-button>
+  <gcds-button id="contact-submit" button-role="primary" type="submit">{localizedContent.submit}</gcds-button>
 </form>
 
 <script>
   import { sanitizePii } from '@cdssnc/sanitize-pii';
+  import { isGcEmail } from './validation.js';
+
+  type Messages = {
+    gcEmail: { en: string; fr: string };
+    general: string;
+  };
+
+  const GCDS_FIELDS = 'gcds-input, gcds-textarea, gcds-radios, gcds-checkboxes';
+
   document.addEventListener('DOMContentLoaded', function () {
-  const contactForm = document.querySelector('form.contact-us-form');
+    const contactForm = document.querySelector<HTMLFormElement>('form.contact-us-form');
+    if (!contactForm) return;
+    const form: HTMLFormElement = contactForm;
 
-  // If the contact form exists, remove PII from textareas before submission
-  if (contactForm) {
-    contactForm.addEventListener(
+    const messages: Messages = JSON.parse(form.dataset.messages || '{}');
+    const successUrl = form.dataset.successUrl || '/';
+    const status = form.querySelector<HTMLElement>('.contact-form-status');
+    let submitting = false;
+
+    // Remove PII from textareas before submission
+    form.addEventListener(
       'submit',
-      function (event) {
-        const textareas = contactForm.querySelectorAll('gcds-textarea');
-
-        textareas.forEach(textarea => {
+      function () {
+        form.querySelectorAll<HTMLElement & { value: string }>('gcds-textarea').forEach(textarea => {
           try {
             textarea.value = sanitizePii(textarea.value);
           } catch (error) {
@@ -55,6 +89,97 @@ const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
       },
       { capture: true },
     );
-  }
-});
+
+    // Check the email is a GC address as part of GCDS's own validation, so the
+    // error shows on the field and in the error summary like any other.
+    const gcEmailValidator = {
+      validate: (value: string) => !value || isGcEmail(value),
+      errorMessage: messages.gcEmail,
+    };
+    customElements.whenDefined('gcds-input').then(() => {
+      const emailInput = form.querySelector<HTMLElement & { validator: unknown[] }>('gcds-input[name="email"]');
+      if (emailInput) {
+        emailInput.validator = ['requiredEmailField', gcEmailValidator];
+      }
+    });
+
+    // Focus the summary's own alert box, as GCDS does for field errors, so it's
+    // announced once. The wrapper (tabindex="-1") is a fallback if GCDS's
+    // internal markup changes.
+    const showStatus = () => {
+      if (!status) return;
+      status.hidden = false;
+      requestAnimationFrame(() => {
+        const alertBox = status
+          .querySelector('gcds-error-summary')
+          ?.shadowRoot?.querySelector<HTMLElement>('[role="alert"]');
+        (alertBox ?? status).focus();
+      });
+    };
+
+    const hideStatus = () => {
+      if (status) status.hidden = true;
+    };
+
+    // The only error the visitor can fix is a non-GC email (normally caught
+    // before submitting). Show it on the field and move focus there, so the
+    // field's error is read out. Returns false for anything else.
+    const showEmailError = (errors?: Record<string, string>) => {
+      const email = form.querySelector<HTMLElement & { errorMessage: string }>('gcds-input[name="email"]');
+      if (errors?.email !== 'gcEmail' || !email) return false;
+      email.errorMessage = messages.gcEmail[form.dataset.lang === 'fr' ? 'fr' : 'en'];
+      email.focus();
+      return true;
+    };
+
+    const hasClientErrors = () => {
+      // GCDS fields validate in their own submit listeners and set errorMessage.
+      return Array.from(
+        form.querySelectorAll<HTMLElement & { errorMessage?: string }>(GCDS_FIELDS),
+      ).some(field => !!field.errorMessage);
+    };
+
+    const safeRedirect = (path: unknown) =>
+      typeof path === 'string' && path.startsWith('/') && !path.startsWith('//') ? path : successUrl;
+
+    // Submit with fetch so the visitor keeps their answers if the API rejects
+    // the submission. Without JavaScript the form still posts normally and the
+    // API redirects to an error page instead.
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (submitting) return;
+
+      // Let GCDS finish validating this submit event first.
+      setTimeout(async () => {
+        hideStatus();
+        if (hasClientErrors()) return;
+
+        // Ignore repeat clicks while sending. The button isn't disabled: disabling
+        // the focused button drops focus to the page in some browsers.
+        submitting = true;
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new URLSearchParams(new FormData(form) as any),
+          });
+
+          if (response.ok) {
+            const data = response.status === 204 ? {} : await response.json().catch(() => ({}));
+            window.location.assign(safeRedirect(data.redirect));
+            return;
+          }
+
+          const data = await response.json().catch(() => null);
+          if (!showEmailError(data?.errors)) showStatus();
+        } catch (error) {
+          console.error('Error submitting the contact form:', error);
+          showStatus();
+        }
+
+        submitting = false;
+      }, 0);
+    });
+  });
 </script>
