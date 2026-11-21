@@ -41,7 +41,7 @@ jobs:
           check-latest: true
 
       - name: Cypress run
-        uses: cypress-io/github-action@bc982daf1fc26474fa0cf2c355d6c910616ce411 # v7.4.7
+        uses: cypress-io/github-action@0ed14f5d30c4ad6e5e8ffb6f57dbb69150137a3f # v7.4.10
         with:
           working-directory: ./docs
           build: npm run build
