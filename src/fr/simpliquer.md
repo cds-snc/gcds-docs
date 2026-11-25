@@ -37,7 +37,7 @@ Une communauté croissante d’utilisatrices et utilisateurs au gouvernement con
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Inscrivez-vous au forum de Système de design GC"
-    href="https://events.teams.microsoft.com/event/d26cb856-99f2-4a47-9abc-11e80ebe0cd5@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
+    href="https://events.teams.microsoft.com/event/8b51cd33-eea9-43fb-857f-1301be4d70fd@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
     description="Inscrivez-vous aux séances récurrentes du forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
   ></gcds-card>
 </gcds-grid>
